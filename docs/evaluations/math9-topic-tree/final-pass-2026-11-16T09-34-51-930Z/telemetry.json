@@ -1,0 +1,19 @@
+{
+  "startedAt": "2026-11-16T09:34:51.931Z",
+  "goldSha256": "39f2f4e46b5fe38c8d176896767a029dc3d6523ed55d01b2ff6a2063b4e70b3f",
+  "manifestSha256": "bd6b16c716c0721afd818fc1aa836d92e190b6a84e51f37a96c81acf40847ab9",
+  "configuredModel": "chib/deepseek-v4.1-flash",
+  "publicCorpus": true,
+  "syntheticOwner": true,
+  "calls": [],
+  "stages": [],
+  "checks": {},
+  "retry": false,
+  "outcome": "failed",
+  "failure": {
+    "stage": "setup",
+    "name": "Error",
+    "code": "ERR_VM_MODULE_LINK_FAILURE"
+  },
+  "finishedAt": "2026-11-16T09:34:52.332Z"
+}

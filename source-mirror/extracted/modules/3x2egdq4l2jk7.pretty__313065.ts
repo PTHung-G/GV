@@ -1,0 +1,46 @@
+// Reconstructed from 3x2egdq4l2jk7.pretty.js, module 313065.
+// deps: m843476, m309642, m882505, m632781, m566595, m263676, m271645, m781947, m167881, m23750, m62870, m671428, m799887, m307591, m140979, m647163, m218842, m310900
+// exports: ExamsPage
+export { function ({ heading: e = "Đề thi được chia sẻ", initialSubject: k, initialGrade: C, initial: P, initialOptions: L, } = {}) { let { ready: O, user: z } = (0, f.useSessionUser)(), { options: E } = (0, b.useMetadataOptions)(), I = E ?? L ?? null, A = (0, l.useSyncExternalStore)(N, w, () => "grid"), R = k || j, T = null == C ? j : String(C), [M, D] = (0, l.useState)(""), [U, $] = (0, l.useState)(""), [B, K] = (0, l.useState)(R), [F, V] = (0, l.useState)(T), [G, H] = (0, l.useState)(P?.exams ?? null), [X, W] = (0, l.useState)(P?.total ?? 0), [q, Y] = (0, l.useState)(""), [Q, J] = (0, l.useState)(!1), Z = (0, l.useRef)(P ? S("", R, T) : null); ((0, l.useEffect)(() => { let e = window.setTimeout(() => $(M.trim()), 300); return () => window.clearTimeout(e); }, [M]), (0, l.useEffect)(() => { G && (0, p.rememberExams)(G); }, [G])); let ee = { subject: B === j ? "" : B, grade: F === j ? "" : F }; (0, l.useEffect)(() => { if (!O) return; let e = S(U, B, F); if (!z && Z.current === e) return; Z.current = null; let t = !0; return ( (0, m.listPublicExams)(U, 24, 0, { subject: B === j ? "" : B, grade: F === j ? "" : F, }) .then((e) => { t && (H(e.exams), W(e.total), Y("")); }) .catch((e) => t && Y(_(e))), () => { t = !1; } ); }, [O, z, U, B, F]); let et = async () => { J(!0); try { let e = await (0, m.listPublicExams)(U, 24, G?.length ?? 0, ee); (H([...(G ?? []), ...e.exams]), W(e.total)); } catch (e) { Y(_(e)); } finally { J(!1); } }, ea = G ?? [], es = B !== j || F !== j || !!M, er = (e) => I?.subjects.find((t) => t.value === e)?.label; return (0, t.jsx)("div", { className: "mx-auto w-full max-w-(--page-max) px-(--gutter) pt-8 pb-16 sm:pt-12", children: (0, t.jsxs)("div", { className: g.CARD_COLUMNS, children: [ (0, t.jsx)("header", { className: "flex flex-wrap items-end justify-between gap-x-8 gap-y-2", children: (0, t.jsx)("h1", { className: "font-display text-4xl leading-none font-semibold tracking-tight text-[#37352f] sm:text-[2.75rem]", children: e, }), }), (0, t.jsxs)("div", { role: "search", className: "mt-7 flex flex-wrap items-center gap-2.5", children: [ (0, t.jsxs)("label", { className: "relative min-w-[220px] flex-1", children: [ (0, t.jsx)(n.Search, { "aria-hidden": !0, className: "pointer-events-none absolute top-1/2 left-3.5 size-[18px] -translate-y-1/2 text-[#787774]", }), (0, t.jsx)(d.Input, { value: M, onChange: (e) => D(e.target.value), placeholder: "Tìm đề theo tên hoặc nội dung", "aria-label": "Tìm đề thi", className: "h-11 pl-10 text-[15px]", }), ], }), (0, t.jsxs)(u.Select, { value: F, onValueChange: V, disabled: !I?.grades.length, children: [ (0, t.jsx)(u.SelectTrigger, { "aria-label": "Lọc theo lớp", className: "h-11 w-[156px] text-[15px] font-medium data-[size=default]:h-11", children: (0, t.jsx)(u.SelectValue, {}), }), (0, t.jsxs)(u.SelectContent, { children: [ (0, t.jsx)(u.SelectItem, { value: j, children: "Mọi lớp", }), (I?.grades ?? []).map((e) => (0, t.jsxs)( u.SelectItem, { value: String(e), children: ["Lớp ", e] }, e, ), ), (0, t.jsx)(u.SelectItem, { value: "0", children: "Không theo lớp", }), ], }), ], }), (0, t.jsx)("div", { role: "group", "aria-label": "Cách xem", className: "flex h-11 items-center rounded-md border border-[#dfdfdd] p-1", children: [ ["grid", "Dạng lưới", a.LayoutGrid], ["list", "Dạng danh sách", s.List], ].map(([e, a, s]) => (0, t.jsx)( "button", { type: "button", "aria-label": a, "aria-pressed": A === e, onClick: () => (function (e) { try { window.localStorage.setItem(v, e); } catch {} y.forEach((e) => e()); })(e), className: (0, h.cn)( "flex size-8 items-center justify-center rounded text-[#787774] transition-colors hover:text-[#37352f]", A === e && "bg-[#f1f1ef] text-[#37352f]", ), children: (0, t.jsx)(s, { "aria-hidden": !0, className: "size-[18px]", }), }, e, ), ), }), ], }), (0, t.jsx)("div", { role: "group", "aria-label": "Lọc theo môn học", className: "mt-3 flex gap-2 overflow-x-auto pb-1 [&::-webkit-scrollbar]:hidden", children: [ { value: j, label: "Tất cả môn" }, ...(I?.subjects ?? []), { value: "__other__", label: "Môn khác" }, ].map((e) => (0, t.jsx)( "button", { type: "button", "aria-pressed": B === e.value, onClick: () => K(e.value), className: (0, h.cn)( "h-9 shrink-0 rounded-md border px-3.5 text-[14px] font-medium whitespace-nowrap transition-colors", B === e.value ? "border-[#37352f] bg-[#37352f] text-white" : "border-[#e3e2e0] bg-white text-[#5f5e5b] hover:border-[#37352f]/40 hover:text-[#37352f]", ), children: e.label, }, e.value, ), ), }), (0, t.jsxs)("div", { className: "mt-6 mb-4 flex min-h-6 items-center justify-between gap-3 border-b border-[#e9e9e7] pb-3", children: [ (0, t.jsx)("p", { className: "text-sm font-semibold text-[#37352f]", "aria-live": "polite", children: null === G ? "" : `${X.toLocaleString("vi-VN")} đề`, }), es && (0, t.jsxs)(o.Button, { variant: "ghost", size: "sm", className: "font-medium text-[#5f5e5b]", onClick: () => { (D(""), K(j), V(j)); }, children: [ (0, t.jsx)(i.X, { "aria-hidden": !0 }), " Xoá bộ lọc", ], }), ], }), q && (0, t.jsx)(c.Alert, { variant: "destructive", children: (0, t.jsx)(c.AlertDescription, { children: q }), }), null === G && !q && (0, t.jsx)("div", { className: g.CARD_GRID, "aria-busy": !0, children: [0, 1, 2, 3, 4].map((e) => (0, t.jsx)( x.Skeleton, { className: g.PUBLIC_CARD_SKELETON }, e, ), ), }), G && 0 === ea.length && (0, t.jsx)("p", { className: "flex min-h-48 items-center justify-center rounded-lg border border-dashed border-[#e3e2e0] p-8 text-center text-[15px] text-[#5f5e5b]", children: 0 !== G.length || es ? U ? `Kh\xf4ng c\xf3 đề n\xe0o khớp “${U}”.` : "Không có đề nào khớp bộ lọc. Thử bỏ bớt bộ lọc." : "Chưa có đề nào được chia sẻ. Hãy là người đầu tiên!", }), ea.length > 0 && "grid" === A && (0, t.jsx)("div", { className: g.CARD_GRID, children: ea.map((e) => (0, t.jsx)( g.PublicExamCard, { exam: e, subject: er(e.metadata?.subject) }, e.id, ), ), }), ea.length > 0 && "list" === A && (0, t.jsxs)("div", { children: [ (0, t.jsx)(g.PublicExamListHeader, {}), (0, t.jsx)("div", { className: "divide-y divide-[#e9e9e7]", children: ea.map((e) => (0, t.jsx)( g.PublicExamRow, { exam: e, subject: er(e.metadata?.subject) }, e.id, ), ), }), ], }), G && G.length < X && (0, t.jsx)("div", { className: "mt-8 flex justify-center", children: (0, t.jsxs)(o.Button, { variant: "outline", size: "lg", className: "font-semibold", onClick: et, disabled: Q, children: [ Q && (0, t.jsx)(r.Loader2, { "aria-hidden": !0, className: "animate-spin", }), " Xem thêm đề", ], }), }), ], }), }); } as "ExamsPage" };
+
+"use strict";
+    var t = m843476,
+      a = m309642,
+      s = m882505,
+      r = m632781,
+      n = m566595,
+      i = m263676,
+      l = m271645,
+      c = m781947,
+      o = m167881,
+      d = m23750,
+      u = m62870,
+      x = m671428,
+      m = m799887,
+      f = m307591,
+      p = m140979,
+      h = m647163,
+      g = m218842,
+      b = m310900;
+    let j = "__all__",
+      v = "exam-builder:exams-view",
+      y = new Set();
+    function w() {
+      try {
+        return "list" === window.localStorage.getItem(v) ? "list" : "grid";
+      } catch {
+        return "grid";
+      }
+    }
+    function N(e) {
+      return (y.add(e), () => void y.delete(e));
+    }
+    function _(e) {
+      return e instanceof Error ? e.message : "Đã xảy ra lỗi.";
+    }
+    function S(e, t, a) {
+      return `${e}
+${t}
+${a}`;
+    }
+    ;

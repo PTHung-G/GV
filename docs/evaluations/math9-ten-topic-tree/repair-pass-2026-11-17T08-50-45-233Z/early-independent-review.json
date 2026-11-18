@@ -1,0 +1,1776 @@
+{
+  "schema_version": 1,
+  "review_type": "independent incremental snapshot; not final AI self-review",
+  "reviewed_at_utc": "2026-11-17T08:59:02.600102+00:00",
+  "scope": "Every retained question of first two papers; independently re-evaluated against frozen gold, source blocks and original PDF pages. No paid inference, production edits or gold/output modifications.",
+  "identity_warning": "Sanitized source/question IDs are identical zeros. Second organized bank is cumulative (27 questions); its final 8 new questions are TBH, first 19 HTK. Associate by source position and creation timestamp, not zero sourceId. Review unique 19+8 once.",
+  "parent_delivery": "send_message tool not exposed in this session; report delivered by files and final response.",
+  "papers": [
+    {
+      "id": "huynh-thuc-khang-hk1-2025-2026",
+      "snapshot_path": "docs/evaluations/math9-ten-topic-tree/repair-pass-2026-11-17T08-50-45-233Z/huynh-thuc-khang-hk1-2025-2026.organized-bank.json",
+      "snapshot_sha256": "6669a6983fcad53db48ca643b2edbd38c6c32b5d798b058d375d50aaa4c9fc15",
+      "snapshot_revision": 7,
+      "original_pdf": ".data/math9-ten-evaluation/huynh-thuc-khang-hk1-2025-2026/original.pdf",
+      "visually_reviewed_pdf_pages": [
+        6,
+        7
+      ],
+      "source_blocks_equal_frozen_input": true,
+      "source_text_sha256": "3e72737ddb93d03944c66bfcd6ce510ddf66917fe3c1b922b3964c476cd6d18f",
+      "counts": {
+        "retained": 19,
+        "preferred_gold": 20,
+        "clean_preferred_boundaries": 16,
+        "ambiguous_gathered_candidates": 1,
+        "minor_boundary_context_issues": 2,
+        "missing_preferred_separations": 1,
+        "wholly_omitted_printed_questions": 0,
+        "unused_question_bearing_blocks": 0,
+        "spurious_or_duplicate_whole_questions": 0,
+        "over_split_options_or_connected_geometry": 0,
+        "definitely_irrelevant_topic_paths": 0,
+        "coarse_domain_root_placements": 1
+      },
+      "questions": [
+        {
+          "candidate_id": "candidate-1",
+          "label": "Câu 1",
+          "created_at": "2026-11-17T08:51:19.189Z",
+          "body_block_ids": [
+            6,
+            7,
+            8
+          ],
+          "context_block_ids": [],
+          "source_raw_lines": [
+            174,
+            176
+          ],
+          "boundary_verdict": "pass",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "alg_equations",
+              "label": "Phương trình, bất phương trình và hệ phương trình"
+            },
+            {
+              "id": "linear_two_var",
+              "label": "Phương trình bậc nhất hai ẩn"
+            }
+          ],
+          "evidence": "Recognition of first-degree two-variable equations; full stem, four equations and A–D retained. PDF p6 last equation is −x²+y²=0; input already loses both squares.",
+          "body_evidence": [
+            {
+              "block_id": 6,
+              "text": "    Câu 1. Trong các phương trình sau, có bao nhiêu phương trình bậc nhất hai ẩn?\n"
+            },
+            {
+              "block_id": 7,
+              "text": "          𝑥 = 0; −𝑥 − 𝑦 = 1; 0𝑥 + 0𝑦 = 2𝑥𝑦; −𝑥 + 𝑦 = 0.\n"
+            },
+            {
+              "block_id": 8,
+              "text": "    A. 1.                    B. 2.                  C. 3.                D. 4.\n"
+            }
+          ],
+          "context_evidence": []
+        },
+        {
+          "candidate_id": "candidate-2",
+          "label": "Câu 2",
+          "created_at": "2026-11-17T08:51:19.189Z",
+          "body_block_ids": [
+            9,
+            10,
+            11
+          ],
+          "context_block_ids": [],
+          "source_raw_lines": [
+            177,
+            179
+          ],
+          "boundary_verdict": "pass",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "alg_equations",
+              "label": "Phương trình, bất phương trình và hệ phương trình"
+            },
+            {
+              "id": "product_equation",
+              "label": "Phương trình tích"
+            }
+          ],
+          "evidence": "Product-equation roots 1,5 and all four options retained.",
+          "body_evidence": [
+            {
+              "block_id": 9,
+              "text": "    Câu 2. x  1; x  5 là hai nghiệm của phương trình nào dưới đây?\n"
+            },
+            {
+              "block_id": 10,
+              "text": "    A. (5  x )( x  1)  0.                  B. (5  x )( x  1)  0.\n"
+            },
+            {
+              "block_id": 11,
+              "text": "    C. (5  x )( x  1)  0.                  D. (5  x )(  x  1)  0.\n"
+            }
+          ],
+          "context_evidence": []
+        },
+        {
+          "candidate_id": "candidate-3",
+          "label": "Câu 3",
+          "created_at": "2026-11-17T08:51:19.189Z",
+          "body_block_ids": [
+            12,
+            13,
+            14
+          ],
+          "context_block_ids": [],
+          "source_raw_lines": [
+            180,
+            182
+          ],
+          "boundary_verdict": "pass",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "alg_equations",
+              "label": "Phương trình, bất phương trình và hệ phương trình"
+            },
+            {
+              "id": "inequalities",
+              "label": "Bất đẳng thức và bất phương trình bậc nhất một ẩn"
+            },
+            {
+              "id": "ineq_model",
+              "label": "Mô hình hóa bằng bất đẳng thức"
+            }
+          ],
+          "evidence": "Minimum-age condition at least 16 and all options retained.",
+          "body_evidence": [
+            {
+              "block_id": 12,
+              "text": "    Câu 3. Để được điều khiển xe máy điện thì số tuổi 𝒙 của một người phải ít nhất là 16\n"
+            },
+            {
+              "block_id": 13,
+              "text": "    tuổi, bất đẳng thức mô tả tình huống đó là\n"
+            },
+            {
+              "block_id": 14,
+              "text": "    A. 𝑥 < 16.              B. 𝑥 ≤ 16.              C. 𝑥 > 16.        D. x ≥ 16.\n"
+            }
+          ],
+          "context_evidence": []
+        },
+        {
+          "candidate_id": "candidate-4",
+          "label": "Câu 4",
+          "created_at": "2026-11-17T08:51:19.189Z",
+          "body_block_ids": [
+            15,
+            16
+          ],
+          "context_block_ids": [],
+          "source_raw_lines": [
+            183,
+            184
+          ],
+          "boundary_verdict": "pass",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "radicals",
+              "label": "Căn bậc hai và căn thức"
+            },
+            {
+              "id": "square_root",
+              "label": "Căn bậc hai"
+            }
+          ],
+          "evidence": "Square roots of 36 and all options retained; radical in option A absent upstream.",
+          "body_evidence": [
+            {
+              "block_id": 15,
+              "text": "    Câu 4. Căn bậc hai của 36 là\n"
+            },
+            {
+              "block_id": 16,
+              "text": "    A.   36 .               B.  6 .                 C. 6 .             D. -6 .\n"
+            }
+          ],
+          "context_evidence": []
+        },
+        {
+          "candidate_id": "candidate-5",
+          "label": "Câu 5",
+          "created_at": "2026-11-17T08:51:19.189Z",
+          "body_block_ids": [
+            17,
+            18
+          ],
+          "context_block_ids": [],
+          "source_raw_lines": [
+            185,
+            186
+          ],
+          "boundary_verdict": "pass",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "radicals",
+              "label": "Căn bậc hai và căn thức"
+            },
+            {
+              "id": "radical_condition",
+              "label": "Căn thức bậc hai và điều kiện xác định"
+            }
+          ],
+          "evidence": "Radical-domain stem and all options retained; sqrt(x−1) radical absent upstream.",
+          "body_evidence": [
+            {
+              "block_id": 17,
+              "text": "    Câu 5. Giá trị của x để x  1 có nghĩa là\n"
+            },
+            {
+              "block_id": 18,
+              "text": "    A. x  1 .             B. x  1 .              C. x 1.           D. x  1 .\n"
+            }
+          ],
+          "context_evidence": []
+        },
+        {
+          "candidate_id": "candidate-6",
+          "label": "Câu 6",
+          "created_at": "2026-11-17T08:51:19.189Z",
+          "body_block_ids": [
+            19,
+            20
+          ],
+          "context_block_ids": [],
+          "source_raw_lines": [
+            187,
+            188
+          ],
+          "boundary_verdict": "pass",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "radicals",
+              "label": "Căn bậc hai và căn thức"
+            },
+            {
+              "id": "radical_transform",
+              "label": "Biến đổi và rút gọn căn thức"
+            },
+            {
+              "id": "radical_product",
+              "label": "Khai phương một tích"
+            }
+          ],
+          "evidence": "M,N nonnegative hypotheses, sqrt(M²N) task and options retained as captured; radical-factor/product path defensible.",
+          "body_evidence": [
+            {
+              "block_id": 19,
+              "text": "    Câu 6. Nếu M  0 và N  0 thì      M 2 N bằng\n"
+            },
+            {
+              "block_id": 20,
+              "text": "    A. N M.                 B. N M.                  C.  M N.          D. M N.\n"
+            }
+          ],
+          "context_evidence": []
+        },
+        {
+          "candidate_id": "candidate-7",
+          "label": "Câu 7",
+          "created_at": "2026-11-17T08:51:19.189Z",
+          "body_block_ids": [
+            21,
+            22
+          ],
+          "context_block_ids": [],
+          "source_raw_lines": [
+            189,
+            190
+          ],
+          "boundary_verdict": "pass",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "radicals",
+              "label": "Căn bậc hai và căn thức"
+            },
+            {
+              "id": "radical_compare",
+              "label": "So sánh căn bậc hai"
+            }
+          ],
+          "evidence": "Comparison options retained. PDF p6 shows sqrt5<3 etc.; radical comparison path is correct despite flattened input.",
+          "body_evidence": [
+            {
+              "block_id": 21,
+              "text": "    Câu 7. Kết quả so sánh đúng là\n"
+            },
+            {
+              "block_id": 22,
+              "text": "    A. 5  3.                B. 2  5.                C. 2  2 .         D. 4  16 .\n"
+            }
+          ],
+          "context_evidence": []
+        },
+        {
+          "candidate_id": "candidate-8",
+          "label": "Câu 8",
+          "created_at": "2026-11-17T08:51:19.189Z",
+          "body_block_ids": [
+            23,
+            24,
+            25,
+            26
+          ],
+          "context_block_ids": [],
+          "source_raw_lines": [
+            191,
+            194
+          ],
+          "boundary_verdict": "minor_contamination",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "geometry",
+              "label": "Hình học"
+            },
+            {
+              "id": "circle",
+              "label": "Đường tròn"
+            },
+            {
+              "id": "circle_symmetry",
+              "label": "Đường tròn và tính chất đối xứng"
+            }
+          ],
+          "evidence": "All symmetry options retained, but block 25 combines option C with A belonging to the next diagram (PDF p6). This foreign A is inherited from a mixed physical input line.",
+          "body_evidence": [
+            {
+              "block_id": 23,
+              "text": "    Câu 8. Đường tròn là hình\n"
+            },
+            {
+              "block_id": 24,
+              "text": "    A. có một tâm đối xứng và có vô số trục đối xứng.       B. có một trục đối xứng.\n"
+            },
+            {
+              "block_id": 25,
+              "text": "    C. có vô số tâm đối xứng.                     A\n"
+            },
+            {
+              "block_id": 26,
+              "text": "                                                            D. không có trục đối xứng.\n"
+            }
+          ],
+          "context_evidence": []
+        },
+        {
+          "candidate_id": "candidate-9",
+          "label": "Câu 9",
+          "created_at": "2026-11-17T08:51:19.189Z",
+          "body_block_ids": [
+            27,
+            28,
+            29,
+            31,
+            32
+          ],
+          "context_block_ids": [
+            30
+          ],
+          "source_raw_lines": [
+            195,
+            200
+          ],
+          "boundary_verdict": "minor_context_loss",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "geometry",
+              "label": "Hình học"
+            },
+            {
+              "id": "circle",
+              "label": "Đường tròn"
+            },
+            {
+              "id": "central_angle_arc",
+              "label": "Góc ở tâm, cung và số đo cung"
+            },
+            {
+              "id": "central_angle",
+              "label": "Góc ở tâm"
+            }
+          ],
+          "evidence": "All central-angle options retained; context 30 keeps C,O,B. Diagram label A is in mixed block 25, assigned only to Câu 8, not this question. Minor extraction/context loss, not loss of the already-absent circle/segments. Unlike previous attempt, context does NOT include 25.",
+          "body_evidence": [
+            {
+              "block_id": 27,
+              "text": "    Câu 9. Góc ở tâm ở hình vẽ bên là\n"
+            },
+            {
+              "block_id": 28,
+              "text": "    A. AOB.\n"
+            },
+            {
+              "block_id": 29,
+              "text": "    B. 𝐵𝐴𝑂.\n"
+            },
+            {
+              "block_id": 31,
+              "text": "    C. 𝐶𝐴𝑂.\n"
+            },
+            {
+              "block_id": 32,
+              "text": "    D. 𝐴𝐵𝑂.\n"
+            }
+          ],
+          "context_evidence": [
+            {
+              "block_id": 30,
+              "text": "                                    C        O          B\n"
+            }
+          ]
+        },
+        {
+          "candidate_id": "candidate-10",
+          "label": "Câu 10",
+          "created_at": "2026-11-17T08:51:19.189Z",
+          "body_block_ids": [
+            34,
+            35
+          ],
+          "context_block_ids": [],
+          "source_raw_lines": [
+            202,
+            203
+          ],
+          "boundary_verdict": "pass",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "geometry",
+              "label": "Hình học"
+            },
+            {
+              "id": "circle",
+              "label": "Đường tròn"
+            },
+            {
+              "id": "circle_point_position",
+              "label": "Vị trí của điểm đối với đường tròn"
+            }
+          ],
+          "evidence": "Point-on-circle condition radius 2cm and all options retained.",
+          "body_evidence": [
+            {
+              "block_id": 34,
+              "text": "    Câu 10. Điểm M nằm trên đường tròn (O; 2cm) khi và chỉ khi\n"
+            },
+            {
+              "block_id": 35,
+              "text": "    A. OM < 2cm.             B. OM = 2cm.            C. OM  2cm.      D. OM > 2cm.\n"
+            }
+          ],
+          "context_evidence": []
+        },
+        {
+          "candidate_id": "candidate-11",
+          "label": "Câu 11",
+          "created_at": "2026-11-17T08:51:19.189Z",
+          "body_block_ids": [
+            36,
+            37,
+            38,
+            39,
+            40
+          ],
+          "context_block_ids": [],
+          "source_raw_lines": [
+            204,
+            208
+          ],
+          "boundary_verdict": "pass",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "geometry",
+              "label": "Hình học"
+            },
+            {
+              "id": "circle",
+              "label": "Đường tròn"
+            },
+            {
+              "id": "central_angle_arc",
+              "label": "Góc ở tâm, cung và số đo cung"
+            },
+            {
+              "id": "arc_measure",
+              "label": "Số đo cung"
+            }
+          ],
+          "evidence": "Major/minor arc relation and all four complete options retained.",
+          "body_evidence": [
+            {
+              "block_id": 36,
+              "text": "    Câu 11. Trong một đường tròn, số đo cung lớn bằng:\n"
+            },
+            {
+              "block_id": 37,
+              "text": "    A. Số đo cung nhỏ .\n"
+            },
+            {
+              "block_id": 38,
+              "text": "    B. Số đo của cung nửa đường tròn.\n"
+            },
+            {
+              "block_id": 39,
+              "text": "    C. Hiệu giữa 360o và số đo của cung nhỏ (có chung 2 mút với cung lớn).\n"
+            },
+            {
+              "block_id": 40,
+              "text": "    D. Tổng giữa 360o và số đo của cung nhỏ (có chung 2 mút với cung lớn).\n"
+            }
+          ],
+          "context_evidence": []
+        },
+        {
+          "candidate_id": "candidate-12",
+          "label": "Câu 12",
+          "created_at": "2026-11-17T08:51:19.189Z",
+          "body_block_ids": [
+            41,
+            42,
+            43,
+            44
+          ],
+          "context_block_ids": [],
+          "source_raw_lines": [
+            209,
+            212
+          ],
+          "boundary_verdict": "pass",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "geometry",
+              "label": "Hình học"
+            },
+            {
+              "id": "circle",
+              "label": "Đường tròn"
+            },
+            {
+              "id": "circle_measure",
+              "label": "Độ dài đường tròn, cung tròn và diện tích hình quạt tròn"
+            },
+            {
+              "id": "sector_area",
+              "label": "Diện tích hình quạt tròn"
+            }
+          ],
+          "evidence": "Sector-area stem and all numerator/formula/denominator rows retained across page break; fractions flattened upstream.",
+          "body_evidence": [
+            {
+              "block_id": 41,
+              "text": "\fCâu 12. Diện tích của hình quạt tròn bán kính R, cung n0 được tính theo công thức\n"
+            },
+            {
+              "block_id": 42,
+              "text": "          Rn                             R2n                         Rn                     R2n\n"
+            },
+            {
+              "block_id": 43,
+              "text": "A. S           .               B. S            .           C. S           .       D. S            .\n"
+            },
+            {
+              "block_id": 44,
+              "text": "         180                              180                         360                     360\n"
+            }
+          ],
+          "context_evidence": []
+        },
+        {
+          "candidate_id": "candidate-13",
+          "label": "Bài 1a",
+          "created_at": "2026-11-17T08:51:19.189Z",
+          "body_block_ids": [
+            48
+          ],
+          "context_block_ids": [
+            47
+          ],
+          "source_raw_lines": [
+            215,
+            216
+          ],
+          "boundary_verdict": "pass",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "alg_equations",
+              "label": "Phương trình, bất phương trình và hệ phương trình"
+            },
+            {
+              "id": "inequalities",
+              "label": "Bất đẳng thức và bất phương trình bậc nhất một ẩn"
+            },
+            {
+              "id": "ineq_linear_one_var",
+              "label": "Giải bất phương trình bậc nhất một ẩn"
+            }
+          ],
+          "evidence": "Complete independent solve-inequality instruction and −4x+3>1−2x; Bài 1 heading in context.",
+          "body_evidence": [
+            {
+              "block_id": 48,
+              "text": "      a. Giải bất phương trình 4x  3  1  2x .\n"
+            }
+          ],
+          "context_evidence": [
+            {
+              "block_id": 47,
+              "text": "Bài 1. (1,25 điểm)\n"
+            }
+          ]
+        },
+        {
+          "candidate_id": "candidate-14",
+          "label": "Bài 1b",
+          "created_at": "2026-11-17T08:51:19.189Z",
+          "body_block_ids": [
+            49,
+            50,
+            51
+          ],
+          "context_block_ids": [
+            47
+          ],
+          "source_raw_lines": [
+            215,
+            219
+          ],
+          "boundary_verdict": "pass",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "alg_equations",
+              "label": "Phương trình, bất phương trình và hệ phương trình"
+            },
+            {
+              "id": "linear_system",
+              "label": "Hệ phương trình bậc nhất hai ẩn"
+            }
+          ],
+          "evidence": "Both system rows, including preceding first equation row, solve-system instruction and Bài 1 context retained.",
+          "body_evidence": [
+            {
+              "block_id": 49,
+              "text": "                                         x - y  1\n"
+            },
+            {
+              "block_id": 50,
+              "text": "         b. Giải hệ phương trình: \n"
+            },
+            {
+              "block_id": 51,
+              "text": "                                         3x + y = 7\n"
+            }
+          ],
+          "context_evidence": [
+            {
+              "block_id": 47,
+              "text": "Bài 1. (1,25 điểm)\n"
+            }
+          ]
+        },
+        {
+          "candidate_id": "candidate-15",
+          "label": "Bài 2a",
+          "created_at": "2026-11-17T08:51:19.189Z",
+          "body_block_ids": [
+            53
+          ],
+          "context_block_ids": [
+            52
+          ],
+          "source_raw_lines": [
+            220,
+            221
+          ],
+          "boundary_verdict": "pass",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "radicals",
+              "label": "Căn bậc hai và căn thức"
+            },
+            {
+              "id": "radical_transform",
+              "label": "Biến đổi và rút gọn căn thức"
+            },
+            {
+              "id": "radical_identity",
+              "label": "Hằng đẳng thức √A²=|A|"
+            }
+          ],
+          "evidence": "Three radical computations stay together with Tính and Bài 2 heading. Identity path covers square/absolute-value calculations; sqrt81 also retained.",
+          "body_evidence": [
+            {
+              "block_id": 53,
+              "text": "          a. Tính 81 ;       (2,5)2 ;    (1  2)2 ;\n"
+            }
+          ],
+          "context_evidence": [
+            {
+              "block_id": 52,
+              "text": "Bài 2. (2,0 điểm)\n"
+            }
+          ]
+        },
+        {
+          "candidate_id": "candidate-16",
+          "label": "Bài 2b",
+          "created_at": "2026-11-17T08:51:19.189Z",
+          "body_block_ids": [
+            54,
+            55,
+            56,
+            57
+          ],
+          "context_block_ids": [
+            52
+          ],
+          "source_raw_lines": [
+            220,
+            225
+          ],
+          "boundary_verdict": "ambiguous_gathering",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "radicals",
+              "label": "Căn bậc hai và căn thức"
+            },
+            {
+              "id": "radical_transform",
+              "label": "Biến đổi và rút gọn căn thức"
+            },
+            {
+              "id": "radical_simplify",
+              "label": "Rút gọn biểu thức chứa căn"
+            }
+          ],
+          "evidence": "M and N are independent simplifications, but complete printed Bài 2b stays together. Instruction, both fraction rows and x>0,y>0 retained. Preferred two units; no omitted expression.",
+          "body_evidence": [
+            {
+              "block_id": 54,
+              "text": "          b. Rút gọn các biểu thức M và N\n"
+            },
+            {
+              "block_id": 55,
+              "text": "            108x3 y                                                              1\n"
+            },
+            {
+              "block_id": 56,
+              "text": "   M=                  (với x  0, y  0 ) ;            N = 5 48  3 27 \n"
+            },
+            {
+              "block_id": 57,
+              "text": "                3xy3                                                             3 2\n"
+            }
+          ],
+          "context_evidence": [
+            {
+              "block_id": 52,
+              "text": "Bài 2. (2,0 điểm)\n"
+            }
+          ]
+        },
+        {
+          "candidate_id": "candidate-17",
+          "label": "Bài 3",
+          "created_at": "2026-11-17T08:51:19.189Z",
+          "body_block_ids": [
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "context_block_ids": [],
+          "source_raw_lines": [
+            226,
+            231
+          ],
+          "boundary_verdict": "pass",
+          "topic_verdict": "coarse_domain_root",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "geometry",
+              "label": "Hình học"
+            }
+          ],
+          "evidence": "Connected geometry a–c intact: preceding angle fragment =30°, AB=8, right triangle, O/H construction, tangent proof and arc length. Do not split.",
+          "body_evidence": [
+            {
+              "block_id": 58,
+              "text": "                                                                = 300.\n"
+            },
+            {
+              "block_id": 59,
+              "text": "Bài 3. (2,75 điểm) Cho tam giác ABC vuông tại A biết AB = 8cm, C\n"
+            },
+            {
+              "block_id": 60,
+              "text": "      a. Giải tam giác vuông ABC.\n"
+            },
+            {
+              "block_id": 61,
+              "text": "      b. Vẽ đường tròn tâm O đường kính AC cắt BC tại H. Chứng tỏ AB là tiếp tuyến\n"
+            },
+            {
+              "block_id": 62,
+              "text": "của đường tròn tâm O.\n"
+            },
+            {
+              "block_id": 63,
+              "text": "      c. Tính độ dài cung tròn AH.\n"
+            }
+          ],
+          "context_evidence": []
+        },
+        {
+          "candidate_id": "candidate-18",
+          "label": "Bài 4a",
+          "created_at": "2026-11-17T08:51:19.189Z",
+          "body_block_ids": [
+            65,
+            66,
+            67
+          ],
+          "context_block_ids": [
+            64
+          ],
+          "source_raw_lines": [
+            232,
+            235
+          ],
+          "boundary_verdict": "pass",
+          "topic_verdict": "relevant_broad",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "radicals",
+              "label": "Căn bậc hai và căn thức"
+            },
+            {
+              "id": "radical_transform",
+              "label": "Biến đổi và rút gọn căn thức"
+            },
+            {
+              "id": "radical_simplify",
+              "label": "Rút gọn biểu thức chứa căn"
+            }
+          ],
+          "evidence": "Rational radical expression equation A=3, both fraction rows, x>0,x≠1 retained. Simplification path is broadly relevant though equation solving is also required.",
+          "body_evidence": [
+            {
+              "block_id": 65,
+              "text": "                                    x x     x\n"
+            },
+            {
+              "block_id": 66,
+              "text": "         a. Cho biểu thức A              -        với x > 0 và x ≠ 1. Tìm x để A = 3.\n"
+            },
+            {
+              "block_id": 67,
+              "text": "                                     x -1 x( x -1)\n"
+            }
+          ],
+          "context_evidence": [
+            {
+              "block_id": 64,
+              "text": "Bài 4. (1,0 điểm)\n"
+            }
+          ]
+        },
+        {
+          "candidate_id": "candidate-19",
+          "label": "Bài 4b",
+          "created_at": "2026-11-17T08:51:19.189Z",
+          "body_block_ids": [
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77
+          ],
+          "context_block_ids": [
+            64
+          ],
+          "source_raw_lines": [
+            232,
+            245
+          ],
+          "boundary_verdict": "pass",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "geometry",
+              "label": "Hình học"
+            },
+            {
+              "id": "circle",
+              "label": "Đường tròn"
+            },
+            {
+              "id": "circle_measure",
+              "label": "Độ dài đường tròn, cung tròn và diện tích hình quạt tròn"
+            },
+            {
+              "id": "circumference_application",
+              "label": "Chu vi đường tròn và ứng dụng"
+            }
+          ],
+          "evidence": "Complete gearing/circumference story with radii 14,4, diameter67, rounding and both distance/pedal-count requests. Missing bicycle graphic upstream.",
+          "body_evidence": [
+            {
+              "block_id": 68,
+              "text": "       b. Ba bộ phận truyền chuyển động của một\n"
+            },
+            {
+              "block_id": 69,
+              "text": "chiếc xe đạp gồm một giò đĩa (bánh răng gắn với\n"
+            },
+            {
+              "block_id": 70,
+              "text": "bàn đạp), một chiếc líp (cũng có dạng bánh răng)\n"
+            },
+            {
+              "block_id": 71,
+              "text": "gắn với bánh xe và bộ xích (Hình a). Biết rằng giò\n"
+            },
+            {
+              "block_id": 72,
+              "text": "đĩa có bán kính 14 cm, líp có bán kính 4 cm và bánh\n"
+            },
+            {
+              "block_id": 73,
+              "text": "xe có đường kính 67 cm. Hỏi khi người đi xe đạp\n"
+            },
+            {
+              "block_id": 74,
+              "text": "một vòng thì xe chạy được quãng đường dài bao\n"
+            },
+            {
+              "block_id": 75,
+              "text": "nhiêu mét (làm tròn kết quả đến hàng phần chục)?\n"
+            },
+            {
+              "block_id": 76,
+              "text": "Nếu muốn đi quãng đường 2km thì người đó cần\n"
+            },
+            {
+              "block_id": 77,
+              "text": "phải đạp bao nhiêu vòng?\n"
+            }
+          ],
+          "context_evidence": [
+            {
+              "block_id": 64,
+              "text": "Bài 4. (1,0 điểm)\n"
+            }
+          ]
+        }
+      ],
+      "ignored_source_blocks": [
+        {
+          "block_id": 0,
+          "text": "\f      UBND XÃ TAM ANH        ĐỀ KIỂM TRA CUỐI KÌ I, NĂM HỌC 2025-2026\n",
+          "verdict": "appropriate non-question omission"
+        },
+        {
+          "block_id": 1,
+          "text": "TRƯỜNG THCS HUỲNH THÚC KHÁNG          MÔN: TOÁN – LỚP 9 – MÃ ĐỀ 1\n",
+          "verdict": "appropriate non-question omission"
+        },
+        {
+          "block_id": 2,
+          "text": "        (Đề gồm có 02 trang) Thời gian: 90 phút (không kể thời gian giao đề)\n",
+          "verdict": "appropriate non-question omission"
+        },
+        {
+          "block_id": 3,
+          "text": "\n",
+          "verdict": "appropriate non-question omission"
+        },
+        {
+          "block_id": 4,
+          "text": "    I. TRẮC NGHIỆM (3,0 điểm). Chọn câu trả lời đúng rồi ghi vào giấy làm bài.\n",
+          "verdict": "appropriate non-question omission"
+        },
+        {
+          "block_id": 5,
+          "text": "\n",
+          "verdict": "appropriate non-question omission"
+        },
+        {
+          "block_id": 33,
+          "text": "\n",
+          "verdict": "appropriate non-question omission"
+        },
+        {
+          "block_id": 45,
+          "text": "\n",
+          "verdict": "appropriate non-question omission"
+        },
+        {
+          "block_id": 46,
+          "text": "II. TỰ LUẬN (7,0 điểm).\n",
+          "verdict": "appropriate non-question omission"
+        },
+        {
+          "block_id": 78,
+          "text": "                                                     -Hết-\n",
+          "verdict": "appropriate non-question omission"
+        }
+      ],
+      "ignored_judgment": "Only institutional/title/time and section headings, global MC instruction, blanks and end marker omitted. Task-specific instructions retained; no question-bearing block ignored. Gold pre-slice correctly excludes matrices/alternate codes/guides/accessibility list."
+    },
+    {
+      "id": "tuong-binh-hiep-hk1-2025-2026",
+      "snapshot_path": "docs/evaluations/math9-ten-topic-tree/repair-pass-2026-11-17T08-50-45-233Z/tuong-binh-hiep-hk1-2025-2026.organized-bank.json",
+      "snapshot_sha256": "69b74bf0364b082b81ae0badca67a8d6932f1e5f715a64b70dd8eeca515fc336",
+      "snapshot_revision": 14,
+      "original_pdf": ".data/math9-ten-evaluation/tuong-binh-hiep-hk1-2025-2026/original.pdf",
+      "visually_reviewed_pdf_pages": [
+        1,
+        2
+      ],
+      "source_blocks_equal_frozen_input": true,
+      "source_text_sha256": "2bbf4c0b029c31f29991e8c0a8bfdb0dcb2abb036b64f9ae497339b4a43681c3",
+      "counts": {
+        "retained": 8,
+        "preferred_gold": 11,
+        "clean_preferred_boundaries": 6,
+        "ambiguous_gathered_candidates": 2,
+        "minor_boundary_context_issues": 0,
+        "missing_preferred_separations": 3,
+        "wholly_omitted_printed_questions": 0,
+        "unused_question_bearing_blocks": 0,
+        "spurious_or_duplicate_whole_questions": 0,
+        "over_split_options_or_connected_geometry": 0,
+        "definitely_irrelevant_topic_paths": 0,
+        "coarse_domain_root_placements": 0
+      },
+      "questions": [
+        {
+          "candidate_id": "candidate-1",
+          "label": "Câu 1",
+          "created_at": "2026-11-17T08:52:42.633Z",
+          "body_block_ids": [
+            6,
+            7,
+            8
+          ],
+          "context_block_ids": [],
+          "source_raw_lines": [
+            7,
+            9
+          ],
+          "boundary_verdict": "pass",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "alg_equations",
+              "label": "Phương trình, bất phương trình và hệ phương trình"
+            },
+            {
+              "id": "inequalities",
+              "label": "Bất đẳng thức và bất phương trình bậc nhất một ẩn"
+            },
+            {
+              "id": "ineq_solution_check",
+              "label": "Kiểm tra giá trị là nghiệm của bất phương trình"
+            }
+          ],
+          "evidence": "Tests x=4 and x=3 against −5x+9>−2x−3 together with full shared stem.",
+          "body_evidence": [
+            {
+              "block_id": 6,
+              "text": "Câu 1 (0,5đ): Kiểm tra các giá trị sau có là nghiệm của bất phương trình −5 x + 9 > −2 x − 3\n"
+            },
+            {
+              "block_id": 7,
+              "text": "không ?\n"
+            },
+            {
+              "block_id": 8,
+              "text": "a) x = 4                                b) x = 3\n"
+            }
+          ],
+          "context_evidence": []
+        },
+        {
+          "candidate_id": "candidate-2",
+          "label": "Câu 2",
+          "created_at": "2026-11-17T08:52:42.633Z",
+          "body_block_ids": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "context_block_ids": [],
+          "source_raw_lines": [
+            10,
+            13
+          ],
+          "boundary_verdict": "ambiguous_gathering",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "radicals",
+              "label": "Căn bậc hai và căn thức"
+            },
+            {
+              "id": "radical_condition",
+              "label": "Căn thức bậc hai và điều kiện xác định"
+            }
+          ],
+          "evidence": "Both independent radical-domain tasks kept with common instruction and complete numerator/denominator rows. Preferred two units; complete printed C2 defensible. PDF p1 confirms sqrt(2x+1) and sqrt(−1/(5−2x)); radical bars missing upstream.",
+          "body_evidence": [
+            {
+              "block_id": 9,
+              "text": "Câu 2 (0,75đ): Tìm điều kiện để các căn thức sau có nghĩa:\n"
+            },
+            {
+              "block_id": 10,
+              "text": "                                                  −1\n"
+            },
+            {
+              "block_id": 11,
+              "text": "a)   2x + 1                               b)\n"
+            },
+            {
+              "block_id": 12,
+              "text": "                                                5 − 2x\n"
+            }
+          ],
+          "context_evidence": []
+        },
+        {
+          "candidate_id": "candidate-3",
+          "label": "Câu 3",
+          "created_at": "2026-11-17T08:52:42.633Z",
+          "body_block_ids": [
+            13,
+            14,
+            15,
+            16
+          ],
+          "context_block_ids": [],
+          "source_raw_lines": [
+            14,
+            17
+          ],
+          "boundary_verdict": "pass",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "alg_equations",
+              "label": "Phương trình, bất phương trình và hệ phương trình"
+            },
+            {
+              "id": "product_equation",
+              "label": "Phương trình tích"
+            }
+          ],
+          "evidence": "Product equation retains preceding numerator/bracket row, equation, zero and denominator/bracket row; no fragment dropped.",
+          "body_evidence": [
+            {
+              "block_id": 13,
+              "text": "                                            1      \n"
+            },
+            {
+              "block_id": 14,
+              "text": "Câu 3 (0,25đ): Giải phương trình ( 2 x + 1)  − 2 x  =\n"
+            },
+            {
+              "block_id": 15,
+              "text": "                                                      0\n"
+            },
+            {
+              "block_id": 16,
+              "text": "                                            2      \n"
+            }
+          ],
+          "context_evidence": []
+        },
+        {
+          "candidate_id": "candidate-4",
+          "label": "Câu 4",
+          "created_at": "2026-11-17T08:52:42.633Z",
+          "body_block_ids": [
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26
+          ],
+          "context_block_ids": [],
+          "source_raw_lines": [
+            18,
+            27
+          ],
+          "boundary_verdict": "ambiguous_gathering",
+          "topic_verdict": "relevant_broad",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "radicals",
+              "label": "Căn bậc hai và căn thức"
+            }
+          ],
+          "evidence": "Complete C4 a–c kept: calculator rounding instruction and four values, absolute-value simplification with a<2, rationalizing task with x<0,y>0 and fraction rows. Preferred three independent units. Not answers.",
+          "body_evidence": [
+            {
+              "block_id": 17,
+              "text": "Câu 4 (2,5đ):\n"
+            },
+            {
+              "block_id": 18,
+              "text": "a) Sử dụng máy tính cầm tay, tính ( kết quả làm tròn đến chữ số thập phân thứ ba):\n"
+            },
+            {
+              "block_id": 19,
+              "text": "                                                        25\n"
+            },
+            {
+              "block_id": 20,
+              "text": "                27 ;        − 18,09 ;              3       ;           3\n"
+            },
+            {
+              "block_id": 21,
+              "text": "                                                                           −26,098\n"
+            },
+            {
+              "block_id": 22,
+              "text": "                                                       729\n"
+            },
+            {
+              "block_id": 23,
+              "text": "b) Rút gọn biểu thức sau:   a 2 − 4a + 4 với a < 2 .\n"
+            },
+            {
+              "block_id": 24,
+              "text": "                                          x2\n"
+            },
+            {
+              "block_id": 25,
+              "text": "c) Khử mẫu của biểu thức lấy căn: 2 xy       với x < 0; y > 0 .\n"
+            },
+            {
+              "block_id": 26,
+              "text": "                                          2y\n"
+            }
+          ],
+          "context_evidence": []
+        },
+        {
+          "candidate_id": "candidate-5",
+          "label": "Câu 5",
+          "created_at": "2026-11-17T08:52:42.633Z",
+          "body_block_ids": [
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "context_block_ids": [],
+          "source_raw_lines": [
+            28,
+            32
+          ],
+          "boundary_verdict": "pass",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "geometry",
+              "label": "Hình học"
+            },
+            {
+              "id": "right_triangle_trig",
+              "label": "Tam giác vuông: hệ thức lượng và tỉ số lượng giác"
+            }
+          ],
+          "evidence": "Complete right-triangle setup, hypotenuse and trig ratios with rounding retained. PDF p1 actually gives MN=√11,MP=√14, not literal 11,14: radical loss is upstream and frozen gold prose is imprecise on this point.",
+          "body_evidence": [
+            {
+              "block_id": 27,
+              "text": " Câu 5 (1,25đ): Cho ∆MNP vuông tại M biết MN\n"
+            },
+            {
+              "block_id": 28,
+              "text": " = 11 cm; MP = 14 cm\n"
+            },
+            {
+              "block_id": 29,
+              "text": " a) Tính NP.\n"
+            },
+            {
+              "block_id": 30,
+              "text": " b) Tính các tỉ số lượng giác của góc P (làm tròn\n"
+            },
+            {
+              "block_id": 31,
+              "text": " đến hàng phần trăm).\n"
+            }
+          ],
+          "context_evidence": []
+        },
+        {
+          "candidate_id": "candidate-6",
+          "label": "Câu 6",
+          "created_at": "2026-11-17T08:52:42.633Z",
+          "body_block_ids": [
+            34,
+            35,
+            36,
+            37,
+            38,
+            39
+          ],
+          "context_block_ids": [],
+          "source_raw_lines": [
+            35,
+            40
+          ],
+          "boundary_verdict": "pass",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "geometry",
+              "label": "Hình học"
+            },
+            {
+              "id": "circle",
+              "label": "Đường tròn"
+            },
+            {
+              "id": "circle_angles",
+              "label": "Góc và cung của đường tròn"
+            }
+          ],
+          "evidence": "All setup, central/inscribed identification and calculation fragments retained together. PDF p1 says BAD=40° and asks BOD,BCD; figure and BAD glyph lost upstream, not extractor omission.",
+          "body_evidence": [
+            {
+              "block_id": 34,
+              "text": " Câu 6 (1,25đ): Cho đường tròn (O), các điểm A,\n"
+            },
+            {
+              "block_id": 35,
+              "text": " B, C, D nằm trên đường tròn như hình vẽ.\n"
+            },
+            {
+              "block_id": 36,
+              "text": " a) Kể tên góc ở tâm, góc nội tiếp có trong hình.\n"
+            },
+            {
+              "block_id": 37,
+              "text": "            � = 400. Tính số đo các góc BOD và\n"
+            },
+            {
+              "block_id": 38,
+              "text": " b) Giả sử 𝐵𝐵𝐵𝐵𝐵𝐵\n"
+            },
+            {
+              "block_id": 39,
+              "text": " BCD.\n"
+            }
+          ],
+          "context_evidence": []
+        },
+        {
+          "candidate_id": "candidate-7",
+          "label": "Câu 7",
+          "created_at": "2026-11-17T08:52:42.633Z",
+          "body_block_ids": [
+            40,
+            41,
+            42
+          ],
+          "context_block_ids": [],
+          "source_raw_lines": [
+            41,
+            43
+          ],
+          "boundary_verdict": "pass",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "alg_equations",
+              "label": "Phương trình, bất phương trình và hệ phương trình"
+            },
+            {
+              "id": "linear_system",
+              "label": "Hệ phương trình bậc nhất hai ẩn"
+            },
+            {
+              "id": "system_word_problems",
+              "label": "Giải bài toán bằng cách lập hệ phương trình"
+            }
+          ],
+          "evidence": "Opposing-vehicle story complete: 160km,1h36,10km/h speed difference. Full system-word-problem ancestor path appropriate.",
+          "body_evidence": [
+            {
+              "block_id": 40,
+              "text": "\fCâu 7 (1đ): Một ô tô khởi hành từ A đi đến B, quãng đường AB dài 160 km. Cùng lúc đó, một\n"
+            },
+            {
+              "block_id": 41,
+              "text": "xe khách khởi hành từ B đi đến A theo hướng ngược lại. Sau 1 giờ 36 phút, hai xe gặp nhau.\n"
+            },
+            {
+              "block_id": 42,
+              "text": "Biết rằng vận tốc xe ô tô lớn hơn vận tốc xe khách 10 km/h. Tính vận tốc của mỗi xe.\n"
+            }
+          ],
+          "context_evidence": []
+        },
+        {
+          "candidate_id": "candidate-8",
+          "label": "Câu 8",
+          "created_at": "2026-11-17T08:52:42.633Z",
+          "body_block_ids": [
+            43,
+            44,
+            45,
+            46,
+            47,
+            48
+          ],
+          "context_block_ids": [],
+          "source_raw_lines": [
+            44,
+            49
+          ],
+          "boundary_verdict": "pass",
+          "topic_verdict": "relevant",
+          "entire_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "geometry",
+              "label": "Hình học"
+            },
+            {
+              "id": "circle",
+              "label": "Đường tròn"
+            },
+            {
+              "id": "circle_tangent_cyclic",
+              "label": "Tiếp tuyến và tứ giác nội tiếp"
+            }
+          ],
+          "evidence": "Complete connected tangent exercise a–c retained, including C on circle, AC<BC, Ax/By intersections D/E, perpendicularity, cyclicity and product proof.",
+          "body_evidence": [
+            {
+              "block_id": 43,
+              "text": "Câu 8 (2,5đ): Cho đường tròn (O; R), đường kính AB. Lấy điểm C thuộc (O; R) sao cho\n"
+            },
+            {
+              "block_id": 44,
+              "text": "AC < BC. Kẻ hai tiếp tuyến Ax và By của đường tròn (O; R). Tiếp tuyến tại C của đường tròn\n"
+            },
+            {
+              "block_id": 45,
+              "text": "lần lượt cắt Ax và By tại hai điểm D và E. Chứng minh:\n"
+            },
+            {
+              "block_id": 46,
+              "text": "a) OD ⊥ OE .\n"
+            },
+            {
+              "block_id": 47,
+              "text": "b) Bốn điểm O, C, E, B cùng thuộc một đường tròn.\n"
+            },
+            {
+              "block_id": 48,
+              "text": "c) OD.CB = OE. AC .\n"
+            }
+          ],
+          "context_evidence": []
+        }
+      ],
+      "ignored_source_blocks": [
+        {
+          "block_id": 0,
+          "text": "    SỞ GDĐT TP HỒ CHÍ MINH                               KIỂM TRA CUỐI HỌC KỲ I\n",
+          "verdict": "appropriate non-question omission"
+        },
+        {
+          "block_id": 1,
+          "text": " TRƯỜNG THCS TƯƠNG BÌNH HIỆP                                Môn : TOÁN – Lớp 9\n",
+          "verdict": "appropriate non-question omission"
+        },
+        {
+          "block_id": 2,
+          "text": "                                                            Năm học: 2025 – 2026\n",
+          "verdict": "appropriate non-question omission"
+        },
+        {
+          "block_id": 3,
+          "text": "                                                            Thời gian : 90 phút\n",
+          "verdict": "appropriate non-question omission"
+        },
+        {
+          "block_id": 4,
+          "text": "                                                          (Không kể thời gian phát đề)\n",
+          "verdict": "appropriate non-question omission"
+        },
+        {
+          "block_id": 5,
+          "text": "ĐỀ CHÍNH THỨC\n",
+          "verdict": "appropriate non-question omission"
+        },
+        {
+          "block_id": 32,
+          "text": "\n",
+          "verdict": "appropriate non-question omission"
+        },
+        {
+          "block_id": 33,
+          "text": "\n",
+          "verdict": "appropriate non-question omission"
+        },
+        {
+          "block_id": 49,
+          "text": "\n",
+          "verdict": "appropriate non-question omission"
+        },
+        {
+          "block_id": 50,
+          "text": "                                       --- HẾT ---\n",
+          "verdict": "appropriate non-question omission"
+        }
+      ],
+      "ignored_judgment": "Only institutional/title/time and section headings, global MC instruction, blanks and end marker omitted. Task-specific instructions retained; no question-bearing block ignored. Gold pre-slice correctly excludes matrices/alternate codes/guides/accessibility list."
+    }
+  ],
+  "aggregate_counts": {
+    "unique_retained_reviewed": 27,
+    "preferred_gold": 31,
+    "clean_preferred_boundaries": 22,
+    "ambiguous_gathered_candidates": 3,
+    "minor_boundary_context_issues": 2,
+    "missing_preferred_separations": 4,
+    "wholly_omitted_printed_questions": 0,
+    "definitely_irrelevant_topic_paths": 0,
+    "coarse_domain_root_placements": 1
+  },
+  "fidelity_notes": [
+    "Exact text retention is not lossless mathematics: PDF-to-text loses radical bars, powers, fractions, angle hats and graphics before question extraction.",
+    "HTK C8/C9 mixed block25 is a source-layout collision. C8 foreign A and C9 omitted context A are downstream assignment issues, whereas absent diagram geometry is upstream.",
+    "TBH C5 PDF uses √11 and √14. Frozen gold prose says legs 11 and 14. Report discrepancy; do not alter gold or input.",
+    "TBH C4 contains square and cube roots. Its broad radicals path is relevant; label Căn bậc hai và căn thức is less explicit about cube roots, not a definite wrong placement.",
+    "HTK Bài3 at Hình học is relevant but only a coarse domain-root placement, not a useful specific triangle/tangent/arc classification. No question is placed at actual Kho câu hỏi root.",
+    "HTK questions in second cumulative snapshot have unchanged assignments; paths central_angle and arc_measure acquire relevant circle_angles ancestor. All remain semantically defensible."
+  ]
+}

@@ -1,0 +1,14 @@
+// Reconstructed from 2-_e50duc2fl9.pretty.js, module 304585.
+// deps: m456420
+// exports: ScanLine
+export { t as "ScanLine" };
+
+"use strict";
+    let t = (0, m456420.default)("scan-line", [
+      ["path", { d: "M3 7V5a2 2 0 0 1 2-2h2", key: "aa7l1z" }],
+      ["path", { d: "M17 3h2a2 2 0 0 1 2 2v2", key: "4qcy5o" }],
+      ["path", { d: "M21 17v2a2 2 0 0 1-2 2h-2", key: "6vwrx8" }],
+      ["path", { d: "M7 21H5a2 2 0 0 1-2-2v-2", key: "ioqczr" }],
+      ["path", { d: "M7 12h10", key: "b7w52i" }],
+    ]);
+    ;

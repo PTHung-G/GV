@@ -1,0 +1,118 @@
+[
+  {
+    "batch": 1,
+    "id": "demo-de-giua-ky-toan-9",
+    "title": "Đề kiểm tra giữa kì I môn Toán 9",
+    "header": "<div class=\"doc-header\"><div class=\"doc-header-col\"><p><b>TRƯỜNG THCS NGUYỄN DU</b></p><p>TỔ KHOA HỌC TỰ NHIÊN</p></div><div class=\"doc-header-col\"><p><b>KIỂM TRA GIỮA HỌC KÌ I</b></p><p>Môn: Toán – Lớp 9</p></div></div>\n<h1>ĐỀ KIỂM TRA GIỮA HỌC KÌ I</h1>\n<p style=\"text-align:center\"><b>Môn: Toán – Lớp 9</b><br/>Thời gian làm bài: 90 phút (không kể thời gian phát đề)</p>\n<h3>PHẦN I. TRẮC NGHIỆM (3,0 điểm)</h3>\n",
+    "questions": [
+      {
+        "id": "A1",
+        "html": "<p><b>Câu 1.</b> Căn bậc hai số học của 81 là</p>\n<div class=\"doc-grid\"><div class=\"doc-grid-cell\"><p>A. 9.</p></div><div class=\"doc-grid-cell\"><p>B. −9.</p></div><div class=\"doc-grid-cell\"><p>C. 81.</p></div><div class=\"doc-grid-cell\"><p>D. ±9.</p></div></div>\n"
+      },
+      {
+        "id": "A2",
+        "html": "<p><b>Câu 2.</b> Giá trị của biểu thức $\\sqrt{x-2}$ xác định khi</p>\n<div class=\"doc-grid\"><div class=\"doc-grid-cell\"><p>A. x ≥ 2.</p></div><div class=\"doc-grid-cell\"><p>B. x &gt; 2.</p></div><div class=\"doc-grid-cell\"><p>C. x ≤ 2.</p></div><div class=\"doc-grid-cell\"><p>D. x &lt; 2.</p></div></div>\n"
+      },
+      {
+        "id": "A3",
+        "html": "<p><b>Câu 3.</b> (2,0 điểm) Rút gọn biểu thức $A = \\dfrac{1}{\\sqrt{x}-1} - \\dfrac{1}{\\sqrt{x}+1}$ với $x \\ge 0,\\ x \\ne 1$.</p>\n"
+      },
+      {
+        "id": "A4",
+        "html": "<p><b>Câu 4.</b> (2,0 điểm) Cho tam giác ABC vuông tại A, đường cao AH. Biết AB = 6 cm, AC = 8 cm. Tính BC, AH và diện tích tam giác ABC.</p>\n"
+      },
+      {
+        "id": "A5",
+        "html": "<p><b>Câu 5.</b> (3,0 điểm) Cho đường tròn (O; R) và điểm A nằm ngoài đường tròn. Kẻ hai tiếp tuyến AB, AC tới (O). Chứng minh rằng AO là đường trung trực của BC.</p>"
+      }
+    ]
+  },
+  {
+    "batch": 2,
+    "id": "mau-de-toan-9-20-cau",
+    "title": "Đề kiểm tra 20 câu – Toán 9",
+    "header": "<div class=\"doc-header\"><div class=\"doc-header-col\"><p><b>TRƯỜNG THCS …</b></p><p>TỔ KHOA HỌC TỰ NHIÊN</p></div><div class=\"doc-header-col\"><p><b>KIỂM TRA 20 CÂU</b></p><p>Môn: Toán – Lớp 9 · 30 phút</p></div></div>\n<h1>ĐỀ KIỂM TRA 20 CÂU – TOÁN 9</h1>\n<p style=\"text-align:center\">Chọn một đáp án đúng cho mỗi câu. Mỗi câu 0,5 điểm.</p>\n",
+    "questions": [
+      {
+        "id": "B1",
+        "html": "<p><b>Câu 1.</b> Căn bậc hai số học của 16 là</p>\n<div class=\"doc-grid\"><div class=\"doc-grid-cell\"><p>A. 4</p></div><div class=\"doc-grid-cell\"><p>B. −4</p></div><div class=\"doc-grid-cell\"><p>C. ±4</p></div><div class=\"doc-grid-cell\"><p>D. 8</p></div></div>\n"
+      },
+      {
+        "id": "B2",
+        "html": "<p><b>Câu 2.</b> Điều kiện xác định của biểu thức √(x − 3) là</p>\n<div class=\"doc-grid\"><div class=\"doc-grid-cell\"><p>A. x ≥ −3</p></div><div class=\"doc-grid-cell\"><p>B. x ≥ 3</p></div><div class=\"doc-grid-cell\"><p>C. x ≤ 3</p></div><div class=\"doc-grid-cell\"><p>D. x ≠ 3</p></div></div>\n"
+      },
+      {
+        "id": "B3",
+        "html": "<p><b>Câu 3.</b> Rút gọn √50 được</p>\n<div class=\"doc-grid\"><div class=\"doc-grid-cell\"><p>A. 2√5</p></div><div class=\"doc-grid-cell\"><p>B. 25√2</p></div><div class=\"doc-grid-cell\"><p>C. 5√2</p></div><div class=\"doc-grid-cell\"><p>D. 10√5</p></div></div>\n"
+      },
+      {
+        "id": "B4",
+        "html": "<p><b>Câu 4.</b> Hàm số y = (m − 2)x + 1 đồng biến trên ℝ khi</p>\n<div class=\"doc-grid\"><div class=\"doc-grid-cell\"><p>A. m < 2</p></div><div class=\"doc-grid-cell\"><p>B. m = 2</p></div><div class=\"doc-grid-cell\"><p>C. m ≤ 2</p></div><div class=\"doc-grid-cell\"><p>D. m > 2</p></div></div>\n"
+      },
+      {
+        "id": "B5",
+        "html": "<p><b>Câu 5.</b> Nghiệm của hệ phương trình x + y = 5, x − y = 1 là</p>\n<div class=\"doc-grid\"><div class=\"doc-grid-cell\"><p>A. (3; 2)</p></div><div class=\"doc-grid-cell\"><p>B. (2; 3)</p></div><div class=\"doc-grid-cell\"><p>C. (4; 1)</p></div><div class=\"doc-grid-cell\"><p>D. (1; 4)</p></div></div>\n"
+      },
+      {
+        "id": "B6",
+        "html": "<p><b>Câu 6.</b> Nghiệm của phương trình x² − 5x + 6 = 0 là</p>\n<div class=\"doc-grid\"><div class=\"doc-grid-cell\"><p>A. 1 và 6</p></div><div class=\"doc-grid-cell\"><p>B. 2 và 3</p></div><div class=\"doc-grid-cell\"><p>C. −2 và −3</p></div><div class=\"doc-grid-cell\"><p>D. −1 và −6</p></div></div>\n"
+      },
+      {
+        "id": "B7",
+        "html": "<p><b>Câu 7.</b> Tam giác ABC vuông tại A có AB = 3, AC = 4. Khi đó sin B bằng</p>\n<div class=\"doc-grid\"><div class=\"doc-grid-cell\"><p>A. 3/5</p></div><div class=\"doc-grid-cell\"><p>B. 3/4</p></div><div class=\"doc-grid-cell\"><p>C. 4/5</p></div><div class=\"doc-grid-cell\"><p>D. 4/3</p></div></div>\n"
+      },
+      {
+        "id": "B8",
+        "html": "<p><b>Câu 8.</b> Đường tròn (O; 5 cm) có đường kính bằng</p>\n<div class=\"doc-grid\"><div class=\"doc-grid-cell\"><p>A. 2,5 cm</p></div><div class=\"doc-grid-cell\"><p>B. 5 cm</p></div><div class=\"doc-grid-cell\"><p>C. 20 cm</p></div><div class=\"doc-grid-cell\"><p>D. 10 cm</p></div></div>\n"
+      },
+      {
+        "id": "B9",
+        "html": "<p><b>Câu 9.</b> Giá trị của √((2 − √5)²) bằng</p>\n<div class=\"doc-grid\"><div class=\"doc-grid-cell\"><p>A. √5 − 2</p></div><div class=\"doc-grid-cell\"><p>B. 2 − √5</p></div><div class=\"doc-grid-cell\"><p>C. √5 + 2</p></div><div class=\"doc-grid-cell\"><p>D. 5 − 2</p></div></div>\n"
+      },
+      {
+        "id": "B10",
+        "html": "<p><b>Câu 10.</b> Rút gọn √12 − √27 + √3 được</p>\n<div class=\"doc-grid\"><div class=\"doc-grid-cell\"><p>A. 2√3</p></div><div class=\"doc-grid-cell\"><p>B. 0</p></div><div class=\"doc-grid-cell\"><p>C. −2√3</p></div><div class=\"doc-grid-cell\"><p>D. 4√3</p></div></div>\n"
+      },
+      {
+        "id": "B11",
+        "html": "<p><b>Câu 11.</b> Hệ số góc của đường thẳng y = −2x + 3 là</p>\n<div class=\"doc-grid\"><div class=\"doc-grid-cell\"><p>A. 3</p></div><div class=\"doc-grid-cell\"><p>B. 2</p></div><div class=\"doc-grid-cell\"><p>C. −2</p></div><div class=\"doc-grid-cell\"><p>D. −3</p></div></div>\n"
+      },
+      {
+        "id": "B12",
+        "html": "<p><b>Câu 12.</b> Nghiệm của phương trình 2x − 6 = 0 là</p>\n<div class=\"doc-grid\"><div class=\"doc-grid-cell\"><p>A. x = −3</p></div><div class=\"doc-grid-cell\"><p>B. x = 12</p></div><div class=\"doc-grid-cell\"><p>C. x = 2</p></div><div class=\"doc-grid-cell\"><p>D. x = 3</p></div></div>\n"
+      },
+      {
+        "id": "B13",
+        "html": "<p><b>Câu 13.</b> Giá trị của cos 30° là</p>\n<div class=\"doc-grid\"><div class=\"doc-grid-cell\"><p>A. √3/2</p></div><div class=\"doc-grid-cell\"><p>B. 1/2</p></div><div class=\"doc-grid-cell\"><p>C. √2/2</p></div><div class=\"doc-grid-cell\"><p>D. √3/3</p></div></div>\n"
+      },
+      {
+        "id": "B14",
+        "html": "<p><b>Câu 14.</b> Diện tích hình tròn bán kính 3 cm là</p>\n<div class=\"doc-grid\"><div class=\"doc-grid-cell\"><p>A. 3π cm²</p></div><div class=\"doc-grid-cell\"><p>B. 9π cm²</p></div><div class=\"doc-grid-cell\"><p>C. 6π cm²</p></div><div class=\"doc-grid-cell\"><p>D. 12π cm²</p></div></div>\n"
+      },
+      {
+        "id": "B15",
+        "html": "<p><b>Câu 15.</b> Số nào dưới đây là nghiệm của phương trình x² = 9</p>\n<div class=\"doc-grid\"><div class=\"doc-grid-cell\"><p>A. 9</p></div><div class=\"doc-grid-cell\"><p>B. −9</p></div><div class=\"doc-grid-cell\"><p>C. 3 và −3</p></div><div class=\"doc-grid-cell\"><p>D. 81</p></div></div>\n"
+      },
+      {
+        "id": "B16",
+        "html": "<p><b>Câu 16.</b> √(x²) = 3 khi</p>\n<div class=\"doc-grid\"><div class=\"doc-grid-cell\"><p>A. x = 3</p></div><div class=\"doc-grid-cell\"><p>B. x = −3</p></div><div class=\"doc-grid-cell\"><p>C. x = ±9</p></div><div class=\"doc-grid-cell\"><p>D. x = ±3</p></div></div>\n"
+      },
+      {
+        "id": "B17",
+        "html": "<p><b>Câu 17.</b> Cho đường tròn (O; R) và dây AB = R. Số đo góc AOB bằng</p>\n<div class=\"doc-grid\"><div class=\"doc-grid-cell\"><p>A. 60°</p></div><div class=\"doc-grid-cell\"><p>B. 90°</p></div><div class=\"doc-grid-cell\"><p>C. 120°</p></div><div class=\"doc-grid-cell\"><p>D. 30°</p></div></div>\n"
+      },
+      {
+        "id": "B18",
+        "html": "<p><b>Câu 18.</b> Tiếp tuyến của một đường tròn vuông góc với bán kính tại</p>\n<div class=\"doc-grid\"><div class=\"doc-grid-cell\"><p>A. tâm</p></div><div class=\"doc-grid-cell\"><p>B. tiếp điểm</p></div><div class=\"doc-grid-cell\"><p>C. trung điểm của dây</p></div><div class=\"doc-grid-cell\"><p>D. điểm bất kỳ</p></div></div>\n"
+      },
+      {
+        "id": "B19",
+        "html": "<p><b>Câu 19.</b> Giá trị của biểu thức (√7 − √3)(√7 + √3) là</p>\n<div class=\"doc-grid\"><div class=\"doc-grid-cell\"><p>A. 10</p></div><div class=\"doc-grid-cell\"><p>B. 7 − 3√21</p></div><div class=\"doc-grid-cell\"><p>C. 4</p></div><div class=\"doc-grid-cell\"><p>D. 21</p></div></div>\n"
+      },
+      {
+        "id": "B20",
+        "html": "<p><b>Câu 20.</b> Hai đường tròn (O; 3 cm) và (O'; 5 cm) tiếp xúc ngoài khi OO' bằng</p>\n<div class=\"doc-grid\"><div class=\"doc-grid-cell\"><p>A. 2 cm</p></div><div class=\"doc-grid-cell\"><p>B. 3 cm</p></div><div class=\"doc-grid-cell\"><p>C. 5 cm</p></div><div class=\"doc-grid-cell\"><p>D. 8 cm</p></div></div>"
+      }
+    ]
+  }
+]

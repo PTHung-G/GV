@@ -1,0 +1,21 @@
+# Run with: docker compose --env-file .data/dev-db.env -f compose.dev-db.yml up -d
+# Local development only. Never expose this database to the public internet.
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: soandethi_dev
+      POSTGRES_USER: sdt_dev
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Generate .data/dev-db.env first}
+    ports:
+      - '127.0.0.1:54329:5432'
+    volumes:
+      - grading_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U sdt_dev -d soandethi_dev']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+volumes:
+  grading_pgdata:

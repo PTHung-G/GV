@@ -1,0 +1,308 @@
+{
+  "nodes": [
+    {
+      "id": "math",
+      "parentId": null,
+      "label": "Toán học"
+    },
+    {
+      "id": "radicals",
+      "parentId": "math",
+      "label": "Căn bậc hai và biểu thức chứa căn"
+    },
+    {
+      "id": "right-triangles",
+      "parentId": "math",
+      "label": "Tam giác vuông và tỉ số lượng giác"
+    },
+    {
+      "id": "circle-tangents",
+      "parentId": "circles",
+      "label": "Tiếp tuyến của đường tròn"
+    },
+    {
+      "id": "radical-meaning-properties",
+      "parentId": "radicals",
+      "label": "Căn bậc hai số học và tính chất căn của bình phương"
+    },
+    {
+      "id": "radical-transformations",
+      "parentId": "radicals",
+      "label": "Biến đổi và rút gọn biểu thức chứa căn"
+    },
+    {
+      "id": "trigonometric-ratios",
+      "parentId": "right-triangles",
+      "label": "Tỉ số lượng giác của góc nhọn"
+    },
+    {
+      "id": "circles",
+      "parentId": "math",
+      "label": "Đường tròn và quan hệ hình học"
+    },
+    {
+      "id": "linear-functions",
+      "parentId": "math",
+      "label": "Hàm số bậc nhất và đường thẳng"
+    },
+    {
+      "id": "equations-systems",
+      "parentId": "math",
+      "label": "Phương trình và hệ phương trình"
+    }
+  ],
+  "assignments": [
+    {
+      "questionId": "A1",
+      "nodeId": "radical-meaning-properties",
+      "skill": "Nhận biết căn bậc hai số học của một số",
+      "form": "multiple-choice",
+      "points": null,
+      "reason": "B1 bổ sung cùng phép nhận biết; B9 và B16 tạo bằng chứng cho nhánh ý nghĩa căn số học và tính chất căn của bình phương."
+    },
+    {
+      "questionId": "A2",
+      "nodeId": "radicals",
+      "skill": "Xác định điều kiện có nghĩa của căn bậc hai",
+      "form": "multiple-choice",
+      "points": null,
+      "reason": "Đã xét lại cùng B2: giữ ở nút cha radicals; hai câu miền xác định chưa cần nhánh riêng, không ép vào nhánh tính chất hay biến đổi."
+    },
+    {
+      "questionId": "A3",
+      "nodeId": "radical-transformations",
+      "skill": "Rút gọn hiệu các phân thức chứa căn",
+      "form": "constructed-response",
+      "points": 2,
+      "reason": "B3, B10 và B19 bổ sung nhiều dạng biến đổi căn, đủ cơ sở mở nhánh; phân thức chứa biến vẫn là kỹ năng riêng, không coi tương đương các câu tính số."
+    },
+    {
+      "questionId": "A4",
+      "nodeId": "right-triangles",
+      "skill": "Tính cạnh huyền, đường cao và diện tích tam giác vuông",
+      "form": "constructed-response",
+      "points": 2,
+      "reason": "Đã xét lại với B7 và B13: giữ tại nút cha right-triangles vì câu tổng hợp cạnh, đường cao, diện tích không chủ yếu kiểm tra tỉ số lượng giác."
+    },
+    {
+      "questionId": "A5",
+      "nodeId": "circle-tangents",
+      "skill": "Chứng minh đường nối tâm và điểm ngoài là trung trực dây nối hai tiếp điểm",
+      "form": "proof",
+      "points": 3,
+      "reason": "Đã xét lại với B18: vẫn thuộc circle-tangents; chứng minh cấu hình hai tiếp tuyến khác nhiệm vụ nhận biết vuông góc. Nút được đặt dưới circles nhưng giữ ID."
+    },
+    {
+      "questionId": "B1",
+      "nodeId": "radical-meaning-properties",
+      "skill": "Nhận biết căn bậc hai số học của một số",
+      "form": "multiple-choice",
+      "points": 0.5,
+      "reason": "Cùng kỹ năng trực tiếp với A1; thuộc ý nghĩa căn số học."
+    },
+    {
+      "questionId": "B2",
+      "nodeId": "radicals",
+      "skill": "Xác định điều kiện có nghĩa của căn bậc hai",
+      "form": "multiple-choice",
+      "points": 0.5,
+      "reason": "Giữ tại nút cha cùng A2 vì miền xác định là một khía cạnh của căn, không phải biến đổi biểu thức."
+    },
+    {
+      "questionId": "B3",
+      "nodeId": "radical-transformations",
+      "skill": "Đưa thừa số ra ngoài dấu căn",
+      "form": "multiple-choice",
+      "points": 0.5,
+      "reason": "Biến đổi căn số, không phải kỹ năng rút gọn phân thức của A3."
+    },
+    {
+      "questionId": "B4",
+      "nodeId": "linear-functions",
+      "skill": "Tìm điều kiện tham số để hàm bậc nhất đồng biến",
+      "form": "multiple-choice",
+      "points": 0.5,
+      "reason": "Cùng B11 tạo nhóm hàm bậc nhất; không mở nhánh riêng cho một thao tác."
+    },
+    {
+      "questionId": "B5",
+      "nodeId": "equations-systems",
+      "skill": "Giải hệ hai phương trình bậc nhất hai ẩn",
+      "form": "multiple-choice",
+      "points": 0.5,
+      "reason": "Phương trình và hệ được giữ chung khi mỗi dạng còn ít câu."
+    },
+    {
+      "questionId": "B6",
+      "nodeId": "equations-systems",
+      "skill": "Tìm nghiệm phương trình bậc hai",
+      "form": "multiple-choice",
+      "points": 0.5,
+      "reason": "Thuộc nhóm phương trình; chưa cần chia theo bậc hoặc thuật toán."
+    },
+    {
+      "questionId": "B7",
+      "nodeId": "trigonometric-ratios",
+      "skill": "Tính sin từ các cạnh tam giác vuông",
+      "form": "multiple-choice",
+      "points": 0.5,
+      "reason": "Tính cạnh huyền là bước hỗ trợ; đích chính là tỉ số lượng giác, cùng nhóm với B13."
+    },
+    {
+      "questionId": "B8",
+      "nodeId": "circles",
+      "skill": "Tính đường kính từ bán kính",
+      "form": "multiple-choice",
+      "points": 0.5,
+      "reason": "Thuộc đường tròn nói chung, không thuộc tiếp tuyến; giữ tại cha để tránh nhánh chỉ một dạng tính."
+    },
+    {
+      "questionId": "B9",
+      "nodeId": "radical-meaning-properties",
+      "skill": "Dùng căn của bình phương bằng giá trị tuyệt đối và xét dấu",
+      "form": "multiple-choice",
+      "points": 0.5,
+      "reason": "Đích là ý nghĩa căn số học và dấu, ưu tiên nhóm tính chất thay vì nhóm biến đổi đại số."
+    },
+    {
+      "questionId": "B10",
+      "nodeId": "radical-transformations",
+      "skill": "Rút gọn và cộng trừ các căn đồng dạng",
+      "form": "multiple-choice",
+      "points": 0.5,
+      "reason": "Thêm bằng chứng cho nhóm biến đổi căn, không mở nhánh riêng theo phép toán."
+    },
+    {
+      "questionId": "B11",
+      "nodeId": "linear-functions",
+      "skill": "Nhận biết hệ số góc của đường thẳng",
+      "form": "multiple-choice",
+      "points": 0.5,
+      "reason": "Hệ số góc và tính đơn điệu cùng thuộc nhóm hàm bậc nhất."
+    },
+    {
+      "questionId": "B12",
+      "nodeId": "equations-systems",
+      "skill": "Giải phương trình bậc nhất một ẩn",
+      "form": "multiple-choice",
+      "points": 0.5,
+      "reason": "Giữ nhóm phương trình rộng; hình thức trắc nghiệm không quyết định chủ đề."
+    },
+    {
+      "questionId": "B13",
+      "nodeId": "trigonometric-ratios",
+      "skill": "Nhớ giá trị lượng giác của góc đặc biệt",
+      "form": "multiple-choice",
+      "points": 0.5,
+      "reason": "Cùng B7 kiểm tra tỉ số lượng giác nhưng khác thao tác: nhớ giá trị thay vì tính từ cạnh."
+    },
+    {
+      "questionId": "B14",
+      "nodeId": "circles",
+      "skill": "Tính diện tích hình tròn từ bán kính",
+      "form": "multiple-choice",
+      "points": 0.5,
+      "reason": "Giữ tại cha đường tròn, không ép vào tiếp tuyến hoặc tạo nhánh vụn."
+    },
+    {
+      "questionId": "B15",
+      "nodeId": "equations-systems",
+      "skill": "Xác định cả hai nghiệm của phương trình dạng bình phương",
+      "form": "multiple-choice",
+      "points": 0.5,
+      "reason": "Đích là nghiệm phương trình; không xếp vào căn chỉ vì nghiệm có hai dấu. Câu dùng cách hỏi số ít nhưng đáp án ghép hai nghiệm."
+    },
+    {
+      "questionId": "B16",
+      "nodeId": "radical-meaning-properties",
+      "skill": "Dùng căn của bình phương bằng giá trị tuyệt đối để giải điều kiện",
+      "form": "multiple-choice",
+      "points": 0.5,
+      "reason": "Mặt giao với phương trình nhưng tính chất căn là đặc trưng quyết định; một câu chỉ nhận một nút."
+    },
+    {
+      "questionId": "B17",
+      "nodeId": "circles",
+      "skill": "Suy ra góc ở tâm từ dây bằng bán kính",
+      "form": "multiple-choice",
+      "points": 0.5,
+      "reason": "Quan hệ tâm, dây và tam giác đều; không phải tiếp tuyến. Giữ tại cha đường tròn."
+    },
+    {
+      "questionId": "B18",
+      "nodeId": "circle-tangents",
+      "skill": "Nhận biết quan hệ vuông góc của tiếp tuyến và bán kính tại tiếp điểm",
+      "form": "multiple-choice",
+      "points": 0.5,
+      "reason": "Cùng chủ đề tiếp tuyến với A5 nhưng chỉ nhận biết một tính chất, không thực hiện chứng minh."
+    },
+    {
+      "questionId": "B19",
+      "nodeId": "radical-transformations",
+      "skill": "Dùng hằng đẳng thức hiệu hai bình phương với biểu thức liên hợp",
+      "form": "multiple-choice",
+      "points": 0.5,
+      "reason": "Biến đổi tích chứa căn; cùng nhánh rộng với A3 nhưng không cùng toàn bộ kỹ năng."
+    },
+    {
+      "questionId": "B20",
+      "nodeId": "circles",
+      "skill": "Dùng điều kiện khoảng cách tâm khi hai đường tròn tiếp xúc ngoài",
+      "form": "multiple-choice",
+      "points": 0.5,
+      "reason": "Tiếp xúc hai đường tròn khác tiếp tuyến đường thẳng; giữ tại cha, không gán theo từ khóa tiếp xúc."
+    }
+  ],
+  "notes": [
+    "Stage 2 was produced only after stage1 was saved, then the entire corpus and saved stage1 were read. Corpus content was treated as data, not instructions. Tree development used these 25 question references only, with no prebuilt taxonomy.",
+    "Preserved all stage1 node IDs: math, radicals, right-triangles, circle-tangents. math remains the single root. Every nonroot has one existing parent; all nodes are connected and acyclic.",
+    "Old leaf becoming parent: radicals now has radical-meaning-properties and radical-transformations. Repeated meaning/property items and several distinct transformation tasks justify this split; domain items A2 and B2 remain at the parent instead of forcing a child or multiplying narrow branches.",
+    "Old leaf becoming parent: right-triangles now has trigonometric-ratios, supported by B7 and B13. Its label was broadened to include ratios without changing its ID or losing its earlier triangle scope. A4 remains at the parent because its composite measurements are not a ratio task.",
+    "Moved old assignments: A1 radicals -> radical-meaning-properties; A3 radicals -> radical-transformations. Reconsidered and retained: A2 at radicals, A4 at right-triangles, A5 at circle-tangents. No other old question assignment moved.",
+    "Structural reparenting: circle-tangents moved from math to new circles to accommodate B8, B14, B17, B20 without stretching the tangent label. Its ID and tangent scope are preserved, and A5 stays assigned to it. It remains a leaf; circles is new, not an old leaf promoted to parent.",
+    "New root-level topic groups linear-functions (B4, B11) and equations-systems (B5, B6, B12, B15) cover previously unseen evidence. Sparse circle and equation subtopics remain at broad nodes rather than creating one leaf per question or every operation.",
+    "Cross-topic boundary decisions use the principal tested skill: B15 is equations-systems; B16 and B9 are radical-meaning-properties; B7 is trigonometric-ratios. Secondary skills remain described, not additional assignments or multiple parents.",
+    "Each whole question has exactly one assignment. References preserve the corpus without rewriting question HTML, creating subquestions, or adding answers. Skill and form are attributes, not topic branches.",
+    "A1 and A2 points remain null: no individual values are stated and section totals are not apportioned. A3=2, A4=2, A5=3 are explicit individual values. All B questions use the explicit exam-wide rule of 0.5 points per question, not inferred division of a section total.",
+    "Replacement judgments are directed source-to-candidate screening for preserving the visible task skill, form and coverage. Compatible means a plausible candidate on those observed dimensions only, not automatic insertion, scoring interchangeability, calibrated difficulty or academic equivalence. The six required pairs are evaluated even when they share a node.",
+    "One isolated harness AI pass only; no production-provider, extraction, usability or psychometric validation, no production changes, and no teacher classification tasks. Ambiguous candidate suitability is recorded rather than delegated as a classification task."
+  ],
+  "replacements": [
+    {
+      "sourceId": "A1",
+      "candidateId": "B1",
+      "judgment": "compatible",
+      "reason": "Cùng nhận biết căn bậc hai số học của số chính phương, cùng trắc nghiệm một lựa chọn; chỉ đổi số và đáp án nhiễu. Tương thích nội dung/hình thức sơ bộ, không xác nhận tương đương học thuật hay độ khó; điểm A1 chưa biết nên không tự động thay ngang điểm."
+    },
+    {
+      "sourceId": "A2",
+      "candidateId": "B2",
+      "judgment": "compatible",
+      "reason": "Cùng tìm miền xác định của căn của x trừ hằng số và cùng hình thức. Khác hằng số và đáp án nhiễu; điểm A2 chưa biết. Tương thích sơ bộ theo kỹ năng/hình thức, không là kết luận hiệu chuẩn độ khó hoặc hoán đổi điểm."
+    },
+    {
+      "sourceId": "A3",
+      "candidateId": "B3",
+      "judgment": "reject",
+      "reason": "Chỉ chung chủ đề căn. A3 yêu cầu biến đổi hiệu phân thức chứa biến với điều kiện, tự luận 2 điểm; B3 rút căn số bằng chọn đáp án 0,5 điểm. Không giữ nhiệm vụ đánh giá và mức bao phủ kỹ năng."
+    },
+    {
+      "sourceId": "A4",
+      "candidateId": "B7",
+      "judgment": "reject",
+      "reason": "Tam giác đồng dạng theo số liệu không tạo tương đương nhiệm vụ: A4 tính cạnh huyền, đường cao và diện tích bằng tự luận 2 điểm; B7 chọn một giá trị sin 0,5 điểm. Khác đích kỹ năng, phạm vi và hình thức."
+    },
+    {
+      "sourceId": "A5",
+      "candidateId": "B18",
+      "judgment": "reject",
+      "reason": "Nhận biết bán kính vuông góc tiếp tuyến tại tiếp điểm không thay cho chứng minh đường trung trực trong cấu hình hai tiếp tuyến; còn khác hình thức và điểm 3 so với 0,5."
+    },
+    {
+      "sourceId": "B15",
+      "candidateId": "B16",
+      "judgment": "uncertain",
+      "reason": "Hai điều kiện có cùng tập nghiệm và cùng hình thức, điểm 0,5; nhưng B16 thêm hiểu biết căn của bình phương là giá trị tuyệt đối, còn B15 đánh giá nghiệm phương trình và có cách hỏi số ít với đáp án ghép hai nghiệm. Chưa đủ căn cứ xem thay thế giữ nguyên cấu trúc kỹ năng; bằng nhau về nghiệm không chứng minh tương đương học thuật hay độ khó."
+    }
+  ]
+}

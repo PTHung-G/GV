@@ -1,0 +1,132 @@
+// Reconstructed from 2cv-l13l_j_z0.pretty.js, module 483986.
+// deps: none
+// exports: none
+
+
+var i = t.i(247167);
+    ("u" > typeof __nccwpck_require__ &&
+      (__nccwpck_require__.ab =
+        "/ROOT/node_modules/next/dist/compiled/setimmediate/"),
+      {
+        166: function () {
+          !(function (t) {
+            "use strict";
+            if (!t.setImmediate) {
+              var e,
+                r,
+                n,
+                a,
+                s,
+                o = 1,
+                h = {},
+                u = !1,
+                l = t.document,
+                d = Object.getPrototypeOf && Object.getPrototypeOf(t);
+              ((d = d && d.setTimeout ? d : t),
+                "[object process]" === {}.toString.call(t.process)
+                  ? (s = function (t) {
+                      i.default.nextTick(function () {
+                        c(t);
+                      });
+                    })
+                  : (function () {
+                        if (t.postMessage && !t.importScripts) {
+                          var e = !0,
+                            r = t.onmessage;
+                          return (
+                            (t.onmessage = function () {
+                              e = !1;
+                            }),
+                            t.postMessage("", "*"),
+                            (t.onmessage = r),
+                            e
+                          );
+                        }
+                      })()
+                    ? ((e = "setImmediate$" + Math.random() + "$"),
+                      (r = function (r) {
+                        r.source === t &&
+                          "string" == typeof r.data &&
+                          0 === r.data.indexOf(e) &&
+                          c(+r.data.slice(e.length));
+                      }),
+                      t.addEventListener
+                        ? t.addEventListener("message", r, !1)
+                        : t.attachEvent("onmessage", r),
+                      (s = function (r) {
+                        t.postMessage(e + r, "*");
+                      }))
+                    : t.MessageChannel
+                      ? (((n = new MessageChannel()).port1.onmessage =
+                          function (t) {
+                            c(t.data);
+                          }),
+                        (s = function (t) {
+                          n.port2.postMessage(t);
+                        }))
+                      : l && "onreadystatechange" in l.createElement("script")
+                        ? ((a = l.documentElement),
+                          (s = function (t) {
+                            var e = l.createElement("script");
+                            ((e.onreadystatechange = function () {
+                              (c(t),
+                                (e.onreadystatechange = null),
+                                a.removeChild(e),
+                                (e = null));
+                            }),
+                              a.appendChild(e));
+                          }))
+                        : (s = function (t) {
+                            setTimeout(c, 0, t);
+                          }),
+                (d.setImmediate = function (t) {
+                  "function" != typeof t && (t = Function("" + t));
+                  for (
+                    var e = Array(arguments.length - 1), r = 0;
+                    r < e.length;
+                    r++
+                  )
+                    e[r] = arguments[r + 1];
+                  var i = { callback: t, args: e };
+                  return ((h[o] = i), s(o), o++);
+                }),
+                (d.clearImmediate = f));
+            }
+            function f(t) {
+              delete h[t];
+            }
+            function c(t) {
+              if (u) setTimeout(c, 0, t);
+              else {
+                var e = h[t];
+                if (e) {
+                  u = !0;
+                  try {
+                    var r = e.callback,
+                      i = e.args;
+                    switch (i.length) {
+                      case 0:
+                        r();
+                        break;
+                      case 1:
+                        r(i[0]);
+                        break;
+                      case 2:
+                        r(i[0], i[1]);
+                        break;
+                      case 3:
+                        r(i[0], i[1], i[2]);
+                        break;
+                      default:
+                        r.apply(void 0, i);
+                    }
+                  } finally {
+                    (f(t), (u = !1));
+                  }
+                }
+              }
+            }
+          })("u" < typeof self ? t.g : self);
+        },
+      }[166](),
+      (e.exports = {}));

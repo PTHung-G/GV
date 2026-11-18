@@ -1,0 +1,247 @@
+{
+  "nodes": [
+    {
+      "id": "root",
+      "parent_id": null,
+      "label": "Kiến thức và kỹ năng liên môn"
+    },
+    {
+      "id": "data-evidence",
+      "parent_id": "root",
+      "label": "Phân tích dữ liệu và đánh giá bằng chứng"
+    },
+    {
+      "id": "fact-opinion",
+      "parent_id": "data-evidence",
+      "label": "Phân biệt sự kiện và nhận định"
+    },
+    {
+      "id": "math",
+      "parent_id": "root",
+      "label": "Toán học"
+    },
+    {
+      "id": "linear-equations",
+      "parent_id": "math",
+      "label": "Phương trình bậc nhất một ẩn"
+    },
+    {
+      "id": "physics",
+      "parent_id": "root",
+      "label": "Vật lý"
+    },
+    {
+      "id": "uniform-motion",
+      "parent_id": "physics",
+      "label": "Vận tốc trong chuyển động đều"
+    },
+    {
+      "id": "chemistry",
+      "parent_id": "root",
+      "label": "Hóa học"
+    },
+    {
+      "id": "chemical-equations",
+      "parent_id": "chemistry",
+      "label": "Cân bằng phương trình hóa học"
+    },
+    {
+      "id": "biology",
+      "parent_id": "root",
+      "label": "Sinh học"
+    },
+    {
+      "id": "photosynthesis",
+      "parent_id": "biology",
+      "label": "Chức năng lục lạp trong quang hợp"
+    },
+    {
+      "id": "geometry",
+      "parent_id": "math",
+      "label": "Hình học"
+    },
+    {
+      "id": "right-triangle",
+      "parent_id": "geometry",
+      "label": "Độ dài cạnh và diện tích tam giác vuông"
+    },
+    {
+      "id": "computing",
+      "parent_id": "root",
+      "label": "Tin học"
+    },
+    {
+      "id": "conditional-algorithms",
+      "parent_id": "computing",
+      "label": "Giả mã, điều kiện và tính toán giá giảm"
+    },
+    {
+      "id": "average-speed-units",
+      "parent_id": "physics",
+      "label": "Tốc độ trung bình và đổi đơn vị"
+    }
+  ],
+  "questions": [
+    {
+      "id": "A1",
+      "html_ranges": [
+        {
+          "start": 93,
+          "end": 291
+        },
+        {
+          "start": 291,
+          "end": 403
+        }
+      ],
+      "topic_id": "data-evidence",
+      "reason": "Câu hỏi kết hợp tính phần trăm tăng số hộ dệt và đánh giá giới hạn của bằng chứng về thu nhập; giữ nguyên một đơn vị và gán vào chủ đề cha phân tích dữ liệu, đánh giá bằng chứng.",
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "A2",
+      "html_ranges": [
+        {
+          "start": 93,
+          "end": 291
+        },
+        {
+          "start": 403,
+          "end": 497
+        }
+      ],
+      "topic_id": "fact-opinion",
+      "reason": "Yêu cầu phân biệt câu nêu sự kiện với câu nêu nhận định trong tư liệu chung.",
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "A3",
+      "html_ranges": [
+        {
+          "start": 497,
+          "end": 556
+        }
+      ],
+      "topic_id": "linear-equations",
+      "reason": "Yêu cầu giải phương trình bậc nhất một ẩn.",
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "A4",
+      "html_ranges": [
+        {
+          "start": 556,
+          "end": 633
+        }
+      ],
+      "topic_id": "uniform-motion",
+      "reason": "Yêu cầu tính vận tốc từ quãng đường và thời gian của chuyển động đều.",
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "A5",
+      "html_ranges": [
+        {
+          "start": 633,
+          "end": 712
+        }
+      ],
+      "topic_id": "chemical-equations",
+      "reason": "Yêu cầu cân bằng phương trình phản ứng hóa học.",
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "A6",
+      "html_ranges": [
+        {
+          "start": 712,
+          "end": 788
+        }
+      ],
+      "topic_id": "photosynthesis",
+      "reason": "Yêu cầu giải thích chức năng của lục lạp trong quang hợp.",
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "B1",
+      "html_ranges": [
+        {
+          "start": 100,
+          "end": 421
+        },
+        {
+          "start": 421,
+          "end": 537
+        }
+      ],
+      "topic_id": "right-triangle",
+      "reason": "Câu hỏi gồm hai phần về cạnh và diện tích cùng một tam giác vuông, giữ chung một đơn vị. Cụm “Dùng hình trên” phụ thuộc toàn bộ figure chứa SVG và figcaption nêu góc vuông, độ dài cạnh và cảnh báo hình không theo tỉ lệ; giữ nguyên cả hai khoảng nguồn.",
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "B2",
+      "html_ranges": [
+        {
+          "start": 537,
+          "end": 595
+        }
+      ],
+      "topic_id": "linear-equations",
+      "reason": "Yêu cầu giải phương trình bậc nhất một ẩn; dùng lại chủ đề đã có từ đợt A.",
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "B3",
+      "html_ranges": [
+        {
+          "start": 595,
+          "end": 720
+        }
+      ],
+      "topic_id": "conditional-algorithms",
+      "reason": "Yêu cầu viết giả mã với điều kiện giảm giá và giải thích một trường hợp đầu vào; giữ nguyên hai yêu cầu trong một câu, gán vào chủ đề thuật toán có điều kiện, không tách sang câu tính phần trăm riêng.",
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "B4",
+      "html_ranges": [
+        {
+          "start": 720,
+          "end": 817
+        }
+      ],
+      "topic_id": "average-speed-units",
+      "reason": "Yêu cầu tính tốc độ trung bình và đổi đơn vị trong cùng một câu; gán vào chủ đề mới dưới Vật lý, không suy diễn chuyển động đều từ dữ liệu quãng đường và thời gian.",
+      "answer": null,
+      "rubric": null,
+      "points": null
+    }
+  ],
+  "limitations": [
+    "Chỉ đọc ba nguồn round4-batch-a.html, round4-stage-a.json và round4-batch-b.html trong thư mục assessment; không đọc tệp khác, không gọi API, không thực hiện thao tác giáo viên hoặc sửa mã nguồn. Chỉ tạo mới round4-stage-b.json.",
+    "Đã kiểm tra cwd /home/dsh/trangchugiaovien; các tổ tiên đường dẫn, thư mục assessment và ba nguồn không phải symlink; đường dẫn nguồn và đích đều nằm trong project. Đích chưa tồn tại trước khi tạo và được mở ở chế độ tạo độc quyền.",
+    "Stage A là snapshot có trước khi B được tạo; không dùng lời giới hạn chỉ khảo sát A làm bằng chứng cho nội dung B. Giữ nguyên toàn bộ nút cũ và sáu đối tượng A1–A6, gồm khoảng nguồn, lý do, chủ đề và metadata null; chỉ thêm nút và B1–B4.",
+    "html_ranges là offset Unicode Python trên nguyên văn UTF-8, start bao gồm, end không bao gồm; A1–A6 tham chiếu round4-batch-a.html và B1–B4 tham chiếu round4-batch-b.html. Schema không có trường chỉ tệp nguồn nên nguồn được quy ước bằng tiền tố ID, không nối hai HTML thành một chuỗi.",
+    "B1 giữ nguyên câu nhiều phần và tham chiếu trọn figure [100,421), gồm SVG cùng figcaption, rồi đoạn câu hỏi [421,537). Không suy luận độ dài từ hình SVG vì caption ghi hình không theo tỉ lệ; các câu B2–B4 không có tham chiếu hình trong văn bản.",
+    "Đã kiểm tra 10 ID A1–A6/B1–B4 xuất hiện đúng một lần, mỗi câu có đúng một topic_id tồn tại; cây chỉ có một root, mỗi nút còn lại có một cha tồn tại và không có chu trình. Mọi khoảng nằm trong nguồn tương ứng; các khoảng A bằng hệt snapshot và các khoảng B khớp nguyên văn các phần tử HTML đã trích.",
+    "Nguồn không cung cấp đáp án, barem hoặc điểm; answer, rubric và points đều null cho cả 10 câu. Không tự giải, diễn đạt lại HTML hoặc bịa metadata; lý do và nhãn chủ đề chỉ phục vụ phân loại. Không kiểm tra tệp ngoài phạm vi được phép hoặc hiển thị SVG qua trình duyệt."
+  ]
+}

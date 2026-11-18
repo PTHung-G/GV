@@ -1,0 +1,858 @@
+// Reconstructed from 2cv-l13l_j_z0.pretty.js, module 879674.
+// deps: none
+// exports: none
+
+
+"use strict";
+    var i,
+      n = t.r(779148),
+      a = t.r(494333),
+      s = t.r(443486),
+      o = t.r(63327),
+      h = t.r(319558),
+      u = 573;
+    function l(t, e) {
+      return ((t.msg = h[e]), e);
+    }
+    function d(t) {
+      return (t << 1) - 9 * (t > 4);
+    }
+    function f(t) {
+      for (var e = t.length; --e >= 0; ) t[e] = 0;
+    }
+    function c(t) {
+      var e = t.state,
+        r = e.pending;
+      (r > t.avail_out && (r = t.avail_out),
+        0 !== r &&
+          (n.arraySet(t.output, e.pending_buf, e.pending_out, r, t.next_out),
+          (t.next_out += r),
+          (e.pending_out += r),
+          (t.total_out += r),
+          (t.avail_out -= r),
+          (e.pending -= r),
+          0 === e.pending && (e.pending_out = 0)));
+    }
+    function p(t, e) {
+      (a._tr_flush_block(
+        t,
+        t.block_start >= 0 ? t.block_start : -1,
+        t.strstart - t.block_start,
+        e,
+      ),
+        (t.block_start = t.strstart),
+        c(t.strm));
+    }
+    function _(t, e) {
+      t.pending_buf[t.pending++] = e;
+    }
+    function m(t, e) {
+      ((t.pending_buf[t.pending++] = (e >>> 8) & 255),
+        (t.pending_buf[t.pending++] = 255 & e));
+    }
+    function g(t, e) {
+      var r,
+        i,
+        n = t.max_chain_length,
+        a = t.strstart,
+        s = t.prev_length,
+        o = t.nice_match,
+        h = t.strstart > t.w_size - 262 ? t.strstart - (t.w_size - 262) : 0,
+        u = t.window,
+        l = t.w_mask,
+        d = t.prev,
+        f = t.strstart + 258,
+        c = u[a + s - 1],
+        p = u[a + s];
+      (t.prev_length >= t.good_match && (n >>= 2),
+        o > t.lookahead && (o = t.lookahead));
+      do {
+        if (
+          u[(r = e) + s] !== p ||
+          u[r + s - 1] !== c ||
+          u[r] !== u[a] ||
+          u[++r] !== u[a + 1]
+        )
+          continue;
+        ((a += 2), r++);
+        do;
+        while (
+          u[++a] === u[++r] &&
+          u[++a] === u[++r] &&
+          u[++a] === u[++r] &&
+          u[++a] === u[++r] &&
+          u[++a] === u[++r] &&
+          u[++a] === u[++r] &&
+          u[++a] === u[++r] &&
+          u[++a] === u[++r] &&
+          a < f
+        );
+        if (((i = 258 - (f - a)), (a = f - 258), i > s)) {
+          if (((t.match_start = e), (s = i), i >= o)) break;
+          ((c = u[a + s - 1]), (p = u[a + s]));
+        }
+      } while ((e = d[e & l]) > h && 0 != --n);
+      return s <= t.lookahead ? s : t.lookahead;
+    }
+    function v(t) {
+      var e,
+        r,
+        i,
+        a,
+        h,
+        u = t.w_size;
+      do {
+        if (
+          ((a = t.window_size - t.lookahead - t.strstart),
+          t.strstart >= u + (u - 262))
+        ) {
+          (n.arraySet(t.window, t.window, u, u, 0),
+            (t.match_start -= u),
+            (t.strstart -= u),
+            (t.block_start -= u),
+            (e = r = t.hash_size));
+          do ((i = t.head[--e]), (t.head[e] = i >= u ? i - u : 0));
+          while (--r);
+          e = r = u;
+          do ((i = t.prev[--e]), (t.prev[e] = i >= u ? i - u : 0));
+          while (--r);
+          a += u;
+        }
+        if (0 === t.strm.avail_in) break;
+        if (
+          ((r = (function (t, e, r, i) {
+            var a = t.avail_in;
+            return (a > i && (a = i), 0 === a)
+              ? 0
+              : ((t.avail_in -= a),
+                n.arraySet(e, t.input, t.next_in, a, r),
+                1 === t.state.wrap
+                  ? (t.adler = s(t.adler, e, a, r))
+                  : 2 === t.state.wrap && (t.adler = o(t.adler, e, a, r)),
+                (t.next_in += a),
+                (t.total_in += a),
+                a);
+          })(t.strm, t.window, t.strstart + t.lookahead, a)),
+          (t.lookahead += r),
+          t.lookahead + t.insert >= 3)
+        )
+          for (
+            h = t.strstart - t.insert,
+              t.ins_h = t.window[h],
+              t.ins_h =
+                ((t.ins_h << t.hash_shift) ^ t.window[h + 1]) & t.hash_mask;
+            t.insert &&
+            ((t.ins_h =
+              ((t.ins_h << t.hash_shift) ^ t.window[h + 3 - 1]) & t.hash_mask),
+            (t.prev[h & t.w_mask] = t.head[t.ins_h]),
+            (t.head[t.ins_h] = h),
+            h++,
+            t.insert--,
+            !(t.lookahead + t.insert < 3));
+
+          );
+      } while (t.lookahead < 262 && 0 !== t.strm.avail_in);
+    }
+    function b(t, e) {
+      for ( ; ) {
+        if (t.lookahead < 262) {
+          if ((v(t), t.lookahead < 262 && 0 === e)) return 1;
+          if (0 === t.lookahead) break;
+        }
+        if (
+          ((r = 0),
+          t.lookahead >= 3 &&
+            ((t.ins_h =
+              ((t.ins_h << t.hash_shift) ^ t.window[t.strstart + 3 - 1]) &
+              t.hash_mask),
+            (r = t.prev[t.strstart & t.w_mask] = t.head[t.ins_h]),
+            (t.head[t.ins_h] = t.strstart)),
+          0 !== r &&
+            t.strstart - r <= t.w_size - 262 &&
+            (t.match_length = g(t, r)),
+          t.match_length >= 3)
+        )
+          if (
+            ((i = a._tr_tally(
+              t,
+              t.strstart - t.match_start,
+              t.match_length - 3,
+            )),
+            (t.lookahead -= t.match_length),
+            t.match_length <= t.max_lazy_match && t.lookahead >= 3)
+          ) {
+            t.match_length--;
+            do
+              (t.strstart++,
+                (t.ins_h =
+                  ((t.ins_h << t.hash_shift) ^ t.window[t.strstart + 3 - 1]) &
+                  t.hash_mask),
+                (r = t.prev[t.strstart & t.w_mask] = t.head[t.ins_h]),
+                (t.head[t.ins_h] = t.strstart));
+            while (0 != --t.match_length);
+            t.strstart++;
+          } else
+            ((t.strstart += t.match_length),
+              (t.match_length = 0),
+              (t.ins_h = t.window[t.strstart]),
+              (t.ins_h =
+                ((t.ins_h << t.hash_shift) ^ t.window[t.strstart + 1]) &
+                t.hash_mask));
+        else
+          ((i = a._tr_tally(t, 0, t.window[t.strstart])),
+            t.lookahead--,
+            t.strstart++);
+        if (i && (p(t, !1), 0 === t.strm.avail_out)) return 1;
+      }
+      return ((t.insert = t.strstart < 2 ? t.strstart : 2), 4 === e)
+        ? (p(t, !0), 0 === t.strm.avail_out)
+          ? 3
+          : 4
+        : t.last_lit && (p(t, !1), 0 === t.strm.avail_out)
+          ? 1
+          : 2;
+    }
+    function y(t, e) {
+      for ( ; ) {
+        if (t.lookahead < 262) {
+          if ((v(t), t.lookahead < 262 && 0 === e)) return 1;
+          if (0 === t.lookahead) break;
+        }
+        if (
+          ((r = 0),
+          t.lookahead >= 3 &&
+            ((t.ins_h =
+              ((t.ins_h << t.hash_shift) ^ t.window[t.strstart + 3 - 1]) &
+              t.hash_mask),
+            (r = t.prev[t.strstart & t.w_mask] = t.head[t.ins_h]),
+            (t.head[t.ins_h] = t.strstart)),
+          (t.prev_length = t.match_length),
+          (t.prev_match = t.match_start),
+          (t.match_length = 2),
+          0 !== r &&
+            t.prev_length < t.max_lazy_match &&
+            t.strstart - r <= t.w_size - 262 &&
+            ((t.match_length = g(t, r)),
+            t.match_length <= 5 &&
+              (1 === t.strategy ||
+                (3 === t.match_length && t.strstart - t.match_start > 4096)) &&
+              (t.match_length = 2)),
+          t.prev_length >= 3 && t.match_length <= t.prev_length)
+        ) {
+          ((n = t.strstart + t.lookahead - 3),
+            (i = a._tr_tally(
+              t,
+              t.strstart - 1 - t.prev_match,
+              t.prev_length - 3,
+            )),
+            (t.lookahead -= t.prev_length - 1),
+            (t.prev_length -= 2));
+          do
+            ++t.strstart <= n &&
+              ((t.ins_h =
+                ((t.ins_h << t.hash_shift) ^ t.window[t.strstart + 3 - 1]) &
+                t.hash_mask),
+              (r = t.prev[t.strstart & t.w_mask] = t.head[t.ins_h]),
+              (t.head[t.ins_h] = t.strstart));
+          while (0 != --t.prev_length);
+          if (
+            ((t.match_available = 0),
+            (t.match_length = 2),
+            t.strstart++,
+            i && (p(t, !1), 0 === t.strm.avail_out))
+          )
+            return 1;
+        } else if (t.match_available) {
+          if (
+            ((i = a._tr_tally(t, 0, t.window[t.strstart - 1])) && p(t, !1),
+            t.strstart++,
+            t.lookahead--,
+            0 === t.strm.avail_out)
+          )
+            return 1;
+        } else ((t.match_available = 1), t.strstart++, t.lookahead--);
+      }
+      return (t.match_available &&
+        ((i = a._tr_tally(t, 0, t.window[t.strstart - 1])),
+        (t.match_available = 0)),
+      (t.insert = t.strstart < 2 ? t.strstart : 2),
+      4 === e)
+        ? (p(t, !0), 0 === t.strm.avail_out)
+          ? 3
+          : 4
+        : t.last_lit && (p(t, !1), 0 === t.strm.avail_out)
+          ? 1
+          : 2;
+    }
+    function w(t, e, r, i, n) {
+      ((this.good_length = t),
+        (this.max_lazy = e),
+        (this.nice_length = r),
+        (this.max_chain = i),
+        (this.func = n));
+    }
+    function k() {
+      ((this.strm = null),
+        (this.status = 0),
+        (this.pending_buf = null),
+        (this.pending_buf_size = 0),
+        (this.pending_out = 0),
+        (this.pending = 0),
+        (this.wrap = 0),
+        (this.gzhead = null),
+        (this.gzindex = 0),
+        (this.method = 8),
+        (this.last_flush = -1),
+        (this.w_size = 0),
+        (this.w_bits = 0),
+        (this.w_mask = 0),
+        (this.window = null),
+        (this.window_size = 0),
+        (this.prev = null),
+        (this.head = null),
+        (this.ins_h = 0),
+        (this.hash_size = 0),
+        (this.hash_bits = 0),
+        (this.hash_mask = 0),
+        (this.hash_shift = 0),
+        (this.block_start = 0),
+        (this.match_length = 0),
+        (this.prev_match = 0),
+        (this.match_available = 0),
+        (this.strstart = 0),
+        (this.match_start = 0),
+        (this.lookahead = 0),
+        (this.prev_length = 0),
+        (this.max_chain_length = 0),
+        (this.max_lazy_match = 0),
+        (this.level = 0),
+        (this.strategy = 0),
+        (this.good_match = 0),
+        (this.nice_match = 0),
+        (this.dyn_ltree = new n.Buf16(2 * u)),
+        (this.dyn_dtree = new n.Buf16(122)),
+        (this.bl_tree = new n.Buf16(78)),
+        f(this.dyn_ltree),
+        f(this.dyn_dtree),
+        f(this.bl_tree),
+        (this.l_desc = null),
+        (this.d_desc = null),
+        (this.bl_desc = null),
+        (this.bl_count = new n.Buf16(16)),
+        (this.heap = new n.Buf16(573)),
+        f(this.heap),
+        (this.heap_len = 0),
+        (this.heap_max = 0),
+        (this.depth = new n.Buf16(573)),
+        f(this.depth),
+        (this.l_buf = 0),
+        (this.lit_bufsize = 0),
+        (this.last_lit = 0),
+        (this.d_buf = 0),
+        (this.opt_len = 0),
+        (this.static_len = 0),
+        (this.matches = 0),
+        (this.insert = 0),
+        (this.bi_buf = 0),
+        (this.bi_valid = 0));
+    }
+    function x(t) {
+      
+      return t && t.state
+        ? ((t.total_in = t.total_out = 0),
+          (t.data_type = 2),
+          ((e = t.state).pending = 0),
+          (e.pending_out = 0),
+          e.wrap < 0 && (e.wrap = -e.wrap),
+          (e.status = e.wrap ? 42 : 113),
+          (t.adler = +(2 !== e.wrap)),
+          (e.last_flush = 0),
+          a._tr_init(e),
+          0)
+        : l(t, -2);
+    }
+    function S(t) {
+      var e,
+        r = x(t);
+      return (
+        0 === r &&
+          (((e = t.state).window_size = 2 * e.w_size),
+          f(e.head),
+          (e.max_lazy_match = i[e.level].max_lazy),
+          (e.good_match = i[e.level].good_length),
+          (e.nice_match = i[e.level].nice_length),
+          (e.max_chain_length = i[e.level].max_chain),
+          (e.strstart = 0),
+          (e.block_start = 0),
+          (e.lookahead = 0),
+          (e.insert = 0),
+          (e.match_length = e.prev_length = 2),
+          (e.match_available = 0),
+          (e.ins_h = 0)),
+        r
+      );
+    }
+    function C(t, e, r, i, a, s) {
+      if (!t) return -2;
+      var o = 1;
+      if (
+        (-1 === e && (e = 6),
+        i < 0 ? ((o = 0), (i = -i)) : i > 15 && ((o = 2), (i -= 16)),
+        a < 1 ||
+          a > 9 ||
+          8 !== r ||
+          i < 8 ||
+          i > 15 ||
+          e < 0 ||
+          e > 9 ||
+          s < 0 ||
+          s > 4)
+      )
+        return l(t, -2);
+      8 === i && (i = 9);
+      var h = new k();
+      return (
+        (t.state = h),
+        (h.strm = t),
+        (h.wrap = o),
+        (h.gzhead = null),
+        (h.w_bits = i),
+        (h.w_size = 1 << h.w_bits),
+        (h.w_mask = h.w_size - 1),
+        (h.hash_bits = a + 7),
+        (h.hash_size = 1 << h.hash_bits),
+        (h.hash_mask = h.hash_size - 1),
+        (h.hash_shift = ~~((h.hash_bits + 3 - 1) / 3)),
+        (h.window = new n.Buf8(2 * h.w_size)),
+        (h.head = new n.Buf16(h.hash_size)),
+        (h.prev = new n.Buf16(h.w_size)),
+        (h.lit_bufsize = 1 << (a + 6)),
+        (h.pending_buf_size = 4 * h.lit_bufsize),
+        (h.pending_buf = new n.Buf8(h.pending_buf_size)),
+        (h.d_buf = +h.lit_bufsize),
+        (h.l_buf = 3 * h.lit_bufsize),
+        (h.level = e),
+        (h.strategy = s),
+        (h.method = r),
+        S(t)
+      );
+    }
+    ((i = [
+      new w(0, 0, 0, 0, function (t, e) {
+        var r = 65535;
+        for (
+          65535 > t.pending_buf_size - 5 && (r = t.pending_buf_size - 5);
+          ;
+
+        ) {
+          if (t.lookahead <= 1) {
+            if ((v(t), 0 === t.lookahead && 0 === e)) return 1;
+            if (0 === t.lookahead) break;
+          }
+          ((t.strstart += t.lookahead), (t.lookahead = 0));
+          var i = t.block_start + r;
+          if (
+            ((0 === t.strstart || t.strstart >= i) &&
+              ((t.lookahead = t.strstart - i),
+              (t.strstart = i),
+              p(t, !1),
+              0 === t.strm.avail_out)) ||
+            (t.strstart - t.block_start >= t.w_size - 262 &&
+              (p(t, !1), 0 === t.strm.avail_out))
+          )
+            return 1;
+        }
+        return ((t.insert = 0), 4 === e)
+          ? (p(t, !0), 0 === t.strm.avail_out)
+            ? 3
+            : 4
+          : (t.strstart > t.block_start && (p(t, !1), t.strm.avail_out), 1);
+      }),
+      new w(4, 4, 8, 4, b),
+      new w(4, 5, 16, 8, b),
+      new w(4, 6, 32, 32, b),
+      new w(4, 4, 16, 16, y),
+      new w(8, 16, 32, 32, y),
+      new w(8, 16, 128, 128, y),
+      new w(8, 32, 128, 256, y),
+      new w(32, 128, 258, 1024, y),
+      new w(32, 258, 258, 4096, y),
+    ]),
+      (r.deflateInit = function (t, e) {
+        return C(t, e, 8, 15, 8, 0);
+      }),
+      (r.deflateInit2 = C),
+      (r.deflateReset = S),
+      (r.deflateResetKeep = x),
+      (r.deflateSetHeader = function (t, e) {
+        return t && t.state && 2 === t.state.wrap
+          ? ((t.state.gzhead = e), 0)
+          : -2;
+      }),
+      (r.deflate = function (t, e) {
+        if (!t || !t.state || e > 5 || e < 0) return t ? l(t, -2) : -2;
+        if (
+          ((n = t.state),
+          !t.output ||
+            (!t.input && 0 !== t.avail_in) ||
+            (666 === n.status && 4 !== e))
+        )
+          return l(t, 0 === t.avail_out ? -5 : -2);
+        if (
+          ((n.strm = t),
+          (r = n.last_flush),
+          (n.last_flush = e),
+          42 === n.status)
+        )
+          if (2 === n.wrap)
+            ((t.adler = 0),
+              _(n, 31),
+              _(n, 139),
+              _(n, 8),
+              n.gzhead
+                ? (_(
+                    n,
+                    +!!n.gzhead.text +
+                      2 * !!n.gzhead.hcrc +
+                      4 * !!n.gzhead.extra +
+                      8 * !!n.gzhead.name +
+                      16 * !!n.gzhead.comment,
+                  ),
+                  _(n, 255 & n.gzhead.time),
+                  _(n, (n.gzhead.time >> 8) & 255),
+                  _(n, (n.gzhead.time >> 16) & 255),
+                  _(n, (n.gzhead.time >> 24) & 255),
+                  _(
+                    n,
+                    9 === n.level ? 2 : 4 * (n.strategy >= 2 || n.level < 2),
+                  ),
+                  _(n, 255 & n.gzhead.os),
+                  n.gzhead.extra &&
+                    n.gzhead.extra.length &&
+                    (_(n, 255 & n.gzhead.extra.length),
+                    _(n, (n.gzhead.extra.length >> 8) & 255)),
+                  n.gzhead.hcrc &&
+                    (t.adler = o(t.adler, n.pending_buf, n.pending, 0)),
+                  (n.gzindex = 0),
+                  (n.status = 69))
+                : (_(n, 0),
+                  _(n, 0),
+                  _(n, 0),
+                  _(n, 0),
+                  _(n, 0),
+                  _(
+                    n,
+                    9 === n.level ? 2 : 4 * (n.strategy >= 2 || n.level < 2),
+                  ),
+                  _(n, 3),
+                  (n.status = 113)));
+          else {
+            var r,
+              n,
+              s,
+              h,
+              u = (8 + ((n.w_bits - 8) << 4)) << 8;
+            ((u |=
+              (n.strategy >= 2 || n.level < 2
+                ? 0
+                : n.level < 6
+                  ? 1
+                  : 6 === n.level
+                    ? 2
+                    : 3) << 6),
+              0 !== n.strstart && (u |= 32),
+              (u += 31 - (u % 31)),
+              (n.status = 113),
+              m(n, u),
+              0 !== n.strstart && (m(n, t.adler >>> 16), m(n, 65535 & t.adler)),
+              (t.adler = 1));
+          }
+        if (69 === n.status)
+          if (n.gzhead.extra) {
+            for (
+              s = n.pending;
+              n.gzindex < (65535 & n.gzhead.extra.length) &&
+              (n.pending !== n.pending_buf_size ||
+                (n.gzhead.hcrc &&
+                  n.pending > s &&
+                  (t.adler = o(t.adler, n.pending_buf, n.pending - s, s)),
+                c(t),
+                (s = n.pending),
+                n.pending !== n.pending_buf_size));
+
+            )
+              (_(n, 255 & n.gzhead.extra[n.gzindex]), n.gzindex++);
+            (n.gzhead.hcrc &&
+              n.pending > s &&
+              (t.adler = o(t.adler, n.pending_buf, n.pending - s, s)),
+              n.gzindex === n.gzhead.extra.length &&
+                ((n.gzindex = 0), (n.status = 73)));
+          } else n.status = 73;
+        if (73 === n.status)
+          if (n.gzhead.name) {
+            s = n.pending;
+            do {
+              if (
+                n.pending === n.pending_buf_size &&
+                (n.gzhead.hcrc &&
+                  n.pending > s &&
+                  (t.adler = o(t.adler, n.pending_buf, n.pending - s, s)),
+                c(t),
+                (s = n.pending),
+                n.pending === n.pending_buf_size)
+              ) {
+                h = 1;
+                break;
+              }
+              ((h =
+                n.gzindex < n.gzhead.name.length
+                  ? 255 & n.gzhead.name.charCodeAt(n.gzindex++)
+                  : 0),
+                _(n, h));
+            } while (0 !== h);
+            (n.gzhead.hcrc &&
+              n.pending > s &&
+              (t.adler = o(t.adler, n.pending_buf, n.pending - s, s)),
+              0 === h && ((n.gzindex = 0), (n.status = 91)));
+          } else n.status = 91;
+        if (91 === n.status)
+          if (n.gzhead.comment) {
+            s = n.pending;
+            do {
+              if (
+                n.pending === n.pending_buf_size &&
+                (n.gzhead.hcrc &&
+                  n.pending > s &&
+                  (t.adler = o(t.adler, n.pending_buf, n.pending - s, s)),
+                c(t),
+                (s = n.pending),
+                n.pending === n.pending_buf_size)
+              ) {
+                h = 1;
+                break;
+              }
+              ((h =
+                n.gzindex < n.gzhead.comment.length
+                  ? 255 & n.gzhead.comment.charCodeAt(n.gzindex++)
+                  : 0),
+                _(n, h));
+            } while (0 !== h);
+            (n.gzhead.hcrc &&
+              n.pending > s &&
+              (t.adler = o(t.adler, n.pending_buf, n.pending - s, s)),
+              0 === h && (n.status = 103));
+          } else n.status = 103;
+        if (
+          (103 === n.status &&
+            (n.gzhead.hcrc
+              ? (n.pending + 2 > n.pending_buf_size && c(t),
+                n.pending + 2 <= n.pending_buf_size &&
+                  (_(n, 255 & t.adler),
+                  _(n, (t.adler >> 8) & 255),
+                  (t.adler = 0),
+                  (n.status = 113)))
+              : (n.status = 113)),
+          0 !== n.pending)
+        ) {
+          if ((c(t), 0 === t.avail_out)) return ((n.last_flush = -1), 0);
+        } else if (0 === t.avail_in && d(e) <= d(r) && 4 !== e) return l(t, -5);
+        if (666 === n.status && 0 !== t.avail_in) return l(t, -5);
+        if (
+          0 !== t.avail_in ||
+          0 !== n.lookahead ||
+          (0 !== e && 666 !== n.status)
+        ) {
+          var g =
+            2 === n.strategy
+              ? (function (t, e) {
+                  for ( ; ) {
+                    if (0 === t.lookahead && (v(t), 0 === t.lookahead)) {
+                      if (0 === e) return 1;
+                      break;
+                    }
+                    if (
+                      ((t.match_length = 0),
+                      (r = a._tr_tally(t, 0, t.window[t.strstart])),
+                      t.lookahead--,
+                      t.strstart++,
+                      r && (p(t, !1), 0 === t.strm.avail_out))
+                    )
+                      return 1;
+                  }
+                  return ((t.insert = 0), 4 === e)
+                    ? (p(t, !0), 0 === t.strm.avail_out)
+                      ? 3
+                      : 4
+                    : t.last_lit && (p(t, !1), 0 === t.strm.avail_out)
+                      ? 1
+                      : 2;
+                })(n, e)
+              : 3 === n.strategy
+                ? (function (t, e) {
+                    for (var r, i, n, s, o = t.window; ; ) {
+                      if (t.lookahead <= 258) {
+                        if ((v(t), t.lookahead <= 258 && 0 === e)) return 1;
+                        if (0 === t.lookahead) break;
+                      }
+                      if (
+                        ((t.match_length = 0),
+                        t.lookahead >= 3 &&
+                          t.strstart > 0 &&
+                          (i = o[(n = t.strstart - 1)]) === o[++n] &&
+                          i === o[++n] &&
+                          i === o[++n])
+                      ) {
+                        s = t.strstart + 258;
+                        do;
+                        while (
+                          i === o[++n] &&
+                          i === o[++n] &&
+                          i === o[++n] &&
+                          i === o[++n] &&
+                          i === o[++n] &&
+                          i === o[++n] &&
+                          i === o[++n] &&
+                          i === o[++n] &&
+                          n < s
+                        );
+                        ((t.match_length = 258 - (s - n)),
+                          t.match_length > t.lookahead &&
+                            (t.match_length = t.lookahead));
+                      }
+                      if (
+                        (t.match_length >= 3
+                          ? ((r = a._tr_tally(t, 1, t.match_length - 3)),
+                            (t.lookahead -= t.match_length),
+                            (t.strstart += t.match_length),
+                            (t.match_length = 0))
+                          : ((r = a._tr_tally(t, 0, t.window[t.strstart])),
+                            t.lookahead--,
+                            t.strstart++),
+                        r && (p(t, !1), 0 === t.strm.avail_out))
+                      )
+                        return 1;
+                    }
+                    return ((t.insert = 0), 4 === e)
+                      ? (p(t, !0), 0 === t.strm.avail_out)
+                        ? 3
+                        : 4
+                      : t.last_lit && (p(t, !1), 0 === t.strm.avail_out)
+                        ? 1
+                        : 2;
+                  })(n, e)
+                : i[n.level].func(n, e);
+          if (((3 === g || 4 === g) && (n.status = 666), 1 === g || 3 === g))
+            return (0 === t.avail_out && (n.last_flush = -1), 0);
+          if (
+            2 === g &&
+            (1 === e
+              ? a._tr_align(n)
+              : 5 !== e &&
+                (a._tr_stored_block(n, 0, 0, !1),
+                3 === e &&
+                  (f(n.head),
+                  0 === n.lookahead &&
+                    ((n.strstart = 0), (n.block_start = 0), (n.insert = 0)))),
+            c(t),
+            0 === t.avail_out)
+          )
+            return ((n.last_flush = -1), 0);
+        }
+        return 4 !== e
+          ? 0
+          : n.wrap <= 0
+            ? 1
+            : (2 === n.wrap
+                ? (_(n, 255 & t.adler),
+                  _(n, (t.adler >> 8) & 255),
+                  _(n, (t.adler >> 16) & 255),
+                  _(n, (t.adler >> 24) & 255),
+                  _(n, 255 & t.total_in),
+                  _(n, (t.total_in >> 8) & 255),
+                  _(n, (t.total_in >> 16) & 255),
+                  _(n, (t.total_in >> 24) & 255))
+                : (m(n, t.adler >>> 16), m(n, 65535 & t.adler)),
+              c(t),
+              n.wrap > 0 && (n.wrap = -n.wrap),
+              +(0 === n.pending));
+      }),
+      (r.deflateEnd = function (t) {
+        
+        return t && t.state
+          ? 42 !== (e = t.state.status) &&
+            69 !== e &&
+            73 !== e &&
+            91 !== e &&
+            103 !== e &&
+            113 !== e &&
+            666 !== e
+            ? l(t, -2)
+            : ((t.state = null), 113 === e ? l(t, -3) : 0)
+          : -2;
+      }),
+      (r.deflateSetDictionary = function (t, e) {
+        var r,
+          i,
+          a,
+          o,
+          h,
+          u,
+          l,
+          d,
+          c = e.length;
+        if (
+          !t ||
+          !t.state ||
+          2 === (o = (r = t.state).wrap) ||
+          (1 === o && 42 !== r.status) ||
+          r.lookahead
+        )
+          return -2;
+        for (
+          1 === o && (t.adler = s(t.adler, e, c, 0)),
+            r.wrap = 0,
+            c >= r.w_size &&
+              (0 === o &&
+                (f(r.head),
+                (r.strstart = 0),
+                (r.block_start = 0),
+                (r.insert = 0)),
+              (d = new n.Buf8(r.w_size)),
+              n.arraySet(d, e, c - r.w_size, r.w_size, 0),
+              (e = d),
+              (c = r.w_size)),
+            h = t.avail_in,
+            u = t.next_in,
+            l = t.input,
+            t.avail_in = c,
+            t.next_in = 0,
+            t.input = e,
+            v(r);
+          r.lookahead >= 3;
+
+        ) {
+          ((i = r.strstart), (a = r.lookahead - 2));
+          do
+            ((r.ins_h =
+              ((r.ins_h << r.hash_shift) ^ r.window[i + 3 - 1]) & r.hash_mask),
+              (r.prev[i & r.w_mask] = r.head[r.ins_h]),
+              (r.head[r.ins_h] = i),
+              i++);
+          while (--a);
+          ((r.strstart = i), (r.lookahead = 2), v(r));
+        }
+        return (
+          (r.strstart += r.lookahead),
+          (r.block_start = r.strstart),
+          (r.insert = r.lookahead),
+          (r.lookahead = 0),
+          (r.match_length = r.prev_length = 2),
+          (r.match_available = 0),
+          (t.next_in = u),
+          (t.input = l),
+          (t.avail_in = h),
+          (r.wrap = o),
+          0
+        );
+      }),
+      (r.deflateInfo = "pako deflate (from Nodeca project)"));

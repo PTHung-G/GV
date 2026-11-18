@@ -1,0 +1,937 @@
+{
+  "run": "final-pass-2026-11-16T09-41-31-055Z",
+  "method": "Manual full ancestry, task boundaries and context inspection against frozen independent gold. Actual paths, not expected labels. All 35 outputs inspected; all 58 ignored original blocks inspected as chrome/blank/scoring instructions, not mathematical task data. Separate axes.",
+  "summary": {
+    "retained": 35,
+    "topic": {
+      "Correct": 35,
+      "Ambiguous": 0,
+      "Wrong": 0
+    },
+    "preferredGoldUnits": {
+      "Correct": 33,
+      "Ambiguous": 4,
+      "Wrong": 0,
+      "total": 37
+    },
+    "retainedBoundary": {
+      "Correct": 33,
+      "Ambiguous": 2,
+      "Wrong": 0
+    },
+    "context": {
+      "Clean": 35,
+      "Polluted": 0
+    },
+    "ignoredChrome": 58,
+    "bodyDuplicates": 0,
+    "capturedSourcesExact": 3
+  },
+  "limitations": [
+    "Only one successful final paid corpus run; provider nondeterminism remains.",
+    "Lý Sơn I.1a/b and I.2a/b remain inseparable under exact physical-line blocks; no original-source rewrite or gold-derived split used.",
+    "Broad but encompassing taxonomy labels count as semantically correct, not an optimal pedagogic hierarchy.",
+    "No independent visual/formula fidelity pass and no numerical answerability claim."
+  ],
+  "questions": [
+    {
+      "index": 1,
+      "source": "hat-mon-hk2-2025-2026",
+      "label": "Bài I.1",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Thống kê mô tả"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "contextBlockIds": [],
+      "note": "Frequency table and relative frequencies share one data set."
+    },
+    {
+      "index": 2,
+      "source": "hat-mon-hk2-2025-2026",
+      "label": "Bài I.2",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Thống kê mô tả"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "contextBlockIds": [],
+      "note": "Chart tasks kept together; upstream chart values absent."
+    },
+    {
+      "index": 3,
+      "source": "hat-mon-hk2-2025-2026",
+      "label": "Bài II.1",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Đại số",
+        "Hàm số bậc hai, phương trình bậc hai và hệ thức Vi-ét"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        24,
+        25,
+        26
+      ],
+      "contextBlockIds": [],
+      "note": "Coefficient identification and quadratic solving stay together."
+    },
+    {
+      "index": 4,
+      "source": "hat-mon-hk2-2025-2026",
+      "label": "Bài II.2",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Đại số",
+        "Hàm số bậc hai, phương trình bậc hai và hệ thức Vi-ét"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "contextBlockIds": [],
+      "note": "Graph and intersection task share setup."
+    },
+    {
+      "index": 5,
+      "source": "hat-mon-hk2-2025-2026",
+      "label": "Bài III",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Đại số",
+        "Bài toán thực tế bằng cách lập phương trình, hệ phương trình",
+        "Bài toán thực tế về lãi suất"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        34,
+        35,
+        36,
+        37
+      ],
+      "contextBlockIds": [],
+      "note": "Bank-interest modelling is algebraic word problem."
+    },
+    {
+      "index": 6,
+      "source": "hat-mon-hk2-2025-2026",
+      "label": "Bài IV.1",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Hình học",
+        "Hình trụ: diện tích xung quanh và thể tích"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
+      "contextBlockIds": [],
+      "note": "Cylinder lateral area is inside widened cylinder node."
+    },
+    {
+      "index": 7,
+      "source": "hat-mon-hk2-2025-2026",
+      "label": "Bài IV.2",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Hình học",
+        "Đường tròn, tứ giác nội tiếp và hệ thức hình học"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "contextBlockIds": [],
+      "note": "Full connected cyclic proof a–c retained."
+    },
+    {
+      "index": 8,
+      "source": "hat-mon-hk2-2025-2026",
+      "label": "Bài V",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Hình học",
+        "Bài toán tối ưu hình học",
+        "Cực trị diện tích hình học"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        53,
+        54,
+        55,
+        56,
+        57,
+        59
+      ],
+      "contextBlockIds": [
+        52,
+        60
+      ],
+      "note": "Square-area optimization with local M/N/P/Q diagram fragments."
+    },
+    {
+      "index": 9,
+      "source": "ly-son-hk1-2025-2026",
+      "label": "Bài I.1",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Đại số",
+        "Căn thức và rút gọn biểu thức"
+      ],
+      "topic": "Correct",
+      "boundary": "Ambiguous",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "contextBlockIds": [],
+      "note": "Two independent expressions still grouped: same physical lines; safe exact block split impossible without richer capture."
+    },
+    {
+      "index": 10,
+      "source": "ly-son-hk1-2025-2026",
+      "label": "Bài I.2",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Đại số",
+        "Phương trình tích và bất phương trình bậc nhất"
+      ],
+      "topic": "Correct",
+      "boundary": "Ambiguous",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "contextBlockIds": [],
+      "note": "Equation and inequality still grouped: same physical line; mixed but encompassing algebra label."
+    },
+    {
+      "index": 11,
+      "source": "ly-son-hk1-2025-2026",
+      "label": "Bài II.1",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Đại số",
+        "Bài toán thực tế bằng cách lập phương trình, hệ phương trình"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        21,
+        22,
+        23
+      ],
+      "contextBlockIds": [
+        20
+      ],
+      "note": "Motorcycle travel task now independent; only shared method instruction."
+    },
+    {
+      "index": 12,
+      "source": "ly-son-hk1-2025-2026",
+      "label": "Bài II.2",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Đại số",
+        "Bài toán thực tế bằng cách lập phương trình, hệ phương trình"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        24,
+        25,
+        26
+      ],
+      "contextBlockIds": [
+        20
+      ],
+      "note": "Production-percentage task now independent; only shared method instruction."
+    },
+    {
+      "index": 13,
+      "source": "ly-son-hk1-2025-2026",
+      "label": "Bài III",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Đại số",
+        "Căn thức và rút gọn biểu thức"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "contextBlockIds": [],
+      "note": "Full A/B expression composite a–c preserved."
+    },
+    {
+      "index": 14,
+      "source": "ly-son-hk1-2025-2026",
+      "label": "Bài IV.1",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Hình học",
+        "Tỉ số lượng giác trong tam giác vuông và ứng dụng thực tế"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "contextBlockIds": [
+        39,
+        40
+      ],
+      "note": "Submarine trigonometry no longer mixed with circle proof."
+    },
+    {
+      "index": 15,
+      "source": "ly-son-hk1-2025-2026",
+      "label": "Bài IV.2",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Hình học",
+        "Đường tròn, tứ giác nội tiếp và hệ thức hình học"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        51
+      ],
+      "contextBlockIds": [],
+      "note": "Full circle/tangent proof a–c preserved."
+    },
+    {
+      "index": 16,
+      "source": "ly-son-hk1-2025-2026",
+      "label": "Bài V",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Hình học",
+        "Bài toán tối ưu hình học",
+        "Cực trị diện tích hình học"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        53,
+        54,
+        55,
+        56,
+        57
+      ],
+      "contextBlockIds": [
+        58,
+        59,
+        60,
+        61
+      ],
+      "note": "Rectangle-area maximum inside equilateral triangle."
+    },
+    {
+      "index": 17,
+      "source": "quang-ninh-entrance10-2026-2027",
+      "label": "Câu 1 (trắc nghiệm)",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Đại số",
+        "Căn thức và rút gọn biểu thức"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        9,
+        10
+      ],
+      "contextBlockIds": [],
+      "note": "Cube root task."
+    },
+    {
+      "index": 18,
+      "source": "quang-ninh-entrance10-2026-2027",
+      "label": "Câu 2 (trắc nghiệm)",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Đại số",
+        "Hàm số bậc hai, phương trình bậc hai và hệ thức Vi-ét"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "contextBlockIds": [],
+      "note": "Quadratic graph coordinate task."
+    },
+    {
+      "index": 19,
+      "source": "quang-ninh-entrance10-2026-2027",
+      "label": "Câu 3 (trắc nghiệm)",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Đại số",
+        "Phương trình tích và bất phương trình bậc nhất"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        15,
+        16
+      ],
+      "contextBlockIds": [],
+      "note": "Linear inequality task."
+    },
+    {
+      "index": 20,
+      "source": "quang-ninh-entrance10-2026-2027",
+      "label": "Câu 4 (trắc nghiệm)",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Đại số",
+        "Phương trình bậc nhất hai ẩn và hệ phương trình"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        17,
+        18,
+        19
+      ],
+      "contextBlockIds": [],
+      "note": "Linear equation in two variables."
+    },
+    {
+      "index": 21,
+      "source": "quang-ninh-entrance10-2026-2027",
+      "label": "Câu 5 (trắc nghiệm)",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Thống kê mô tả"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "contextBlockIds": [],
+      "note": "Grouped frequency table."
+    },
+    {
+      "index": 22,
+      "source": "quang-ninh-entrance10-2026-2027",
+      "label": "Câu 6 (trắc nghiệm)",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Hình học",
+        "Tỉ số lượng giác trong tam giác vuông và ứng dụng thực tế"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "contextBlockIds": [],
+      "note": "Right-triangle trigonometric ratio."
+    },
+    {
+      "index": 23,
+      "source": "quang-ninh-entrance10-2026-2027",
+      "label": "Câu 7 (trắc nghiệm)",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Hình học",
+        "Đường tròn, tứ giác nội tiếp và hệ thức hình học"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        31,
+        32
+      ],
+      "contextBlockIds": [],
+      "note": "Inscribed equilateral triangle and central angle."
+    },
+    {
+      "index": 24,
+      "source": "quang-ninh-entrance10-2026-2027",
+      "label": "Câu 8 (trắc nghiệm)",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Hình học",
+        "Hình trụ: diện tích xung quanh và thể tích"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        33,
+        34,
+        35
+      ],
+      "contextBlockIds": [],
+      "note": "Cylinder volume has no area-only ancestor; node explicitly encompasses volume."
+    },
+    {
+      "index": 25,
+      "source": "quang-ninh-entrance10-2026-2027",
+      "label": "Câu 9 (trắc nghiệm)",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Hình học",
+        "Hình nón: diện tích xung quanh"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        36,
+        37,
+        38
+      ],
+      "contextBlockIds": [],
+      "note": "Cone lateral area."
+    },
+    {
+      "index": 26,
+      "source": "quang-ninh-entrance10-2026-2027",
+      "label": "Câu 10 (trắc nghiệm)",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Đại số",
+        "Căn thức và rút gọn biểu thức"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        40,
+        41
+      ],
+      "contextBlockIds": [],
+      "note": "Radical simplification; root scope damaged upstream."
+    },
+    {
+      "index": 27,
+      "source": "quang-ninh-entrance10-2026-2027",
+      "label": "Câu 11 (trắc nghiệm)",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Xác suất của biến cố"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "contextBlockIds": [],
+      "note": "Classical probability now outside descriptive statistics."
+    },
+    {
+      "index": 28,
+      "source": "quang-ninh-entrance10-2026-2027",
+      "label": "Câu 12 (trắc nghiệm)",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Hình học",
+        "Tỉ số lượng giác trong tam giác vuông và ứng dụng thực tế"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        58
+      ],
+      "contextBlockIds": [
+        59
+      ],
+      "note": "Height measurement trigonometry, local diagram labels only."
+    },
+    {
+      "index": 29,
+      "source": "quang-ninh-entrance10-2026-2027",
+      "label": "Câu 1 (tự luận)",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Đại số",
+        "Căn thức và rút gọn biểu thức"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "contextBlockIds": [],
+      "note": "Radical rational-expression simplification; source fraction scopes damaged."
+    },
+    {
+      "index": 30,
+      "source": "quang-ninh-entrance10-2026-2027",
+      "label": "Câu 2 (tự luận)",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Đại số",
+        "Phương trình bậc nhất hai ẩn và hệ phương trình"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        71,
+        72,
+        73
+      ],
+      "contextBlockIds": [],
+      "note": "Linear system kept intact."
+    },
+    {
+      "index": 31,
+      "source": "quang-ninh-entrance10-2026-2027",
+      "label": "Câu 3 (tự luận)",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Đại số",
+        "Phương trình tích và bất phương trình bậc nhất"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        74,
+        75,
+        76
+      ],
+      "contextBlockIds": [],
+      "note": "Linear inequality."
+    },
+    {
+      "index": 32,
+      "source": "quang-ninh-entrance10-2026-2027",
+      "label": "Câu 4 (tự luận)",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Đại số",
+        "Hàm số bậc hai, phương trình bậc hai và hệ thức Vi-ét"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        77,
+        78
+      ],
+      "contextBlockIds": [],
+      "note": "Quadratic roots and Vi-ét; radical scope damaged upstream."
+    },
+    {
+      "index": 33,
+      "source": "quang-ninh-entrance10-2026-2027",
+      "label": "Câu 5 (tự luận)",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Đại số",
+        "Bài toán thực tế bằng cách lập phương trình, hệ phương trình"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        79,
+        80,
+        81,
+        82
+      ],
+      "contextBlockIds": [],
+      "note": "Joint-work rate modelling."
+    },
+    {
+      "index": 34,
+      "source": "quang-ninh-entrance10-2026-2027",
+      "label": "Câu 6 (tự luận)",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Hình học",
+        "Đường tròn, tứ giác nội tiếp và hệ thức hình học"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        93
+      ],
+      "contextBlockIds": [],
+      "note": "Full circle composite a–c kept together."
+    },
+    {
+      "index": 35,
+      "source": "quang-ninh-entrance10-2026-2027",
+      "label": "Câu 7 (tự luận)",
+      "fullPath": [
+        "Kho câu hỏi",
+        "Toán học",
+        "Hình học",
+        "Bài toán tối ưu hình học",
+        "Tối ưu quãng đường và thời gian"
+      ],
+      "topic": "Correct",
+      "boundary": "Correct",
+      "context": "Clean",
+      "blockFidelity": "Exact to captured HTML; not original PDF losslessness",
+      "originalPdfFidelity": "Incomplete/unscorable where flattened formulas or absent diagrams; not asserted passed",
+      "bodyBlockIds": [
+        94,
+        95,
+        96,
+        97,
+        99,
+        101,
+        103,
+        104,
+        106,
+        108,
+        109
+      ],
+      "contextBlockIds": [
+        98,
+        100,
+        102,
+        105,
+        107
+      ],
+      "note": "Travel-time minimum; local footpoint/diagram text retained, geometry incomplete upstream."
+    }
+  ]
+}

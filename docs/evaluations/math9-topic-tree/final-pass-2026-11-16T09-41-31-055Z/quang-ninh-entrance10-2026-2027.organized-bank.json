@@ -1,0 +1,2871 @@
+{
+  "ownerId": "a7a5d7e7-88ec-45a6-ad29-29c724308879",
+  "revision": 21,
+  "bank": {
+    "nodes": [
+      {
+        "id": "root",
+        "label": "Kho câu hỏi",
+        "parentId": null
+      },
+      {
+        "id": "math",
+        "label": "Toán học",
+        "parentId": "root"
+      },
+      {
+        "id": "algebra",
+        "label": "Đại số",
+        "parentId": "math"
+      },
+      {
+        "id": "quadratic",
+        "label": "Hàm số bậc hai, phương trình bậc hai và hệ thức Vi-ét",
+        "parentId": "algebra"
+      },
+      {
+        "id": "algebra-expressions",
+        "label": "Căn thức và rút gọn biểu thức",
+        "parentId": "algebra"
+      },
+      {
+        "id": "algebra-linear",
+        "label": "Phương trình tích và bất phương trình bậc nhất",
+        "parentId": "algebra"
+      },
+      {
+        "id": "algebra-word-problems",
+        "label": "Bài toán thực tế bằng cách lập phương trình, hệ phương trình",
+        "parentId": "algebra"
+      },
+      {
+        "id": "interest",
+        "label": "Bài toán thực tế về lãi suất",
+        "parentId": "algebra-word-problems"
+      },
+      {
+        "id": "linear-systems",
+        "label": "Phương trình bậc nhất hai ẩn và hệ phương trình",
+        "parentId": "algebra"
+      },
+      {
+        "id": "statistics",
+        "label": "Thống kê mô tả",
+        "parentId": "math"
+      },
+      {
+        "id": "probability",
+        "label": "Xác suất của biến cố",
+        "parentId": "math"
+      },
+      {
+        "id": "geometry",
+        "label": "Hình học",
+        "parentId": "math"
+      },
+      {
+        "id": "cylinder",
+        "label": "Hình trụ: diện tích xung quanh và thể tích",
+        "parentId": "geometry"
+      },
+      {
+        "id": "cone",
+        "label": "Hình nón: diện tích xung quanh",
+        "parentId": "geometry"
+      },
+      {
+        "id": "circle",
+        "label": "Đường tròn, tứ giác nội tiếp và hệ thức hình học",
+        "parentId": "geometry"
+      },
+      {
+        "id": "optimization",
+        "label": "Bài toán tối ưu hình học",
+        "parentId": "geometry"
+      },
+      {
+        "id": "optimization-area",
+        "label": "Cực trị diện tích hình học",
+        "parentId": "optimization"
+      },
+      {
+        "id": "optimization-path",
+        "label": "Tối ưu quãng đường và thời gian",
+        "parentId": "optimization"
+      },
+      {
+        "id": "geometry-trigonometry",
+        "label": "Tỉ số lượng giác trong tam giác vuông và ứng dụng thực tế",
+        "parentId": "geometry"
+      }
+    ],
+    "sources": [
+      {
+        "id": "a27763f4-adb8-4ad9-9da1-f1c95ec6bff5",
+        "hash": "612e1ac961ed798efc3c66d7c9dafee47ddc8d5dc3acd86bdbafdb100593f333",
+        "docId": "hat-mon-hk2-2025-2026",
+        "title": "Public mathematics exam hat-mon-hk2-2025-2026",
+        "blocks": [
+          {
+            "end": 107,
+            "html": "<p style=\"white-space:pre-wrap\">\f\f   PHÒNG VH - XH XÃ HÁT MÔN               ĐỀ KIỂM TRA CUỐI HỌC KỲ II\n</p>",
+            "text": "\f\f   PHÒNG VH - XH XÃ HÁT MÔN               ĐỀ KIỂM TRA CUỐI HỌC KỲ II\n",
+            "start": 0
+          },
+          {
+            "end": 210,
+            "html": "<p style=\"white-space:pre-wrap\">    TRƯỜNG THCS HÁT MÔN                        NĂM HỌC 2025 - 2026\n</p>",
+            "text": "    TRƯỜNG THCS HÁT MÔN                        NĂM HỌC 2025 - 2026\n",
+            "start": 107
+          },
+          {
+            "end": 308,
+            "html": "<p style=\"white-space:pre-wrap\">                                                   MÔN TOÁN 9\n</p>",
+            "text": "                                                   MÔN TOÁN 9\n",
+            "start": 210
+          },
+          {
+            "end": 418,
+            "html": "<p style=\"white-space:pre-wrap\">         ĐỀ CHÍNH THỨC                       (Thời gian làm bài: 90 phút)\n</p>",
+            "text": "         ĐỀ CHÍNH THỨC                       (Thời gian làm bài: 90 phút)\n",
+            "start": 308
+          },
+          {
+            "end": 455,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 418
+          },
+          {
+            "end": 509,
+            "html": "<p style=\"white-space:pre-wrap\">Bài I (2,5 điểm).\n</p>",
+            "text": "Bài I (2,5 điểm).\n",
+            "start": 455
+          },
+          {
+            "end": 628,
+            "html": "<p style=\"white-space:pre-wrap\">  1) Điểm bài kiểm tra môn toán học kì I của 32 học sinh lớp 9 được ghi trong bảng\n</p>",
+            "text": "  1) Điểm bài kiểm tra môn toán học kì I của 32 học sinh lớp 9 được ghi trong bảng\n",
+            "start": 509
+          },
+          {
+            "end": 676,
+            "html": "<p style=\"white-space:pre-wrap\">       sau:\n</p>",
+            "text": "       sau:\n",
+            "start": 628
+          },
+          {
+            "end": 758,
+            "html": "<p style=\"white-space:pre-wrap\">  7     4     4     6     6     4     6     8\n</p>",
+            "text": "  7     4     4     6     6     4     6     8\n",
+            "start": 676
+          },
+          {
+            "end": 840,
+            "html": "<p style=\"white-space:pre-wrap\">  8     7     2     6     4     8     5     6\n</p>",
+            "text": "  8     7     2     6     4     8     5     6\n",
+            "start": 758
+          },
+          {
+            "end": 922,
+            "html": "<p style=\"white-space:pre-wrap\">  9     8     4     7     9     5     5     5\n</p>",
+            "text": "  9     8     4     7     9     5     5     5\n",
+            "start": 840
+          },
+          {
+            "end": 1004,
+            "html": "<p style=\"white-space:pre-wrap\">  7     2     7     6     7     8     6    10\n</p>",
+            "text": "  7     2     7     6     7     8     6    10\n",
+            "start": 922
+          },
+          {
+            "end": 1059,
+            "html": "<p style=\"white-space:pre-wrap\">a) Lập bảng tần số\n</p>",
+            "text": "a) Lập bảng tần số\n",
+            "start": 1004
+          },
+          {
+            "end": 1177,
+            "html": "<p style=\"white-space:pre-wrap\">b) Tìm tần số tương đối của điểm 8; điểm 9 (làm tròn kết quả đến chữ số thập phân\n</p>",
+            "text": "b) Tìm tần số tương đối của điểm 8; điểm 9 (làm tròn kết quả đến chữ số thập phân\n",
+            "start": 1059
+          },
+          {
+            "end": 1220,
+            "html": "<p style=\"white-space:pre-wrap\">thứ 2)\n</p>",
+            "text": "thứ 2)\n",
+            "start": 1177
+          },
+          {
+            "end": 1342,
+            "html": "<p style=\"white-space:pre-wrap\">  2) Một xưởng sản xuất đá giải khát đã thống kê số tạ đá bán được trong tháng 6 bằng\n</p>",
+            "text": "  2) Một xưởng sản xuất đá giải khát đã thống kê số tạ đá bán được trong tháng 6 bằng\n",
+            "start": 1220
+          },
+          {
+            "end": 1391,
+            "html": "<p style=\"white-space:pre-wrap\">biểu đồ sau:\n</p>",
+            "text": "biểu đồ sau:\n",
+            "start": 1342
+          },
+          {
+            "end": 1466,
+            "html": "<p style=\"white-space:pre-wrap\">a) Số tạ đá bán được nhiều nhất là bao\n</p>",
+            "text": "a) Số tạ đá bán được nhiều nhất là bao\n",
+            "start": 1391
+          },
+          {
+            "end": 1531,
+            "html": "<p style=\"white-space:pre-wrap\">nhiêu? Ít nhất là bao nhiêu?\n</p>",
+            "text": "nhiêu? Ít nhất là bao nhiêu?\n",
+            "start": 1466
+          },
+          {
+            "end": 1605,
+            "html": "<p style=\"white-space:pre-wrap\">b) Số tạ đá có tần số lớn nhất là bao\n</p>",
+            "text": "b) Số tạ đá có tần số lớn nhất là bao\n",
+            "start": 1531
+          },
+          {
+            "end": 1648,
+            "html": "<p style=\"white-space:pre-wrap\">nhiêu?\n</p>",
+            "text": "nhiêu?\n",
+            "start": 1605
+          },
+          {
+            "end": 1721,
+            "html": "<p style=\"white-space:pre-wrap\">c) Tính lượng đá trung bình bán được\n</p>",
+            "text": "c) Tính lượng đá trung bình bán được\n",
+            "start": 1648
+          },
+          {
+            "end": 1782,
+            "html": "<p style=\"white-space:pre-wrap\">trong tháng 6 của xưởng?\n</p>",
+            "text": "trong tháng 6 của xưởng?\n",
+            "start": 1721
+          },
+          {
+            "end": 1837,
+            "html": "<p style=\"white-space:pre-wrap\">Bài II (2,0 điểm).\n</p>",
+            "text": "Bài II (2,0 điểm).\n",
+            "start": 1782
+          },
+          {
+            "end": 1909,
+            "html": "<p style=\"white-space:pre-wrap\">1. Chỉ rõ các hệ số a, b, c và giải\n</p>",
+            "text": "1. Chỉ rõ các hệ số a, b, c và giải\n",
+            "start": 1837
+          },
+          {
+            "end": 1983,
+            "html": "<p style=\"white-space:pre-wrap\">phương trình của phương trình bậc hai\n</p>",
+            "text": "phương trình của phương trình bậc hai\n",
+            "start": 1909
+          },
+          {
+            "end": 2040,
+            "html": "<p style=\"white-space:pre-wrap\">sau 3x2 - 4x + 5 = 0\n</p>",
+            "text": "sau 3x2 - 4x + 5 = 0\n",
+            "start": 1983
+          },
+          {
+            "end": 2155,
+            "html": "<p style=\"white-space:pre-wrap\">2. Trên mặt phẳng Oxy, cho parabol (P): y = x2 và đường thẳng (d): y = 2mx + 6\n</p>",
+            "text": "2. Trên mặt phẳng Oxy, cho parabol (P): y = x2 và đường thẳng (d): y = 2mx + 6\n",
+            "start": 2040
+          },
+          {
+            "end": 2273,
+            "html": "<p style=\"white-space:pre-wrap\">a) Chứng minh rằng đường thẳng (d) luôn cắt (P) tại hai điểm phân biệt với mọi m.\n</p>",
+            "text": "a) Chứng minh rằng đường thẳng (d) luôn cắt (P) tại hai điểm phân biệt với mọi m.\n",
+            "start": 2155
+          },
+          {
+            "end": 2392,
+            "html": "<p style=\"white-space:pre-wrap\">b) Tìm m để đường thẳng (d) cắt (P) tại hai điểm phân biệt có hoành độ x1, x2 thỏa\n</p>",
+            "text": "b) Tìm m để đường thẳng (d) cắt (P) tại hai điểm phân biệt có hoành độ x1, x2 thỏa\n",
+            "start": 2273
+          },
+          {
+            "end": 2439,
+            "html": "<p style=\"white-space:pre-wrap\">       1 1\n</p>",
+            "text": "       1 1\n",
+            "start": 2392
+          },
+          {
+            "end": 2490,
+            "html": "<p style=\"white-space:pre-wrap\">mãn:     + = 3\n</p>",
+            "text": "mãn:     + = 3\n",
+            "start": 2439
+          },
+          {
+            "end": 2539,
+            "html": "<p style=\"white-space:pre-wrap\">       x1 x2\n</p>",
+            "text": "       x1 x2\n",
+            "start": 2490
+          },
+          {
+            "end": 2595,
+            "html": "<p style=\"white-space:pre-wrap\">Bài III (1,5 điểm).\n</p>",
+            "text": "Bài III (1,5 điểm).\n",
+            "start": 2539
+          },
+          {
+            "end": 2714,
+            "html": "<p style=\"white-space:pre-wrap\">Bác An có 500 triệu đồng để đầu tư vào hai khoản: Trái phiếu và gửi tiết kiệm ngân\n</p>",
+            "text": "Bác An có 500 triệu đồng để đầu tư vào hai khoản: Trái phiếu và gửi tiết kiệm ngân\n",
+            "start": 2595
+          },
+          {
+            "end": 2836,
+            "html": "<p style=\"white-space:pre-wrap\">hàng với kỳ hạn 12 tháng. Lãi suất của trái phiếu và gửi tiết kiệm ngân hàng lần lượt\n</p>",
+            "text": "hàng với kỳ hạn 12 tháng. Lãi suất của trái phiếu và gửi tiết kiệm ngân hàng lần lượt\n",
+            "start": 2714
+          },
+          {
+            "end": 2952,
+            "html": "<p style=\"white-space:pre-wrap\">là 7% một năm và 6% một năm. Tính số tiền mà bác An đầu tư vào mỗi khoản để mỗi\n</p>",
+            "text": "là 7% một năm và 6% một năm. Tính số tiền mà bác An đầu tư vào mỗi khoản để mỗi\n",
+            "start": 2836
+          },
+          {
+            "end": 3052,
+            "html": "<p style=\"white-space:pre-wrap\">năm nhận được tiền lãi là 32 triệu đồng từ hai khoản đầu tư đó.\n</p>",
+            "text": "năm nhận được tiền lãi là 32 triệu đồng từ hai khoản đầu tư đó.\n",
+            "start": 2952
+          },
+          {
+            "end": 3108,
+            "html": "<p style=\"white-space:pre-wrap\">\fBài IV (3,5 điểm).\n</p>",
+            "text": "\fBài IV (3,5 điểm).\n",
+            "start": 3052
+          },
+          {
+            "end": 3185,
+            "html": "<p style=\"white-space:pre-wrap\">1. Một cái trục lăn sơn nước có dạng một\n</p>",
+            "text": "1. Một cái trục lăn sơn nước có dạng một\n",
+            "start": 3108
+          },
+          {
+            "end": 3260,
+            "html": "<p style=\"white-space:pre-wrap\">hình trụ đường kính của đường tròn đáy\n</p>",
+            "text": "hình trụ đường kính của đường tròn đáy\n",
+            "start": 3185
+          },
+          {
+            "end": 3337,
+            "html": "<p style=\"white-space:pre-wrap\">là 5 (cm), chiều dài lăn là 23 (cm) (như\n</p>",
+            "text": "là 5 (cm), chiều dài lăn là 23 (cm) (như\n",
+            "start": 3260
+          },
+          {
+            "end": 3416,
+            "html": "<p style=\"white-space:pre-wrap\">hình vẽ sau). Sau khi lăn trọn 10 vòng thì\n</p>",
+            "text": "hình vẽ sau). Sau khi lăn trọn 10 vòng thì\n",
+            "start": 3337
+          },
+          {
+            "end": 3492,
+            "html": "<p style=\"white-space:pre-wrap\">trục lăn tạo lên tường phẳng lớp sơn có\n</p>",
+            "text": "trục lăn tạo lên tường phẳng lớp sơn có\n",
+            "start": 3416
+          },
+          {
+            "end": 3554,
+            "html": "<p style=\"white-space:pre-wrap\">diện tích bằng bao nhiêu?\n</p>",
+            "text": "diện tích bằng bao nhiêu?\n",
+            "start": 3492
+          },
+          {
+            "end": 3627,
+            "html": "<p style=\"white-space:pre-wrap\">2. Cho tam giác ABC vuông tại A. Lấy\n</p>",
+            "text": "2. Cho tam giác ABC vuông tại A. Lấy\n",
+            "start": 3554
+          },
+          {
+            "end": 3702,
+            "html": "<p style=\"white-space:pre-wrap\">điểm M bất kì trên đoạn AC, đường tròn\n</p>",
+            "text": "điểm M bất kì trên đoạn AC, đường tròn\n",
+            "start": 3627
+          },
+          {
+            "end": 3776,
+            "html": "<p style=\"white-space:pre-wrap\">đường kính CM cắt hai đường thẳng BM,\n</p>",
+            "text": "đường kính CM cắt hai đường thẳng BM,\n",
+            "start": 3702
+          },
+          {
+            "end": 3851,
+            "html": "<p style=\"white-space:pre-wrap\">BC lần lượt tại D, N. Chứng minh rằng:\n</p>",
+            "text": "BC lần lượt tại D, N. Chứng minh rằng:\n",
+            "start": 3776
+          },
+          {
+            "end": 3913,
+            "html": "<p style=\"white-space:pre-wrap\">a) Tứ giác ABCD nội tiếp.\n</p>",
+            "text": "a) Tứ giác ABCD nội tiếp.\n",
+            "start": 3851
+          },
+          {
+            "end": 3966,
+            "html": "<p style=\"white-space:pre-wrap\">b) BM.BD = BN.BC\n</p>",
+            "text": "b) BM.BD = BN.BC\n",
+            "start": 3913
+          },
+          {
+            "end": 4054,
+            "html": "<p style=\"white-space:pre-wrap\">c) Các đường thẳng AB, MN, CD cùng đi qua một điểm.\n</p>",
+            "text": "c) Các đường thẳng AB, MN, CD cùng đi qua một điểm.\n",
+            "start": 3966
+          },
+          {
+            "end": 4155,
+            "html": "<p style=\"white-space:pre-wrap\">Bài V. (0,5 điểm)                                              M\n</p>",
+            "text": "Bài V. (0,5 điểm)                                              M\n",
+            "start": 4054
+          },
+          {
+            "end": 4242,
+            "html": "<p style=\"white-space:pre-wrap\">   Nhà bạn Kiên có một mảnh sân hình vuông có cạnh\n</p>",
+            "text": "   Nhà bạn Kiên có một mảnh sân hình vuông có cạnh\n",
+            "start": 4155
+          },
+          {
+            "end": 4351,
+            "html": "<p style=\"white-space:pre-wrap\">là 8m. Kiên muốn lát gạch màu khác trên phần sân có                    N\n</p>",
+            "text": "là 8m. Kiên muốn lát gạch màu khác trên phần sân có                    N\n",
+            "start": 4242
+          },
+          {
+            "end": 4440,
+            "html": "<p style=\"white-space:pre-wrap\">dạng hình vuông MNPQ để trang trí (như hình vẽ bên).\n</p>",
+            "text": "dạng hình vuông MNPQ để trang trí (như hình vẽ bên).\n",
+            "start": 4351
+          },
+          {
+            "end": 4533,
+            "html": "<p style=\"white-space:pre-wrap\">Để tiết kiệm chi phí lát gạch, tìm vị trí của điểm M, N,\n</p>",
+            "text": "Để tiết kiệm chi phí lát gạch, tìm vị trí của điểm M, N,\n",
+            "start": 4440
+          },
+          {
+            "end": 4630,
+            "html": "<p style=\"white-space:pre-wrap\">P, Q lần lượt trên các cạnh của mảnh sân để hình           Q\n</p>",
+            "text": "P, Q lần lượt trên các cạnh của mảnh sân để hình           Q\n",
+            "start": 4533
+          },
+          {
+            "end": 4667,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 4630
+          },
+          {
+            "end": 4737,
+            "html": "<p style=\"white-space:pre-wrap\">vuông MNPQ có diện tích nhỏ nhất.\n</p>",
+            "text": "vuông MNPQ có diện tích nhỏ nhất.\n",
+            "start": 4667
+          },
+          {
+            "end": 4842,
+            "html": "<p style=\"white-space:pre-wrap\">                                                                   P\n</p>",
+            "text": "                                                                   P\n",
+            "start": 4737
+          },
+          {
+            "end": 4879,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 4842
+          },
+          {
+            "end": 4916,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 4879
+          },
+          {
+            "end": 4989,
+            "html": "<p style=\"white-space:pre-wrap\">                            …. Hết …\n</p>",
+            "text": "                            …. Hết …\n",
+            "start": 4916
+          }
+        ],
+        "status": "complete",
+        "rawHtml": "<p style=\"white-space:pre-wrap\">\f\f   PHÒNG VH - XH XÃ HÁT MÔN               ĐỀ KIỂM TRA CUỐI HỌC KỲ II\n</p><p style=\"white-space:pre-wrap\">    TRƯỜNG THCS HÁT MÔN                        NĂM HỌC 2025 - 2026\n</p><p style=\"white-space:pre-wrap\">                                                   MÔN TOÁN 9\n</p><p style=\"white-space:pre-wrap\">         ĐỀ CHÍNH THỨC                       (Thời gian làm bài: 90 phút)\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">Bài I (2,5 điểm).\n</p><p style=\"white-space:pre-wrap\">  1) Điểm bài kiểm tra môn toán học kì I của 32 học sinh lớp 9 được ghi trong bảng\n</p><p style=\"white-space:pre-wrap\">       sau:\n</p><p style=\"white-space:pre-wrap\">  7     4     4     6     6     4     6     8\n</p><p style=\"white-space:pre-wrap\">  8     7     2     6     4     8     5     6\n</p><p style=\"white-space:pre-wrap\">  9     8     4     7     9     5     5     5\n</p><p style=\"white-space:pre-wrap\">  7     2     7     6     7     8     6    10\n</p><p style=\"white-space:pre-wrap\">a) Lập bảng tần số\n</p><p style=\"white-space:pre-wrap\">b) Tìm tần số tương đối của điểm 8; điểm 9 (làm tròn kết quả đến chữ số thập phân\n</p><p style=\"white-space:pre-wrap\">thứ 2)\n</p><p style=\"white-space:pre-wrap\">  2) Một xưởng sản xuất đá giải khát đã thống kê số tạ đá bán được trong tháng 6 bằng\n</p><p style=\"white-space:pre-wrap\">biểu đồ sau:\n</p><p style=\"white-space:pre-wrap\">a) Số tạ đá bán được nhiều nhất là bao\n</p><p style=\"white-space:pre-wrap\">nhiêu? Ít nhất là bao nhiêu?\n</p><p style=\"white-space:pre-wrap\">b) Số tạ đá có tần số lớn nhất là bao\n</p><p style=\"white-space:pre-wrap\">nhiêu?\n</p><p style=\"white-space:pre-wrap\">c) Tính lượng đá trung bình bán được\n</p><p style=\"white-space:pre-wrap\">trong tháng 6 của xưởng?\n</p><p style=\"white-space:pre-wrap\">Bài II (2,0 điểm).\n</p><p style=\"white-space:pre-wrap\">1. Chỉ rõ các hệ số a, b, c và giải\n</p><p style=\"white-space:pre-wrap\">phương trình của phương trình bậc hai\n</p><p style=\"white-space:pre-wrap\">sau 3x2 - 4x + 5 = 0\n</p><p style=\"white-space:pre-wrap\">2. Trên mặt phẳng Oxy, cho parabol (P): y = x2 và đường thẳng (d): y = 2mx + 6\n</p><p style=\"white-space:pre-wrap\">a) Chứng minh rằng đường thẳng (d) luôn cắt (P) tại hai điểm phân biệt với mọi m.\n</p><p style=\"white-space:pre-wrap\">b) Tìm m để đường thẳng (d) cắt (P) tại hai điểm phân biệt có hoành độ x1, x2 thỏa\n</p><p style=\"white-space:pre-wrap\">       1 1\n</p><p style=\"white-space:pre-wrap\">mãn:     + = 3\n</p><p style=\"white-space:pre-wrap\">       x1 x2\n</p><p style=\"white-space:pre-wrap\">Bài III (1,5 điểm).\n</p><p style=\"white-space:pre-wrap\">Bác An có 500 triệu đồng để đầu tư vào hai khoản: Trái phiếu và gửi tiết kiệm ngân\n</p><p style=\"white-space:pre-wrap\">hàng với kỳ hạn 12 tháng. Lãi suất của trái phiếu và gửi tiết kiệm ngân hàng lần lượt\n</p><p style=\"white-space:pre-wrap\">là 7% một năm và 6% một năm. Tính số tiền mà bác An đầu tư vào mỗi khoản để mỗi\n</p><p style=\"white-space:pre-wrap\">năm nhận được tiền lãi là 32 triệu đồng từ hai khoản đầu tư đó.\n</p><p style=\"white-space:pre-wrap\">\fBài IV (3,5 điểm).\n</p><p style=\"white-space:pre-wrap\">1. Một cái trục lăn sơn nước có dạng một\n</p><p style=\"white-space:pre-wrap\">hình trụ đường kính của đường tròn đáy\n</p><p style=\"white-space:pre-wrap\">là 5 (cm), chiều dài lăn là 23 (cm) (như\n</p><p style=\"white-space:pre-wrap\">hình vẽ sau). Sau khi lăn trọn 10 vòng thì\n</p><p style=\"white-space:pre-wrap\">trục lăn tạo lên tường phẳng lớp sơn có\n</p><p style=\"white-space:pre-wrap\">diện tích bằng bao nhiêu?\n</p><p style=\"white-space:pre-wrap\">2. Cho tam giác ABC vuông tại A. Lấy\n</p><p style=\"white-space:pre-wrap\">điểm M bất kì trên đoạn AC, đường tròn\n</p><p style=\"white-space:pre-wrap\">đường kính CM cắt hai đường thẳng BM,\n</p><p style=\"white-space:pre-wrap\">BC lần lượt tại D, N. Chứng minh rằng:\n</p><p style=\"white-space:pre-wrap\">a) Tứ giác ABCD nội tiếp.\n</p><p style=\"white-space:pre-wrap\">b) BM.BD = BN.BC\n</p><p style=\"white-space:pre-wrap\">c) Các đường thẳng AB, MN, CD cùng đi qua một điểm.\n</p><p style=\"white-space:pre-wrap\">Bài V. (0,5 điểm)                                              M\n</p><p style=\"white-space:pre-wrap\">   Nhà bạn Kiên có một mảnh sân hình vuông có cạnh\n</p><p style=\"white-space:pre-wrap\">là 8m. Kiên muốn lát gạch màu khác trên phần sân có                    N\n</p><p style=\"white-space:pre-wrap\">dạng hình vuông MNPQ để trang trí (như hình vẽ bên).\n</p><p style=\"white-space:pre-wrap\">Để tiết kiệm chi phí lát gạch, tìm vị trí của điểm M, N,\n</p><p style=\"white-space:pre-wrap\">P, Q lần lượt trên các cạnh của mảnh sân để hình           Q\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">vuông MNPQ có diện tích nhỏ nhất.\n</p><p style=\"white-space:pre-wrap\">                                                                   P\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">                            …. Hết …\n</p>",
+        "attempts": 1,
+        "answerKey": null,
+        "createdAt": "2026-11-16T09:41:31.808Z",
+        "candidates": [
+          {
+            "id": "candidate-1",
+            "label": "Bài I.1",
+            "bodyBlockIds": [
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-2",
+            "label": "Bài I.2",
+            "bodyBlockIds": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-3",
+            "label": "Bài II.1",
+            "bodyBlockIds": [
+              24,
+              25,
+              26
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-4",
+            "label": "Bài II.2",
+            "bodyBlockIds": [
+              27,
+              28,
+              29,
+              30,
+              31,
+              32
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-5",
+            "label": "Bài III",
+            "bodyBlockIds": [
+              34,
+              35,
+              36,
+              37
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-6",
+            "label": "Bài IV.1",
+            "bodyBlockIds": [
+              39,
+              40,
+              41,
+              42,
+              43,
+              44
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-7",
+            "label": "Bài IV.2",
+            "bodyBlockIds": [
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-8",
+            "label": "Bài V",
+            "bodyBlockIds": [
+              53,
+              54,
+              55,
+              56,
+              57,
+              59
+            ],
+            "contextBlockIds": [
+              52,
+              60
+            ]
+          }
+        ],
+        "payloadHash": "ef0f188e524d351a90f665d661de6943b42ecfdb9e01f4e3e9d79c90aaf38293",
+        "confirmedIds": [
+          "candidate-1",
+          "candidate-2",
+          "candidate-3",
+          "candidate-4",
+          "candidate-5",
+          "candidate-6",
+          "candidate-7",
+          "candidate-8"
+        ],
+        "operationKey": "2bc08972-ef03-4457-bcfa-46b759d975f4",
+        "extractionMode": "ai",
+        "previewVersion": "4bf60a63-a484-4770-9bc3-7462466320e9"
+      },
+      {
+        "id": "80c23225-4d44-44a5-9531-0d6f9ac5410d",
+        "hash": "0160404452b17ccdeab3168d10c42366a5c7efef8e1b95c9f24ea0983704f1bd",
+        "docId": "ly-son-hk1-2025-2026",
+        "title": "Public mathematics exam ly-son-hk1-2025-2026",
+        "blocks": [
+          {
+            "end": 119,
+            "html": "<p style=\"white-space:pre-wrap\">     UBND PHƯỜNG VIỆT HƯNG                               ĐỀ KIỂM TRA CUỐI HỌC KÌ I\n</p>",
+            "text": "     UBND PHƯỜNG VIỆT HƯNG                               ĐỀ KIỂM TRA CUỐI HỌC KÌ I\n",
+            "start": 0
+          },
+          {
+            "end": 235,
+            "html": "<p style=\"white-space:pre-wrap\">       TRƯỜNG THCS LÝ SƠN                                           MÔN: TOÁN 9\n</p>",
+            "text": "       TRƯỜNG THCS LÝ SƠN                                           MÔN: TOÁN 9\n",
+            "start": 119
+          },
+          {
+            "end": 354,
+            "html": "<p style=\"white-space:pre-wrap\">         NĂM HỌC 2025 – 2026                                    Thời gian: 90 phút\n</p>",
+            "text": "         NĂM HỌC 2025 – 2026                                    Thời gian: 90 phút\n",
+            "start": 235
+          },
+          {
+            "end": 475,
+            "html": "<p style=\"white-space:pre-wrap\">                                                              Ngày thi: 25/ 12/ 2025\n</p>",
+            "text": "                                                              Ngày thi: 25/ 12/ 2025\n",
+            "start": 354
+          },
+          {
+            "end": 538,
+            "html": "<p style=\"white-space:pre-wrap\">             ĐỀ CHÍNH THỨC\n</p>",
+            "text": "             ĐỀ CHÍNH THỨC\n",
+            "start": 475
+          },
+          {
+            "end": 657,
+            "html": "<p style=\"white-space:pre-wrap\">                                                                    Mã đề thi: 901\n</p>",
+            "text": "                                                                    Mã đề thi: 901\n",
+            "start": 538
+          },
+          {
+            "end": 727,
+            "html": "<p style=\"white-space:pre-wrap\">            (Đề thi gồm 02 trang)\n</p>",
+            "text": "            (Đề thi gồm 02 trang)\n",
+            "start": 657
+          },
+          {
+            "end": 780,
+            "html": "<p style=\"white-space:pre-wrap\">Bài I. (2 điểm).\n</p>",
+            "text": "Bài I. (2 điểm).\n",
+            "start": 727
+          },
+          {
+            "end": 846,
+            "html": "<p style=\"white-space:pre-wrap\">1) Rút gọn các biểu thức sau:\n</p>",
+            "text": "1) Rút gọn các biểu thức sau:\n",
+            "start": 780
+          },
+          {
+            "end": 901,
+            "html": "<p style=\"white-space:pre-wrap\">            2    3\n</p>",
+            "text": "            2    3\n",
+            "start": 846
+          },
+          {
+            "end": 1013,
+            "html": "<p style=\"white-space:pre-wrap\">                                                         (5 + 7 ) − 8 − 2 7\n</p>",
+            "text": "                                                         (5 + 7 ) − 8 − 2 7\n",
+            "start": 901
+          },
+          {
+            "end": 1115,
+            "html": "<p style=\"white-space:pre-wrap\">                                                                2\n</p>",
+            "text": "                                                                2\n",
+            "start": 1013
+          },
+          {
+            "end": 1186,
+            "html": "<p style=\"white-space:pre-wrap\">                        ( −6 ) + 7\n</p>",
+            "text": "                        ( −6 ) + 7\n",
+            "start": 1115
+          },
+          {
+            "end": 1254,
+            "html": "<p style=\"white-space:pre-wrap\">                              2\n</p>",
+            "text": "                              2\n",
+            "start": 1186
+          },
+          {
+            "end": 1344,
+            "html": "<p style=\"white-space:pre-wrap\">       a)     9−                                   b)\n</p>",
+            "text": "       a)     9−                                   b)\n",
+            "start": 1254
+          },
+          {
+            "end": 1399,
+            "html": "<p style=\"white-space:pre-wrap\">            3    2\n</p>",
+            "text": "            3    2\n",
+            "start": 1344
+          },
+          {
+            "end": 1481,
+            "html": "<p style=\"white-space:pre-wrap\">2) Giải phương trình và bất phương trình sau:\n</p>",
+            "text": "2) Giải phương trình và bất phương trình sau:\n",
+            "start": 1399
+          },
+          {
+            "end": 1587,
+            "html": "<p style=\"white-space:pre-wrap\">                                                        1−2x     1−5x\n</p>",
+            "text": "                                                        1−2x     1−5x\n",
+            "start": 1481
+          },
+          {
+            "end": 1688,
+            "html": "<p style=\"white-space:pre-wrap\">       a) ( x − 5)( 5 x − 1) = 0                   b)        −2\n</p>",
+            "text": "       a) ( x − 5)( 5 x − 1) = 0                   b)        −2\n",
+            "start": 1587
+          },
+          {
+            "end": 1793,
+            "html": "<p style=\"white-space:pre-wrap\">                                                          4        8\n</p>",
+            "text": "                                                          4        8\n",
+            "start": 1688
+          },
+          {
+            "end": 1906,
+            "html": "<p style=\"white-space:pre-wrap\">Bài II (2,5 điểm). Giải bài toán bằng cách lập phương trình, hệ phương trình\n</p>",
+            "text": "Bài II (2,5 điểm). Giải bài toán bằng cách lập phương trình, hệ phương trình\n",
+            "start": 1793
+          },
+          {
+            "end": 2031,
+            "html": "<p style=\"white-space:pre-wrap\">1) Một xe máy đi từ A đến B với vận tốc 45km/h, lúc đi từ B về A người đó đi với vận tốc\n</p>",
+            "text": "1) Một xe máy đi từ A đến B với vận tốc 45km/h, lúc đi từ B về A người đó đi với vận tốc\n",
+            "start": 1906
+          },
+          {
+            "end": 2156,
+            "html": "<p style=\"white-space:pre-wrap\">nhanh hơn vận tốc ban đầu là 5km/h nên thời gian về ít hơn thời gian đi là 12 phút. Tính\n</p>",
+            "text": "nhanh hơn vận tốc ban đầu là 5km/h nên thời gian về ít hơn thời gian đi là 12 phút. Tính\n",
+            "start": 2031
+          },
+          {
+            "end": 2208,
+            "html": "<p style=\"white-space:pre-wrap\">quãng đường AB.\n</p>",
+            "text": "quãng đường AB.\n",
+            "start": 2156
+          },
+          {
+            "end": 2333,
+            "html": "<p style=\"white-space:pre-wrap\">2) Theo kế hoạch hai tổ sản xuất 700 sản phẩm. Nhưng khi thực hiện, tổ thứ nhất vượt mức\n</p>",
+            "text": "2) Theo kế hoạch hai tổ sản xuất 700 sản phẩm. Nhưng khi thực hiện, tổ thứ nhất vượt mức\n",
+            "start": 2208
+          },
+          {
+            "end": 2457,
+            "html": "<p style=\"white-space:pre-wrap\">20%, tổ thứ hai giảm mức 10% so với kế hoạch. Vì vậy hai tổ sản xuất được 720 sản phẩm.\n</p>",
+            "text": "20%, tổ thứ hai giảm mức 10% so với kế hoạch. Vì vậy hai tổ sản xuất được 720 sản phẩm.\n",
+            "start": 2333
+          },
+          {
+            "end": 2547,
+            "html": "<p style=\"white-space:pre-wrap\">Hỏi theo kế hoạch mỗi tổ sản xuất bao nhiêu sản phẩm?\n</p>",
+            "text": "Hỏi theo kế hoạch mỗi tổ sản xuất bao nhiêu sản phẩm?\n",
+            "start": 2457
+          },
+          {
+            "end": 2660,
+            "html": "<p style=\"white-space:pre-wrap\">                                              3     x + 10              x +2\n</p>",
+            "text": "                                              3     x + 10              x +2\n",
+            "start": 2547
+          },
+          {
+            "end": 2791,
+            "html": "<p style=\"white-space:pre-wrap\">Bài III (2 điểm). Cho hai biểu thức: A =          −        và B =            với x  0; x  4.\n</p>",
+            "text": "Bài III (2 điểm). Cho hai biểu thức: A =          −        và B =            với x  0; x  4.\n",
+            "start": 2660
+          },
+          {
+            "end": 2904,
+            "html": "<p style=\"white-space:pre-wrap\">                                             x −2   x−4                 x −2\n</p>",
+            "text": "                                             x −2   x−4                 x −2\n",
+            "start": 2791
+          },
+          {
+            "end": 2983,
+            "html": "<p style=\"white-space:pre-wrap\">a) Tính giá trị của biểu thức B khi x = 1.\n</p>",
+            "text": "a) Tính giá trị của biểu thức B khi x = 1.\n",
+            "start": 2904
+          },
+          {
+            "end": 3043,
+            "html": "<p style=\"white-space:pre-wrap\">b) Rút gọn biểu thức A.\n</p>",
+            "text": "b) Rút gọn biểu thức A.\n",
+            "start": 2983
+          },
+          {
+            "end": 3135,
+            "html": "<p style=\"white-space:pre-wrap\">c) Đặt P = A.B. Tìm các giá trị nguyên của x để P  −1.\n</p>",
+            "text": "c) Đặt P = A.B. Tìm các giá trị nguyên của x để P  −1.\n",
+            "start": 3043
+          },
+          {
+            "end": 3188,
+            "html": "<p style=\"white-space:pre-wrap\">Bài IV (3 điểm).\n</p>",
+            "text": "Bài IV (3 điểm).\n",
+            "start": 3135
+          },
+          {
+            "end": 3277,
+            "html": "<p style=\"white-space:pre-wrap\">1) Trong một buổi tập luyện, một tàu ngầm ở trên mặt\n</p>",
+            "text": "1) Trong một buổi tập luyện, một tàu ngầm ở trên mặt\n",
+            "start": 3188
+          },
+          {
+            "end": 3362,
+            "html": "<p style=\"white-space:pre-wrap\">biển lặn xuống và di chuyển theo một đường thẳng\n</p>",
+            "text": "biển lặn xuống và di chuyển theo một đường thẳng\n",
+            "start": 3277
+          },
+          {
+            "end": 3451,
+            "html": "<p style=\"white-space:pre-wrap\">tạo với mặt nước biển một góc 300 (xem hình vẽ bên).\n</p>",
+            "text": "tạo với mặt nước biển một góc 300 (xem hình vẽ bên).\n",
+            "start": 3362
+          },
+          {
+            "end": 3541,
+            "html": "<p style=\"white-space:pre-wrap\">Khi tàu ở độ sâu 100 mét so với mặt nước biển thì tàu\n</p>",
+            "text": "Khi tàu ở độ sâu 100 mét so với mặt nước biển thì tàu\n",
+            "start": 3451
+          },
+          {
+            "end": 3616,
+            "html": "<p style=\"white-space:pre-wrap\">đi được quãng đường dài bao nhiêu mét?\n</p>",
+            "text": "đi được quãng đường dài bao nhiêu mét?\n",
+            "start": 3541
+          },
+          {
+            "end": 3653,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 3616
+          },
+          {
+            "end": 3690,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 3653
+          },
+          {
+            "end": 3798,
+            "html": "<p style=\"white-space:pre-wrap\">                         Trang 0 1/0 2 – Môn thi Toán 9 – Mã đề thi 901\n</p>",
+            "text": "                         Trang 0 1/0 2 – Môn thi Toán 9 – Mã đề thi 901\n",
+            "start": 3690
+          },
+          {
+            "end": 3917,
+            "html": "<p style=\"white-space:pre-wrap\">\f2) Cho đường tròn (O) , đường kính AB . Kẻ tiếp tuyến Ax với đường tròn (O) . Lấy\n</p>",
+            "text": "\f2) Cho đường tròn (O) , đường kính AB . Kẻ tiếp tuyến Ax với đường tròn (O) . Lấy\n",
+            "start": 3798
+          },
+          {
+            "end": 4039,
+            "html": "<p style=\"white-space:pre-wrap\">điểm C thuộc đường tròn (O) ; ( AC  CB) . Kẻ tiếp tuyến tại C của đường tròn (O) cắt\n</p>",
+            "text": "điểm C thuộc đường tròn (O) ; ( AC  CB) . Kẻ tiếp tuyến tại C của đường tròn (O) cắt\n",
+            "start": 3917
+          },
+          {
+            "end": 4091,
+            "html": "<p style=\"white-space:pre-wrap\">Ax tại điểm M .\n</p>",
+            "text": "Ax tại điểm M .\n",
+            "start": 4039
+          },
+          {
+            "end": 4191,
+            "html": "<p style=\"white-space:pre-wrap\">a) Chứng minh bốn điểm M , A , C , O cùng thuộc một đường tròn.\n</p>",
+            "text": "a) Chứng minh bốn điểm M , A , C , O cùng thuộc một đường tròn.\n",
+            "start": 4091
+          },
+          {
+            "end": 4308,
+            "html": "<p style=\"white-space:pre-wrap\">b) Qua điểm O kẻ đường thẳng vuông góc với BC tại H , cắt đường thẳng MC tại K .\n</p>",
+            "text": "b) Qua điểm O kẻ đường thẳng vuông góc với BC tại H , cắt đường thẳng MC tại K .\n",
+            "start": 4191
+          },
+          {
+            "end": 4424,
+            "html": "<p style=\"white-space:pre-wrap\">Đường thẳng AH cắt đường tròn (O) tại N ( N khác A ), đường thẳng BN cắt OK tại\n</p>",
+            "text": "Đường thẳng AH cắt đường tròn (O) tại N ( N khác A ), đường thẳng BN cắt OK tại\n",
+            "start": 4308
+          },
+          {
+            "end": 4527,
+            "html": "<p style=\"white-space:pre-wrap\">                                                            = HAB\n</p>",
+            "text": "                                                            = HAB\n",
+            "start": 4424
+          },
+          {
+            "end": 4630,
+            "html": "<p style=\"white-space:pre-wrap\">điểm I . Chứng minh KB là tiếp tuyến của đường tròn (O) và IBK  .\n</p>",
+            "text": "điểm I . Chứng minh KB là tiếp tuyến của đường tròn (O) và IBK  .\n",
+            "start": 4527
+          },
+          {
+            "end": 4667,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 4630
+          },
+          {
+            "end": 4734,
+            "html": "<p style=\"white-space:pre-wrap\">c) Chứng minh BC.KI = BH .KH .\n</p>",
+            "text": "c) Chứng minh BC.KI = BH .KH .\n",
+            "start": 4667
+          },
+          {
+            "end": 4787,
+            "html": "<p style=\"white-space:pre-wrap\">Bài V (0,5 điểm)\n</p>",
+            "text": "Bài V (0,5 điểm)\n",
+            "start": 4734
+          },
+          {
+            "end": 4909,
+            "html": "<p style=\"white-space:pre-wrap\">Đoàn Thanh niên của một phường trong thành phố tham dự làm trại hè năm 2025 cần trang\n</p>",
+            "text": "Đoàn Thanh niên của một phường trong thành phố tham dự làm trại hè năm 2025 cần trang\n",
+            "start": 4787
+          },
+          {
+            "end": 5032,
+            "html": "<p style=\"white-space:pre-wrap\">trí cổng trại hình tam giác đều ABC có cạnh 6 m. Các đoàn viên cần làm cửa ra vào hình\n</p>",
+            "text": "trí cổng trại hình tam giác đều ABC có cạnh 6 m. Các đoàn viên cần làm cửa ra vào hình\n",
+            "start": 4909
+          },
+          {
+            "end": 5151,
+            "html": "<p style=\"white-space:pre-wrap\">chữ nhật MNPQ sao cho đỉnh M và đỉnh N nằm trên cạnh BC, đỉnh P và đỉnh Q theo thứ\n</p>",
+            "text": "chữ nhật MNPQ sao cho đỉnh M và đỉnh N nằm trên cạnh BC, đỉnh P và đỉnh Q theo thứ\n",
+            "start": 5032
+          },
+          {
+            "end": 5274,
+            "html": "<p style=\"white-space:pre-wrap\">tự nằm trên cạnh AC và cạnh AB (hình vẽ). Hỏi có thể làm cửa ra vào hình chữ nhật MNPQ\n</p>",
+            "text": "tự nằm trên cạnh AC và cạnh AB (hình vẽ). Hỏi có thể làm cửa ra vào hình chữ nhật MNPQ\n",
+            "start": 5151
+          },
+          {
+            "end": 5347,
+            "html": "<p style=\"white-space:pre-wrap\">với diện tích lớn nhất là bao nhiêu?\n</p>",
+            "text": "với diện tích lớn nhất là bao nhiêu?\n",
+            "start": 5274
+          },
+          {
+            "end": 5384,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 5347
+          },
+          {
+            "end": 5421,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 5384
+          },
+          {
+            "end": 5458,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 5421
+          },
+          {
+            "end": 5495,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 5458
+          },
+          {
+            "end": 5587,
+            "html": "<p style=\"white-space:pre-wrap\">                              Chúc các con làm bài tốt!\n</p>",
+            "text": "                              Chúc các con làm bài tốt!\n",
+            "start": 5495
+          },
+          {
+            "end": 5624,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 5587
+          },
+          {
+            "end": 5661,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 5624
+          },
+          {
+            "end": 5698,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 5661
+          },
+          {
+            "end": 5735,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 5698
+          },
+          {
+            "end": 5838,
+            "html": "<p style=\"white-space:pre-wrap\">                    Trang 0 2/0 2 – Môn thi Toán 9 – Mã đề thi 901\n</p>",
+            "text": "                    Trang 0 2/0 2 – Môn thi Toán 9 – Mã đề thi 901\n",
+            "start": 5735
+          },
+          {
+            "end": 5876,
+            "html": "<p style=\"white-space:pre-wrap\">\f\n</p>",
+            "text": "\f\n",
+            "start": 5838
+          }
+        ],
+        "status": "complete",
+        "rawHtml": "<p style=\"white-space:pre-wrap\">     UBND PHƯỜNG VIỆT HƯNG                               ĐỀ KIỂM TRA CUỐI HỌC KÌ I\n</p><p style=\"white-space:pre-wrap\">       TRƯỜNG THCS LÝ SƠN                                           MÔN: TOÁN 9\n</p><p style=\"white-space:pre-wrap\">         NĂM HỌC 2025 – 2026                                    Thời gian: 90 phút\n</p><p style=\"white-space:pre-wrap\">                                                              Ngày thi: 25/ 12/ 2025\n</p><p style=\"white-space:pre-wrap\">             ĐỀ CHÍNH THỨC\n</p><p style=\"white-space:pre-wrap\">                                                                    Mã đề thi: 901\n</p><p style=\"white-space:pre-wrap\">            (Đề thi gồm 02 trang)\n</p><p style=\"white-space:pre-wrap\">Bài I. (2 điểm).\n</p><p style=\"white-space:pre-wrap\">1) Rút gọn các biểu thức sau:\n</p><p style=\"white-space:pre-wrap\">            2    3\n</p><p style=\"white-space:pre-wrap\">                                                         (5 + 7 ) − 8 − 2 7\n</p><p style=\"white-space:pre-wrap\">                                                                2\n</p><p style=\"white-space:pre-wrap\">                        ( −6 ) + 7\n</p><p style=\"white-space:pre-wrap\">                              2\n</p><p style=\"white-space:pre-wrap\">       a)     9−                                   b)\n</p><p style=\"white-space:pre-wrap\">            3    2\n</p><p style=\"white-space:pre-wrap\">2) Giải phương trình và bất phương trình sau:\n</p><p style=\"white-space:pre-wrap\">                                                        1−2x     1−5x\n</p><p style=\"white-space:pre-wrap\">       a) ( x − 5)( 5 x − 1) = 0                   b)        −2\n</p><p style=\"white-space:pre-wrap\">                                                          4        8\n</p><p style=\"white-space:pre-wrap\">Bài II (2,5 điểm). Giải bài toán bằng cách lập phương trình, hệ phương trình\n</p><p style=\"white-space:pre-wrap\">1) Một xe máy đi từ A đến B với vận tốc 45km/h, lúc đi từ B về A người đó đi với vận tốc\n</p><p style=\"white-space:pre-wrap\">nhanh hơn vận tốc ban đầu là 5km/h nên thời gian về ít hơn thời gian đi là 12 phút. Tính\n</p><p style=\"white-space:pre-wrap\">quãng đường AB.\n</p><p style=\"white-space:pre-wrap\">2) Theo kế hoạch hai tổ sản xuất 700 sản phẩm. Nhưng khi thực hiện, tổ thứ nhất vượt mức\n</p><p style=\"white-space:pre-wrap\">20%, tổ thứ hai giảm mức 10% so với kế hoạch. Vì vậy hai tổ sản xuất được 720 sản phẩm.\n</p><p style=\"white-space:pre-wrap\">Hỏi theo kế hoạch mỗi tổ sản xuất bao nhiêu sản phẩm?\n</p><p style=\"white-space:pre-wrap\">                                              3     x + 10              x +2\n</p><p style=\"white-space:pre-wrap\">Bài III (2 điểm). Cho hai biểu thức: A =          −        và B =            với x  0; x  4.\n</p><p style=\"white-space:pre-wrap\">                                             x −2   x−4                 x −2\n</p><p style=\"white-space:pre-wrap\">a) Tính giá trị của biểu thức B khi x = 1.\n</p><p style=\"white-space:pre-wrap\">b) Rút gọn biểu thức A.\n</p><p style=\"white-space:pre-wrap\">c) Đặt P = A.B. Tìm các giá trị nguyên của x để P  −1.\n</p><p style=\"white-space:pre-wrap\">Bài IV (3 điểm).\n</p><p style=\"white-space:pre-wrap\">1) Trong một buổi tập luyện, một tàu ngầm ở trên mặt\n</p><p style=\"white-space:pre-wrap\">biển lặn xuống và di chuyển theo một đường thẳng\n</p><p style=\"white-space:pre-wrap\">tạo với mặt nước biển một góc 300 (xem hình vẽ bên).\n</p><p style=\"white-space:pre-wrap\">Khi tàu ở độ sâu 100 mét so với mặt nước biển thì tàu\n</p><p style=\"white-space:pre-wrap\">đi được quãng đường dài bao nhiêu mét?\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">                         Trang 0 1/0 2 – Môn thi Toán 9 – Mã đề thi 901\n</p><p style=\"white-space:pre-wrap\">\f2) Cho đường tròn (O) , đường kính AB . Kẻ tiếp tuyến Ax với đường tròn (O) . Lấy\n</p><p style=\"white-space:pre-wrap\">điểm C thuộc đường tròn (O) ; ( AC  CB) . Kẻ tiếp tuyến tại C của đường tròn (O) cắt\n</p><p style=\"white-space:pre-wrap\">Ax tại điểm M .\n</p><p style=\"white-space:pre-wrap\">a) Chứng minh bốn điểm M , A , C , O cùng thuộc một đường tròn.\n</p><p style=\"white-space:pre-wrap\">b) Qua điểm O kẻ đường thẳng vuông góc với BC tại H , cắt đường thẳng MC tại K .\n</p><p style=\"white-space:pre-wrap\">Đường thẳng AH cắt đường tròn (O) tại N ( N khác A ), đường thẳng BN cắt OK tại\n</p><p style=\"white-space:pre-wrap\">                                                            = HAB\n</p><p style=\"white-space:pre-wrap\">điểm I . Chứng minh KB là tiếp tuyến của đường tròn (O) và IBK  .\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">c) Chứng minh BC.KI = BH .KH .\n</p><p style=\"white-space:pre-wrap\">Bài V (0,5 điểm)\n</p><p style=\"white-space:pre-wrap\">Đoàn Thanh niên của một phường trong thành phố tham dự làm trại hè năm 2025 cần trang\n</p><p style=\"white-space:pre-wrap\">trí cổng trại hình tam giác đều ABC có cạnh 6 m. Các đoàn viên cần làm cửa ra vào hình\n</p><p style=\"white-space:pre-wrap\">chữ nhật MNPQ sao cho đỉnh M và đỉnh N nằm trên cạnh BC, đỉnh P và đỉnh Q theo thứ\n</p><p style=\"white-space:pre-wrap\">tự nằm trên cạnh AC và cạnh AB (hình vẽ). Hỏi có thể làm cửa ra vào hình chữ nhật MNPQ\n</p><p style=\"white-space:pre-wrap\">với diện tích lớn nhất là bao nhiêu?\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">                              Chúc các con làm bài tốt!\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">                    Trang 0 2/0 2 – Môn thi Toán 9 – Mã đề thi 901\n</p><p style=\"white-space:pre-wrap\">\f\n</p>",
+        "attempts": 1,
+        "answerKey": null,
+        "createdAt": "2026-11-16T09:42:43.320Z",
+        "candidates": [
+          {
+            "id": "candidate-1",
+            "label": "Bài I.1",
+            "bodyBlockIds": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-2",
+            "label": "Bài I.2",
+            "bodyBlockIds": [
+              16,
+              17,
+              18,
+              19
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-3",
+            "label": "Bài II.1",
+            "bodyBlockIds": [
+              21,
+              22,
+              23
+            ],
+            "contextBlockIds": [
+              20
+            ]
+          },
+          {
+            "id": "candidate-4",
+            "label": "Bài II.2",
+            "bodyBlockIds": [
+              24,
+              25,
+              26
+            ],
+            "contextBlockIds": [
+              20
+            ]
+          },
+          {
+            "id": "candidate-5",
+            "label": "Bài III",
+            "bodyBlockIds": [
+              27,
+              28,
+              29,
+              30,
+              31,
+              32
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-6",
+            "label": "Bài IV.1",
+            "bodyBlockIds": [
+              34,
+              35,
+              36,
+              37,
+              38
+            ],
+            "contextBlockIds": [
+              39,
+              40
+            ]
+          },
+          {
+            "id": "candidate-7",
+            "label": "Bài IV.2",
+            "bodyBlockIds": [
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              51
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-8",
+            "label": "Bài V",
+            "bodyBlockIds": [
+              53,
+              54,
+              55,
+              56,
+              57
+            ],
+            "contextBlockIds": [
+              58,
+              59,
+              60,
+              61
+            ]
+          }
+        ],
+        "payloadHash": "ba20e2c71255fc669228fc66b3e79e05a92292297f5036366e92f027cc07cc4b",
+        "confirmedIds": [
+          "candidate-1",
+          "candidate-2",
+          "candidate-3",
+          "candidate-4",
+          "candidate-5",
+          "candidate-6",
+          "candidate-7",
+          "candidate-8"
+        ],
+        "operationKey": "2976b4eb-2d88-4988-a28a-89b8b3bd5873",
+        "extractionMode": "ai",
+        "previewVersion": "84a7cbfd-daa3-4118-8467-ff1ac17bcac3"
+      },
+      {
+        "id": "711e3bca-95f8-4678-8eab-1b2aa23e6f81",
+        "hash": "974a3efa59f0e6bc2766bbf2d04b364931144fd92e74c5993ecb40453bb0c381",
+        "docId": "quang-ninh-entrance10-2026-2027",
+        "title": "Public mathematics exam quang-ninh-entrance10-2026-2027",
+        "blocks": [
+          {
+            "end": 124,
+            "html": "<p style=\"white-space:pre-wrap\"> SỞ GIÁO DỤC VÀ ĐÀO TẠO                           KỲ THI TUYỂN SINH TRUNG HỌC PHỔ THÔNG\n</p>",
+            "text": " SỞ GIÁO DỤC VÀ ĐÀO TẠO                           KỲ THI TUYỂN SINH TRUNG HỌC PHỔ THÔNG\n",
+            "start": 0
+          },
+          {
+            "end": 241,
+            "html": "<p style=\"white-space:pre-wrap\">    TỈNH QUẢNG NINH                                          NĂM HỌC 2026 - 2027\n</p>",
+            "text": "    TỈNH QUẢNG NINH                                          NĂM HỌC 2026 - 2027\n",
+            "start": 124
+          },
+          {
+            "end": 373,
+            "html": "<p style=\"white-space:pre-wrap\">                                                          Môn thi: Toán (Dành cho mọi thí sinh)\n</p>",
+            "text": "                                                          Môn thi: Toán (Dành cho mọi thí sinh)\n",
+            "start": 241
+          },
+          {
+            "end": 516,
+            "html": "<p style=\"white-space:pre-wrap\">       ĐỀ THI CHÍNH THỨC                           Thời gian làm bài: 120 phút, không kể thời gian phát đề\n</p>",
+            "text": "       ĐỀ THI CHÍNH THỨC                           Thời gian làm bài: 120 phút, không kể thời gian phát đề\n",
+            "start": 373
+          },
+          {
+            "end": 584,
+            "html": "<p style=\"white-space:pre-wrap\">       (Đề thi này có 02 trang)\n</p>",
+            "text": "       (Đề thi này có 02 trang)\n",
+            "start": 516
+          },
+          {
+            "end": 621,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 584
+          },
+          {
+            "end": 688,
+            "html": "<p style=\"white-space:pre-wrap\">PHẦN I. TRẮC NGHIỆM (3,0 ĐIỂM)\n</p>",
+            "text": "PHẦN I. TRẮC NGHIỆM (3,0 ĐIỂM)\n",
+            "start": 621
+          },
+          {
+            "end": 823,
+            "html": "<p style=\"white-space:pre-wrap\">Câu hỏi trắc nghiệm nhiều phương án lựa chọn. Mỗi câu thí sinh chỉ chọn một phương án. Mỗi câu trả\n</p>",
+            "text": "Câu hỏi trắc nghiệm nhiều phương án lựa chọn. Mỗi câu thí sinh chỉ chọn một phương án. Mỗi câu trả\n",
+            "start": 688
+          },
+          {
+            "end": 884,
+            "html": "<p style=\"white-space:pre-wrap\">lời đúng được 0,25 điểm.\n</p>",
+            "text": "lời đúng được 0,25 điểm.\n",
+            "start": 823
+          },
+          {
+            "end": 949,
+            "html": "<p style=\"white-space:pre-wrap\">Câu 1. Căn bậc ba của −27 là\n</p>",
+            "text": "Câu 1. Căn bậc ba của −27 là\n",
+            "start": 884
+          },
+          {
+            "end": 1087,
+            "html": "<p style=\"white-space:pre-wrap\">  A. 3.                        B. −3.                            C. 3 3.                     D. −3 3.\n</p>",
+            "text": "  A. 3.                        B. −3.                            C. 3 3.                     D. −3 3.\n",
+            "start": 949
+          },
+          {
+            "end": 1168,
+            "html": "<p style=\"white-space:pre-wrap\">                                           1\n</p>",
+            "text": "                                           1\n",
+            "start": 1087
+          },
+          {
+            "end": 1305,
+            "html": "<p style=\"white-space:pre-wrap\">Câu 2. Cho điểm M thuộc đồ thị hàm số y = − x 2 . Biết điểm M có hoành độ bằng 2 , tung độ điểm M là\n</p>",
+            "text": "Câu 2. Cho điểm M thuộc đồ thị hàm số y = − x 2 . Biết điểm M có hoành độ bằng 2 , tung độ điểm M là\n",
+            "start": 1168
+          },
+          {
+            "end": 1386,
+            "html": "<p style=\"white-space:pre-wrap\">                                           2\n</p>",
+            "text": "                                           2\n",
+            "start": 1305
+          },
+          {
+            "end": 1516,
+            "html": "<p style=\"white-space:pre-wrap\">  A. 1.                     B. −1.                        C. 2.                        D. −2.\n</p>",
+            "text": "  A. 1.                     B. −1.                        C. 2.                        D. −2.\n",
+            "start": 1386
+          },
+          {
+            "end": 1638,
+            "html": "<p style=\"white-space:pre-wrap\">Câu 3. Giá trị nào của x dưới đây là một nghiệm của bất phương trình 2 x + 4 &lt; 0 ?\n</p>",
+            "text": "Câu 3. Giá trị nào của x dưới đây là một nghiệm của bất phương trình 2 x + 4 < 0 ?\n",
+            "start": 1516
+          },
+          {
+            "end": 1774,
+            "html": "<p style=\"white-space:pre-wrap\">  A. −1.                       B. 0.                             C. −4.                      D. −2.\n</p>",
+            "text": "  A. −1.                       B. 0.                             C. −4.                      D. −2.\n",
+            "start": 1638
+          },
+          {
+            "end": 1889,
+            "html": "<p style=\"white-space:pre-wrap\">Câu 4. Cặp số ( x; y ) nào dưới đây là một nghiệm của phương trình 2 x − 3 y =\n</p>",
+            "text": "Câu 4. Cặp số ( x; y ) nào dưới đây là một nghiệm của phương trình 2 x − 3 y =\n",
+            "start": 1774
+          },
+          {
+            "end": 2007,
+            "html": "<p style=\"white-space:pre-wrap\">                                                                             −8 ?\n</p>",
+            "text": "                                                                             −8 ?\n",
+            "start": 1889
+          },
+          {
+            "end": 2151,
+            "html": "<p style=\"white-space:pre-wrap\">  A. ( 2; 4 ) .                B. ( 4; 2 ) .                     C. ( 2; −4 ) .              D. ( −4; 2 ) .\n</p>",
+            "text": "  A. ( 2; 4 ) .                B. ( 4; 2 ) .                     C. ( 2; −4 ) .              D. ( −4; 2 ) .\n",
+            "start": 2007
+          },
+          {
+            "end": 2296,
+            "html": "<p style=\"white-space:pre-wrap\">Câu 5. Khảo sát thời gian tập thể dục trong ngày của 100 học sinh lớp 9 thu được bảng số liệu ghép nhóm sau:\n</p>",
+            "text": "Câu 5. Khảo sát thời gian tập thể dục trong ngày của 100 học sinh lớp 9 thu được bảng số liệu ghép nhóm sau:\n",
+            "start": 2151
+          },
+          {
+            "end": 2446,
+            "html": "<p style=\"white-space:pre-wrap\">   Thời gian (phút)           [0; 20 )         [ 20; 40 )          [ 40;60 )      [60;80 )              [80;100 )\n</p>",
+            "text": "   Thời gian (phút)           [0; 20 )         [ 20; 40 )          [ 40;60 )      [60;80 )              [80;100 )\n",
+            "start": 2296
+          },
+          {
+            "end": 2591,
+            "html": "<p style=\"white-space:pre-wrap\">        Số học sinh             20                40                   18           15                     7\n</p>",
+            "text": "        Số học sinh             20                40                   18           15                     7\n",
+            "start": 2446
+          },
+          {
+            "end": 2734,
+            "html": "<p style=\"white-space:pre-wrap\">  Dựa vào bảng trên, hãy cho biết có bao nhiêu học sinh có thời gian tập thể dục trong ngày từ 60 phút đến\n</p>",
+            "text": "  Dựa vào bảng trên, hãy cho biết có bao nhiêu học sinh có thời gian tập thể dục trong ngày từ 60 phút đến\n",
+            "start": 2591
+          },
+          {
+            "end": 2785,
+            "html": "<p style=\"white-space:pre-wrap\">dưới 100 phút?\n</p>",
+            "text": "dưới 100 phút?\n",
+            "start": 2734
+          },
+          {
+            "end": 2917,
+            "html": "<p style=\"white-space:pre-wrap\">  A. 15 .                  B. 22 .                       C. 7 .                         D. 23 .\n</p>",
+            "text": "  A. 15 .                  B. 22 .                       C. 7 .                         D. 23 .\n",
+            "start": 2785
+          },
+          {
+            "end": 3025,
+            "html": "<p style=\"white-space:pre-wrap\">Câu 6. Cho tam giác ABC vuông tại A , biết=    AC 4 . Giá trị của sin \n</p>",
+            "text": "Câu 6. Cho tam giác ABC vuông tại A , biết=    AC 4 . Giá trị của sin \n",
+            "start": 2917
+          },
+          {
+            "end": 3138,
+            "html": "<p style=\"white-space:pre-wrap\">                                          AB 2,=                      ABC là\n</p>",
+            "text": "                                          AB 2,=                      ABC là\n",
+            "start": 3025
+          },
+          {
+            "end": 3275,
+            "html": "<p style=\"white-space:pre-wrap\">        5                     1                             2 5                                    1\n</p>",
+            "text": "        5                     1                             2 5                                    1\n",
+            "start": 3138
+          },
+          {
+            "end": 3414,
+            "html": "<p style=\"white-space:pre-wrap\">  A.      .                B. .                          C.     .                            D.      .\n</p>",
+            "text": "  A.      .                B. .                          C.     .                            D.      .\n",
+            "start": 3275
+          },
+          {
+            "end": 3551,
+            "html": "<p style=\"white-space:pre-wrap\">       5                      5                              5                                    10\n</p>",
+            "text": "       5                      5                              5                                    10\n",
+            "start": 3414
+          },
+          {
+            "end": 3657,
+            "html": "<p style=\"white-space:pre-wrap\">Câu 7. Cho tam giác đều ABC nội tiếp đường tròn (O). Số đo góc BOC là\n</p>",
+            "text": "Câu 7. Cho tam giác đều ABC nội tiếp đường tròn (O). Số đo góc BOC là\n",
+            "start": 3551
+          },
+          {
+            "end": 3796,
+            "html": "<p style=\"white-space:pre-wrap\">  A. 600 .                     B. 900 .                          C. 1500 .                   D. 1200 .\n</p>",
+            "text": "  A. 600 .                     B. 900 .                          C. 1500 .                   D. 1200 .\n",
+            "start": 3657
+          },
+          {
+            "end": 3932,
+            "html": "<p style=\"white-space:pre-wrap\">Câu 8. Một thùng đựng nước có dạng hình trụ với bán kính đáy bằng 3 dm và chiều cao bằng 9 dm . Thể\n</p>",
+            "text": "Câu 8. Một thùng đựng nước có dạng hình trụ với bán kính đáy bằng 3 dm và chiều cao bằng 9 dm . Thể\n",
+            "start": 3796
+          },
+          {
+            "end": 4021,
+            "html": "<p style=\"white-space:pre-wrap\">tích của thùng là (làm tròn kết quả đến hàng đơn vị)\n</p>",
+            "text": "tích của thùng là (làm tròn kết quả đến hàng đơn vị)\n",
+            "start": 3932
+          },
+          {
+            "end": 4163,
+            "html": "<p style=\"white-space:pre-wrap\">  A. 85 dm3 .                  B. 254 dm3 .                      C. 170 dm3 .                D. 509 dm3 .\n</p>",
+            "text": "  A. 85 dm3 .                  B. 254 dm3 .                      C. 170 dm3 .                D. 509 dm3 .\n",
+            "start": 4021
+          },
+          {
+            "end": 4300,
+            "html": "<p style=\"white-space:pre-wrap\">Câu 9. Cho hình nón có bán kính đáy bằng 12 cm, độ dài đường cao bằng 5 cm. Diện tích xung quanh của\n</p>",
+            "text": "Câu 9. Cho hình nón có bán kính đáy bằng 12 cm, độ dài đường cao bằng 5 cm. Diện tích xung quanh của\n",
+            "start": 4163
+          },
+          {
+            "end": 4348,
+            "html": "<p style=\"white-space:pre-wrap\">hình nón là\n</p>",
+            "text": "hình nón là\n",
+            "start": 4300
+          },
+          {
+            "end": 4492,
+            "html": "<p style=\"white-space:pre-wrap\">  A. 156π cm 2 .               B. 60π cm 2 .                     C. 720π cm 2 .              D. 240π cm 2 .\n</p>",
+            "text": "  A. 156π cm 2 .               B. 60π cm 2 .                     C. 720π cm 2 .              D. 240π cm 2 .\n",
+            "start": 4348
+          },
+          {
+            "end": 4529,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 4492
+          },
+          {
+            "end": 4621,
+            "html": "<p style=\"white-space:pre-wrap\">Câu 10. Tính      4a 2 + a với a ≤ 0 ta được kết quả là\n</p>",
+            "text": "Câu 10. Tính      4a 2 + a với a ≤ 0 ta được kết quả là\n",
+            "start": 4529
+          },
+          {
+            "end": 4758,
+            "html": "<p style=\"white-space:pre-wrap\">  A. −a.                       B. 3a.                            C. 5a.                      D. −3a.\n</p>",
+            "text": "  A. −a.                       B. 3a.                            C. 5a.                      D. −3a.\n",
+            "start": 4621
+          },
+          {
+            "end": 4896,
+            "html": "<p style=\"white-space:pre-wrap\">Câu 11. Có 9 quả bóng được đánh số từ 1 đến 9. Lấy ngẫu nhiên một quả bóng, xác suất của biến cố “Lấy\n</p>",
+            "text": "Câu 11. Có 9 quả bóng được đánh số từ 1 đến 9. Lấy ngẫu nhiên một quả bóng, xác suất của biến cố “Lấy\n",
+            "start": 4758
+          },
+          {
+            "end": 4966,
+            "html": "<p style=\"white-space:pre-wrap\">được quả bóng có ghi số chẵn’’ là\n</p>",
+            "text": "được quả bóng có ghi số chẵn’’ là\n",
+            "start": 4896
+          },
+          {
+            "end": 5102,
+            "html": "<p style=\"white-space:pre-wrap\">       1                             4                                4                           5\n</p>",
+            "text": "       1                             4                                4                           5\n",
+            "start": 4966
+          },
+          {
+            "end": 5240,
+            "html": "<p style=\"white-space:pre-wrap\">  A.                           B.      .                         C.     .                    D.     .\n</p>",
+            "text": "  A.                           B.      .                         C.     .                    D.     .\n",
+            "start": 5102
+          },
+          {
+            "end": 5376,
+            "html": "<p style=\"white-space:pre-wrap\">       2                             5                                9                           9\n</p>",
+            "text": "       2                             5                                9                           9\n",
+            "start": 5240
+          },
+          {
+            "end": 5413,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 5376
+          },
+          {
+            "end": 5450,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 5413
+          },
+          {
+            "end": 5549,
+            "html": "<p style=\"white-space:pre-wrap\">                                                       Trang 1\n</p>",
+            "text": "                                                       Trang 1\n",
+            "start": 5450
+          },
+          {
+            "end": 5644,
+            "html": "<p style=\"white-space:pre-wrap\">\fCâu 12. Để đo chiều cao của cột đèn, người ta đặt giác kế\n</p>",
+            "text": "\fCâu 12. Để đo chiều cao của cột đèn, người ta đặt giác kế\n",
+            "start": 5549
+          },
+          {
+            "end": 5738,
+            "html": "<p style=\"white-space:pre-wrap\">thẳng đứng có chiều cao bằng 1,6 m tại một điểm cách chân\n</p>",
+            "text": "thẳng đứng có chiều cao bằng 1,6 m tại một điểm cách chân\n",
+            "start": 5644
+          },
+          {
+            "end": 5832,
+            "html": "<p style=\"white-space:pre-wrap\">cột đèn 20 m. Quay ống ngắm của giác kế sao cho thấy đỉnh\n</p>",
+            "text": "cột đèn 20 m. Quay ống ngắm của giác kế sao cho thấy đỉnh\n",
+            "start": 5738
+          },
+          {
+            "end": 5931,
+            "html": "<p style=\"white-space:pre-wrap\">cột đèn. Đọc trên giác kế số đo góc nhọn α (như hình vẽ). Biết\n</p>",
+            "text": "cột đèn. Đọc trên giác kế số đo góc nhọn α (như hình vẽ). Biết\n",
+            "start": 5832
+          },
+          {
+            "end": 6109,
+            "html": "<p style=\"white-space:pre-wrap\">α = 350 , chiều cao h của cột đèn là (làm tròn đến hàng phần                                                  α                             h\n</p>",
+            "text": "α = 350 , chiều cao h của cột đèn là (làm tròn đến hàng phần                                                  α                             h\n",
+            "start": 5931
+          },
+          {
+            "end": 6151,
+            "html": "<p style=\"white-space:pre-wrap\">mười)\n</p>",
+            "text": "mười)\n",
+            "start": 6109
+          },
+          {
+            "end": 6282,
+            "html": "<p style=\"white-space:pre-wrap\">   A. 13,1m .                  B. 14 m .                                                 1,6 m\n</p>",
+            "text": "   A. 13,1m .                  B. 14 m .                                                 1,6 m\n",
+            "start": 6151
+          },
+          {
+            "end": 6319,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 6282
+          },
+          {
+            "end": 6408,
+            "html": "<p style=\"white-space:pre-wrap\">   C. 11,5 m .                          D. 15, 6 m .\n</p>",
+            "text": "   C. 11,5 m .                          D. 15, 6 m .\n",
+            "start": 6319
+          },
+          {
+            "end": 6565,
+            "html": "<p style=\"white-space:pre-wrap\">                                                                                                                    20 m\n</p>",
+            "text": "                                                                                                                    20 m\n",
+            "start": 6408
+          },
+          {
+            "end": 6602,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 6565
+          },
+          {
+            "end": 6666,
+            "html": "<p style=\"white-space:pre-wrap\">PHẦN II. TỰ LUẬN (7,0 ĐIỂM)\n</p>",
+            "text": "PHẦN II. TỰ LUẬN (7,0 ĐIỂM)\n",
+            "start": 6602
+          },
+          {
+            "end": 6743,
+            "html": "<p style=\"white-space:pre-wrap\">                                       \n</p>",
+            "text": "                                       \n",
+            "start": 6666
+          },
+          {
+            "end": 6820,
+            "html": "<p style=\"white-space:pre-wrap\">Câu 1. (0,75 điểm) Rút gọn biểu thức P =\n</p>",
+            "text": "Câu 1. (0,75 điểm) Rút gọn biểu thức P =\n",
+            "start": 6743
+          },
+          {
+            "end": 6897,
+            "html": "<p style=\"white-space:pre-wrap\">                                       \n</p>",
+            "text": "                                       \n",
+            "start": 6820
+          },
+          {
+            "end": 6978,
+            "html": "<p style=\"white-space:pre-wrap\">                                           5\n</p>",
+            "text": "                                           5\n",
+            "start": 6897
+          },
+          {
+            "end": 7063,
+            "html": "<p style=\"white-space:pre-wrap\">                                               +\n</p>",
+            "text": "                                               +\n",
+            "start": 6978
+          },
+          {
+            "end": 7155,
+            "html": "<p style=\"white-space:pre-wrap\">                                                  1   \n</p>",
+            "text": "                                                  1   \n",
+            "start": 7063
+          },
+          {
+            "end": 7248,
+            "html": "<p style=\"white-space:pre-wrap\">                                                      :\n</p>",
+            "text": "                                                      :\n",
+            "start": 7155
+          },
+          {
+            "end": 7340,
+            "html": "<p style=\"white-space:pre-wrap\">                                        2 x −3 2 x +3\n</p>",
+            "text": "                                        2 x −3 2 x +3\n",
+            "start": 7248
+          },
+          {
+            "end": 7494,
+            "html": "<p style=\"white-space:pre-wrap\">                                                                                         ( x + 1) với x ≥ 0, x ≠ 94 .\n</p>",
+            "text": "                                                                                         ( x + 1) với x ≥ 0, x ≠ 94 .\n",
+            "start": 7340
+          },
+          {
+            "end": 7584,
+            "html": "<p style=\"white-space:pre-wrap\">                                        3 x − 4 y =8\n</p>",
+            "text": "                                        3 x − 4 y =8\n",
+            "start": 7494
+          },
+          {
+            "end": 7662,
+            "html": "<p style=\"white-space:pre-wrap\">Câu 2. (0,75 điểm) Giải hệ phương trình \n</p>",
+            "text": "Câu 2. (0,75 điểm) Giải hệ phương trình \n",
+            "start": 7584
+          },
+          {
+            "end": 7753,
+            "html": "<p style=\"white-space:pre-wrap\">                                        x − 5y =  −1.\n</p>",
+            "text": "                                        x − 5y =  −1.\n",
+            "start": 7662
+          },
+          {
+            "end": 7861,
+            "html": "<p style=\"white-space:pre-wrap\">                                                         5 x − 3 3x + 1\n</p>",
+            "text": "                                                         5 x − 3 3x + 1\n",
+            "start": 7753
+          },
+          {
+            "end": 7979,
+            "html": "<p style=\"white-space:pre-wrap\">Câu 3. (0,75 điểm) Giải bất phương trình                        +       &gt; −3 .\n</p>",
+            "text": "Câu 3. (0,75 điểm) Giải bất phương trình                        +       > −3 .\n",
+            "start": 7861
+          },
+          {
+            "end": 8084,
+            "html": "<p style=\"white-space:pre-wrap\">                                                            4      2\n</p>",
+            "text": "                                                            4      2\n",
+            "start": 7979
+          },
+          {
+            "end": 8236,
+            "html": "<p style=\"white-space:pre-wrap\">Câu 4. (0,75 điểm) Cho phương trình x 2 − 4 x + 1 =0 có hai nghiệm x1 , x2 ( x1 &gt; x2 ). Không giải phương trình,\n</p>",
+            "text": "Câu 4. (0,75 điểm) Cho phương trình x 2 − 4 x + 1 =0 có hai nghiệm x1 , x2 ( x1 > x2 ). Không giải phương trình,\n",
+            "start": 8084
+          },
+          {
+            "end": 8347,
+            "html": "<p style=\"white-space:pre-wrap\">tính giá trị của biểu thức P =          ( x2 + 3) . x12 + 2 x2 − 7 − x12 .\n</p>",
+            "text": "tính giá trị của biểu thức P =          ( x2 + 3) . x12 + 2 x2 − 7 − x12 .\n",
+            "start": 8236
+          },
+          {
+            "end": 8488,
+            "html": "<p style=\"white-space:pre-wrap\">Câu 5. (1,0 điểm) Một bể bơi có thể tích là 144 m3 . Ban đầu bể chưa có nước, hai máy bơm cùng hoạt động\n</p>",
+            "text": "Câu 5. (1,0 điểm) Một bể bơi có thể tích là 144 m3 . Ban đầu bể chưa có nước, hai máy bơm cùng hoạt động\n",
+            "start": 8347
+          },
+          {
+            "end": 8627,
+            "html": "<p style=\"white-space:pre-wrap\">để bơm nước vào bể, sau 2 giờ lượng nước trong bể là 60 m3 . Nếu mỗi máy hoạt động riêng thì thời gian\n</p>",
+            "text": "để bơm nước vào bể, sau 2 giờ lượng nước trong bể là 60 m3 . Nếu mỗi máy hoạt động riêng thì thời gian\n",
+            "start": 8488
+          },
+          {
+            "end": 8768,
+            "html": "<p style=\"white-space:pre-wrap\">bơm đầy bể của máy thứ hai nhiều hơn thời gian bơm đầy bể của máy thứ nhất là 4 giờ. Hỏi nếu máy bơm thứ\n</p>",
+            "text": "bơm đầy bể của máy thứ hai nhiều hơn thời gian bơm đầy bể của máy thứ nhất là 4 giờ. Hỏi nếu máy bơm thứ\n",
+            "start": 8627
+          },
+          {
+            "end": 8862,
+            "html": "<p style=\"white-space:pre-wrap\">nhất hoạt động riêng thì cần bao nhiêu giờ để bơm đầy bể?\n</p>",
+            "text": "nhất hoạt động riêng thì cần bao nhiêu giờ để bơm đầy bể?\n",
+            "start": 8768
+          },
+          {
+            "end": 9001,
+            "html": "<p style=\"white-space:pre-wrap\">Câu 6. (2,5 điểm) Từ điểm M nằm bên ngoài đường tròn (O) kẻ hai tiếp tuyến MA, MB với đường tròn (A và\n</p>",
+            "text": "Câu 6. (2,5 điểm) Từ điểm M nằm bên ngoài đường tròn (O) kẻ hai tiếp tuyến MA, MB với đường tròn (A và\n",
+            "start": 8862
+          },
+          {
+            "end": 9140,
+            "html": "<p style=\"white-space:pre-wrap\">B là các tiếp điểm). Vẽ đường kính BC của đường tròn (O), đường thẳng MC cắt đường tròn (O) tại điểm D\n</p>",
+            "text": "B là các tiếp điểm). Vẽ đường kính BC của đường tròn (O), đường thẳng MC cắt đường tròn (O) tại điểm D\n",
+            "start": 9001
+          },
+          {
+            "end": 9217,
+            "html": "<p style=\"white-space:pre-wrap\">khác C. Gọi H là giao điểm của AB và MO.\n</p>",
+            "text": "khác C. Gọi H là giao điểm của AB và MO.\n",
+            "start": 9140
+          },
+          {
+            "end": 9280,
+            "html": "<p style=\"white-space:pre-wrap\">   a) Chứng minh AC // MO.\n</p>",
+            "text": "   a) Chứng minh AC // MO.\n",
+            "start": 9217
+          },
+          {
+            "end": 9401,
+            "html": "<p style=\"white-space:pre-wrap\">   b) Chứng minh tứ giác MDHB nội tiếp và ∆ MDH                               ∆ MOC.\n</p>",
+            "text": "   b) Chứng minh tứ giác MDHB nội tiếp và ∆ MDH                               ∆ MOC.\n",
+            "start": 9280
+          },
+          {
+            "end": 9510,
+            "html": "<p style=\"white-space:pre-wrap\">                                                                       S\n</p>",
+            "text": "                                                                       S\n",
+            "start": 9401
+          },
+          {
+            "end": 9547,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 9510
+          },
+          {
+            "end": 9584,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 9547
+          },
+          {
+            "end": 9621,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 9584
+          },
+          {
+            "end": 9658,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 9621
+          },
+          {
+            "end": 9796,
+            "html": "<p style=\"white-space:pre-wrap\">   c) Đường thẳng qua C song song với DH cắt đường thẳng AB tại E. Chứng minh A là trung điểm của EH.\n</p>",
+            "text": "   c) Đường thẳng qua C song song với DH cắt đường thẳng AB tại E. Chứng minh A là trung điểm của EH.\n",
+            "start": 9658
+          },
+          {
+            "end": 9878,
+            "html": "<p style=\"white-space:pre-wrap\"> Câu 7. (0,5 điểm) Một công ty cần vận chuyển\n</p>",
+            "text": " Câu 7. (0,5 điểm) Một công ty cần vận chuyển\n",
+            "start": 9796
+          },
+          {
+            "end": 9960,
+            "html": "<p style=\"white-space:pre-wrap\">hàng từ kho hàng A đến trung tâm phân phối D.\n</p>",
+            "text": "hàng từ kho hàng A đến trung tâm phân phối D.\n",
+            "start": 9878
+          },
+          {
+            "end": 10043,
+            "html": "<p style=\"white-space:pre-wrap\">Trên bản đồ, hai điểm A và D nằm cùng phía đối\n</p>",
+            "text": "Trên bản đồ, hai điểm A và D nằm cùng phía đối\n",
+            "start": 9960
+          },
+          {
+            "end": 10125,
+            "html": "<p style=\"white-space:pre-wrap\">với tuyến đường thẳng HK. Biết khoảng cách từ\n</p>",
+            "text": "với tuyến đường thẳng HK. Biết khoảng cách từ\n",
+            "start": 10043
+          },
+          {
+            "end": 10219,
+            "html": "<p style=\"white-space:pre-wrap\">                                                        A\n</p>",
+            "text": "                                                        A\n",
+            "start": 10125
+          },
+          {
+            "end": 10301,
+            "html": "<p style=\"white-space:pre-wrap\">kho hàng A đến tuyến đường HK là 4 km, khoảng\n</p>",
+            "text": "kho hàng A đến tuyến đường HK là 4 km, khoảng\n",
+            "start": 10219
+          },
+          {
+            "end": 10478,
+            "html": "<p style=\"white-space:pre-wrap\">                                                                                                                                           D\n</p>",
+            "text": "                                                                                                                                           D\n",
+            "start": 10301
+          },
+          {
+            "end": 10560,
+            "html": "<p style=\"white-space:pre-wrap\">cách từ trung tâm phân phối D đến tuyến đường\n</p>",
+            "text": "cách từ trung tâm phân phối D đến tuyến đường\n",
+            "start": 10478
+          },
+          {
+            "end": 10740,
+            "html": "<p style=\"white-space:pre-wrap\">HK là 3 km, độ dài HK bằng 20 km. Công ty dự        4 km                                                                                   3 km\n</p>",
+            "text": "HK là 3 km, độ dài HK bằng 20 km. Công ty dự        4 km                                                                                   3 km\n",
+            "start": 10560
+          },
+          {
+            "end": 10825,
+            "html": "<p style=\"white-space:pre-wrap\">định xây dựng lộ trình cho xe vận chuyển đi theo\n</p>",
+            "text": "định xây dựng lộ trình cho xe vận chuyển đi theo\n",
+            "start": 10740
+          },
+          {
+            "end": 10906,
+            "html": "<p style=\"white-space:pre-wrap\">đường gấp khúc ABCD, trong đó B,C thuộc đoạn\n</p>",
+            "text": "đường gấp khúc ABCD, trong đó B,C thuộc đoạn\n",
+            "start": 10825
+          },
+          {
+            "end": 11079,
+            "html": "<p style=\"white-space:pre-wrap\">                                                          H                                               B                C           K\n</p>",
+            "text": "                                                          H                                               B                C           K\n",
+            "start": 10906
+          },
+          {
+            "end": 11163,
+            "html": "<p style=\"white-space:pre-wrap\">HK (như hình vẽ). Tốc độ trung bình của xe trên\n</p>",
+            "text": "HK (như hình vẽ). Tốc độ trung bình của xe trên\n",
+            "start": 11079
+          },
+          {
+            "end": 11309,
+            "html": "<p style=\"white-space:pre-wrap\">các đoạn AB, BC, CD lần lượt là 30 km/h, 50 km/h                                                        20 km\n</p>",
+            "text": "các đoạn AB, BC, CD lần lượt là 30 km/h, 50 km/h                                                        20 km\n",
+            "start": 11163
+          },
+          {
+            "end": 11396,
+            "html": "<p style=\"white-space:pre-wrap\">và 40 km/h. Hãy xác định vị trí các điểm B, C trên\n</p>",
+            "text": "và 40 km/h. Hãy xác định vị trí các điểm B, C trên\n",
+            "start": 11309
+          },
+          {
+            "end": 11492,
+            "html": "<p style=\"white-space:pre-wrap\">đoạn HK sao cho thời gian di chuyển từ A đến D là nhỏ nhất.\n</p>",
+            "text": "đoạn HK sao cho thời gian di chuyển từ A đến D là nhỏ nhất.\n",
+            "start": 11396
+          },
+          {
+            "end": 11529,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 11492
+          },
+          {
+            "end": 11670,
+            "html": "<p style=\"white-space:pre-wrap\">                                            ............................ Hết ...........................\n</p>",
+            "text": "                                            ............................ Hết ...........................\n",
+            "start": 11529
+          },
+          {
+            "end": 11807,
+            "html": "<p style=\"white-space:pre-wrap\">                            Thí sinh không được sử dụng tài liệu. Giám thị không giải thích gì thêm.\n</p>",
+            "text": "                            Thí sinh không được sử dụng tài liệu. Giám thị không giải thích gì thêm.\n",
+            "start": 11670
+          },
+          {
+            "end": 11976,
+            "html": "<p style=\"white-space:pre-wrap\">Họ và tên thí sinh: ................................................................... Số báo danh: ...............................\n</p>",
+            "text": "Họ và tên thí sinh: ................................................................... Số báo danh: ...............................\n",
+            "start": 11807
+          },
+          {
+            "end": 12139,
+            "html": "<p style=\"white-space:pre-wrap\">Chữ kí của Giám thị 1:...................................... Chữ kí của Giám thị 2:...........................................\n</p>",
+            "text": "Chữ kí của Giám thị 1:...................................... Chữ kí của Giám thị 2:...........................................\n",
+            "start": 11976
+          },
+          {
+            "end": 12251,
+            "html": "<p style=\"white-space:pre-wrap\">                                                                    Trang 2\n</p>",
+            "text": "                                                                    Trang 2\n",
+            "start": 12139
+          }
+        ],
+        "status": "complete",
+        "rawHtml": "<p style=\"white-space:pre-wrap\"> SỞ GIÁO DỤC VÀ ĐÀO TẠO                           KỲ THI TUYỂN SINH TRUNG HỌC PHỔ THÔNG\n</p><p style=\"white-space:pre-wrap\">    TỈNH QUẢNG NINH                                          NĂM HỌC 2026 - 2027\n</p><p style=\"white-space:pre-wrap\">                                                          Môn thi: Toán (Dành cho mọi thí sinh)\n</p><p style=\"white-space:pre-wrap\">       ĐỀ THI CHÍNH THỨC                           Thời gian làm bài: 120 phút, không kể thời gian phát đề\n</p><p style=\"white-space:pre-wrap\">       (Đề thi này có 02 trang)\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">PHẦN I. TRẮC NGHIỆM (3,0 ĐIỂM)\n</p><p style=\"white-space:pre-wrap\">Câu hỏi trắc nghiệm nhiều phương án lựa chọn. Mỗi câu thí sinh chỉ chọn một phương án. Mỗi câu trả\n</p><p style=\"white-space:pre-wrap\">lời đúng được 0,25 điểm.\n</p><p style=\"white-space:pre-wrap\">Câu 1. Căn bậc ba của −27 là\n</p><p style=\"white-space:pre-wrap\">  A. 3.                        B. −3.                            C. 3 3.                     D. −3 3.\n</p><p style=\"white-space:pre-wrap\">                                           1\n</p><p style=\"white-space:pre-wrap\">Câu 2. Cho điểm M thuộc đồ thị hàm số y = − x 2 . Biết điểm M có hoành độ bằng 2 , tung độ điểm M là\n</p><p style=\"white-space:pre-wrap\">                                           2\n</p><p style=\"white-space:pre-wrap\">  A. 1.                     B. −1.                        C. 2.                        D. −2.\n</p><p style=\"white-space:pre-wrap\">Câu 3. Giá trị nào của x dưới đây là một nghiệm của bất phương trình 2 x + 4 &lt; 0 ?\n</p><p style=\"white-space:pre-wrap\">  A. −1.                       B. 0.                             C. −4.                      D. −2.\n</p><p style=\"white-space:pre-wrap\">Câu 4. Cặp số ( x; y ) nào dưới đây là một nghiệm của phương trình 2 x − 3 y =\n</p><p style=\"white-space:pre-wrap\">                                                                             −8 ?\n</p><p style=\"white-space:pre-wrap\">  A. ( 2; 4 ) .                B. ( 4; 2 ) .                     C. ( 2; −4 ) .              D. ( −4; 2 ) .\n</p><p style=\"white-space:pre-wrap\">Câu 5. Khảo sát thời gian tập thể dục trong ngày của 100 học sinh lớp 9 thu được bảng số liệu ghép nhóm sau:\n</p><p style=\"white-space:pre-wrap\">   Thời gian (phút)           [0; 20 )         [ 20; 40 )          [ 40;60 )      [60;80 )              [80;100 )\n</p><p style=\"white-space:pre-wrap\">        Số học sinh             20                40                   18           15                     7\n</p><p style=\"white-space:pre-wrap\">  Dựa vào bảng trên, hãy cho biết có bao nhiêu học sinh có thời gian tập thể dục trong ngày từ 60 phút đến\n</p><p style=\"white-space:pre-wrap\">dưới 100 phút?\n</p><p style=\"white-space:pre-wrap\">  A. 15 .                  B. 22 .                       C. 7 .                         D. 23 .\n</p><p style=\"white-space:pre-wrap\">Câu 6. Cho tam giác ABC vuông tại A , biết=    AC 4 . Giá trị của sin \n</p><p style=\"white-space:pre-wrap\">                                          AB 2,=                      ABC là\n</p><p style=\"white-space:pre-wrap\">        5                     1                             2 5                                    1\n</p><p style=\"white-space:pre-wrap\">  A.      .                B. .                          C.     .                            D.      .\n</p><p style=\"white-space:pre-wrap\">       5                      5                              5                                    10\n</p><p style=\"white-space:pre-wrap\">Câu 7. Cho tam giác đều ABC nội tiếp đường tròn (O). Số đo góc BOC là\n</p><p style=\"white-space:pre-wrap\">  A. 600 .                     B. 900 .                          C. 1500 .                   D. 1200 .\n</p><p style=\"white-space:pre-wrap\">Câu 8. Một thùng đựng nước có dạng hình trụ với bán kính đáy bằng 3 dm và chiều cao bằng 9 dm . Thể\n</p><p style=\"white-space:pre-wrap\">tích của thùng là (làm tròn kết quả đến hàng đơn vị)\n</p><p style=\"white-space:pre-wrap\">  A. 85 dm3 .                  B. 254 dm3 .                      C. 170 dm3 .                D. 509 dm3 .\n</p><p style=\"white-space:pre-wrap\">Câu 9. Cho hình nón có bán kính đáy bằng 12 cm, độ dài đường cao bằng 5 cm. Diện tích xung quanh của\n</p><p style=\"white-space:pre-wrap\">hình nón là\n</p><p style=\"white-space:pre-wrap\">  A. 156π cm 2 .               B. 60π cm 2 .                     C. 720π cm 2 .              D. 240π cm 2 .\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">Câu 10. Tính      4a 2 + a với a ≤ 0 ta được kết quả là\n</p><p style=\"white-space:pre-wrap\">  A. −a.                       B. 3a.                            C. 5a.                      D. −3a.\n</p><p style=\"white-space:pre-wrap\">Câu 11. Có 9 quả bóng được đánh số từ 1 đến 9. Lấy ngẫu nhiên một quả bóng, xác suất của biến cố “Lấy\n</p><p style=\"white-space:pre-wrap\">được quả bóng có ghi số chẵn’’ là\n</p><p style=\"white-space:pre-wrap\">       1                             4                                4                           5\n</p><p style=\"white-space:pre-wrap\">  A.                           B.      .                         C.     .                    D.     .\n</p><p style=\"white-space:pre-wrap\">       2                             5                                9                           9\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">                                                       Trang 1\n</p><p style=\"white-space:pre-wrap\">\fCâu 12. Để đo chiều cao của cột đèn, người ta đặt giác kế\n</p><p style=\"white-space:pre-wrap\">thẳng đứng có chiều cao bằng 1,6 m tại một điểm cách chân\n</p><p style=\"white-space:pre-wrap\">cột đèn 20 m. Quay ống ngắm của giác kế sao cho thấy đỉnh\n</p><p style=\"white-space:pre-wrap\">cột đèn. Đọc trên giác kế số đo góc nhọn α (như hình vẽ). Biết\n</p><p style=\"white-space:pre-wrap\">α = 350 , chiều cao h của cột đèn là (làm tròn đến hàng phần                                                  α                             h\n</p><p style=\"white-space:pre-wrap\">mười)\n</p><p style=\"white-space:pre-wrap\">   A. 13,1m .                  B. 14 m .                                                 1,6 m\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">   C. 11,5 m .                          D. 15, 6 m .\n</p><p style=\"white-space:pre-wrap\">                                                                                                                    20 m\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">PHẦN II. TỰ LUẬN (7,0 ĐIỂM)\n</p><p style=\"white-space:pre-wrap\">                                       \n</p><p style=\"white-space:pre-wrap\">Câu 1. (0,75 điểm) Rút gọn biểu thức P =\n</p><p style=\"white-space:pre-wrap\">                                       \n</p><p style=\"white-space:pre-wrap\">                                           5\n</p><p style=\"white-space:pre-wrap\">                                               +\n</p><p style=\"white-space:pre-wrap\">                                                  1   \n</p><p style=\"white-space:pre-wrap\">                                                      :\n</p><p style=\"white-space:pre-wrap\">                                        2 x −3 2 x +3\n</p><p style=\"white-space:pre-wrap\">                                                                                         ( x + 1) với x ≥ 0, x ≠ 94 .\n</p><p style=\"white-space:pre-wrap\">                                        3 x − 4 y =8\n</p><p style=\"white-space:pre-wrap\">Câu 2. (0,75 điểm) Giải hệ phương trình \n</p><p style=\"white-space:pre-wrap\">                                        x − 5y =  −1.\n</p><p style=\"white-space:pre-wrap\">                                                         5 x − 3 3x + 1\n</p><p style=\"white-space:pre-wrap\">Câu 3. (0,75 điểm) Giải bất phương trình                        +       &gt; −3 .\n</p><p style=\"white-space:pre-wrap\">                                                            4      2\n</p><p style=\"white-space:pre-wrap\">Câu 4. (0,75 điểm) Cho phương trình x 2 − 4 x + 1 =0 có hai nghiệm x1 , x2 ( x1 &gt; x2 ). Không giải phương trình,\n</p><p style=\"white-space:pre-wrap\">tính giá trị của biểu thức P =          ( x2 + 3) . x12 + 2 x2 − 7 − x12 .\n</p><p style=\"white-space:pre-wrap\">Câu 5. (1,0 điểm) Một bể bơi có thể tích là 144 m3 . Ban đầu bể chưa có nước, hai máy bơm cùng hoạt động\n</p><p style=\"white-space:pre-wrap\">để bơm nước vào bể, sau 2 giờ lượng nước trong bể là 60 m3 . Nếu mỗi máy hoạt động riêng thì thời gian\n</p><p style=\"white-space:pre-wrap\">bơm đầy bể của máy thứ hai nhiều hơn thời gian bơm đầy bể của máy thứ nhất là 4 giờ. Hỏi nếu máy bơm thứ\n</p><p style=\"white-space:pre-wrap\">nhất hoạt động riêng thì cần bao nhiêu giờ để bơm đầy bể?\n</p><p style=\"white-space:pre-wrap\">Câu 6. (2,5 điểm) Từ điểm M nằm bên ngoài đường tròn (O) kẻ hai tiếp tuyến MA, MB với đường tròn (A và\n</p><p style=\"white-space:pre-wrap\">B là các tiếp điểm). Vẽ đường kính BC của đường tròn (O), đường thẳng MC cắt đường tròn (O) tại điểm D\n</p><p style=\"white-space:pre-wrap\">khác C. Gọi H là giao điểm của AB và MO.\n</p><p style=\"white-space:pre-wrap\">   a) Chứng minh AC // MO.\n</p><p style=\"white-space:pre-wrap\">   b) Chứng minh tứ giác MDHB nội tiếp và ∆ MDH                               ∆ MOC.\n</p><p style=\"white-space:pre-wrap\">                                                                       S\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">   c) Đường thẳng qua C song song với DH cắt đường thẳng AB tại E. Chứng minh A là trung điểm của EH.\n</p><p style=\"white-space:pre-wrap\"> Câu 7. (0,5 điểm) Một công ty cần vận chuyển\n</p><p style=\"white-space:pre-wrap\">hàng từ kho hàng A đến trung tâm phân phối D.\n</p><p style=\"white-space:pre-wrap\">Trên bản đồ, hai điểm A và D nằm cùng phía đối\n</p><p style=\"white-space:pre-wrap\">với tuyến đường thẳng HK. Biết khoảng cách từ\n</p><p style=\"white-space:pre-wrap\">                                                        A\n</p><p style=\"white-space:pre-wrap\">kho hàng A đến tuyến đường HK là 4 km, khoảng\n</p><p style=\"white-space:pre-wrap\">                                                                                                                                           D\n</p><p style=\"white-space:pre-wrap\">cách từ trung tâm phân phối D đến tuyến đường\n</p><p style=\"white-space:pre-wrap\">HK là 3 km, độ dài HK bằng 20 km. Công ty dự        4 km                                                                                   3 km\n</p><p style=\"white-space:pre-wrap\">định xây dựng lộ trình cho xe vận chuyển đi theo\n</p><p style=\"white-space:pre-wrap\">đường gấp khúc ABCD, trong đó B,C thuộc đoạn\n</p><p style=\"white-space:pre-wrap\">                                                          H                                               B                C           K\n</p><p style=\"white-space:pre-wrap\">HK (như hình vẽ). Tốc độ trung bình của xe trên\n</p><p style=\"white-space:pre-wrap\">các đoạn AB, BC, CD lần lượt là 30 km/h, 50 km/h                                                        20 km\n</p><p style=\"white-space:pre-wrap\">và 40 km/h. Hãy xác định vị trí các điểm B, C trên\n</p><p style=\"white-space:pre-wrap\">đoạn HK sao cho thời gian di chuyển từ A đến D là nhỏ nhất.\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">                                            ............................ Hết ...........................\n</p><p style=\"white-space:pre-wrap\">                            Thí sinh không được sử dụng tài liệu. Giám thị không giải thích gì thêm.\n</p><p style=\"white-space:pre-wrap\">Họ và tên thí sinh: ................................................................... Số báo danh: ...............................\n</p><p style=\"white-space:pre-wrap\">Chữ kí của Giám thị 1:...................................... Chữ kí của Giám thị 2:...........................................\n</p><p style=\"white-space:pre-wrap\">                                                                    Trang 2\n</p>",
+        "attempts": 1,
+        "answerKey": null,
+        "createdAt": "2026-11-16T09:43:39.057Z",
+        "candidates": [
+          {
+            "id": "candidate-1",
+            "label": "Câu 1 (trắc nghiệm)",
+            "bodyBlockIds": [
+              9,
+              10
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-2",
+            "label": "Câu 2 (trắc nghiệm)",
+            "bodyBlockIds": [
+              11,
+              12,
+              13,
+              14
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-3",
+            "label": "Câu 3 (trắc nghiệm)",
+            "bodyBlockIds": [
+              15,
+              16
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-4",
+            "label": "Câu 4 (trắc nghiệm)",
+            "bodyBlockIds": [
+              17,
+              18,
+              19
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-5",
+            "label": "Câu 5 (trắc nghiệm)",
+            "bodyBlockIds": [
+              20,
+              21,
+              22,
+              23,
+              24,
+              25
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-6",
+            "label": "Câu 6 (trắc nghiệm)",
+            "bodyBlockIds": [
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-7",
+            "label": "Câu 7 (trắc nghiệm)",
+            "bodyBlockIds": [
+              31,
+              32
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-8",
+            "label": "Câu 8 (trắc nghiệm)",
+            "bodyBlockIds": [
+              33,
+              34,
+              35
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-9",
+            "label": "Câu 9 (trắc nghiệm)",
+            "bodyBlockIds": [
+              36,
+              37,
+              38
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-10",
+            "label": "Câu 10 (trắc nghiệm)",
+            "bodyBlockIds": [
+              40,
+              41
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-11",
+            "label": "Câu 11 (trắc nghiệm)",
+            "bodyBlockIds": [
+              42,
+              43,
+              44,
+              45,
+              46
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-12",
+            "label": "Câu 12 (trắc nghiệm)",
+            "bodyBlockIds": [
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              58
+            ],
+            "contextBlockIds": [
+              59
+            ]
+          },
+          {
+            "id": "candidate-13",
+            "label": "Câu 1 (tự luận)",
+            "bodyBlockIds": [
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-14",
+            "label": "Câu 2 (tự luận)",
+            "bodyBlockIds": [
+              71,
+              72,
+              73
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-15",
+            "label": "Câu 3 (tự luận)",
+            "bodyBlockIds": [
+              74,
+              75,
+              76
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-16",
+            "label": "Câu 4 (tự luận)",
+            "bodyBlockIds": [
+              77,
+              78
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-17",
+            "label": "Câu 5 (tự luận)",
+            "bodyBlockIds": [
+              79,
+              80,
+              81,
+              82
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-18",
+            "label": "Câu 6 (tự luận)",
+            "bodyBlockIds": [
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              93
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-19",
+            "label": "Câu 7 (tự luận)",
+            "bodyBlockIds": [
+              94,
+              95,
+              96,
+              97,
+              99,
+              101,
+              103,
+              104,
+              106,
+              108,
+              109
+            ],
+            "contextBlockIds": [
+              98,
+              100,
+              102,
+              105,
+              107
+            ]
+          }
+        ],
+        "payloadHash": "2b10cb7c1b2172d0f45ca900cbee2c7c94d8682196ff9ad701ad380bdb94e78e",
+        "confirmedIds": [
+          "candidate-1",
+          "candidate-2",
+          "candidate-3",
+          "candidate-4",
+          "candidate-5",
+          "candidate-6",
+          "candidate-7",
+          "candidate-8",
+          "candidate-9",
+          "candidate-10",
+          "candidate-11",
+          "candidate-12",
+          "candidate-13",
+          "candidate-14",
+          "candidate-15",
+          "candidate-16",
+          "candidate-17",
+          "candidate-18",
+          "candidate-19"
+        ],
+        "operationKey": "28a3c885-4215-4659-ba53-6c6785ce75ad",
+        "extractionMode": "ai",
+        "previewVersion": "85e286f6-b1ae-4d28-8732-b041cfbef339"
+      }
+    ],
+    "questions": [
+      {
+        "id": "cce30c83-dec0-44ac-89bd-4d4ad6b8c133",
+        "label": "Bài I.1",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "statistics",
+        "sourceId": "a27763f4-adb8-4ad9-9da1-f1c95ec6bff5",
+        "createdAt": "2026-11-16T09:41:58.285Z",
+        "organized": true,
+        "candidateId": "candidate-1",
+        "bodyBlockIds": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "contextBlockIds": []
+      },
+      {
+        "id": "b2da3f05-65ad-4337-83ad-572815e93f93",
+        "label": "Bài I.2",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "statistics",
+        "sourceId": "a27763f4-adb8-4ad9-9da1-f1c95ec6bff5",
+        "createdAt": "2026-11-16T09:41:58.285Z",
+        "organized": true,
+        "candidateId": "candidate-2",
+        "bodyBlockIds": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22
+        ],
+        "contextBlockIds": []
+      },
+      {
+        "id": "f1820103-4f34-4a07-afac-8f297a75a39a",
+        "label": "Bài II.1",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "quadratic",
+        "sourceId": "a27763f4-adb8-4ad9-9da1-f1c95ec6bff5",
+        "createdAt": "2026-11-16T09:41:58.285Z",
+        "organized": true,
+        "candidateId": "candidate-3",
+        "bodyBlockIds": [
+          24,
+          25,
+          26
+        ],
+        "contextBlockIds": []
+      },
+      {
+        "id": "f38e0993-0fb0-46db-bc5c-fbbb9723031b",
+        "label": "Bài II.2",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "quadratic",
+        "sourceId": "a27763f4-adb8-4ad9-9da1-f1c95ec6bff5",
+        "createdAt": "2026-11-16T09:41:58.285Z",
+        "organized": true,
+        "candidateId": "candidate-4",
+        "bodyBlockIds": [
+          27,
+          28,
+          29,
+          30,
+          31,
+          32
+        ],
+        "contextBlockIds": []
+      },
+      {
+        "id": "d57d5d32-0478-479e-8103-dd06a1f10883",
+        "label": "Bài III",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "interest",
+        "sourceId": "a27763f4-adb8-4ad9-9da1-f1c95ec6bff5",
+        "createdAt": "2026-11-16T09:41:58.285Z",
+        "organized": true,
+        "candidateId": "candidate-5",
+        "bodyBlockIds": [
+          34,
+          35,
+          36,
+          37
+        ],
+        "contextBlockIds": []
+      },
+      {
+        "id": "ec76dcf5-e4f4-4150-85ef-e83a69f9176d",
+        "label": "Bài IV.1",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "cylinder",
+        "sourceId": "a27763f4-adb8-4ad9-9da1-f1c95ec6bff5",
+        "createdAt": "2026-11-16T09:41:58.285Z",
+        "organized": true,
+        "candidateId": "candidate-6",
+        "bodyBlockIds": [
+          39,
+          40,
+          41,
+          42,
+          43,
+          44
+        ],
+        "contextBlockIds": []
+      },
+      {
+        "id": "a0668205-fa4c-4518-b750-229cf753f745",
+        "label": "Bài IV.2",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "circle",
+        "sourceId": "a27763f4-adb8-4ad9-9da1-f1c95ec6bff5",
+        "createdAt": "2026-11-16T09:41:58.285Z",
+        "organized": true,
+        "candidateId": "candidate-7",
+        "bodyBlockIds": [
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51
+        ],
+        "contextBlockIds": []
+      },
+      {
+        "id": "f37e4c31-2dac-439a-9145-4cf3877ecb89",
+        "label": "Bài V",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "optimization-area",
+        "sourceId": "a27763f4-adb8-4ad9-9da1-f1c95ec6bff5",
+        "createdAt": "2026-11-16T09:41:58.285Z",
+        "organized": true,
+        "candidateId": "candidate-8",
+        "bodyBlockIds": [
+          53,
+          54,
+          55,
+          56,
+          57,
+          59
+        ],
+        "contextBlockIds": [
+          52,
+          60
+        ]
+      },
+      {
+        "id": "231b2893-5063-45b9-99a4-8dd6a05435fe",
+        "label": "Bài I.1",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "algebra-expressions",
+        "sourceId": "80c23225-4d44-44a5-9531-0d6f9ac5410d",
+        "createdAt": "2026-11-16T09:43:10.142Z",
+        "organized": true,
+        "candidateId": "candidate-1",
+        "bodyBlockIds": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "contextBlockIds": []
+      },
+      {
+        "id": "6f00455c-6d4f-451a-83ac-232f2d2bc895",
+        "label": "Bài I.2",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "algebra-linear",
+        "sourceId": "80c23225-4d44-44a5-9531-0d6f9ac5410d",
+        "createdAt": "2026-11-16T09:43:10.142Z",
+        "organized": true,
+        "candidateId": "candidate-2",
+        "bodyBlockIds": [
+          16,
+          17,
+          18,
+          19
+        ],
+        "contextBlockIds": []
+      },
+      {
+        "id": "9e1499fc-b55d-41b4-af1a-30ef98b1acba",
+        "label": "Bài II.1",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "algebra-word-problems",
+        "sourceId": "80c23225-4d44-44a5-9531-0d6f9ac5410d",
+        "createdAt": "2026-11-16T09:43:10.142Z",
+        "organized": true,
+        "candidateId": "candidate-3",
+        "bodyBlockIds": [
+          21,
+          22,
+          23
+        ],
+        "contextBlockIds": [
+          20
+        ]
+      },
+      {
+        "id": "2077e432-6e56-46cf-a137-8185be7917f4",
+        "label": "Bài II.2",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "algebra-word-problems",
+        "sourceId": "80c23225-4d44-44a5-9531-0d6f9ac5410d",
+        "createdAt": "2026-11-16T09:43:10.142Z",
+        "organized": true,
+        "candidateId": "candidate-4",
+        "bodyBlockIds": [
+          24,
+          25,
+          26
+        ],
+        "contextBlockIds": [
+          20
+        ]
+      },
+      {
+        "id": "7b97e67c-dacf-4353-8f99-5319f7a75052",
+        "label": "Bài III",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "algebra-expressions",
+        "sourceId": "80c23225-4d44-44a5-9531-0d6f9ac5410d",
+        "createdAt": "2026-11-16T09:43:10.142Z",
+        "organized": true,
+        "candidateId": "candidate-5",
+        "bodyBlockIds": [
+          27,
+          28,
+          29,
+          30,
+          31,
+          32
+        ],
+        "contextBlockIds": []
+      },
+      {
+        "id": "26b81f66-0099-47ff-ba4f-55af79c46864",
+        "label": "Bài IV.1",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "geometry-trigonometry",
+        "sourceId": "80c23225-4d44-44a5-9531-0d6f9ac5410d",
+        "createdAt": "2026-11-16T09:43:10.142Z",
+        "organized": true,
+        "candidateId": "candidate-6",
+        "bodyBlockIds": [
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "contextBlockIds": [
+          39,
+          40
+        ]
+      },
+      {
+        "id": "63c0a5bb-cfd9-49fd-b2bf-79a613cfe99d",
+        "label": "Bài IV.2",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "circle",
+        "sourceId": "80c23225-4d44-44a5-9531-0d6f9ac5410d",
+        "createdAt": "2026-11-16T09:43:10.142Z",
+        "organized": true,
+        "candidateId": "candidate-7",
+        "bodyBlockIds": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          51
+        ],
+        "contextBlockIds": []
+      },
+      {
+        "id": "9d63a188-c85d-4940-ae95-9284c14054a8",
+        "label": "Bài V",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "optimization-area",
+        "sourceId": "80c23225-4d44-44a5-9531-0d6f9ac5410d",
+        "createdAt": "2026-11-16T09:43:10.142Z",
+        "organized": true,
+        "candidateId": "candidate-8",
+        "bodyBlockIds": [
+          53,
+          54,
+          55,
+          56,
+          57
+        ],
+        "contextBlockIds": [
+          58,
+          59,
+          60,
+          61
+        ]
+      },
+      {
+        "id": "f75a0b26-38cd-4ee6-b8fe-c943e85d4083",
+        "label": "Câu 1 (trắc nghiệm)",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "algebra-expressions",
+        "sourceId": "711e3bca-95f8-4678-8eab-1b2aa23e6f81",
+        "createdAt": "2026-11-16T09:44:13.236Z",
+        "candidateId": "candidate-1",
+        "bodyBlockIds": [
+          9,
+          10
+        ],
+        "contextBlockIds": [],
+        "organized": true
+      },
+      {
+        "id": "676ad630-e803-46b6-827f-a39f1749f251",
+        "label": "Câu 2 (trắc nghiệm)",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "quadratic",
+        "sourceId": "711e3bca-95f8-4678-8eab-1b2aa23e6f81",
+        "createdAt": "2026-11-16T09:44:13.236Z",
+        "candidateId": "candidate-2",
+        "bodyBlockIds": [
+          11,
+          12,
+          13,
+          14
+        ],
+        "contextBlockIds": [],
+        "organized": true
+      },
+      {
+        "id": "c44a9625-62fb-43d0-91d0-04ddaa7f3c48",
+        "label": "Câu 3 (trắc nghiệm)",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "algebra-linear",
+        "sourceId": "711e3bca-95f8-4678-8eab-1b2aa23e6f81",
+        "createdAt": "2026-11-16T09:44:13.236Z",
+        "candidateId": "candidate-3",
+        "bodyBlockIds": [
+          15,
+          16
+        ],
+        "contextBlockIds": [],
+        "organized": true
+      },
+      {
+        "id": "fbb1dc18-17d3-4cb9-844d-fb25e401c7b7",
+        "label": "Câu 4 (trắc nghiệm)",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "linear-systems",
+        "sourceId": "711e3bca-95f8-4678-8eab-1b2aa23e6f81",
+        "createdAt": "2026-11-16T09:44:13.236Z",
+        "candidateId": "candidate-4",
+        "bodyBlockIds": [
+          17,
+          18,
+          19
+        ],
+        "contextBlockIds": [],
+        "organized": true
+      },
+      {
+        "id": "85e3edef-05db-488d-8213-c001650c33b4",
+        "label": "Câu 5 (trắc nghiệm)",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "statistics",
+        "sourceId": "711e3bca-95f8-4678-8eab-1b2aa23e6f81",
+        "createdAt": "2026-11-16T09:44:13.236Z",
+        "candidateId": "candidate-5",
+        "bodyBlockIds": [
+          20,
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "contextBlockIds": [],
+        "organized": true
+      },
+      {
+        "id": "08c112df-0f36-4d57-8650-bc07627ace59",
+        "label": "Câu 6 (trắc nghiệm)",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "geometry-trigonometry",
+        "sourceId": "711e3bca-95f8-4678-8eab-1b2aa23e6f81",
+        "createdAt": "2026-11-16T09:44:13.236Z",
+        "candidateId": "candidate-6",
+        "bodyBlockIds": [
+          26,
+          27,
+          28,
+          29,
+          30
+        ],
+        "contextBlockIds": [],
+        "organized": true
+      },
+      {
+        "id": "e6674ce2-aa6f-41e0-aa68-51187cb775be",
+        "label": "Câu 7 (trắc nghiệm)",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "circle",
+        "sourceId": "711e3bca-95f8-4678-8eab-1b2aa23e6f81",
+        "createdAt": "2026-11-16T09:44:13.236Z",
+        "candidateId": "candidate-7",
+        "bodyBlockIds": [
+          31,
+          32
+        ],
+        "contextBlockIds": [],
+        "organized": true
+      },
+      {
+        "id": "b1b1d479-36fc-46f2-9e07-9cb3387ad5b5",
+        "label": "Câu 8 (trắc nghiệm)",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "cylinder",
+        "sourceId": "711e3bca-95f8-4678-8eab-1b2aa23e6f81",
+        "createdAt": "2026-11-16T09:44:13.236Z",
+        "candidateId": "candidate-8",
+        "bodyBlockIds": [
+          33,
+          34,
+          35
+        ],
+        "contextBlockIds": [],
+        "organized": true
+      },
+      {
+        "id": "f89b4c74-c8dc-4bdd-a54b-2e7217b0ad75",
+        "label": "Câu 9 (trắc nghiệm)",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "cone",
+        "sourceId": "711e3bca-95f8-4678-8eab-1b2aa23e6f81",
+        "createdAt": "2026-11-16T09:44:13.236Z",
+        "candidateId": "candidate-9",
+        "bodyBlockIds": [
+          36,
+          37,
+          38
+        ],
+        "contextBlockIds": [],
+        "organized": true
+      },
+      {
+        "id": "77d55ee8-335a-4f49-a2af-6900f6a9b3a3",
+        "label": "Câu 10 (trắc nghiệm)",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "algebra-expressions",
+        "sourceId": "711e3bca-95f8-4678-8eab-1b2aa23e6f81",
+        "createdAt": "2026-11-16T09:44:13.236Z",
+        "candidateId": "candidate-10",
+        "bodyBlockIds": [
+          40,
+          41
+        ],
+        "contextBlockIds": [],
+        "organized": true
+      },
+      {
+        "id": "829f303f-94e1-4c6f-a05c-69fffae2b918",
+        "label": "Câu 11 (trắc nghiệm)",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "probability",
+        "sourceId": "711e3bca-95f8-4678-8eab-1b2aa23e6f81",
+        "createdAt": "2026-11-16T09:44:13.236Z",
+        "candidateId": "candidate-11",
+        "bodyBlockIds": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "contextBlockIds": [],
+        "organized": true
+      },
+      {
+        "id": "56c6d14a-48aa-4761-ac45-4a291e003b4f",
+        "label": "Câu 12 (trắc nghiệm)",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "geometry-trigonometry",
+        "sourceId": "711e3bca-95f8-4678-8eab-1b2aa23e6f81",
+        "createdAt": "2026-11-16T09:44:13.236Z",
+        "candidateId": "candidate-12",
+        "bodyBlockIds": [
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          58
+        ],
+        "contextBlockIds": [
+          59
+        ],
+        "organized": true
+      },
+      {
+        "id": "abc2e79c-85bc-4a3d-a806-901393bbaf58",
+        "label": "Câu 1 (tự luận)",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "algebra-expressions",
+        "sourceId": "711e3bca-95f8-4678-8eab-1b2aa23e6f81",
+        "createdAt": "2026-11-16T09:44:13.236Z",
+        "candidateId": "candidate-13",
+        "bodyBlockIds": [
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70
+        ],
+        "contextBlockIds": [],
+        "organized": true
+      },
+      {
+        "id": "8f7e2a0c-9053-4c63-b496-4b4f13e31ba0",
+        "label": "Câu 2 (tự luận)",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "linear-systems",
+        "sourceId": "711e3bca-95f8-4678-8eab-1b2aa23e6f81",
+        "createdAt": "2026-11-16T09:44:13.236Z",
+        "candidateId": "candidate-14",
+        "bodyBlockIds": [
+          71,
+          72,
+          73
+        ],
+        "contextBlockIds": [],
+        "organized": true
+      },
+      {
+        "id": "f938d73c-024c-4d20-a763-3770781ccd67",
+        "label": "Câu 3 (tự luận)",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "algebra-linear",
+        "sourceId": "711e3bca-95f8-4678-8eab-1b2aa23e6f81",
+        "createdAt": "2026-11-16T09:44:13.236Z",
+        "candidateId": "candidate-15",
+        "bodyBlockIds": [
+          74,
+          75,
+          76
+        ],
+        "contextBlockIds": [],
+        "organized": true
+      },
+      {
+        "id": "09951e61-c51d-4a93-a782-ea206e516c15",
+        "label": "Câu 4 (tự luận)",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "quadratic",
+        "sourceId": "711e3bca-95f8-4678-8eab-1b2aa23e6f81",
+        "createdAt": "2026-11-16T09:44:13.236Z",
+        "candidateId": "candidate-16",
+        "bodyBlockIds": [
+          77,
+          78
+        ],
+        "contextBlockIds": [],
+        "organized": true
+      },
+      {
+        "id": "6acf369e-c626-409e-96bc-7242276f16b2",
+        "label": "Câu 5 (tự luận)",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "algebra-word-problems",
+        "sourceId": "711e3bca-95f8-4678-8eab-1b2aa23e6f81",
+        "createdAt": "2026-11-16T09:44:13.236Z",
+        "candidateId": "candidate-17",
+        "bodyBlockIds": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "contextBlockIds": [],
+        "organized": true
+      },
+      {
+        "id": "7b5f6151-496c-498f-b2c1-d4c32f5b99ee",
+        "label": "Câu 6 (tự luận)",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "circle",
+        "sourceId": "711e3bca-95f8-4678-8eab-1b2aa23e6f81",
+        "createdAt": "2026-11-16T09:44:13.236Z",
+        "candidateId": "candidate-18",
+        "bodyBlockIds": [
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          93
+        ],
+        "contextBlockIds": [],
+        "organized": true
+      },
+      {
+        "id": "d455ef78-af66-434c-9e90-8cb6a1beaf94",
+        "label": "Câu 7 (tự luận)",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "optimization-path",
+        "sourceId": "711e3bca-95f8-4678-8eab-1b2aa23e6f81",
+        "createdAt": "2026-11-16T09:44:13.236Z",
+        "candidateId": "candidate-19",
+        "bodyBlockIds": [
+          94,
+          95,
+          96,
+          97,
+          99,
+          101,
+          103,
+          104,
+          106,
+          108,
+          109
+        ],
+        "contextBlockIds": [
+          98,
+          100,
+          102,
+          105,
+          107
+        ],
+        "organized": true
+      }
+    ],
+    "organization": {
+      "status": "complete",
+      "attempts": 1
+    }
+  }
+}

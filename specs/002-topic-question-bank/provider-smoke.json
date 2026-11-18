@@ -1,0 +1,84 @@
+{
+  "startedAt": "2026-11-13T16:57:31.957Z",
+  "syntheticOnly": true,
+  "storage": "dedicated disposable PostgreSQL",
+  "outcome": "passed",
+  "calls": [
+    {
+      "status": 200,
+      "model": "deepseek-v4.1-flash",
+      "usage": {
+        "prompt_tokens": 649,
+        "completion_tokens": 781,
+        "total_tokens": 1430
+      },
+      "elapsedMs": 4891
+    },
+    {
+      "status": 200,
+      "model": "deepseek-v4.1-flash",
+      "usage": {
+        "prompt_tokens": 1513,
+        "completion_tokens": 2475,
+        "total_tokens": 3988
+      },
+      "elapsedMs": 12054
+    },
+    {
+      "status": 200,
+      "model": "deepseek-v4.1-flash",
+      "usage": {
+        "prompt_tokens": 630,
+        "completion_tokens": 629,
+        "total_tokens": 1259
+      },
+      "elapsedMs": 5254
+    },
+    {
+      "status": 200,
+      "model": "deepseek-v4.1-flash",
+      "usage": {
+        "prompt_tokens": 2941,
+        "completion_tokens": 3958,
+        "total_tokens": 6899
+      },
+      "elapsedMs": 18313
+    }
+  ],
+  "batches": [
+    {
+      "fixture": "round4-batch-a.html",
+      "sha256": "ddd6da2ed847ed94fbbf6d697c02fddb6bc25ebc2bd939065e84f06567515a73",
+      "blockCount": 10,
+      "extractionStatus": "review",
+      "candidates": 6,
+      "extractionMs": 4903,
+      "organizationStatus": "complete"
+    },
+    {
+      "fixture": "round4-batch-b.html",
+      "sha256": "68bbe7b87f88746424abb5772925bbf409556003c114e0f899342b8ebc3d5e37",
+      "blockCount": 7,
+      "extractionStatus": "review",
+      "candidates": 4,
+      "extractionMs": 5267,
+      "organizationStatus": "complete"
+    }
+  ],
+  "verified": {
+    "questions": 10,
+    "sources": 2,
+    "exactRawHtml": true,
+    "exactBlocks": true,
+    "deduplicatedBodies": true,
+    "sharedPassage": true,
+    "completeNestedFigure": true,
+    "multipartAndFormulas": true,
+    "metadataNull": true,
+    "immutablePriorSource": true,
+    "durableReload": true,
+    "incrementalTreeValid": true,
+    "confirmationIdempotent": true
+  },
+  "finishedAt": "2026-11-13T16:58:13.061Z"
+}

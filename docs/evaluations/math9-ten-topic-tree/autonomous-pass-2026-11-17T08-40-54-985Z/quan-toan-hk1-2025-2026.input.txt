@@ -1,0 +1,322 @@
+Mã đề 901 Trang 1/2
+UBND PHƯỜNG HỒNG AN
+TRƯỜNG THCS QUÁN TOAN
+--------------------
+(Đề thi có 02 trang)
+ĐỀ KIỂM TRA CUỐI HỌC KÌ I
+NĂM HỌC 2025 - 2026
+MÔN: TOÁN
+Thời gian làm bài: 90 phút
+(không kể thời gian phát đề)
+Họ và tên: ............................................................................Số báo danh: ....... Mã đề 901
+PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn. Thí sinh trả lời từ câu 1 đến câu 12. Mỗi
+câu hỏi thí sinh chỉ chọn một phương án.
+Câu 1. Biển báo giao thông (hình bên) báo trọng tải P tối đa của toàn bộ xe khi đi qua cầu. Nếu
+một xe tải đi trên cầu đó thì P phải thỏa mãn điều kiện nào trong các điều kiện sau để đúng quy
+định với biển báo giao thông?
+A. 10
+P > . B. 10
+P ≤ . C. 10
+P < . D. 10
+P ≥ .
+Câu 2. Cho các hình vẽ dưới đây, hình vẽ nào minh họa góc ở tâm?
+A. Hình 3. B. Hình 1. C. Hình 4. D. Hình 2.
+Câu 3. Cho tam giác MNP vuông tại M có 9 , 12
+MN cm MP cm
+= = . Khi đó, cos N bằng
+A.
+4
+3
+. B.
+3
+5
+. C.
+3
+4
+. D.
+4
+5
+.
+Câu 4. Căn bậc hai số học của 7 là
+A. 7
+± . B. 7 C. 49. D. 7
+− .
+Câu 5. Hệ phương trình
+2 3
+3 1
+x y
+x y
++ =
+−
+
+
++ =
+
+có nghiệm là
+A. ( )
+2;1
+− . B. ( )
+2;1 . C. ( )
+2; 1
+− − . D. ( )
+2; 1
+− .
+Câu 6. Cho tam giác ABC vuông tại A, đường cao AH . Chọn khẳng định sai trong các khẳng định sau
+A. tan
+AH
+C
+AC
+= . B. sin
+AH
+B
+AB
+= . C. cos
+AC
+C
+BC
+= . D. tan
+AC
+B
+AB
+= .
+Câu 7. Cho hai đường tròn ( )
+; 6
+O cm và ( )
+'; 2
+O cm . Biết ' 9
+OO cm
+= . Khi đó vị trí tương đối của hai
+đường tròn đã cho là
+A. cắt nhau. B. ở ngoài nhau. C. tiếp xúc trong. D. tiếp xúc ngoài.
+Câu 8. Hai tiếp tuyến tại B và C của đường tròn ( )
+O cắt nhau tại A. Chọn khẳng định sai?
+A. OA là đường trung trực của BC . B. OA BC
+⊥ .
+C. OA BC
+⊥ tại trung điểm của OA. D. AB AC
+= .
+Câu 9. Hệ phương trình nào dưới đây là hệ hai phương trình bậc nhất hai ẩn?
+A. .
+0
+3 1
+0 2
+x
+x
+y
+y
+
+
+− =
+=
+
++
+B. .
+5
+3 2
+2
+x y
+x y
+−
++
+=
+=
+
+
+
+
+
+−
+C. 2
+0
+.
+2 3
+x y
+x y
++ =
+
+
+− + =
+
+D.
+2
+.
+3
+3 2
+2y
+x y
+x
++
+
+
+− =
+
+=
+Câu 10. Điều kiện để biểu thức 1 4x
+− xác định là
+A.
+1
+4
+x ≥ . B.
+1
+4
+x ≤ . C.
+1
+4
+x ≤ − . D.
+1
+4
+x ≥ − .
+Câu 11. Cho đường tròn ( ; 5 )
+O cm và một điểm M cách O là 13 .
+cm Vẽ tiếp tuyến MA với đường
+tròn ( A là tiếp điểm). Khi đó, độ dài đoạn thẳng MA là
+A. 10 cm . B. 6 cm. C. 12 cm . D. 8 cm.
+Câu 12. Số nào dưới đây không là nghiệm của bất phương trình 2 4 0
+x − ≥ ?
+A. 5 . B.
+11
+5
+. C. 2. D. 3 .
+PHẦN II. Câu trắc nghiệm đúng sai. Thí sinh trả lời từ câu 1 đến câu 4. Trong mỗi ý a), b), c), d)
+ở mỗi câu, thí sinh chọn đúng hoặc sai.
+Câu 1. Cho bất đẳng thức a b
+≥ .
+a) ( ) ( )
+2 5 2 5 .
+a b
+− ≥ − b) 2025 2026 2025 2026.
+a b
+− ≤ −
+c) 5 5 .
+a b
+− ≤ − d) 2 2
+3 3
+m a m b
+− ≤ − với 0.
+m <
+Câu 2. Cho biểu thức
+3
+3
+x
+A
+x
+−
+=
++
+và
+3 3 27
+9
+3
+x
+B
+x
+x
++
+= +
+−
++
+a) Giá trị của biểu thức .
+P A B
+= tại 3
+x = là 1.
+b) Kết quả rút gọn của B là
+6
+3
+x
+⋅
+−
+c) Điều kiện của x để biểu thức B có giá trị không âm là 9.
+x ≥
+d) ĐKXĐ của biểu thức A và B là 0, 9
+x x
+≥ ≠ .
+Câu 3. Một ô tô đi quãng đường AB với vận tốc 60 / ,
+km h rồi đi tiếp quãng đường BC với vận tốc
+50 / .
+km h Biết quãng đường AB và BC dài tổng cộng 190km và thời gian ô tô đi trên quãng đường
+AB ít hơn thời gian ô tô đi trên quãng đường BC là 30phút. Gọi thời gian ô tô đi trên các quãng
+đường AB và BC lần lượt là ,
+x y (giờ).
+a) Thời gian ô tô đi hết đường AB là 1,5 giờ.
+b) Điều kiện , , 0,5.
+x y y
+∈ >
+
+c) Quãng đường AB dài ( )
+60x km , quãng đường BC dài 50 ( ).
+y km
+d) Phương trình biểu diễn liên hệ giữa thời gian ô tô đi trên quãng đường AB và thời gian ô tô đi
+trên quãng đường BC là 30
+y x
+− = .
+Câu 4. Cho ABC
+∆ vuông tại ,
+A  0
+5 , 40 .
+AB cm ACB
+= = Đường tròn tâm I , đường kính AB cắt BC
+ở .
+M
+a) AM ⊥ .
+BC
+b) Đường tròn đường kính AC đi qua điểm .
+M
+c) Độ dài cung nhỏ BM là ( )
+10
+.
+9
+cm
+d) Diện tích đường tròn ( )
+,
+I IA bằng ( )
+2
+25
+.
+2
+cm
+π
+PHẦN III. Câu trắc nghiệm trả lời ngắn. Thí sinh trả lời từ câu 1 đến câu 6.
+Câu 1. Mặt đĩa CD ở hình sau có dạng hình vành khuyên giới hạn bởi hai đường tròn có bán kính lần
+lượt là 1,5 cm và 5 cm. Hình vành khuyên đó có diện tích bằng bao nhiêu centimét vuông? (Lấy
+3 14
+,
+π = , làm tròn kết quả đến hàng đơn vị).
+Mã đề 901 Trang 2/2
+Câu 2. Cho 16
+x ≥ . Tìm giá trị lớn nhất của biểu thức
+16
+3
+x
+A
+x
+−
+= ⋅
+(Làm tròn kết quả đến chữ số thập phân thứ hai).
+Câu 3. Biết 0
+30
+α = . Tính giá trị biểu thức sin 2cos
+M α α
+= −
+(Làm tròn kết quả đến hàng phần trăm).
+Câu 4. Tính giá trị của biểu thức A = ( )
+2
+5 5
+2 5 .
+1 5
+−
+− −
+−
+Câu 5. Trong một kì thi gồm ba môn Toán, Ngữ văn và Tiếng Anh, điểm số môn Toán và Ngữ văn
+tính theo hệ số 2, điểm số môn Tiếng Anh tính theo hệ số 1. Để trúng tuyển, điểm số trung bình của
+ba môn ít nhất phải bằng 8. Bạn An đã đạt 9,25 điểm môn Toán và 7,75 điểm môn Tiếng anh. Điểm
+số môn Ngữ văn tối thiểu mà bạn An phải đạt được để trúng tuyển là bao nhiêu? (Làm tròn kết quả
+đến chữ số thập phân thứ nhất).
+Câu 6. Người ta cần lắp đặt một thiết bị chiếu sáng gắn trên tường cho một phòng triển lãm tại điểm B
+như hình vẽ. Thiết bị này có góc chiếu sáng là  0
+25
+DBC = và cần đặt cao hơn mặt đất 2,95m. Người ta
+đặt thiết bị chiếu sáng này sát tường AB và được căn chỉnh sao cho trên mặt đất dải ánh sáng bắt đầu từ
+vị trí C cách chân tường 1,88m.
+Tính độ dài vùng được chiếu sáng CD trên mặt đất (Kết quả tính theo đơn vị: mét, làm tròn góc đến độ,
+độ dài đến chữ số thập phân thứ nhất).
+------ HẾT ------

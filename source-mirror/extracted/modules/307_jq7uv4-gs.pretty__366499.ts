@@ -1,0 +1,62 @@
+// Reconstructed from 307_jq7uv4-gs.pretty.js, module 366499.
+// deps: m935917, m17295, m325919, m143078, m745417, m575117
+// exports: createDeck, deckBrief, normalizeDeck, slideContent, slideTitle
+export { function (e = "Bài giảng mới") { let t = new Date().toISOString(); return { version: 1, id: (0, s.shortId)("deck"), title: e, theme: a.DEFAULT_THEME, slides: [(0, s.createSlide)((0, s.shortId)("slide"), "blank")], createdAt: t, updatedAt: t, }; } as "createDeck" };
+export { function (e) { return { title: e.title, theme: e.theme, slides: e.slides.map((e) => ({ id: e.id, title: m(e), layout: e.layout, summary: e.elements .filter((e) => "title" !== e.id) .map((e) => (0, s.elementText)(e).replace(/\s+/g, " ").trim()) .filter(Boolean) .join(" · ") .slice(0, 300), })), }; } as "deckBrief" };
+export { function (e) { if ( !e || "object" != typeof e || "string" != typeof e.id || !Array.isArray(e.slides) ) return null; let m = e.slides.flatMap((e) => { if (!e || "object" != typeof e || "string" != typeof e.id) return []; let a = (Array.isArray(e.elements) ? e.elements : []).flatMap( (e) => { if ( !e || "object" != typeof e || !l.has(e.type) || "string" != typeof e.id ) return []; let a = { ...e, x: g(e.x, 0), y: g(e.y, 0), width: g(e.width, 100), height: g(e.height, 100), rotation: g(e.rotation, 0), opacity: g(e.opacity, 1), locked: !!e.locked, groupId: "string" == typeof e.groupId ? e.groupId : "", animation: (0, r.normalizeAnimation)(e.animation), }; if ("text" === a.type || "shape" === a.type) { ((a.style = (0, s.defaultTextStyle)(a.style)), ["shrink", "grow", "none"].includes(a.style.autofit) || (a.style.autofit = "shrink"), ["left", "center", "right", "justify"].includes( a.style.align, ) || (a.style.align = "left"), "string" != typeof a.text && (a.text = "")); let e = (0, n.normalizeRich)(a.rich); e ? (a.rich = e) : delete a.rich; } if ("graphic" === a.type) { let e = "string" == typeof a.color ? a.color : "", t = "string" == typeof a.accent ? a.accent : "", i = "@primary" === e && "@accent" === t; ((a.color = i ? "" : e), (a.accent = i ? "" : t)); } return ( "shape" === a.type && ((a.fillTo = "string" == typeof a.fillTo ? a.fillTo : ""), (a.gradientAngle = g(a.gradientAngle, 135)), (0, t.isShapeKind)(a.shape) || (a.shape = "rect"), void 0 === a.strokeDash || d.has(a.strokeDash) || delete a.strokeDash), "line" === a.type && ((a.start = u(a.start)), (a.end = u(a.end)), (a.connector = c.has(a.connector) ? a.connector : "straight"), (a.points = Array.isArray(a.points) ? a.points .slice(0, 4e3) .map((e) => ({ x: g(e?.x, 0), y: g(e?.y, 0) })) : void 0), a.points || delete a.points, (a.stroke = "string" == typeof a.stroke ? a.stroke : "@text"), (a.strokeWidth = Math.min( 48, Math.max(0.5, g(a.strokeWidth, 3)), )), (a.dash = d.has(a.dash) ? a.dash : "solid"), (a.startCap = o.has(a.startCap) ? a.startCap : "none"), (a.endCap = o.has(a.endCap) ? a.endCap : "none"), (a.rotation = 0)), [a] ); }, ); return [ { id: e.id, layout: (0, i.isLayoutId)(e.layout) ? e.layout : "blank", background: { ...(0, s.defaultBackground)(), ...(e.background ?? {}), }, elements: a, notes: "string" == typeof e.notes ? e.notes : "", transition: p.has(e.transition) ? e.transition : "fade", transitionSpeed: "fast" === e.transitionSpeed || "slow" === e.transitionSpeed ? e.transitionSpeed : "default", ...(!0 === e.skipped ? { skipped: !0 } : {}), }, ]; }), f = new Date().toISOString(); return { version: 1, id: e.id, title: "string" == typeof e.title && e.title.trim() ? e.title : "Bài giảng mới", theme: (0, a.isThemeId)(e.theme) ? e.theme : a.DEFAULT_THEME, slides: m.length ? m : [(0, s.createSlide)((0, s.shortId)("slide"), "blank")], ...(e.guides && "object" == typeof e.guides ? { guides: { x: (Array.isArray(e.guides.x) ? e.guides.x : []) .filter((e) => "number" == typeof e && Number.isFinite(e)) .slice(0, 40), y: (Array.isArray(e.guides.y) ? e.guides.y : []) .filter((e) => "number" == typeof e && Number.isFinite(e)) .slice(0, 40), }, } : {}), createdAt: "string" == typeof e.createdAt ? e.createdAt : f, updatedAt: "string" == typeof e.updatedAt ? e.updatedAt : f, }; } as "normalizeDeck" };
+export { function (e) { let t = (t) => JSON.stringify(e, (e, a) => { if ("rich" !== e) return "number" == typeof a ? Math.round(100 * a) / 100 : "string" != typeof a ? a : ("src" === e || "image" === e) && a && (a.startsWith("data:") || a.length > 300) ? "(ảnh đã có)" : "data" === e && a.length > 300 ? "(hoạt hình Lottie)" : a.length > t ? `${a.slice(0, t)}…` : a; }), a = new TextEncoder(); for (let e of [4e3, 1200, 400, 120]) { let i = t(e); if (a.encode(i).byteLength <= 22e3) return i; } return t(60); } as "slideContent" };
+export { m as "slideTitle" };
+
+"use strict";
+    var t = m935917,
+      a = m17295,
+      i = m325919,
+      r = m143078,
+      n = m745417,
+      s = m575117;
+    let l = new Set([
+        "text",
+        "shape",
+        "image",
+        "math",
+        "chart",
+        "table",
+        "icon",
+        "graphic",
+        "lottie",
+        "line",
+      ]),
+      o = new Set([
+        "none",
+        "arrow",
+        "triangle",
+        "open",
+        "circle",
+        "diamond",
+        "bar",
+      ]),
+      d = new Set(["solid", "dash", "dot", "dash-dot", "long-dash"]),
+      c = new Set(["straight", "elbow", "curve", "freehand"]);
+    function u(e) {
+      let t = e && "object" == typeof e ? e : {},
+        a = { x: g(t.x, 0), y: g(t.y, 0) };
+      return (
+        "string" == typeof t.elementId &&
+          "number" == typeof t.site &&
+          t.site >= 0 &&
+          t.site <= 7 &&
+          ((a.elementId = t.elementId), (a.site = Math.round(t.site))),
+        a
+      );
+    }
+    let p = new Set(["none", "fade", "slide", "convex", "zoom"]);
+    function g(e, t) {
+      return "number" == typeof e && Number.isFinite(e) ? e : t;
+    }
+    function m(e) {
+      let t =
+        e.elements.find((e) => "title" === e.id) ??
+        e.elements.find((e) => "text" === e.type || "shape" === e.type);
+      return t ? (0, s.elementText)(t).split("\n")[0].trim().slice(0, 120) : "";
+    }
+    ;

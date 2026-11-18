@@ -1,0 +1,86 @@
+TRƯỜNG THCS TRẦN QUÝ CÁP                                 ĐỀ KIỂM TRA
+                                              HỌC KỲ I - NĂM HỌC: 2025-2026
+                                                         MÔN: TOÁN 9
+            ĐỀ CHÍNH THỨC
+                                                THỜI GIAN LÀM BÀI: 90 phút
+                                               (không kể thời gian giao – nhận đề)
+           (Đề gồm có 02 trang – Học sinh làm bài trên giấy thi do giám thị phát)
+
+I. TRẮC NGHIỆM: (3,0 điểm)
+Chọn một phương án trả lời đúng cho mỗi câu sau rồi ghi vào giấy làm bài.
+Câu 1: Phương trình nào sau đây là phương trình bậc nhất hai ẩn ?
+A. 4x2 + 5y = 7      B. x + 2y2 = 5                      C. 3x2 – 2y2 = 0                    D. 2x + 5y = 9
+Câu 2: Hãy chọn câu đúng. Nếu a > b thì
+A. 2a ≤ 2b .            B. 3a > 3b .                      C. 4a < 4b .                           D. 5a ≤ 5b
+Câu 3: Căn bậc hai của 4 là
+A. 4 và - 4.               B. 2.                           C. 16.                                 D. 2 và - 2.
+Câu 4: Kết quả đưa thừa số ra ngoài dấu căn của 50 là
+A. 2 5                       B. 10 5                C. 5 2                                        D. 25 2
+Câu 5: Với a, b là hai số không âm, khẳng định nào sau đây đúng?
+A. a b = ab             B. a b = − ab          C. a b = ab 2         D. a b = a 2b
+Câu 6: Cho tam giác ABC vuông tại B có góc C bằng α . Khi đó cosα bằng
+            BC                          AB                         AB                            BC
+A. cosα =      .         B. cosα =         .       C. cosα =          .           D. cosα =
+            AC                          BC                         AC                            AB
+Câu 7: Kết quả của tỉ số lượng giác sin 600 là
+     1                    3                                    2
+A.                  B.                                   C.                              D. 3
+     2                   2                                    2
+Câu 8: Số đo của góc A biết Sin A = 0,57 (làm tròn đến độ) là
+                                                                              0
+                                                                   C. 34, 7
+                                   0
+A. 340                     B. 35                                                                       D. 0, 010
+Câu 9: Cho tam giác ABC vuông tại A. Khẳng định nào sau đây đúng?                                        A
+
+           AC                    AB                       AC                          AB
+A. sinB
+     =        .     B. sinB
+                         =          .          C. sinB
+                                                    =        .            D. sinB
+                                                                               =         .
+           AB                    AC                       BC                          BC
+Câu 10: Khẳng định nào sau đây đúng?                                                         B                           C
+
+A. Đường tròn có vô số trục đối xứng.                            B. Đường tròn có một trục đối xứng.
+C. Đường tròn không có trục đối xứng nào.                        D. Đường tròn có hai trục đối xứng.
+Câu 11: Trên đường tròn tâm O lấy hai điểm A, B sao cho sđ               bằng
+                                                           AB = 1200 thì AOB
+A. 300.          B. 600.                   C. 900.              D. 1200.
+Câu 12: Công thức tính độ dài của cung tròn (R là bán kính, n là số đo cung có độ dài l) là
+          n                             n                              180                                     360
+A. l =       πR               B. l =       πR                 C. l =       πR                         D. l =       πn.
+         360                           180                              n                                       R
+II. TỰ LUẬN: (7,0 điểm)
+Bài 1: (2,25 điểm)
+a) Tìm điều kiện xác định của căn thức 2 x − 1 .
+b) Giải bất phương trình: 4 x + 7 < −3 x − 14 .
+                         2       1          3
+c) Giải phương trình:        +      =               .
+                       x + 1 x − 2 ( x + 1)( x − 2)
+Bài 2: (2,0 điểm)
+                            4
+a) Trục căn thức ở mẫu:         .
+                           5 −1
+b) Thực hiện phép tính: 4 27 − 75 − 25 + (5 − 3) 2 .
+                         3      1    x −3
+c) Rút gọn biểu thức:        −     −      với x ≥ 0; x ≠ 1.
+                        x +1   x −1 x −1
+
+Bài 3: (0,5 điểm)
+Cho tam giác DEF vuông tại D. Em hãy viết các tỉ số lượng giác của góc nhọn E.
+Bài 4: (1,25 điểm)
+Cho đường tròn (O; 6cm) và      AOB = 600 .
+a) Tính số đo cung nhỏ và lớn của AB và độ dài cung nhỏ AB.
+b) Tính diện tích hình quạt tròn nằm trong góc ở tâm 
+                                                     AOB .
+Bài 5: (1,0 điểm)
+Điểm hạ cánh của một máy bay ở giữa hai
+người quan sát A và B. Biết khoảng cách
+giữa hai người là 2500m, góc nâng nhìn
+thấy máy bay tại vị trí A là 370 và tại vị trí
+B là 300 . Hãy tính độ cao CH của máy bay
+trong hình vẽ? (Kết quả làm tròn đến mét).
+
+
+                           ------------------ Hết-------------------

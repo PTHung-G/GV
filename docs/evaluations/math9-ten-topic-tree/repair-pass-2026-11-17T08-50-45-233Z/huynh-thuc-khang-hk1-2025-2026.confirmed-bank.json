@@ -1,0 +1,1092 @@
+{
+  "ownerId": "ce55af8f-25ac-44a8-bd21-a0a0acde900d",
+  "revision": 4,
+  "bank": {
+    "nodes": [
+      {
+        "id": "root",
+        "label": "Kho câu hỏi",
+        "parentId": null
+      }
+    ],
+    "sources": [
+      {
+        "id": "fa95929d-bd62-465f-b20f-99086978f14b",
+        "hash": "86cafa74112044c5c6cee5801b4a26183d9ce015bf2202f2e67b1e091b7f03e0",
+        "docId": "huynh-thuc-khang-hk1-2025-2026",
+        "title": "Public mathematics exam huynh-thuc-khang-hk1-2025-2026",
+        "blocks": [
+          {
+            "end": 107,
+            "html": "<p style=\"white-space:pre-wrap\">\f      UBND XÃ TAM ANH        ĐỀ KIỂM TRA CUỐI KÌ I, NĂM HỌC 2025-2026\n</p>",
+            "text": "\f      UBND XÃ TAM ANH        ĐỀ KIỂM TRA CUỐI KÌ I, NĂM HỌC 2025-2026\n",
+            "start": 0
+          },
+          {
+            "end": 209,
+            "html": "<p style=\"white-space:pre-wrap\">TRƯỜNG THCS HUỲNH THÚC KHÁNG          MÔN: TOÁN – LỚP 9 – MÃ ĐỀ 1\n</p>",
+            "text": "TRƯỜNG THCS HUỲNH THÚC KHÁNG          MÔN: TOÁN – LỚP 9 – MÃ ĐỀ 1\n",
+            "start": 107
+          },
+          {
+            "end": 322,
+            "html": "<p style=\"white-space:pre-wrap\">        (Đề gồm có 02 trang) Thời gian: 90 phút (không kể thời gian giao đề)\n</p>",
+            "text": "        (Đề gồm có 02 trang) Thời gian: 90 phút (không kể thời gian giao đề)\n",
+            "start": 209
+          },
+          {
+            "end": 359,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 322
+          },
+          {
+            "end": 474,
+            "html": "<p style=\"white-space:pre-wrap\">    I. TRẮC NGHIỆM (3,0 điểm). Chọn câu trả lời đúng rồi ghi vào giấy làm bài.\n</p>",
+            "text": "    I. TRẮC NGHIỆM (3,0 điểm). Chọn câu trả lời đúng rồi ghi vào giấy làm bài.\n",
+            "start": 359
+          },
+          {
+            "end": 511,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 474
+          },
+          {
+            "end": 629,
+            "html": "<p style=\"white-space:pre-wrap\">    Câu 1. Trong các phương trình sau, có bao nhiêu phương trình bậc nhất hai ẩn?\n</p>",
+            "text": "    Câu 1. Trong các phương trình sau, có bao nhiêu phương trình bậc nhất hai ẩn?\n",
+            "start": 511
+          },
+          {
+            "end": 730,
+            "html": "<p style=\"white-space:pre-wrap\">          𝑥 = 0; −𝑥 − 𝑦 = 1; 0𝑥 + 0𝑦 = 2𝑥𝑦; −𝑥 + 𝑦 = 0.\n</p>",
+            "text": "          𝑥 = 0; −𝑥 − 𝑦 = 1; 0𝑥 + 0𝑦 = 2𝑥𝑦; −𝑥 + 𝑦 = 0.\n",
+            "start": 629
+          },
+          {
+            "end": 845,
+            "html": "<p style=\"white-space:pre-wrap\">    A. 1.                    B. 2.                  C. 3.                D. 4.\n</p>",
+            "text": "    A. 1.                    B. 2.                  C. 3.                D. 4.\n",
+            "start": 730
+          },
+          {
+            "end": 950,
+            "html": "<p style=\"white-space:pre-wrap\">    Câu 2. x  1; x  5 là hai nghiệm của phương trình nào dưới đây?\n</p>",
+            "text": "    Câu 2. x  1; x  5 là hai nghiệm của phương trình nào dưới đây?\n",
+            "start": 845
+          },
+          {
+            "end": 1057,
+            "html": "<p style=\"white-space:pre-wrap\">    A. (5  x )( x  1)  0.                  B. (5  x )( x  1)  0.\n</p>",
+            "text": "    A. (5  x )( x  1)  0.                  B. (5  x )( x  1)  0.\n",
+            "start": 950
+          },
+          {
+            "end": 1166,
+            "html": "<p style=\"white-space:pre-wrap\">    C. (5  x )( x  1)  0.                  D. (5  x )(  x  1)  0.\n</p>",
+            "text": "    C. (5  x )( x  1)  0.                  D. (5  x )(  x  1)  0.\n",
+            "start": 1057
+          },
+          {
+            "end": 1292,
+            "html": "<p style=\"white-space:pre-wrap\">    Câu 3. Để được điều khiển xe máy điện thì số tuổi 𝒙 của một người phải ít nhất là 16\n</p>",
+            "text": "    Câu 3. Để được điều khiển xe máy điện thì số tuổi 𝒙 của một người phải ít nhất là 16\n",
+            "start": 1166
+          },
+          {
+            "end": 1375,
+            "html": "<p style=\"white-space:pre-wrap\">    tuổi, bất đẳng thức mô tả tình huống đó là\n</p>",
+            "text": "    tuổi, bất đẳng thức mô tả tình huống đó là\n",
+            "start": 1292
+          },
+          {
+            "end": 1501,
+            "html": "<p style=\"white-space:pre-wrap\">    A. 𝑥 &lt; 16.              B. 𝑥 ≤ 16.              C. 𝑥 &gt; 16.        D. x ≥ 16.\n</p>",
+            "text": "    A. 𝑥 < 16.              B. 𝑥 ≤ 16.              C. 𝑥 > 16.        D. x ≥ 16.\n",
+            "start": 1375
+          },
+          {
+            "end": 1570,
+            "html": "<p style=\"white-space:pre-wrap\">    Câu 4. Căn bậc hai của 36 là\n</p>",
+            "text": "    Câu 4. Căn bậc hai của 36 là\n",
+            "start": 1501
+          },
+          {
+            "end": 1686,
+            "html": "<p style=\"white-space:pre-wrap\">    A.   36 .               B.  6 .                 C. 6 .             D. -6 .\n</p>",
+            "text": "    A.   36 .               B.  6 .                 C. 6 .             D. -6 .\n",
+            "start": 1570
+          },
+          {
+            "end": 1768,
+            "html": "<p style=\"white-space:pre-wrap\">    Câu 5. Giá trị của x để x  1 có nghĩa là\n</p>",
+            "text": "    Câu 5. Giá trị của x để x  1 có nghĩa là\n",
+            "start": 1686
+          },
+          {
+            "end": 1887,
+            "html": "<p style=\"white-space:pre-wrap\">    A. x  1 .             B. x  1 .              C. x 1.           D. x  1 .\n</p>",
+            "text": "    A. x  1 .             B. x  1 .              C. x 1.           D. x  1 .\n",
+            "start": 1768
+          },
+          {
+            "end": 1973,
+            "html": "<p style=\"white-space:pre-wrap\">    Câu 6. Nếu M  0 và N  0 thì      M 2 N bằng\n</p>",
+            "text": "    Câu 6. Nếu M  0 và N  0 thì      M 2 N bằng\n",
+            "start": 1887
+          },
+          {
+            "end": 2090,
+            "html": "<p style=\"white-space:pre-wrap\">    A. N M.                 B. N M.                  C.  M N.          D. M N.\n</p>",
+            "text": "    A. N M.                 B. N M.                  C.  M N.          D. M N.\n",
+            "start": 1973
+          },
+          {
+            "end": 2161,
+            "html": "<p style=\"white-space:pre-wrap\">    Câu 7. Kết quả so sánh đúng là\n</p>",
+            "text": "    Câu 7. Kết quả so sánh đúng là\n",
+            "start": 2090
+          },
+          {
+            "end": 2282,
+            "html": "<p style=\"white-space:pre-wrap\">    A. 5  3.                B. 2  5.                C. 2  2 .         D. 4  16 .\n</p>",
+            "text": "    A. 5  3.                B. 2  5.                C. 2  2 .         D. 4  16 .\n",
+            "start": 2161
+          },
+          {
+            "end": 2348,
+            "html": "<p style=\"white-space:pre-wrap\">    Câu 8. Đường tròn là hình\n</p>",
+            "text": "    Câu 8. Đường tròn là hình\n",
+            "start": 2282
+          },
+          {
+            "end": 2469,
+            "html": "<p style=\"white-space:pre-wrap\">    A. có một tâm đối xứng và có vô số trục đối xứng.       B. có một trục đối xứng.\n</p>",
+            "text": "    A. có một tâm đối xứng và có vô số trục đối xứng.       B. có một trục đối xứng.\n",
+            "start": 2348
+          },
+          {
+            "end": 2557,
+            "html": "<p style=\"white-space:pre-wrap\">    C. có vô số tâm đối xứng.                     A\n</p>",
+            "text": "    C. có vô số tâm đối xứng.                     A\n",
+            "start": 2469
+          },
+          {
+            "end": 2680,
+            "html": "<p style=\"white-space:pre-wrap\">                                                            D. không có trục đối xứng.\n</p>",
+            "text": "                                                            D. không có trục đối xứng.\n",
+            "start": 2557
+          },
+          {
+            "end": 2754,
+            "html": "<p style=\"white-space:pre-wrap\">    Câu 9. Góc ở tâm ở hình vẽ bên là\n</p>",
+            "text": "    Câu 9. Góc ở tâm ở hình vẽ bên là\n",
+            "start": 2680
+          },
+          {
+            "end": 2802,
+            "html": "<p style=\"white-space:pre-wrap\">    A. AOB.\n</p>",
+            "text": "    A. AOB.\n",
+            "start": 2754
+          },
+          {
+            "end": 2853,
+            "html": "<p style=\"white-space:pre-wrap\">    B. 𝐵𝐴𝑂.\n</p>",
+            "text": "    B. 𝐵𝐴𝑂.\n",
+            "start": 2802
+          },
+          {
+            "end": 2947,
+            "html": "<p style=\"white-space:pre-wrap\">                                    C        O          B\n</p>",
+            "text": "                                    C        O          B\n",
+            "start": 2853
+          },
+          {
+            "end": 2998,
+            "html": "<p style=\"white-space:pre-wrap\">    C. 𝐶𝐴𝑂.\n</p>",
+            "text": "    C. 𝐶𝐴𝑂.\n",
+            "start": 2947
+          },
+          {
+            "end": 3049,
+            "html": "<p style=\"white-space:pre-wrap\">    D. 𝐴𝐵𝑂.\n</p>",
+            "text": "    D. 𝐴𝐵𝑂.\n",
+            "start": 2998
+          },
+          {
+            "end": 3086,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 3049
+          },
+          {
+            "end": 3185,
+            "html": "<p style=\"white-space:pre-wrap\">    Câu 10. Điểm M nằm trên đường tròn (O; 2cm) khi và chỉ khi\n</p>",
+            "text": "    Câu 10. Điểm M nằm trên đường tròn (O; 2cm) khi và chỉ khi\n",
+            "start": 3086
+          },
+          {
+            "end": 3311,
+            "html": "<p style=\"white-space:pre-wrap\">    A. OM &lt; 2cm.             B. OM = 2cm.            C. OM  2cm.      D. OM &gt; 2cm.\n</p>",
+            "text": "    A. OM < 2cm.             B. OM = 2cm.            C. OM  2cm.      D. OM > 2cm.\n",
+            "start": 3185
+          },
+          {
+            "end": 3402,
+            "html": "<p style=\"white-space:pre-wrap\">    Câu 11. Trong một đường tròn, số đo cung lớn bằng:\n</p>",
+            "text": "    Câu 11. Trong một đường tròn, số đo cung lớn bằng:\n",
+            "start": 3311
+          },
+          {
+            "end": 3462,
+            "html": "<p style=\"white-space:pre-wrap\">    A. Số đo cung nhỏ .\n</p>",
+            "text": "    A. Số đo cung nhỏ .\n",
+            "start": 3402
+          },
+          {
+            "end": 3536,
+            "html": "<p style=\"white-space:pre-wrap\">    B. Số đo của cung nửa đường tròn.\n</p>",
+            "text": "    B. Số đo của cung nửa đường tròn.\n",
+            "start": 3462
+          },
+          {
+            "end": 3647,
+            "html": "<p style=\"white-space:pre-wrap\">    C. Hiệu giữa 360o và số đo của cung nhỏ (có chung 2 mút với cung lớn).\n</p>",
+            "text": "    C. Hiệu giữa 360o và số đo của cung nhỏ (có chung 2 mút với cung lớn).\n",
+            "start": 3536
+          },
+          {
+            "end": 3758,
+            "html": "<p style=\"white-space:pre-wrap\">    D. Tổng giữa 360o và số đo của cung nhỏ (có chung 2 mút với cung lớn).\n</p>",
+            "text": "    D. Tổng giữa 360o và số đo của cung nhỏ (có chung 2 mút với cung lớn).\n",
+            "start": 3647
+          },
+          {
+            "end": 3877,
+            "html": "<p style=\"white-space:pre-wrap\">\fCâu 12. Diện tích của hình quạt tròn bán kính R, cung n0 được tính theo công thức\n</p>",
+            "text": "\fCâu 12. Diện tích của hình quạt tròn bán kính R, cung n0 được tính theo công thức\n",
+            "start": 3758
+          },
+          {
+            "end": 4013,
+            "html": "<p style=\"white-space:pre-wrap\">          Rn                             R2n                         Rn                     R2n\n</p>",
+            "text": "          Rn                             R2n                         Rn                     R2n\n",
+            "start": 3877
+          },
+          {
+            "end": 4153,
+            "html": "<p style=\"white-space:pre-wrap\">A. S           .               B. S            .           C. S           .       D. S            .\n</p>",
+            "text": "A. S           .               B. S            .           C. S           .       D. S            .\n",
+            "start": 4013
+          },
+          {
+            "end": 4287,
+            "html": "<p style=\"white-space:pre-wrap\">         180                              180                         360                     360\n</p>",
+            "text": "         180                              180                         360                     360\n",
+            "start": 4153
+          },
+          {
+            "end": 4324,
+            "html": "<p style=\"white-space:pre-wrap\">\n</p>",
+            "text": "\n",
+            "start": 4287
+          },
+          {
+            "end": 4384,
+            "html": "<p style=\"white-space:pre-wrap\">II. TỰ LUẬN (7,0 điểm).\n</p>",
+            "text": "II. TỰ LUẬN (7,0 điểm).\n",
+            "start": 4324
+          },
+          {
+            "end": 4439,
+            "html": "<p style=\"white-space:pre-wrap\">Bài 1. (1,25 điểm)\n</p>",
+            "text": "Bài 1. (1,25 điểm)\n",
+            "start": 4384
+          },
+          {
+            "end": 4525,
+            "html": "<p style=\"white-space:pre-wrap\">      a. Giải bất phương trình 4x  3  1  2x .\n</p>",
+            "text": "      a. Giải bất phương trình 4x  3  1  2x .\n",
+            "start": 4439
+          },
+          {
+            "end": 4613,
+            "html": "<p style=\"white-space:pre-wrap\">                                         x - y  1\n</p>",
+            "text": "                                         x - y  1\n",
+            "start": 4525
+          },
+          {
+            "end": 4685,
+            "html": "<p style=\"white-space:pre-wrap\">         b. Giải hệ phương trình: \n</p>",
+            "text": "         b. Giải hệ phương trình: \n",
+            "start": 4613
+          },
+          {
+            "end": 4774,
+            "html": "<p style=\"white-space:pre-wrap\">                                         3x + y = 7\n</p>",
+            "text": "                                         3x + y = 7\n",
+            "start": 4685
+          },
+          {
+            "end": 4828,
+            "html": "<p style=\"white-space:pre-wrap\">Bài 2. (2,0 điểm)\n</p>",
+            "text": "Bài 2. (2,0 điểm)\n",
+            "start": 4774
+          },
+          {
+            "end": 4917,
+            "html": "<p style=\"white-space:pre-wrap\">          a. Tính 81 ;       (2,5)2 ;    (1  2)2 ;\n</p>",
+            "text": "          a. Tính 81 ;       (2,5)2 ;    (1  2)2 ;\n",
+            "start": 4828
+          },
+          {
+            "end": 4995,
+            "html": "<p style=\"white-space:pre-wrap\">          b. Rút gọn các biểu thức M và N\n</p>",
+            "text": "          b. Rút gọn các biểu thức M và N\n",
+            "start": 4917
+          },
+          {
+            "end": 5114,
+            "html": "<p style=\"white-space:pre-wrap\">            108x3 y                                                              1\n</p>",
+            "text": "            108x3 y                                                              1\n",
+            "start": 4995
+          },
+          {
+            "end": 5224,
+            "html": "<p style=\"white-space:pre-wrap\">   M=                  (với x  0, y  0 ) ;            N = 5 48  3 27 \n</p>",
+            "text": "   M=                  (với x  0, y  0 ) ;            N = 5 48  3 27 \n",
+            "start": 5114
+          },
+          {
+            "end": 5346,
+            "html": "<p style=\"white-space:pre-wrap\">                3xy3                                                             3 2\n</p>",
+            "text": "                3xy3                                                             3 2\n",
+            "start": 5224
+          },
+          {
+            "end": 5454,
+            "html": "<p style=\"white-space:pre-wrap\">                                                                = 300.\n</p>",
+            "text": "                                                                = 300.\n",
+            "start": 5346
+          },
+          {
+            "end": 5555,
+            "html": "<p style=\"white-space:pre-wrap\">Bài 3. (2,75 điểm) Cho tam giác ABC vuông tại A biết AB = 8cm, C\n</p>",
+            "text": "Bài 3. (2,75 điểm) Cho tam giác ABC vuông tại A biết AB = 8cm, C\n",
+            "start": 5454
+          },
+          {
+            "end": 5625,
+            "html": "<p style=\"white-space:pre-wrap\">      a. Giải tam giác vuông ABC.\n</p>",
+            "text": "      a. Giải tam giác vuông ABC.\n",
+            "start": 5555
+          },
+          {
+            "end": 5744,
+            "html": "<p style=\"white-space:pre-wrap\">      b. Vẽ đường tròn tâm O đường kính AC cắt BC tại H. Chứng tỏ AB là tiếp tuyến\n</p>",
+            "text": "      b. Vẽ đường tròn tâm O đường kính AC cắt BC tại H. Chứng tỏ AB là tiếp tuyến\n",
+            "start": 5625
+          },
+          {
+            "end": 5802,
+            "html": "<p style=\"white-space:pre-wrap\">của đường tròn tâm O.\n</p>",
+            "text": "của đường tròn tâm O.\n",
+            "start": 5744
+          },
+          {
+            "end": 5873,
+            "html": "<p style=\"white-space:pre-wrap\">      c. Tính độ dài cung tròn AH.\n</p>",
+            "text": "      c. Tính độ dài cung tròn AH.\n",
+            "start": 5802
+          },
+          {
+            "end": 5927,
+            "html": "<p style=\"white-space:pre-wrap\">Bài 4. (1,0 điểm)\n</p>",
+            "text": "Bài 4. (1,0 điểm)\n",
+            "start": 5873
+          },
+          {
+            "end": 6010,
+            "html": "<p style=\"white-space:pre-wrap\">                                    x x     x\n</p>",
+            "text": "                                    x x     x\n",
+            "start": 5927
+          },
+          {
+            "end": 6136,
+            "html": "<p style=\"white-space:pre-wrap\">         a. Cho biểu thức A              -        với x &gt; 0 và x ≠ 1. Tìm x để A = 3.\n</p>",
+            "text": "         a. Cho biểu thức A              -        với x > 0 và x ≠ 1. Tìm x để A = 3.\n",
+            "start": 6010
+          },
+          {
+            "end": 6223,
+            "html": "<p style=\"white-space:pre-wrap\">                                     x -1 x( x -1)\n</p>",
+            "text": "                                     x -1 x( x -1)\n",
+            "start": 6136
+          },
+          {
+            "end": 6307,
+            "html": "<p style=\"white-space:pre-wrap\">       b. Ba bộ phận truyền chuyển động của một\n</p>",
+            "text": "       b. Ba bộ phận truyền chuyển động của một\n",
+            "start": 6223
+          },
+          {
+            "end": 6391,
+            "html": "<p style=\"white-space:pre-wrap\">chiếc xe đạp gồm một giò đĩa (bánh răng gắn với\n</p>",
+            "text": "chiếc xe đạp gồm một giò đĩa (bánh răng gắn với\n",
+            "start": 6307
+          },
+          {
+            "end": 6476,
+            "html": "<p style=\"white-space:pre-wrap\">bàn đạp), một chiếc líp (cũng có dạng bánh răng)\n</p>",
+            "text": "bàn đạp), một chiếc líp (cũng có dạng bánh răng)\n",
+            "start": 6391
+          },
+          {
+            "end": 6563,
+            "html": "<p style=\"white-space:pre-wrap\">gắn với bánh xe và bộ xích (Hình a). Biết rằng giò\n</p>",
+            "text": "gắn với bánh xe và bộ xích (Hình a). Biết rằng giò\n",
+            "start": 6476
+          },
+          {
+            "end": 6651,
+            "html": "<p style=\"white-space:pre-wrap\">đĩa có bán kính 14 cm, líp có bán kính 4 cm và bánh\n</p>",
+            "text": "đĩa có bán kính 14 cm, líp có bán kính 4 cm và bánh\n",
+            "start": 6563
+          },
+          {
+            "end": 6735,
+            "html": "<p style=\"white-space:pre-wrap\">xe có đường kính 67 cm. Hỏi khi người đi xe đạp\n</p>",
+            "text": "xe có đường kính 67 cm. Hỏi khi người đi xe đạp\n",
+            "start": 6651
+          },
+          {
+            "end": 6817,
+            "html": "<p style=\"white-space:pre-wrap\">một vòng thì xe chạy được quãng đường dài bao\n</p>",
+            "text": "một vòng thì xe chạy được quãng đường dài bao\n",
+            "start": 6735
+          },
+          {
+            "end": 6902,
+            "html": "<p style=\"white-space:pre-wrap\">nhiêu mét (làm tròn kết quả đến hàng phần chục)?\n</p>",
+            "text": "nhiêu mét (làm tròn kết quả đến hàng phần chục)?\n",
+            "start": 6817
+          },
+          {
+            "end": 6983,
+            "html": "<p style=\"white-space:pre-wrap\">Nếu muốn đi quãng đường 2km thì người đó cần\n</p>",
+            "text": "Nếu muốn đi quãng đường 2km thì người đó cần\n",
+            "start": 6902
+          },
+          {
+            "end": 7044,
+            "html": "<p style=\"white-space:pre-wrap\">phải đạp bao nhiêu vòng?\n</p>",
+            "text": "phải đạp bao nhiêu vòng?\n",
+            "start": 6983
+          },
+          {
+            "end": 7139,
+            "html": "<p style=\"white-space:pre-wrap\">                                                     -Hết-\n</p>",
+            "text": "                                                     -Hết-\n",
+            "start": 7044
+          }
+        ],
+        "status": "complete",
+        "rawHtml": "<p style=\"white-space:pre-wrap\">\f      UBND XÃ TAM ANH        ĐỀ KIỂM TRA CUỐI KÌ I, NĂM HỌC 2025-2026\n</p><p style=\"white-space:pre-wrap\">TRƯỜNG THCS HUỲNH THÚC KHÁNG          MÔN: TOÁN – LỚP 9 – MÃ ĐỀ 1\n</p><p style=\"white-space:pre-wrap\">        (Đề gồm có 02 trang) Thời gian: 90 phút (không kể thời gian giao đề)\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">    I. TRẮC NGHIỆM (3,0 điểm). Chọn câu trả lời đúng rồi ghi vào giấy làm bài.\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">    Câu 1. Trong các phương trình sau, có bao nhiêu phương trình bậc nhất hai ẩn?\n</p><p style=\"white-space:pre-wrap\">          𝑥 = 0; −𝑥 − 𝑦 = 1; 0𝑥 + 0𝑦 = 2𝑥𝑦; −𝑥 + 𝑦 = 0.\n</p><p style=\"white-space:pre-wrap\">    A. 1.                    B. 2.                  C. 3.                D. 4.\n</p><p style=\"white-space:pre-wrap\">    Câu 2. x  1; x  5 là hai nghiệm của phương trình nào dưới đây?\n</p><p style=\"white-space:pre-wrap\">    A. (5  x )( x  1)  0.                  B. (5  x )( x  1)  0.\n</p><p style=\"white-space:pre-wrap\">    C. (5  x )( x  1)  0.                  D. (5  x )(  x  1)  0.\n</p><p style=\"white-space:pre-wrap\">    Câu 3. Để được điều khiển xe máy điện thì số tuổi 𝒙 của một người phải ít nhất là 16\n</p><p style=\"white-space:pre-wrap\">    tuổi, bất đẳng thức mô tả tình huống đó là\n</p><p style=\"white-space:pre-wrap\">    A. 𝑥 &lt; 16.              B. 𝑥 ≤ 16.              C. 𝑥 &gt; 16.        D. x ≥ 16.\n</p><p style=\"white-space:pre-wrap\">    Câu 4. Căn bậc hai của 36 là\n</p><p style=\"white-space:pre-wrap\">    A.   36 .               B.  6 .                 C. 6 .             D. -6 .\n</p><p style=\"white-space:pre-wrap\">    Câu 5. Giá trị của x để x  1 có nghĩa là\n</p><p style=\"white-space:pre-wrap\">    A. x  1 .             B. x  1 .              C. x 1.           D. x  1 .\n</p><p style=\"white-space:pre-wrap\">    Câu 6. Nếu M  0 và N  0 thì      M 2 N bằng\n</p><p style=\"white-space:pre-wrap\">    A. N M.                 B. N M.                  C.  M N.          D. M N.\n</p><p style=\"white-space:pre-wrap\">    Câu 7. Kết quả so sánh đúng là\n</p><p style=\"white-space:pre-wrap\">    A. 5  3.                B. 2  5.                C. 2  2 .         D. 4  16 .\n</p><p style=\"white-space:pre-wrap\">    Câu 8. Đường tròn là hình\n</p><p style=\"white-space:pre-wrap\">    A. có một tâm đối xứng và có vô số trục đối xứng.       B. có một trục đối xứng.\n</p><p style=\"white-space:pre-wrap\">    C. có vô số tâm đối xứng.                     A\n</p><p style=\"white-space:pre-wrap\">                                                            D. không có trục đối xứng.\n</p><p style=\"white-space:pre-wrap\">    Câu 9. Góc ở tâm ở hình vẽ bên là\n</p><p style=\"white-space:pre-wrap\">    A. AOB.\n</p><p style=\"white-space:pre-wrap\">    B. 𝐵𝐴𝑂.\n</p><p style=\"white-space:pre-wrap\">                                    C        O          B\n</p><p style=\"white-space:pre-wrap\">    C. 𝐶𝐴𝑂.\n</p><p style=\"white-space:pre-wrap\">    D. 𝐴𝐵𝑂.\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">    Câu 10. Điểm M nằm trên đường tròn (O; 2cm) khi và chỉ khi\n</p><p style=\"white-space:pre-wrap\">    A. OM &lt; 2cm.             B. OM = 2cm.            C. OM  2cm.      D. OM &gt; 2cm.\n</p><p style=\"white-space:pre-wrap\">    Câu 11. Trong một đường tròn, số đo cung lớn bằng:\n</p><p style=\"white-space:pre-wrap\">    A. Số đo cung nhỏ .\n</p><p style=\"white-space:pre-wrap\">    B. Số đo của cung nửa đường tròn.\n</p><p style=\"white-space:pre-wrap\">    C. Hiệu giữa 360o và số đo của cung nhỏ (có chung 2 mút với cung lớn).\n</p><p style=\"white-space:pre-wrap\">    D. Tổng giữa 360o và số đo của cung nhỏ (có chung 2 mút với cung lớn).\n</p><p style=\"white-space:pre-wrap\">\fCâu 12. Diện tích của hình quạt tròn bán kính R, cung n0 được tính theo công thức\n</p><p style=\"white-space:pre-wrap\">          Rn                             R2n                         Rn                     R2n\n</p><p style=\"white-space:pre-wrap\">A. S           .               B. S            .           C. S           .       D. S            .\n</p><p style=\"white-space:pre-wrap\">         180                              180                         360                     360\n</p><p style=\"white-space:pre-wrap\">\n</p><p style=\"white-space:pre-wrap\">II. TỰ LUẬN (7,0 điểm).\n</p><p style=\"white-space:pre-wrap\">Bài 1. (1,25 điểm)\n</p><p style=\"white-space:pre-wrap\">      a. Giải bất phương trình 4x  3  1  2x .\n</p><p style=\"white-space:pre-wrap\">                                         x - y  1\n</p><p style=\"white-space:pre-wrap\">         b. Giải hệ phương trình: \n</p><p style=\"white-space:pre-wrap\">                                         3x + y = 7\n</p><p style=\"white-space:pre-wrap\">Bài 2. (2,0 điểm)\n</p><p style=\"white-space:pre-wrap\">          a. Tính 81 ;       (2,5)2 ;    (1  2)2 ;\n</p><p style=\"white-space:pre-wrap\">          b. Rút gọn các biểu thức M và N\n</p><p style=\"white-space:pre-wrap\">            108x3 y                                                              1\n</p><p style=\"white-space:pre-wrap\">   M=                  (với x  0, y  0 ) ;            N = 5 48  3 27 \n</p><p style=\"white-space:pre-wrap\">                3xy3                                                             3 2\n</p><p style=\"white-space:pre-wrap\">                                                                = 300.\n</p><p style=\"white-space:pre-wrap\">Bài 3. (2,75 điểm) Cho tam giác ABC vuông tại A biết AB = 8cm, C\n</p><p style=\"white-space:pre-wrap\">      a. Giải tam giác vuông ABC.\n</p><p style=\"white-space:pre-wrap\">      b. Vẽ đường tròn tâm O đường kính AC cắt BC tại H. Chứng tỏ AB là tiếp tuyến\n</p><p style=\"white-space:pre-wrap\">của đường tròn tâm O.\n</p><p style=\"white-space:pre-wrap\">      c. Tính độ dài cung tròn AH.\n</p><p style=\"white-space:pre-wrap\">Bài 4. (1,0 điểm)\n</p><p style=\"white-space:pre-wrap\">                                    x x     x\n</p><p style=\"white-space:pre-wrap\">         a. Cho biểu thức A              -        với x &gt; 0 và x ≠ 1. Tìm x để A = 3.\n</p><p style=\"white-space:pre-wrap\">                                     x -1 x( x -1)\n</p><p style=\"white-space:pre-wrap\">       b. Ba bộ phận truyền chuyển động của một\n</p><p style=\"white-space:pre-wrap\">chiếc xe đạp gồm một giò đĩa (bánh răng gắn với\n</p><p style=\"white-space:pre-wrap\">bàn đạp), một chiếc líp (cũng có dạng bánh răng)\n</p><p style=\"white-space:pre-wrap\">gắn với bánh xe và bộ xích (Hình a). Biết rằng giò\n</p><p style=\"white-space:pre-wrap\">đĩa có bán kính 14 cm, líp có bán kính 4 cm và bánh\n</p><p style=\"white-space:pre-wrap\">xe có đường kính 67 cm. Hỏi khi người đi xe đạp\n</p><p style=\"white-space:pre-wrap\">một vòng thì xe chạy được quãng đường dài bao\n</p><p style=\"white-space:pre-wrap\">nhiêu mét (làm tròn kết quả đến hàng phần chục)?\n</p><p style=\"white-space:pre-wrap\">Nếu muốn đi quãng đường 2km thì người đó cần\n</p><p style=\"white-space:pre-wrap\">phải đạp bao nhiêu vòng?\n</p><p style=\"white-space:pre-wrap\">                                                     -Hết-\n</p>",
+        "attempts": 1,
+        "answerKey": null,
+        "createdAt": "2026-11-17T08:50:46.067Z",
+        "candidates": [
+          {
+            "id": "candidate-1",
+            "label": "Câu 1",
+            "bodyBlockIds": [
+              6,
+              7,
+              8
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-2",
+            "label": "Câu 2",
+            "bodyBlockIds": [
+              9,
+              10,
+              11
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-3",
+            "label": "Câu 3",
+            "bodyBlockIds": [
+              12,
+              13,
+              14
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-4",
+            "label": "Câu 4",
+            "bodyBlockIds": [
+              15,
+              16
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-5",
+            "label": "Câu 5",
+            "bodyBlockIds": [
+              17,
+              18
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-6",
+            "label": "Câu 6",
+            "bodyBlockIds": [
+              19,
+              20
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-7",
+            "label": "Câu 7",
+            "bodyBlockIds": [
+              21,
+              22
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-8",
+            "label": "Câu 8",
+            "bodyBlockIds": [
+              23,
+              24,
+              25,
+              26
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-9",
+            "label": "Câu 9",
+            "bodyBlockIds": [
+              27,
+              28,
+              29,
+              31,
+              32
+            ],
+            "contextBlockIds": [
+              30
+            ]
+          },
+          {
+            "id": "candidate-10",
+            "label": "Câu 10",
+            "bodyBlockIds": [
+              34,
+              35
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-11",
+            "label": "Câu 11",
+            "bodyBlockIds": [
+              36,
+              37,
+              38,
+              39,
+              40
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-12",
+            "label": "Câu 12",
+            "bodyBlockIds": [
+              41,
+              42,
+              43,
+              44
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-13",
+            "label": "Bài 1a",
+            "bodyBlockIds": [
+              48
+            ],
+            "contextBlockIds": [
+              47
+            ]
+          },
+          {
+            "id": "candidate-14",
+            "label": "Bài 1b",
+            "bodyBlockIds": [
+              49,
+              50,
+              51
+            ],
+            "contextBlockIds": [
+              47
+            ]
+          },
+          {
+            "id": "candidate-15",
+            "label": "Bài 2a",
+            "bodyBlockIds": [
+              53
+            ],
+            "contextBlockIds": [
+              52
+            ]
+          },
+          {
+            "id": "candidate-16",
+            "label": "Bài 2b",
+            "bodyBlockIds": [
+              54,
+              55,
+              56,
+              57
+            ],
+            "contextBlockIds": [
+              52
+            ]
+          },
+          {
+            "id": "candidate-17",
+            "label": "Bài 3",
+            "bodyBlockIds": [
+              58,
+              59,
+              60,
+              61,
+              62,
+              63
+            ],
+            "contextBlockIds": []
+          },
+          {
+            "id": "candidate-18",
+            "label": "Bài 4a",
+            "bodyBlockIds": [
+              65,
+              66,
+              67
+            ],
+            "contextBlockIds": [
+              64
+            ]
+          },
+          {
+            "id": "candidate-19",
+            "label": "Bài 4b",
+            "bodyBlockIds": [
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77
+            ],
+            "contextBlockIds": [
+              64
+            ]
+          }
+        ],
+        "payloadHash": "a1e470e2fce8913e515393ce5229f60935001467c8aabea6843dc09f68158b95",
+        "confirmedIds": [
+          "candidate-1",
+          "candidate-2",
+          "candidate-3",
+          "candidate-4",
+          "candidate-5",
+          "candidate-6",
+          "candidate-7",
+          "candidate-8",
+          "candidate-9",
+          "candidate-10",
+          "candidate-11",
+          "candidate-12",
+          "candidate-13",
+          "candidate-14",
+          "candidate-15",
+          "candidate-16",
+          "candidate-17",
+          "candidate-18",
+          "candidate-19"
+        ],
+        "operationKey": "de0a852d-1ad9-4863-9e96-8faaf02b677c",
+        "extractionMode": "ai",
+        "previewVersion": "de464511-db92-4b5f-84ce-e5b71a77b13b"
+      }
+    ],
+    "questions": [
+      {
+        "id": "107757d2-6cc8-414d-922a-d619f9877e49",
+        "label": "Câu 1",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "root",
+        "sourceId": "fa95929d-bd62-465f-b20f-99086978f14b",
+        "createdAt": "2026-11-17T08:51:19.189Z",
+        "candidateId": "candidate-1",
+        "bodyBlockIds": [
+          6,
+          7,
+          8
+        ],
+        "contextBlockIds": []
+      },
+      {
+        "id": "0608a93e-7d79-4afa-84aa-2fc50ac6e82e",
+        "label": "Câu 2",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "root",
+        "sourceId": "fa95929d-bd62-465f-b20f-99086978f14b",
+        "createdAt": "2026-11-17T08:51:19.189Z",
+        "candidateId": "candidate-2",
+        "bodyBlockIds": [
+          9,
+          10,
+          11
+        ],
+        "contextBlockIds": []
+      },
+      {
+        "id": "0f2578bd-8fd0-4ba1-9142-42a70cbc2ba0",
+        "label": "Câu 3",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "root",
+        "sourceId": "fa95929d-bd62-465f-b20f-99086978f14b",
+        "createdAt": "2026-11-17T08:51:19.189Z",
+        "candidateId": "candidate-3",
+        "bodyBlockIds": [
+          12,
+          13,
+          14
+        ],
+        "contextBlockIds": []
+      },
+      {
+        "id": "fef4ed8a-1a6a-4650-93ef-b5e2c0752846",
+        "label": "Câu 4",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "root",
+        "sourceId": "fa95929d-bd62-465f-b20f-99086978f14b",
+        "createdAt": "2026-11-17T08:51:19.189Z",
+        "candidateId": "candidate-4",
+        "bodyBlockIds": [
+          15,
+          16
+        ],
+        "contextBlockIds": []
+      },
+      {
+        "id": "3c1820c9-cf34-4007-8748-7b3917f4c189",
+        "label": "Câu 5",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "root",
+        "sourceId": "fa95929d-bd62-465f-b20f-99086978f14b",
+        "createdAt": "2026-11-17T08:51:19.189Z",
+        "candidateId": "candidate-5",
+        "bodyBlockIds": [
+          17,
+          18
+        ],
+        "contextBlockIds": []
+      },
+      {
+        "id": "b6c32149-7aba-429b-83f5-5baa9e6e73cb",
+        "label": "Câu 6",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "root",
+        "sourceId": "fa95929d-bd62-465f-b20f-99086978f14b",
+        "createdAt": "2026-11-17T08:51:19.189Z",
+        "candidateId": "candidate-6",
+        "bodyBlockIds": [
+          19,
+          20
+        ],
+        "contextBlockIds": []
+      },
+      {
+        "id": "cfc4dc0d-152e-4164-a8b0-b53eac62d490",
+        "label": "Câu 7",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "root",
+        "sourceId": "fa95929d-bd62-465f-b20f-99086978f14b",
+        "createdAt": "2026-11-17T08:51:19.189Z",
+        "candidateId": "candidate-7",
+        "bodyBlockIds": [
+          21,
+          22
+        ],
+        "contextBlockIds": []
+      },
+      {
+        "id": "cb646b98-ab31-42cc-9ef4-330709a34510",
+        "label": "Câu 8",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "root",
+        "sourceId": "fa95929d-bd62-465f-b20f-99086978f14b",
+        "createdAt": "2026-11-17T08:51:19.189Z",
+        "candidateId": "candidate-8",
+        "bodyBlockIds": [
+          23,
+          24,
+          25,
+          26
+        ],
+        "contextBlockIds": []
+      },
+      {
+        "id": "370cf50d-3842-4ec6-95bc-e71d873e9bd3",
+        "label": "Câu 9",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "root",
+        "sourceId": "fa95929d-bd62-465f-b20f-99086978f14b",
+        "createdAt": "2026-11-17T08:51:19.189Z",
+        "candidateId": "candidate-9",
+        "bodyBlockIds": [
+          27,
+          28,
+          29,
+          31,
+          32
+        ],
+        "contextBlockIds": [
+          30
+        ]
+      },
+      {
+        "id": "62d8f8e6-2e84-40d4-97c6-08a00703d51e",
+        "label": "Câu 10",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "root",
+        "sourceId": "fa95929d-bd62-465f-b20f-99086978f14b",
+        "createdAt": "2026-11-17T08:51:19.189Z",
+        "candidateId": "candidate-10",
+        "bodyBlockIds": [
+          34,
+          35
+        ],
+        "contextBlockIds": []
+      },
+      {
+        "id": "c87e7193-c0b8-4bd9-a6c3-974af2933965",
+        "label": "Câu 11",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "root",
+        "sourceId": "fa95929d-bd62-465f-b20f-99086978f14b",
+        "createdAt": "2026-11-17T08:51:19.189Z",
+        "candidateId": "candidate-11",
+        "bodyBlockIds": [
+          36,
+          37,
+          38,
+          39,
+          40
+        ],
+        "contextBlockIds": []
+      },
+      {
+        "id": "abd8d88d-0e59-4a79-a2c8-e43b59e80272",
+        "label": "Câu 12",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "root",
+        "sourceId": "fa95929d-bd62-465f-b20f-99086978f14b",
+        "createdAt": "2026-11-17T08:51:19.189Z",
+        "candidateId": "candidate-12",
+        "bodyBlockIds": [
+          41,
+          42,
+          43,
+          44
+        ],
+        "contextBlockIds": []
+      },
+      {
+        "id": "6faf608e-49b2-4528-99ff-c4b5dada6f28",
+        "label": "Bài 1a",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "root",
+        "sourceId": "fa95929d-bd62-465f-b20f-99086978f14b",
+        "createdAt": "2026-11-17T08:51:19.189Z",
+        "candidateId": "candidate-13",
+        "bodyBlockIds": [
+          48
+        ],
+        "contextBlockIds": [
+          47
+        ]
+      },
+      {
+        "id": "c84587d1-688b-4487-8115-5a850f20a13f",
+        "label": "Bài 1b",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "root",
+        "sourceId": "fa95929d-bd62-465f-b20f-99086978f14b",
+        "createdAt": "2026-11-17T08:51:19.189Z",
+        "candidateId": "candidate-14",
+        "bodyBlockIds": [
+          49,
+          50,
+          51
+        ],
+        "contextBlockIds": [
+          47
+        ]
+      },
+      {
+        "id": "3624e2ee-ea9c-43ff-a43e-bada6ddb26b1",
+        "label": "Bài 2a",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "root",
+        "sourceId": "fa95929d-bd62-465f-b20f-99086978f14b",
+        "createdAt": "2026-11-17T08:51:19.189Z",
+        "candidateId": "candidate-15",
+        "bodyBlockIds": [
+          53
+        ],
+        "contextBlockIds": [
+          52
+        ]
+      },
+      {
+        "id": "5fdae3f5-8634-49db-9b62-6d2bfff6dfdd",
+        "label": "Bài 2b",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "root",
+        "sourceId": "fa95929d-bd62-465f-b20f-99086978f14b",
+        "createdAt": "2026-11-17T08:51:19.189Z",
+        "candidateId": "candidate-16",
+        "bodyBlockIds": [
+          54,
+          55,
+          56,
+          57
+        ],
+        "contextBlockIds": [
+          52
+        ]
+      },
+      {
+        "id": "ab3ffdd6-88fe-4066-9bd7-46d24a6033fe",
+        "label": "Bài 3",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "root",
+        "sourceId": "fa95929d-bd62-465f-b20f-99086978f14b",
+        "createdAt": "2026-11-17T08:51:19.189Z",
+        "candidateId": "candidate-17",
+        "bodyBlockIds": [
+          58,
+          59,
+          60,
+          61,
+          62,
+          63
+        ],
+        "contextBlockIds": []
+      },
+      {
+        "id": "bb3799b2-cfad-46e2-8c74-9f483ad0e3cc",
+        "label": "Bài 4a",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "root",
+        "sourceId": "fa95929d-bd62-465f-b20f-99086978f14b",
+        "createdAt": "2026-11-17T08:51:19.189Z",
+        "candidateId": "candidate-18",
+        "bodyBlockIds": [
+          65,
+          66,
+          67
+        ],
+        "contextBlockIds": [
+          64
+        ]
+      },
+      {
+        "id": "ddf3ae67-6512-413d-82c4-de3799a2f1b2",
+        "label": "Bài 4b",
+        "answer": null,
+        "points": null,
+        "rubric": null,
+        "topicId": "root",
+        "sourceId": "fa95929d-bd62-465f-b20f-99086978f14b",
+        "createdAt": "2026-11-17T08:51:19.189Z",
+        "candidateId": "candidate-19",
+        "bodyBlockIds": [
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77
+        ],
+        "contextBlockIds": [
+          64
+        ]
+      }
+    ],
+    "organization": {
+      "status": "pending",
+      "attempts": 0
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "checked_at_utc": "2026-11-17T08:39:19.369172+00:00",
+  "sources": 10,
+  "distinct_pdf_sha256": 10,
+  "all_pdf_and_capture_hashes_verified": true,
+  "all_exact_slices_verified": true,
+  "answer_heading_scan": "No HƯỚNG DẪN CHẤM / ĐÁP ÁN VÀ / MA TRẬN within any exam-only capture",
+  "printed_total": 154,
+  "preferred_total": 167,
+  "gold_sha256": "85c62af2861188d1639e2c98c6768e46625836e1e223d94e9f9add228de51e2a",
+  "manifest_sha256": "c734327a70986dfec2b6bd6f5db8e55c3f23c8f4f75cb79df51d3f6a9e548f00",
+  "inference_run": false
+}

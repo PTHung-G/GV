@@ -1,0 +1,218 @@
+// Reconstructed from 2a9amjd4hblzn.pretty.js, module 88653.
+// deps: m843476, m271645, m231178, m947414, m674008, m821476, m772846, m737806, m464978
+// exports: AnimatePresence
+export { ({ children: e, custom: s, initial: l = !0, onExitComplete: a, presenceAffectsLayout: u = !0, mode: c = "sync", propagate: d = !1, anchorX: h = "left", anchorY: p = "top", root: y, }) => { let [b, C] = (0, m.usePresence)(d), v = (0, i.useMemo)(() => g(e), [e]), j = d && !b ? [] : v.map(x), R = (0, i.useRef)(!0), w = (0, n.useConstant)(() => new Map()), E = (0, i.useRef)(new Set()), [M, P] = (0, i.useState)(v), [$, L] = (0, i.useState)(v); ((0, o.useIsomorphicLayoutEffect)(() => { !d || b || $.length || C?.(); }, [b, d, $.length, C]), (0, o.useIsomorphicLayoutEffect)(() => { R.current = !1; for (let e = 0; e < $.length; e++) { let t = x($[e]); j.includes(t) ? (w.delete(t), E.current.delete(t)) : !0 !== w.get(t) && w.set(t, !1); } }, [$, j.length, j.join("-")])); let N = []; if (v !== M) { let e = [...v], t = 0; for (let i of $) { let r = j.indexOf(x(i)); -1 === r ? (e.splice(t++, 0, i), N.push(i)) : (t = r + N.length + 1); } return ( N.every((e) => w.get(x(e))) ? (e = v) : "wait" === c && (e = N), L(g(e)), P(v), null ); } let { forceRender: k } = (0, i.useContext)(r.LayoutGroupContext); return (0, t.jsx)(t.Fragment, { children: $.map((e) => { let i = x(e), r = (!d || !!b) && (v === $ || j.includes(i)); return (0, t.jsx)( f, { isPresent: r, initial: (!R.current || !!l) && void 0, custom: s, presenceAffectsLayout: u, mode: c, root: y, onExitComplete: r ? void 0 : () => { if (E.current.has(i) || !w.has(i)) return; (E.current.add(i), w.set(i, !0)); let e = !0; (w.forEach((t) => { t || (e = !1); }), e && (k?.(), P([]), d && C?.(), a && a())); }, anchorX: h, anchorY: p, children: e, }, i, ); }), }); } as "AnimatePresence" };
+
+"use strict";
+    var t = m843476,
+      i = m271645,
+      r = m231178,
+      n = m947414,
+      o = m674008,
+      s = m821476,
+      l = m772846,
+      a = i,
+      u = m737806;
+    function c(e, t) {
+      if ("function" == typeof e) return e(t);
+      null != e && (e.current = t);
+    }
+    class d extends a.Component {
+      getSnapshotBeforeUpdate(e) {
+        let t = this.props.childRef.current;
+        if (
+          (0, l.isHTMLElement)(t) &&
+          e.isPresent &&
+          !this.props.isPresent &&
+          !1 !== this.props.pop
+        ) {
+          let e = t.offsetParent,
+            i = ((0, l.isHTMLElement)(e) && e.offsetWidth) || 0,
+            r = ((0, l.isHTMLElement)(e) && e.offsetHeight) || 0,
+            n = getComputedStyle(t),
+            o = this.props.sizeRef.current;
+          ((o.height = parseFloat(n.height)),
+            (o.width = parseFloat(n.width)),
+            (o.top = t.offsetTop),
+            (o.left = t.offsetLeft),
+            (o.right = i - o.width - o.left),
+            (o.bottom = r - o.height - o.top),
+            (o.direction = n.direction));
+        }
+        return null;
+      }
+      componentDidUpdate() {}
+      render() {
+        return this.props.children;
+      }
+    }
+    function h({
+      children: e,
+      isPresent: r,
+      anchorX: n,
+      anchorY: o,
+      root: s,
+      pop: l,
+    }) {
+      let f = (0, a.useId)(),
+        p = (0, a.useRef)(null),
+        m = (0, a.useRef)({
+          width: 0,
+          height: 0,
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          direction: "ltr",
+        }),
+        { nonce: x } = (0, a.useContext)(u.MotionConfigContext),
+        g = (function (...e) {
+          return i.useCallback(
+            (function (...e) {
+              return (t) => {
+                let i = !1,
+                  r = e.map((e) => {
+                    let r = c(e, t);
+                    return (i || "function" != typeof r || (i = !0), r);
+                  });
+                if (i)
+                  return () => {
+                    for (let t = 0; t < r.length; t++) {
+                      let i = r[t];
+                      "function" == typeof i ? i() : c(e[t], null);
+                    }
+                  };
+              };
+            })(...e),
+            e,
+          );
+        })(p, !1 !== l ? (e.props?.ref ?? e?.ref) : void 0);
+      return (
+        (0, a.useInsertionEffect)(() => {
+          let {
+            width: e,
+            height: t,
+            top: i,
+            left: a,
+            right: u,
+            bottom: c,
+            direction: d,
+          } = m.current;
+          if (r || !1 === l || !p.current || !e || !t) return;
+          let h = "rtl" === d,
+            g =
+              "left" === n
+                ? h
+                  ? `right: ${u}`
+                  : `left: ${a}`
+                : h
+                  ? `left: ${a}`
+                  : `right: ${u}`,
+            y = "bottom" === o ? `bottom: ${c}` : `top: ${i}`;
+          p.current.dataset.motionPopId = f;
+          let b = document.createElement("style");
+          x && (b.nonce = x);
+          let C = s ?? document.head;
+          return (
+            C.appendChild(b),
+            b.sheet &&
+              b.sheet.insertRule(`
+          [data-motion-pop-id="${f}"] {
+            position: absolute !important;
+            width: ${e}px !important;
+            height: ${t}px !important;
+            ${g}px !important;
+            ${y}px !important;
+          }
+        `),
+            () => {
+              (p.current?.removeAttribute("data-motion-pop-id"),
+                C.contains(b) && C.removeChild(b));
+            }
+          );
+        }, [r]),
+        (0, t.jsx)(d, {
+          isPresent: r,
+          childRef: p,
+          sizeRef: m,
+          pop: l,
+          children: !1 === l ? e : a.cloneElement(e, { ref: g }),
+        })
+      );
+    }
+    let f = ({
+      children: e,
+      initial: r,
+      isPresent: l,
+      onExitComplete: a,
+      custom: u,
+      presenceAffectsLayout: c,
+      mode: d,
+      anchorX: f,
+      anchorY: m,
+      root: x,
+    }) => {
+      let g = (0, n.useConstant)(p),
+        y = (0, i.useId)(),
+        b = (0, i.useRef)(l),
+        C = (0, i.useRef)(a);
+      (0, o.useIsomorphicLayoutEffect)(() => {
+        ((b.current = l), (C.current = a));
+      });
+      let v = !0,
+        j = (0, i.useMemo)(
+          () => (
+            (v = !1),
+            {
+              id: y,
+              initial: r,
+              isPresent: l,
+              custom: u,
+              onExitComplete: (e) => {
+                for (let t of (g.set(e, !0), g.values())) if (!t) return;
+                a && a();
+              },
+              register: (e) => (
+                g.set(e, !1),
+                () => {
+                  (g.delete(e), b.current || g.size || C.current?.());
+                }
+              ),
+            }
+          ),
+          [l, g, a],
+        );
+      return (
+        c && v && (j = { ...j }),
+        (0, i.useMemo)(() => {
+          g.forEach((e, t) => g.set(t, !1));
+        }, [l]),
+        i.useEffect(() => {
+          l || g.size || !a || a();
+        }, [l]),
+        (e = (0, t.jsx)(h, {
+          pop: "popLayout" === d,
+          isPresent: l,
+          anchorX: f,
+          anchorY: m,
+          root: x,
+          children: e,
+        })),
+        (0, t.jsx)(s.PresenceContext.Provider, { value: j, children: e })
+      );
+    };
+    function p() {
+      return new Map();
+    }
+    var m = m464978;
+    let x = (e) => e.key || "";
+    function g(e) {
+      let t = [];
+      return (
+        i.Children.forEach(e, (e) => {
+          (0, i.isValidElement)(e) && t.push(e);
+        }),
+        t
+      );
+    }
+    ;

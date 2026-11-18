@@ -1,0 +1,188 @@
+// Reconstructed from 1-4r_6ai0xs1p.pretty.js, module 522016.
+// deps: m247167, m190809, m843476, m271645, m195057, m8372, m818581, m718967, m405550, m388540, m91949, m573668, m509396, m699781
+// exports: none
+
+
+"use strict";
+    (m247167, Object.defineProperty(r, "__esModule", { value: !0 }));
+    var n = {
+      default: function () {
+        return b;
+      },
+      useLinkStatus: function () {
+        return y;
+      },
+    };
+    for (var o in n) Object.defineProperty(r, o, { enumerable: !0, get: n[o] });
+    let l = m190809,
+      i = m843476,
+      a = l._(m271645),
+      s = m195057,
+      u = m8372,
+      c = m818581,
+      f = m718967,
+      d = m405550,
+      p = m388540,
+      h = m91949,
+      m = m573668,
+      g = m509396;
+    function b(t) {
+      
+      let n,
+        o,
+        l,
+        [b, y] = (0, a.useOptimistic)(h.IDLE_LINK_STATUS),
+        w = (0, a.useRef)(null),
+        {
+          href: x,
+          as: A,
+          children: C,
+          prefetch: k = null,
+          passHref: E,
+          replace: S,
+          shallow: N,
+          scroll: j,
+          onClick: _,
+          onMouseEnter: z,
+          onTouchStart: P,
+          legacyBehavior: I = !1,
+          onNavigate: O,
+          transitionTypes: M,
+          ref: R,
+          unstable_dynamicOnHover: $,
+          ...L
+        } = t;
+      ((n = C),
+        I &&
+          ("string" == typeof n || "number" == typeof n) &&
+          (n = (0, i.jsx)("a", { children: n })));
+      let T = a.default.useContext(u.AppRouterContext),
+        U = !1 !== k,
+        B = !1 === k ? "none" : !0 === k ? "full" : "auto",
+        D =
+          "none" !== B
+            ? "auto" === B
+              ? g.FetchStrategy.PPR
+              : g.FetchStrategy.Full
+            : g.FetchStrategy.PPR,
+        H = "string" == typeof (r = A || x) ? r : (0, s.formatUrl)(r);
+      if (I) {
+        if (n?.$$typeof === Symbol.for("react.lazy"))
+          throw Object.defineProperty(
+            Error(
+              "`<Link legacyBehavior>` received a direct child that is either a Server Component, or JSX that was loaded with React.lazy(). This is not supported. Either remove legacyBehavior, or make the direct child a Client Component that renders the Link's `<a>` tag.",
+            ),
+            "__NEXT_ERROR_CODE",
+            { value: "E863", enumerable: !1, configurable: !0 },
+          );
+        o = a.default.Children.only(n);
+      }
+      let F = I ? o && "object" == typeof o && o.ref : R,
+        V,
+        W = a.default.useCallback(
+          (e) => (
+            null !== T &&
+              (w.current = (0, h.mountLinkInstance)(e, H, T, D, U, y, V)),
+            () => {
+              (w.current &&
+                ((0, h.unmountLinkForCurrentNavigation)(w.current),
+                (w.current = null)),
+                (0, h.unmountPrefetchableInstance)(e));
+            }
+          ),
+          [U, H, T, D, y, V],
+        ),
+        K = {
+          ref: (0, c.useMergedRef)(W, F),
+          onClick(t) {
+            (I || "function" != typeof _ || _(t),
+              I &&
+                o.props &&
+                "function" == typeof o.props.onClick &&
+                o.props.onClick(t),
+              !T ||
+                t.defaultPrevented ||
+                (function (t, r, n, o, l, i, s, u = "none") {
+                  if ("u" > typeof window) {
+                    let c,
+                      { nodeName: f } = t.currentTarget;
+                    if (
+                      ("A" === f.toUpperCase() &&
+                        (((c = t.currentTarget.getAttribute("target")) &&
+                          "_self" !== c) ||
+                          t.metaKey ||
+                          t.ctrlKey ||
+                          t.shiftKey ||
+                          t.altKey ||
+                          (t.nativeEvent && 2 === t.nativeEvent.which))) ||
+                      t.currentTarget.hasAttribute("download")
+                    )
+                      return;
+                    if (!(0, m.isLocalURL)(r)) {
+                      o && (t.preventDefault(), location.replace(r));
+                      return;
+                    }
+                    if ((t.preventDefault(), i)) {
+                      let e = !1;
+                      if (
+                        (i({
+                          preventDefault: () => {
+                            e = !0;
+                          },
+                        }),
+                        e)
+                      )
+                        return;
+                    }
+                    let { dispatchNavigateAction: d } = m699781;
+                    a.default.startTransition(() => {
+                      d(
+                        r,
+                        o ? "replace" : "push",
+                        !1 === l
+                          ? p.ScrollBehavior.NoScroll
+                          : p.ScrollBehavior.Default,
+                        n.current,
+                        s,
+                        u,
+                      );
+                    });
+                  }
+                })(t, H, w, S, j, O, M, B));
+          },
+          onMouseEnter(e) {
+            (I || "function" != typeof z || z(e),
+              I &&
+                o.props &&
+                "function" == typeof o.props.onMouseEnter &&
+                o.props.onMouseEnter(e),
+              T && U && (0, h.onNavigationIntent)(e.currentTarget, !0 === $));
+          },
+          onTouchStart: function (e) {
+            (I || "function" != typeof P || P(e),
+              I &&
+                o.props &&
+                "function" == typeof o.props.onTouchStart &&
+                o.props.onTouchStart(e),
+              T && U && (0, h.onNavigationIntent)(e.currentTarget, !0 === $));
+          },
+        };
+      return (
+        (0, f.isAbsoluteUrl)(H)
+          ? (K.href = H)
+          : (I && !E && ("a" !== o.type || "href" in o.props)) ||
+            (K.href = (0, d.addBasePath)(H)),
+        (l = I
+          ? a.default.cloneElement(o, K)
+          : (0, i.jsx)("a", { ...L, ...K, children: n })),
+        (0, i.jsx)(v.Provider, { value: b, children: l })
+      );
+    }
+    let v = (0, a.createContext)(h.IDLE_LINK_STATUS),
+      y = () => (0, a.useContext)(v);
+    ("function" == typeof r.default ||
+      ("object" == typeof r.default && null !== r.default)) &&
+      void 0 === r.default.__esModule &&
+      (Object.defineProperty(r.default, "__esModule", { value: !0 }),
+      Object.assign(r.default, r),
+      (t.exports = r.default));

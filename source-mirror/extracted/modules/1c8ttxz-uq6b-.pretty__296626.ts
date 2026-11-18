@@ -1,0 +1,149 @@
+// Reconstructed from 1c8ttxz-uq6b-.pretty.js, module 296626.
+// deps: m271645, m934620
+// exports: Presence
+export { u as "Presence" };
+
+"use strict";
+    var t = m271645,
+      n = m934620,
+      r = Object.defineProperty,
+      o = (e, t) => r(e, "name", { value: t, configurable: !0 });
+    function i(e, n) {
+      return t.useReducer((e, t) => n[e][t] ?? e, e);
+    }
+    o(i, "useStateMachine");
+    var u = o((e) => {
+      let { present: n, children: r } = e,
+        o = a(n),
+        i =
+          "function" == typeof r
+            ? r({ present: o.isPresent })
+            : t.Children.only(r),
+        u = s(o.ref, d(i));
+      return "function" == typeof r || o.isPresent
+        ? t.cloneElement(i, { ref: u })
+        : null;
+    }, "Presence");
+    function a(e) {
+      let [r, u] = t.useState(),
+        a = t.useRef(null),
+        c = t.useRef(e),
+        s = t.useRef("none"),
+        d = t.useRef(void 0),
+        [f, m] = i(e ? "mounted" : "unmounted", {
+          mounted: { UNMOUNT: "unmounted", ANIMATION_OUT: "unmountSuspended" },
+          unmountSuspended: { MOUNT: "mounted", ANIMATION_END: "unmounted" },
+          unmounted: { MOUNT: "mounted" },
+        });
+      return (
+        t.useEffect(() => {
+          "mounted" === f
+            ? ((s.current = d.current ?? l(a.current)), (d.current = void 0))
+            : (s.current = "none");
+        }, [f]),
+        (0, n.useLayoutEffect)(() => {
+          let t = a.current,
+            n = c.current;
+          if (n !== e) {
+            let r = s.current,
+              o = l(t);
+            (e
+              ? ((d.current = o), m("MOUNT"))
+              : "none" === o || t?.display === "none"
+                ? m("UNMOUNT")
+                : n && r !== o
+                  ? m("ANIMATION_OUT")
+                  : m("UNMOUNT"),
+              (c.current = e));
+          }
+        }, [e, m]),
+        (0, n.useLayoutEffect)(() => {
+          if (r) {
+            let e,
+              t = r.ownerDocument.defaultView ?? window,
+              n = o((n) => {
+                let o = l(a.current).includes(CSS.escape(n.animationName));
+                if (n.target === r && o && (m("ANIMATION_END"), !c.current)) {
+                  let n = r.style.animationFillMode;
+                  ((r.style.animationFillMode = "forwards"),
+                    (e = t.setTimeout(() => {
+                      "forwards" === r.style.animationFillMode &&
+                        (r.style.animationFillMode = n);
+                    })));
+                }
+              }, "handleAnimationEnd"),
+              i = o((e) => {
+                e.target === r && (s.current = l(a.current));
+              }, "handleAnimationStart");
+            return (
+              r.addEventListener("animationstart", i),
+              r.addEventListener("animationcancel", n),
+              r.addEventListener("animationend", n),
+              () => {
+                (t.clearTimeout(e),
+                  r.removeEventListener("animationstart", i),
+                  r.removeEventListener("animationcancel", n),
+                  r.removeEventListener("animationend", n));
+              }
+            );
+          }
+          m("ANIMATION_END");
+        }, [r, m]),
+        {
+          isPresent: ["mounted", "unmountSuspended"].includes(f),
+          ref: t.useCallback((e) => {
+            if (e) {
+              let t = getComputedStyle(e);
+              ((a.current = t), (d.current = l(t)));
+            } else a.current = null;
+            u(e);
+          }, []),
+        }
+      );
+    }
+    function c(e, t) {
+      if ("function" == typeof e) return e(t);
+      null != e && (e.current = t);
+    }
+    function s(...e) {
+      let n = t.useRef(e);
+      return (
+        (n.current = e),
+        t.useCallback((e) => {
+          let t = n.current,
+            r = !1,
+            o = t.map((t) => {
+              let n = c(t, e);
+              return (r || "function" != typeof n || (r = !0), n);
+            });
+          if (r)
+            return () => {
+              for (let e = 0; e < o.length; e++) {
+                let n = o[e];
+                "function" == typeof n ? n() : c(t[e], null);
+              }
+            };
+        }, [])
+      );
+    }
+    function l(e) {
+      return e?.animationName || "none";
+    }
+    function d(e) {
+      let t = Object.getOwnPropertyDescriptor(e.props, "ref")?.get,
+        n = t && "isReactWarning" in t && t.isReactWarning;
+      return n
+        ? e.ref
+        : (n =
+              (t = Object.getOwnPropertyDescriptor(e, "ref")?.get) &&
+              "isReactWarning" in t &&
+              t.isReactWarning)
+          ? e.props.ref
+          : e.props.ref || e.ref;
+    }
+    (o(a, "usePresence"),
+      o(c, "setRef"),
+      o(s, "useStableComposedRefs"),
+      o(l, "getAnimationName"),
+      o(d, "getElementRef"),
+      );

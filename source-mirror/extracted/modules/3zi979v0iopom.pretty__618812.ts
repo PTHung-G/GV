@@ -1,0 +1,239 @@
+// Reconstructed from 3zi979v0iopom.pretty.js, module 618812.
+// deps: none
+// exports: none
+
+
+"use strict";
+    var e = t.i(843476),
+      i = t.i(271645),
+      s = t.i(231178),
+      n = t.i(648070),
+      r = t.i(737806),
+      o = t.i(688291),
+      a = t.i(582474),
+      l = t.i(308576),
+      h = t.i(944966),
+      u = t.i(711805),
+      c = t.i(501664),
+      d = t.i(476948),
+      m = t.i(513565),
+      p = t.i(321967),
+      f = t.i(683640),
+      g = t.i(535043),
+      v = t.i(821476),
+      y = t.i(104035),
+      x = t.i(325522),
+      b = t.i(674008);
+    function T(t, { forwardMotionProps: S = !1, type: w } = {}, P, A) {
+      P && (0, m.loadFeatures)(P);
+      let M = w ? "svg" === w : (0, h.isSVGComponent)(t),
+        V = M ? c.useSVGVisualState : u.useHTMLVisualState;
+      function C(h, u) {
+        let c,
+          m = {
+            ...(0, i.useContext)(r.MotionConfigContext),
+            ...h,
+            layoutId: (function ({ layoutId: t }) {
+              let e = (0, i.useContext)(s.LayoutGroupContext).id;
+              return e && void 0 !== t ? e + "-" + t : t;
+            })(h),
+          },
+          { isStatic: p, isValidProp: T } = m,
+          w = (0, a.useCreateMotionContext)(h),
+          P = V(h, p);
+        if (!p && "u" > typeof window) {
+          (0, i.useContext)(n.LazyContext).strict;
+          let e = (function (t) {
+            let { drag: e, layout: i } = (0,
+            d.getInitializedFeatureDefinitions)();
+            if (!e && !i) return {};
+            let s = { ...e, ...i };
+            return {
+              MeasureLayout:
+                e?.isEnabled(t) || i?.isEnabled(t) ? s.MeasureLayout : void 0,
+              ProjectionNode: s.ProjectionNode,
+            };
+          })(m);
+          ((c = e.MeasureLayout),
+            (w.visualElement = (function (t, e, s, a, l, h) {
+              let { visualElement: u } = (0, i.useContext)(o.MotionContext),
+                c = (0, i.useContext)(n.LazyContext),
+                d = (0, i.useContext)(v.PresenceContext),
+                m = (0, i.useContext)(r.MotionConfigContext),
+                p = m.reducedMotion,
+                f = m.skipAnimations,
+                T = (0, i.useRef)(null),
+                S = (0, i.useRef)(!1);
+              ((a = a || c.renderer),
+                !T.current &&
+                  a &&
+                  ((T.current = a(t, {
+                    visualState: e,
+                    parent: u,
+                    props: s,
+                    presenceContext: d,
+                    blockInitialAnimation: !!d && !1 === d.initial,
+                    reducedMotionConfig: p,
+                    skipAnimations: f,
+                    isSVG: h,
+                  })),
+                  S.current &&
+                    T.current &&
+                    (T.current.manuallyAnimateOnMount = !0)));
+              let w = T.current,
+                P = (0, i.useContext)(y.SwitchLayoutGroupContext);
+              w &&
+                !w.projection &&
+                l &&
+                ("html" === w.type || "svg" === w.type) &&
+                (function (t, e, i, s) {
+                  let {
+                    layoutId: n,
+                    layout: r,
+                    drag: o,
+                    dragConstraints: a,
+                    layoutScroll: l,
+                    layoutRoot: h,
+                    layoutAnchor: u,
+                    layoutCrossfade: c,
+                  } = e;
+                  ((t.projection = new i(
+                    t.latestValues,
+                    e["data-framer-portal-id"]
+                      ? void 0
+                      : (function t(e) {
+                          if (e)
+                            return !1 !== e.options.allowProjection
+                              ? e.projection
+                              : t(e.parent);
+                        })(t.parent),
+                  )),
+                    t.projection.setOptions({
+                      layoutId: n,
+                      layout: r,
+                      alwaysMeasureLayout: !!o || (a && (0, x.isRefObject)(a)),
+                      visualElement: t,
+                      animationType: "string" == typeof r ? r : "both",
+                      initialPromotionConfig: s,
+                      crossfade: c,
+                      layoutScroll: l,
+                      layoutRoot: h,
+                      layoutAnchor: u,
+                    }));
+                })(T.current, s, l, P);
+              let A = (0, i.useRef)(!1);
+              (0, i.useInsertionEffect)(() => {
+                w && A.current && w.update(s, d);
+              });
+              let M = s[g.optimizedAppearDataAttribute],
+                V = (0, i.useRef)(
+                  !!M &&
+                    "u" > typeof window &&
+                    !window.MotionHandoffIsComplete?.(M) &&
+                    window.MotionHasOptimisedAnimation?.(M),
+                );
+              return (
+                (0, b.useIsomorphicLayoutEffect)(() => {
+                  S.current &&
+                    w &&
+                    (w.animationState?.animateChanges(),
+                    (w.enteringChildren = void 0));
+                }, []),
+                (0, b.useIsomorphicLayoutEffect)(() => {
+                  ((S.current = !0),
+                    w &&
+                      ((A.current = !0),
+                      (window.MotionIsMounted = !0),
+                      w.updateFeatures(),
+                      w.scheduleRenderMicrotask(),
+                      V.current &&
+                        w.animationState &&
+                        w.animationState.animateChanges()));
+                }),
+                (0, i.useEffect)(() => {
+                  w &&
+                    (!V.current &&
+                      w.animationState &&
+                      w.animationState.animateChanges(),
+                    V.current &&
+                      (queueMicrotask(() => {
+                        window.MotionHandoffMarkAsComplete?.(M);
+                      }),
+                      (V.current = !1)),
+                    (w.enteringChildren = void 0));
+                }),
+                w
+              );
+            })(t, P, m, A, e.ProjectionNode, M)));
+        }
+        return (0, e.jsxs)(o.MotionContext.Provider, {
+          value: w,
+          children: [
+            c && w.visualElement
+              ? (0, e.jsx)(c, { visualElement: w.visualElement, ...m })
+              : null,
+            (0, l.useRender)(
+              t,
+              h,
+              (0, f.useMotionRef)(P, w.visualElement, u),
+              P,
+              p,
+              S,
+              M,
+              T,
+            ),
+          ],
+        });
+      }
+      C.displayName = `motion.${"string" == typeof t ? t : `create(${t.displayName ?? t.name ?? ""})`}`;
+      let E = (0, i.forwardRef)(C);
+      return ((E[p.motionComponentSymbol] = t), E);
+    }
+    (t.s(
+      [
+        "createMotionProxy",
+        0,
+        function (t, e) {
+          if ("u" < typeof Proxy) return T;
+          let i = new Map(),
+            s = (i, s) => T(i, s, t, e);
+          return new Proxy((t, e) => s(t, e), {
+            get: (n, r) =>
+              "create" === r
+                ? s
+                : (i.has(r) || i.set(r, T(r, void 0, t, e)), i.get(r)),
+          });
+        },
+      ],
+      907051,
+    ),
+      t.s(
+        [
+          "Feature",
+          0,
+          class {
+            constructor(t) {
+              ((this.isMounted = !1), (this.node = t));
+            }
+            update() {}
+          },
+        ],
+        142098,
+      ));
+    var S = t.i(386579);
+    t.s(
+      [
+        "resolveVariant",
+        0,
+        function (t, e, i) {
+          let s = t.getProps();
+          return (0, S.resolveVariantFromProps)(
+            s,
+            e,
+            void 0 !== i ? i : s.custom,
+            t,
+          );
+        },
+      ],
+      618812,
+    );

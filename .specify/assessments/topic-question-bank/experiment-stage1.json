@@ -1,0 +1,73 @@
+{
+  "nodes": [
+    {
+      "id": "math",
+      "parentId": null,
+      "label": "Toán học"
+    },
+    {
+      "id": "radicals",
+      "parentId": "math",
+      "label": "Căn bậc hai và biểu thức chứa căn"
+    },
+    {
+      "id": "right-triangles",
+      "parentId": "math",
+      "label": "Hệ thức và tính toán trong tam giác vuông"
+    },
+    {
+      "id": "circle-tangents",
+      "parentId": "math",
+      "label": "Tiếp tuyến của đường tròn"
+    }
+  ],
+  "assignments": [
+    {
+      "questionId": "A1",
+      "nodeId": "radicals",
+      "skill": "Nhận biết căn bậc hai số học của một số",
+      "form": "multiple-choice",
+      "points": null,
+      "reason": "Kiểm tra ý nghĩa căn bậc hai số học; chưa cần mở nhánh riêng từ một câu."
+    },
+    {
+      "questionId": "A2",
+      "nodeId": "radicals",
+      "skill": "Xác định điều kiện có nghĩa của căn bậc hai",
+      "form": "multiple-choice",
+      "points": null,
+      "reason": "Điều kiện biểu thức dưới căn thuộc chủ đề căn; giữ ở nhánh chung khi dữ liệu còn ít."
+    },
+    {
+      "questionId": "A3",
+      "nodeId": "radicals",
+      "skill": "Rút gọn hiệu các phân thức chứa căn",
+      "form": "constructed-response",
+      "points": 2,
+      "reason": "Thao tác đại số với căn; điều kiện đã cho, không phải nhiệm vụ tìm miền xác định."
+    },
+    {
+      "questionId": "A4",
+      "nodeId": "right-triangles",
+      "skill": "Tính cạnh huyền, đường cao và diện tích tam giác vuông",
+      "form": "constructed-response",
+      "points": 2,
+      "reason": "Nhiệm vụ tổng hợp tính toán tam giác vuông, giữ nguyên một tham chiếu cho toàn câu."
+    },
+    {
+      "questionId": "A5",
+      "nodeId": "circle-tangents",
+      "skill": "Chứng minh đường nối tâm và điểm ngoài là trung trực dây nối hai tiếp điểm",
+      "form": "proof",
+      "points": 3,
+      "reason": "Cốt lõi là tính chất hai tiếp tuyến và đối xứng hình học của cấu hình."
+    }
+  ],
+  "notes": [
+    "Stage 1 built from an empty tree using only corpus lines 1–29, containing A1–A5; batch 2 has not been read. No prebuilt taxonomy was used.",
+    "One assignment per whole question reference; question content is not copied. Nodes express topics; skill and form remain assignment attributes.",
+    "A1 and A2 have unknown individual points (null); the section total is not apportioned.",
+    "Sparse evidence supports three broad topic leaves, not a separate topic for every skill. Internal-node assignment remains allowed.",
+    "This is one isolated harness AI research pass, not production-provider, extraction, usability, or calibrated academic-equivalence/difficulty validation. No teacher classification tasks are proposed."
+  ]
+}

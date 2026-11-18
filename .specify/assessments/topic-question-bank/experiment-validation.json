@@ -1,0 +1,51 @@
+{
+  "experiment-stage1.json": {
+    "nodeCount": 4,
+    "rootCount": 1,
+    "assignmentCount": 5,
+    "expectedQuestionCount": 5,
+    "nonLeafAssignments": [],
+    "errors": []
+  },
+  "experiment-stage2.json": {
+    "nodeCount": 10,
+    "rootCount": 1,
+    "assignmentCount": 25,
+    "expectedQuestionCount": 25,
+    "nonLeafAssignments": [
+      "A2",
+      "A4",
+      "B2",
+      "B8",
+      "B14",
+      "B17",
+      "B20"
+    ],
+    "errors": []
+  },
+  "changes": {
+    "retainedOldNodeIds": [
+      "circle-tangents",
+      "math",
+      "radicals",
+      "right-triangles"
+    ],
+    "removedOldNodeIds": [],
+    "oldLeavesNowParents": [
+      "radicals",
+      "right-triangles"
+    ],
+    "oldQuestionMoves": [
+      {
+        "questionId": "A1",
+        "from": "radicals",
+        "to": "radical-meaning-properties"
+      },
+      {
+        "questionId": "A3",
+        "from": "radicals",
+        "to": "radical-transformations"
+      }
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+// Reconstructed from 1edfvwc5_eck-.pretty.js, module 358442.
+// deps: m190809, m843476, m271645, m976562, m124063, m968391
+// exports: none
+
+
+"use strict";
+    Object.defineProperty(t, "__esModule", { value: !0 });
+    var n = {
+      RedirectBoundary: function () {
+        return p;
+      },
+      RedirectErrorBoundary: function () {
+        return f;
+      },
+    };
+    for (var o in n) Object.defineProperty(t, o, { enumerable: !0, get: n[o] });
+    let i = m190809,
+      a = m843476,
+      l = i._(m271645),
+      u = m976562,
+      d = m124063,
+      s = m968391;
+    function c({ redirect: e, reset: r, redirectType: t }) {
+      let n = (0, u.useRouter)();
+      return (
+        (0, l.useEffect)(() => {
+          l.default.startTransition(() => {
+            ("push" === t ? n.push(e, {}) : n.replace(e, {}), r());
+          });
+        }, [e, t, r, n]),
+        null
+      );
+    }
+    class f extends l.default.Component {
+      constructor(e) {
+        (super(e), (this.state = { redirect: null, redirectType: null }));
+      }
+      static getDerivedStateFromError(e) {
+        if ((0, s.isRedirectError)(e)) {
+          let r = (0, d.getURLFromRedirectError)(e),
+            t = (0, d.getRedirectTypeFromError)(e);
+          return "handled" in e
+            ? { redirect: null, redirectType: null }
+            : { redirect: r, redirectType: t };
+        }
+        throw e;
+      }
+      render() {
+        let { redirect: e, redirectType: r } = this.state;
+        return null !== e && null !== r
+          ? (0, a.jsx)(c, {
+              redirect: e,
+              redirectType: r,
+              reset: () => this.setState({ redirect: null }),
+            })
+          : this.props.children;
+      }
+    }
+    function p({ children: e }) {
+      let r = (0, u.useRouter)();
+      return (0, a.jsx)(f, { router: r, children: e });
+    }
+    ("function" == typeof t.default ||
+      ("object" == typeof t.default && null !== t.default)) &&
+      void 0 === t.default.__esModule &&
+      (Object.defineProperty(t.default, "__esModule", { value: !0 }),
+      Object.assign(t.default, t),
+      (r.exports = t.default));

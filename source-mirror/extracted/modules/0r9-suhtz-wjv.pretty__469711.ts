@@ -1,0 +1,453 @@
+// Reconstructed from 0r9-suhtz-wjv.pretty.js, module 469711.
+// deps: none
+// exports: none
+
+
+"use strict";
+    var e = t.i(716400),
+      r = t.i(378610),
+      n = t.i(944642);
+    t.i(148043);
+    let i = /[⁡⁢⁣⁤]/g,
+      o = new Set(["∑", "∏", "∐", "∫", "∬", "∭", "∮", "⋃", "⋂", "⋁", "⋀"]),
+      s = { "(": ")", "[": "]", "{": "}", "⟨": "⟩", "⌊": "⌋", "⌈": "⌉" },
+      a = new Set(Object.values(s)),
+      l = new Set(["|", "∣", "‖", "∥"]);
+    function u(t) {
+      return "∣" === t ? "|" : "∥" === t ? "‖" : t;
+    }
+    let c = {
+        "^": "̂",
+        ˆ: "̂",
+        "~": "̃",
+        "˜": "̃",
+        "˙": "̇",
+        ".": "̇",
+        "¨": "̈",
+        ˉ: "̄",
+        "→": "⃗",
+        "⃗": "⃗",
+        "⃑": "⃗",
+      },
+      h = {
+        ˊ: "́",
+        "´": "́",
+        ˋ: "̀",
+        "`": "̀",
+        ˆ: "̂",
+        "^": "̂",
+        "˜": "̃",
+        "~": "̃",
+        "˘": "̆",
+        ˇ: "̌",
+        "¨": "̈",
+        "˙": "̇",
+        ˉ: "̄",
+        "˚": "̊",
+      },
+      p = {
+        A: "𝔸",
+        B: "𝔹",
+        C: "ℂ",
+        D: "𝔻",
+        E: "𝔼",
+        F: "𝔽",
+        G: "𝔾",
+        H: "ℍ",
+        I: "𝕀",
+        J: "𝕁",
+        K: "𝕂",
+        L: "𝕃",
+        M: "𝕄",
+        N: "ℕ",
+        O: "𝕆",
+        P: "ℙ",
+        Q: "ℚ",
+        R: "ℝ",
+        S: "𝕊",
+        T: "𝕋",
+        U: "𝕌",
+        V: "𝕍",
+        W: "𝕎",
+        X: "𝕏",
+        Y: "𝕐",
+        Z: "ℤ",
+      };
+    function f(t) {
+      return t
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+    let d = { "⋅": "·" };
+    function m(t, e) {
+      let r = t.replace(i, "").replace(/[⋅]/g, (t) => d[t] ?? t);
+      if (!r) return "";
+      let n = e.bold ? (e.upright ? "b" : "bi") : e.upright ? "p" : "",
+        o = n ? `<m:rPr><m:sty m:val="${n}"/></m:rPr>` : "",
+        s = e.size
+          ? `<w:sz w:val="${e.size}"/><w:szCs w:val="${e.size}"/>`
+          : "",
+        a = `<w:rPr><w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>${s}</w:rPr>`;
+      return `<m:r>${o}${a}<m:t xml:space="preserve">${f(r)}</m:t></m:r>`;
+    }
+    function g(t) {
+      let e = t.size
+          ? `<w:sz w:val="${t.size}"/><w:szCs w:val="${t.size}"/>`
+          : "",
+        r = t.upright ? "" : "<w:i/>";
+      return `<m:ctrlPr><w:rPr><w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>${r}${e}</w:rPr></m:ctrlPr>`;
+    }
+    function w(t, e) {
+      return `<${t}>${e}</${t}>`;
+    }
+    function y(t) {
+      return 1 === t.nodeType;
+    }
+    function b(t) {
+      return (t.localName || t.nodeName).toLowerCase();
+    }
+    function v(t) {
+      return (t.textContent ?? "").replace(i, "").trim();
+    }
+    function x(t) {
+      return Array.from(t.childNodes).filter(y);
+    }
+    let _ = new Set([
+      "mrow",
+      "mstyle",
+      "mpadded",
+      "menclose",
+      "semantics",
+      "math",
+      "mspace",
+    ]);
+    function E(t) {
+      let e = t;
+      for (; _.has(b(e)); ) {
+        let t = x(e);
+        if (1 !== t.length) break;
+        e = t[0];
+      }
+      return e;
+    }
+    class T {
+      options;
+      displayStyle = !1;
+      constructor(t) {
+        this.options = t;
+      }
+      argProps() {
+        return this.displayStyle
+          ? '<m:argPr><m:argSz m:val="1"/></m:argPr>'
+          : "";
+      }
+      siblings(t) {
+        let e = "",
+          r = 0;
+        for (; r < t.length; ) {
+          let n = t[r];
+          if (_.has(b(n)) && "mspace" !== b(n)) {
+            let t = n.getAttribute("displaystyle"),
+              i = this.displayStyle;
+            ("true" === t
+              ? (this.displayStyle = !0)
+              : "false" === t && (this.displayStyle = !1),
+              (e += this.siblings(x(n))),
+              (this.displayStyle = i),
+              (r += 1));
+            continue;
+          }
+          let i = this.readFence(t, r);
+          if (i) {
+            ((e += i.omml), (r = i.next));
+            continue;
+          }
+          let o = this.readNary(t, r);
+          if (o) {
+            e += o;
+            break;
+          }
+          ((e += this.node(n)), (r += 1));
+        }
+        return e;
+      }
+      fenceChar(t) {
+        if ("mo" !== b(t) || "true" !== t.getAttribute("fence")) return;
+        let e = v(t);
+        return void 0 !== s[e] || a.has(e) || l.has(e) ? e : void 0;
+      }
+      readFence(t, e) {
+        let r = this.fenceChar(t[e]);
+        if (void 0 === r || (void 0 === s[r] && !l.has(r))) return;
+        let n = 0;
+        for (let i = e + 1; i < t.length; i += 1) {
+          let o = this.fenceChar(t[i]);
+          if (void 0 === o) continue;
+          if (void 0 !== s[o]) {
+            n += 1;
+            continue;
+          }
+          if (n > 0) {
+            n -= 1;
+            continue;
+          }
+          let a = t.slice(e + 1, i);
+          return { omml: this.delimiter(r, o, this.body(a)), next: i + 1 };
+        }
+        return {
+          omml: this.delimiter(r, "", this.body(t.slice(e + 1))),
+          next: t.length,
+        };
+      }
+      body(t) {
+        if (1 === t.length) {
+          let e = E(t[0]);
+          if ("mtable" === b(e)) return this.table(e);
+        }
+        return this.siblings(t);
+      }
+      delimiter(t, e, r) {
+        let n = `<m:dPr><m:begChr m:val="${f(u(t))}"/><m:endChr m:val="${f(u(e))}"/><m:grow m:val="1"/>${g(this.options)}</m:dPr>`;
+        return `<m:d>${n}${w("m:e", r)}</m:d>`;
+      }
+      readNary(t, e) {
+        let r = t[e],
+          n = b(r),
+          i =
+            "msubsup" === n ||
+            "munderover" === n ||
+            "msub" === n ||
+            "munder" === n ||
+            "msup" === n ||
+            "mover" === n,
+          s = i ? E(x(r)[0] ?? r) : E(r),
+          a = "mo" === b(s) ? v(s) : "";
+        if (!o.has(a)) return;
+        let l = i ? x(r).slice(1) : [],
+          u =
+            "msubsup" === n ||
+            "munderover" === n ||
+            "msub" === n ||
+            "munder" === n,
+          c = u ? this.siblings([l[0]].filter(Boolean)) : "",
+          h =
+            "msubsup" === n ||
+            "munderover" === n ||
+            "msup" === n ||
+            "mover" === n
+              ? this.siblings([l[+!!u]].filter(Boolean))
+              : "",
+          p = `<m:naryPr><m:chr m:val="${f(a)}"/><m:limLoc m:val="${"munderover" === n || "munder" === n || "mover" === n ? "undOvr" : "subSup"}"/><m:subHide m:val="${c ? "0" : "1"}"/><m:supHide m:val="${h ? "0" : "1"}"/>${g(this.options)}</m:naryPr>`,
+          d = this.siblings(t.slice(e + 1));
+        return `<m:nary>${p}${w("m:sub", c)}${w("m:sup", h)}${w("m:e", d)}</m:nary>`;
+      }
+      table(t) {
+        let e = x(t).filter((t) => "mtr" === b(t)),
+          r = e.map((t) => x(t).filter((t) => "mtd" === b(t))),
+          n = Math.max(1, ...r.map((t) => t.length)),
+          i = e.length > 1 ? '<m:rSpRule m:val="4"/><m:rSp m:val="3"/>' : "";
+        if (1 === n) {
+          let t = r.map((t) => w("m:e", this.siblings(t[0] ? x(t[0]) : [])));
+          return `<m:eqArr><m:eqArrPr>${i}${g(this.options)}</m:eqArrPr>${t.join("")}</m:eqArr>`;
+        }
+        let o = `<m:mPr>${i}<m:mcs><m:mc><m:mcPr><m:count m:val="${n}"/><m:mcJc m:val="left"/></m:mcPr></m:mc></m:mcs>${g(this.options)}</m:mPr>`,
+          s = r
+            .map((t) => {
+              let e = Array.from({ length: n }, (e, r) => t[r]);
+              return `<m:mr>${e.map((t) => w("m:e", t ? this.siblings(x(t)) : "")).join("")}</m:mr>`;
+            })
+            .join("");
+        return `<m:m>${o}${s}</m:m>`;
+      }
+      scripts(t) {
+        let e = b(t),
+          r = x(t),
+          n = w("m:e", this.siblings([r[0]].filter(Boolean)));
+        switch (e) {
+          case "msub":
+            return `<m:sSub><m:sSubPr>${g(this.options)}</m:sSubPr>${n}${w("m:sub", this.siblings([r[1]].filter(Boolean)))}</m:sSub>`;
+          case "msup":
+            return `<m:sSup><m:sSupPr>${g(this.options)}</m:sSupPr>${n}${w("m:sup", this.siblings([r[1]].filter(Boolean)))}</m:sSup>`;
+          default:
+            return `<m:sSubSup><m:sSubSupPr>${g(this.options)}</m:sSubSupPr>${n}${w("m:sub", this.siblings([r[1]].filter(Boolean)))}${w("m:sup", this.siblings([r[2]].filter(Boolean)))}</m:sSubSup>`;
+        }
+      }
+      overUnder(t) {
+        let e = b(t),
+          r =
+            "mover" === e
+              ? (function (t) {
+                  let e = "",
+                    r = t;
+                  for (
+                    ;
+                    "mover" === b(r) && "true" === r.getAttribute("accent");
+
+                  ) {
+                    let [t, n] = x(r),
+                      i = n ? h[v(n)] : void 0;
+                    if (!t || !i) return null;
+                    ((e = i + e), (r = t));
+                  }
+                  if ("mtext" !== b(r)) return null;
+                  let n = (
+                    v(r).replace("ı", "i").replace("ȷ", "j") + e
+                  ).normalize("NFC");
+                  if (1 != [...n].length) return null;
+                  let i = r.cloneNode(!1);
+                  return ((i.textContent = n), i);
+                })(t)
+              : null;
+        if (r) return this.token(r);
+        let n = x(t),
+          i = w("m:e", this.siblings([n[0]].filter(Boolean))),
+          o = n[1] ? v(n[1]) : "",
+          s = "mover" === e || "munderover" === e;
+        if ("‾" === o || "¯" === o || "_" === o || "―" === o)
+          return `<m:bar><m:barPr><m:pos m:val="${s ? "top" : "bot"}"/>${g(this.options)}</m:barPr>${i}</m:bar>`;
+        if (s && "true" === t.getAttribute("accent") && o.length <= 2) {
+          let t = c[o] ?? o,
+            e = "̂" === t ? "" : `<m:chr m:val="${f(t)}"/>`;
+          return `<m:acc><m:accPr>${e}${g(this.options)}</m:accPr>${i}</m:acc>`;
+        }
+        if ("munderover" === e) {
+          let t = `<m:limLow><m:limLowPr>${g(this.options)}</m:limLowPr>${i}${w("m:lim", this.siblings([n[1]].filter(Boolean)))}</m:limLow>`;
+          return `<m:limUpp><m:limUppPr>${g(this.options)}</m:limUppPr>${w("m:e", t)}${w("m:lim", this.siblings([n[2]].filter(Boolean)))}</m:limUpp>`;
+        }
+        let a = s ? "m:limUpp" : "m:limLow",
+          l = s
+            ? `<m:limUppPr>${g(this.options)}</m:limUppPr>`
+            : `<m:limLowPr>${g(this.options)}</m:limLowPr>`;
+        return `<${a}>${l}${i}${w("m:lim", this.siblings([n[1]].filter(Boolean)))}</${a}>`;
+      }
+      token(t) {
+        let e = b(t),
+          r = (t.textContent ?? "").replace(i, "");
+        if (!r) return "";
+        let n = t.getAttribute("mathvariant") ?? "";
+        if ("double-struck" === n)
+          return m([...r].map((t) => p[t] ?? t).join(""), {
+            ...this.options,
+            upright: !0,
+          });
+        let o =
+          "normal" === n ||
+          "mtext" === e ||
+          "ms" === e ||
+          ("mi" === e && r.length > 1);
+        return m(r, {
+          ...this.options,
+          upright: o,
+          bold: n.includes("bold") || this.options.bold,
+        });
+      }
+      node(t) {
+        switch (b(t)) {
+          case "mi":
+          case "mn":
+          case "mo":
+          case "mtext":
+          case "ms":
+            return this.token(t);
+          case "mspace":
+            return m(" ", this.options);
+          case "mphantom":
+            return "";
+          case "mfrac": {
+            let e = x(t),
+              r =
+                "0" === t.getAttribute("linethickness")
+                  ? '<m:type m:val="noBar"/>'
+                  : '<m:type m:val="bar"/>',
+              n = this.argProps();
+            return `<m:f><m:fPr>${r}${g(this.options)}</m:fPr>${w("m:num", n + this.siblings([e[0]].filter(Boolean)))}${w("m:den", n + this.siblings([e[1]].filter(Boolean)))}</m:f>`;
+          }
+          case "msqrt":
+            return `<m:rad><m:radPr><m:degHide m:val="1"/>${g(this.options)}</m:radPr><m:deg/>${w("m:e", this.siblings(x(t)))}</m:rad>`;
+          case "mroot": {
+            let e = x(t);
+            return `<m:rad><m:radPr><m:degHide m:val="0"/>${g(this.options)}</m:radPr>${w("m:deg", this.siblings([e[1]].filter(Boolean)))}${w("m:e", this.siblings([e[0]].filter(Boolean)))}</m:rad>`;
+          }
+          case "msub":
+          case "msup":
+          case "msubsup":
+            return this.scripts(t);
+          case "munder":
+          case "mover":
+          case "munderover":
+            return this.overUnder(t);
+          case "mtable":
+            return this.table(t);
+          default:
+            return this.siblings(x(t));
+        }
+      }
+    }
+    function S(t, r = !1) {
+      try {
+        let n = e.default.renderToString(t, {
+            output: "mathml",
+            displayMode: r,
+            throwOnError: !0,
+            strict: !1,
+          }),
+          i = n.indexOf("<math"),
+          o = n.lastIndexOf("</math>");
+        if (i < 0 || o < 0) return null;
+        return n
+          .slice(i, o + 7)
+          .replace(/<annotation\b[\s\S]*?<\/annotation>/g, "");
+      } catch {
+        return null;
+      }
+    }
+    let k =
+      '<m:r>((?:<m:rPr>[\\s\\S]*?</m:rPr>)?<w:rPr>[\\s\\S]*?</w:rPr>)<m:t xml:space="preserve">([\\s\\S]*?)</m:t></m:r>';
+    t.s([
+      "latexToMathML",
+      0,
+      S,
+      "latexToOmml",
+      0,
+      function (t, e = {}) {
+        let i = (0, r.normalizeLatex)(t)
+          .trim()
+          .replace(/\\hat(?![a-zA-Z])/g, "\\widehat");
+        if (!i) return null;
+        let o = (0, n.expandChem)(i);
+        if (null === o) return null;
+        let s = S(o, !0 === e.display);
+        return s
+          ? (function (t, e = {}) {
+              if ("u" < typeof DOMParser) return null;
+              let r = new DOMParser().parseFromString(t, "application/xml");
+              if (r.getElementsByTagName("parsererror").length > 0) return null;
+              let n = r.documentElement;
+              if (!n) return null;
+              let i = (function (t) {
+                let e = RegExp(k + k, "g"),
+                  r = t;
+                for (let t = 0; t < 40; t += 1) {
+                  let t = !1;
+                  if (
+                    ((r = r.replace(e, (e, r, n, i, o) =>
+                      r !== i
+                        ? e
+                        : ((t = !0),
+                          `<m:r>${r}<m:t xml:space="preserve">${n}${o}</m:t></m:r>`),
+                    )),
+                    !t)
+                  )
+                    break;
+                }
+                return r;
+              })(new T(e).siblings(x(n)));
+              return i
+                ? `<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">${i}</m:oMath>`
+                : null;
+            })(s, e)
+          : null;
+      },
+    ]);

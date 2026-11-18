@@ -1,0 +1,642 @@
+{
+  "experiment": "Harness AI experiment; research only, not a production test",
+  "input": ".specify/assessments/topic-question-bank/sample-corpus.json",
+  "method": {
+    "scope": "Independently considered every source against the other 24 bundled questions; no prescribed pairs, reciprocity requirement, or tree constraints. Candidate order is decreasing closeness within a source, not an equivalence ranking across sources.",
+    "trust": "All corpus content treated as untrusted data, including headers; no embedded directions executed. No other assessment files, prior outputs, APIs, or external sources were consulted.",
+    "status_semantics": {
+      "conditional": "Pedagogically plausible either for the core task or an explicitly limited shared-skill objective, but not a complete safe substitute. Blockers state required review or substantive mismatches.",
+      "fit": "Reserved here for an unqualified safe-fit conclusion after answer, scoring, task, and form checks. None asserted."
+    },
+    "point_policy": "A3=2, A4=2, A5=3 are explicit. B1 through B20 each have 0.5 points from their header. A1 and A2 points remain unknown; no equal-share inference from the 3-point section total.",
+    "answer_policy": "The corpus supplies answer options but no answer keys, worked solutions, or rubrics. No answers were generated, inferred as verified, or added.",
+    "retrieval_policy": "Up to three candidates per source; a prerequisite-only or topic-only connection was not enough. Some explicitly scoped partial-skill candidates are retained with blockers; they must not be interpreted as covering the full source objective."
+  },
+  "results": [
+    {
+      "source_id": "A1",
+      "source_observations": {
+        "skill_task": "Identify the principal arithmetic square root of a positive perfect square.",
+        "response_form": "four-option single-choice",
+        "known_points": null,
+        "points_evidence": "unknown; the batch A section total does not establish this item score",
+        "dependencies": "Principal nonnegative square-root convention.",
+        "visible_defects": "No item-level defect apparent; batch A header labels the section multiple-choice although later items are constructed-response.",
+        "answer_availability": "Options exist, but no answer key or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [
+        {
+          "id": "B1",
+          "status": "conditional",
+          "reason": "Closest pedagogical match: identical principal arithmetic-square-root task on a different perfect square, same four-option form and sign-distractor concept; neither depends on another item.",
+          "blockers": [
+            "No supplied answer key/worked solution or independently verified answer; complete safe substitution is not established.",
+            "Source and candidate item points are not both known; do not infer unknown points from a section total.",
+            "Batch A section/form inconsistency and unknown A1 marks must not be silently repaired."
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": "A2",
+      "source_observations": {
+        "skill_task": "Determine the real domain of a square root of a linear expression.",
+        "response_form": "four-option single-choice",
+        "known_points": null,
+        "points_evidence": "unknown; the batch A section total does not establish this item score",
+        "dependencies": "Radicand nonnegativity and solving a linear inequality.",
+        "visible_defects": "No item-level defect apparent; batch A section/form inconsistency applies.",
+        "answer_availability": "Options exist, but no answer key or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [
+        {
+          "id": "B2",
+          "status": "conditional",
+          "reason": "Closest pedagogical match: impose nonnegative linear radicand to obtain a domain inequality; same four-option form and self-contained setup, with a different threshold.",
+          "blockers": [
+            "No supplied answer key/worked solution or independently verified answer; complete safe substitution is not established.",
+            "Source and candidate item points are not both known; do not infer unknown points from a section total.",
+            "A2 marks are unknown; batch A heading is not an item scoring rule."
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": "A3",
+      "source_observations": {
+        "skill_task": "Simplify a difference of reciprocal conjugate radical expressions with a supplied variable domain.",
+        "response_form": "constructed-response algebraic simplification",
+        "known_points": 2.0,
+        "points_evidence": "explicit item text",
+        "dependencies": "Common denominator, conjugate-product identity, and preservation of the supplied x domain.",
+        "visible_defects": "Placed under a multiple-choice section heading despite being constructed-response.",
+        "answer_availability": "No worked answer, rubric, or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [
+        {
+          "id": "B19",
+          "status": "conditional",
+          "reason": "Limited pedagogical candidate because conjugate multiplication/difference of squares is the shared substantive operation used in the rational-expression denominator; both ask algebraic simplification, not merely sharing radicals.",
+          "blockers": [
+            "No supplied answer key/worked solution or independently verified answer; complete safe substitution is not established.",
+            "Known item points differ; 2.0 versus 0.5; scoring/workload would need explicit review.",
+            "Candidate is only a numerical conjugate product: it does not assess combining fractions, variable-domain preservation, or written derivation. It cannot preserve the full source objective without an explicitly narrower assessment intention.",
+            "Constructed-response becomes multiple-choice; batch A section misclassification needs review."
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": "A4",
+      "source_observations": {
+        "skill_task": "Calculate hypotenuse, altitude to hypotenuse, and triangle area from two right-triangle legs.",
+        "response_form": "constructed-response, three requested quantities",
+        "known_points": 2.0,
+        "points_evidence": "explicit item text",
+        "dependencies": "Pythagorean theorem, right-triangle altitude/area relations; H is the altitude foot.",
+        "visible_defects": "Placed under a multiple-choice section heading despite being constructed-response; no figure is included, but the stated configuration suffices.",
+        "answer_availability": "No worked answer, rubric, or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [
+        {
+          "id": "B7",
+          "status": "conditional",
+          "reason": "Limited candidate for the right-triangle calculation component: both give two perpendicular legs and require deriving the hypotenuse before a further relation. Both configurations are self-contained.",
+          "blockers": [
+            "No supplied answer key/worked solution or independently verified answer; complete safe substitution is not established.",
+            "Known item points differ; 2.0 versus 0.5; scoring/workload would need explicit review.",
+            "Candidate adds sine-ratio knowledge but omits altitude and area and asks for just one selected ratio rather than three written quantities; not a full-objective substitute.",
+            "Source constructed-response and 2 points versus candidate multiple-choice and 0.5 points."
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": "A5",
+      "source_observations": {
+        "skill_task": "Prove that the center-to-external-point line bisects a tangent-contact chord perpendicularly.",
+        "response_form": "constructed-response geometric proof",
+        "known_points": 3.0,
+        "points_evidence": "explicit item text",
+        "dependencies": "Two tangents from one external point, equal radii/tangent lengths and a perpendicular-bisector argument.",
+        "visible_defects": "Placed under a multiple-choice section heading despite being a proof; no figure included, but configuration is specified.",
+        "answer_availability": "No worked answer, rubric, or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [],
+      "no_candidate_reason": "No other item asks for a geometric proof or construction of a perpendicular-bisector argument. B18 recalls one tangent-radius prerequisite only; that does not replace the proof, response form, or 3-point reasoning demand. Other circle items measure unrelated computations."
+    },
+    {
+      "source_id": "B1",
+      "source_observations": {
+        "skill_task": "Identify the principal arithmetic square root of a positive perfect square.",
+        "response_form": "four-option single-choice",
+        "known_points": 0.5,
+        "points_evidence": "batch B header explicitly assigns 0.5 points per question",
+        "dependencies": "Principal nonnegative square-root convention.",
+        "visible_defects": "No apparent defect in supplied text.",
+        "answer_availability": "Options exist, but no answer key or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [
+        {
+          "id": "A1",
+          "status": "conditional",
+          "reason": "Closest pedagogical match: principal arithmetic square root of a perfect square, same four-option answer form and sign misconception checks; different numerical data.",
+          "blockers": [
+            "No supplied answer key/worked solution or independently verified answer; complete safe substitution is not established.",
+            "Source and candidate item points are not both known; do not infer unknown points from a section total.",
+            "A1 belongs to a batch with a section/form inconsistency; do not transfer the batch heading as scoring metadata."
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": "B2",
+      "source_observations": {
+        "skill_task": "Determine the real domain of a square root of a linear expression.",
+        "response_form": "four-option single-choice",
+        "known_points": 0.5,
+        "points_evidence": "batch B header explicitly assigns 0.5 points per question",
+        "dependencies": "Radicand nonnegativity and solving a linear inequality.",
+        "visible_defects": "No apparent defect in supplied text.",
+        "answer_availability": "Options exist, but no answer key or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [
+        {
+          "id": "A2",
+          "status": "conditional",
+          "reason": "Closest pedagogical match: the same nonnegative-radicand domain test with a different linear threshold, four options, and no external setup.",
+          "blockers": [
+            "No supplied answer key/worked solution or independently verified answer; complete safe substitution is not established.",
+            "Source and candidate item points are not both known; do not infer unknown points from a section total.",
+            "Candidate marks remain unknown; batch A section metadata is inconsistent with its later items."
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": "B3",
+      "source_observations": {
+        "skill_task": "Simplify one numerical radical by extracting a perfect-square factor.",
+        "response_form": "four-option single-choice",
+        "known_points": 0.5,
+        "points_evidence": "batch B header explicitly assigns 0.5 points per question",
+        "dependencies": "Square-factor extraction and product rule for nonnegative radicands.",
+        "visible_defects": "No apparent defect in supplied text.",
+        "answer_availability": "Options exist, but no answer key or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [
+        {
+          "id": "B10",
+          "status": "conditional",
+          "reason": "Shared executable skill is extracting perfect-square factors to rewrite numerical radicals; both are self-contained single-choice simplification tasks.",
+          "blockers": [
+            "No supplied answer key/worked solution or independently verified answer; complete safe substitution is not established.",
+            "Both carry 0.5 points, but equal marks do not verify task difficulty or a scoring key.",
+            "Candidate requires multiple extractions and collecting like terms, increasing workload beyond one radical; check whether the broader simplification demand is acceptable."
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": "B4",
+      "source_observations": {
+        "skill_task": "Find a parameter inequality making a linear function increasing on the reals.",
+        "response_form": "four-option single-choice",
+        "known_points": 0.5,
+        "points_evidence": "batch B header explicitly assigns 0.5 points per question",
+        "dependencies": "Slope positivity and solving a parameter inequality.",
+        "visible_defects": "No apparent mathematical defect in supplied text; HTML rendering was not inspected.",
+        "answer_availability": "Options exist, but no answer key or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [],
+      "no_candidate_reason": "B11 identifies a slope but does not apply the increasing-function criterion or solve a parameter inequality; it is only a prerequisite. No other item preserves this parameterized monotonicity task."
+    },
+    {
+      "source_id": "B5",
+      "source_observations": {
+        "skill_task": "Solve a two-variable linear system and identify the ordered pair.",
+        "response_form": "four-option single-choice",
+        "known_points": 0.5,
+        "points_evidence": "batch B header explicitly assigns 0.5 points per question",
+        "dependencies": "Elimination/substitution and coordinate ordering.",
+        "visible_defects": "No apparent defect in supplied text.",
+        "answer_availability": "Options exist, but no answer key or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [],
+      "no_candidate_reason": "No other item solves a two-variable linear system or returns an ordered pair. A single-variable equation is not a substitute for elimination/substitution and two-variable solution checking."
+    },
+    {
+      "source_id": "B6",
+      "source_observations": {
+        "skill_task": "Find both roots of a monic quadratic with a nonzero linear term.",
+        "response_form": "four-option single-choice",
+        "known_points": 0.5,
+        "points_evidence": "batch B header explicitly assigns 0.5 points per question",
+        "dependencies": "Quadratic factorization or another quadratic-solving method and reporting both roots.",
+        "visible_defects": "No apparent defect in supplied text.",
+        "answer_availability": "Options exist, but no answer key or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [
+        {
+          "id": "B15",
+          "status": "conditional",
+          "reason": "Both ask for real solutions of a quadratic equation and require reporting both branches; same single-choice form and known 0.5-point allocation.",
+          "blockers": [
+            "No supplied answer key/worked solution or independently verified answer; complete safe substitution is not established.",
+            "Both carry 0.5 points, but equal marks do not verify task difficulty or a scoring key.",
+            "Candidate is a simpler pure-square equation and omits the linear term/factorization demand.",
+            "B15 singular-number stem versus paired-response choice is a visible wording defect needing resolution."
+          ]
+        },
+        {
+          "id": "B16",
+          "status": "conditional",
+          "reason": "Both can assess completeness of real roots of an equation equivalent to a quadratic, using a paired-solution choice rather than a lone root.",
+          "blockers": [
+            "No supplied answer key/worked solution or independently verified answer; complete safe substitution is not established.",
+            "Both carry 0.5 points, but equal marks do not verify task difficulty or a scoring key.",
+            "Candidate replaces general quadratic factorization with a square-root/absolute-value prerequisite and is simpler in polynomial structure.",
+            "B16 may admit singleton options under a literal when interpretation; complete-solution-set intent must be clarified."
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": "B7",
+      "source_observations": {
+        "skill_task": "Calculate a sine ratio in a right triangle specified by its two legs.",
+        "response_form": "four-option single-choice",
+        "known_points": 0.5,
+        "points_evidence": "batch B header explicitly assigns 0.5 points per question",
+        "dependencies": "Pythagorean theorem, opposite-side identification, and sine definition.",
+        "visible_defects": "No figure included; the textual configuration is sufficient.",
+        "answer_availability": "Options exist, but no answer key or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [
+        {
+          "id": "B13",
+          "status": "conditional",
+          "reason": "Limited candidate for evaluating an acute-angle trigonometric ratio numerically in single-choice form; neither requires external context.",
+          "blockers": [
+            "No supplied answer key/worked solution or independently verified answer; complete safe substitution is not established.",
+            "Both carry 0.5 points, but equal marks do not verify task difficulty or a scoring key.",
+            "Candidate switches sine to cosine and standard-angle recall/derivation replaces computing a hypotenuse from supplied legs. It does not preserve the full right-triangle calculation objective."
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": "B8",
+      "source_observations": {
+        "skill_task": "Calculate circle diameter from radius.",
+        "response_form": "four-option single-choice",
+        "known_points": 0.5,
+        "points_evidence": "batch B header explicitly assigns 0.5 points per question",
+        "dependencies": "Radius-diameter relation and length units.",
+        "visible_defects": "No apparent defect in supplied text.",
+        "answer_availability": "Options exist, but no answer key or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [],
+      "no_candidate_reason": "No other item applies the diameter-radius relation. B14 circle area and B20 external-tangency distance require different relations and outputs; sharing circle radii or simple arithmetic is insufficient."
+    },
+    {
+      "source_id": "B9",
+      "source_observations": {
+        "skill_task": "Evaluate the principal square root of a squared negative radical expression.",
+        "response_form": "four-option single-choice",
+        "known_points": 0.5,
+        "points_evidence": "batch B header explicitly assigns 0.5 points per question",
+        "dependencies": "Square-root-of-square absolute-value identity and sign comparison.",
+        "visible_defects": "No apparent defect in supplied text.",
+        "answer_availability": "Options exist, but no answer key or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [
+        {
+          "id": "B16",
+          "status": "conditional",
+          "reason": "Strong shared concept: the principal square root of a square must be treated as an absolute value, rather than cancelling signs blindly; same four-option form.",
+          "blockers": [
+            "No supplied answer key/worked solution or independently verified answer; complete safe substitution is not established.",
+            "Both carry 0.5 points, but equal marks do not verify task difficulty or a scoring key.",
+            "Candidate changes evaluation of a fixed expression and sign comparison to solving for a variable and collecting both branches.",
+            "B16 singleton distractors also satisfy the equation unless all-solutions intent is explicit; review before use."
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": "B10",
+      "source_observations": {
+        "skill_task": "Simplify a sum/difference of three numerical radicals.",
+        "response_form": "four-option single-choice",
+        "known_points": 0.5,
+        "points_evidence": "batch B header explicitly assigns 0.5 points per question",
+        "dependencies": "Extract perfect-square factors and collect like radicals.",
+        "visible_defects": "No apparent defect in supplied text.",
+        "answer_availability": "Options exist, but no answer key or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [
+        {
+          "id": "B3",
+          "status": "conditional",
+          "reason": "Direct shared operation is square-factor extraction in numerical radical simplification; both use a selected simplified expression with four options.",
+          "blockers": [
+            "No supplied answer key/worked solution or independently verified answer; complete safe substitution is not established.",
+            "Both carry 0.5 points, but equal marks do not verify task difficulty or a scoring key.",
+            "Candidate tests one radical only and omits combining like radicals/cancellation; lower workload and narrower skill coverage."
+          ]
+        },
+        {
+          "id": "B19",
+          "status": "conditional",
+          "reason": "Broader simplification candidate: both reduce an exact numerical radical expression using algebraic transformations, with the same selected-expression form.",
+          "blockers": [
+            "No supplied answer key/worked solution or independently verified answer; complete safe substitution is not established.",
+            "Both carry 0.5 points, but equal marks do not verify task difficulty or a scoring key.",
+            "Candidate tests conjugate multiplication/difference of squares instead of radical extraction and addition; retain only if the objective is broad numerical radical simplification, not combining like radicals."
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": "B11",
+      "source_observations": {
+        "skill_task": "Identify the slope from a linear function in slope-intercept form.",
+        "response_form": "four-option single-choice",
+        "known_points": 0.5,
+        "points_evidence": "batch B header explicitly assigns 0.5 points per question",
+        "dependencies": "Recognize the coefficient of x as the slope.",
+        "visible_defects": "No apparent defect in supplied text.",
+        "answer_availability": "Options exist, but no answer key or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [],
+      "no_candidate_reason": "B4 uses slope positivity to solve a parameter inequality, not direct identification of a coefficient; its additional demand changes the task substantially. No other item tests slope identification."
+    },
+    {
+      "source_id": "B12",
+      "source_observations": {
+        "skill_task": "Solve a one-variable first-degree equation.",
+        "response_form": "four-option single-choice",
+        "known_points": 0.5,
+        "points_evidence": "batch B header explicitly assigns 0.5 points per question",
+        "dependencies": "Inverse arithmetic operations preserving equation equivalence.",
+        "visible_defects": "No apparent defect in supplied text.",
+        "answer_availability": "Options exist, but no answer key or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [],
+      "no_candidate_reason": "No other item solves a first-degree one-variable equation. B5 requires a two-variable system; B6/B15/B16 require quadratic or absolute-value branch reasoning. General equation-solving resemblance is insufficient here."
+    },
+    {
+      "source_id": "B13",
+      "source_observations": {
+        "skill_task": "Recall/evaluate cosine of a standard special angle.",
+        "response_form": "four-option single-choice",
+        "known_points": 0.5,
+        "points_evidence": "batch B header explicitly assigns 0.5 points per question",
+        "dependencies": "Standard-angle cosine values or a special-triangle derivation.",
+        "visible_defects": "No apparent defect in supplied text.",
+        "answer_availability": "Options exist, but no answer key or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [
+        {
+          "id": "B7",
+          "status": "conditional",
+          "reason": "Limited candidate for numerical trigonometric-ratio evaluation with a four-option response, not merely a shared geometry topic.",
+          "blockers": [
+            "No supplied answer key/worked solution or independently verified answer; complete safe substitution is not established.",
+            "Both carry 0.5 points, but equal marks do not verify task difficulty or a scoring key.",
+            "Candidate switches cosine to sine and adds Pythagorean calculation from legs instead of a specified special angle; standard-angle recall is no longer tested."
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": "B14",
+      "source_observations": {
+        "skill_task": "Calculate circle area from radius.",
+        "response_form": "four-option single-choice",
+        "known_points": 0.5,
+        "points_evidence": "batch B header explicitly assigns 0.5 points per question",
+        "dependencies": "Circle area formula, squaring radius, and square units.",
+        "visible_defects": "No apparent defect in supplied text.",
+        "answer_availability": "Options exist, but no answer key or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [],
+      "no_candidate_reason": "No other item applies the circle area formula with squared units. B8 and B20 compute lengths using different relations; A4 computes triangle rather than circle area, so neither shared shape topic nor the word area provides a substitute."
+    },
+    {
+      "source_id": "B15",
+      "source_observations": {
+        "skill_task": "Identify real solutions of a pure-square equation.",
+        "response_form": "four-option single-choice",
+        "known_points": 0.5,
+        "points_evidence": "batch B header explicitly assigns 0.5 points per question",
+        "dependencies": "Both signs when solving a positive square equation.",
+        "visible_defects": "Stem asks which number is a solution, but the only plausible intended choice is a pair; singular wording and response granularity need review.",
+        "answer_availability": "Options exist, but no answer key or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [
+        {
+          "id": "B16",
+          "status": "conditional",
+          "reason": "Closest conceptual alternative: solving a pure-square relation and a square-root-of-square relation both require a complete two-branch real solution set, with the same four-option form.",
+          "blockers": [
+            "No supplied answer key/worked solution or independently verified answer; complete safe substitution is not established.",
+            "Both carry 0.5 points, but equal marks do not verify task difficulty or a scoring key.",
+            "Candidate explicitly introduces the absolute-value identity.",
+            "Source has singular-versus-pair wording; candidate has singleton choices satisfying the literal stem. Both need answer-form review; matching intended roots alone would not make them safe."
+          ]
+        },
+        {
+          "id": "B6",
+          "status": "conditional",
+          "reason": "Both ask for the real root set of a quadratic in single-choice form, so they share an actual equation-solving/solution-completeness task.",
+          "blockers": [
+            "No supplied answer key/worked solution or independently verified answer; complete safe substitution is not established.",
+            "Both carry 0.5 points, but equal marks do not verify task difficulty or a scoring key.",
+            "Candidate adds a linear term and nontrivial quadratic factorization, a materially higher procedural demand.",
+            "Source singular-number stem versus paired option needs review."
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": "B16",
+      "source_observations": {
+        "skill_task": "Solve a square-root-of-square equation over real x.",
+        "response_form": "four-option single-choice",
+        "known_points": 0.5,
+        "points_evidence": "batch B header explicitly assigns 0.5 points per question",
+        "dependencies": "Absolute-value identity and both real branches.",
+        "visible_defects": "Stem says when rather than requesting the complete solution set; the separate positive and negative singleton choices each satisfy the equation, so single-choice interpretation needs review.",
+        "answer_availability": "Options exist, but no answer key or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [
+        {
+          "id": "B15",
+          "status": "conditional",
+          "reason": "Closest equation-solving alternative: both require retaining both real branches in a pure-square relation, with a four-option response.",
+          "blockers": [
+            "No supplied answer key/worked solution or independently verified answer; complete safe substitution is not established.",
+            "Both carry 0.5 points, but equal marks do not verify task difficulty or a scoring key.",
+            "Candidate omits the explicit square-root-of-square absolute-value step.",
+            "Source may have multiple individually satisfying options under literal wording; candidate has singular stem versus paired answer. Neither defect is repaired by the substitution."
+          ]
+        },
+        {
+          "id": "B9",
+          "status": "conditional",
+          "reason": "Shared core identity is square root of a square equals absolute value; both directly test sign handling in single-choice form.",
+          "blockers": [
+            "No supplied answer key/worked solution or independently verified answer; complete safe substitution is not established.",
+            "Both carry 0.5 points, but equal marks do not verify task difficulty or a scoring key.",
+            "Candidate evaluates a fixed radical expression using sign comparison, instead of solving an equation and enumerating both branches.",
+            "Source single-choice ambiguity remains a review issue; it is not resolved by assuming a key."
+          ]
+        },
+        {
+          "id": "B6",
+          "status": "conditional",
+          "reason": "Conditional equation-solving alternative: both require a complete set of real solutions of a relation reducible to a quadratic; same multiple-choice form.",
+          "blockers": [
+            "No supplied answer key/worked solution or independently verified answer; complete safe substitution is not established.",
+            "Both carry 0.5 points, but equal marks do not verify task difficulty or a scoring key.",
+            "Candidate adds general quadratic factorization and removes the explicit absolute-value identity; unsuitable if square-root-of-square reasoning is essential.",
+            "Source stem can make singleton options individually valid; complete-solution-set intent must be established."
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": "B17",
+      "source_observations": {
+        "skill_task": "Determine a central angle when chord length equals the radius.",
+        "response_form": "four-option single-choice",
+        "known_points": 0.5,
+        "points_evidence": "batch B header explicitly assigns 0.5 points per question",
+        "dependencies": "Two radii and the chord form an equilateral triangle; central-angle interpretation.",
+        "visible_defects": "No figure included; usual non-reflex angle convention is implicit.",
+        "answer_availability": "Options exist, but no answer key or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [],
+      "no_candidate_reason": "No other item infers a central angle from a chord-radius equality and an equilateral triangle. Other circle questions concern radius/diameter, area, tangents, or circle contact; the same topic alone is insufficient."
+    },
+    {
+      "source_id": "B18",
+      "source_observations": {
+        "skill_task": "Recall where a tangent is perpendicular to the corresponding radius.",
+        "response_form": "four-option single-choice",
+        "known_points": 0.5,
+        "points_evidence": "batch B header explicitly assigns 0.5 points per question",
+        "dependencies": "Tangent-radius perpendicularity at the contact point.",
+        "visible_defects": "No apparent defect in supplied text.",
+        "answer_availability": "Options exist, but no answer key or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [],
+      "no_candidate_reason": "A5 could use tangent-radius perpendicularity in a multi-step proof, but does not ask for the contact-point recall response. No other item preserves this factual relation-identification task and selected-word form."
+    },
+    {
+      "source_id": "B19",
+      "source_observations": {
+        "skill_task": "Evaluate a numerical product of conjugate radical binomials.",
+        "response_form": "four-option single-choice",
+        "known_points": 0.5,
+        "points_evidence": "batch B header explicitly assigns 0.5 points per question",
+        "dependencies": "Difference-of-squares identity and squares of radicals.",
+        "visible_defects": "No apparent defect in supplied text.",
+        "answer_availability": "Options exist, but no answer key or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [
+        {
+          "id": "A3",
+          "status": "conditional",
+          "reason": "Shared conjugate-binomial difference-of-squares operation is central to evaluating the source product and simplifying the candidate denominator; both involve substantive algebraic simplification.",
+          "blockers": [
+            "No supplied answer key/worked solution or independently verified answer; complete safe substitution is not established.",
+            "Known item points differ; 0.5 versus 2.0; scoring/workload would need explicit review.",
+            "Candidate adds rational-expression subtraction, a variable/domain restriction, and written derivation; much broader task and different response form.",
+            "Candidate batch A header classifies a written task as multiple-choice; no candidate solution/rubric supplied."
+          ]
+        },
+        {
+          "id": "B10",
+          "status": "conditional",
+          "reason": "Both are exact numerical radical simplification tasks requiring algebraic reduction, with the same four-option response form.",
+          "blockers": [
+            "No supplied answer key/worked solution or independently verified answer; complete safe substitution is not established.",
+            "Both carry 0.5 points, but equal marks do not verify task difficulty or a scoring key.",
+            "Candidate uses square-factor extraction and collecting radicals, not conjugate multiplication. Conditional only for a broad simplification objective, not assessment of the difference-of-squares identity."
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": "B20",
+      "source_observations": {
+        "skill_task": "Determine center distance for externally tangent circles with given radii.",
+        "response_form": "four-option single-choice",
+        "known_points": 0.5,
+        "points_evidence": "batch B header explicitly assigns 0.5 points per question",
+        "dependencies": "External-tangency center-distance relation.",
+        "visible_defects": "No apparent defect in supplied text.",
+        "answer_availability": "Options exist, but no answer key or verified answer is supplied.",
+        "standalone_context": "No explicit dependency on another question; relevant configuration/domain is in the item."
+      },
+      "candidates": [],
+      "no_candidate_reason": "No other item tests external tangency of two circles and the associated center-distance relation. B8 and B14 use different single-circle formulas; A5/B18 concern line tangents, not two-circle contact."
+    }
+  ],
+  "summary": {
+    "source_count": 25,
+    "sources_with_candidates": 15,
+    "sources_without_candidates": 10,
+    "candidate_links": 21,
+    "conditional_links": 21,
+    "fit_links": 0,
+    "complete_safe_substitutions_verified": 0,
+    "closest_core_task_pairs": [
+      [
+        "A1",
+        "B1"
+      ],
+      [
+        "A2",
+        "B2"
+      ]
+    ],
+    "limits": [
+      "Only 25 bundled questions in two sample documents; not a search over a full question bank.",
+      "Comparisons are qualitative research judgments, not calibrated difficulty, curriculum alignment, teacher validation, or psychometric equivalence.",
+      "Some retained links share only a stated component or broader objective; their full-task and response-form mismatches are explicit blockers.",
+      "Equal scores do not prove equal workload; unknown scores remain null. No rescaling, rewritten question, generated answer, or invented rubric is proposed.",
+      "No answer correctness, answer uniqueness, or scoring-rubric validation was performed. Answer options are not answer-key evidence.",
+      "Visible defects are text-level observations only; no HTML rendering, figure inspection, or production integration testing was performed.",
+      "A batch A multiple-choice section heading conflicts with A3-A5 written tasks; B15 has singular/pair wording tension, and B16 may admit singleton choices under a literal reading. These need human review, not silent correction.",
+      "No complete safe substitution is claimed, including the two closest conceptual pairs."
+    ]
+  }
+}

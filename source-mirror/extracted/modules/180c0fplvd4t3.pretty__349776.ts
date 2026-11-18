@@ -1,0 +1,15 @@
+// Reconstructed from 180c0fplvd4t3.pretty.js, module 349776.
+// deps: m843476, m328623, m522016, m604131, m653779, m561309, m816186, m815731
+// exports: AssistantBubble
+export { function ({ message: e, loading: c, onSend: u }) { return (0, t.jsxs)(s.Message, { align: "start", children: [ (0, t.jsx)(s.MessageAvatar, { className: "size-7 rounded-full bg-linear-to-br from-[#d3e5ef] to-[#e8dcf9] text-[#2383e2]", children: (0, t.jsx)(n.Sparkles, { "aria-hidden": !0, className: "size-3.5", }), }), (0, t.jsx)(s.MessageContent, { children: (0, t.jsx)(o.Bubble, { align: "start", variant: "secondary", className: "max-w-none w-full", children: (0, t.jsxs)(o.BubbleContent, { className: "rounded-none border-0 bg-transparent px-0 py-0.5 text-neutral-900 shadow-none", children: [ e.content && (0, t.jsx)("div", { className: "prose prose-xs max-w-none break-words leading-relaxed", children: (0, t.jsx)(a.RichText, { text: e.content }), }), e.clarifications && e.clarifications.length > 0 && (0, t.jsx)(i.ClarificationWizard, { clarifications: e.clarifications, disabled: c, answered: e.clarificationAnswered, onSubmit: (t, n) => void u(`${n}`, e.id, e.clarificationContext, t), }), e.remembered && (0, t.jsxs)(r.default, { href: "/memory", target: "_blank", className: "mt-2 inline-flex max-w-full items-center gap-1.5 rounded-full border border-transparent px-2.5 py-0.5 text-[12px] text-[#37352f] [background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(100deg,#2383e2,#9b72cb)_border-box]", title: "Xem và sửa trong Trí nhớ của trợ lý", children: [ (0, t.jsx)(n.Sparkles, { "aria-hidden": !0, className: "size-3 shrink-0 text-[#9b72cb]", }), (0, t.jsxs)("span", { className: "truncate", children: ["Đã ghi nhớ: ", e.remembered], }), ], }), e.sources && e.sources.length > 0 && (0, t.jsxs)("div", { className: "mt-2 flex flex-wrap items-center gap-1.5 border-t border-dashed border-[#dfdfdd] pt-2 text-[11.5px] text-[#787774]", children: [ (0, t.jsx)("span", { children: "Nguồn đã dùng:" }), e.sources.map((e) => (0, t.jsx)( r.default, { href: `/library/${e.id}`, target: "_blank", title: e.name, className: "max-w-48 truncate rounded-md border border-[#e9e9e7] bg-[#f7f6f3] px-1.5 py-px text-[#5f5e5b] hover:text-[#37352f]", children: e.name, }, e.id, ), ), ], }), (0, t.jsx)(l.GroundingPanel, { message: e, loading: c, onFix: (e) => void u(e), }), e.warnings && e.warnings.length > 0 && (0, t.jsx)("ul", { className: "mt-2 space-y-0.5 rounded-lg bg-amber-50 p-2 text-[11px] text-amber-800", children: e.warnings.map((e, n) => (0, t.jsxs)("li", { children: ["• ", e] }, n), ), }), ], }), }), }), ], }); } as "AssistantBubble" };
+
+"use strict";
+    var t = m843476,
+      n = m328623,
+      r = m522016,
+      a = m604131,
+      i = m653779,
+      l = m561309,
+      s = m816186,
+      o = m815731;
+    ;

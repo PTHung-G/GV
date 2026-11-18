@@ -1,0 +1,48 @@
+{
+  "runs": [
+    {
+      "run": "autonomous-pass-2026-11-17T08-40-54-985Z",
+      "calls": 8,
+      "reportedTokens": 43148,
+      "requestsWithoutUsage": 4,
+      "outcome": "interrupted",
+      "resumed": false
+    },
+    {
+      "run": "repair-pass-2026-11-17T08-50-45-233Z",
+      "calls": 8,
+      "reportedTokens": 93896,
+      "requestsWithoutUsage": 1,
+      "outcome": "failed",
+      "resumed": false
+    },
+    {
+      "run": "repair-pass-2026-11-17T09-01-11-757Z",
+      "calls": 12,
+      "reportedTokens": 154473,
+      "requestsWithoutUsage": 1,
+      "outcome": "failed",
+      "resumed": false
+    },
+    {
+      "run": "repair-pass-2026-11-17T09-10-33-051Z",
+      "calls": 0,
+      "reportedTokens": 0,
+      "requestsWithoutUsage": 0,
+      "outcome": "resume_verified_no_provider_calls",
+      "resumed": true
+    },
+    {
+      "run": "repair-pass-2026-11-17T09-10-58-522Z",
+      "calls": 10,
+      "reportedTokens": 303223,
+      "requestsWithoutUsage": 0,
+      "outcome": "failed",
+      "resumed": true
+    }
+  ],
+  "totalDispatchedRequests": 38,
+  "totalReportedTokens": 594740,
+  "requestsWithoutUsage": 6,
+  "note": "Missing usage is not zero billing. Includes all failed and duplicate attempts; no price data available."
+}

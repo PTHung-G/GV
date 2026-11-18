@@ -1,0 +1,14954 @@
+(globalThis.TURBOPACK || (globalThis.TURBOPACK = [])).push([
+  "object" == typeof document ? document.currentScript : void 0,
+  999613,
+  (e) => {
+    "use strict";
+    var t = e.i(843476),
+      n = e.i(534947),
+      r = e.i(829691),
+      i = e.i(213269),
+      a = e.i(715760),
+      s = e.i(799887),
+      l = e.i(775691),
+      o = e.i(375727),
+      c = e.i(522016),
+      d = e.i(618566),
+      u = e.i(494499),
+      h = e.i(678631),
+      m = e.i(88653),
+      p = e.i(532181),
+      x = e.i(853138),
+      g = e.i(689664),
+      f = e.i(484308),
+      b = e.i(569644),
+      y = e.i(490985),
+      w = e.i(456420);
+    let v = (0, w.default)("layers", [
+      [
+        "path",
+        {
+          d: "M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z",
+          key: "zw3jo",
+        },
+      ],
+      [
+        "path",
+        {
+          d: "M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12",
+          key: "1wduqc",
+        },
+      ],
+      [
+        "path",
+        {
+          d: "M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17",
+          key: "kqbvx6",
+        },
+      ],
+    ]);
+    var j = e.i(632781);
+    let k = (0, w.default)("panel-left-open", [
+      [
+        "rect",
+        { width: "18", height: "18", x: "3", y: "3", rx: "2", key: "afitv7" },
+      ],
+      ["path", { d: "M9 3v18", key: "fh3hqa" }],
+      ["path", { d: "m14 9 3 3-3 3", key: "8010ee" }],
+    ]);
+    var N = e.i(871315),
+      C = e.i(753596),
+      T = e.i(226091),
+      S = e.i(77071),
+      A = e.i(570937),
+      E = e.i(271645);
+    let M = {
+        ready: "bg-[#448361]",
+        needs_review: "bg-[#cb912f]",
+        stale: "bg-transparent ring-[1.5px] ring-inset ring-[#a3a29e]",
+        busy: "bg-[#2383e2] animate-pulse",
+      },
+      $ = {
+        ready: "Đã kiểm",
+        needs_review: "Có câu cần xem",
+        stale: "Đề gốc đã sửa sau khi tạo mã này",
+        busy: "Đang tạo",
+      };
+    function D({
+      tabs: e,
+      active: n,
+      busy: r,
+      stale: i,
+      meta: a,
+      onSelect: s,
+      onCreate: l,
+      onDelete: o,
+      onExport: c,
+    }) {
+      let [d, u] = (0, E.useState)(null),
+        h = (0, E.useRef)(null),
+        m = ["base", ...e.map((e) => e.id)];
+      (0, E.useEffect)(() => {
+        if (!d) return;
+        let e = () => u(null);
+        return (
+          window.addEventListener("pointerdown", e),
+          window.addEventListener("keydown", e),
+          () => {
+            (window.removeEventListener("pointerdown", e),
+              window.removeEventListener("keydown", e));
+          }
+        );
+      }, [d]);
+      let p = (e, t) => {
+          if ("ArrowRight" !== e.key && "ArrowLeft" !== e.key) return;
+          e.preventDefault();
+          let n = m.indexOf(t),
+            r =
+              m[(n + ("ArrowRight" === e.key ? 1 : -1) + m.length) % m.length];
+          (s(r),
+            requestAnimationFrame(() =>
+              h.current?.querySelector(`[data-tab="${r}"]`)?.focus(),
+            ));
+        },
+        x = (e) =>
+          `flex h-[30px] shrink-0 items-center gap-1.5 rounded-lg border px-2.5 text-[13px] font-medium transition-colors ${e ? "border-[#dcdbd8] bg-white text-[#37352f] shadow-[0_1px_2px_rgba(15,15,15,0.07)]" : "border-transparent text-[#73726e] hover:bg-black/[0.05] hover:text-[#37352f]"}`;
+      return (0, t.jsxs)("div", {
+        ref: h,
+        className:
+          "no-print flex h-11 shrink-0 items-center gap-1 overflow-x-auto border-t border-[#e9e9e7] bg-[#f7f6f3] px-2 [scrollbar-width:thin]",
+        role: "tablist",
+        "aria-label": "Các tab của đề",
+        children: [
+          (0, t.jsxs)("button", {
+            type: "button",
+            role: "tab",
+            "data-tab": "base",
+            "aria-selected": "base" === n,
+            tabIndex: "base" === n ? 0 : -1,
+            className: x("base" === n),
+            onClick: () => s("base"),
+            onKeyDown: (e) => p(e, "base"),
+            title: "Đề gốc: sửa ở đây thì các mã đề được báo để cập nhật",
+            children: [
+              (0, t.jsx)(T.FileText, {
+                "aria-hidden": !0,
+                className: "size-3.5",
+              }),
+              "Đề gốc",
+            ],
+          }),
+          e.length > 0 &&
+            (0, t.jsx)("span", {
+              "aria-hidden": !0,
+              className: "mx-1 h-[18px] w-px shrink-0 bg-[#dcdbd8]",
+            }),
+          e.map((e) => {
+            let a = n === e.id,
+              l =
+                r && "version" === e.kind
+                  ? "busy"
+                  : i && "version" === e.kind
+                    ? "stale"
+                    : e.status;
+            return (0, t.jsxs)(
+              "button",
+              {
+                type: "button",
+                role: "tab",
+                "data-tab": e.id,
+                "aria-selected": a,
+                tabIndex: a ? 0 : -1,
+                className: x(a),
+                onClick: () => s(e.id),
+                onKeyDown: (t) => p(t, e.id),
+                onContextMenu: (t) => {
+                  "version" === e.kind &&
+                    (t.preventDefault(),
+                    u({ id: e.id, x: t.clientX, y: t.clientY }));
+                },
+                title:
+                  "version" === e.kind
+                    ? `${e.title} \xb7 ${$[l] ?? ""}. Chuột phải để xuất hoặc xo\xe1.`
+                    : "Bảng đáp án các mã đề",
+                children: [
+                  "version" === e.kind
+                    ? (0, t.jsx)("span", {
+                        "aria-hidden": !0,
+                        className: `size-[7px] shrink-0 rounded-full ${M[l] ?? M.ready}`,
+                      })
+                    : (0, t.jsx)(A.Table2, {
+                        "aria-hidden": !0,
+                        className: "size-3.5",
+                      }),
+                  e.title,
+                ],
+              },
+              e.id,
+            );
+          }),
+          (0, t.jsxs)("button", {
+            type: "button",
+            onClick: l,
+            className:
+              "ml-1 flex h-[30px] shrink-0 items-center gap-1.5 rounded-lg px-2.5 text-[13px] font-medium text-[#73726e] transition-colors hover:bg-black/[0.05] hover:text-[#37352f]",
+            title: "Mở Xưởng mã đề: trộn, đổi số liệu, câu tương đồng",
+            children: [
+              e.length
+                ? (0, t.jsx)(S.Plus, { "aria-hidden": !0, className: "size-4" })
+                : (0, t.jsx)(v, { "aria-hidden": !0, className: "size-4" }),
+              e.length ? "" : "Tạo mã đề",
+            ],
+          }),
+          (0, t.jsx)("span", {
+            className: "ml-auto shrink-0 pl-3 text-xs text-[#a3a29e]",
+            children: a,
+          }),
+          d &&
+            (0, t.jsxs)("div", {
+              className:
+                "fixed z-50 min-w-44 rounded-lg border border-[#e9e9e7] bg-white p-1 text-[13px] text-[#37352f] shadow-lg",
+              style: { left: d.x, top: d.y - 84 },
+              onPointerDown: (e) => e.stopPropagation(),
+              children: [
+                (0, t.jsx)("button", {
+                  type: "button",
+                  className:
+                    "block w-full rounded-md px-2.5 py-1.5 text-left hover:bg-[#f1f1ef]",
+                  onClick: () => {
+                    (c(d.id), u(null));
+                  },
+                  children: "Tải mã này (Word)",
+                }),
+                (0, t.jsx)("button", {
+                  type: "button",
+                  className:
+                    "block w-full rounded-md px-2.5 py-1.5 text-left text-[#c4423d] hover:bg-[#fbe6e5]",
+                  onClick: () => {
+                    (o(d.id), u(null));
+                  },
+                  children: "Xoá mã này",
+                }),
+              ],
+            }),
+        ],
+      });
+    }
+    var I = e.i(768877),
+      L = e.i(24071),
+      R = e.i(867927),
+      z = e.i(235381),
+      _ = e.i(809584),
+      P = e.i(762368);
+    let H = (0, w.default)("hash", [
+      ["line", { x1: "4", x2: "20", y1: "9", y2: "9", key: "4lhtct" }],
+      ["line", { x1: "4", x2: "20", y1: "15", y2: "15", key: "vyu0kd" }],
+      ["line", { x1: "10", x2: "8", y1: "3", y2: "21", key: "1ggp8o" }],
+      ["line", { x1: "16", x2: "14", y1: "3", y2: "21", key: "weycgp" }],
+    ]);
+    var q = e.i(926894);
+    let F = (0, w.default)("pin", [
+      ["path", { d: "M12 17v5", key: "bb1du9" }],
+      [
+        "path",
+        {
+          d: "M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z",
+          key: "1nkz8b",
+        },
+      ],
+    ]);
+    var B = e.i(741120),
+      O = e.i(304585);
+    let W = (0, w.default)("shuffle", [
+      ["path", { d: "m18 14 4 4-4 4", key: "10pe0f" }],
+      ["path", { d: "m18 2 4 4-4 4", key: "pucp1d" }],
+      [
+        "path",
+        {
+          d: "M2 18h1.973a4 4 0 0 0 3.3-1.7l5.454-8.6a4 4 0 0 1 3.3-1.7H22",
+          key: "1ailkh",
+        },
+      ],
+      ["path", { d: "M2 6h1.972a4 4 0 0 1 3.6 2.2", key: "km57vx" }],
+      [
+        "path",
+        { d: "M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45", key: "os18l9" },
+      ],
+    ]);
+    var X = e.i(112092),
+      G = e.i(328623),
+      K = e.i(263676),
+      U = e.i(716400);
+    function V({ doc: e }) {
+      return (0, t.jsx)(t.Fragment, {
+        children: (function e(n) {
+          return (n.content ?? []).map((n, r) =>
+            (function (n, r) {
+              let i = n.attrs;
+              switch (n.type) {
+                case "text":
+                  return (n.marks ?? []).reduceRight(
+                    (e, n) =>
+                      (function (e, n, r) {
+                        switch (e.type) {
+                          case "bold":
+                            return (0, t.jsx)("strong", { children: n }, r);
+                          case "italic":
+                            return (0, t.jsx)("em", { children: n }, r);
+                          case "underline":
+                            return (0, t.jsx)("u", { children: n }, r);
+                          case "strike":
+                            return (0, t.jsx)("s", { children: n }, r);
+                          case "subscript":
+                            return (0, t.jsx)("sub", { children: n }, r);
+                          case "superscript":
+                            return (0, t.jsx)("sup", { children: n }, r);
+                          case "boxed":
+                            return (0, t.jsx)(
+                              "span",
+                              { className: "doc-boxed", children: n },
+                              r,
+                            );
+                          case "link": {
+                            let i = Z(e.attrs?.href);
+                            return i
+                              ? (0, t.jsx)(
+                                  "a",
+                                  {
+                                    href: i,
+                                    rel: "nofollow ugc noopener",
+                                    target: "_blank",
+                                    children: n,
+                                  },
+                                  r,
+                                )
+                              : n;
+                          }
+                          default:
+                            return n;
+                        }
+                      })(n, e, r),
+                    n.text ?? "",
+                  );
+                case "hardBreak":
+                  return (0, t.jsx)("br", {}, r);
+                case "math":
+                  let a = String(i?.latex ?? "");
+                  try {
+                    a = decodeURIComponent(a);
+                  } catch {}
+                  let s = !!i?.display,
+                    l = U.default.renderToString(a, {
+                      throwOnError: !1,
+                      displayMode: s,
+                      output: "mathml",
+                      strict: "ignore",
+                    });
+                  return (0, t.jsx)(
+                    "span",
+                    {
+                      className: s ? "doc-math doc-math-display" : "doc-math",
+                      dangerouslySetInnerHTML: { __html: l },
+                    },
+                    r,
+                  );
+                case "paragraph":
+                  return (0, t.jsx)("p", { style: Q(i), children: e(n) }, r);
+                case "heading": {
+                  let a = Math.min(6, Math.max(2, (Number(i?.level) || 1) + 1)),
+                    s = `h${a}`;
+                  return (0, t.jsx)(
+                    s,
+                    { style: Q(i), className: "font-bold", children: e(n) },
+                    r,
+                  );
+                }
+                case "examHeader":
+                  return (0, t.jsx)(
+                    "div",
+                    {
+                      className: "doc-header",
+                      style: { "--header-columns": "1fr 1.4fr" },
+                      children: e(n),
+                    },
+                    r,
+                  );
+                case "headerColumn":
+                  return (0, t.jsx)(
+                    "div",
+                    { className: "doc-header-col", children: e(n) },
+                    r,
+                  );
+                case "grid": {
+                  let a = Math.min(4, Math.max(1, Number(i?.columns) || 2)),
+                    s = i?.autoColumns === !0;
+                  return (0, t.jsx)(
+                    "div",
+                    {
+                      className: "doc-grid",
+                      style: {
+                        gridTemplateColumns: s
+                          ? "repeat(auto-fit, minmax(160px, 1fr))"
+                          : `repeat(${a}, minmax(0, 1fr))`,
+                      },
+                      children: e(n),
+                    },
+                    r,
+                  );
+                }
+                case "gridCell":
+                  return (0, t.jsx)(
+                    "div",
+                    { className: "doc-grid-cell", children: e(n) },
+                    r,
+                  );
+                case "docColumns":
+                  return (0, t.jsx)(
+                    "div",
+                    {
+                      style: {
+                        columnCount: Math.min(
+                          3,
+                          Math.max(1, Number(i?.columns) || 2),
+                        ),
+                        columnGap: 24,
+                      },
+                      children: e(n),
+                    },
+                    r,
+                  );
+                case "table":
+                  return (0, t.jsx)(
+                    "div",
+                    {
+                      className: "doc-table-wrapper overflow-x-auto",
+                      children: (0, t.jsx)("table", {
+                        className: "doc-table",
+                        children: (0, t.jsx)("tbody", { children: e(n) }),
+                      }),
+                    },
+                    r,
+                  );
+                case "tableRow":
+                  return (0, t.jsx)("tr", { children: e(n) }, r);
+                case "tableHeader":
+                  return (0, t.jsx)("th", { ...Y(i), children: e(n) }, r);
+                case "tableCell":
+                  return (0, t.jsx)("td", { ...Y(i), children: e(n) }, r);
+                case "bulletList":
+                  return (0, t.jsx)(
+                    "ul",
+                    { className: "list-disc pl-6", children: e(n) },
+                    r,
+                  );
+                case "orderedList":
+                  return (0, t.jsx)(
+                    "ol",
+                    { className: "list-decimal pl-6", children: e(n) },
+                    r,
+                  );
+                case "listItem":
+                  return (0, t.jsx)("li", { children: e(n) }, r);
+                case "horizontalRule":
+                  return (0, t.jsx)(
+                    "hr",
+                    { className: "my-2 border-black" },
+                    r,
+                  );
+                case "pageBreak":
+                  return null;
+                case "examImage": {
+                  let e = Z(i?.src),
+                    n = String(i?.alt ?? "");
+                  if (!e)
+                    return n
+                      ? (0, t.jsxs)(
+                          "p",
+                          {
+                            className: "text-center italic",
+                            children: ["[", n, "]"],
+                          },
+                          r,
+                        )
+                      : null;
+                  let a = Math.min(Number(i?.width) || 320, 661);
+                  return (0, t.jsx)(
+                    "img",
+                    {
+                      src: e,
+                      alt: n,
+                      width: a,
+                      loading: "lazy",
+                      decoding: "async",
+                      className: "mx-auto my-1 block h-auto max-w-full",
+                    },
+                    r,
+                  );
+                }
+                default:
+                  if (J[n.type])
+                    return (0, t.jsxs)(
+                      "p",
+                      {
+                        className:
+                          "my-1 text-center text-[0.9em] text-[#787774] italic",
+                        children: ["[", J[n.type], "]"],
+                      },
+                      r,
+                    );
+                  return (0, t.jsx)("div", { children: e(n) }, r);
+              }
+            })(n, r),
+          );
+        })(e),
+      });
+    }
+    let J = {
+      geometryDiagram: "Hình vẽ",
+      vectorDiagram: "Hình vẽ",
+      functionGraph: "Đồ thị",
+      statChart: "Biểu đồ",
+      variationTable: "Bảng biến thiên",
+    };
+    function Q(e) {
+      let t = e?.textAlign;
+      return "string" == typeof t ? { textAlign: t } : void 0;
+    }
+    function Y(e) {
+      let t = Number(e?.colspan) || 1,
+        n = Number(e?.rowspan) || 1;
+      return { colSpan: t > 1 ? t : void 0, rowSpan: n > 1 ? n : void 0 };
+    }
+    function Z(e) {
+      return "string" == typeof e && /^https?:\/\//i.test(e) ? e : null;
+    }
+    var ee = e.i(389567),
+      et = e.i(577509),
+      en = e.i(954206),
+      er = e.i(482534);
+    let ei = /m[ãa] đề(?: thi)?\s*:?\s*\**\s*(\d{3,4})/gi,
+      ea =
+        /^(?:\d+\.\s*|[IVX]+\.\s*)?(?:bảng\s+)?(?:đáp án|hướng dẫn (?:chấm|giải)|lời giải(?: chi tiết)?|barem|thang điểm|bài làm mẫu)\b/i,
+      es = /^(?:phần|part)\s+([ivx]+|\d+)\b|^[ivx]+\.\s+\S/i,
+      el = /^```(?:geometry|graph|diagram|chart|variation)\b/,
+      eo =
+        /(?:dùng|sử dụng|căn cứ|dựa (?:vào|trên))\s+(?:các\s+)?(?:thông tin|dữ (?:kiện|liệu)|đoạn|bảng|biểu đồ|hình|văn bản)|đọc (?:đoạn|văn bản|bài|thông tin|ngữ liệu|bảng)|(?:trả lời|cho) (?:các\s+)?câu(?: hỏi)?(?: từ)?\s*\d+/i,
+      ec = /câu\s*(\d+)\s*(?:đến|tới|-|–|và)\s*(?:câu\s*)?(\d+)/i,
+      ed = /^\s*(?:\*\*)?\s*([A-D])\s*[.)]\s*(?:\*\*)?\s*/,
+      eu = /^\s*(?:\*\*)?\s*([a-d])\s*\)\s*(?:\*\*)?\s*/,
+      eh =
+        /(?:cả|tất cả)\s+(?:ba\s+|bốn\s+|hai\s+)?(?:phương án|đáp án|các)|các (?:phương án|đáp án) trên|\b[A-D]\s*(?:và|,)\s*[A-D]\b|không có (?:phương án|đáp án)|đều (?:đúng|sai)/i;
+    function em(e) {
+      let t = [];
+      for (let n of e.matchAll(ei)) t.includes(n[1]) || t.push(n[1]);
+      return t;
+    }
+    function ep(e) {
+      return (0, er.plainText)(e.replace(/\$+/g, " "))
+        .toLowerCase()
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+    function ex(e) {
+      let t = 0x811c9dc5;
+      for (let n = 0; n < e.length; n++)
+        ((t ^= e.charCodeAt(n)), (t = Math.imul(t, 0x1000193) >>> 0));
+      return t.toString(36);
+    }
+    function eg(e) {
+      let t = e.trimStart();
+      return el.test(t) || /^!\[/.test(t);
+    }
+    function ef(e) {
+      if ((0, er.isQuestionStart)(e)) return !1;
+      let t = (0, er.segmentFirstText)(e);
+      return (
+        !!t &&
+        !(t.length > 160) &&
+        ((0, er.isHeading)(e) ||
+          /^\s*\*\*/.test(e) ||
+          /^:::/.test(e.trimStart())) &&
+        es.test(t)
+      );
+    }
+    function eb(e) {
+      let t = (0, er.plainText)(e.replace(/\n/g, " "));
+      if (!eo.test(t)) return null;
+      let n = ec.exec(t);
+      if (n) {
+        let e = Number(n[1]),
+          t = Number(n[2]);
+        if (t > e && t - e < 20) return [e, t];
+      }
+      return null;
+    }
+    function ey(e) {
+      let t,
+        n = e.split("\n"),
+        r = n[0].trim();
+      if (/^::: (?:choices|grid)\b/.test(r))
+        t = n.slice(1, ":::" === n[n.length - 1].trim() ? -1 : void 0);
+      else {
+        if (!(ed.test(r) && /^\s*(?:\*\*)?\s*A\s*[.)]/.test(r))) return null;
+        t = n;
+      }
+      let i = t.map((e) => e.trim()).filter(Boolean);
+      if (i.length < 2 || i.length > 6) return null;
+      let a = [];
+      for (let e = 0; e < i.length; e++) {
+        let t = ed.exec(i[e]);
+        if ((/^::: (?:grid)\b/.test(r) && !t) || (t && t[1] !== "ABCDEF"[e]))
+          return null;
+        a.push(t ? i[e].slice(t[0].length).trim() : i[e]);
+      }
+      return a;
+    }
+    function ew(e) {
+      let t = [];
+      return (
+        e.forEach((e, n) => {
+          e.trimStart().startsWith("```") ||
+            e.trimStart().startsWith(":::") ||
+            e.split("\n").forEach((e, r) => {
+              let i = eu.exec(e);
+              i &&
+                i[1] === "abcd"[t.length] &&
+                t.push({ segment: n, line: r, text: e.slice(i[0].length) });
+            });
+        }),
+        4 === t.length ? t : []
+      );
+    }
+    function ev(e) {
+      let t = (0, er.splitSegments)(e),
+        n = t.findIndex(er.isQuestionStart),
+        r = {
+          head: [],
+          parts: [],
+          tail: [],
+          answerArea: [],
+          questions: [],
+          codes: em(e),
+          baseAnswers: {},
+        };
+      if (n < 0) return ((r.head = t), r);
+      let i = t.findIndex(
+        (e, t) =>
+          t > n &&
+          (function (e) {
+            if ((0, er.isQuestionStart)(e)) return !1;
+            let t = e.trimStart(),
+              n = t.startsWith(":::")
+                ? (0, er.plainText)(e.split("\n")[1] ?? "")
+                : (0, er.segmentFirstText)(e);
+            return (
+              !!n &&
+              !(n.length > 80) &&
+              ea.test(n) &&
+              ((0, er.isHeading)(e) ||
+                /^\s*(?:\*\*|:::|#)/.test(t) ||
+                n === n.toUpperCase())
+            );
+          })(e),
+      );
+      if (i >= 0) for (; i > 0 && /^\\newpage$/.test(t[i - 1].trim()); ) i--;
+      else i = t.length;
+      let a = t.slice(0, i);
+      r.answerArea = t.slice(i);
+      let s = -1;
+      a.forEach((e, t) => {
+        (0, er.isQuestionStart)(e) && (s = t);
+      });
+      let l = a.length;
+      for (let e = s + 1; e < a.length; e++) {
+        var o;
+        if (
+          ((o = a[e]),
+          /-{2,}\s*hết\s*-{2,}|^\s*\**\s*hết\s*\**\s*$/i.test(
+            (0, er.plainText)(o.split("\n").find((e) => /hết/i.test(e)) ?? ""),
+          ) || /^\\newpage$/.test(a[e].trim()))
+        ) {
+          l = e;
+          break;
+        }
+      }
+      let c = n;
+      for (; c > 0 && (eg(a[c - 1]) || eb(a[c - 1])); ) c--;
+      for (let e = c - 1; e >= 0; e--)
+        if (ef(a[e])) {
+          c = e;
+          break;
+        }
+      ((r.head = a.slice(0, c)), (r.tail = a.slice(l)));
+      let d = null,
+        u = null,
+        h = null,
+        m = [],
+        p = null,
+        x = (e) => e.some((e) => ey(e)) || 4 === ew(e).length,
+        g = () => {
+          if (!h) return;
+          let e = (function (e, t, n) {
+            var r;
+            let i,
+              a,
+              s,
+              l = Math.max(0, e.findIndex(er.isQuestionStart)),
+              o =
+                ((r = e[l]),
+                (a = (0, er.questionLabel)(r)),
+                Number.isFinite((s = Number(/(\d+)/.exec(a)?.[1]))) ? s : 0),
+              c = -1,
+              d = null;
+            e.forEach((e, t) => {
+              if (d) return;
+              let n = ey(e);
+              n && ((d = n), (c = t));
+            });
+            let u = d ? [] : ew(e);
+            i = d
+              ? "mc"
+              : 4 === u.length && "essay" !== n
+                ? "tf"
+                : "sa" === n || "mc" === n || "tf" === n
+                  ? "sa"
+                  : /^(?:\*\*)?\s*bài\b/i.test(e[l].trimStart())
+                    ? "essay"
+                    : (n ?? "essay");
+            let h = e.join("\n"),
+              m = (0, er.questionLabel)(e[l]),
+              p = [];
+            for (let e of h
+              .slice(h.indexOf(m) + m.length)
+              .matchAll(/câu\s+(\d+)/gi)) {
+              let t = Number(e[1]);
+              t === o || p.includes(t) || p.push(t);
+            }
+            let x = d ?? [];
+            return {
+              id: `q${t + 1}`,
+              no: o,
+              kind: i,
+              segments: e,
+              options: d,
+              optionsAt: c,
+              pinned: x.map((e) => eh.test((0, er.plainText)(e))),
+              statements: u,
+              hasFigure: e.some(eg) || /!\[[^\]]*\]\(/.test(h),
+              refs: p,
+              lead: l > 0 && e.slice(0, l).some((e) => !eg(e)),
+              fingerprint: ex(ep(h.replace(m, ""))),
+            };
+          })(h, r.questions.length, u);
+          (r.questions.push(e),
+            d || ((d = { intro: [], title: "", units: [] }), r.parts.push(d)),
+            p && e.no <= p.until
+              ? p.group.questions.push(e)
+              : ((p = null), d.units.push({ kind: "q", q: e })),
+            (h = null));
+        };
+      for (let e = c; e < l; e++) {
+        let t = a[e];
+        if (ef(t)) {
+          (g(),
+            (p = null),
+            (d = {
+              intro: [...m, t],
+              title: (0, er.segmentFirstText)(t),
+              units: [],
+            }),
+            (m = []),
+            (u = (function (e) {
+              let t = e.toLowerCase();
+              return /đúng\s*(?:\/|-)?\s*sai|đúng sai/.test(t)
+                ? "tf"
+                : /trả lời ngắn/.test(t)
+                  ? "sa"
+                  : /tự luận/.test(t)
+                    ? "essay"
+                    : /nhiều phương án|lựa chọn|trắc nghiệm/.test(t)
+                      ? "mc"
+                      : null;
+            })(d.title)),
+            r.parts.push(d));
+          continue;
+        }
+        if ((0, er.isQuestionStart)(t)) {
+          (g(), (h = [...m, t]), (m = []));
+          continue;
+        }
+        let n = eb(t);
+        if (n) {
+          (g(),
+            d || ((d = { intro: [], title: "", units: [] }), r.parts.push(d)));
+          let e = { context: [...m, t], questions: [] };
+          ((m = []),
+            (p = { group: e, until: n[1] }),
+            d.units.push({ kind: "group", group: e }));
+          continue;
+        }
+        if (eg(t)) {
+          let n = e + 1;
+          for (; n < l && eg(a[n]); ) n++;
+          if (n < l && (0, er.isQuestionStart)(a[n]) && h) {
+            m.push(t);
+            continue;
+          }
+        }
+        h && x(h) && !eg(t)
+          ? m.push(t)
+          : h
+            ? h.push(t)
+            : p && 0 === p.group.questions.length
+              ? p.group.context.push(t)
+              : d && 0 === d.units.length
+                ? d.intro.push(t)
+                : m.push(t);
+      }
+      for (let e of (g(), m.length && (r.tail = [...m, ...r.tail]), r.parts))
+        e.units = e.units.filter(
+          (e) => "q" === e.kind || e.group.questions.length > 0,
+        );
+      return (
+        (r.baseAnswers = (function (e) {
+          let t = new Map();
+          for (let n of e.questions) t.has(n.no) || t.set(n.no, n);
+          let n = new Map(),
+            r = (e, r) => {
+              let i = t.get(e),
+                a = ej(i?.kind ?? "sa", r);
+              i && a && !n.has(e) && n.set(e, a);
+            },
+            i = (e) =>
+              e
+                .split("\n")
+                .filter(
+                  (e) =>
+                    e.trim().startsWith("|") && !/^\s*\|?\s*:?-{2,}/.test(e),
+                )
+                .map((e) =>
+                  e
+                    .trim()
+                    .replace(/^\||\|$/g, "")
+                    .split("|")
+                    .map((e) => (0, er.plainText)(e)),
+                );
+          for (let t of e.answerArea) {
+            let e = i(t);
+            for (let t = 0; t + 1 < e.length; t++)
+              /^câu$/i.test(e[t][0]) &&
+                /đáp án|đ\/a|^đa$/i.test(e[t + 1][0]) &&
+                e[t].slice(1).forEach((n, i) => {
+                  let a = Number(n);
+                  Number.isInteger(a) && r(a, e[t + 1][i + 1] ?? "");
+                });
+            if (
+              e.length > 1 &&
+              /^câu/i.test(e[0][0]) &&
+              /đáp án/i.test(e[0][1] ?? "")
+            )
+              for (let t of e.slice(1)) {
+                let e = Number(/(\d+)/.exec(t[0])?.[1]);
+                Number.isInteger(e) && r(e, t[1] ?? "");
+              }
+            for (let e of t.split("\n"))
+              for (let t of (0, er.plainText)(e).matchAll(
+                /câu\s*(\d+)\s*[:.)-]\s*([A-D](?![a-zà-ỹ])|[ĐS]{4}|-?\d+(?:[,.]\d+)?)/gi,
+              ))
+                r(Number(t[1]), t[2]);
+          }
+          let a = {};
+          for (let [e, r] of n) a[t.get(e).id] = r;
+          return a;
+        })(r)),
+        r
+      );
+    }
+    function ej(e, t) {
+      let n = (0, er.plainText)(t).trim();
+      if ("mc" === e)
+        return /^[A-D]$/i.test(n)
+          ? n.toUpperCase()
+          : (/^([A-D])[.)\s]/i.exec(n)?.[1]?.toUpperCase() ?? "");
+      if ("tf" === e) {
+        let e = n
+          .toUpperCase()
+          .replace(/[^ĐSDT F]/g, "")
+          .replace(/\s/g, "")
+          .replace(/[DT]/g, "Đ")
+          .replace(/F/g, "S");
+        return /^[ĐS]{4}$/.test(e) ? e : "";
+      }
+      return "sa" === e && /^-?\d+(?:[,.]\d+)?$/.test(n)
+        ? n.replace(".", ",")
+        : "";
+    }
+    let ek = "ABCDEF",
+      eN = { mc: "choice", tf: "trueFalse", sa: "shortAnswer", essay: "essay" };
+    function eC(e) {
+      let t = Number.parseInt(ex(e), 36) >>> 0;
+      return () => {
+        let e = (t = (t + 0x6d2b79f5) >>> 0);
+        return (
+          (e = Math.imul(e ^ (e >>> 15), 1 | e)),
+          (((e ^= e + Math.imul(e ^ (e >>> 7), 61 | e)) ^ (e >>> 14)) >>> 0) /
+            0x100000000
+        );
+      };
+    }
+    function eT(e, t) {
+      let n = t.slice();
+      for (let t = n.length - 1; t > 0; t--) {
+        let r = Math.floor(e() * (t + 1));
+        [n[t], n[r]] = [n[r], n[t]];
+      }
+      return n;
+    }
+    function eS(e) {
+      return {
+        count: 4,
+        codeStyle: "101",
+        firstKeepsBase: !1,
+        parts: e.parts.map((e) => {
+          let t = e.units.flatMap((e) =>
+            "q" === e.kind ? [e.q.kind] : e.group.questions.map((e) => e.kind),
+          );
+          return {
+            order:
+              t.length > 0 && t.every((e) => "essay" === e)
+                ? "keep"
+                : "shuffle",
+            options: t.includes("mc") ? "shuffle" : "keep",
+            content: "keep",
+          };
+        }),
+        balance: !0,
+        spread: !0,
+        verify: !0,
+        answers: "tab",
+        salt: 1,
+      };
+    }
+    function eA(e, t, n) {
+      let r = new Set(n.lockOrder),
+        i = new Map();
+      e.parts.forEach((e, t) =>
+        e.units.forEach((e) =>
+          ("q" === e.kind ? [e.q] : e.group.questions).forEach((e) =>
+            i.set(e.no, t),
+          ),
+        ),
+      );
+      let a = [];
+      for (let t of e.questions)
+        for (let e of t.refs) {
+          if (!i.has(e)) continue;
+          let n = Math.min(e, t.no),
+            s = Math.max(e, t.no);
+          s - n <= 4 && i.get(n) === i.get(s)
+            ? a.push(Array.from({ length: s - n + 1 }, (e, t) => n + t))
+            : (r.add(t.no), r.add(e));
+        }
+      let s = [...n.groups, ...a];
+      return e.parts.map((e, n) => {
+        let i = [];
+        for (let t of e.units)
+          "group" === t.kind
+            ? i.push({
+                key: t.group.questions.map((e) => e.id).join("+"),
+                questions: t.group.questions,
+                context: t.group.context,
+                locked: !1,
+              })
+            : i.push({
+                key: t.q.id,
+                questions: [t.q],
+                context: [],
+                locked: !1,
+              });
+        for (let e of s) {
+          let t = i
+            .map((t, n) => (t.questions.some((t) => e.includes(t.no)) ? n : -1))
+            .filter((e) => e >= 0);
+          if (t.length < 2 || t[t.length - 1] - t[0] != t.length - 1) continue;
+          let n = {
+            key: t.map((e) => i[e].key).join("+"),
+            questions: t.flatMap((e) => i[e].questions),
+            context: t.flatMap((e) => i[e].context),
+            locked: !1,
+          };
+          i.splice(t[0], t.length, n);
+        }
+        let a = t.parts[n]?.order === "keep";
+        for (let e of i) e.locked = a || e.questions.some((e) => r.has(e.no));
+        return i;
+      });
+    }
+    function eE(e, t) {
+      return e.replace(/(câu\s*)(\d+)/gi, (e, n, r) =>
+        t.has(Number(r)) ? `${n}${t.get(Number(r))}` : e,
+      );
+    }
+    function eM(e) {
+      return e.join("\n\n");
+    }
+    function e$(e) {
+      return e.questions.length > 1 || e.context.length
+        ? e.key
+        : e.questions[0].id;
+    }
+    function eD(e, t, n, r) {
+      let i = [];
+      return (
+        eA(e, t, n).forEach((e, a) => {
+          for (let s of e) {
+            let e = s.questions
+              .map((e) => {
+                var r;
+                return (r = {
+                  settings: t,
+                  constraints: n,
+                }).constraints.keepContent.includes(e.no)
+                  ? "keep"
+                  : (r.settings.parts[a]?.content ?? "keep");
+              })
+              .find((e) => "keep" !== e);
+            if (!e) continue;
+            let l = s.questions.length > 1 || s.context.length > 0,
+              o = [
+                ...s.context,
+                ...s.questions.flatMap((e) => e.segments),
+              ].join("\n\n");
+            i.push({
+              key: e$(s),
+              kind: l ? "group" : s.questions[0].kind,
+              kinds: s.questions.map((e) => e.kind),
+              markdown: o,
+              answer: s.questions.map((e) => r[e.id] ?? "").join(l ? "|" : ""),
+              hasFigure: s.questions.some((e) => e.hasFigure),
+              mode: e,
+              questions: s.questions.map((e) => e.id),
+            });
+          }
+        }),
+        i
+      );
+    }
+    function eI(e) {
+      let { ir: t, settings: n, constraints: r, codes: i } = e,
+        a = eA(t, n, r),
+        s = a.map(() => []),
+        l = n.firstKeepsBase,
+        o = new Set(r.keepOptions);
+      return i.map((r, i) => {
+        let c = l && 0 === i,
+          d = l ? i - 1 : i,
+          u = eC(`${e.seed}|${r}|${n.salt}`),
+          h = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 },
+          m = [],
+          p = [],
+          x = 0;
+        a.forEach((r, i) => {
+          let a = n.parts[i] ?? {
+            order: "keep",
+            options: "keep",
+            content: "keep",
+          };
+          m.push(...t.parts[i].intro);
+          let l = c
+            ? r
+            : (function (e, t, n, r) {
+                let i = t
+                  .map((e, t) => (e.locked ? -1 : t))
+                  .filter((e) => e >= 0);
+                if (i.length < 2) return t;
+                let a = t,
+                  s = 1 / 0,
+                  l = r ? 16 : 1;
+                for (let r = 0; r < l; r++) {
+                  let r = eT(e, i),
+                    l = t.slice();
+                  i.forEach((e, n) => {
+                    l[e] = t[r[n]];
+                  });
+                  let o = 0;
+                  for (let e of [t.map((e) => e.key), ...n])
+                    l.forEach((t, n) => (e[n] === t.key ? o++ : 0));
+                  o < s && ((a = l), (s = o));
+                }
+                return a;
+              })(u, r, s[i], n.spread);
+          for (let t of (s[i].push(l.map((e) => e.key)), l)) {
+            let r = x + 1,
+              i = new Map();
+            t.questions.forEach((e, t) => i.set(e.no, r + t));
+            let s = c || d < 0 ? void 0 : e.variants[e$(t)]?.[d],
+              l = s
+                ? (function (e, t) {
+                    let n = ev(e);
+                    if (n.questions.length !== t.length) return null;
+                    let r = n.questions.map((e, n) => ({
+                      ...e,
+                      kind: t[n].kind,
+                    }));
+                    return r.every((e, n) =>
+                      "mc" === t[n].kind
+                        ? !!e.options &&
+                          e.options.length ===
+                            (t[n].options?.length ?? e.options.length)
+                        : "tf" !== t[n].kind || 4 === e.statements.length,
+                    )
+                      ? {
+                          context: [
+                            ...n.head,
+                            ...n.parts.flatMap((e) => e.intro),
+                            ...n.parts.flatMap((e) =>
+                              e.units.flatMap((e) =>
+                                "group" === e.kind ? e.group.context : [],
+                              ),
+                            ),
+                          ],
+                          questions: r,
+                        }
+                      : null;
+                  })(s.markdown, t.questions)
+                : null,
+              g = l ? l.context : t.context;
+            m.push(
+              ...g.map((e) =>
+                eE(
+                  e,
+                  l ? new Map(l.questions.map((e, t) => [e.no, r + t])) : i,
+                ),
+              ),
+            );
+            let f = s ? s.answer.split("|") : [],
+              b = l ? new Map(l.questions.map((e, t) => [e.no, r + t])) : i;
+            t.questions.forEach((r, i) => {
+              x++;
+              let d = l ? l.questions[i] : r,
+                g = { ...d, segments: d.segments.map((e) => eE(e, b)) },
+                y = l
+                  ? ej(g.kind, f[t.questions.length > 1 ? i : 0] ?? "")
+                  : (e.answers[r.id] ?? ""),
+                w = !c && "shuffle" === a.options && !o.has(r.no),
+                v =
+                  w && "mc" === g.kind
+                    ? (function (e, t, n, r, i) {
+                        if (!t.options) return;
+                        let a = t.options.length,
+                          s = t.options
+                            .map((e, t) => t)
+                            .filter((e) => !t.pinned[e]),
+                          l = ek.indexOf(n),
+                          o = null;
+                        for (let n = 0; n < (i && l >= 0 ? 10 : 1); n++) {
+                          let n = eT(e, s),
+                            i = 0,
+                            c = Array.from({ length: a }, (e, r) =>
+                              t.pinned[r] ? r : n[i++],
+                            ),
+                            d = l >= 0 ? c.indexOf(l) : 0,
+                            u = l >= 0 ? (r[ek[d]] ?? 0) : 0;
+                          (!o || u < o.score) && (o = { order: c, score: u });
+                        }
+                        return o.order;
+                      })(u, g, y, h, n.balance)
+                    : void 0,
+                j =
+                  w && "tf" === g.kind && 4 === g.statements.length
+                    ? eT(u, [0, 1, 2, 3])
+                    : void 0,
+                k = y;
+              if ("mc" === g.kind && y) {
+                let e = ek.indexOf(y),
+                  t = v ? v.indexOf(e) : e;
+                (k = t >= 0 ? ek[t] : "") && (h[k] = (h[k] ?? 0) + 1);
+              }
+              "tf" === g.kind &&
+                4 === y.length &&
+                j &&
+                (k = j.map((e) => y[e]).join(""));
+              let N = (function (e, t, n, r) {
+                var i, a;
+                let s = Math.max(
+                    0,
+                    e.segments.findIndex((e) =>
+                      /^\s*(?:\*\*|__)?\s*(?:câu|bài|question)\s+\d+/i.test(e),
+                    ),
+                  ),
+                  l = e.segments.map((e, n) =>
+                    n === s
+                      ? e.replace(
+                          /^(\s*(?:\*\*|__)?\s*(?:câu|bài|question)\s+)(\d+)/i,
+                          (e, n) => `${n}${t}`,
+                        )
+                      : e,
+                  );
+                if (
+                  (n &&
+                    e.options &&
+                    e.optionsAt >= 0 &&
+                    (l[e.optionsAt] =
+                      ((i = e.segments[e.optionsAt]),
+                      (a = n.map((t) => e.options[t])),
+                      [
+                        i.split("\n")[0].trim().startsWith(":::")
+                          ? i.split("\n")[0].trim()
+                          : "::: choices",
+                        ...a.map((e, t) => `**${ek[t]}.** ${e}`),
+                        ":::",
+                      ].join("\n"))),
+                  r && 4 === e.statements.length)
+                ) {
+                  let t = new Map();
+                  for (let [n, i] of (e.statements.forEach((e) => {
+                    t.has(e.segment) ||
+                      t.set(e.segment, l[e.segment].split("\n"));
+                  }),
+                  e.statements.forEach((n, i) => {
+                    let a = e.statements[r[i]];
+                    t.get(n.segment)[n.line] = `${"abcd"[i]}) ${a.text}`;
+                  }),
+                  t))
+                    l[n] = i.join("\n");
+                }
+                return l;
+              })(g, x, v, j);
+              m.push(...N);
+              let C = "mc" === g.kind ? ek.indexOf(y) : -1;
+              p.push({
+                qid: r.id,
+                no: x,
+                kind: g.kind,
+                source: l && s ? s.source.kind : "base",
+                optionOrder: v,
+                statementOrder: j,
+                answer: k,
+                correctText:
+                  g.options && C >= 0 ? ep(g.options[C] ?? "") : void 0,
+                markdown: l ? eM(g.segments) : void 0,
+                bankId: l ? s?.source.bankId : void 0,
+                label: l ? s?.source.label : void 0,
+                score: l ? s?.source.score : void 0,
+                check: l ? s?.check : void 0,
+                baseFingerprint: r.fingerprint,
+                rendered: ex(
+                  ep(eM(N).replace(/^(\s*(?:\*\*)?\s*(?:câu|bài)\s+\d+)/i, "")),
+                ),
+              });
+            });
+          }
+        });
+        let g = p.map((e) => ({
+            label: `C\xe2u ${e.no}`,
+            kind: eN[e.kind],
+            answer: e.answer,
+            solved: "base" !== e.source,
+          })),
+          f = [
+            ...(function (e, t) {
+              let n = !1,
+                r = e.map((e) =>
+                  e.replace(
+                    /(m[ãa] đề(?: thi)?\s*:?\s*\**\s*)(\d{3,4})/gi,
+                    (e, r) => ((n = !0), `${r}${t}`),
+                  ),
+                );
+              if (n) return r;
+              let i = `::: right
+<box=3,24,3,24>**M\xe3 đề: ${t}**</box>
+:::`,
+                a = r.findIndex((e) => e.trimStart().startsWith("::: header"));
+              return (r.splice(a >= 0 ? a + 1 : 0, 0, i), r);
+            })(t.head, r),
+            ...m,
+            ...t.tail,
+          ];
+        return (
+          "after" === n.answers &&
+            f.push(
+              "\\newpage",
+              `::: center
+**Đ\xc1P \xc1N M\xc3 ĐỀ ${r}**
+:::`,
+              ...(function (e, t = 10) {
+                let n = [];
+                for (let r = 0; r < e.length; r += t) {
+                  let i = e.slice(r, r + t),
+                    a = `| C\xe2u | ${i.map((e) => e.label.replace(/^Câu\s*/i, "")).join(" | ")} |`,
+                    s = `|${"---|".repeat(i.length + 1)}`,
+                    l = `| Đ\xe1p \xe1n | ${i.map((e) => e.answer || "?").join(" | ")} |`;
+                  n.push([a, s, l].join("\n"));
+                }
+                return n;
+              })(g),
+            ),
+          {
+            code: r,
+            markdown: f.join("\n\n"),
+            spec: { v: 1, code: r, questions: p },
+            key: g,
+          }
+        );
+      });
+    }
+    function eL(e, t, n) {
+      if (0 === t.length) return "";
+      let r = Math.max(...t.map((e) => e.key.length)),
+        i = `| C\xe2u | ${t.map((e) => e.code).join(" | ")} |
+|${"---|".repeat(t.length + 1)}`,
+        a = Array.from(
+          { length: r },
+          (e, n) =>
+            `| ${n + 1} | ${t.map((e) => e.key[n]?.answer || "?").join(" | ")} |`,
+        ).join("\n"),
+        s = Array.from(
+          { length: r },
+          (e, r) =>
+            `| ${r + 1} | ${t.map((e) => n.get(e.spec.questions[r]?.qid ?? "") ?? "").join(" | ")} |`,
+        ).join("\n");
+      return [
+        "::: center\n**BẢNG ĐÁP ÁN CÁC MÃ ĐỀ**\n:::",
+        e
+          ? `::: center
+*${e.replace(/\*/g, "")}*
+:::`
+          : "",
+        `${i}
+${a}`,
+        "::: center\n**BẢNG ĐỐI CHIẾU VỚI ĐỀ GỐC**\n:::",
+        "*Mỗi ô là số câu ở đề gốc tương ứng với câu cùng hàng của mã đề. Bảng này dành cho giáo viên, không in cho học sinh.*",
+        `| C\xe2u | ${t.map((e) => e.code).join(" | ")} |
+|${"---|".repeat(t.length + 1)}
+${s}`,
+      ]
+        .filter(Boolean)
+        .join("\n\n");
+    }
+    function eR(e, t) {
+      let n = [],
+        r = new Set();
+      for (let i of t) {
+        (/^\d{3,4}$/.test(i.code) ||
+          n.push({
+            code: i.code,
+            level: "error",
+            message: `M\xe3 đề ${i.code} cần 3 hoặc 4 chữ số.`,
+          }),
+          r.has(i.code) &&
+            n.push({
+              code: i.code,
+              level: "error",
+              message: `M\xe3 đề ${i.code} bị tr\xf9ng.`,
+            }),
+          r.add(i.code));
+        let t = i.spec.questions.map((e) => e.qid);
+        for (let r of ((t.length !== e.questions.length ||
+          new Set(t).size !== t.length) &&
+          n.push({
+            code: i.code,
+            level: "error",
+            message: `M\xe3 ${i.code} kh\xf4ng đủ đ\xfang một lần mỗi c\xe2u của đề gốc.`,
+          }),
+        i.spec.questions))
+          "essay" !== r.kind &&
+            (r.answer
+              ? "sa" !== r.kind ||
+                /^-?[\d,]{1,4}$/.test(r.answer.replace(/^-/, "-")) ||
+                n.push({
+                  code: i.code,
+                  level: "warning",
+                  qid: r.qid,
+                  message: `M\xe3 ${i.code} \xb7 C\xe2u ${r.no}: đ\xe1p số "${r.answer}" kh\xf4ng vừa 4 \xf4 của phiếu trả lời.`,
+                })
+              : n.push({
+                  code: i.code,
+                  level: "warning",
+                  qid: r.qid,
+                  message: `M\xe3 ${i.code} \xb7 C\xe2u ${r.no}: chưa c\xf3 đ\xe1p \xe1n.`,
+                }),
+            r.check?.status === "mismatch" &&
+              n.push({
+                code: i.code,
+                level: "warning",
+                qid: r.qid,
+                message: `M\xe3 ${i.code} \xb7 C\xe2u ${r.no}: ${r.check.note ?? "đáp án giải lại không khớp."}`,
+              }));
+      }
+      return n;
+    }
+    let ez = {
+        mc: "nhiều lựa chọn",
+        tf: "đúng sai",
+        sa: "trả lời ngắn",
+        essay: "tự luận",
+      },
+      e_ = { keep: "Giữ", numbers: "Đổi số", similar: "Tương đồng" };
+    function eP() {
+      return "u" > typeof crypto && "randomUUID" in crypto
+        ? crypto.randomUUID()
+        : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    }
+    function eH(e) {
+      let t = new Set(e.parts.map((e) => e.content));
+      if (1 !== t.size) return "custom";
+      let n = [...t][0];
+      return e.parts.some((e) => "shuffle" !== e.order && "keep" !== e.content)
+        ? "custom"
+        : "keep" === n
+          ? "shuffle"
+          : n;
+    }
+    function eq(e) {
+      let t = [];
+      return (
+        e.parts.forEach((e, n) => {
+          for (let r of (t.push(`PHẦN ${n + 1}: ${e.title || "(không tên)"}`),
+          e.units)) {
+            let e = "q" === r.kind ? [r.q] : r.group.questions;
+            for (let n of ("group" === r.kind &&
+              t.push(
+                `  [Dữ kiện chung] ${r.group.context.join(" ").replace(/\s+/g, " ").slice(0, 160)}`,
+              ),
+            e)) {
+              let e = n.segments.join(" ").replace(/\s+/g, " ").slice(0, 170);
+              t.push(
+                `  C\xe2u ${n.no} [${ez[n.kind]}${n.hasFigure ? ", có hình" : ""}${n.lead ? ", có đoạn dẫn trước" : ""}]: ${e}`,
+              );
+            }
+          }
+        }),
+        t.join("\n").slice(0, 15e3)
+      );
+    }
+    function eF(e) {
+      return {
+        key: e.key,
+        kind: e.kind,
+        kinds: e.kinds,
+        markdown: e.markdown,
+        answer: e.answer,
+        hasFigure: e.hasFigure,
+      };
+    }
+    function eB({ markdown: e }) {
+      let n = (0, E.useMemo)(() => (0, en.parseExamMarkdown)(e), [e]);
+      return (0, t.jsx)("div", {
+        className:
+          "versions-snippet min-w-0 font-['Times_New_Roman',serif] text-[13px] leading-[1.45] text-[#161616] [&_p]:my-0.5 [&_table]:w-full",
+        children: (0, t.jsx)(V, { doc: n }),
+      });
+    }
+    function eO({ value: e, options: n, onChange: r, label: i }) {
+      return (0, t.jsx)("div", {
+        role: "group",
+        "aria-label": i,
+        className:
+          "grid auto-cols-fr grid-flow-col overflow-hidden rounded-lg border border-[#dcdbd8]",
+        children: n.map(([n, i]) =>
+          (0, t.jsx)(
+            "button",
+            {
+              type: "button",
+              "aria-pressed": e === n,
+              onClick: () => r(n),
+              className: `h-8 border-r border-[#dcdbd8] px-1.5 text-[12px] font-medium last:border-r-0 ${e === n ? "bg-[#37352f] text-white" : "bg-white text-[#73726e] hover:bg-[#f7f6f3]"}`,
+              children: i,
+            },
+            n,
+          ),
+        ),
+      });
+    }
+    function eW({ children: e }) {
+      return (0, t.jsx)("div", {
+        className:
+          "mb-1.5 text-[11.5px] font-medium uppercase tracking-[0.05em] text-[#a3a29e]",
+        children: e,
+      });
+    }
+    function eX({
+      open: e,
+      title: n,
+      seed: r,
+      readBase: i,
+      tabs: s,
+      meta: o,
+      loggedIn: d,
+      activeTabId: u,
+      request: h,
+      onApply: m,
+      onOpenTab: p,
+      onClose: f,
+      onTnmaker: b,
+      onExportAll: y,
+      onBusy: w,
+    }) {
+      let [k, N] = (0, E.useState)(""),
+        [S, A] = (0, E.useState)(o && s.length ? 3 : 1),
+        M = (0, E.useMemo)(() => ev(k), [k]),
+        $ = (0, E.useMemo)(() => ex(k), [k]),
+        [D, U] = (0, E.useState)(o?.settings ?? null),
+        [V, J] = (0, E.useState)(null),
+        [Q, Y] = (0, E.useState)(o?.baseAnswers ?? {}),
+        [Z, en] = (0, E.useState)({}),
+        [er, ei] = (0, E.useState)(
+          o?.analysis
+            ? {
+                status: "done",
+                summary: o.analysis.summary,
+                notes: o.analysis.notes,
+                hash: o.analysis.hash,
+              }
+            : { status: "idle" },
+        ),
+        [ea, es] = (0, E.useState)({ busy: !1 }),
+        [el, eo] = (0, E.useState)(""),
+        [ec, ed] = (0, E.useState)(""),
+        [eu, eh] = (0, E.useState)(!1),
+        [em, ep] = (0, E.useState)({
+          running: !1,
+          done: 0,
+          total: 0,
+          message: "",
+          errors: [],
+        }),
+        [eg, ef] = (0, E.useState)(null),
+        [eb, ey] = (0, E.useState)(null),
+        [ew, ek] = (0, E.useState)(!1),
+        eN = (0, E.useRef)(null),
+        eT = (0, E.useRef)(0);
+      ((0, E.useEffect)(() => {
+        e && N(i());
+      }, [e, i]),
+        (0, E.useEffect)(() => {
+          w?.(em.running);
+        }, [em.running, w]));
+      let eA = (0, E.useMemo)(() => {
+          let e = eS(M);
+          return D && D.parts.length === M.parts.length
+            ? D
+            : { ...(D ?? e), parts: e.parts };
+        }, [D, M]),
+        eE = (0, E.useMemo)(() => {
+          let e, t;
+          return (
+            (e = []),
+            M.answerArea.length &&
+              e.push({
+                id: "answers_layout",
+                text: "Đề gốc có phần đáp án ở cuối. Đáp án của các mã đề đặt ở đâu?",
+                options: [
+                  { value: "tab", label: "Tab Đáp án riêng" },
+                  { value: "after", label: "Cuối mỗi mã đề" },
+                  { value: "none", label: "Không kèm" },
+                ],
+              }),
+            M.parts.forEach((t) => {
+              let n = t.units.flatMap((e) =>
+                "q" === e.kind
+                  ? [{ q: e.q, grouped: !1 }]
+                  : e.group.questions.map((e) => ({ q: e, grouped: !0 })),
+              );
+              n.forEach(({ q: t, grouped: r }, i) => {
+                if (!t.lead || r) return;
+                let a = [{ value: "1", label: `Chỉ C\xe2u ${t.no}` }];
+                (n[i + 1] &&
+                  a.push({
+                    value: "2",
+                    label: `C\xe2u ${t.no} v\xe0 C\xe2u ${n[i + 1].q.no}`,
+                  }),
+                  n[i + 2] &&
+                    a.push({
+                      value: "3",
+                      label: `C\xe2u ${t.no} đến C\xe2u ${n[i + 2].q.no}`,
+                    }),
+                  a.length > 1 &&
+                    e.push({
+                      id: `lead:${t.no}`,
+                      text: `Đoạn dẫn ngay trước C\xe2u ${t.no} d\xf9ng cho những c\xe2u n\xe0o?`,
+                      options: a,
+                    }));
+              });
+            }),
+            (t = M.questions.filter((e) => e.hasFigure)).length &&
+              e.push({
+                id: "figures",
+                text: `${t.length} c\xe2u c\xf3 h\xecnh vẽ (${t
+                  .slice(0, 4)
+                  .map((e) => `C\xe2u ${e.no}`)
+                  .join(
+                    ", ",
+                  )}${t.length > 4 ? "..." : ""}). Khi đổi số liệu hay lấy c\xe2u tương đồng th\xec những c\xe2u n\xe0y thế n\xe0o?`,
+                options: [
+                  { value: "keep", label: "Giữ nguyên nội dung, chỉ trộn" },
+                  { value: "change", label: "Vẫn cho đổi, giữ hình cũ" },
+                ],
+              }),
+            e
+          );
+        }, [M]),
+        eM = er.questions ?? eE,
+        e$ = (0, E.useMemo)(() => {
+          let e = {};
+          for (let t of eM) e[t.id] = Z[t.id] ?? t.options[0]?.value ?? "";
+          return e;
+        }, [eM, Z]),
+        ez = (0, E.useMemo)(
+          () =>
+            (function (e, t, n, r) {
+              let i = {
+                groups: [],
+                lockOrder: [],
+                keepOptions: [],
+                keepContent: [],
+              };
+              n &&
+                (i.groups.push(...n.groups),
+                i.lockOrder.push(...n.lockOrder),
+                i.keepOptions.push(...n.keepOptions));
+              let a = r;
+              for (let [n, r] of Object.entries(t)) {
+                if (
+                  ("answers_layout" === n &&
+                    ("tab" === r || "after" === r || "none" === r) &&
+                    (a = { ...a, answers: r }),
+                  n.startsWith("lead:"))
+                ) {
+                  let e = Number(n.slice(5)),
+                    t = Number(r);
+                  t >= 2 &&
+                    i.groups.push(Array.from({ length: t }, (t, n) => e + n));
+                }
+                "figures" === n &&
+                  "keep" === r &&
+                  i.keepContent.push(
+                    ...e.questions.filter((e) => e.hasFigure).map((e) => e.no),
+                  );
+              }
+              return { constraints: i, settings: a };
+            })(M, e$, V, eA),
+          [M, e$, V, eA],
+        ),
+        eG = (0, E.useMemo)(() => ({ ...M.baseAnswers, ...Q }), [M, Q]),
+        eK = (0, E.useMemo)(
+          () =>
+            (function (e, t) {
+              let n = Math.max(1, Math.min(30, e.count));
+              if ("0101" === e.codeStyle)
+                return Array.from({ length: n }, (e, t) =>
+                  String(101 + t).padStart(4, "0"),
+                );
+              if ("random" === e.codeStyle) {
+                let r = eC(`codes|${t}|${e.salt}`),
+                  i = new Set();
+                for (; i.size < n; ) i.add(100 + Math.floor(900 * r()));
+                return [...i].sort((e, t) => e - t).map(String);
+              }
+              return Array.from({ length: n }, (e, t) => String(101 + t));
+            })(ez.settings, r),
+          [ez.settings, r],
+        ),
+        eU = Math.max(0, eK.length - !!ez.settings.firstKeepsBase),
+        eV = (function (e, t) {
+          let n = e.filter((e) => "numbers" === e.mode).length * t,
+            r = e.filter((e) => "similar" === e.mode).length * t,
+            i = n + r;
+          if (!i)
+            return {
+              free: !0,
+              head: "Miễn phí",
+              sub: "Chỉ trộn câu và phương án, xong ngay",
+              total: i,
+            };
+          let a = (e) => 50 * Math.round(e / 50),
+            s = a(70 * n + 55 * r),
+            l = a(110 * n + 100 * r),
+            o =
+              e.reduce(
+                (e, t) =>
+                  e +
+                  ("numbers" === t.mode || "similar" === t.mode
+                    ? t.kinds.length
+                    : 0),
+                0,
+              ) * t;
+          return {
+            free: !1,
+            head: `Khoảng ${s.toLocaleString("vi-VN")}-${l.toLocaleString("vi-VN")} điểm`,
+            sub: `${o} c\xe2u do AI l\xe0m \xb7 ${i <= 12 ? "20-40 giây" : i <= 40 ? "40-90 giây" : "2-4 phút"}`,
+            total: i,
+          };
+        })(
+          (0, E.useMemo)(
+            () => eD(M, ez.settings, ez.constraints, eG),
+            [M, ez, eG],
+          ),
+          eU,
+        ),
+        eJ = M.questions.filter((e) => "essay" !== e.kind && !eG[e.id]),
+        eQ = s.filter((e) => "version" === e.kind),
+        eY = (0, E.useMemo)(
+          () =>
+            eQ.map((e) => ({
+              code: e.code,
+              markdown: e.content,
+              spec: e.spec ?? { v: 1, code: e.code, questions: [] },
+              key: Array.isArray(e.answerKey) ? e.answerKey : [],
+            })),
+          [eQ],
+        );
+      (0, E.useEffect)(() => {
+        if (
+          !e ||
+          1 !== S ||
+          !d ||
+          M.questions.length < 2 ||
+          "running" === er.status ||
+          er.hash === $
+        )
+          return;
+        let t = new AbortController();
+        return (
+          ei({ status: "running", hash: $ }),
+          (0, C.analyzeVersions)(
+            {
+              title: n,
+              outline: eq(M),
+              questions: M.questions.length,
+              parts: M.parts.map((e) => e.title),
+              ambiguities: eE,
+              request: "",
+            },
+            { signal: t.signal },
+          )
+            .then(({ analysis: e }) => {
+              let t = [];
+              (e.constraints.groups.forEach((e) =>
+                t.push(
+                  `C\xe2u ${e[0]} đến C\xe2u ${e[e.length - 1]} d\xf9ng chung dữ kiện: lu\xf4n đi liền nhau.`,
+                ),
+              ),
+                e.constraints.lockOrder.length &&
+                  t.push(
+                    `Giữ nguy\xean vị tr\xed: ${e.constraints.lockOrder.map((e) => `C\xe2u ${e}`).join(", ")} (nhắc tới c\xe2u kh\xe1c).`,
+                  ),
+                e.constraints.keepOptions.length &&
+                  t.push(
+                    `Kh\xf4ng đảo phương \xe1n: ${e.constraints.keepOptions.map((e) => `C\xe2u ${e}`).join(", ")}.`,
+                  ),
+                J({ ...e.constraints, keepContent: [] }));
+              let n = e.questions.map((e) => ({
+                  id: e.id,
+                  text: e.text,
+                  options: e.options,
+                })),
+                r = {};
+              (e.questions.forEach((e) => (r[e.id] = e.recommended)),
+                en((e) => ({ ...r, ...e })),
+                ei({
+                  status: "done",
+                  hash: $,
+                  summary: e.summary,
+                  notes: t,
+                  questions: n.length ? n : void 0,
+                }));
+            })
+            .catch((e) => {
+              (e instanceof DOMException && "AbortError" === e.name) ||
+                ei({
+                  status: "error",
+                  hash: $,
+                  error: (0, a.formatApiError)(e),
+                });
+            }),
+          () => t.abort()
+        );
+      }, [e, S, d, $]);
+      let eZ = (0, E.useCallback)(
+        async (e, t) => {
+          let r = e.trim();
+          if (r) {
+            (eh(!0), ed(""));
+            try {
+              if (!d) throw Error("login");
+              let { analysis: e } = await (0, C.analyzeVersions)({
+                  title: n,
+                  outline: eq(M),
+                  questions: M.questions.length,
+                  parts: M.parts.map((e) => e.title),
+                  ambiguities: [],
+                  request: r,
+                }),
+                i = e.settings,
+                a = { ...eA },
+                s = [],
+                l = t ?? (i?.count || 0);
+              if (
+                (l > 0 &&
+                  ((a.count = Math.min(30, l)), s.push(`${a.count} m\xe3`)),
+                i?.codeStyle && (a.codeStyle = i.codeStyle),
+                i?.answers && (a.answers = i.answers),
+                i?.firstKeepsBase && (a.firstKeepsBase = !0),
+                i?.parts.length)
+              ) {
+                let e = a.parts.map((e) => ({ ...e }));
+                for (let t of i.parts) {
+                  let n = (function (e, t) {
+                    let n = t.toUpperCase().match(/\b([IVX]+|\d+)\b/)?.[1];
+                    if (!n) return -1;
+                    let r = /^\d+$/.test(n)
+                        ? Number(n)
+                        : { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6 }[n],
+                      i = e.parts.findIndex((e) =>
+                        RegExp(`\\b(phần|part)\\s+${n}\\b`, "i").test(e.title),
+                      );
+                    return i >= 0 ? i : r && r <= e.parts.length ? r - 1 : -1;
+                  })(M, t.part);
+                  n < 0 ||
+                    (t.order && (e[n].order = t.order),
+                    t.content && (e[n].content = t.content),
+                    s.push(
+                      `Phần ${M.parts[n].title.match(/[IVX]+|\d+/)?.[0] ?? n + 1}: ${t.content ? e_[t.content] : "keep" === t.order ? "giữ thứ tự" : "trộn"}`,
+                    ));
+                }
+                a = { ...a, parts: e };
+              }
+              (U(a),
+                ed(
+                  s.length
+                    ? `Đ\xe3 hiểu: ${s.join(" · ")}`
+                    : "Chưa đọc được thiết lập nào, thầy cô chọn ở bên dưới.",
+                ));
+            } catch (n) {
+              let e = t ?? Number(/(\d+)\s*mã/i.exec(r)?.[1] ?? 0);
+              (e > 0 && U({ ...eA, count: Math.min(30, e) }),
+                ed(
+                  n instanceof Error && "login" === n.message
+                    ? "Đăng nhập để AI đọc mô tả; đã điền số mã."
+                    : `Chưa nhờ AI đọc được: ${(0, a.formatApiError)(n)}`,
+                ));
+            } finally {
+              eh(!1);
+            }
+          }
+        },
+        [d, n, M, eA],
+      );
+      (0, E.useEffect)(() => {
+        e &&
+          h &&
+          h.nonce !== eT.current &&
+          k &&
+          ((eT.current = h.nonce), A(2), eo(h.text), eZ(h.text, h.count));
+      }, [e, h, k, eZ]);
+      let e0 = (0, E.useCallback)(
+          (e, t) => {
+            let n = eI({
+              ir: t.ir,
+              settings: t.settings,
+              constraints: t.constraints,
+              codes: t.codes,
+              answers: t.answers,
+              variants: Object.fromEntries(
+                Object.entries(e).map(([e, t]) => [
+                  e,
+                  t.map((e) => e ?? void 0),
+                ]),
+              ),
+              seed: r,
+            });
+            return { built: n, issues: eR(t.ir, n) };
+          },
+          [r],
+        ),
+        e1 = (0, E.useCallback)(
+          (e, t, r, i) => {
+            let a = new Map(
+                s.filter((e) => "version" === e.kind).map((e) => [e.code, e]),
+              ),
+              l = s.find((e) => "answers" === e.kind),
+              o = e.map((e) => ({
+                id: a.get(e.code)?.id ?? eP(),
+                kind: "version",
+                code: e.code,
+                title: `M\xe3 ${e.code}`,
+                content: e.markdown,
+                spec: e.spec,
+                answerKey: e.key,
+                baseHash: i,
+                status: t.some((t) => t.code === e.code)
+                  ? "needs_review"
+                  : "ready",
+              })),
+              c = new Map(r.ir.questions.map((e) => [e.id, e.no]));
+            return [
+              ...o,
+              ...("tab" === r.settings.answers
+                ? [
+                    {
+                      id: l?.id ?? eP(),
+                      kind: "answers",
+                      code: "",
+                      title: "Đáp án",
+                      content: eL(n, e, c),
+                      spec: {},
+                      answerKey: null,
+                      baseHash: i,
+                      status: "ready",
+                    },
+                  ]
+                : []),
+            ];
+          },
+          [s, n],
+        ),
+        e2 = (0, E.useCallback)(
+          (e, t, n, i) => ({
+            v: 1,
+            settings: t.settings,
+            constraints: t.constraints,
+            codes: t.codes,
+            removed: i?.length ? i : void 0,
+            seed: r,
+            variants: e,
+            baseAnswers: t.answers,
+            baseHash: n,
+            analysis:
+              "done" === er.status && er.hash
+                ? {
+                    hash: er.hash,
+                    summary: er.summary ?? "",
+                    notes: er.notes ?? [],
+                  }
+                : void 0,
+          }),
+          [r, er],
+        ),
+        e3 = async () => {
+          let e = s
+            .filter((e) => "version" === e.kind)
+            .filter(
+              (e) =>
+                !o ||
+                !e.spec?.questions?.length ||
+                e.spec.questions.some((e) => e.manual),
+            );
+          if (
+            e.length &&
+            !window.confirm(
+              `C\xe1c m\xe3 ${e.map((e) => e.code).join(", ")} c\xf3 nội dung ri\xeang (t\xe1ch từ đề c\xf3 sẵn hoặc đ\xe3 sửa tay). Tạo bộ m\xe3 mới sẽ thay to\xe0n bộ c\xe1c tab m\xe3 đề hiện c\xf3. Tiếp tục?`,
+            )
+          )
+            return;
+          let t = i();
+          N(t);
+          let r = ev(t);
+          if (!r.questions.length)
+            return void ep({
+              running: !1,
+              done: 0,
+              total: 0,
+              message: "",
+              errors: [
+                "Đề gốc chưa có câu hỏi nào có nhãn Câu 1, Câu 2... để trộn.",
+              ],
+            });
+          let c = ex(t),
+            u = {
+              ir: r,
+              settings: ez.settings,
+              constraints: ez.constraints,
+              answers: { ...r.baseAnswers, ...Q },
+              codes: eK,
+            },
+            h = eD(r, u.settings, u.constraints, u.answers),
+            p = o && o.baseHash === c ? o.variants : {},
+            x = {},
+            g = [];
+          for (let e of h) {
+            let t = p[e.key];
+            t &&
+            t.length >= eU &&
+            t.slice(0, eU).every((t) => t && (t.mode ?? e.mode) === e.mode)
+              ? (x[e.key] = t.slice(0, eU))
+              : g.push(e);
+          }
+          let f = Date.now(),
+            b = () => {
+              let { built: e, issues: t } = e0(x, u);
+              m(e1(e, t, u, c), e2(x, u, c));
+            };
+          (b(), A(3), ef(null));
+          let y = [];
+          if (g.length && eU > 0) {
+            let e;
+            if (!d) {
+              ((0, l.requestLogin)(),
+                ep({
+                  running: !1,
+                  done: 0,
+                  total: 0,
+                  message: "",
+                  errors: [
+                    "Đăng nhập để AI đổi số liệu hay lấy câu tương đồng; các mã hiện chỉ trộn câu.",
+                  ],
+                }));
+              return;
+            }
+            eN.current = new AbortController();
+            let t = [];
+            for (let e of ["numbers", "similar"]) {
+              let n = g.filter((t) => t.mode === e);
+              for (let e = 0; e < n.length; e += 6) t.push(n.slice(e, e + 6));
+            }
+            let r = 0;
+            ep({
+              running: !0,
+              done: 0,
+              total: g.length,
+              message: "Đang nhờ AI viết lại từng câu...",
+              errors: [],
+            });
+            let i = () => {
+                (window.clearTimeout(e), (e = window.setTimeout(b, 400)));
+              },
+              s = async () => {
+                for (; t.length; ) {
+                  let e = t.shift(),
+                    s = e[0].mode;
+                  try {
+                    await (0, C.transformVersions)(
+                      {
+                        title: n,
+                        mode: s,
+                        count: eU,
+                        verify: u.settings.verify,
+                        items: e.map(eF),
+                      },
+                      {
+                        signal: eN.current?.signal,
+                        onItem: (e) => {
+                          if (
+                            (r++,
+                            e.error && y.push(`${e.key}: ${e.error}`),
+                            e.variants.length)
+                          ) {
+                            let t = e.variants
+                              .slice(0, eU)
+                              .map((e) => ({ ...e, mode: s }));
+                            for (; t.length < eU; ) t.push(null);
+                            x[e.key] = t;
+                          }
+                          (ep((e) => ({
+                            ...e,
+                            done: r,
+                            message: `Đ\xe3 xong ${r}/${g.length} c\xe2u`,
+                          })),
+                            i());
+                        },
+                      },
+                    );
+                  } catch (e) {
+                    if (e instanceof DOMException && "AbortError" === e.name)
+                      return;
+                    (e instanceof a.ApiError &&
+                      401 === e.status &&
+                      (0, l.requestLogin)(),
+                      y.push((0, a.formatApiError)(e)),
+                      e instanceof a.ApiError &&
+                        "quota_exhausted" === e.code &&
+                        (t.length = 0));
+                  }
+                }
+              };
+            (await Promise.all([s(), s()]), window.clearTimeout(e), b());
+          }
+          let w = eH(u.settings);
+          ((0, ee.track)("versions_generate", {
+            mode: w,
+            count: String(eK.length),
+            aiItems: String(g.length * eU),
+            seconds: String(Math.round((Date.now() - f) / 1e3)),
+          }),
+            ep({
+              running: !1,
+              done: g.length,
+              total: g.length,
+              message: "",
+              errors: y.map((e) => e.replace(/^q\d+(\+q\d+)*: /, "")),
+            }));
+        },
+        e5 = async () => {
+          if (!d) return void (0, l.requestLogin)();
+          es({ busy: !0 });
+          try {
+            let e = await (0, et.requestAnswerKey)({ title: n, content: i() }),
+              t = { ...Q },
+              r = new Map(M.questions.map((e) => [e.no, e]));
+            for (let n of e.codes[0]?.questions ?? []) {
+              let e = Number(/(\d+)/.exec(n.label)?.[1]),
+                i = r.get(e);
+              i && n.answer && (t[i.id] = ej(i.kind, n.answer) || n.answer);
+            }
+            (Y(t), es({ busy: !1 }));
+          } catch (e) {
+            es({ busy: !1, error: (0, a.formatApiError)(e) });
+          }
+        },
+        e7 = (0, E.useCallback)(() => {
+          let e = i(),
+            t = ev(e),
+            n = o?.settings ?? ez.settings;
+          return {
+            ir: t,
+            hash: ex(e),
+            settings: n,
+            constraints: o?.constraints ?? ez.constraints,
+            answers: { ...t.baseAnswers, ...(o?.baseAnswers ?? Q) },
+            codes: o?.codes ?? eK,
+          };
+        }, [i, o, ez, Q, eK]),
+        e4 = (e) => {
+          let t = e7();
+          return eD(
+            t.ir,
+            {
+              ...t.settings,
+              parts: t.settings.parts.map((e) => ({
+                ...e,
+                content: "numbers",
+              })),
+            },
+            t.constraints,
+            t.answers,
+          ).find((t) => t.questions.includes(e));
+        },
+        e8 = (e, t, n, r) => {
+          let i = e7(),
+            a = e4(t);
+          if (!a) return;
+          let s = i.codes.indexOf(e) - !!i.settings.firstKeepsBase;
+          if (s < 0) return;
+          let l = { ...(o?.variants ?? {}) },
+            c = (l[a.key] ?? []).slice();
+          for (; c.length < i.codes.length; ) c.push(null);
+          ((c[s] =
+            n && "keep" !== r
+              ? { ...n, mode: "similar" === r ? "similar" : "numbers" }
+              : n),
+            (l[a.key] = c));
+          let d = {
+              ir: i.ir,
+              settings: i.settings,
+              constraints: i.constraints,
+              answers: i.answers,
+              codes: i.codes,
+            },
+            { built: u, issues: h } = e0(l, d);
+          m(e1(u, h, d, i.hash), e2(l, d, i.hash, o?.removed), e);
+        },
+        e6 = async (e, t, r) => {
+          let i = e4(t);
+          if (!i || !d) {
+            d || (0, l.requestLogin)();
+            return;
+          }
+          ek(!0);
+          try {
+            let a = await (0, C.transformVersions)({
+                title: n,
+                mode: "similar" === r ? "similar" : "numbers",
+                count: 1,
+                verify: !0,
+                items: [eF(i)],
+              }),
+              s = a.items[0]?.variants[0];
+            s
+              ? e8(e, t, s, r)
+              : ep((e) => ({
+                  ...e,
+                  errors: [
+                    a.items[0]?.error ??
+                      "AI chưa viết được câu này, thử lại sau.",
+                  ],
+                }));
+          } catch (e) {
+            ep((t) => ({ ...t, errors: [(0, a.formatApiError)(e)] }));
+          } finally {
+            ek(!1);
+          }
+        },
+        e9 = async (e) => {
+          let t = e4(e);
+          if (t && "group" !== t.kind) {
+            if (!d) return void (0, l.requestLogin)();
+            ey({ key: e, list: [], index: 0, busy: !0 });
+            try {
+              let r = await (0, C.versionCandidates)({
+                title: n,
+                item: eF(t),
+                limit: 8,
+              });
+              ey({
+                key: e,
+                list: r.candidates,
+                index: 0,
+                busy: !1,
+                error: r.candidates.length
+                  ? void 0
+                  : "Kho chưa có câu đủ gần cho câu này.",
+              });
+            } catch (t) {
+              ey({
+                key: e,
+                list: [],
+                index: 0,
+                busy: !1,
+                error: (0, a.formatApiError)(t),
+              });
+            }
+          }
+        },
+        te = async (e, t, r) => {
+          ek(!0);
+          try {
+            let i = r.answer,
+              a = {
+                status: r.hasAnswer ? "ok" : "unverified",
+                note: r.hasAnswer ? "Đáp án có sẵn trong kho." : void 0,
+              };
+            if (!i) {
+              let e = e4(t),
+                s = await (0, C.transformVersions)({
+                  title: n,
+                  mode: "verify",
+                  count: 1,
+                  verify: !0,
+                  items: [
+                    {
+                      ...eF(e),
+                      markdown: r.markdown,
+                      answer: "",
+                      bankId: r.bankId,
+                    },
+                  ],
+                }),
+                l = s.items[0]?.variants[0];
+              ((i = l?.answer ?? ""),
+                (a = l?.check ?? { status: "unverified" }));
+            }
+            (e8(
+              e,
+              t,
+              {
+                markdown: r.markdown,
+                answer: i,
+                source: {
+                  kind: "bank",
+                  bankId: r.bankId,
+                  score: r.score,
+                  label: r.label,
+                  hasAnswer: r.hasAnswer,
+                },
+                check: a,
+              },
+              "similar",
+            ),
+              ey(null));
+          } catch (e) {
+            ey((t) => (t ? { ...t, error: (0, a.formatApiError)(e) } : t));
+          } finally {
+            ek(!1);
+          }
+        },
+        tt = eQ.find((e) => e.id === u)?.code ?? eQ[0]?.code,
+        tn = (0, E.useMemo)(() => eR(ev(k), eY), [k, eY]),
+        tr = M.parts.map((e, t) => {
+          let n = e.units.flatMap((e) =>
+            "q" === e.kind ? [e.q.kind] : e.group.questions.map((e) => e.kind),
+          );
+          return {
+            title: e.title || `Phần ${t + 1}`,
+            count: n.length,
+            mc: n.includes("mc"),
+            tf: n.includes("tf"),
+            sa: n.every((e) => "sa" === e),
+          };
+        }),
+        ti = M.parts.flatMap((e) =>
+          e.units.filter((e) => "group" === e.kind),
+        ).length,
+        ta = M.questions.filter((e) => e.pinned.some(Boolean)).length,
+        ts = M.questions.filter((e) => e.refs.length).length,
+        tl = (0, t.jsx)("nav", {
+          className: "flex gap-1 border-b border-[#e9e9e7] px-3 pb-2.5",
+          "aria-label": "Các bước",
+          children: [
+            [1, "Đọc đề"],
+            [2, "Tuỳ chọn"],
+            [3, "Soát"],
+          ].map(([e, n]) => {
+            let r = S === e,
+              i = 3 === e && !eQ.length;
+            return (0, t.jsxs)(
+              "button",
+              {
+                type: "button",
+                disabled: i,
+                "aria-current": r ? "step" : void 0,
+                onClick: () => A(e),
+                className: `flex h-8 flex-1 items-center justify-center gap-1.5 rounded-lg text-[12.5px] font-medium transition-colors disabled:opacity-40 ${r ? "bg-[#f0efec] text-[#37352f]" : "text-[#73726e] hover:bg-[#f7f6f3]"}`,
+                children: [
+                  (0, t.jsx)("span", {
+                    className: `grid size-[18px] place-items-center rounded-full text-[10.5px] ${r ? "bg-[#37352f] text-white" : e < S ? "bg-[#e8f2ea] text-[#3f7d5a]" : "bg-[#f0efec] text-[#73726e]"}`,
+                    children:
+                      e < S && !r
+                        ? (0, t.jsx)(g.Check, { className: "size-3" })
+                        : e,
+                  }),
+                  n,
+                ],
+              },
+              e,
+            );
+          }),
+        }),
+        to = (0, t.jsxs)("div", {
+          className: "flex flex-col gap-3.5",
+          children: [
+            0 === M.questions.length
+              ? (0, t.jsxs)("div", {
+                  className:
+                    "rounded-xl border border-[#e9e9e7] p-3 text-[13px] text-[#73726e]",
+                  children: [
+                    "Đề gốc chưa có câu hỏi nào có nhãn ",
+                    (0, t.jsx)("b", { children: "Câu 1" }),
+                    ", ",
+                    (0, t.jsx)("b", { children: "Câu 2" }),
+                    "... Hãy soạn đề trước rồi tạo mã đề.",
+                  ],
+                })
+              : (0, t.jsxs)("div", {
+                  className: "rounded-xl border border-[#e9e9e7] p-3",
+                  children: [
+                    (0, t.jsxs)("div", {
+                      className:
+                        "mb-2 flex items-center gap-2 text-[13px] font-semibold text-[#37352f]",
+                      children: [
+                        (0, t.jsx)(g.Check, {
+                          "aria-hidden": !0,
+                          className: "size-4 text-[#3f7d5a]",
+                        }),
+                        " Đã đọc đề gốc",
+                      ],
+                    }),
+                    (0, t.jsxs)("ul", {
+                      className: "grid gap-1.5 text-[13px] text-[#37352f]",
+                      children: [
+                        (0, t.jsxs)("li", {
+                          className: "flex gap-2",
+                          children: [
+                            (0, t.jsx)(T.FileText, {
+                              "aria-hidden": !0,
+                              className:
+                                "mt-0.5 size-3.5 shrink-0 text-[#a3a29e]",
+                            }),
+                            M.questions.length,
+                            " câu trong ",
+                            M.parts.length,
+                            " phần: ",
+                            tr
+                              .map((e) =>
+                                `${e.count} c\xe2u ${e.title
+                                  .replace(/^phần\s+[ivx\d]+\.?\s*/i, "")
+                                  .replace(/^câu\s+/i, "")
+                                  .toLowerCase()}`.trim(),
+                              )
+                              .join("; "),
+                          ],
+                        }),
+                        ti > 0 &&
+                          (0, t.jsxs)("li", {
+                            className: "flex gap-2",
+                            children: [
+                              (0, t.jsx)(q.Link2, {
+                                "aria-hidden": !0,
+                                className:
+                                  "mt-0.5 size-3.5 shrink-0 text-[#a3a29e]",
+                              }),
+                              ti,
+                              " nhóm câu dùng chung dữ kiện: luôn đi liền nhau",
+                            ],
+                          }),
+                        ta > 0 &&
+                          (0, t.jsxs)("li", {
+                            className: "flex gap-2",
+                            children: [
+                              (0, t.jsx)(F, {
+                                "aria-hidden": !0,
+                                className:
+                                  "mt-0.5 size-3.5 shrink-0 text-[#a3a29e]",
+                              }),
+                              ta,
+                              " câu có phương án phụ thuộc vị trí: giữ đúng chỗ",
+                            ],
+                          }),
+                        ts > 0 &&
+                          (0, t.jsxs)("li", {
+                            className: "flex gap-2",
+                            children: [
+                              (0, t.jsx)(q.Link2, {
+                                "aria-hidden": !0,
+                                className:
+                                  "mt-0.5 size-3.5 shrink-0 text-[#a3a29e]",
+                              }),
+                              ts,
+                              " câu nhắc tới câu khác: đi cùng hoặc giữ chỗ",
+                            ],
+                          }),
+                        (0, t.jsxs)("li", {
+                          className: "flex gap-2",
+                          children: [
+                            (0, t.jsx)(z.ClipboardCheck, {
+                              "aria-hidden": !0,
+                              className:
+                                "mt-0.5 size-3.5 shrink-0 text-[#a3a29e]",
+                            }),
+                            0 === eJ.length
+                              ? "Đã có đáp án mọi câu trắc nghiệm"
+                              : `Chưa c\xf3 đ\xe1p \xe1n ${eJ.length} c\xe2u (${eJ
+                                  .slice(0, 5)
+                                  .map((e) => e.no)
+                                  .join(", ")}${eJ.length > 5 ? "..." : ""})`,
+                          ],
+                        }),
+                      ],
+                    }),
+                    eJ.length > 0 &&
+                      (0, t.jsxs)("div", {
+                        className: "mt-2.5",
+                        children: [
+                          (0, t.jsxs)("button", {
+                            type: "button",
+                            onClick: () => void e5(),
+                            disabled: ea.busy,
+                            className:
+                              "inline-flex h-7 items-center gap-1.5 rounded-lg border border-[#dcdbd8] bg-white px-2.5 text-[12.5px] font-medium hover:bg-[#f7f6f3] disabled:opacity-50",
+                            children: [
+                              ea.busy
+                                ? (0, t.jsx)(j.Loader2, {
+                                    className: "size-3.5 animate-spin",
+                                  })
+                                : (0, t.jsx)(G.Sparkles, {
+                                    className: "size-3.5",
+                                  }),
+                              " Lập đáp án đề gốc bằng AI",
+                            ],
+                          }),
+                          ea.error &&
+                            (0, t.jsx)("p", {
+                              className: "mt-1 text-[12px] text-[#c4423d]",
+                              children: ea.error,
+                            }),
+                          (0, t.jsx)("p", {
+                            className: "mt-1 text-[11.5px] text-[#a3a29e]",
+                            children:
+                              "Không có đáp án thì vẫn trộn được, nhưng bảng đáp án các mã sẽ để trống câu đó.",
+                          }),
+                        ],
+                      }),
+                    (0, t.jsx)("p", {
+                      className: "mt-2.5 text-[12px] text-[#73726e]",
+                      children:
+                        "running" === er.status
+                          ? (0, t.jsxs)("span", {
+                              className: "inline-flex items-center gap-1.5",
+                              children: [
+                                (0, t.jsx)(j.Loader2, {
+                                  className: "size-3.5 animate-spin",
+                                }),
+                                " AI đang soát đề...",
+                              ],
+                            })
+                          : "done" === er.status
+                            ? (0, t.jsxs)(t.Fragment, {
+                                children: [
+                                  "AI đã soát đề",
+                                  er.summary ? `: ${er.summary}` : ".",
+                                ],
+                              })
+                            : "error" === er.status
+                              ? (0, t.jsxs)(t.Fragment, {
+                                  children: [
+                                    "AI chưa soát được (",
+                                    er.error,
+                                    "); máy vẫn đọc đủ cấu trúc ở trên.",
+                                  ],
+                                })
+                              : d
+                                ? "Máy đọc cấu trúc, không tốn điểm."
+                                : "Đăng nhập để AI soát thêm những chỗ máy chưa chắc.",
+                    }),
+                    er.notes?.length
+                      ? (0, t.jsx)("ul", {
+                          className:
+                            "mt-1.5 grid gap-1 text-[12px] text-[#37352f]",
+                          children: er.notes.map((e) =>
+                            (0, t.jsxs)(
+                              "li",
+                              {
+                                className: "flex gap-1.5",
+                                children: [
+                                  (0, t.jsx)(G.Sparkles, {
+                                    "aria-hidden": !0,
+                                    className:
+                                      "mt-0.5 size-3 shrink-0 text-[#7d52a3]",
+                                  }),
+                                  e,
+                                ],
+                              },
+                              e,
+                            ),
+                          ),
+                        })
+                      : null,
+                  ],
+                }),
+            eM.length > 0 &&
+              (0, t.jsxs)("div", {
+                className:
+                  "flex items-center gap-2 text-[13px] font-semibold text-[#37352f]",
+                children: [
+                  "Cần thầy cô xác nhận ",
+                  (0, t.jsx)("span", {
+                    className:
+                      "grid h-[18px] min-w-[18px] place-items-center rounded-full bg-[#fbf0d9] px-1 text-[11px] text-[#9a5f08]",
+                    children: eM.length,
+                  }),
+                ],
+              }),
+            eM.map((e) =>
+              (0, t.jsxs)(
+                "div",
+                {
+                  className:
+                    "rounded-xl border border-[#e9e9e7] p-3 text-[13px]",
+                  children: [
+                    (0, t.jsx)("p", {
+                      className: "mb-2 text-[#37352f]",
+                      children: e.text,
+                    }),
+                    (0, t.jsx)("div", {
+                      className: "grid gap-1.5",
+                      role: "radiogroup",
+                      "aria-label": e.text,
+                      children: e.options.map((n, r) => {
+                        let i = e$[e.id] === n.value;
+                        return (0, t.jsxs)(
+                          "button",
+                          {
+                            type: "button",
+                            role: "radio",
+                            "aria-checked": i,
+                            onClick: () =>
+                              en((t) => ({ ...t, [e.id]: n.value })),
+                            className: `flex items-center justify-between gap-2 rounded-lg border px-2.5 py-2 text-left ${i ? "border-[#2383e2] bg-[#e7f0fb] shadow-[inset_0_0_0_1px_#2383e2]" : "border-[#dcdbd8] bg-white hover:border-[#a3a29e]"}`,
+                            children: [
+                              (0, t.jsx)("span", { children: n.label }),
+                              0 === r &&
+                                (0, t.jsx)("span", {
+                                  className:
+                                    "shrink-0 rounded-md bg-[#e8f2ea] px-1.5 py-0.5 text-[10.5px] font-medium text-[#3f7d5a]",
+                                  children: "Khuyên dùng",
+                                }),
+                            ],
+                          },
+                          n.value,
+                        );
+                      }),
+                    }),
+                  ],
+                },
+                e.id,
+              ),
+            ),
+          ],
+        }),
+        tc = eH(ez.settings),
+        td = [
+          [
+            "shuffle",
+            (0, t.jsx)(W, { className: "size-3.5" }, "s"),
+            "Trộn",
+            "Đảo câu và phương án, giữ nội dung",
+            "Miễn phí",
+          ],
+          [
+            "numbers",
+            (0, t.jsx)(H, { className: "size-3.5" }, "n"),
+            "Đổi số liệu",
+            "Giữ dạng câu, AI đổi số rồi giải lại",
+            "AI theo câu",
+          ],
+          [
+            "similar",
+            (0, t.jsx)(_.Database, { className: "size-3.5" }, "d"),
+            "Câu tương đồng",
+            "Câu cùng dạng, cùng mức độ trong kho",
+            "Kho + AI",
+          ],
+          [
+            "custom",
+            (0, t.jsx)(X.SlidersHorizontal, { className: "size-3.5" }, "c"),
+            "Tuỳ chỉnh",
+            "Chọn riêng cho từng phần",
+            "Tự chọn",
+          ],
+        ],
+        tu = (e, t) =>
+          U({
+            ...ez.settings,
+            parts: ez.settings.parts.map((n, r) =>
+              r === e ? { ...n, ...t } : n,
+            ),
+          }),
+        th = (0, t.jsxs)("div", {
+          className: "flex flex-col gap-4",
+          children: [
+            (0, t.jsxs)("div", {
+              children: [
+                (0, t.jsx)("label", {
+                  htmlFor: "versions-quick",
+                  className:
+                    "mb-1.5 block text-[11.5px] font-medium uppercase tracking-[0.05em] text-[#a3a29e]",
+                  children: "Mô tả nhanh",
+                }),
+                (0, t.jsxs)("div", {
+                  className: "flex gap-1.5",
+                  children: [
+                    (0, t.jsx)("input", {
+                      id: "versions-quick",
+                      value: el,
+                      onChange: (e) => eo(e.target.value),
+                      onKeyDown: (e) => {
+                        "Enter" === e.key && (e.preventDefault(), eZ(el));
+                      },
+                      placeholder:
+                        "Vd: 4 mã, phần III đổi số, đáp án cuối mỗi đề",
+                      className:
+                        "h-8 min-w-0 flex-1 rounded-lg border border-[#dcdbd8] px-2.5 text-[13px] outline-none focus:border-[#2383e2]",
+                    }),
+                    (0, t.jsxs)("button", {
+                      type: "button",
+                      onClick: () => void eZ(el),
+                      disabled: eu || !el.trim(),
+                      className:
+                        "inline-flex h-8 items-center gap-1 rounded-lg border border-[#dcdbd8] bg-white px-2.5 text-[12.5px] font-medium hover:bg-[#f7f6f3] disabled:opacity-50",
+                      children: [
+                        eu
+                          ? (0, t.jsx)(j.Loader2, {
+                              className: "size-3.5 animate-spin",
+                            })
+                          : (0, t.jsx)(G.Sparkles, { className: "size-3.5" }),
+                        " Điền",
+                      ],
+                    }),
+                  ],
+                }),
+                ec &&
+                  (0, t.jsx)("p", {
+                    className: "mt-1.5 text-[12px] text-[#3f7d5a]",
+                    children: ec,
+                  }),
+              ],
+            }),
+            (0, t.jsxs)("div", {
+              className: "grid grid-cols-[auto_minmax(0,1fr)] items-end gap-3",
+              children: [
+                (0, t.jsxs)("div", {
+                  children: [
+                    (0, t.jsx)(eW, { children: "Số mã đề" }),
+                    (0, t.jsxs)("div", {
+                      className:
+                        "inline-flex h-8 items-center overflow-hidden rounded-lg border border-[#dcdbd8]",
+                      children: [
+                        (0, t.jsx)("button", {
+                          type: "button",
+                          "aria-label": "Bớt một mã",
+                          className: "h-full w-8 hover:bg-[#f7f6f3]",
+                          onClick: () =>
+                            U({
+                              ...ez.settings,
+                              count: Math.max(1, ez.settings.count - 1),
+                            }),
+                          children: "−",
+                        }),
+                        (0, t.jsx)("span", {
+                          className:
+                            "min-w-8 text-center text-[13px] font-semibold tabular-nums",
+                          children: ez.settings.count,
+                        }),
+                        (0, t.jsx)("button", {
+                          type: "button",
+                          "aria-label": "Thêm một mã",
+                          className: "h-full w-8 hover:bg-[#f7f6f3]",
+                          onClick: () =>
+                            U({
+                              ...ez.settings,
+                              count: Math.min(30, ez.settings.count + 1),
+                            }),
+                          children: "+",
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+                (0, t.jsxs)("div", {
+                  children: [
+                    (0, t.jsx)(eW, { children: "Đánh số" }),
+                    (0, t.jsxs)("select", {
+                      "aria-label": "Kiểu đánh số mã đề",
+                      value: ez.settings.codeStyle,
+                      onChange: (e) =>
+                        U({ ...ez.settings, codeStyle: e.target.value }),
+                      className:
+                        "h-8 w-full rounded-lg border border-[#dcdbd8] bg-white px-2 text-[13px]",
+                      children: [
+                        (0, t.jsx)("option", {
+                          value: "101",
+                          children: "101, 102, 103...",
+                        }),
+                        (0, t.jsx)("option", {
+                          value: "0101",
+                          children: "0101, 0102, 0103...",
+                        }),
+                        (0, t.jsx)("option", {
+                          value: "random",
+                          children: "Ngẫu nhiên 3 chữ số",
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            (0, t.jsxs)("label", {
+              className: "flex items-start gap-2 text-[13px]",
+              children: [
+                (0, t.jsx)("input", {
+                  type: "checkbox",
+                  className: "mt-0.5 accent-[#2383e2]",
+                  checked: ez.settings.firstKeepsBase,
+                  onChange: (e) =>
+                    U({ ...ez.settings, firstKeepsBase: e.target.checked }),
+                }),
+                "Mã đầu giữ nguyên thứ tự và nội dung đề gốc",
+              ],
+            }),
+            (0, t.jsxs)("div", {
+              children: [
+                (0, t.jsx)(eW, { children: "Cách tạo" }),
+                (0, t.jsx)("div", {
+                  className: "grid grid-cols-2 gap-1.5",
+                  role: "radiogroup",
+                  "aria-label": "Cách tạo mã đề",
+                  children: td.map(([e, n, r, i, a]) =>
+                    (0, t.jsxs)(
+                      "button",
+                      {
+                        type: "button",
+                        role: "radio",
+                        "aria-checked": tc === e,
+                        onClick: () =>
+                          U(
+                            (function (e, t, n) {
+                              if ("custom" === n) return t;
+                              let r = eS(e);
+                              return {
+                                ...t,
+                                parts: r.parts.map((e) => ({
+                                  ...e,
+                                  order: "shuffle",
+                                  content: "shuffle" === n ? "keep" : n,
+                                })),
+                              };
+                            })(M, ez.settings, e),
+                          ),
+                        className: `grid gap-0.5 rounded-xl border p-2.5 text-left text-[12px] ${tc === e ? "border-[#2383e2] shadow-[inset_0_0_0_1px_#2383e2]" : "border-[#dcdbd8] hover:border-[#a3a29e]"}`,
+                        children: [
+                          (0, t.jsxs)("span", {
+                            className:
+                              "flex items-center gap-1.5 text-[13px] font-semibold text-[#37352f]",
+                            children: [n, r],
+                          }),
+                          (0, t.jsx)("span", {
+                            className: "text-[#73726e]",
+                            children: i,
+                          }),
+                          (0, t.jsx)("span", {
+                            className: `mt-1 justify-self-start rounded-md px-1.5 py-0.5 text-[10.5px] font-medium ${"shuffle" === e ? "bg-[#e8f2ea] text-[#3f7d5a]" : "numbers" === e ? "bg-[#fbecdc] text-[#b8620b]" : "similar" === e ? "bg-[#f2ecf8] text-[#7d52a3]" : "bg-[#f0efec] text-[#73726e]"}`,
+                            children: a,
+                          }),
+                        ],
+                      },
+                      e,
+                    ),
+                  ),
+                }),
+              ],
+            }),
+            (0, t.jsxs)("div", {
+              children: [
+                (0, t.jsx)(eW, { children: "Từng phần" }),
+                (0, t.jsx)("div", {
+                  className: "grid gap-2",
+                  children: ez.settings.parts.map((e, n) =>
+                    (0, t.jsxs)(
+                      "div",
+                      {
+                        className: "grid gap-1.5 rounded-lg bg-[#f7f6f3] p-2",
+                        children: [
+                          (0, t.jsxs)("div", {
+                            className:
+                              "flex items-baseline justify-between gap-2 text-[12.5px]",
+                            children: [
+                              (0, t.jsx)("span", {
+                                className:
+                                  "min-w-0 truncate font-semibold text-[#37352f]",
+                                title: tr[n]?.title,
+                                children: tr[n]?.title || `Phần ${n + 1}`,
+                              }),
+                              (0, t.jsxs)("span", {
+                                className:
+                                  "shrink-0 text-[11.5px] text-[#a3a29e]",
+                                children: [tr[n]?.count ?? 0, " câu"],
+                              }),
+                            ],
+                          }),
+                          (0, t.jsxs)("div", {
+                            className: "grid grid-cols-3 gap-1.5",
+                            children: [
+                              (0, t.jsx)(eO, {
+                                label: "Thứ tự câu",
+                                value: e.order,
+                                options: [
+                                  ["shuffle", "Trộn"],
+                                  ["keep", "Giữ"],
+                                ],
+                                onChange: (e) => tu(n, { order: e }),
+                              }),
+                              (0, t.jsx)(eO, {
+                                label: "Phương án",
+                                value: e.options,
+                                options:
+                                  tr[n]?.tf && !tr[n]?.mc
+                                    ? [
+                                        ["keep", "Giữ a-d"],
+                                        ["shuffle", "Trộn a-d"],
+                                      ]
+                                    : [
+                                        ["shuffle", "Trộn"],
+                                        ["keep", "Giữ"],
+                                      ],
+                                onChange: (e) => tu(n, { options: e }),
+                              }),
+                              (0, t.jsxs)("select", {
+                                "aria-label": "Nội dung",
+                                value: e.content,
+                                onChange: (e) =>
+                                  tu(n, { content: e.target.value }),
+                                className:
+                                  "h-8 rounded-lg border border-[#dcdbd8] bg-white px-1.5 text-[12px]",
+                                children: [
+                                  (0, t.jsx)("option", {
+                                    value: "keep",
+                                    children: "Giữ nội dung",
+                                  }),
+                                  (0, t.jsx)("option", {
+                                    value: "numbers",
+                                    children: "Đổi số liệu",
+                                  }),
+                                  (0, t.jsx)("option", {
+                                    value: "similar",
+                                    children: "Câu tương đồng",
+                                  }),
+                                ],
+                              }),
+                            ],
+                          }),
+                        ],
+                      },
+                      n,
+                    ),
+                  ),
+                }),
+              ],
+            }),
+            (0, t.jsxs)("div", {
+              className: "grid gap-2 text-[13px]",
+              children: [
+                (0, t.jsx)(eW, { children: "Ràng buộc" }),
+                (0, t.jsxs)("label", {
+                  className: "flex items-start gap-2",
+                  children: [
+                    (0, t.jsx)("input", {
+                      type: "checkbox",
+                      className: "mt-0.5 accent-[#2383e2]",
+                      checked: ez.settings.balance,
+                      onChange: (e) =>
+                        U({ ...ez.settings, balance: e.target.checked }),
+                    }),
+                    "Cân bằng đáp án A, B, C, D trong mỗi mã",
+                  ],
+                }),
+                (0, t.jsxs)("label", {
+                  className: "flex items-start gap-2",
+                  children: [
+                    (0, t.jsx)("input", {
+                      type: "checkbox",
+                      className: "mt-0.5 accent-[#2383e2]",
+                      checked: ez.settings.spread,
+                      onChange: (e) =>
+                        U({ ...ez.settings, spread: e.target.checked }),
+                    }),
+                    "Hạn chế hai mã có cùng câu ở cùng vị trí",
+                  ],
+                }),
+                (0, t.jsxs)("label", {
+                  className: "flex items-start gap-2",
+                  children: [
+                    (0, t.jsx)("input", {
+                      type: "checkbox",
+                      className: "mt-0.5 accent-[#2383e2]",
+                      checked: ez.settings.verify,
+                      onChange: (e) =>
+                        U({ ...ez.settings, verify: e.target.checked }),
+                    }),
+                    "Giải lại để kiểm đáp án câu do AI làm",
+                  ],
+                }),
+              ],
+            }),
+            (0, t.jsxs)("div", {
+              children: [
+                (0, t.jsx)(eW, { children: "Đáp án" }),
+                (0, t.jsx)(eO, {
+                  label: "Chỗ đặt đáp án",
+                  value: ez.settings.answers,
+                  options: [
+                    ["tab", "Tab riêng"],
+                    ["after", "Cuối mỗi mã"],
+                    ["none", "Không kèm"],
+                  ],
+                  onChange: (e) => U({ ...ez.settings, answers: e }),
+                }),
+              ],
+            }),
+          ],
+        }),
+        tm = eg ? eY.find((e) => e.code === eg.code) : void 0,
+        tp = tm?.spec.questions.find((e) => e.qid === eg?.qid),
+        tx = M.questions.find((e) => e.id === eg?.qid),
+        tg = (0, E.useMemo)(() => {
+          if (!tm || !tp) return "";
+          let e = ev(tm.markdown);
+          return e.questions[tp.no - 1]?.segments.join("\n\n") ?? "";
+        }, [tm, tp]),
+        tf = (e) =>
+          e.check?.status === "mismatch" || ("essay" !== e.kind && !e.answer),
+        tb = eY
+          .flatMap((e) =>
+            e.spec.questions
+              .filter((e) => "base" !== e.source || tf(e))
+              .map((t) => ({ code: e.code, q: t })),
+          )
+          .sort((e, t) => Number(tf(t.q)) - Number(tf(e.q))),
+        ty = (0, t.jsxs)("div", {
+          className: "flex flex-col gap-3",
+          children: [
+            (0, t.jsxs)("div", {
+              className: "grid grid-cols-3 gap-2",
+              children: [
+                (0, t.jsxs)("div", {
+                  className: "rounded-lg bg-[#f7f6f3] px-2.5 py-2",
+                  children: [
+                    (0, t.jsx)("b", {
+                      className: "block text-[17px] tabular-nums",
+                      children: eY.length,
+                    }),
+                    (0, t.jsx)("span", {
+                      className: "text-[11.5px] text-[#73726e]",
+                      children: "mã đề",
+                    }),
+                  ],
+                }),
+                (0, t.jsxs)("div", {
+                  className: "rounded-lg bg-[#f7f6f3] px-2.5 py-2",
+                  children: [
+                    (0, t.jsx)("b", {
+                      className: "block text-[17px] tabular-nums",
+                      children: tb.filter((e) => "base" !== e.q.source).length,
+                    }),
+                    (0, t.jsx)("span", {
+                      className: "text-[11.5px] text-[#73726e]",
+                      children: "câu AI hoặc kho",
+                    }),
+                  ],
+                }),
+                (0, t.jsxs)("div", {
+                  className: "rounded-lg bg-[#f7f6f3] px-2.5 py-2",
+                  children: [
+                    (0, t.jsxs)("b", {
+                      className: "block text-[17px] tabular-nums",
+                      children: [
+                        (function (e) {
+                          let t = 0,
+                            n = 0;
+                          for (let r = 0; r < e.length; r++)
+                            for (let i = r + 1; i < e.length; i++) {
+                              let a = 0,
+                                s = 0;
+                              (e[r].key.forEach((t, n) => {
+                                "choice" === t.kind &&
+                                  (s++,
+                                  t.answer !== e[i].key[n]?.answer && a++);
+                              }),
+                                s && ((t += a / s), n++));
+                            }
+                          return n ? Math.round((t / n) * 100) : 0;
+                        })(eY),
+                        "%",
+                      ],
+                    }),
+                    (0, t.jsx)("span", {
+                      className: "text-[11.5px] text-[#73726e]",
+                      children: "khác đáp án giữa 2 mã",
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            em.running &&
+              (0, t.jsxs)("div", {
+                className:
+                  "rounded-xl border border-[#cfe0f5] bg-[#f2f7fd] p-2.5 text-[12.5px] text-[#1f3d5c]",
+                children: [
+                  (0, t.jsxs)("div", {
+                    className: "flex items-center justify-between gap-2",
+                    children: [
+                      (0, t.jsxs)("span", {
+                        className: "inline-flex items-center gap-1.5",
+                        children: [
+                          (0, t.jsx)(j.Loader2, {
+                            className: "size-3.5 animate-spin",
+                          }),
+                          em.message,
+                        ],
+                      }),
+                      (0, t.jsx)("button", {
+                        type: "button",
+                        onClick: () => {
+                          (eN.current?.abort(),
+                            ep((e) => ({
+                              ...e,
+                              running: !1,
+                              message:
+                                "Đã dừng. Các câu chưa xong giữ nội dung gốc.",
+                            })));
+                        },
+                        className:
+                          "rounded-md px-2 py-0.5 text-[12px] font-medium hover:bg-black/[0.05]",
+                        children: "Dừng",
+                      }),
+                    ],
+                  }),
+                  (0, t.jsx)("div", {
+                    className: "mt-2 h-1 overflow-hidden rounded bg-[#dbe8f7]",
+                    children: (0, t.jsx)("div", {
+                      className: "h-full bg-[#2383e2] transition-[width]",
+                      style: {
+                        width: `${em.total ? Math.round((em.done / em.total) * 100) : 5}%`,
+                      },
+                    }),
+                  }),
+                ],
+              }),
+            em.errors.length > 0 &&
+              (0, t.jsx)("div", {
+                className:
+                  "rounded-xl border border-[#f2c9c6] bg-[#fbe6e5] p-2.5 text-[12.5px] text-[#9b302b]",
+                children: em.errors
+                  .slice(0, 3)
+                  .map((e) => (0, t.jsx)("p", { children: e }, e)),
+              }),
+            (0, t.jsx)("ul", {
+              className: "grid gap-1",
+              children: eQ.map((e, n) => {
+                let r = (function (e) {
+                    let t = { A: 0, B: 0, C: 0, D: 0 };
+                    for (let n of e)
+                      "choice" === n.kind &&
+                        void 0 !== t[n.answer] &&
+                        t[n.answer]++;
+                    return t;
+                  })(eY[n]?.key ?? []),
+                  i = Math.max(1, ...Object.values(r)),
+                  a = tn.filter((t) => t.code === e.code);
+                return (0, t.jsx)(
+                  "li",
+                  {
+                    children: (0, t.jsxs)("button", {
+                      type: "button",
+                      onClick: () => p(e.id),
+                      className: `grid w-full grid-cols-[64px_minmax(0,1fr)_auto] items-center gap-2 rounded-lg px-2 py-1.5 text-left text-[12.5px] ${e.id === u ? "bg-[#f0efec]" : "hover:bg-[#f7f6f3]"}`,
+                      children: [
+                        (0, t.jsxs)("span", {
+                          className: "flex items-center gap-1.5 font-semibold",
+                          children: [
+                            (0, t.jsx)("span", {
+                              className: `size-[7px] rounded-full ${a.length ? "bg-[#cb912f]" : "bg-[#448361]"}`,
+                            }),
+                            e.code,
+                          ],
+                        }),
+                        (0, t.jsx)("span", {
+                          className: "flex h-[18px] items-end gap-[3px]",
+                          "aria-label": `Ph\xe2n bố đ\xe1p \xe1n A ${r.A}, B ${r.B}, C ${r.C}, D ${r.D}`,
+                          children: ["A", "B", "C", "D"].map((e) =>
+                            (0, t.jsx)(
+                              "span",
+                              {
+                                className: "w-3.5 rounded-t-[2px] bg-[#5598e7]",
+                                style: {
+                                  height: Math.max(
+                                    2,
+                                    Math.round((r[e] / i) * 16),
+                                  ),
+                                },
+                                title: `${e}: ${r[e]}`,
+                              },
+                              e,
+                            ),
+                          ),
+                        }),
+                        (0, t.jsx)("span", {
+                          className: `text-[11.5px] ${a.length ? "text-[#9a5f08]" : "text-[#73726e]"}`,
+                          children: a.length
+                            ? `${a.length} điểm cần xem`
+                            : "Sẵn sàng",
+                        }),
+                      ],
+                    }),
+                  },
+                  e.id,
+                );
+              }),
+            }),
+            tb.length > 0 &&
+              (0, t.jsxs)("div", {
+                children: [
+                  (0, t.jsx)(eW, {
+                    children: "Câu AI hoặc kho làm, câu cần xem",
+                  }),
+                  (0, t.jsx)("div", {
+                    className: "grid max-h-56 gap-1 overflow-y-auto pr-1",
+                    children: tb.map(({ code: e, q: n }) => {
+                      let r = tf(n),
+                        i = eg?.code === e && eg.qid === n.qid;
+                      return (0, t.jsxs)(
+                        "button",
+                        {
+                          type: "button",
+                          onClick: () => {
+                            (ef({ code: e, qid: n.qid }), ey(null));
+                            let t = eQ.find((t) => t.code === e);
+                            t && p(t.id);
+                          },
+                          className: `flex items-center justify-between gap-2 rounded-lg border px-2.5 py-1.5 text-left text-[12.5px] ${i ? "border-[#2383e2] bg-[#e7f0fb]" : r ? "border-[#f0d9a8] bg-[#fbf0d9]" : "border-[#e9e9e7] hover:bg-[#f7f6f3]"}`,
+                          children: [
+                            (0, t.jsxs)("span", {
+                              children: ["Mã ", e, " · Câu ", n.no],
+                            }),
+                            (0, t.jsxs)("span", {
+                              className: "flex gap-1",
+                              children: [
+                                r &&
+                                  (0, t.jsx)("span", {
+                                    className:
+                                      "rounded bg-[#fbe6e5] px-1.5 text-[10.5px] font-medium text-[#b3332e]",
+                                    children: "Cần xem",
+                                  }),
+                                "ai" === n.source &&
+                                  (0, t.jsx)("span", {
+                                    className:
+                                      "rounded bg-[#e5effb] px-1.5 text-[10.5px] font-medium text-[#1b64b0]",
+                                    children: "AI soạn",
+                                  }),
+                                "template" === n.source &&
+                                  (0, t.jsx)("span", {
+                                    className:
+                                      "rounded bg-[#fbe9d6] px-1.5 text-[10.5px] font-medium text-[#9c5207]",
+                                    children: "Khuôn số",
+                                  }),
+                                "bank" === n.source &&
+                                  (0, t.jsx)("span", {
+                                    className:
+                                      "rounded bg-[#f1e9f8] px-1.5 text-[10.5px] font-medium text-[#6f4596]",
+                                    children: "Kho",
+                                  }),
+                              ],
+                            }),
+                          ],
+                        },
+                        `${e}-${n.qid}`,
+                      );
+                    }),
+                  }),
+                ],
+              }),
+            eg &&
+              tp &&
+              tx &&
+              (0, t.jsxs)("div", {
+                className: "overflow-hidden rounded-xl border border-[#dcdbd8]",
+                children: [
+                  (0, t.jsxs)("div", {
+                    className:
+                      "flex items-center justify-between bg-[#f7f6f3] px-2.5 py-1.5 text-[12.5px] font-semibold",
+                    children: [
+                      (0, t.jsxs)("span", {
+                        children: ["Mã ", eg.code, " · Câu ", tp.no],
+                      }),
+                      (0, t.jsx)("button", {
+                        type: "button",
+                        "aria-label": "Đóng so sánh",
+                        onClick: () => ef(null),
+                        className:
+                          "grid size-6 place-items-center rounded-md hover:bg-black/[0.05]",
+                        children: (0, t.jsx)(K.X, { className: "size-3.5" }),
+                      }),
+                    ],
+                  }),
+                  (0, t.jsxs)("div", {
+                    className:
+                      "grid grid-cols-1 divide-y divide-[#e9e9e7] bg-white",
+                    children: [
+                      (0, t.jsxs)("div", {
+                        className: "p-2.5",
+                        children: [
+                          (0, t.jsxs)("div", {
+                            className:
+                              "mb-1 text-[10.5px] font-medium uppercase tracking-[0.04em] text-[#a3a29e]",
+                            children: [
+                              "Đề gốc · Câu ",
+                              tx.no,
+                              " · đáp án ",
+                              eG[tx.id] || "?",
+                            ],
+                          }),
+                          (0, t.jsx)(eB, {
+                            markdown: tx.segments.join("\n\n"),
+                          }),
+                        ],
+                      }),
+                      (0, t.jsxs)("div", {
+                        className: "p-2.5",
+                        children: [
+                          (0, t.jsxs)("div", {
+                            className:
+                              "mb-1 text-[10.5px] font-medium uppercase tracking-[0.04em] text-[#a3a29e]",
+                            children: [
+                              "Mã ",
+                              eg.code,
+                              " · Câu ",
+                              tp.no,
+                              " · đáp án ",
+                              tp.answer || "?",
+                            ],
+                          }),
+                          (0, t.jsx)(eB, { markdown: tg }),
+                        ],
+                      }),
+                    ],
+                  }),
+                  (0, t.jsxs)("div", {
+                    className:
+                      "grid gap-1 border-t border-[#e9e9e7] px-2.5 py-2 text-[12px] text-[#73726e]",
+                    children: [
+                      "base" === tp.source
+                        ? (0, t.jsxs)("span", {
+                            children: [
+                              "Câu gốc, chỉ đổi vị trí",
+                              tp.optionOrder ? " và thứ tự phương án" : "",
+                              ". Đáp án tính từ hoán vị.",
+                            ],
+                          })
+                        : null,
+                      "bank" === tp.source &&
+                        (0, t.jsxs)("span", {
+                          children: ["Từ kho câu hỏi · ", tp.label],
+                        }),
+                      "template" === tp.source &&
+                        (0, t.jsx)("span", {
+                          children:
+                            "Khuôn tham số: máy tính đáp án theo công thức.",
+                        }),
+                      "ai" === tp.source &&
+                        (0, t.jsx)("span", {
+                          children: "AI viết lại, giữ dạng câu và mức độ.",
+                        }),
+                      tp.check?.status === "ok" &&
+                        (0, t.jsxs)("span", {
+                          className: "text-[#3f7d5a]",
+                          children: [
+                            "✓ ",
+                            tp.check.note ?? "Đã giải lại, khớp đáp án.",
+                          ],
+                        }),
+                      tp.check?.status === "mismatch" &&
+                        (0, t.jsx)("span", {
+                          className: "text-[#c4423d]",
+                          children: tp.check.note,
+                        }),
+                      tp.manual &&
+                        (0, t.jsx)("span", {
+                          className: "text-[#9a5f08]",
+                          children: "Câu này đã được sửa tay trong tab mã đề.",
+                        }),
+                    ],
+                  }),
+                  eb?.key === eg.qid &&
+                    (0, t.jsx)("div", {
+                      className: "border-t border-[#e9e9e7] p-2.5",
+                      children: eb.busy
+                        ? (0, t.jsxs)("span", {
+                            className:
+                              "inline-flex items-center gap-1.5 text-[12px] text-[#73726e]",
+                            children: [
+                              (0, t.jsx)(j.Loader2, {
+                                className: "size-3.5 animate-spin",
+                              }),
+                              "Đang tìm trong kho...",
+                            ],
+                          })
+                        : eb.list.length
+                          ? (0, t.jsxs)(t.Fragment, {
+                              children: [
+                                (0, t.jsxs)("div", {
+                                  className:
+                                    "mb-1.5 flex items-center justify-between text-[12px] text-[#73726e]",
+                                  children: [
+                                    (0, t.jsxs)("span", {
+                                      className: "min-w-0 truncate",
+                                      children: [
+                                        "Ứng viên ",
+                                        eb.index + 1,
+                                        "/",
+                                        eb.list.length,
+                                        " · ",
+                                        eb.list[eb.index].label,
+                                      ],
+                                    }),
+                                    (0, t.jsxs)("span", {
+                                      className: "flex gap-1",
+                                      children: [
+                                        (0, t.jsx)("button", {
+                                          type: "button",
+                                          "aria-label": "Ứng viên trước",
+                                          className:
+                                            "grid size-6 place-items-center rounded-md border border-[#dcdbd8]",
+                                          onClick: () =>
+                                            ey((e) =>
+                                              e
+                                                ? {
+                                                    ...e,
+                                                    index:
+                                                      (e.index -
+                                                        1 +
+                                                        e.list.length) %
+                                                      e.list.length,
+                                                  }
+                                                : e,
+                                            ),
+                                          children: (0, t.jsx)(L.ChevronLeft, {
+                                            className: "size-3.5",
+                                          }),
+                                        }),
+                                        (0, t.jsx)("button", {
+                                          type: "button",
+                                          "aria-label": "Ứng viên sau",
+                                          className:
+                                            "grid size-6 place-items-center rounded-md border border-[#dcdbd8]",
+                                          onClick: () =>
+                                            ey((e) =>
+                                              e
+                                                ? {
+                                                    ...e,
+                                                    index:
+                                                      (e.index + 1) %
+                                                      e.list.length,
+                                                  }
+                                                : e,
+                                            ),
+                                          children: (0, t.jsx)(R.ChevronRight, {
+                                            className: "size-3.5",
+                                          }),
+                                        }),
+                                      ],
+                                    }),
+                                  ],
+                                }),
+                                (0, t.jsx)(eB, {
+                                  markdown: eb.list[eb.index].markdown,
+                                }),
+                                (0, t.jsxs)("button", {
+                                  type: "button",
+                                  disabled: ew,
+                                  onClick: () =>
+                                    void te(eg.code, eg.qid, eb.list[eb.index]),
+                                  className:
+                                    "mt-2 inline-flex h-7 items-center gap-1.5 rounded-lg bg-[#37352f] px-2.5 text-[12px] font-medium text-white disabled:opacity-50",
+                                  children: [
+                                    ew
+                                      ? (0, t.jsx)(j.Loader2, {
+                                          className: "size-3.5 animate-spin",
+                                        })
+                                      : (0, t.jsx)(g.Check, {
+                                          className: "size-3.5",
+                                        }),
+                                    " Dùng câu này cho mã ",
+                                    eg.code,
+                                  ],
+                                }),
+                              ],
+                            })
+                          : (0, t.jsx)("span", {
+                              className: "text-[12px] text-[#73726e]",
+                              children: eb.error,
+                            }),
+                    }),
+                  (0, t.jsxs)("div", {
+                    className:
+                      "flex flex-wrap gap-1.5 border-t border-[#e9e9e7] px-2.5 py-2",
+                    children: [
+                      (0, t.jsxs)("button", {
+                        type: "button",
+                        disabled: ew,
+                        onClick: () =>
+                          void e6(
+                            eg.code,
+                            eg.qid,
+                            "bank" === tp.source ? "similar" : "numbers",
+                          ),
+                        className:
+                          "inline-flex h-7 items-center gap-1.5 rounded-lg border border-[#dcdbd8] bg-white px-2.5 text-[12px] font-medium hover:bg-[#f7f6f3] disabled:opacity-50",
+                        children: [
+                          ew
+                            ? (0, t.jsx)(j.Loader2, {
+                                className: "size-3.5 animate-spin",
+                              })
+                            : (0, t.jsx)(B.RefreshCw, {
+                                className: "size-3.5",
+                              }),
+                          " ",
+                          "base" === tp.source ? "Đổi số câu này" : "Tạo lại",
+                        ],
+                      }),
+                      "essay" !== tx.kind &&
+                        !M.parts.some((e) =>
+                          e.units.some(
+                            (e) =>
+                              "group" === e.kind &&
+                              e.group.questions.some((e) => e.id === eg.qid),
+                          ),
+                        ) &&
+                        (0, t.jsxs)("button", {
+                          type: "button",
+                          disabled: ew,
+                          onClick: () => void e9(eg.qid),
+                          className:
+                            "inline-flex h-7 items-center gap-1.5 rounded-lg border border-[#dcdbd8] bg-white px-2.5 text-[12px] font-medium hover:bg-[#f7f6f3] disabled:opacity-50",
+                          children: [
+                            (0, t.jsx)(_.Database, { className: "size-3.5" }),
+                            " Chọn câu khác trong kho",
+                          ],
+                        }),
+                      "base" !== tp.source &&
+                        (0, t.jsx)("button", {
+                          type: "button",
+                          disabled: ew,
+                          onClick: () => e8(eg.code, eg.qid, null, "keep"),
+                          className:
+                            "inline-flex h-7 items-center rounded-lg px-2.5 text-[12px] font-medium text-[#73726e] hover:bg-[#f7f6f3] disabled:opacity-50",
+                          children: "Dùng câu gốc",
+                        }),
+                    ],
+                  }),
+                ],
+              }),
+            !eg &&
+              0 === tb.length &&
+              eY.length > 0 &&
+              !em.running &&
+              (0, t.jsxs)("p", {
+                className:
+                  "flex items-center gap-1.5 text-[12.5px] text-[#3f7d5a]",
+                children: [
+                  (0, t.jsx)(g.Check, { className: "size-4" }),
+                  "Các mã chỉ trộn câu và phương án, đáp án tính sẵn. Bấm vào một tab ở đáy để xem.",
+                ],
+              }),
+            tt &&
+              !eg &&
+              tb.length > 0 &&
+              (0, t.jsx)("p", {
+                className: "text-[12px] text-[#a3a29e]",
+                children:
+                  "Bấm vào một câu ở danh sách trên để so với câu gốc, tạo lại hoặc chọn câu khác trong kho.",
+              }),
+          ],
+        }),
+        tw =
+          1 === S
+            ? (0, t.jsxs)("div", {
+                className: "flex items-center justify-between gap-2",
+                children: [
+                  (0, t.jsx)("span", {
+                    className: "text-[12px] text-[#73726e]",
+                    children: "Bước 1/3 · máy đọc đề",
+                  }),
+                  (0, t.jsxs)("button", {
+                    type: "button",
+                    disabled: !M.questions.length,
+                    onClick: () => A(2),
+                    className:
+                      "inline-flex h-8 items-center gap-1.5 rounded-lg bg-[#37352f] px-3 text-[13px] font-medium text-white disabled:opacity-40",
+                    children: [
+                      "Tiếp tục ",
+                      (0, t.jsx)(I.ArrowRight, { className: "size-3.5" }),
+                    ],
+                  }),
+                ],
+              })
+            : 2 === S
+              ? (0, t.jsxs)("div", {
+                  className: "flex items-center justify-between gap-2",
+                  children: [
+                    (0, t.jsxs)("span", {
+                      className:
+                        "min-w-0 text-[12px] leading-tight text-[#73726e]",
+                      children: [
+                        (0, t.jsx)("b", {
+                          className: `block text-[13px] font-medium ${eV.free ? "text-[#3f7d5a]" : "text-[#37352f]"}`,
+                          children: eV.head,
+                        }),
+                        eV.sub,
+                      ],
+                    }),
+                    (0, t.jsxs)("button", {
+                      type: "button",
+                      disabled: em.running || !M.questions.length,
+                      onClick: () => void e3(),
+                      className:
+                        "inline-flex h-8 shrink-0 items-center gap-1.5 rounded-lg bg-[#37352f] px-3 text-[13px] font-medium text-white disabled:opacity-40",
+                      children: [
+                        em.running
+                          ? (0, t.jsx)(j.Loader2, {
+                              className: "size-3.5 animate-spin",
+                            })
+                          : (0, t.jsx)(v, { className: "size-3.5" }),
+                        " ",
+                        eQ.length ? "Tạo lại" : "Tạo",
+                        " ",
+                        eK.length,
+                        " mã đề",
+                      ],
+                    }),
+                  ],
+                })
+              : (0, t.jsxs)("div", {
+                  className: "flex items-center justify-between gap-2",
+                  children: [
+                    (0, t.jsxs)(c.default, {
+                      href: "/grading",
+                      className:
+                        "inline-flex h-8 items-center gap-1.5 rounded-lg border border-[#dcdbd8] bg-white px-2.5 text-[12.5px] font-medium hover:bg-[#f7f6f3]",
+                      title: "Tạo kỳ chấm: đáp án lấy thẳng từ các mã",
+                      children: [
+                        (0, t.jsx)(z.ClipboardCheck, { className: "size-3.5" }),
+                        " Chấm bài",
+                      ],
+                    }),
+                    (0, t.jsxs)("span", {
+                      className: "flex gap-1.5",
+                      children: [
+                        (0, t.jsxs)("button", {
+                          type: "button",
+                          disabled: !eY.length || em.running,
+                          onClick: b,
+                          className:
+                            "inline-flex h-8 items-center gap-1.5 rounded-lg border border-[#dcdbd8] bg-white px-2.5 text-[12.5px] font-medium hover:bg-[#f7f6f3] disabled:opacity-40",
+                          title: "Đáp án cho TNMaker (QR, Excel)",
+                          children: [
+                            (0, t.jsx)(O.ScanLine, { className: "size-3.5" }),
+                            " TNMaker",
+                          ],
+                        }),
+                        (0, t.jsxs)("button", {
+                          type: "button",
+                          disabled: !eY.length || em.running,
+                          onClick: y,
+                          className:
+                            "inline-flex h-8 items-center gap-1.5 rounded-lg bg-[#37352f] px-2.5 text-[12.5px] font-medium text-white disabled:opacity-40",
+                          children: [
+                            (0, t.jsx)(P.Download, { className: "size-3.5" }),
+                            " Xuất bộ đề",
+                          ],
+                        }),
+                      ],
+                    }),
+                  ],
+                });
+      return (0, t.jsxs)("div", {
+        className: "flex h-full min-h-0 flex-col bg-white",
+        children: [
+          (0, t.jsxs)("div", {
+            className: "flex items-center justify-between gap-2 px-4 pb-2 pt-3",
+            children: [
+              (0, t.jsxs)("h3", {
+                className:
+                  "flex items-center gap-2 text-[16px] font-medium text-neutral-900",
+                children: [
+                  (0, t.jsx)(v, {
+                    "aria-hidden": !0,
+                    className: "size-[18px]",
+                  }),
+                  " Tạo mã đề",
+                ],
+              }),
+              (0, t.jsx)("button", {
+                type: "button",
+                onClick: f,
+                "aria-label": "Đóng",
+                className:
+                  "grid size-8 place-items-center rounded-full text-neutral-500 hover:bg-black/[0.06] hover:text-neutral-800",
+                children: (0, t.jsx)(K.X, { className: "size-[18px]" }),
+              }),
+            ],
+          }),
+          tl,
+          (0, t.jsx)("div", {
+            className: "min-h-0 flex-1 overflow-y-auto px-4 py-3.5",
+            children: 1 === S ? to : 2 === S ? th : ty,
+          }),
+          eJ.length > 0 &&
+            2 === S &&
+            (0, t.jsxs)("p", {
+              className:
+                "flex items-center gap-1.5 border-t border-[#f0d9a8] bg-[#fbf0d9] px-4 py-1.5 text-[11.5px] text-[#9a5f08]",
+              children: [
+                (0, t.jsx)(x.AlertTriangle, { className: "size-3.5 shrink-0" }),
+                " Chưa có đáp án ",
+                eJ.length,
+                " câu của đề gốc: bảng đáp án sẽ để trống các câu đó.",
+              ],
+            }),
+          (0, t.jsx)("div", {
+            className: "border-t border-[#e9e9e7] px-4 py-2.5",
+            children: tw,
+          }),
+        ],
+      });
+    }
+    let eG = "exam-builder:tabs:v1:";
+    function eK(e) {
+      return !!e && "object" == typeof e && 1 === e.v && Array.isArray(e.codes);
+    }
+    let eU = /m[ãa] đề(?: thi)?\s*:?\s*\**\s*(\d{3,4})/i;
+    var eV = e.i(150321),
+      eJ = e.i(503561),
+      eQ = e.i(952907),
+      eY = e.i(295692),
+      eZ = e.i(69193),
+      e0 = e.i(761719),
+      e1 = e.i(380669),
+      e2 = e.i(371406),
+      e3 = e.i(855146),
+      e5 = e.i(277573),
+      e7 = e.i(337161),
+      e4 = e.i(849487),
+      e8 = e.i(882505),
+      e6 = e.i(930800),
+      e9 = e.i(124007),
+      te = e.i(250832),
+      tt = e.i(594069),
+      tn = e.i(189622),
+      tr = e.i(161961),
+      ti = e.i(46794),
+      ta = e.i(716327),
+      ts = e.i(667259),
+      tl = e.i(503490),
+      to = e.i(689765),
+      tc = e.i(815170),
+      td = e.i(692630),
+      tu = e.i(221216),
+      th = e.i(700883),
+      tm = e.i(935829),
+      tp = e.i(77043),
+      tx = e.i(241999),
+      tg = e.i(640460),
+      tf = e.i(933641),
+      tb = e.i(929272);
+    let ty = (0, w.default)("square-dashed", [
+      ["path", { d: "M5 3a2 2 0 0 0-2 2", key: "y57alp" }],
+      ["path", { d: "M19 3a2 2 0 0 1 2 2", key: "18rm91" }],
+      ["path", { d: "M21 19a2 2 0 0 1-2 2", key: "1j7049" }],
+      ["path", { d: "M5 21a2 2 0 0 1-2-2", key: "sbafld" }],
+      ["path", { d: "M9 3h1", key: "1yesri" }],
+      ["path", { d: "M9 21h1", key: "15o7lz" }],
+      ["path", { d: "M14 3h1", key: "1ec4yj" }],
+      ["path", { d: "M14 21h1", key: "v9vybs" }],
+      ["path", { d: "M3 9v1", key: "1r0deq" }],
+      ["path", { d: "M21 9v1", key: "mxsmne" }],
+      ["path", { d: "M3 14v1", key: "vnatye" }],
+      ["path", { d: "M21 14v1", key: "169vum" }],
+    ]);
+    var tw = e.i(849635),
+      tv = e.i(897306),
+      tj = e.i(630505),
+      tk = e.i(736469),
+      tN = e.i(151216),
+      tC = e.i(837817);
+    e.i(231240);
+    var tT = e.i(644677),
+      tS = e.i(346795),
+      tA = e.i(468132),
+      tE = e.i(856423),
+      tM = e.i(199883),
+      t$ = e.i(508734);
+    let tD = (0, w.default)("file", [
+        [
+          "path",
+          {
+            d: "M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z",
+            key: "1oefj6",
+          },
+        ],
+        ["path", { d: "M14 2v5a1 1 0 0 0 1 1h5", key: "wfsgrz" }],
+      ]),
+      tI = (0, w.default)("file-braces", [
+        [
+          "path",
+          {
+            d: "M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z",
+            key: "1oefj6",
+          },
+        ],
+        ["path", { d: "M14 2v5a1 1 0 0 0 1 1h5", key: "wfsgrz" }],
+        [
+          "path",
+          {
+            d: "M10 12a1 1 0 0 0-1 1v1a1 1 0 0 1-1 1 1 1 0 0 1 1 1v1a1 1 0 0 0 1 1",
+            key: "1oajmo",
+          },
+        ],
+        [
+          "path",
+          {
+            d: "M14 18a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1 1 1 0 0 1-1-1v-1a1 1 0 0 0-1-1",
+            key: "mpwhp6",
+          },
+        ],
+      ]),
+      tL = (0, w.default)("file-plus", [
+        [
+          "path",
+          {
+            d: "M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z",
+            key: "1oefj6",
+          },
+        ],
+        ["path", { d: "M14 2v5a1 1 0 0 0 1 1h5", key: "wfsgrz" }],
+        ["path", { d: "M9 15h6", key: "cctwl0" }],
+        ["path", { d: "M12 18v-6", key: "17g6i2" }],
+      ]);
+    var tR = e.i(576248),
+      tz = e.i(368308),
+      t_ = e.i(195780),
+      tP = e.i(950786),
+      tH = e.i(400169),
+      tq = e.i(566595),
+      tF = e.i(435184);
+    let tB = (0, w.default)("LineSpacing", [
+      ["path", { d: "M5 4v16M2 7l3-3 3 3M2 17l3 3 3-3", key: "arrows" }],
+      ["path", { d: "M12 5h9M12 12h9M12 19h9", key: "lines" }],
+    ]);
+    function tO({ label: e, className: t }) {
+      let n;
+      return (0, E.createElement)(
+        ((n = [
+          [/hoàn tác/i, tC.Undo2],
+          [/làm lại/i, tx.Redo2],
+          [/đậm/i, ti.Bold],
+          [/nghiêng/i, th.Italic],
+          [/gạch chân/i, tN.Underline],
+          [/gạch ngang/i, tw.Strikethrough],
+          [/chỉ số trên/i, tj.Superscript],
+          [/chỉ số dưới/i, tv.Subscript],
+          [/khung/i, tb.Square],
+          [/màu chữ/i, tP.Palette],
+          [/nền|tô sáng/i, e7.PaintBucket],
+          [/font|phông|cỡ chữ|chữ$/i, tM.CaseSensitive],
+          [/^trên$/i, e2.AlignVerticalJustifyStart],
+          [/^giữa$/i, e0.AlignVerticalJustifyCenter],
+          [/^dưới$/i, e1.AlignVerticalJustifyEnd],
+          [/căn trái/i, tn.AlignLeft],
+          [/căn giữa/i, eZ.AlignCenter],
+          [/căn phải/i, tr.AlignRight],
+          [/căn lề|căn đều/i, tt.AlignJustify],
+          [/thụt/i, tu.IndentIncrease],
+          [/giãn|khoảng cách|dòng/i, tB],
+          [/x[oó]a định dạng/i, tg.RemoveFormatting],
+          [/đánh số|đánh dấu|danh sách số/i, e6.ListOrdered],
+          [/dấu đầu|danh sách/i, e8.List],
+          [/liên kết/i, e9.Link],
+          [/bảng|barem/i, tk.Table],
+          [/ảnh|hình/i, tc.Image],
+          [/cột|lưới/i, ts.Columns3],
+          [/công thức/i, tf.Sigma],
+          [/ngắt trang/i, tD],
+          [/đường kẻ/i, tm.Minus],
+          [/thước/i, tH.Ruler],
+          [/trợ lý|ai/i, G.Sparkles],
+          [/tìm|thay thế/i, tq.Search],
+          [/phím tắt/i, tz.Keyboard],
+          [/in$|pdf/i, tp.Printer],
+          [/json/i, tI],
+          [/word|markdown|tải/i, P.Download],
+          [/mở/i, b.FolderOpen],
+          [/mới/i, tL],
+          [/sao chép/i, t$.Copy],
+          [/đầu đề|thí sinh/i, t_.LayoutTemplate],
+          [/thuộc tính|tùy chọn|định dạng đoạn/i, te.Settings2],
+          [/tiêu đề|kiểu đoạn/i, tF.Type],
+          [/ngữ liệu/i, tE.BookOpen],
+          [/trợ giúp/i, tR.HelpCircle],
+        ]),
+        n.find(([t]) => t.test(e))?.[1] ?? T.FileText),
+        { "aria-hidden": !0, className: t },
+      );
+    }
+    var tW = e.i(126930);
+    let tX =
+      "flex cursor-pointer select-none items-center gap-2 px-3 py-2 text-[13px] outline-none data-[highlighted]:bg-neutral-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-40";
+    function tG({ menu: e, ...n }) {
+      return "menubar" === e
+        ? (0, t.jsx)(tW.Menubar.Item, { ...n })
+        : (0, t.jsx)(eY.DropdownMenu.Item, { ...n });
+    }
+    function tK({ columns: e }) {
+      let n = (60 - (e - 1) * 5) / e;
+      return (0, t.jsx)("svg", {
+        "aria-hidden": !0,
+        viewBox: "0 0 80 96",
+        className: "h-24 w-full",
+        children: Array.from({ length: e }, (e, r) =>
+          Array.from({ length: 12 }, (e, i) =>
+            (0, t.jsx)(
+              "rect",
+              {
+                x: 10 + r * (n + 5),
+                y: 12 + 6 * i,
+                width: n,
+                height: 2.5,
+                fill: "currentColor",
+              },
+              `${r}-${i}`,
+            ),
+          ),
+        ),
+      });
+    }
+    function tU({ menu: e, current: n, disabled: r, onSelect: i, onMore: a }) {
+      return (0, t.jsxs)(t.Fragment, {
+        children: [
+          (0, t.jsx)("div", {
+            role: "group",
+            "aria-label": "Số cột văn bản",
+            className: "grid w-72 grid-cols-3 gap-3 p-3",
+            children: [1, 2, 3].map((a) =>
+              (0, t.jsxs)(
+                tG,
+                {
+                  menu: e,
+                  disabled: r,
+                  role: "menuitemradio",
+                  "aria-checked": n === a,
+                  "aria-label": `${a} cột`,
+                  onSelect: () => i(a),
+                  className: `cursor-pointer rounded-sm border-2 p-1 text-neutral-300 outline-none data-[highlighted]:bg-blue-50 data-[highlighted]:text-blue-400 data-[disabled]:opacity-40 ${n === a ? "border-neutral-600" : "border-neutral-200"}`,
+                  children: [
+                    (0, t.jsx)(tK, { columns: a }),
+                    (0, t.jsxs)("span", {
+                      className: "block text-center text-xs text-neutral-700",
+                      children: [a, " cột"],
+                    }),
+                  ],
+                },
+                a,
+              ),
+            ),
+          }),
+          (0, t.jsx)("div", {
+            role: "separator",
+            className: "my-1 h-px bg-neutral-200",
+          }),
+          (0, t.jsxs)(tG, {
+            menu: e,
+            disabled: r,
+            onSelect: a,
+            className: tX,
+            children: [
+              (0, t.jsx)(te.Settings2, {
+                "aria-hidden": !0,
+                className: "size-4 text-neutral-500",
+              }),
+              "Tùy chọn khác",
+            ],
+          }),
+        ],
+      });
+    }
+    function tV({ menu: e, disabled: n, onSelect: r, onMore: i }) {
+      let [a, s] = (0, E.useState)({ rows: 1, columns: 1 });
+      return (0, t.jsxs)(t.Fragment, {
+        children: [
+          (0, t.jsxs)("div", {
+            className: "w-72 px-3 pt-3",
+            onPointerLeave: () => s({ rows: 1, columns: 1 }),
+            children: [
+              (0, t.jsx)("div", {
+                role: "group",
+                "aria-label": "Chọn kích thước bảng",
+                className: "grid grid-cols-10 gap-1",
+                children: Array.from({ length: 50 }, (i, l) => {
+                  let o = Math.floor(l / 10) + 1,
+                    c = (l % 10) + 1,
+                    d = o <= a.rows && c <= a.columns;
+                  return (0, t.jsx)(
+                    tG,
+                    {
+                      menu: e,
+                      disabled: n,
+                      "data-table-size": l,
+                      "aria-label": `Ch\xe8n bảng ${c} cột \xd7 ${o} h\xe0ng`,
+                      onPointerEnter: () => s({ rows: o, columns: c }),
+                      onFocus: () => s({ rows: o, columns: c }),
+                      onSelect: () => r(o, c),
+                      onKeyDown: (e) => {
+                        let t = {
+                          ArrowRight: 1,
+                          ArrowLeft: -1,
+                          ArrowDown: 10,
+                          ArrowUp: -10,
+                        }[e.key];
+                        if (null == t) return;
+                        let n = l + t;
+                        n < 0 ||
+                          n >= 50 ||
+                          (1 === Math.abs(t) && Math.floor(n / 10) !== o - 1) ||
+                          (e.preventDefault(),
+                          e.stopPropagation(),
+                          e.currentTarget.parentElement
+                            ?.querySelector(`[data-table-size="${n}"]`)
+                            ?.focus());
+                      },
+                      className: `aspect-square cursor-pointer border-2 outline-none data-[highlighted]:ring-1 data-[highlighted]:ring-blue-500 data-[disabled]:opacity-40 ${d ? "border-blue-400 bg-blue-100" : "border-neutral-200 bg-neutral-50"}`,
+                    },
+                    l,
+                  );
+                }),
+              }),
+              (0, t.jsxs)("p", {
+                "aria-live": "polite",
+                className: "py-2 text-center text-sm text-neutral-700",
+                children: [a.columns, " × ", a.rows],
+              }),
+            ],
+          }),
+          (0, t.jsx)("div", {
+            role: "separator",
+            className: "my-1 h-px bg-neutral-200",
+          }),
+          (0, t.jsxs)(tG, {
+            menu: e,
+            disabled: n,
+            onSelect: i,
+            className: tX,
+            children: [
+              (0, t.jsx)(te.Settings2, {
+                "aria-hidden": !0,
+                className: "size-4 text-neutral-500",
+              }),
+              "Tùy chọn khác",
+            ],
+          }),
+        ],
+      });
+    }
+    var tJ = e.i(184270),
+      tQ = e.i(189904),
+      tY = e.i(127923),
+      tZ = e.i(89011);
+    let t0 = () =>
+        (0, t.jsx)("span", {
+          "aria-hidden": "true",
+          className: "mx-1.5 h-5 w-px shrink-0 bg-[#e3e2e0]",
+        }),
+      t1 = (e) =>
+        Array.from(
+          e.querySelectorAll("button:not(:disabled), input:not(:disabled)"),
+        ).filter((e) => !e.closest('[inert], [aria-hidden="true"]'));
+    function t2({ segments: e }) {
+      let n = (0, E.useRef)(null),
+        r = (0, E.useRef)(null),
+        i = (0, E.useRef)(null),
+        [a, s] = (0, E.useState)({ cut: e.length, moreLeft: 0 }),
+        [l, o] = (0, E.useState)(!1),
+        c = a.cut,
+        d = e.length,
+        u = (0, E.useCallback)(() => {
+          let e,
+            t,
+            i = n.current,
+            a = r.current
+              ? Array.from(r.current.querySelectorAll(":scope > [data-seg]"))
+              : [];
+          if (!i || 0 === a.length) return;
+          let l = getComputedStyle(i),
+            o =
+              i.clientWidth -
+              parseFloat(l.paddingLeft) -
+              parseFloat(l.paddingRight),
+            c = a.length;
+          if ((e = a[a.length - 1]).offsetLeft + e.offsetWidth > o) {
+            let e = o - 48;
+            c = Math.max(
+              0,
+              a.findIndex((t) => t.offsetLeft + t.offsetWidth > e),
+            );
+          }
+          let d =
+            c > 0 && c < a.length
+              ? Math.round((t = a[c - 1]).offsetLeft + t.offsetWidth)
+              : 0;
+          s((e) =>
+            e.cut === c && e.moreLeft === d ? e : { cut: c, moreLeft: d },
+          );
+        }, []);
+      ((0, E.useLayoutEffect)(u),
+        (0, E.useLayoutEffect)(() => {
+          if (!r.current) return;
+          let e = t1(r.current),
+            t = i.current,
+            n = t && e.includes(t) ? t : e[0];
+          e.forEach((e) => {
+            e.tabIndex = e === n ? 0 : -1;
+          });
+        }),
+        (0, E.useLayoutEffect)(() => {
+          let e = n.current;
+          if (!e) return;
+          let t = new ResizeObserver(u);
+          return (t.observe(e), () => t.disconnect());
+        }, [u]));
+      let h = Math.min(c, d),
+        m = e.slice(h);
+      return (0, t.jsx)("div", {
+        ref: n,
+        role: "toolbar",
+        "aria-label": "Công cụ soạn thảo",
+        "aria-orientation": "horizontal",
+        className:
+          "no-print mx-2 mb-2 flex h-12 shrink-0 items-center rounded-full bg-[#f1f1ef] px-2 sm:mx-3 sm:px-3",
+        children: (0, t.jsxs)("div", {
+          ref: r,
+          className:
+            "relative flex min-w-0 flex-1 items-center overflow-hidden",
+          onFocusCapture: (e) => {
+            if (!e.currentTarget.contains(e.target)) return;
+            let t = t1(e.currentTarget);
+            t.includes(e.target) &&
+              ((i.current = e.target),
+              t.forEach((t) => {
+                t.tabIndex = t === e.target ? 0 : -1;
+              }));
+          },
+          onKeyDown: (e) => {
+            if (
+              !e.currentTarget.contains(e.target) ||
+              e.target instanceof HTMLInputElement ||
+              !["ArrowLeft", "ArrowRight", "Home", "End"].includes(e.key)
+            )
+              return;
+            let t = t1(e.currentTarget),
+              n = t.indexOf(e.target);
+            if (n < 0) return;
+            e.preventDefault();
+            let r =
+              "Home" === e.key
+                ? 0
+                : "End" === e.key
+                  ? t.length - 1
+                  : (n + ("ArrowRight" === e.key ? 1 : t.length - 1)) %
+                    t.length;
+            t[r]?.focus();
+          },
+          children: [
+            e.map((e, n) => {
+              let r = n >= h;
+              return (0, t.jsxs)(
+                "div",
+                {
+                  "data-seg": !0,
+                  className: `flex shrink-0 items-center gap-x-0.5 ${r ? "invisible" : ""}`,
+                  "aria-hidden": r || void 0,
+                  inert: r,
+                  children: [n > 0 && (0, t.jsx)(t0, {}), e],
+                },
+                n,
+              );
+            }),
+            m.length > 0 &&
+              (0, t.jsxs)(tY.Popover.Root, {
+                open: l,
+                onOpenChange: o,
+                children: [
+                  (0, t.jsx)(tZ.ToolbarTooltip, {
+                    label: "Thêm công cụ",
+                    children: (0, t.jsx)(tY.Popover.Trigger, {
+                      onMouseDown: (e) => e.preventDefault(),
+                      "aria-label": "Thêm công cụ",
+                      style: { left: a.moreLeft + 4 },
+                      className:
+                        "absolute top-1/2 flex size-9 -translate-y-1/2 items-center justify-center rounded-full text-neutral-700 outline-none transition-colors focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#2383e2]/40 hover:bg-black/[0.06] data-[state=open]:bg-[#d3e5ef] data-[state=open]:text-[#2383e2]",
+                      children: (0, t.jsx)(tQ.MoreVertical, {
+                        "aria-hidden": !0,
+                        className: "size-[18px]",
+                      }),
+                    }),
+                  }),
+                  (0, t.jsx)(tY.Popover.Portal, {
+                    children: (0, t.jsx)(tY.Popover.Content, {
+                      side: "bottom",
+                      align: "start",
+                      sideOffset: 6,
+                      collisionPadding: 12,
+                      onOpenAutoFocus: (e) => {
+                        (e.preventDefault(),
+                          e.target instanceof HTMLElement &&
+                            e.target
+                              .querySelector("button:not(:disabled)")
+                              ?.focus());
+                      },
+                      onKeyDown: (e) => {
+                        "Escape" === e.key &&
+                          e.currentTarget.contains(e.target) &&
+                          o(!1);
+                      },
+                      onCloseAutoFocus: (e) => {
+                        document.activeElement?.closest(
+                          '[contenteditable="true"]',
+                        ) && e.preventDefault();
+                      },
+                      onInteractOutside: (e) => {
+                        e.target?.closest(
+                          "[data-radix-popper-content-wrapper]",
+                        ) && e.preventDefault();
+                      },
+                      "data-toolbar-overflow": !0,
+                      "aria-label": "Công cụ bổ sung",
+                      className:
+                        "doc-menu z-50 flex max-w-[min(94vw,640px)] flex-wrap items-center gap-y-2 rounded-3xl border border-[#e3e2e0] bg-[#f4f7fc] p-3 shadow-[0_8px_30px_-8px_#59628040] outline-none",
+                      children: m.map((e, n) =>
+                        (0, t.jsxs)(
+                          E.Fragment,
+                          {
+                            children: [
+                              n > 0 && (0, t.jsx)(t0, {}),
+                              (0, t.jsx)("div", {
+                                className:
+                                  "flex max-w-full flex-wrap items-center gap-x-0.5",
+                                children: e,
+                              }),
+                            ],
+                          },
+                          h + n,
+                        ),
+                      ),
+                    }),
+                  }),
+                ],
+              }),
+          ],
+        }),
+      });
+    }
+    var t3 = e.i(857444),
+      t5 = e.i(790670),
+      t7 = e.i(203602),
+      t4 = e.i(237482),
+      t8 = e.i(946311),
+      t6 = e.i(766887),
+      t9 = e.i(979693);
+    let ne = [
+      {
+        name: "Hình minh hoạ SVG",
+        items: [
+          {
+            id: "cut-box",
+            name: "Tấm nhôm và hộp không nắp",
+            hint: "Hình khai triển, vùng cắt và hình không gian",
+            markdown: () =>
+              "```diagram\n" +
+              JSON.stringify(
+                (0, t9.parseDiagramData)({
+                  width: 240,
+                  height: 310,
+                  viewBox: [0, 0, 240, 310],
+                  align: "right",
+                  alt: "Tấm nhôm 8 dm × 5 dm cắt bốn hình vuông cạnh a và hộp không nắp sau khi gấp",
+                  elements: [
+                    { kind: "rect", x: 42, y: 28, width: 176, height: 110 },
+                    ...[
+                      [42, 28],
+                      [198, 28],
+                      [42, 118],
+                      [198, 118],
+                    ].map(([e, t]) => ({
+                      kind: "rect",
+                      x: e,
+                      y: t,
+                      width: 20,
+                      height: 20,
+                      fill: "#cccccc",
+                      hatch: !0,
+                    })),
+                    ...[
+                      [52, 20],
+                      [208, 20],
+                      [32, 43],
+                      [228, 43],
+                      [32, 133],
+                      [228, 133],
+                      [52, 154],
+                      [208, 154],
+                    ].map((e) => ({
+                      kind: "text",
+                      at: e,
+                      text: "a",
+                      italic: !0,
+                      fontSize: 14,
+                    })),
+                    {
+                      kind: "line",
+                      from: [42, 162],
+                      to: [218, 162],
+                      arrowStart: !0,
+                      arrowEnd: !0,
+                      strokeWidth: 0.8,
+                    },
+                    { kind: "text", at: [130, 184], text: "8 dm", italic: !0 },
+                    {
+                      kind: "line",
+                      from: [18, 28],
+                      to: [18, 138],
+                      arrowStart: !0,
+                      arrowEnd: !0,
+                      strokeWidth: 0.8,
+                    },
+                    {
+                      kind: "text",
+                      at: [10, 88],
+                      text: "5 dm",
+                      rotate: -90,
+                      italic: !0,
+                      fontSize: 14,
+                    },
+                    {
+                      kind: "solid",
+                      origin: [65, 282],
+                      scale: 20,
+                      vertices: [
+                        { id: "A", at: [0, 0, 0] },
+                        { id: "B", at: [5, 0, 0] },
+                        { id: "C", at: [5, 0, 2] },
+                        { id: "D", at: [0, 0, 2] },
+                        { id: "E", at: [0, 1.5, 0] },
+                        { id: "F", at: [5, 1.5, 0] },
+                        { id: "G", at: [5, 1.5, 2] },
+                        { id: "H", at: [0, 1.5, 2] },
+                      ],
+                      edges: [
+                        { from: "A", to: "B" },
+                        { from: "B", to: "C" },
+                        { from: "C", to: "D", dashed: !0 },
+                        { from: "D", to: "A", dashed: !0 },
+                        { from: "E", to: "F" },
+                        { from: "F", to: "G" },
+                        { from: "G", to: "H" },
+                        { from: "H", to: "E" },
+                        { from: "A", to: "E" },
+                        { from: "B", to: "F" },
+                        { from: "C", to: "G" },
+                        { from: "D", to: "H", dashed: !0 },
+                      ],
+                      faces: [],
+                    },
+                  ],
+                }),
+              ) +
+              "\n```",
+          },
+          {
+            id: "heater",
+            name: "Sơ đồ máy sưởi",
+            hint: "Ống nước, bộ tản nhiệt và chiều dòng khí",
+            markdown: () =>
+              "```diagram\n" +
+              JSON.stringify(
+                (0, t9.parseDiagramData)({
+                  width: 240,
+                  height: 270,
+                  viewBox: [0, 0, 240, 270],
+                  align: "right",
+                  alt: "Sơ đồ máy sưởi: nước nóng qua bộ tản nhiệt, quạt thổi khí lạnh thành khí nóng",
+                  elements: [
+                    {
+                      kind: "rect",
+                      x: 46,
+                      y: 20,
+                      width: 148,
+                      height: 225,
+                      fill: "#eef7fa",
+                      stroke: "#4d8599",
+                      strokeWidth: 2,
+                    },
+                    {
+                      kind: "rect",
+                      x: 138,
+                      y: 40,
+                      width: 38,
+                      height: 180,
+                      fill: "#eeeeee",
+                      stroke: "#666666",
+                    },
+                    ...[145, 155, 165].map((e) => ({
+                      kind: "line",
+                      from: [e, 43],
+                      to: [e, 215],
+                      stroke: "#888888",
+                      strokeWidth: 1,
+                    })),
+                    {
+                      kind: "polyline",
+                      points: [
+                        [22, 32],
+                        [180, 32],
+                        [180, 225],
+                        [22, 225],
+                      ],
+                      stroke: "#555555",
+                      arrowEnd: !0,
+                    },
+                    {
+                      kind: "line",
+                      from: [16, 135],
+                      to: [70, 135],
+                      arrowEnd: !0,
+                      strokeWidth: 2,
+                    },
+                    {
+                      kind: "line",
+                      from: [174, 135],
+                      to: [226, 135],
+                      arrowEnd: !0,
+                      strokeWidth: 2,
+                    },
+                    ...[60, 76, 92].map((e) => ({
+                      kind: "path",
+                      d: `M 170 ${e} C 82 ${e} 78 ${e + 2} 70 ${e + 40}`,
+                      stroke: "#e44b35",
+                      dashed: !0,
+                      arrowEnd: !0,
+                      strokeWidth: 1,
+                    })),
+                    ...[185, 201, 217].map((e) => ({
+                      kind: "path",
+                      d: `M 72 140 C 85 ${e} 98 ${e} 138 ${e}`,
+                      stroke: "#527ac5",
+                      dashed: !0,
+                      arrowEnd: !0,
+                      strokeWidth: 1,
+                    })),
+                    {
+                      kind: "circle",
+                      center: [156, 207],
+                      radius: 12,
+                      fill: "#ffffff",
+                    },
+                    {
+                      kind: "line",
+                      from: [156, 196],
+                      to: [156, 218],
+                      strokeWidth: 2,
+                    },
+                    {
+                      kind: "line",
+                      from: [145, 207],
+                      to: [167, 207],
+                      strokeWidth: 2,
+                    },
+                    {
+                      kind: "text",
+                      at: [94, 45],
+                      text: "Khí nóng",
+                      fontSize: 14,
+                    },
+                    {
+                      kind: "text",
+                      at: [91, 233],
+                      text: "Khí lạnh",
+                      fontSize: 14,
+                    },
+                    {
+                      kind: "text",
+                      at: [119, 115],
+                      text: "Bộ tản nhiệt",
+                      fontSize: 13,
+                    },
+                    {
+                      kind: "text",
+                      at: [33, 93],
+                      text: "Nước nóng",
+                      fontSize: 13,
+                      rotate: -90,
+                    },
+                    {
+                      kind: "text",
+                      at: [211, 88],
+                      text: "Nước lạnh",
+                      fontSize: 13,
+                      rotate: -90,
+                    },
+                  ],
+                }),
+              ) +
+              "\n```",
+          },
+          {
+            id: "radiation",
+            name: "Biển cảnh báo phóng xạ",
+            hint: "Hình vector trong phương án trắc nghiệm",
+            markdown: () =>
+              "```diagram\n" +
+              JSON.stringify(
+                (0, t9.parseDiagramData)({
+                  width: 100,
+                  height: 100,
+                  alt: "Biển cảnh báo phóng xạ",
+                  elements: [
+                    {
+                      kind: "polygon",
+                      points: [
+                        [50, 9],
+                        [9, 87],
+                        [91, 87],
+                      ],
+                      fill: "#ffeb00",
+                      strokeWidth: 5,
+                    },
+                    {
+                      kind: "circle",
+                      center: [50, 57],
+                      radius: 5,
+                      fill: "#000000",
+                      strokeWidth: 0,
+                    },
+                    ...[-90, 30, 150].map((e) => {
+                      let t = (e, t) =>
+                        [
+                          50 + t * Math.cos((e * Math.PI) / 180),
+                          57 + t * Math.sin((e * Math.PI) / 180),
+                        ]
+                          .map((e) => e.toFixed(3))
+                          .join(" ");
+                      return {
+                        kind: "path",
+                        d: `M ${t(e - 30, 9)} L ${t(e - 30, 24)} A 24 24 0 0 1 ${t(e + 30, 24)} L ${t(e + 30, 9)} A 9 9 0 0 0 ${t(e - 30, 9)} Z`,
+                        fill: "#000000",
+                        strokeWidth: 0,
+                      };
+                    }),
+                  ],
+                }),
+              ) +
+              "\n```",
+          },
+        ],
+      },
+      {
+        name: "Đầu đề",
+        items: [
+          {
+            id: "header",
+            name: "Đầu đề hai cột",
+            hint: "Sở / trường bên trái, kỳ thi bên phải",
+            markdown: () =>
+              "::: header\n**SỞ GIÁO DỤC VÀ ĐÀO TẠO**\n**TỈNH …**\n[[**Đề chính thức**]]\n|||\n**KỲ THI …**\n**NĂM HỌC 20… – 20…**\n**Môn thi: …**\n*Thời gian làm bài: 90 phút (không kể thời gian phát đề)*\n:::",
+          },
+          {
+            id: "title",
+            name: "Tên đề căn giữa",
+            hint: "Tiêu đề lớn in đậm",
+            markdown: () => "# ĐỀ KIỂM TRA …",
+          },
+          {
+            id: "student",
+            name: "Thông tin thí sinh",
+            hint: "Họ tên · Số báo danh ở cuối đề (mẫu THPT ở đầu)",
+            markdown: () =>
+              "::: left\nHọ và tên thí sinh: ................................................ Số báo danh: ........................\n:::",
+          },
+          {
+            id: "rubric-header",
+            name: "Đầu hướng dẫn chấm",
+            hint: "Sang trang mới + tiêu đề barem",
+            markdown: () =>
+              "\\newpage\n\n# HƯỚNG DẪN CHẤM\n\n## A. HƯỚNG DẪN CHUNG\n\n- Thí sinh làm cách khác đúng vẫn cho điểm tối đa.\n\n## B. ĐÁP ÁN VÀ THANG ĐIỂM",
+          },
+        ],
+      },
+      {
+        name: "Câu hỏi",
+        items: [
+          {
+            id: "section",
+            name: "Tiêu đề phần",
+            hint: "PHẦN I. TRẮC NGHIỆM (3,0 điểm)",
+            markdown: () => "## PHẦN I. TRẮC NGHIỆM (3,0 điểm)",
+          },
+          {
+            id: "essay",
+            name: "Câu tự luận",
+            hint: "Câu 1 (1,0 điểm) + các ý a) b)",
+            markdown: () =>
+              "**Câu 1** (1,0 điểm). Nội dung câu hỏi.\na) …\nb) …",
+          },
+          {
+            id: "choice4",
+            name: "Câu trắc nghiệm (tự động xếp đáp án)",
+            hint: "Tự chọn 4, 2 hoặc 1 đáp án mỗi hàng",
+            markdown: () =>
+              "**Câu 1.** Nội dung câu hỏi.\n\n::: choices\n**A.** …\n**B.** …\n**C.** …\n**D.** …\n:::",
+          },
+          {
+            id: "choice2",
+            name: "Câu trắc nghiệm (2 phương án 1 hàng)",
+            hint: "Phương án dài",
+            markdown: () =>
+              "**Câu 1.** Nội dung câu hỏi.\n\n::: grid 2 fixed=true\n**A.** …\n**B.** …\n**C.** …\n**D.** …\n:::",
+          },
+          {
+            id: "truefalse",
+            name: "Câu đúng / sai",
+            hint: "Lời dẫn + 4 ý a) b) c) d)",
+            markdown: () => "**Câu 1.** Lời dẫn.\na) …\nb) …\nc) …\nd) …",
+          },
+          {
+            id: "short",
+            name: "Câu trả lời ngắn",
+            hint: "Nội dung + dòng đáp số",
+            markdown: () => "**Câu 1.** Nội dung câu hỏi.\n*Đáp số:* ……………",
+          },
+          {
+            id: "passage",
+            name: "Ngữ liệu / đoạn trích",
+            hint: "Lời dẫn + đoạn thơ căn giữa",
+            markdown: () =>
+              "**Đọc đoạn trích sau và thực hiện các yêu cầu:**\n\n::: center\n*Câu thơ thứ nhất*\n*Câu thơ thứ hai*\n:::\n\n::: right\n*(Tác giả, Tên tác phẩm)*\n:::",
+          },
+        ],
+      },
+      {
+        name: "Nội dung",
+        items: [
+          {
+            id: "math",
+            name: "Công thức riêng dòng",
+            hint: "$$…$$ căn giữa",
+            markdown: () => "$$y = ax^2 + bx + c$$",
+          },
+          {
+            id: "table",
+            name: "Bảng",
+            hint: "Bảng 3 cột có hàng tiêu đề",
+            markdown: () =>
+              "| Cột 1 | Cột 2 | Cột 3 |\n|---|---|---|\n|  |  |  |\n|  |  |  |",
+          },
+          {
+            id: "rubric-table",
+            name: "Bảng barem",
+            hint: "Câu · Nội dung · Điểm",
+            markdown: () =>
+              "| Câu | Nội dung | Điểm |\n|:---:|---|:---:|\n| 1 | Ý thứ nhất … | 0,5 |\n| ^ | Ý thứ hai … | 0,5 |\n{widths=12,73,15}",
+          },
+          {
+            id: "image",
+            name: "Hình",
+            hint: "Ô chờ chèn ảnh",
+            markdown: () => "![Mô tả hình]()",
+          },
+          {
+            id: "variation",
+            name: "Bảng biến thiên",
+            hint: "Hàng x, y', y",
+            markdown: () =>
+              "```variation\n" +
+              JSON.stringify((0, t4.defaultVariationData)()) +
+              "\n```",
+          },
+          {
+            id: "graph",
+            name: "Đồ thị hàm số",
+            hint: "Hệ trục Oxy",
+            markdown: () =>
+              "```graph\n" +
+              JSON.stringify((0, t4.defaultGraphData)()) +
+              "\n```",
+          },
+          {
+            id: "chart",
+            name: "Biểu đồ",
+            hint: "Cột, đường, tròn, miền",
+            markdown: () =>
+              "```chart\n" +
+              JSON.stringify((0, t8.defaultChartData)()) +
+              "\n```",
+          },
+          {
+            id: "geometry",
+            name: "Hình học",
+            hint: "Tam giác, đường phụ, góc vuông",
+            markdown: () =>
+              "```geometry\n" +
+              JSON.stringify((0, t6.defaultGeometryData)()) +
+              "\n```",
+          },
+          {
+            id: "geometry-rubric",
+            name: "Barem có hình học",
+            hint: "Hình nằm trong ô nội dung như đáp án mẫu",
+            markdown: () => {
+              let e = (0, t6.defaultGeometryData)(),
+                t = {
+                  ...e,
+                  bottomCaption: "Hình cho ý b: kẻ thêm đường cao AH",
+                  points: [
+                    ...e.points,
+                    {
+                      id: "H",
+                      kind: "projection",
+                      parents: ["A", "B", "C"],
+                      labelOffset: [0, -18],
+                    },
+                  ],
+                  segments: [...e.segments, { from: "A", to: "H", dashed: !0 }],
+                  angles: [
+                    ...e.angles,
+                    { points: ["A", "H", "C"], right: !0, radius: 0.25 },
+                  ],
+                };
+              return [
+                "| Câu | Ý | Nội dung trình bày | Điểm |\n|---|---|---|---|",
+                "| 1 | a | <geometry>" + JSON.stringify(e) + "</geometry> | |",
+                "| ^ | ^ | Nội dung lời giải… | 0,25 |",
+                "| ^ | b | <geometry>" + JSON.stringify(t) + "</geometry> | |",
+                "| ^ | ^ | Kẻ đường cao $AH$. Nội dung lời giải… | 0,25 |\n{widths=8,8,69,15}",
+              ].join("\n");
+            },
+          },
+        ],
+      },
+      {
+        name: "Bố cục",
+        items: [
+          {
+            id: "end",
+            name: "Dòng HẾT",
+            hint: "--------- HẾT ---------",
+            markdown: () => "::: center\n**--------- HẾT ---------**\n:::",
+          },
+          {
+            id: "rule",
+            name: "Đường kẻ ngang",
+            hint: "Kẻ mảnh ở cuối đề",
+            markdown: () => "---",
+          },
+          {
+            id: "pagebreak",
+            name: "Ngắt trang",
+            hint: "Sang trang mới (Ctrl+Enter)",
+            markdown: () => "\\newpage",
+          },
+        ],
+      },
+    ];
+    var nt = e.i(74724);
+    function nn(e, t, n = !1) {
+      if (!nt.PARAGRAPH_STYLE_OPTIONS.find((e) => e.value === t)) return;
+      let r = e.chain().focus();
+      (n &&
+        r.command(({ tr: t }) => {
+          let { from: n, to: r } = t.selection;
+          return (
+            t.doc.nodesBetween(n, r, (n, r) => {
+              if ("paragraph" === n.type.name || "heading" === n.type.name) {
+                for (let i of [
+                  "fontSize",
+                  "fontFamily",
+                  "bold",
+                  "italic",
+                  "underline",
+                  "strike",
+                  "textColor",
+                  "textHighlight",
+                ]) {
+                  let a = e.schema.marks[i];
+                  a && t.removeMark(r + 1, r + n.nodeSize - 1, a);
+                }
+                return !1;
+              }
+            }),
+            !0
+          );
+        }),
+        t.startsWith("h")
+          ? r.setHeading({ level: Number(t.slice(1)) })
+          : r
+              .setParagraph()
+              .updateAttributes("paragraph", {
+                paragraphStyle: "p" === t ? null : t,
+              }),
+        r.run());
+    }
+    function nr({ editor: e, value: n, disabled: r }) {
+      let i =
+        nt.PARAGRAPH_STYLE_OPTIONS.find((e) => e.value === n) ??
+        nt.PARAGRAPH_STYLE_OPTIONS[0];
+      return (0, t.jsxs)(eY.DropdownMenu.Root, {
+        modal: !1,
+        children: [
+          (0, t.jsx)(tZ.ToolbarTooltip, {
+            label: "Kiểu đoạn",
+            children: (0, t.jsxs)(eY.DropdownMenu.Trigger, {
+              "aria-label": "Kiểu đoạn",
+              disabled: r,
+              onMouseDown: (e) => e.preventDefault(),
+              className:
+                "flex h-9 w-[152px] shrink-0 items-center justify-between gap-1.5 rounded-full px-2.5 text-[13px] text-neutral-700 outline-none transition-colors hover:bg-black/[0.06] data-[state=open]:bg-[#d3e5ef] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#2383e2]/40 disabled:opacity-40",
+              children: [
+                (0, t.jsx)("span", {
+                  className: "truncate",
+                  children: i.label,
+                }),
+                (0, t.jsx)(ta.ChevronDown, {
+                  "aria-hidden": !0,
+                  className:
+                    "size-3.5 shrink-0 transition-transform [[data-state=open]_&]:rotate-180",
+                }),
+              ],
+            }),
+          }),
+          (0, t.jsx)(eY.DropdownMenu.Portal, {
+            children: (0, t.jsx)(eY.DropdownMenu.Content, {
+              align: "start",
+              sideOffset: 8,
+              collisionPadding: 12,
+              onCloseAutoFocus: (e) => e.preventDefault(),
+              className:
+                "doc-menu z-50 w-[304px] max-w-[calc(100vw-24px)] overflow-y-auto rounded-xl border border-neutral-200 bg-white py-1 shadow-[0_8px_30px_-8px_#59628040] outline-none [max-height:min(620px,var(--radix-dropdown-menu-content-available-height))]",
+              children: nt.PARAGRAPH_STYLE_OPTIONS.map((r) =>
+                (0, t.jsxs)(
+                  "div",
+                  {
+                    className:
+                      "flex items-stretch border-b border-neutral-200 last:border-b-0",
+                    children: [
+                      (0, t.jsxs)(eY.DropdownMenu.Item, {
+                        "aria-label": r.label,
+                        "aria-current": n === r.value ? "true" : void 0,
+                        onSelect: () => nn(e, r.value),
+                        className: `flex min-h-16 min-w-0 flex-1 cursor-pointer items-center gap-3 py-4 pl-3 pr-2 outline-none data-[highlighted]:bg-[#f1f1ef] ${n === r.value ? "bg-[#e9e9e7]" : ""}`,
+                        children: [
+                          (0, t.jsx)("span", {
+                            className:
+                              "flex w-5 shrink-0 items-center justify-center",
+                            children:
+                              n === r.value &&
+                              (0, t.jsx)(g.Check, {
+                                "aria-hidden": !0,
+                                className: "size-4 text-neutral-600",
+                              }),
+                          }),
+                          (0, t.jsx)("span", {
+                            style: {
+                              fontSize: r.size,
+                              fontWeight: r.bold ? 700 : 400,
+                              fontStyle: r.italics ? "italic" : "normal",
+                              color: r.color,
+                            },
+                            className: "leading-tight",
+                            children: r.label,
+                          }),
+                        ],
+                      }),
+                      (0, t.jsxs)(eY.DropdownMenu.Sub, {
+                        children: [
+                          (0, t.jsx)(eY.DropdownMenu.SubTrigger, {
+                            "aria-label": `T\xf9y chọn ${r.label}`,
+                            className: `flex w-10 shrink-0 cursor-pointer items-center justify-center text-neutral-500 outline-none data-[highlighted]:bg-[#f1f1ef] data-[state=open]:bg-[#f1f1ef] ${n === r.value ? "bg-[#e9e9e7]" : ""}`,
+                            children: (0, t.jsx)(R.ChevronRight, {
+                              "aria-hidden": !0,
+                              className: "size-4",
+                            }),
+                          }),
+                          (0, t.jsx)(eY.DropdownMenu.Portal, {
+                            children: (0, t.jsxs)(eY.DropdownMenu.SubContent, {
+                              collisionPadding: 12,
+                              className:
+                                "doc-menu z-50 max-w-[calc(100vw-24px)] rounded-lg border border-neutral-200 bg-white p-1 text-[13px] shadow-lg",
+                              children: [
+                                (0, t.jsxs)(eY.DropdownMenu.Item, {
+                                  onSelect: () => nn(e, r.value),
+                                  className:
+                                    "cursor-pointer rounded-md px-3 py-2 outline-none data-[highlighted]:bg-[#f1f1ef]",
+                                  children: ["Áp dụng ", r.label.toLowerCase()],
+                                }),
+                                (0, t.jsx)(eY.DropdownMenu.Item, {
+                                  onSelect: () => nn(e, r.value, !0),
+                                  className:
+                                    "cursor-pointer rounded-md px-3 py-2 outline-none data-[highlighted]:bg-[#f1f1ef]",
+                                  children: "Áp dụng và bỏ định dạng chữ riêng",
+                                }),
+                              ],
+                            }),
+                          }),
+                        ],
+                      }),
+                    ],
+                  },
+                  r.value,
+                ),
+              ),
+            }),
+          }),
+        ],
+      });
+    }
+    let ni = [0.5, 0.75, 0.9, 1, 1.25, 1.5, 2],
+      na =
+        "u" > typeof navigator && /Mac|iPhone|iPad/.test(navigator.platform)
+          ? "⌘"
+          : "Ctrl+",
+      ns =
+        "doc-menu z-50 min-w-56 rounded-lg border border-neutral-200 bg-white py-1.5 text-[13px] text-neutral-800 shadow-lg outline-none",
+      nl =
+        "flex cursor-default select-none items-center gap-2 px-3 py-1.5 outline-none data-[highlighted]:bg-neutral-100 data-[disabled]:pointer-events-none data-[disabled]:text-neutral-300";
+    function no({
+      children: e,
+      onSelect: n,
+      shortcut: r,
+      checked: i,
+      disabled: a,
+    }) {
+      return (0, t.jsxs)(tW.Menubar.Item, {
+        className: nl,
+        disabled: a,
+        onSelect: n,
+        children: [
+          (0, t.jsx)("span", {
+            className:
+              "flex size-4 shrink-0 items-center justify-center text-blue-600",
+            children: i
+              ? (0, t.jsx)(g.Check, { className: "size-3.5" })
+              : (0, t.jsx)(tO, {
+                  label: "string" == typeof e ? e : "",
+                  className: "size-4 text-neutral-500",
+                }),
+          }),
+          (0, t.jsx)("span", {
+            className: "flex-1 whitespace-nowrap",
+            children: e,
+          }),
+          r
+            ? (0, t.jsx)("span", {
+                className: "ml-6 text-xs text-neutral-400",
+                children: r,
+              })
+            : null,
+        ],
+      });
+    }
+    function nc({ label: e, children: n, disabled: r }) {
+      return (0, t.jsxs)(tW.Menubar.Sub, {
+        children: [
+          (0, t.jsxs)(tW.Menubar.SubTrigger, {
+            className: nl,
+            disabled: r,
+            children: [
+              (0, t.jsx)(tO, {
+                label: e,
+                className: "size-4 shrink-0 text-neutral-500",
+              }),
+              (0, t.jsx)("span", {
+                className: "flex-1 whitespace-nowrap",
+                children: e,
+              }),
+              (0, t.jsx)(R.ChevronRight, {
+                className: "size-3.5 text-neutral-400",
+              }),
+            ],
+          }),
+          (0, t.jsx)(tW.Menubar.Portal, {
+            children: (0, t.jsx)(tW.Menubar.SubContent, {
+              className: ns,
+              sideOffset: 2,
+              alignOffset: -6,
+              children: n,
+            }),
+          }),
+        ],
+      });
+    }
+    let nd = () =>
+      (0, t.jsx)(tW.Menubar.Separator, {
+        className: "my-1.5 h-px bg-neutral-200",
+      });
+    function nu({ label: e, children: n, onClosed: r }) {
+      return (0, t.jsxs)(tW.Menubar.Menu, {
+        children: [
+          (0, t.jsx)(tW.Menubar.Trigger, {
+            className:
+              "rounded-md px-2 py-0.5 text-[13px] font-normal text-neutral-600 outline-none hover:bg-[#f1f1ef] focus-visible:ring-2 focus-visible:ring-[#2383e2]/40 data-[state=open]:bg-[#e7f3f8] data-[state=open]:text-[#2383e2]",
+            children: e,
+          }),
+          (0, t.jsx)(tW.Menubar.Portal, {
+            children: (0, t.jsx)(tW.Menubar.Content, {
+              className: ns,
+              align: "start",
+              sideOffset: 4,
+              alignOffset: -2,
+              onCloseAutoFocus: (e) => {
+                (e.preventDefault(), r?.());
+              },
+              children: n,
+            }),
+          }),
+        ],
+      });
+    }
+    function nh(e) {
+      let [n, r] = (0, E.useState)(null),
+        { editor: i } = e,
+        a = () => {
+          i && !i.isFocused && i.commands.focus();
+        },
+        s = () => i?.chain().focus(),
+        l = !!i && i.isEditable,
+        o = (e, t) => !!i?.isActive(e, t),
+        c = (e) =>
+          !!i &&
+          (i.getAttributes("paragraph").lineHeight ??
+            i.getAttributes("heading").lineHeight ??
+            null ??
+            null) === e;
+      return (0, t.jsxs)(t.Fragment, {
+        children: [
+          (0, t.jsx)(tS.FormatDialog, {
+            editor: e.editor,
+            kind: n,
+            onClose: () => r(null),
+          }),
+          (0, t.jsxs)(tW.Menubar.Root, {
+            className: "flex items-center gap-0.5",
+            children: [
+              (0, t.jsxs)(nu, {
+                onClosed: a,
+                label: "Tệp",
+                children: [
+                  (0, t.jsx)(no, {
+                    onSelect: e.onNew,
+                    disabled: !l,
+                    children: "Đề mới",
+                  }),
+                  (0, t.jsx)(no, {
+                    onSelect: e.onOpen,
+                    disabled: !l,
+                    children: "Mở file (Word, Markdown, JSON)…",
+                  }),
+                  (0, t.jsx)(no, {
+                    onSelect: () =>
+                      window.dispatchEvent(new Event(t3.OPEN_LIBRARY_EVENT)),
+                    disabled: !l,
+                    children: "Kho tài liệu…",
+                  }),
+                  (0, t.jsx)(nd, {}),
+                  (0, t.jsxs)(nc, {
+                    label: "Tải xuống",
+                    children: [
+                      (0, t.jsx)(no, {
+                        onSelect: e.onExportDocx,
+                        disabled: e.busy || !i,
+                        children: "Microsoft Word (.docx)",
+                      }),
+                      (0, t.jsx)(no, {
+                        onSelect: e.onExportDocxMathType,
+                        disabled: e.busy || !i,
+                        children: "Microsoft Word, công thức MathType (.docx)",
+                      }),
+                      (0, t.jsx)(no, {
+                        onSelect: e.onSaveMarkdown,
+                        disabled: !i,
+                        children: "Markdown (.md)",
+                      }),
+                      (0, t.jsx)(no, {
+                        onSelect: e.onSaveJson,
+                        disabled: !i,
+                        children: "JSON (.json)",
+                      }),
+                      (0, t.jsx)(nd, {}),
+                      e.onExportVersions &&
+                        (0, t.jsx)(no, {
+                          onSelect: e.onExportVersions,
+                          disabled: !i,
+                          children: "Bộ mã đề (Word, .zip)",
+                        }),
+                      (0, t.jsx)(no, {
+                        onSelect: e.onExportTnmaker,
+                        disabled: !i,
+                        children: "Đáp án cho TNMaker (QR, Excel)…",
+                      }),
+                    ],
+                  }),
+                  (0, t.jsx)(nd, {}),
+                  (0, t.jsx)(no, {
+                    onSelect: e.onPrint,
+                    shortcut: `${na}P`,
+                    disabled: !i,
+                    children: "In",
+                  }),
+                ],
+              }),
+              (0, t.jsxs)(nu, {
+                onClosed: a,
+                label: "Chỉnh sửa",
+                children: [
+                  (0, t.jsx)(no, {
+                    onSelect: () => s()?.undo().run(),
+                    shortcut: `${na}Z`,
+                    disabled: !l,
+                    children: "Hoàn tác",
+                  }),
+                  (0, t.jsx)(no, {
+                    onSelect: () => s()?.redo().run(),
+                    shortcut: `${na}Y`,
+                    disabled: !l,
+                    children: "Làm lại",
+                  }),
+                  (0, t.jsx)(nd, {}),
+                  (0, t.jsx)(no, {
+                    onSelect: () => s()?.selectAll().run(),
+                    shortcut: `${na}A`,
+                    disabled: !i,
+                    children: "Chọn tất cả",
+                  }),
+                  (0, t.jsx)(nd, {}),
+                  (0, t.jsx)(no, {
+                    onSelect: () => e.onFind(!1),
+                    shortcut: `${na}F`,
+                    disabled: !i,
+                    children: "Tìm",
+                  }),
+                  (0, t.jsx)(no, {
+                    onSelect: () => e.onFind(!0),
+                    shortcut: `${na}H`,
+                    disabled: !l,
+                    children: "Tìm và thay thế",
+                  }),
+                  (0, t.jsx)(nd, {}),
+                  (0, t.jsx)(no, {
+                    onSelect: e.onRemoveExtraBlanks,
+                    disabled: !l,
+                    children: "Xoá đoạn trống thừa",
+                  }),
+                ],
+              }),
+              (0, t.jsxs)(nu, {
+                onClosed: a,
+                label: "Xem",
+                children: [
+                  (0, t.jsxs)(nc, {
+                    label: "Thu phóng",
+                    children: [
+                      e.onFitZoom &&
+                        (0, t.jsx)(no, {
+                          onSelect: e.onFitZoom,
+                          children: "Vừa màn hình",
+                        }),
+                      ni.map((n) =>
+                        (0, t.jsxs)(
+                          no,
+                          {
+                            checked: 0.01 > Math.abs(e.zoom - n),
+                            onSelect: () => e.setZoom(n),
+                            children: [Math.round(100 * n), "%"],
+                          },
+                          n,
+                        ),
+                      ),
+                    ],
+                  }),
+                  (0, t.jsx)(nd, {}),
+                  (0, t.jsx)(no, {
+                    checked: e.showRuler,
+                    onSelect: () => e.setShowRuler(!e.showRuler),
+                    children: "Hiện thước kẻ",
+                  }),
+                  (0, t.jsx)(no, {
+                    checked: e.showSidebar,
+                    onSelect: () => e.setShowSidebar(!e.showSidebar),
+                    children: "Hiện dàn ý và mẫu chèn",
+                  }),
+                  (0, t.jsx)(no, {
+                    checked: e.aiOpen,
+                    onSelect: () => e.setAiOpen(!e.aiOpen),
+                    children: "Trợ lý AI",
+                  }),
+                ],
+              }),
+              (0, t.jsxs)(nu, {
+                onClosed: a,
+                label: "Chèn",
+                children: [
+                  (0, t.jsx)(no, {
+                    onSelect: () =>
+                      s()
+                        ?.insertContent({
+                          type: "math",
+                          attrs: {
+                            latex: encodeURIComponent("x^2"),
+                            display: !1,
+                            fresh: !0,
+                          },
+                        })
+                        .run(),
+                    disabled: !l,
+                    children: "Công thức toán",
+                  }),
+                  (0, t.jsx)(no, {
+                    onSelect: () =>
+                      s()
+                        ?.insertContent({
+                          type: "math",
+                          attrs: {
+                            latex: encodeURIComponent("\\ce{2H2 + O2 -> 2H2O}"),
+                            display: !1,
+                            fresh: !0,
+                          },
+                        })
+                        .run(),
+                    disabled: !l,
+                    children: "Công thức hoá học",
+                  }),
+                  (0, t.jsx)(nd, {}),
+                  (0, t.jsx)(nc, {
+                    label: "Bảng",
+                    disabled: !l,
+                    children: (0, t.jsx)(tV, {
+                      menu: "menubar",
+                      disabled: !l,
+                      onSelect: (e, t) =>
+                        s()
+                          ?.insertTable({ rows: e, cols: t, withHeaderRow: !1 })
+                          .run(),
+                      onMore: () => r("insertTable"),
+                    }),
+                  }),
+                  (0, t.jsx)(no, {
+                    onSelect: () =>
+                      s()
+                        ?.insertContent({
+                          type: "examImage",
+                          attrs: {
+                            src: "",
+                            alt: "",
+                            width: 220,
+                            align: "center",
+                          },
+                        })
+                        .run(),
+                    disabled: !l,
+                    children: "Hình",
+                  }),
+                  (0, t.jsx)(nd, {}),
+                  ne.map((n) =>
+                    (0, t.jsx)(
+                      nc,
+                      {
+                        label: n.name,
+                        children: n.items.map((n) =>
+                          (0, t.jsx)(
+                            no,
+                            {
+                              onSelect: () => e.onInsertSnippet(n),
+                              disabled: !l,
+                              children: n.name,
+                            },
+                            n.id,
+                          ),
+                        ),
+                      },
+                      n.name,
+                    ),
+                  ),
+                  (0, t.jsx)(nd, {}),
+                  (0, t.jsx)(no, {
+                    onSelect: () => r("link"),
+                    disabled: !l,
+                    children: "Liên kết",
+                  }),
+                  (0, t.jsx)(no, {
+                    onSelect: () => s()?.setPageBreak().run(),
+                    shortcut: `${na}↵`,
+                    disabled: !l,
+                    children: "Ngắt trang",
+                  }),
+                  (0, t.jsx)(no, {
+                    onSelect: () => i && (0, t5.insertExamFooter)(i, "---"),
+                    disabled: !l,
+                    children: "Đường kẻ ngang",
+                  }),
+                ],
+              }),
+              (0, t.jsxs)(nu, {
+                onClosed: a,
+                label: "Định dạng",
+                children: [
+                  (0, t.jsxs)(nc, {
+                    label: "Chữ",
+                    children: [
+                      (0, t.jsx)(no, {
+                        checked: o("bold"),
+                        shortcut: `${na}B`,
+                        onSelect: () => s()?.toggleBold().run(),
+                        disabled: !l,
+                        children: "Đậm",
+                      }),
+                      (0, t.jsx)(no, {
+                        checked: o("italic"),
+                        shortcut: `${na}I`,
+                        onSelect: () => s()?.toggleItalic().run(),
+                        disabled: !l,
+                        children: "Nghiêng",
+                      }),
+                      (0, t.jsx)(no, {
+                        checked: o("underline"),
+                        shortcut: `${na}U`,
+                        onSelect: () => s()?.toggleUnderline().run(),
+                        disabled: !l,
+                        children: "Gạch chân",
+                      }),
+                      (0, t.jsx)(no, {
+                        checked: o("strike"),
+                        onSelect: () => s()?.toggleStrike().run(),
+                        disabled: !l,
+                        children: "Gạch ngang",
+                      }),
+                      (0, t.jsx)(no, {
+                        checked: o("superscript"),
+                        onSelect: () => s()?.toggleSuperscript().run(),
+                        disabled: !l,
+                        children: "Chỉ số trên",
+                      }),
+                      (0, t.jsx)(no, {
+                        checked: o("subscript"),
+                        onSelect: () => s()?.toggleSubscript().run(),
+                        disabled: !l,
+                        children: "Chỉ số dưới",
+                      }),
+                      (0, t.jsx)(no, {
+                        checked: o("boxed"),
+                        onSelect: () => s()?.toggleBoxed().run(),
+                        disabled: !l,
+                        children: "Đóng khung",
+                      }),
+                    ],
+                  }),
+                  (0, t.jsx)(nc, {
+                    label: "Phông chữ",
+                    children: tA.FONT_FAMILIES.map((e) =>
+                      (0, t.jsx)(
+                        no,
+                        {
+                          checked: i?.getAttributes("fontFamily").family === e,
+                          onSelect: () =>
+                            s()?.setMark("fontFamily", { family: e }).run(),
+                          disabled: !l,
+                          children: e,
+                        },
+                        e,
+                      ),
+                    ),
+                  }),
+                  (0, t.jsxs)(nc, {
+                    label: "Màu chữ",
+                    children: [
+                      [
+                        ["#000000", "Đen"],
+                        ["#ff0000", "Đỏ"],
+                        ["#0b5394", "Xanh dương"],
+                        ["#38761d", "Xanh lá"],
+                        ["#9900ff", "Tím"],
+                        ["#ff9900", "Cam"],
+                      ].map(([e, n]) =>
+                        (0, t.jsx)(
+                          no,
+                          {
+                            onSelect: () =>
+                              s()?.setMark("textColor", { color: e }).run(),
+                            disabled: !l,
+                            children: (0, t.jsxs)("span", {
+                              className: "flex items-center gap-2",
+                              children: [
+                                (0, t.jsx)("span", {
+                                  className:
+                                    "size-3 rounded-sm border border-neutral-200",
+                                  style: { background: e },
+                                }),
+                                n,
+                              ],
+                            }),
+                          },
+                          e,
+                        ),
+                      ),
+                      (0, t.jsx)(no, {
+                        onSelect: () => s()?.unsetMark("textColor").run(),
+                        disabled: !l,
+                        children: "Bỏ màu chữ",
+                      }),
+                    ],
+                  }),
+                  (0, t.jsxs)(nc, {
+                    label: "Màu nền chữ",
+                    children: [
+                      [
+                        ["#fff2cc", "Vàng"],
+                        ["#d9ead3", "Xanh lá"],
+                        ["#cfe2f3", "Xanh dương"],
+                        ["#ead1dc", "Hồng"],
+                      ].map(([e, n]) =>
+                        (0, t.jsx)(
+                          no,
+                          {
+                            onSelect: () =>
+                              s()?.setMark("textHighlight", { color: e }).run(),
+                            disabled: !l,
+                            children: (0, t.jsxs)("span", {
+                              className: "flex items-center gap-2",
+                              children: [
+                                (0, t.jsx)("span", {
+                                  className:
+                                    "size-3 rounded-sm border border-neutral-200",
+                                  style: { background: e },
+                                }),
+                                n,
+                              ],
+                            }),
+                          },
+                          e,
+                        ),
+                      ),
+                      (0, t.jsx)(no, {
+                        onSelect: () => s()?.unsetMark("textHighlight").run(),
+                        disabled: !l,
+                        children: "Bỏ màu nền chữ",
+                      }),
+                    ],
+                  }),
+                  (0, t.jsx)(nc, {
+                    label: "Kiểu đoạn",
+                    children: nt.PARAGRAPH_STYLE_OPTIONS.map(
+                      ({ value: e, label: n }) =>
+                        (0, t.jsx)(
+                          no,
+                          {
+                            checked: e.startsWith("h")
+                              ? o("heading", { level: Number(e.slice(1)) })
+                              : o("paragraph", {
+                                  paragraphStyle: "p" === e ? null : e,
+                                }),
+                            onSelect: () => {
+                              i && nn(i, e);
+                            },
+                            disabled: !l,
+                            children: n,
+                          },
+                          e,
+                        ),
+                    ),
+                  }),
+                  (0, t.jsxs)(nc, {
+                    label: "Căn lề",
+                    children: [
+                      [
+                        ["left", "Căn trái"],
+                        ["center", "Căn giữa"],
+                        ["right", "Căn phải"],
+                      ].map(([e, n]) =>
+                        (0, t.jsx)(
+                          no,
+                          {
+                            checked: !!i?.isActive({ textAlign: e }),
+                            onSelect: () => s()?.setTextAlign(e).run(),
+                            disabled: !l,
+                            children: n,
+                          },
+                          e,
+                        ),
+                      ),
+                      (0, t.jsx)(no, {
+                        checked:
+                          !!i &&
+                          !["left", "center", "right"].some((e) =>
+                            i.isActive({ textAlign: e }),
+                          ),
+                        onSelect: () => s()?.unsetTextAlign().run(),
+                        disabled: !l,
+                        children: "Căn đều hai bên",
+                      }),
+                    ],
+                  }),
+                  (0, t.jsxs)(nc, {
+                    label: "Giãn dòng",
+                    children: [
+                      (0, t.jsx)(no, {
+                        checked: c(null),
+                        onSelect: () => s()?.setLineHeight(null).run(),
+                        disabled: !l,
+                        children: "Mặc định",
+                      }),
+                      [1, 1.15, 1.5, 2].map((e) =>
+                        (0, t.jsx)(
+                          no,
+                          {
+                            checked: c(e),
+                            onSelect: () => s()?.setLineHeight(e).run(),
+                            disabled: !l,
+                            children: String(e).replace(".", ","),
+                          },
+                          e,
+                        ),
+                      ),
+                    ],
+                  }),
+                  (0, t.jsxs)(nc, {
+                    label: "Khoảng cách đoạn",
+                    children: [
+                      (0, t.jsx)(no, {
+                        onSelect: () => s()?.setSpaceBefore(8).run(),
+                        disabled: !l,
+                        children: "Thêm khoảng trước đoạn",
+                      }),
+                      (0, t.jsx)(no, {
+                        onSelect: () => s()?.setSpaceAfter(8).run(),
+                        disabled: !l,
+                        children: "Thêm khoảng sau đoạn",
+                      }),
+                      (0, t.jsx)(no, {
+                        onSelect: () =>
+                          s()?.setSpaceBefore(null).setSpaceAfter(null).run(),
+                        disabled: !l,
+                        children: "Bỏ khoảng cách",
+                      }),
+                    ],
+                  }),
+                  (0, t.jsxs)(nc, {
+                    label: "Thụt lề",
+                    children: [
+                      (0, t.jsx)(no, {
+                        onSelect: () => s()?.setIndentFirst(1).run(),
+                        disabled: !l,
+                        children: "Thụt đầu dòng 1 cm",
+                      }),
+                      (0, t.jsx)(no, {
+                        onSelect: () => s()?.setIndentFirst(null).run(),
+                        disabled: !l,
+                        children: "Bỏ thụt đầu dòng",
+                      }),
+                      (0, t.jsx)(nd, {}),
+                      (0, t.jsx)(no, {
+                        onSelect: () => s()?.changeIndent(1).run(),
+                        shortcut: `${na}]`,
+                        disabled: !l,
+                        children: "Tăng thụt lề",
+                      }),
+                      (0, t.jsx)(no, {
+                        onSelect: () => s()?.changeIndent(-1).run(),
+                        shortcut: `${na}[`,
+                        disabled: !l,
+                        children: "Giảm thụt lề",
+                      }),
+                    ],
+                  }),
+                  (0, t.jsxs)(nc, {
+                    label: "Dấu đầu dòng và đánh số",
+                    children: [
+                      (0, t.jsx)(no, {
+                        checked: o("bulletList"),
+                        onSelect: () => s()?.toggleBulletList().run(),
+                        disabled: !l,
+                        children: "Danh sách dấu đầu dòng",
+                      }),
+                      (0, t.jsx)(no, {
+                        checked: o("orderedList"),
+                        onSelect: () => s()?.toggleOrderedList().run(),
+                        disabled: !l,
+                        children: "Danh sách đánh số",
+                      }),
+                      (0, t.jsx)(no, {
+                        onSelect: () => s()?.sinkListItem("listItem").run(),
+                        disabled: !l || !i?.can().sinkListItem("listItem"),
+                        children: "Tăng cấp danh sách",
+                      }),
+                      (0, t.jsx)(no, {
+                        onSelect: () => s()?.liftListItem("listItem").run(),
+                        disabled: !l || !i?.can().liftListItem("listItem"),
+                        children: "Giảm cấp danh sách",
+                      }),
+                    ],
+                  }),
+                  (0, t.jsx)(no, {
+                    onSelect: () => r("paragraph"),
+                    disabled: !l,
+                    children: "Định dạng đoạn, viền và màu nền",
+                  }),
+                  (0, t.jsx)(nc, {
+                    label: "Cột",
+                    disabled: !l,
+                    children: (0, t.jsx)(tU, {
+                      menu: "menubar",
+                      disabled: !l,
+                      current: o("docColumns")
+                        ? Number(i?.getAttributes("docColumns").columns)
+                        : 1,
+                      onSelect: (e) => {
+                        i && (0, tJ.applyDocumentColumns)(i, e);
+                      },
+                      onMore: () => r("columns"),
+                    }),
+                  }),
+                  (0, t.jsxs)(nc, {
+                    label: "Bảng",
+                    children: [
+                      (0, t.jsxs)(nc, {
+                        label: "Màu viền bảng",
+                        disabled: !l || !o("table"),
+                        children: [
+                          [
+                            ["#000000", "Đen"],
+                            ["#ff0000", "Đỏ"],
+                            ["#0b5394", "Xanh dương"],
+                            ["#38761d", "Xanh lá"],
+                            ["#9900ff", "Tím"],
+                            ["#ff9900", "Cam"],
+                          ].map(([e, n]) =>
+                            (0, t.jsx)(
+                              no,
+                              {
+                                onSelect: () => {
+                                  i &&
+                                    (0, tJ.applyTableAppearance)(i, {
+                                      borderColor: e,
+                                    });
+                                },
+                                disabled: !l || !o("table"),
+                                children: (0, t.jsxs)("span", {
+                                  className: "flex items-center gap-2",
+                                  children: [
+                                    (0, t.jsx)("span", {
+                                      "aria-hidden": !0,
+                                      className:
+                                        "size-3 rounded-sm border border-neutral-200",
+                                      style: { background: e },
+                                    }),
+                                    n,
+                                  ],
+                                }),
+                              },
+                              e,
+                            ),
+                          ),
+                          (0, t.jsx)(no, {
+                            onSelect: () => r("table"),
+                            disabled: !l || !o("table"),
+                            children: "Màu tùy chỉnh…",
+                          }),
+                        ],
+                      }),
+                      (0, t.jsx)(nc, {
+                        label: "Độ dày viền bảng",
+                        disabled: !l || !o("table"),
+                        children: [0, 0.5, 1, 1.5, 2, 3, 4, 6].map((e) =>
+                          (0, t.jsx)(
+                            no,
+                            {
+                              onSelect: () => {
+                                i &&
+                                  (0, tJ.applyTableAppearance)(i, {
+                                    borderWidth: e,
+                                    ...(e > 0 &&
+                                    "none" ===
+                                      (0, tJ.selectedCellAttributes)(i.state)
+                                        .borderStyle
+                                      ? { borderStyle: "solid" }
+                                      : {}),
+                                  });
+                              },
+                              disabled: !l || !o("table"),
+                              children: 0 === e ? "Không viền" : `${e} px`,
+                            },
+                            e,
+                          ),
+                        ),
+                      }),
+                      (0, t.jsx)(nd, {}),
+                      i && l && o("table")
+                        ? (0, t.jsx)(t7.TableMenuItems, {
+                            kit: tW.Menubar,
+                            entries: (0, t7.tableMenuEntries)(i, {
+                              openDialog: r,
+                            }),
+                          })
+                        : (0, t.jsx)(no, {
+                            disabled: !0,
+                            children: "Đặt con trỏ trong bảng để chỉnh sửa",
+                          }),
+                    ],
+                  }),
+                  (0, t.jsx)(nd, {}),
+                  (0, t.jsx)(no, {
+                    onSelect: () =>
+                      s()
+                        ?.unsetAllMarks()
+                        .clearParagraphFormat()
+                        .unsetTextAlign()
+                        .run(),
+                    shortcut: `${na}\\`,
+                    disabled: !l,
+                    children: "Xoá định dạng",
+                  }),
+                ],
+              }),
+              (0, t.jsxs)(nu, {
+                onClosed: a,
+                label: "Công cụ",
+                children: [
+                  (0, t.jsx)(no, {
+                    onSelect: () => e.onFind(!1),
+                    disabled: !i,
+                    children: "Tìm trong đề",
+                  }),
+                  (0, t.jsx)(no, {
+                    onSelect: () => e.setAiOpen(!e.aiOpen),
+                    children: "Trợ lý AI soạn đề",
+                  }),
+                  (0, t.jsx)(nd, {}),
+                  (0, t.jsx)(no, {
+                    onSelect: e.onShortcuts,
+                    children: "Phím tắt",
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      });
+    }
+    var nm = e.i(728231);
+    function np({
+      icon: e,
+      title: n,
+      onClick: r,
+      active: i,
+      disabled: a,
+      children: s,
+    }) {
+      return (0, t.jsx)(tZ.ToolbarTooltip, {
+        label: n,
+        children: (0, t.jsxs)("button", {
+          type: "button",
+          "aria-label": n,
+          "aria-pressed": i,
+          disabled: a,
+          onMouseDown: (e) => e.preventDefault(),
+          onClick: r,
+          className: `flex h-9 min-w-9 items-center justify-center gap-1 rounded-full px-2 text-xs outline-none transition-colors focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#2383e2]/40 disabled:opacity-40 ${i ? "bg-[#d3e5ef] text-[#2383e2]" : "text-neutral-700 hover:bg-black/[0.06]"}`,
+          children: [
+            e && (0, t.jsx)(e, { "aria-hidden": !0, className: "size-[18px]" }),
+            s,
+          ],
+        }),
+      });
+    }
+    function nx({
+      label: e,
+      title: n,
+      width: r,
+      children: i,
+      disabled: a,
+      contentClassName: s,
+    }) {
+      return (0, t.jsxs)(eY.DropdownMenu.Root, {
+        modal: !1,
+        children: [
+          (0, t.jsx)(tZ.ToolbarTooltip, {
+            label: n,
+            children: (0, t.jsxs)(eY.DropdownMenu.Trigger, {
+              disabled: a,
+              "aria-label": n,
+              onMouseDown: (e) => e.preventDefault(),
+              className: `flex h-9 shrink-0 items-center justify-between gap-1.5 rounded-full px-2.5 text-[13px] text-neutral-700 outline-none transition-colors focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#2383e2]/40 hover:bg-black/[0.06] data-[state=open]:bg-[#d3e5ef] disabled:opacity-40 ${r ?? ""}`,
+              children: [
+                (0, t.jsx)("span", { className: "truncate", children: e }),
+                (0, t.jsx)(ta.ChevronDown, {
+                  "aria-hidden": !0,
+                  className: "size-3.5 shrink-0 text-neutral-500",
+                }),
+              ],
+            }),
+          }),
+          (0, t.jsx)(eY.DropdownMenu.Portal, {
+            children: (0, t.jsx)(eY.DropdownMenu.Content, {
+              align: "start",
+              sideOffset: 4,
+              onCloseAutoFocus: (e) => e.preventDefault(),
+              className: `doc-menu z-50 rounded-lg border border-neutral-200 bg-white text-[13px] text-neutral-800 shadow-lg ${s ?? "min-w-40 py-1.5"}`,
+              children: i,
+            }),
+          }),
+        ],
+      });
+    }
+    function ng({ onSelect: e, checked: n, children: r }) {
+      return (0, t.jsxs)(eY.DropdownMenu.Item, {
+        onSelect: e,
+        className:
+          "flex cursor-default items-center gap-2 px-3 py-1.5 outline-none data-[highlighted]:bg-neutral-100",
+        children: [
+          (0, t.jsx)("span", {
+            className: "flex size-4 items-center justify-center text-blue-600",
+            children: n
+              ? (0, t.jsx)(g.Check, { className: "size-3.5" })
+              : (0, t.jsx)(tO, {
+                  label: "string" == typeof r ? r : "",
+                  className: "size-3.5 text-neutral-500",
+                }),
+          }),
+          r,
+        ],
+      });
+    }
+    let nf = [
+      "#000000",
+      "#434343",
+      "#666666",
+      "#999999",
+      "#cccccc",
+      "#ffffff",
+      "#980000",
+      "#ff0000",
+      "#ff9900",
+      "#ffff00",
+      "#00ff00",
+      "#00ffff",
+      "#0000ff",
+      "#9900ff",
+      "#ff00ff",
+      "#f4cccc",
+      "#fce5cd",
+      "#fff2cc",
+      "#d9ead3",
+      "#d0e0e3",
+      "#cfe2f3",
+      "#d9d2e9",
+      "#ead1dc",
+      "#0b5394",
+    ];
+    function nb({ title: e, value: n, icon: r, disabled: i, onChange: a }) {
+      return (0, t.jsxs)(nx, {
+        label: (0, t.jsxs)("span", {
+          className: "flex flex-col items-center",
+          children: [
+            (0, t.jsx)(r, { "aria-hidden": !0, className: "size-[18px]" }),
+            (0, t.jsx)("span", {
+              className: "mt-0.5 h-1 w-5 rounded-sm",
+              style: { backgroundColor: n },
+            }),
+          ],
+        }),
+        title: e,
+        disabled: i,
+        children: [
+          (0, t.jsx)(eY.DropdownMenu.Label, {
+            className: "px-3 py-1.5 font-medium",
+            children: e,
+          }),
+          (0, t.jsx)("div", {
+            className: "grid grid-cols-6 gap-1.5 px-3 py-2",
+            children: nf.map((r) =>
+              (0, t.jsx)(
+                eY.DropdownMenu.Item,
+                {
+                  "aria-label": `${e}: ${r}`,
+                  title: r,
+                  onSelect: () => a(r),
+                  className:
+                    "size-6 cursor-pointer rounded border border-neutral-300 outline-none data-[highlighted]:ring-2 data-[highlighted]:ring-blue-600",
+                  style: { backgroundColor: r },
+                  children:
+                    n === r &&
+                    (0, t.jsx)(g.Check, {
+                      className: "m-auto size-4",
+                      style: {
+                        color: [
+                          "#000000",
+                          "#434343",
+                          "#980000",
+                          "#0000ff",
+                          "#9900ff",
+                          "#0b5394",
+                        ].includes(r)
+                          ? "white"
+                          : "black",
+                      },
+                    }),
+                },
+                r,
+              ),
+            ),
+          }),
+          (0, t.jsxs)("label", {
+            className:
+              "flex items-center justify-between gap-2 px-3 py-2 text-xs",
+            children: [
+              "Màu tùy chỉnh",
+              (0, t.jsx)("input", {
+                type: "color",
+                "aria-label": `${e} t\xf9y chỉnh`,
+                value: n,
+                onChange: (e) => a(e.target.value),
+                className: "h-7 w-10",
+              }),
+            ],
+          }),
+          (0, t.jsx)(ng, { onSelect: () => a(null), children: "Bỏ màu" }),
+        ],
+      });
+    }
+    let ny = [null, 1, 1.15, 1.5, 2],
+      nw = [
+        { value: "left", Icon: tn.AlignLeft, label: "Căn trái" },
+        { value: "center", Icon: eZ.AlignCenter, label: "Căn giữa" },
+        { value: "right", Icon: tr.AlignRight, label: "Căn phải" },
+        {
+          value: "justify",
+          Icon: tt.AlignJustify,
+          label: "Căn đều hai bên (mặc định)",
+        },
+      ],
+      nv = [0, 0.5, 1, 1.5, 2, 3, 4, 6],
+      nj = [
+        ["solid", "Nét liền"],
+        ["dashed", "Nét đứt"],
+        ["dotted", "Chấm"],
+        ["double", "Nét đôi"],
+      ],
+      nk = [
+        { value: "top", Icon: e2.AlignVerticalJustifyStart, label: "Trên" },
+        { value: "middle", Icon: e0.AlignVerticalJustifyCenter, label: "Giữa" },
+        { value: "bottom", Icon: e1.AlignVerticalJustifyEnd, label: "Dưới" },
+      ];
+    function nN({ editor: e, size: n, disabled: r }) {
+      let [i, a] = (0, E.useState)(String(n)),
+        s = (t) => {
+          let n = (0, tA.clampFontSize)(t);
+          a(String(n));
+          let r = e.chain().focus();
+          n === eJ.BASE_FONT_PX
+            ? r.unsetFontSize().run()
+            : r.setFontSize(n).run();
+        };
+      return (0, t.jsxs)("span", {
+        className: "flex items-center",
+        children: [
+          (0, t.jsx)(np, {
+            icon: tm.Minus,
+            title: "Giảm cỡ chữ",
+            disabled: r || n <= tA.FONT_SIZE_MIN,
+            onClick: () => s(n - 1),
+          }),
+          (0, t.jsx)(tZ.ToolbarTooltip, {
+            label: "Cỡ chữ (px)",
+            children: (0, t.jsx)("input", {
+              value: i,
+              disabled: r,
+              inputMode: "decimal",
+              "aria-label": "Cỡ chữ",
+              onChange: (e) => a(e.target.value.replace(/[^\d.]/g, "")),
+              onBlur: () => a(String(n)),
+              onKeyDown: (t) => {
+                if ("Enter" === t.key) {
+                  t.preventDefault();
+                  let n = Number(i);
+                  (Number.isFinite(n) && n > 0 && s(n), e.commands.focus());
+                } else "Escape" === t.key && (a(String(n)), e.commands.focus());
+              },
+              className:
+                "h-8 w-10 rounded-full border border-[#b9c4d4] bg-white/60 text-center text-[13px] text-neutral-800 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 disabled:opacity-40",
+            }),
+          }),
+          (0, t.jsx)(np, {
+            icon: S.Plus,
+            title: "Tăng cỡ chữ",
+            disabled: r || n >= tA.FONT_SIZE_MAX,
+            onClick: () => s(n + 1),
+          }),
+        ],
+      });
+    }
+    function nC({ editor: e, zoom: n, setZoom: r, onFitZoom: i, onPrint: a }) {
+      let [s, l] = (0, E.useState)(null),
+        o = (0, u.useEditorState)({
+          editor: e,
+          selector: ({ editor: e }) => {
+            if (!e) return null;
+            let t = nt.HEADING_STYLES.find(({ level: t }) =>
+                e.isActive("heading", { level: t }),
+              )?.level,
+              n = e.getAttributes(t ? "heading" : "paragraph"),
+              r = nt.NAMED_PARAGRAPH_STYLES.find(
+                (e) => e.value === n.paragraphStyle,
+              ),
+              i = (0, tJ.selectedCellAttributes)(e.state);
+            return {
+              editable: e.isEditable,
+              canUndo: e.can().undo(),
+              canRedo: e.can().redo(),
+              style: t ? `h${t}` : (r?.value ?? "p"),
+              size:
+                Number(e.getAttributes("fontSize").size) ||
+                nt.HEADING_STYLES.find((e) => e.level === t)?.size ||
+                r?.size ||
+                eJ.BASE_FONT_PX,
+              family: String(
+                e.getAttributes("fontFamily").family ?? "Times New Roman",
+              ),
+              color: String(e.getAttributes("textColor").color ?? "#000000"),
+              highlight: String(
+                e.getAttributes("textHighlight").color ?? "#ffff00",
+              ),
+              bullet: e.isActive("bulletList"),
+              ordered: e.isActive("orderedList"),
+              bold: e.isActive("bold"),
+              italic: e.isActive("italic"),
+              underline: e.isActive("underline"),
+              strike: e.isActive("strike"),
+              superscript: e.isActive("superscript"),
+              subscript: e.isActive("subscript"),
+              boxed: e.isActive("boxed"),
+              align:
+                ["left", "center", "right"].find((t) =>
+                  e.isActive({ textAlign: t }),
+                ) ?? "justify",
+              lineHeight: n.lineHeight ?? null,
+              inTable: e.isActive("table"),
+              borderColor: String(i.borderColor ?? "#000000"),
+              borderWidth: Number(i.borderWidth ?? 1),
+              borderStyle: String(i.borderStyle ?? "solid"),
+              cellBackground: String(i.backgroundColor ?? "#ffffff"),
+              verticalAlign: String(i.verticalAlign ?? "top"),
+              docColumns: e.isActive("docColumns")
+                ? Number(e.getAttributes("docColumns").columns) || 2
+                : 1,
+              inGrid: e.isActive("grid"),
+              gridColumns: Number(e.getAttributes("grid").columns) || 2,
+              gridAuto: (() => {
+                let { $from: t } = e.state.selection;
+                for (let e = t.depth; e > 0; e--)
+                  if ("grid" === t.node(e).type.name)
+                    return (0, eQ.automaticChoices)(t.node(e).toJSON());
+                return !1;
+              })(),
+            };
+          },
+        });
+      if (!e || !o)
+        return (0, t.jsx)("div", {
+          className: "mx-3 mb-2 h-12 rounded-full bg-[#f1f1ef]",
+        });
+      let c = () => e.chain().focus(),
+        d = !o.editable,
+        h = nw.find((e) => e.value === o.align) ?? nw[3],
+        m = nk.find((e) => e.value === o.verticalAlign) ?? nk[0],
+        p = () =>
+          e.state.selection instanceof tT.CellSelection ? "selection" : "table",
+        [x, g, f, b, y, w, v, j, k, N, C] = [
+          (0, t.jsxs)(t.Fragment, {
+            children: [
+              (0, t.jsx)(np, {
+                icon: tC.Undo2,
+                title: "Hoàn tác (Ctrl+Z)",
+                disabled: d || !o.canUndo,
+                onClick: () => c().undo().run(),
+              }),
+              (0, t.jsx)(np, {
+                icon: tx.Redo2,
+                title: "Làm lại (Ctrl+Y)",
+                disabled: d || !o.canRedo,
+                onClick: () => c().redo().run(),
+              }),
+              (0, t.jsx)(np, {
+                icon: tp.Printer,
+                title: "In (Ctrl+P)",
+                onClick: a,
+              }),
+              (0, t.jsxs)(nx, {
+                label: `${Math.round(100 * n)}%`,
+                title: "Thu phóng",
+                width: "w-20",
+                children: [
+                  i &&
+                    (0, t.jsx)(ng, { onSelect: i, children: "Vừa màn hình" }),
+                  ni.map((e) =>
+                    (0, t.jsxs)(
+                      ng,
+                      {
+                        checked: 0.01 > Math.abs(n - e),
+                        onSelect: () => r(e),
+                        children: [Math.round(100 * e), "%"],
+                      },
+                      e,
+                    ),
+                  ),
+                ],
+              }),
+            ],
+          }),
+          (0, t.jsx)(t.Fragment, {
+            children: (0, t.jsx)(nr, {
+              editor: e,
+              value: o.style,
+              disabled: d,
+            }),
+          }),
+          (0, t.jsxs)(t.Fragment, {
+            children: [
+              (0, t.jsx)(nx, {
+                label: o.family,
+                title: "Phông chữ",
+                width: "w-[140px]",
+                disabled: d,
+                children: tA.FONT_FAMILIES.map((e) =>
+                  (0, t.jsx)(
+                    ng,
+                    {
+                      checked: o.family === e,
+                      onSelect: () =>
+                        "Times New Roman" === e
+                          ? c().unsetMark("fontFamily").run()
+                          : c().setMark("fontFamily", { family: e }).run(),
+                      children: (0, t.jsx)("span", {
+                        style: { fontFamily: e },
+                        children: e,
+                      }),
+                    },
+                    e,
+                  ),
+                ),
+              }),
+              (0, t.jsx)(nN, { editor: e, size: o.size, disabled: d }, o.size),
+            ],
+          }),
+          (0, t.jsxs)(t.Fragment, {
+            children: [
+              (0, t.jsx)(np, {
+                icon: ti.Bold,
+                title: "Đậm (Ctrl+B)",
+                active: o.bold,
+                disabled: d,
+                onClick: () => c().toggleBold().run(),
+              }),
+              (0, t.jsx)(np, {
+                icon: th.Italic,
+                title: "Nghiêng (Ctrl+I)",
+                active: o.italic,
+                disabled: d,
+                onClick: () => c().toggleItalic().run(),
+              }),
+              (0, t.jsx)(np, {
+                icon: tN.Underline,
+                title: "Gạch chân (Ctrl+U)",
+                active: o.underline,
+                disabled: d,
+                onClick: () => c().toggleUnderline().run(),
+              }),
+            ],
+          }),
+          (0, t.jsxs)(t.Fragment, {
+            children: [
+              (0, t.jsx)(np, {
+                icon: tw.Strikethrough,
+                title: "Gạch ngang",
+                active: o.strike,
+                disabled: d,
+                onClick: () => c().toggleStrike().run(),
+              }),
+              (0, t.jsx)(np, {
+                icon: tj.Superscript,
+                title: "Chỉ số trên",
+                active: o.superscript,
+                disabled: d,
+                onClick: () => c().toggleSuperscript().run(),
+              }),
+              (0, t.jsx)(np, {
+                icon: tv.Subscript,
+                title: "Chỉ số dưới",
+                active: o.subscript,
+                disabled: d,
+                onClick: () => c().toggleSubscript().run(),
+              }),
+              (0, t.jsx)(np, {
+                icon: ty,
+                title: "Chữ đóng khung (Đề chính thức, mã đề)",
+                active: o.boxed,
+                disabled: d,
+                onClick: () => c().toggleBoxed().run(),
+              }),
+              o.boxed &&
+                (0, t.jsx)(np, {
+                  icon: te.Settings2,
+                  title: "Chỉnh khoảng đệm khung",
+                  disabled: d,
+                  onClick: () => l("boxed"),
+                }),
+            ],
+          }),
+          (0, t.jsxs)(t.Fragment, {
+            children: [
+              (0, t.jsx)(np, {
+                icon: tf.Sigma,
+                title: "Chèn công thức toán",
+                disabled: d,
+                onClick: () =>
+                  c()
+                    .insertContent({
+                      type: "math",
+                      attrs: {
+                        latex: encodeURIComponent("x^2"),
+                        display: !1,
+                        fresh: !0,
+                      },
+                    })
+                    .run(),
+              }),
+              (0, t.jsx)(np, {
+                icon: to.FlaskConical,
+                title: "Chèn công thức hoá học",
+                disabled: d,
+                onClick: () =>
+                  c()
+                    .insertContent({
+                      type: "math",
+                      attrs: {
+                        latex: encodeURIComponent("\\ce{2H2 + O2 -> 2H2O}"),
+                        display: !1,
+                        fresh: !0,
+                      },
+                    })
+                    .run(),
+              }),
+            ],
+          }),
+          (0, t.jsxs)(t.Fragment, {
+            children: [
+              (0, t.jsx)(nx, {
+                label: (0, t.jsx)(ts.Columns3, {
+                  "aria-hidden": !0,
+                  className: "size-[18px]",
+                }),
+                title: "Cột văn bản",
+                disabled: d,
+                children: (0, t.jsx)(tU, {
+                  menu: "dropdown",
+                  current: o.docColumns,
+                  disabled: d,
+                  onSelect: (t) => (0, tJ.applyDocumentColumns)(e, t),
+                  onMore: () => l("columns"),
+                }),
+              }),
+              (0, t.jsx)(np, {
+                icon: te.Settings2,
+                title: "Định dạng đoạn văn",
+                disabled: d,
+                onClick: () => l("paragraph"),
+              }),
+            ],
+          }),
+          (0, t.jsxs)(t.Fragment, {
+            children: [
+              (0, t.jsx)(nb, {
+                title: "Màu chữ",
+                value: o.color,
+                icon: e3.Baseline,
+                disabled: d,
+                onChange: (e) =>
+                  e
+                    ? c().setMark("textColor", { color: e }).run()
+                    : c().unsetMark("textColor").run(),
+              }),
+              (0, t.jsx)(nb, {
+                title: "Màu nền chữ",
+                value: o.highlight,
+                icon: e4.Highlighter,
+                disabled: d,
+                onChange: (e) =>
+                  e
+                    ? c().setMark("textHighlight", { color: e }).run()
+                    : c().unsetMark("textHighlight").run(),
+              }),
+              o.inTable &&
+                (0, t.jsxs)(t.Fragment, {
+                  children: [
+                    (0, t.jsx)(nb, {
+                      title: "Màu nền ô",
+                      value: o.cellBackground,
+                      icon: e7.PaintBucket,
+                      disabled: d,
+                      onChange: (t) =>
+                        (0, tJ.applyTableAppearance)(
+                          e,
+                          { backgroundColor: t },
+                          "selection",
+                        ),
+                    }),
+                    (0, t.jsx)(nb, {
+                      title: "Màu viền bảng",
+                      value: o.borderColor,
+                      icon: tb.Square,
+                      disabled: d,
+                      onChange: (t) =>
+                        (0, tJ.applyTableAppearance)(
+                          e,
+                          { borderColor: t },
+                          p(),
+                        ),
+                    }),
+                    (0, t.jsx)(nx, {
+                      label: (0, t.jsx)(e5.Equal, {
+                        "aria-hidden": !0,
+                        className: "size-[18px]",
+                      }),
+                      title: "Độ dày viền bảng",
+                      disabled: d,
+                      children: nv.map((n) =>
+                        (0, t.jsx)(
+                          ng,
+                          {
+                            checked: o.borderWidth === n,
+                            onSelect: () =>
+                              (0, tJ.applyTableAppearance)(
+                                e,
+                                {
+                                  borderWidth: n,
+                                  ...(n > 0 && "none" === o.borderStyle
+                                    ? { borderStyle: "solid" }
+                                    : {}),
+                                },
+                                p(),
+                              ),
+                            children: 0 === n ? "Không viền" : `${n} px`,
+                          },
+                          n,
+                        ),
+                      ),
+                    }),
+                    (0, t.jsx)(nx, {
+                      label: (0, t.jsx)(ty, {
+                        "aria-hidden": !0,
+                        className: "size-[18px]",
+                      }),
+                      title: "Kiểu viền bảng",
+                      disabled: d,
+                      children: nj.map(([n, r]) =>
+                        (0, t.jsx)(
+                          ng,
+                          {
+                            checked: o.borderStyle === n,
+                            onSelect: () =>
+                              (0, tJ.applyTableAppearance)(
+                                e,
+                                { borderStyle: n },
+                                p(),
+                              ),
+                            children: (0, t.jsxs)("span", {
+                              className: "flex items-center gap-2",
+                              children: [
+                                (0, t.jsx)("span", {
+                                  "aria-hidden": !0,
+                                  className:
+                                    "w-8 border-t-2 border-neutral-700",
+                                  style: { borderTopStyle: n },
+                                }),
+                                r,
+                              ],
+                            }),
+                          },
+                          n,
+                        ),
+                      ),
+                    }),
+                    (0, t.jsx)(nx, {
+                      label: (0, t.jsx)(m.Icon, {
+                        "aria-hidden": !0,
+                        className: "size-[18px]",
+                      }),
+                      title: `Căn dọc trong \xf4: ${m.label}`,
+                      disabled: d,
+                      children: nk.map((n) =>
+                        (0, t.jsx)(
+                          ng,
+                          {
+                            checked: m.value === n.value,
+                            onSelect: () =>
+                              (0, tJ.applyTableAppearance)(
+                                e,
+                                { verticalAlign: n.value },
+                                "selection",
+                              ),
+                            children: n.label,
+                          },
+                          n.value,
+                        ),
+                      ),
+                    }),
+                  ],
+                }),
+            ],
+          }),
+          (0, t.jsxs)(t.Fragment, {
+            children: [
+              (0, t.jsx)(nx, {
+                label: (0, t.jsx)(h.Icon, {
+                  "aria-hidden": !0,
+                  className: "size-[18px]",
+                }),
+                title: `Căn lề: ${h.label}`,
+                disabled: d,
+                contentClassName: "min-w-0 p-1.5",
+                children: (0, t.jsx)(eY.DropdownMenu.RadioGroup, {
+                  value: o.align,
+                  onValueChange: (e) =>
+                    "justify" === e
+                      ? c().unsetTextAlign().run()
+                      : c().setTextAlign(e).run(),
+                  className: "flex items-center gap-1",
+                  onKeyDown: (e) => {
+                    if ("ArrowLeft" !== e.key && "ArrowRight" !== e.key) return;
+                    let t = Array.from(
+                        e.currentTarget.querySelectorAll(
+                          '[role="menuitemradio"]',
+                        ),
+                      ),
+                      n = t.indexOf(document.activeElement);
+                    n < 0 ||
+                      (e.preventDefault(),
+                      t[
+                        (n + ("ArrowRight" === e.key ? 1 : t.length - 1)) %
+                          t.length
+                      ]?.focus());
+                  },
+                  children: nw.map(({ value: e, Icon: n, label: r }) =>
+                    (0, t.jsx)(
+                      tZ.ToolbarTooltip,
+                      {
+                        label: r,
+                        children: (0, t.jsx)(eY.DropdownMenu.RadioItem, {
+                          value: e,
+                          "aria-label": r,
+                          className:
+                            "flex size-9 cursor-pointer items-center justify-center rounded-md text-neutral-700 outline-none data-[highlighted]:bg-neutral-100 data-[state=checked]:bg-[#d3e5ef] data-[state=checked]:text-[#2383e2] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#2383e2]/40",
+                          children: (0, t.jsx)(n, {
+                            "aria-hidden": !0,
+                            className: "size-5",
+                          }),
+                        }),
+                      },
+                      e,
+                    ),
+                  ),
+                }),
+              }),
+              (0, t.jsxs)(nx, {
+                label: (0, t.jsx)(tB, {
+                  "aria-hidden": !0,
+                  className: "size-[18px]",
+                }),
+                title: "Giãn dòng",
+                disabled: d,
+                children: [
+                  ny.map((e) =>
+                    (0, t.jsx)(
+                      ng,
+                      {
+                        checked: o.lineHeight === e,
+                        onSelect: () => c().setLineHeight(e).run(),
+                        children:
+                          null === e ? "Mặc định" : String(e).replace(".", ","),
+                      },
+                      String(e),
+                    ),
+                  ),
+                  (0, t.jsx)(eY.DropdownMenu.Separator, {
+                    className: "my-1.5 h-px bg-neutral-200",
+                  }),
+                  (0, t.jsx)(ng, {
+                    onSelect: () => c().setSpaceBefore(8).run(),
+                    children: "Thêm khoảng trước đoạn",
+                  }),
+                  (0, t.jsx)(ng, {
+                    onSelect: () => c().setSpaceAfter(8).run(),
+                    children: "Thêm khoảng sau đoạn",
+                  }),
+                  (0, t.jsx)(ng, {
+                    onSelect: () =>
+                      c().setSpaceBefore(null).setSpaceAfter(null).run(),
+                    children: "Bỏ khoảng cách đoạn",
+                  }),
+                ],
+              }),
+            ],
+          }),
+          (0, t.jsxs)(t.Fragment, {
+            children: [
+              (0, t.jsx)(np, {
+                icon: e8.List,
+                title: "Danh sách dấu đầu dòng",
+                active: o.bullet,
+                disabled: d,
+                onClick: () => c().toggleBulletList().run(),
+              }),
+              (0, t.jsx)(np, {
+                icon: e6.ListOrdered,
+                title: "Danh sách đánh số",
+                active: o.ordered,
+                disabled: d,
+                onClick: () => c().toggleOrderedList().run(),
+              }),
+              (0, t.jsx)(np, {
+                icon: td.IndentDecrease,
+                title: "Giảm thụt lề",
+                disabled: d,
+                onClick: () => c().changeIndent(-1).run(),
+              }),
+              (0, t.jsx)(np, {
+                icon: tu.IndentIncrease,
+                title: "Tăng thụt lề",
+                disabled: d,
+                onClick: () => c().changeIndent(1).run(),
+              }),
+            ],
+          }),
+          (0, t.jsxs)(t.Fragment, {
+            children: [
+              (0, t.jsx)(np, {
+                icon: e9.Link,
+                title: "Chèn liên kết",
+                disabled: d,
+                onClick: () => l("link"),
+              }),
+              (0, t.jsx)(nx, {
+                label: (0, t.jsx)(tk.Table, {
+                  "aria-hidden": !0,
+                  className: "size-[18px]",
+                }),
+                title: "Chèn bảng",
+                disabled: d,
+                children: (0, t.jsx)(tV, {
+                  menu: "dropdown",
+                  disabled: d,
+                  onSelect: (e, t) =>
+                    c()
+                      .insertTable({ rows: e, cols: t, withHeaderRow: !1 })
+                      .run(),
+                  onMore: () => l("insertTable"),
+                }),
+              }),
+              (0, t.jsx)(np, {
+                icon: tc.Image,
+                title: "Chèn hình",
+                disabled: d,
+                onClick: () =>
+                  c()
+                    .insertContent({
+                      type: "examImage",
+                      attrs: { src: "", alt: "", width: 220, align: "center" },
+                    })
+                    .run(),
+              }),
+              (0, t.jsx)(np, {
+                icon: tl.BetweenHorizontalStart,
+                title: "Ngắt trang (Ctrl+Enter)",
+                disabled: d,
+                onClick: () => c().setPageBreak().run(),
+              }),
+            ],
+          }),
+        ],
+        T = [
+          x,
+          g,
+          f,
+          b,
+          w,
+          j,
+          k,
+          N,
+          C,
+          v,
+          y,
+          (0, t.jsx)(
+            np,
+            {
+              icon: tg.RemoveFormatting,
+              title: "Xoá định dạng",
+              disabled: d,
+              onClick: () =>
+                c()
+                  .unsetAllMarks()
+                  .clearParagraphFormat()
+                  .unsetTextAlign()
+                  .run(),
+            },
+            "clear-format",
+          ),
+        ];
+      return (
+        o.inGrid &&
+          T.push(
+            (0, t.jsxs)(t.Fragment, {
+              children: [
+                (0, t.jsx)(ts.Columns3, {
+                  "aria-hidden": !0,
+                  className: "mx-1 size-4 text-neutral-500",
+                }),
+                (0, t.jsxs)(nx, {
+                  label: o.gridAuto
+                    ? "Tự động xếp đáp án"
+                    : `${o.gridColumns} \xf4 / h\xe0ng`,
+                  title: "Số ô một hàng",
+                  disabled: d,
+                  children: [
+                    (0, t.jsx)(ng, {
+                      checked: o.gridAuto,
+                      onSelect: () => c().setGridAuto().run(),
+                      children: "Tự động theo độ rộng",
+                    }),
+                    [1, 2, 3, 4].map((e) =>
+                      (0, t.jsxs)(
+                        ng,
+                        {
+                          checked: !o.gridAuto && o.gridColumns === e,
+                          onSelect: () => c().setGridColumns(e).run(),
+                          children: [e, " ô / hàng"],
+                        },
+                        e,
+                      ),
+                    ),
+                  ],
+                }),
+                (0, t.jsx)(np, {
+                  icon: S.Plus,
+                  title: "Thêm ô (Tab ở ô cuối)",
+                  disabled: d,
+                  onClick: () => c().addGridCell().run(),
+                  children: "Ô",
+                }),
+                (0, t.jsx)(np, {
+                  icon: tm.Minus,
+                  title: "Xoá ô đang đứng",
+                  disabled: d,
+                  onClick: () => c().removeGridCell().run(),
+                  children: "Ô",
+                }),
+              ],
+            }),
+          ),
+        (0, t.jsxs)(nm.TooltipProvider, {
+          delayDuration: 100,
+          skipDelayDuration: 300,
+          disableHoverableContent: !0,
+          children: [
+            (0, t.jsx)(tS.FormatDialog, {
+              editor: e,
+              kind: s,
+              onClose: () => l(null),
+            }),
+            (0, t.jsx)(t2, { segments: T }),
+          ],
+        })
+      );
+    }
+    var nT = e.i(456539),
+      nS = e.i(552131);
+    function nA({ editor: e, open: n, replaceMode: r, onClose: i }) {
+      let [a, s] = (0, E.useState)(""),
+        [l, o] = (0, E.useState)(""),
+        [c, d] = (0, E.useState)(!1),
+        [u, h] = (0, E.useState)(null),
+        x = u ?? r,
+        g = () => {
+          (h(null), i());
+        },
+        [, f] = (0, E.useReducer)((e) => e + 1, 0),
+        b = (0, E.useRef)(null),
+        y = (0, E.useRef)(null);
+      ((0, E.useEffect)(() => {
+        if (!n) return;
+        let t = (t) => {
+          let n = document.activeElement;
+          "Escape" === t.key &&
+            !t.defaultPrevented &&
+            (!n || n === document.body || y.current?.contains(n)) &&
+            (h(null), i(), e?.commands.focus());
+        };
+        return (
+          document.addEventListener("keydown", t),
+          () => document.removeEventListener("keydown", t)
+        );
+      }, [n, e, i]),
+        (0, E.useEffect)(() => {
+          n &&
+            requestAnimationFrame(() => {
+              (b.current?.focus(), b.current?.select());
+            });
+        }, [n]),
+        (0, E.useEffect)(() => {
+          if (e)
+            return (
+              e.on("transaction", f),
+              () => {
+                e.off("transaction", f);
+              }
+            );
+        }, [e]),
+        (0, E.useEffect)(() => {
+          if (!e) return;
+          let t = requestAnimationFrame(() => {
+            n ? e.commands.setSearch(a, c) : e.commands.clearSearch();
+          });
+          return () => cancelAnimationFrame(t);
+        }, [e, n, a, c]));
+      let w = e ? nS.searchKey.getState(e.state) : void 0,
+        v = w?.matches.length ?? 0,
+        j = !!e?.isEditable;
+      return (0, t.jsx)(m.AnimatePresence, {
+        children:
+          n &&
+          (0, t.jsxs)(p.motion.div, {
+            ref: y,
+            initial: { opacity: 0, y: -12, scale: 0.98 },
+            animate: { opacity: 1, y: 0, scale: 1 },
+            exit: { opacity: 0, y: -8, scale: 0.98 },
+            transition: { duration: 0.16, ease: [0.2, 0, 0, 1] },
+            className:
+              "no-print absolute right-2 top-2 z-30 w-80 max-w-[calc(100%-1rem)] rounded-xl border border-neutral-200 bg-white p-2.5 text-[13px] shadow-lg sm:right-6",
+            onKeyDown: (t) => {
+              "Escape" === t.key &&
+                (t.stopPropagation(), g(), e?.commands.focus());
+            },
+            children: [
+              (0, t.jsxs)("div", {
+                className: "flex items-center gap-1",
+                children: [
+                  (0, t.jsx)("input", {
+                    ref: b,
+                    value: a,
+                    onChange: (e) => s(e.target.value),
+                    onKeyDown: (t) => {
+                      "Enter" === t.key &&
+                        (t.preventDefault(),
+                        e?.commands.stepSearch(t.shiftKey ? -1 : 1));
+                    },
+                    placeholder: "Tìm trong đề",
+                    className:
+                      "min-w-0 flex-1 rounded-md border border-neutral-300 px-2 py-1 outline-none focus:border-blue-600",
+                  }),
+                  (0, t.jsx)("span", {
+                    className:
+                      "w-14 shrink-0 text-center text-xs text-neutral-500",
+                    children: a ? (v ? `${w.current + 1}/${v}` : "0/0") : "",
+                  }),
+                  (0, t.jsx)("button", {
+                    type: "button",
+                    title: "Kết quả trước (Shift+Enter)",
+                    disabled: !v,
+                    onClick: () => e?.commands.stepSearch(-1),
+                    className:
+                      "rounded p-1 text-neutral-600 hover:bg-neutral-100 disabled:opacity-30",
+                    children: (0, t.jsx)(nT.ChevronUp, { className: "size-4" }),
+                  }),
+                  (0, t.jsx)("button", {
+                    type: "button",
+                    title: "Kết quả sau (Enter)",
+                    disabled: !v,
+                    onClick: () => e?.commands.stepSearch(1),
+                    className:
+                      "rounded p-1 text-neutral-600 hover:bg-neutral-100 disabled:opacity-30",
+                    children: (0, t.jsx)(ta.ChevronDown, {
+                      className: "size-4",
+                    }),
+                  }),
+                  (0, t.jsx)("button", {
+                    type: "button",
+                    title: "Đóng (Esc)",
+                    onClick: g,
+                    className:
+                      "rounded p-1 text-neutral-600 hover:bg-neutral-100",
+                    children: (0, t.jsx)(K.X, { className: "size-4" }),
+                  }),
+                ],
+              }),
+              (0, t.jsxs)("div", {
+                className:
+                  "mt-1.5 flex items-center justify-between text-xs text-neutral-600",
+                children: [
+                  (0, t.jsxs)("label", {
+                    className: "flex items-center gap-1.5",
+                    children: [
+                      (0, t.jsx)("input", {
+                        type: "checkbox",
+                        checked: c,
+                        onChange: (e) => d(e.target.checked),
+                      }),
+                      "Phân biệt hoa thường",
+                    ],
+                  }),
+                  j &&
+                    (0, t.jsx)("button", {
+                      type: "button",
+                      onClick: () => h(!x),
+                      className: "text-blue-700 hover:underline",
+                      children: x ? "Ẩn thay thế" : "Thay thế",
+                    }),
+                ],
+              }),
+              x &&
+                j &&
+                (0, t.jsxs)("div", {
+                  className: "mt-2 space-y-1.5",
+                  children: [
+                    (0, t.jsx)("input", {
+                      value: l,
+                      onChange: (e) => o(e.target.value),
+                      placeholder: "Thay bằng",
+                      className:
+                        "w-full rounded-md border border-neutral-300 px-2 py-1 outline-none focus:border-blue-600",
+                    }),
+                    (0, t.jsxs)("div", {
+                      className: "flex justify-end gap-1.5",
+                      children: [
+                        (0, t.jsx)("button", {
+                          type: "button",
+                          disabled: !v,
+                          onClick: () => e?.commands.replaceCurrent(l),
+                          className:
+                            "rounded-full border border-neutral-300 px-3 py-1 text-xs hover:bg-neutral-100 disabled:opacity-40",
+                          children: "Thay",
+                        }),
+                        (0, t.jsx)("button", {
+                          type: "button",
+                          disabled: !v,
+                          onClick: () => e?.commands.replaceAll(l),
+                          className:
+                            "rounded-full bg-[#37352f] px-3 py-1 text-xs text-white hover:bg-[#1f1e1b] disabled:opacity-40",
+                          children: "Thay tất cả",
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+            ],
+          }),
+      });
+    }
+    var nE = e.i(926787),
+      nM = e.i(590582),
+      n$ = e.i(973134),
+      nD = e.i(781947),
+      nI = e.i(167881),
+      nL = e.i(630374),
+      nR = e.i(23750),
+      nz = e.i(939717);
+    async function n_(e) {
+      var t;
+      let n,
+        r,
+        i = new N.default();
+      for (let [a, s] of Object.entries(
+        ((t = e),
+        (n = []),
+        (r = (0, nz.excelRows)(t)
+          .map(
+            (e, t) =>
+              `<row r="${t + 1}">${e
+                .map((e, r) => {
+                  var i;
+                  let a;
+                  return e
+                    ? ((i = `${(function (e) {
+                        let t = "";
+                        for (let n = e + 1; n > 0; n = Math.floor((n - 1) / 26))
+                          t = String.fromCharCode(65 + ((n - 1) % 26)) + t;
+                        return t;
+                      })(r)}${t + 1}`),
+                      `<c r="${i}" ${/^(0|-?[1-9]\d*)$/.test(e) ? `><v>${e}</v>` : ((a = n.indexOf(e)) < 0 && (a = n.push(e) - 1), `t="s"><v>${a}</v>`)}</c>`)
+                    : "";
+                })
+                .join("")}</row>`,
+          )
+          .join("")),
+        {
+          "[Content_Types].xml": `${nP}<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/sharedStrings.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sharedStrings+xml"/></Types>`,
+          "_rels/.rels": `${nP}<Relationships xmlns="${nF}"><Relationship Id="rId1" Type="${nq}/officeDocument" Target="xl/workbook.xml"/></Relationships>`,
+          "xl/workbook.xml": `${nP}<workbook xmlns="${nH}" xmlns:r="${nq}"><sheets><sheet name="DapAn" sheetId="1" r:id="rId1"/></sheets></workbook>`,
+          "xl/_rels/workbook.xml.rels": `${nP}<Relationships xmlns="${nF}"><Relationship Id="rId1" Type="${nq}/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="${nq}/sharedStrings" Target="sharedStrings.xml"/></Relationships>`,
+          "xl/worksheets/sheet1.xml": `${nP}<worksheet xmlns="${nH}"><sheetData>${r}</sheetData></worksheet>`,
+          "xl/sharedStrings.xml":
+            `${nP}<sst xmlns="${nH}" count="${n.length}" uniqueCount="${n.length}">` +
+            n
+              .map(
+                (e) =>
+                  `<si><t>${e.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")}</t></si>`,
+              )
+              .join("") +
+            "</sst>",
+        }),
+      ))
+        i.file(a, s);
+      return i.generateAsync({
+        type: "blob",
+        mimeType:
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        compression: "DEFLATE",
+      });
+    }
+    let nP = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n',
+      nH = "http://schemas.openxmlformats.org/spreadsheetml/2006/main",
+      nq =
+        "http://schemas.openxmlformats.org/officeDocument/2006/relationships",
+      nF = "http://schemas.openxmlformats.org/package/2006/relationships";
+    var nB = e.i(509742);
+    let nO = Object.keys(nz.KIND_LABEL),
+      nW = { choice: "", trueFalse: "ĐSĐS", shortAnswer: "-1,5", essay: "" };
+    function nX({
+      codes: e,
+      issues: n,
+      onCode: r,
+      onAnswer: i,
+      onKind: a,
+      onRemove: s,
+    }) {
+      let l = Math.max(0, ...e.map((e) => e.items.length)),
+        o = new Set(
+          n
+            .filter((e) => void 0 !== e.code && void 0 === e.index)
+            .map((e) => e.code),
+        ),
+        c = new Map();
+      for (let e of n)
+        void 0 !== e.code &&
+          void 0 !== e.index &&
+          c.set(`${e.code}:${e.index}`, e.message);
+      return (0, t.jsx)("div", {
+        className:
+          "max-h-[52dvh] overflow-auto rounded-xl border border-[#e3e2e0]",
+        children: (0, t.jsxs)("table", {
+          className:
+            "w-max min-w-full border-separate border-spacing-0 text-sm",
+          children: [
+            (0, t.jsx)("thead", {
+              className: "text-left text-xs text-[#5f5e5b]",
+              children: (0, t.jsxs)("tr", {
+                children: [
+                  (0, t.jsx)("th", {
+                    className:
+                      "sticky top-0 left-0 z-30 border-b border-[#e3e2e0] bg-[#f7f6f3] px-2.5 py-1.5 font-medium",
+                    children: "Câu",
+                  }),
+                  (0, t.jsx)("th", {
+                    className:
+                      "sticky top-0 z-20 border-b border-[#e3e2e0] bg-[#f7f6f3] px-2 py-1.5 font-medium",
+                    children: "Dạng",
+                  }),
+                  e.map((e, n) =>
+                    (0, t.jsx)(
+                      "th",
+                      {
+                        className:
+                          "sticky top-0 z-20 border-b border-[#e3e2e0] bg-[#f7f6f3] py-1.5 pr-0 pl-1 font-medium",
+                        children: (0, t.jsxs)("div", {
+                          className: "flex items-center",
+                          children: [
+                            (0, t.jsx)("input", {
+                              "aria-label": `M\xe3 đề thứ ${n + 1}`,
+                              value: e.code,
+                              inputMode: "numeric",
+                              maxLength: 4,
+                              placeholder: "Mã đề",
+                              onChange: (e) =>
+                                r(n, e.target.value.replace(/\D/g, "")),
+                              className: `h-7 w-[3.25rem] rounded-md border bg-white px-1 text-center text-xs font-semibold text-[#37352f] outline-none focus-visible:border-[#2383e2] ${o.has(n) ? "border-[#d44c47]" : "border-[#e3e2e0]"}`,
+                            }),
+                            (0, t.jsx)("button", {
+                              type: "button",
+                              "aria-label": `Bỏ m\xe3 đề ${e.code || `thứ ${n + 1}`} khỏi bảng đ\xe1p \xe1n`,
+                              title: "Bỏ mã đề này khỏi bảng đáp án",
+                              onClick: () => s(n),
+                              className:
+                                "rounded p-0.5 text-[#9b9a97] hover:bg-[#e3e2e0] hover:text-[#37352f]",
+                              children: (0, t.jsx)(K.X, {
+                                "aria-hidden": !0,
+                                className: "size-3",
+                              }),
+                            }),
+                          ],
+                        }),
+                      },
+                      n,
+                    ),
+                  ),
+                ],
+              }),
+            }),
+            (0, t.jsx)("tbody", {
+              children: Array.from({ length: l }, (n, r) => {
+                let s = e.find((e) => e.items[r])?.items[r];
+                return s
+                  ? (0, t.jsxs)(
+                      "tr",
+                      {
+                        children: [
+                          (0, t.jsx)("th", {
+                            scope: "row",
+                            className:
+                              "sticky left-0 z-10 border-b border-[#efeeec] bg-white px-2.5 py-1 text-left font-normal whitespace-nowrap text-[#37352f]",
+                            children: s.label,
+                          }),
+                          (0, t.jsx)("td", {
+                            className: "border-b border-[#efeeec] px-2 py-1",
+                            children: (0, t.jsx)("select", {
+                              "aria-label": `Dạng của ${s.label}`,
+                              value: s.kind,
+                              onChange: (e) => a(r, e.target.value),
+                              className:
+                                "h-7 rounded-md border border-[#e3e2e0] bg-white px-1 text-xs text-[#37352f] outline-none focus-visible:border-[#2383e2]",
+                              children: nO.map((e) =>
+                                (0, t.jsx)(
+                                  "option",
+                                  { value: e, children: nz.KIND_LABEL[e] },
+                                  e,
+                                ),
+                              ),
+                            }),
+                          }),
+                          e.map((e, n) => {
+                            let a = e.items[r];
+                            if (!a || "essay" === a.kind)
+                              return (0, t.jsx)(
+                                "td",
+                                {
+                                  className:
+                                    "border-b border-[#efeeec] py-1 pr-0 pl-1 text-center text-xs text-[#9b9a97]",
+                                  children: a ? "Chấm tay" : "thiếu",
+                                },
+                                n,
+                              );
+                            let o =
+                                c.get(`${n}:${r}`) ?? (0, nz.answerProblem)(a),
+                              d = `m\xe3 đề ${e.code || `thứ ${n + 1}`}`;
+                            return (0, t.jsx)(
+                              "td",
+                              {
+                                className:
+                                  "border-b border-[#efeeec] py-1 pr-0 pl-1",
+                                children: (0, t.jsx)("input", {
+                                  "data-cell": `${n}:${r}`,
+                                  "aria-label": `Đ\xe1p \xe1n ${s.label}, ${d}`,
+                                  "aria-invalid": !!o,
+                                  title:
+                                    o ||
+                                    (a.solved
+                                      ? "AI tự giải, thầy cô nên xem lại"
+                                      : void 0),
+                                  value: a.answer,
+                                  placeholder: nW[a.kind],
+                                  onFocus: (e) => e.target.select(),
+                                  onKeyDown: (e) =>
+                                    ((e, t, n) => {
+                                      let r =
+                                        "ArrowUp" === e.key
+                                          ? -1
+                                          : +(
+                                              "ArrowDown" === e.key ||
+                                              "Enter" === e.key
+                                            );
+                                      if (!r) return;
+                                      let i = e.currentTarget.closest("table");
+                                      for (
+                                        let a = n + r;
+                                        a >= 0 && a < l;
+                                        a += r
+                                      ) {
+                                        let n = i?.querySelector(
+                                          `input[data-cell="${t}:${a}"]`,
+                                        );
+                                        if (n) {
+                                          (e.preventDefault(), n.focus());
+                                          return;
+                                        }
+                                      }
+                                    })(e, n, r),
+                                  onChange: (e) => {
+                                    let t = (0, nz.normalizeAnswer)(
+                                      a.kind,
+                                      e.target.value,
+                                    );
+                                    i(
+                                      n,
+                                      r,
+                                      "choice" === a.kind ? t.slice(-1) : t,
+                                    );
+                                  },
+                                  className: `h-7 w-[3.25rem] rounded-md border px-0.5 text-center text-sm text-[#37352f] outline-none focus-visible:border-[#2383e2] ${o ? "border-[#d44c47]" : "border-[#e3e2e0]"} ${a.solved ? "bg-[#fff7e6]" : "bg-white"}`,
+                                }),
+                              },
+                              n,
+                            );
+                          }),
+                        ],
+                      },
+                      r,
+                    )
+                  : null;
+              }),
+            }),
+          ],
+        }),
+      });
+    }
+    let nG = Object.keys(nz.KIND_LABEL),
+      nK =
+        "h-8 rounded-md border border-[#e3e2e0] bg-white px-2 text-sm text-[#37352f] outline-none focus-visible:border-[#2383e2]";
+    function nU({
+      open: e,
+      onOpenChange: n,
+      exam: r,
+      fileBase: i,
+      initialCodes: s,
+    }) {
+      let o,
+        [d, u] = (0, E.useState)(null),
+        [m, p] = (0, E.useState)(""),
+        [g, f] = (0, E.useState)(!1),
+        [b, y] = (0, E.useState)(null),
+        [w, v] = (0, E.useState)("bgd2025"),
+        [k, C] = (0, E.useState)({ key: "", urls: [] }),
+        [T, S] = (0, E.useState)(0),
+        [A, M] = (0, E.useState)(!1),
+        $ = (0, E.useRef)(null),
+        [D, I] = (0, E.useState)(null);
+      e &&
+        s?.length &&
+        s !== D &&
+        (I(s),
+        u(
+          s.map((e) => ({
+            code: e.code,
+            items: e.items.map((e) => ({ ...e })),
+          })),
+        ),
+        p(r.content),
+        S(0));
+      let z = (0, E.useMemo)(
+          () => (d ? (0, nz.checkAnswerKey)(d, w) : []),
+          [d, w],
+        ),
+        _ = z.filter((e) => "error" === e.level),
+        H = z.filter((e) => "warning" === e.level),
+        q = !!d && 0 === _.length,
+        F = (0, E.useMemo)(
+          () => (q && d ? (0, nz.tnmakerQrPayloads)(d, w) : []),
+          [q, d, w],
+        ),
+        W = F.map((e) => e.payload).join("\n");
+      (0, E.useEffect)(() => {
+        if (!W) return;
+        let e = !1;
+        return (
+          Promise.all(
+            W.split("\n").map((e) =>
+              n$.default.toDataURL(e, {
+                errorCorrectionLevel: "M",
+                margin: 4,
+                width: 720,
+              }),
+            ),
+          )
+            .then((t) => !e && C({ key: W, urls: t }))
+            .catch(() => {}),
+          () => {
+            e = !0;
+          }
+        );
+      }, [W]);
+      let X = W && k.key === W ? k.urls : [],
+        K = Math.min(T, Math.max(0, F.length - 1)),
+        U = async () => {
+          if (!(0, l.readSession)()) return void (0, l.requestLogin)();
+          if (!r.content.trim())
+            return void y({
+              message: "Đề đang trống, chưa có gì để quét.",
+              quota: !1,
+            });
+          (($.current = new AbortController()), f(!0), y(null));
+          try {
+            let e = await (0, et.requestAnswerKey)(
+                { title: r.title, content: r.content },
+                { signal: $.current.signal },
+              ),
+              t = (0, nB.prepareAnswerKeys)(e.codes, r.content, "0101");
+            (u(t), p(r.content), S(0));
+            let n = t.flatMap((e) => e.items);
+            (0, ee.track)("tnmaker_scan", {
+              codes: t.length,
+              questions: n.length,
+              solved: n.filter((e) => e.solved).length,
+            });
+          } catch (e) {
+            if (e instanceof DOMException && "AbortError" === e.name) return;
+            (e instanceof a.ApiError &&
+              401 === e.status &&
+              (0, l.requestLogin)(),
+              y({
+                message: (0, a.formatApiError)(e),
+                quota: e instanceof a.ApiError && "quota_exhausted" === e.code,
+              }));
+          } finally {
+            f(!1);
+          }
+        },
+        V = (e, t, n) =>
+          u(
+            (r) =>
+              r &&
+              r.map((r, i) =>
+                i === e
+                  ? {
+                      ...r,
+                      items: r.items.map((e, r) =>
+                        r === t ? { ...e, ...n } : e,
+                      ),
+                    }
+                  : r,
+              ),
+          ),
+        J = (e, t) =>
+          u((n) => n && n.map((n, r) => (r === e ? { ...n, code: t } : n))),
+        Q = (e, t) =>
+          u(
+            (n) =>
+              n &&
+              n.map((n) => ({
+                ...n,
+                items: n.items.map((n, r) =>
+                  r === e
+                    ? {
+                        ...n,
+                        kind: t,
+                        answer: (0, nz.normalizeAnswer)(t, n.answer),
+                      }
+                    : n,
+                ),
+              })),
+          ),
+        Y = (e) => `${i}-tnmaker-qr${F.length > 1 ? `-${e + 1}` : ""}.png`,
+        Z = async () => {
+          ((0, h.saveAs)(await (await fetch(X[K])).blob(), Y(K)),
+            (0, ee.track)("exam_export", { format: "tnmaker_qr" }));
+        },
+        en = async () => {
+          let e = new N.default();
+          (X.forEach((t, n) =>
+            e.file(Y(n), t.slice(t.indexOf(",") + 1), { base64: !0 }),
+          ),
+            (0, h.saveAs)(
+              await e.generateAsync({ type: "blob" }),
+              `${i}-tnmaker-qr.zip`,
+            ),
+            (0, ee.track)("exam_export", { format: "tnmaker_qr_zip" }));
+        },
+        er = async () => {
+          d &&
+            ((0, h.saveAs)(await n_(d), `${i}-dap-an-tnmaker.xlsx`),
+            (0, ee.track)("exam_export", { format: "tnmaker_xlsx" }));
+        },
+        ei = !!d && m !== r.content,
+        ea = !!d && d.length > 1,
+        es = d?.[0]?.items ?? [],
+        el = (0, nz.gradableItems)(es),
+        eo = d
+          ? d
+              .flatMap((e) => (0, nz.gradableItems)(e.items))
+              .filter((e) => e.solved).length
+          : 0,
+        ec = (0, E.useMemo)(() => {
+          let e = (0, nz.examCodesInText)(m);
+          return d && e.length > 1
+            ? e.filter((e) => !d.some((t) => t.code === e))
+            : [];
+        }, [d, m]),
+        ed = [..._, ...H].filter((e) => void 0 === e.index),
+        eu = _.filter((e) => void 0 !== e.index),
+        eh =
+          d &&
+          (0, t.jsxs)("div", {
+            className: "flex flex-wrap items-end gap-3",
+            children: [
+              !ea &&
+                (0, t.jsxs)("label", {
+                  className: "text-xs text-[#5f5e5b]",
+                  children: [
+                    "Mã đề",
+                    (0, t.jsx)(nR.Input, {
+                      value: d[0].code,
+                      inputMode: "numeric",
+                      maxLength: 4,
+                      onChange: (e) => J(0, e.target.value.replace(/\D/g, "")),
+                      className: "mt-1 h-8 w-20",
+                    }),
+                  ],
+                }),
+              (0, t.jsxs)("label", {
+                className: "min-w-0 flex-1 text-xs text-[#5f5e5b]",
+                children: [
+                  "Mẫu phiếu in cho học sinh",
+                  (0, t.jsx)("select", {
+                    value: w,
+                    onChange: (e) => v(e.target.value),
+                    className: `${nK} mt-1 block w-full`,
+                    children: Object.keys(nz.SHEETS).map((e) =>
+                      (0, t.jsx)(
+                        "option",
+                        { value: e, children: nz.SHEETS[e].label },
+                        e,
+                      ),
+                    ),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        em = (0, t.jsxs)(nI.Button, {
+          size: "sm",
+          variant: "outline",
+          onClick: er,
+          children: [
+            (0, t.jsx)(P.Download, { "aria-hidden": !0 }),
+            " Tải Excel (.xlsx)",
+          ],
+        }),
+        ep =
+          d &&
+          (0, t.jsx)(t.Fragment, {
+            children:
+              q && X.length > 0
+                ? (0, t.jsxs)("div", {
+                    className:
+                      "mt-3 rounded-xl border border-[#e3e2e0] bg-white p-3 text-center",
+                    children: [
+                      F.length > 1 &&
+                        (0, t.jsxs)("div", {
+                          className:
+                            "mb-2 flex items-center justify-center gap-2 text-sm text-[#37352f]",
+                          children: [
+                            (0, t.jsx)(nI.Button, {
+                              size: "icon-sm",
+                              variant: "outline",
+                              "aria-label": "Mã QR trước",
+                              disabled: 0 === K,
+                              onClick: () => S(K - 1),
+                              children: (0, t.jsx)(L.ChevronLeft, {
+                                "aria-hidden": !0,
+                              }),
+                            }),
+                            (0, t.jsxs)("span", {
+                              "aria-live": "polite",
+                              children: [
+                                (0, t.jsxs)("b", {
+                                  children: ["Mã QR ", K + 1, "/", F.length],
+                                }),
+                                " ",
+                                "· mã đề ",
+                                (o = F[K].codes).length > 1
+                                  ? `${o[0]}–${o[o.length - 1]}`
+                                  : o[0],
+                              ],
+                            }),
+                            (0, t.jsx)(nI.Button, {
+                              size: "icon-sm",
+                              variant: "outline",
+                              "aria-label": "Mã QR sau",
+                              disabled: K === F.length - 1,
+                              onClick: () => S(K + 1),
+                              children: (0, t.jsx)(R.ChevronRight, {
+                                "aria-hidden": !0,
+                              }),
+                            }),
+                          ],
+                        }),
+                      (0, t.jsx)("img", {
+                        src: X[K],
+                        alt: `M\xe3 QR đ\xe1p \xe1n m\xe3 đề ${F[K].codes.join(", ")} cho TNMaker`,
+                        className: `mx-auto aspect-square w-full ${A ? "max-w-[min(70dvh,560px)]" : ea ? "max-w-[220px]" : "max-w-[280px]"}`,
+                        style: { imageRendering: "pixelated" },
+                      }),
+                      (0, t.jsxs)("div", {
+                        className: "mt-2 flex flex-wrap justify-center gap-2",
+                        children: [
+                          (0, t.jsxs)(nI.Button, {
+                            size: "sm",
+                            variant: "outline",
+                            onClick: () => M((e) => !e),
+                            children: [
+                              A
+                                ? (0, t.jsx)(nM.Minimize2, {
+                                    "aria-hidden": !0,
+                                  })
+                                : (0, t.jsx)(nE.Maximize2, {
+                                    "aria-hidden": !0,
+                                  }),
+                              " ",
+                              A ? "Thu nhỏ" : "Phóng to để quét",
+                            ],
+                          }),
+                          (0, t.jsxs)(nI.Button, {
+                            size: "sm",
+                            variant: "outline",
+                            onClick: Z,
+                            children: [
+                              (0, t.jsx)(P.Download, { "aria-hidden": !0 }),
+                              " ",
+                              F.length > 1
+                                ? "Tải ảnh QR này"
+                                : "Tải ảnh QR (.png)",
+                            ],
+                          }),
+                          F.length > 1 &&
+                            (0, t.jsxs)(nI.Button, {
+                              size: "sm",
+                              variant: "outline",
+                              onClick: en,
+                              children: [
+                                (0, t.jsx)(P.Download, { "aria-hidden": !0 }),
+                                " Tải cả ",
+                                F.length,
+                                " ảnh QR (.zip)",
+                              ],
+                            }),
+                          em,
+                        ],
+                      }),
+                    ],
+                  })
+                : q && d.length > nz.QR_MAX_CODES
+                  ? (0, t.jsxs)("div", {
+                      className:
+                        "mt-3 rounded-xl border border-[#e3e2e0] bg-white p-4 text-center text-sm text-[#5f5e5b]",
+                      children: [
+                        (0, t.jsxs)("p", {
+                          children: [
+                            "Đề có ",
+                            d.length,
+                            " mã đề, TNMaker chỉ nhận tối đa ",
+                            nz.QR_MAX_CODES,
+                            " mã đề qua mã QR. Thầy cô tải file Excel rồi nhập vào TNMaker.",
+                          ],
+                        }),
+                        (0, t.jsx)("div", {
+                          className: "mt-2 flex justify-center",
+                          children: em,
+                        }),
+                      ],
+                    })
+                  : (0, t.jsx)("div", {
+                      className:
+                        "mt-3 rounded-xl border border-dashed border-[#e3e2e0] p-5 text-center text-sm text-[#5f5e5b]",
+                      children: q
+                        ? "Đang tạo mã QR…"
+                        : ea
+                          ? "Sửa các lỗi (ô viền đỏ) để hiện mã QR và tải file."
+                          : "Sửa các lỗi bên dưới để hiện mã QR và tải file.",
+                    }),
+          }),
+        ex =
+          d &&
+          q &&
+          F.length > 0 &&
+          (0, t.jsxs)("ol", {
+            className:
+              "mt-3 list-decimal space-y-1 pl-5 text-sm text-[#5f5e5b]",
+            children: [
+              (0, t.jsxs)("li", {
+                children: [
+                  "Trong TNMaker, tạo bài kiểm tra và chọn loại phiếu",
+                  " ",
+                  (0, t.jsx)("b", {
+                    children:
+                      "bgd2025" === w
+                        ? "TLTN-BGD-2025"
+                        : "theo số câu của phiếu đã in",
+                  }),
+                  ".",
+                ],
+              }),
+              F.length > 1
+                ? (0, t.jsxs)("li", {
+                    children: [
+                      "Mở mục Đáp án, bấm biểu tượng mã QR rồi ",
+                      (0, t.jsxs)("b", {
+                        children: ["quét lần lượt cả ", F.length, " mã QR"],
+                      }),
+                      " (bấm mũi tên để chuyển mã).",
+                    ],
+                  })
+                : (0, t.jsx)("li", {
+                    children:
+                      "Mở mục Đáp án, bấm biểu tượng mã QR rồi quét mã trên màn hình này.",
+                  }),
+              (0, t.jsx)("li", {
+                children: ea
+                  ? `Kiểm tra lại đủ ${d.length} m\xe3 đề, mỗi m\xe3 ${el.length} c\xe2u đ\xe3 được nạp, sau đ\xf3 chấm phiếu.`
+                  : `Kiểm tra lại m\xe3 đề ${d[0].code} v\xe0 ${el.length} c\xe2u đ\xe3 được nạp, sau đ\xf3 chấm phiếu.`,
+              }),
+              ea &&
+                (0, t.jsx)("li", {
+                  children:
+                    "Hoặc tải file Excel rồi nhập trong TNMaker: một file chứa đủ mọi mã đề.",
+                }),
+            ],
+          }),
+        eg =
+          d &&
+          (0, t.jsxs)(t.Fragment, {
+            children: [
+              (0, t.jsxs)("p", {
+                className: "text-sm text-[#37352f]",
+                children: [
+                  ea &&
+                    (0, t.jsxs)("b", {
+                      children: [d.length, " mã đề · mỗi mã "],
+                    }),
+                  ["choice", "trueFalse", "shortAnswer", "essay"]
+                    .map((e) => [
+                      es.filter((t) => t.kind === e).length,
+                      nz.KIND_LABEL[e].toLowerCase(),
+                    ])
+                    .filter(([e]) => e > 0)
+                    .map(([e, t]) => `${e} c\xe2u ${t}`)
+                    .join(" · "),
+                ],
+              }),
+              eo > 0 &&
+                (0, t.jsx)("p", {
+                  className: "mt-1 text-xs text-[#8a5a00]",
+                  children: ea
+                    ? `${eo} đ\xe1p \xe1n chưa c\xf3 trong đề n\xean AI tự giải (\xf4 nền v\xe0ng). AI c\xf3 thể sai, thầy c\xf4 n\xean xem lại c\xe1c \xf4 đ\xf3.`
+                    : `${eo} c\xe2u chưa c\xf3 đ\xe1p \xe1n trong đề n\xean AI tự giải. AI c\xf3 thể sai, thầy c\xf4 n\xean xem lại c\xe1c c\xe2u gắn nh\xe3n “AI giải”.`,
+                }),
+              ei &&
+                (0, t.jsxs)("p", {
+                  className:
+                    "mt-2 flex items-center gap-1.5 rounded-lg bg-[#fff7e6] px-2.5 py-1.5 text-xs text-[#8a5a00]",
+                  children: [
+                    (0, t.jsx)(x.AlertTriangle, {
+                      "aria-hidden": !0,
+                      className: "size-3.5 shrink-0",
+                    }),
+                    " Đề đã thay đổi sau lần quét này, đáp án có thể không còn khớp.",
+                  ],
+                }),
+              ec.length > 0 &&
+                (0, t.jsxs)("p", {
+                  className:
+                    "mt-2 flex items-center gap-1.5 rounded-lg bg-[#fff7e6] px-2.5 py-1.5 text-xs text-[#8a5a00]",
+                  children: [
+                    (0, t.jsx)(x.AlertTriangle, {
+                      "aria-hidden": !0,
+                      className: "size-3.5 shrink-0",
+                    }),
+                    " Trong đề có mã đề ",
+                    ec.join(", "),
+                    " nhưng bảng đáp án chưa có. Thầy cô quét lại đề nếu cần các mã này.",
+                  ],
+                }),
+              ed.map((e) =>
+                (0, t.jsx)(
+                  "p",
+                  {
+                    className: `mt-2 text-xs ${"error" === e.level ? "text-[#d44c47]" : "text-[#5f5e5b]"}`,
+                    children: e.message,
+                  },
+                  e.message,
+                ),
+              ),
+              ea &&
+                eu.length > 0 &&
+                (0, t.jsxs)("div", {
+                  className: "mt-2 text-xs text-[#d44c47]",
+                  children: [
+                    (0, t.jsxs)("p", {
+                      children: [
+                        eu.length,
+                        " ô đáp án cần sửa (ô viền đỏ trong bảng):",
+                      ],
+                    }),
+                    (0, t.jsxs)("ul", {
+                      className: "mt-0.5 list-disc pl-5",
+                      children: [
+                        eu
+                          .slice(0, 4)
+                          .map((e) =>
+                            (0, t.jsx)(
+                              "li",
+                              { children: e.message },
+                              e.message,
+                            ),
+                          ),
+                        eu.length > 4 &&
+                          (0, t.jsxs)("li", {
+                            children: ["và ", eu.length - 4, " ô khác."],
+                          }),
+                      ],
+                    }),
+                  ],
+                }),
+            ],
+          }),
+        ef = (0, t.jsxs)("div", {
+          className: "mt-3 flex flex-wrap items-center gap-2",
+          children: [
+            (0, t.jsxs)(nI.Button, {
+              size: "sm",
+              variant: "outline",
+              onClick: U,
+              disabled: g,
+              children: [
+                g
+                  ? (0, t.jsx)(j.Loader2, {
+                      "aria-hidden": !0,
+                      className: "animate-spin",
+                    })
+                  : (0, t.jsx)(B.RefreshCw, { "aria-hidden": !0 }),
+                g ? "Đang quét lại…" : "Quét lại đề",
+              ],
+            }),
+            (0, t.jsx)("span", {
+              className: "text-xs text-[#9b9a97]",
+              children: "Quét lại sẽ trừ điểm; sửa tay đáp án thì không.",
+            }),
+          ],
+        });
+      return (0, t.jsx)(nL.Dialog, {
+        open: e,
+        onOpenChange: (e) => {
+          (e || $.current?.abort(), n(e));
+        },
+        children: (0, t.jsxs)(nL.DialogContent, {
+          className: `max-h-[92dvh] overflow-y-auto ${ea ? "sm:max-w-6xl" : "sm:max-w-4xl"}`,
+          children: [
+            (0, t.jsxs)(nL.DialogHeader, {
+              children: [
+                (0, t.jsxs)(nL.DialogTitle, {
+                  className: "flex items-center gap-2 text-xl font-normal",
+                  children: [
+                    (0, t.jsx)(O.ScanLine, {
+                      "aria-hidden": !0,
+                      className: "size-5 text-[#2383e2]",
+                    }),
+                    " Đáp án cho TNMaker",
+                  ],
+                }),
+                (0, t.jsx)(nL.DialogDescription, {
+                  children:
+                    "AI đọc cả đề và lập bảng đáp án. Thầy cô quét mã QR bằng ứng dụng TNMaker hoặc tải file Excel để nạp đáp án, rồi chấm phiếu như bình thường.",
+                }),
+              ],
+            }),
+            b &&
+              (0, t.jsx)(nD.Alert, {
+                variant: "destructive",
+                children: (0, t.jsxs)(nD.AlertDescription, {
+                  className: "whitespace-pre-line",
+                  children: [
+                    b.message,
+                    b.quota &&
+                      (0, t.jsx)(c.default, {
+                        href: "/missions",
+                        className: "mt-1 block underline",
+                        children: "Đi tới Nhiệm vụ để nhận thêm điểm",
+                      }),
+                  ],
+                }),
+              }),
+            d
+              ? ea
+                ? (0, t.jsxs)("div", {
+                    className: "min-w-0",
+                    children: [
+                      (0, t.jsxs)("div", {
+                        className: `grid gap-5 ${A ? "" : "md:grid-cols-[minmax(0,340px)_minmax(0,1fr)]"}`,
+                        children: [
+                          (0, t.jsxs)("section", {
+                            className: "min-w-0",
+                            children: [eh, ep],
+                          }),
+                          (0, t.jsxs)("section", {
+                            className: "min-w-0",
+                            children: [eg, ex],
+                          }),
+                        ],
+                      }),
+                      (0, t.jsx)("div", {
+                        className: "mt-4",
+                        children: (0, t.jsx)(nX, {
+                          codes: d,
+                          issues: _,
+                          onCode: J,
+                          onAnswer: (e, t, n) => V(e, t, { answer: n }),
+                          onKind: Q,
+                          onRemove: (e) =>
+                            u((t) =>
+                              t && t.length > 1
+                                ? t.filter((t, n) => n !== e)
+                                : t,
+                            ),
+                        }),
+                      }),
+                      ef,
+                    ],
+                  })
+                : (0, t.jsxs)("div", {
+                    className:
+                      "grid gap-5 md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]",
+                    children: [
+                      (0, t.jsxs)("section", {
+                        className: A ? "md:col-span-2" : "",
+                        children: [eh, ep, ex],
+                      }),
+                      (0, t.jsxs)("section", {
+                        className: "min-w-0",
+                        children: [
+                          eg,
+                          (0, t.jsx)("div", {
+                            className:
+                              "mt-2 max-h-[46dvh] overflow-y-auto rounded-xl border border-[#e3e2e0]",
+                            children: (0, t.jsxs)("table", {
+                              className: "w-full text-sm",
+                              children: [
+                                (0, t.jsx)("thead", {
+                                  className:
+                                    "sticky top-0 bg-[#f7f6f3] text-left text-xs text-[#5f5e5b]",
+                                  children: (0, t.jsxs)("tr", {
+                                    children: [
+                                      (0, t.jsx)("th", {
+                                        className: "px-2.5 py-1.5 font-medium",
+                                        children: "Câu",
+                                      }),
+                                      (0, t.jsx)("th", {
+                                        className: "px-2 py-1.5 font-medium",
+                                        children: "Dạng",
+                                      }),
+                                      (0, t.jsx)("th", {
+                                        className: "px-2 py-1.5 font-medium",
+                                        children: "Đáp án",
+                                      }),
+                                    ],
+                                  }),
+                                }),
+                                (0, t.jsx)("tbody", {
+                                  children: es.map((e, n) => {
+                                    let r = (0, nz.answerProblem)(e);
+                                    return (0, t.jsxs)(
+                                      "tr",
+                                      {
+                                        className:
+                                          "border-t border-[#efeeec] align-top",
+                                        children: [
+                                          (0, t.jsxs)("td", {
+                                            className:
+                                              "px-2.5 py-1.5 text-[#37352f]",
+                                            children: [
+                                              e.label,
+                                              e.solved &&
+                                                "essay" !== e.kind &&
+                                                (0, t.jsx)("span", {
+                                                  className:
+                                                    "ml-1.5 rounded bg-[#fff7e6] px-1 py-0.5 text-[10px] text-[#8a5a00]",
+                                                  children: "AI giải",
+                                                }),
+                                            ],
+                                          }),
+                                          (0, t.jsx)("td", {
+                                            className: "px-2 py-1.5",
+                                            children: (0, t.jsx)("select", {
+                                              "aria-label": `Dạng của ${e.label}`,
+                                              value: e.kind,
+                                              onChange: (e) =>
+                                                Q(n, e.target.value),
+                                              className: `${nK} h-7 max-w-[9.5rem] text-xs`,
+                                              children: nG.map((e) =>
+                                                (0, t.jsx)(
+                                                  "option",
+                                                  {
+                                                    value: e,
+                                                    children: nz.KIND_LABEL[e],
+                                                  },
+                                                  e,
+                                                ),
+                                              ),
+                                            }),
+                                          }),
+                                          (0, t.jsxs)("td", {
+                                            className: "px-2 py-1.5",
+                                            children: [
+                                              "essay" === e.kind
+                                                ? (0, t.jsx)("span", {
+                                                    className:
+                                                      "text-xs text-[#9b9a97]",
+                                                    children: "Chấm tay",
+                                                  })
+                                                : "choice" === e.kind
+                                                  ? (0, t.jsx)("div", {
+                                                      className: "flex gap-1",
+                                                      children: [
+                                                        "A",
+                                                        "B",
+                                                        "C",
+                                                        "D",
+                                                      ].map((r) =>
+                                                        (0, t.jsx)(
+                                                          "button",
+                                                          {
+                                                            type: "button",
+                                                            "aria-pressed":
+                                                              e.answer === r,
+                                                            onClick: () =>
+                                                              V(0, n, {
+                                                                answer: r,
+                                                              }),
+                                                            className: `size-7 rounded-md border text-xs ${e.answer === r ? "border-[#2383e2] bg-[#2383e2] font-semibold text-white" : "border-[#e3e2e0] text-[#5f5e5b] hover:bg-[#f7f6f3]"}`,
+                                                            children: r,
+                                                          },
+                                                          r,
+                                                        ),
+                                                      ),
+                                                    })
+                                                  : (0, t.jsx)("input", {
+                                                      "aria-label": `Đ\xe1p \xe1n ${e.label}`,
+                                                      value: e.answer,
+                                                      placeholder:
+                                                        "trueFalse" === e.kind
+                                                          ? "ĐSĐS"
+                                                          : "-1,5",
+                                                      onChange: (t) =>
+                                                        V(0, n, {
+                                                          answer: (0,
+                                                          nz.normalizeAnswer)(
+                                                            e.kind,
+                                                            t.target.value,
+                                                          ),
+                                                        }),
+                                                      className: `${nK} h-7 w-24 ${r ? "border-[#d44c47]" : ""}`,
+                                                    }),
+                                              r &&
+                                                (0, t.jsx)("p", {
+                                                  className:
+                                                    "mt-0.5 text-[11px] text-[#d44c47]",
+                                                  children: r,
+                                                }),
+                                            ],
+                                          }),
+                                        ],
+                                      },
+                                      n,
+                                    );
+                                  }),
+                                }),
+                              ],
+                            }),
+                          }),
+                          ef,
+                        ],
+                      }),
+                    ],
+                  })
+              : (0, t.jsxs)("div", {
+                  className:
+                    "rounded-xl bg-[#f7f6f3] p-5 text-sm text-[#5f5e5b]",
+                  children: [
+                    (0, t.jsx)("p", {
+                      className: "font-medium text-[#37352f]",
+                      children: "TNMaker chấm được ba dạng câu",
+                    }),
+                    (0, t.jsxs)("ul", {
+                      className: "mt-2 list-disc space-y-1 pl-5",
+                      children: [
+                        (0, t.jsx)("li", {
+                          children:
+                            "Nhiều lựa chọn A, B, C, D với một đáp án đúng (tối đa 40 câu trên phiếu 2025).",
+                        }),
+                        (0, t.jsx)("li", {
+                          children: "Đúng/Sai, mỗi câu bốn ý (tối đa 8 câu).",
+                        }),
+                        (0, t.jsx)("li", {
+                          children:
+                            "Trả lời ngắn có đáp án là một số vừa 4 ô, ví dụ −1,5 (tối đa 6 câu).",
+                        }),
+                      ],
+                    }),
+                    (0, t.jsx)("p", {
+                      className: "mt-2",
+                      children:
+                        "Câu tự luận không nằm trong file đáp án. Câu nào đề chưa có đáp án thì AI tự giải.",
+                    }),
+                    (0, t.jsxs)("p", {
+                      className: "mt-2",
+                      children: [
+                        "Đề gồm nhiều mã đề: AI lập đáp án cho từng mã. File Excel chứa mọi mã đề; mã QR chứa ",
+                        nz.QR_CODES_PER_IMAGE,
+                        " mã đề mỗi mã, tối đa",
+                        " ",
+                        nz.QR_MAX_IMAGES,
+                        " mã QR quét lần lượt.",
+                      ],
+                    }),
+                    (0, t.jsxs)("div", {
+                      className: "mt-4 flex flex-wrap items-center gap-3",
+                      children: [
+                        (0, t.jsxs)(nI.Button, {
+                          onClick: U,
+                          disabled: g,
+                          children: [
+                            g
+                              ? (0, t.jsx)(j.Loader2, {
+                                  "aria-hidden": !0,
+                                  className: "animate-spin",
+                                })
+                              : (0, t.jsx)(G.Sparkles, { "aria-hidden": !0 }),
+                            g
+                              ? "Đang đọc đề và lập đáp án…"
+                              : "Quét đề bằng AI",
+                          ],
+                        }),
+                        (0, t.jsx)("span", {
+                          className: "text-xs",
+                          children:
+                            "Trừ điểm tín dụng AI như một lượt hỏi trợ lý.",
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+          ],
+        }),
+      });
+    }
+    let nV = 10 * eJ.PX_PER_MM,
+      nJ = eJ.CONTENT_WIDTH_PX / nV,
+      nQ = new Set(["paragraph", "heading", "horizontalRule"]),
+      nY = { enabled: !1, rule: !1, first: 0, left: 0, right: 0 },
+      nZ = (e) => (Number(e) > 0 ? Number(e) : 0),
+      n0 = (e, t, n) => Math.min(Math.max(n, t), Math.max(t, e));
+    function n1({ editor: e, zoom: n }) {
+      let r,
+        i =
+          (0, u.useEditorState)({
+            editor: e,
+            selector: ({ editor: e }) =>
+              (function (e) {
+                if (!e) return nY;
+                let { state: t } = e,
+                  n = { value: null };
+                return (
+                  t.doc.nodesBetween(
+                    t.selection.from,
+                    t.selection.to,
+                    (e, r) =>
+                      !n.value &&
+                      (!nQ.has(e.type.name) ||
+                        0 !== t.doc.resolve(r).depth ||
+                        ((n.value = {
+                          enabled: !0,
+                          rule: "horizontalRule" === e.type.name,
+                          first: nZ(e.attrs.indentFirst),
+                          left: nZ(e.attrs.indentLeft),
+                          right: nZ(e.attrs.indentRight),
+                        }),
+                        !1)),
+                  ),
+                  n.value ?? nY
+                );
+              })(e),
+          }) ?? nY,
+        a = (0, E.useRef)(null),
+        [s, l] = (0, E.useState)(null),
+        o = eJ.PAGE_WIDTH_PX * n,
+        c = nV * n,
+        d = eJ.MARGIN_LEFT_PX * n,
+        h = o - eJ.MARGIN_RIGHT_PX * n,
+        m = d + (i.left + i.first) * c,
+        p = d + i.left * c,
+        x = h - i.right * c,
+        g = [];
+      for (let e = 0; e <= eJ.PAGE_MM.width; e += 5) {
+        let t = e * eJ.PX_PER_MM * n;
+        if (e % 10 == 0) {
+          let n = (e - eJ.PAGE_MM.marginLeft) / 10,
+            r = t > d - 0.4 * c && t < h + 0.4 * c;
+          g.push({
+            x: t,
+            kind: "cm",
+            label: Math.abs(n) > 0 && r ? Math.abs(n) : void 0,
+          });
+        } else g.push({ x: t, kind: "half" });
+      }
+      let f = i.enabled ? "#2383e2" : "#bdc1c6",
+        b = i.enabled ? "ew-resize" : "default",
+        y = (r, s, o, c, d, u) =>
+          (0, t.jsx)("rect", {
+            x: r,
+            y: s,
+            width: o,
+            height: c,
+            fill: "transparent",
+            style: { cursor: b, touchAction: "none" },
+            onPointerDown: (t) => {
+              if (!e || !i.enabled || 0 !== t.button) return;
+              (t.preventDefault(), t.stopPropagation());
+              let r = a.current;
+              if (!r) return;
+              let s = r.getBoundingClientRect(),
+                o = i.left + i.first,
+                c = (t) => {
+                  let r =
+                      0.25 *
+                      Math.round(
+                        ((t.clientX - s.left) / n / nV -
+                          eJ.MARGIN_LEFT_PX / nV) /
+                          0.25,
+                      ),
+                    a = r;
+                  if ("first" === d) {
+                    let t = n0(r, i.left, nJ - i.right - 1);
+                    ((a = t), e.commands.setIndents({ first: t - i.left }));
+                  } else if ("left" === d) {
+                    let t = n0(r, 0, nJ - i.right - 1);
+                    ((a = t),
+                      e.commands.setIndents({
+                        left: t,
+                        first: Math.max(0, o - t),
+                      }));
+                  } else if ("both" === d) {
+                    let t = n0(r, 0, nJ - i.right - i.first - 1);
+                    ((a = t), e.commands.setIndents({ left: t }));
+                  } else {
+                    let t = n0(nJ - r, 0, nJ - o - 1);
+                    ((a = nJ - t), e.commands.setIndents({ right: t }));
+                  }
+                  l({ handle: d, cm: "right" === d ? nJ - a : a, box: s });
+                },
+                u = () => {
+                  (l(null),
+                    window.removeEventListener("pointermove", c),
+                    window.removeEventListener("pointerup", u),
+                    window.removeEventListener("pointercancel", u),
+                    document.body.style.removeProperty("cursor"),
+                    document.body.style.removeProperty("user-select"));
+                };
+              ((document.body.style.cursor = "ew-resize"),
+                (document.body.style.userSelect = "none"),
+                window.addEventListener("pointermove", c),
+                window.addEventListener("pointerup", u),
+                window.addEventListener("pointercancel", u),
+                l({
+                  handle: d,
+                  cm: "right" === d ? i.right : "first" === d ? o : i.left,
+                  box: s,
+                }));
+            },
+            children: (0, t.jsx)("title", { children: u }),
+          });
+      return (0, t.jsxs)("div", {
+        className: "no-print relative select-none",
+        style: { width: o },
+        children: [
+          (0, t.jsxs)("svg", {
+            ref: a,
+            width: o,
+            height: 24,
+            className: "block",
+            role: "presentation",
+            children: [
+              (0, t.jsx)("rect", {
+                x: 0,
+                y: 6,
+                width: d,
+                height: 12,
+                fill: "#e9e9e7",
+              }),
+              (0, t.jsx)("rect", {
+                x: h,
+                y: 6,
+                width: o - h,
+                height: 12,
+                fill: "#e9e9e7",
+              }),
+              (0, t.jsx)("rect", {
+                x: d,
+                y: 6,
+                width: h - d,
+                height: 12,
+                fill: "#ffffff",
+                stroke: "#e3e2e0",
+                strokeWidth: 0.5,
+              }),
+              g.map((e) =>
+                "cm" === e.kind
+                  ? void 0 !== e.label
+                    ? (0, t.jsx)(
+                        "text",
+                        {
+                          x: e.x,
+                          y: 15.5,
+                          textAnchor: "middle",
+                          fontSize: 9,
+                          fill: "#787774",
+                          fontFamily: "Arial, sans-serif",
+                          children: e.label,
+                        },
+                        e.x,
+                      )
+                    : (0, t.jsx)(
+                        "line",
+                        {
+                          x1: e.x,
+                          x2: e.x,
+                          y1: 9.5,
+                          y2: 14.5,
+                          stroke: "#80868b",
+                          strokeWidth: 0.8,
+                        },
+                        e.x,
+                      )
+                  : (0, t.jsx)(
+                      "line",
+                      {
+                        x1: e.x,
+                        x2: e.x,
+                        y1: 11,
+                        y2: 13,
+                        stroke: "#9aa0a6",
+                        strokeWidth: 0.8,
+                      },
+                      e.x,
+                    ),
+              ),
+              !i.rule &&
+                (0, t.jsx)("path", {
+                  d: `M${m - 5} 0.5 H${m + 5} V4 L${m} 10 L${m - 5} 4 Z`,
+                  fill: f,
+                  pointerEvents: "none",
+                }),
+              !i.rule && y(m - 7, 0, 14, 11, "first", "Thụt đầu dòng"),
+              (0, t.jsx)("path", {
+                d: `M${x - 5} 0.5 H${x + 5} V4 L${x} 10 L${x - 5} 4 Z`,
+                fill: f,
+                pointerEvents: "none",
+              }),
+              y(
+                x - 7,
+                0,
+                14,
+                11,
+                "right",
+                i.rule ? "Đầu phải đường kẻ" : "Thụt lề phải",
+              ),
+              (0, t.jsx)("path", {
+                d: `M${p} 13.5 L${p + 5} 18.5 H${p - 5} Z`,
+                fill: f,
+                pointerEvents: "none",
+              }),
+              !i.rule &&
+                (0, t.jsx)("rect", {
+                  x: p - 5,
+                  y: 19.5,
+                  width: 10,
+                  height: 3.5,
+                  rx: 0.5,
+                  fill: f,
+                  pointerEvents: "none",
+                }),
+              y(
+                p - 7,
+                13,
+                14,
+                6,
+                "left",
+                i.rule ? "Đầu trái đường kẻ" : "Thụt lề trái",
+              ),
+              !i.rule &&
+                y(p - 7, 19, 14, 5, "both", "Thụt lề trái (cùng dòng đầu)"),
+            ],
+          }),
+          s &&
+            (0, t.jsx)("div", {
+              "aria-hidden": !0,
+              className:
+                "pointer-events-none fixed z-30 w-0 border-l border-dashed border-[#2383e2]",
+              style: {
+                left:
+                  s.box.left +
+                  ("right" === s.handle ? x : "first" === s.handle ? m : p),
+                top: s.box.bottom,
+                height: `calc(100vh - ${s.box.bottom}px)`,
+              },
+            }),
+          s &&
+            (0, t.jsx)("div", {
+              className:
+                "pointer-events-none absolute top-6 z-20 -translate-x-1/2 rounded bg-neutral-800 px-1.5 py-0.5 text-[11px] text-white shadow",
+              style: {
+                left: n0(
+                  "right" === s.handle ? x : "first" === s.handle ? m : p,
+                  20,
+                  o - 20,
+                ),
+              },
+              children:
+                ((r = s.cm),
+                `${r.toLocaleString("vi-VN", { maximumFractionDigits: 2 })} cm`),
+            }),
+        ],
+      });
+    }
+    function n2({ editor: e, boundsRef: n, onAsk: r }) {
+      let [i, a] = (0, E.useState)(null),
+        s = (0, E.useRef)(0),
+        l = (0, E.useCallback)(() => {
+          if (
+            ((s.current = 0),
+            !e || e.isDestroyed || !e.isEditable || !e.isFocused)
+          )
+            return a(null);
+          let { from: t, to: r, empty: i } = e.state.selection;
+          if (i || r <= t) return a(null);
+          try {
+            let i = e.view.coordsAtPos(r),
+              s = e.view.coordsAtPos(t),
+              l = n.current?.getBoundingClientRect(),
+              o = Math.min(s.top, i.top) - 32 - 8;
+            if (
+              (l && o < l.top + 4 && (o = i.bottom + 8),
+              l && (o < l.top || o + 32 > l.bottom))
+            )
+              return a(null);
+            let c = (l?.right ?? window.innerWidth) - 96;
+            a({
+              left: Math.max((l?.left ?? 0) + 8, Math.min(i.right - 40, c)),
+              top: o,
+            });
+          } catch {
+            a(null);
+          }
+        }, [e, n]),
+        o = (0, E.useCallback)(() => {
+          s.current || (s.current = requestAnimationFrame(l));
+        }, [l]);
+      return ((0, E.useEffect)(() => {
+        if (!e) return;
+        (e.on("selectionUpdate", o),
+          e.on("focus", o),
+          e.on("blur", o),
+          e.on("update", o));
+        let t = n.current;
+        return (
+          t?.addEventListener("scroll", o, { passive: !0 }),
+          window.addEventListener("resize", o),
+          () => {
+            (e.off("selectionUpdate", o),
+              e.off("focus", o),
+              e.off("blur", o),
+              e.off("update", o),
+              t?.removeEventListener("scroll", o),
+              window.removeEventListener("resize", o),
+              s.current && cancelAnimationFrame(s.current));
+          }
+        );
+      }, [e, n, o]),
+      e && i)
+        ? (0, t.jsxs)("button", {
+            type: "button",
+            onMouseDown: (e) => e.preventDefault(),
+            onClick: () => {
+              let t = (0, t5.selectionReference)(e);
+              (a(null), t && r(t));
+            },
+            style: { position: "fixed", left: i.left, top: i.top, height: 32 },
+            className:
+              "no-print z-30 flex items-center gap-1.5 rounded-full border border-[#c9e0f5] bg-white px-3 text-[13px] font-medium text-[#2383e2] shadow-md transition-colors hover:bg-[#f7f6f3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2383e2]/40",
+            title: "Gắn đoạn đang chọn vào ô chat để hỏi AI",
+            "aria-label": "Hỏi AI về đoạn đang chọn",
+            children: [
+              (0, t.jsx)(G.Sparkles, {
+                "aria-hidden": !0,
+                className: "size-4",
+              }),
+              "Hỏi AI",
+            ],
+          })
+        : null;
+    }
+    let n3 = (e, t) =>
+      t.length
+        ? `
+${e}:
+${t.map((e) => `- ${e}`).join("\n")}`
+        : "";
+    var n5 = e.i(871813);
+    let n7 = (0, w.default)("file-exclamation-point", [
+      [
+        "path",
+        {
+          d: "M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z",
+          key: "1oefj6",
+        },
+      ],
+      ["path", { d: "M12 9v4", key: "juzpu7" }],
+      ["path", { d: "M12 17h.01", key: "p32p05" }],
+    ]);
+    function n4({ fileName: e, hints: n, onNormalize: r, onDismiss: i }) {
+      let a;
+      return (0, t.jsxs)("div", {
+        role: "status",
+        className:
+          "no-print sticky top-9 z-10 mx-auto mb-2 flex w-fit max-w-[min(42rem,100%)] items-start gap-3 rounded-xl border border-[#e3e2e0] bg-white py-2.5 pl-3 pr-2 shadow-sm",
+        children: [
+          (0, t.jsx)("span", {
+            className:
+              "mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-full bg-[#e7f3f8] text-[#2383e2]",
+            children: (0, t.jsx)(n7, {
+              "aria-hidden": !0,
+              className: "size-4",
+            }),
+          }),
+          (0, t.jsxs)("div", {
+            className: "min-w-0 text-sm text-[#37352f]",
+            children: [
+              (0, t.jsxs)("p", {
+                className: "font-medium",
+                children: ["Một số phần của “", e, "” chưa chuyển được"],
+              }),
+              (0, t.jsxs)("p", {
+                className: "mt-0.5 text-xs leading-5 text-[#787774]",
+                children: [
+                  ((a = []),
+                  n.page && a.push(`khổ giấy ${n.page}`),
+                  (n.headers.length || n.footers.length) &&
+                    a.push("đầu/chân trang"),
+                  n.textBoxes.length &&
+                    a.push(`${n.textBoxes.length} hộp văn bản`),
+                  (n.colors.length || n.fonts.length) &&
+                    a.push("phông/màu chữ"),
+                  n.figures.length &&
+                    a.push(`${n.figures.length} h\xecnh vẽ/đối tượng vector`),
+                  a).join(" · "),
+                  ". Trợ lý AI có thể dựng lại theo định dạng của trình soạn (tốn điểm tín dụng AI như một lượt chat).",
+                ],
+              }),
+              (0, t.jsxs)("div", {
+                className: "mt-2 flex flex-wrap items-center gap-2",
+                children: [
+                  (0, t.jsxs)("button", {
+                    type: "button",
+                    onClick: r,
+                    className:
+                      "flex h-8 items-center gap-1.5 rounded-full border border-[#c9e0f5] bg-white px-3 text-[13px] font-medium text-[#2383e2] transition-colors hover:bg-[#f7f6f3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2383e2]/40",
+                    children: [
+                      (0, t.jsx)(G.Sparkles, {
+                        "aria-hidden": !0,
+                        className: "size-4",
+                      }),
+                      "Nhờ AI chuẩn hoá định dạng",
+                    ],
+                  }),
+                  (0, t.jsx)("button", {
+                    type: "button",
+                    onClick: i,
+                    className:
+                      "h-8 rounded-md px-2.5 text-[13px] font-medium text-[#787774] transition-colors hover:bg-[#f1f1ef] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2383e2]/40",
+                    children: "Bỏ qua",
+                  }),
+                ],
+              }),
+            ],
+          }),
+          (0, t.jsx)("button", {
+            type: "button",
+            onClick: i,
+            "aria-label": "Đóng thông báo",
+            className:
+              "rounded-full p-1.5 text-neutral-500 transition-colors hover:bg-black/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2383e2]/40",
+            children: (0, t.jsx)(K.X, {
+              "aria-hidden": !0,
+              className: "size-4",
+            }),
+          }),
+        ],
+      });
+    }
+    let n8 = [
+      ["Đậm / nghiêng / gạch chân", "Ctrl+B / I / U"],
+      ["Hoàn tác / làm lại", "Ctrl+Z / Ctrl+Y"],
+      ["Tìm / thay thế", "Ctrl+F / Ctrl+H"],
+      ["Ngắt trang", "Ctrl+Enter"],
+      ["Tăng / giảm thụt lề", "Ctrl+] / Ctrl+["],
+      ["Xoá định dạng", "Ctrl+\\"],
+      ["Chọn tất cả", "Ctrl+A"],
+      ["In", "Ctrl+P"],
+      ["Ô kế tiếp trong lưới / bảng", "Tab"],
+      ["Ô trước trong bảng", "Shift+Tab"],
+      ["Thêm hàng cuối bảng", "Tab ở ô cuối"],
+      ["Mở rộng vùng chọn ô", "Shift+phím mũi tên"],
+      ["Menu thao tác bảng", "Chuột phải trong ô"],
+      ["Nhảy kết quả tìm", "Enter / Shift+Enter"],
+    ];
+    function n6({ open: e, onClose: n }) {
+      return (0, t.jsx)(m.AnimatePresence, {
+        children:
+          e &&
+          (0, t.jsx)(p.motion.div, {
+            className:
+              "no-print fixed inset-0 z-50 flex items-center justify-center bg-black/30 p-4",
+            initial: { opacity: 0 },
+            animate: { opacity: 1 },
+            exit: { opacity: 0 },
+            transition: { duration: 0.15 },
+            onClick: n,
+            children: (0, t.jsxs)(p.motion.div, {
+              role: "dialog",
+              "aria-label": "Phím tắt",
+              className: "w-full max-w-md rounded-2xl bg-white p-5 shadow-2xl",
+              initial: { opacity: 0, scale: 0.96, y: 8 },
+              animate: { opacity: 1, scale: 1, y: 0 },
+              exit: { opacity: 0, scale: 0.97 },
+              transition: { duration: 0.18, ease: [0.2, 0, 0, 1] },
+              onClick: (e) => e.stopPropagation(),
+              children: [
+                (0, t.jsxs)("div", {
+                  className: "mb-3 flex items-center justify-between",
+                  children: [
+                    (0, t.jsx)("h2", {
+                      className: "text-base font-medium text-neutral-900",
+                      children: "Phím tắt",
+                    }),
+                    (0, t.jsx)("button", {
+                      type: "button",
+                      onClick: n,
+                      className:
+                        "rounded-full p-1 text-neutral-500 hover:bg-neutral-100",
+                      "aria-label": "Đóng",
+                      children: (0, t.jsx)(K.X, { className: "size-4" }),
+                    }),
+                  ],
+                }),
+                (0, t.jsx)("dl", {
+                  className: "divide-y divide-neutral-100 text-sm",
+                  children: n8.map(([e, n]) =>
+                    (0, t.jsxs)(
+                      "div",
+                      {
+                        className: "flex items-center justify-between py-2",
+                        children: [
+                          (0, t.jsx)("dt", {
+                            className: "text-neutral-700",
+                            children: e,
+                          }),
+                          (0, t.jsx)("dd", {
+                            className:
+                              "rounded bg-neutral-100 px-2 py-0.5 font-mono text-xs text-neutral-700",
+                            children: n,
+                          }),
+                        ],
+                      },
+                      e,
+                    ),
+                  ),
+                }),
+              ],
+            }),
+          }),
+      });
+    }
+    var n9 = e.i(231178);
+    let re = (0, E.createContext)(null);
+    var rt = e.i(287022),
+      rn = e.i(674008);
+    let rr = (e) => !e.isLayoutDirty && e.willUpdate(!1),
+      ri = ({ children: e, id: n, inherit: r = !0 }) => {
+        let i = (0, E.useContext)(n9.LayoutGroupContext),
+          a = (0, E.useContext)(re),
+          [s, l] = (function () {
+            let e,
+              t =
+                ((e = (0, E.useRef)(!1)),
+                (0, rn.useIsomorphicLayoutEffect)(
+                  () => (
+                    (e.current = !0),
+                    () => {
+                      e.current = !1;
+                    }
+                  ),
+                  [],
+                ),
+                e),
+              [n, r] = (0, E.useState)(0),
+              i = (0, E.useCallback)(() => {
+                t.current && r(n + 1);
+              }, [n]);
+            return [(0, E.useCallback)(() => rt.frame.postRender(i), [i]), n];
+          })(),
+          o = (0, E.useRef)(null),
+          c = i.id || a;
+        if (null === o.current) {
+          let e, t, a, s;
+          ((!0 == (!0 === (s = r)) || "id" === s) &&
+            c &&
+            (n = n ? c + "-" + n : c),
+            (o.current = {
+              id: n,
+              group:
+                (!0 === r && i.group) ||
+                ((e = new Set()),
+                (t = new WeakMap()),
+                {
+                  add: (n) => {
+                    (e.add(n), t.set(n, n.addEventListener("willUpdate", a)));
+                  },
+                  remove: (n) => {
+                    e.delete(n);
+                    let r = t.get(n);
+                    (r && (r(), t.delete(n)), a());
+                  },
+                  dirty: (a = () => e.forEach(rr)),
+                }),
+            }));
+        }
+        let d = (0, E.useMemo)(() => ({ ...o.current, forceRender: s }), [l]);
+        return (0, t.jsx)(n9.LayoutGroupContext.Provider, {
+          value: d,
+          children: e,
+        });
+      };
+    var ra = e.i(428359);
+    let rs = (0, w.default)("list-tree", [
+        ["path", { d: "M8 5h13", key: "1pao27" }],
+        ["path", { d: "M13 12h8", key: "h98zly" }],
+        ["path", { d: "M13 19h8", key: "c3s6r1" }],
+        ["path", { d: "M3 10a2 2 0 0 0 2 2h3", key: "1npucw" }],
+        ["path", { d: "M3 5v12a2 2 0 0 0 2 2h3", key: "x1gjn2" }],
+      ]),
+      rl = (0, w.default)("panel-left-close", [
+        [
+          "rect",
+          { width: "18", height: "18", x: "3", y: "3", rx: "2", key: "afitv7" },
+        ],
+        ["path", { d: "M9 3v18", key: "fh3hqa" }],
+        ["path", { d: "m16 15-3-3 3-3", key: "14y99z" }],
+      ]),
+      ro = [
+        { id: "outline", label: "Mục lục" },
+        { id: "snippets", label: "Mẫu đề thi" },
+      ],
+      rc = {
+        1: "pl-3 font-medium",
+        2: "pl-3 font-normal",
+        3: "pl-6 font-normal",
+        4: "pl-8 font-normal",
+        5: "pl-10 font-normal",
+        6: "pl-12 font-normal",
+        7: "pl-6 font-normal",
+      };
+    function rd({ editor: e, outline: n, onInsert: r, onCollapse: i }) {
+      let [a, s] = (0, E.useState)("outline"),
+        l = (0, u.useEditorState)({
+          editor: e,
+          selector: ({ editor: e }) => e?.state.selection.from ?? null,
+        }),
+        o = null == l ? void 0 : n.findLast((e) => e.pos < l)?.pos;
+      return (0, t.jsxs)("div", {
+        className: "flex h-full flex-col px-3",
+        children: [
+          (0, t.jsxs)(ri, {
+            children: [
+              (0, t.jsxs)("div", {
+                className: "flex items-center justify-between px-2 pb-3 pt-4",
+                children: [
+                  (0, t.jsx)("h2", {
+                    className: "text-sm font-medium text-neutral-800",
+                    children: "Tài liệu",
+                  }),
+                  (0, t.jsx)("button", {
+                    type: "button",
+                    onClick: i,
+                    title: "Ẩn dàn ý và mẫu chèn",
+                    "aria-label": "Ẩn dàn ý và mẫu chèn",
+                    className:
+                      "flex size-8 shrink-0 items-center justify-center rounded-full text-neutral-600 transition-colors hover:bg-black/[0.06]",
+                    children: (0, t.jsx)(rl, {
+                      "aria-hidden": !0,
+                      className: "size-[18px]",
+                    }),
+                  }),
+                ],
+              }),
+              (0, t.jsx)("div", {
+                className:
+                  "flex items-center gap-1 rounded-xl bg-[#f1f1ef] p-1",
+                children: ro.map((e) =>
+                  (0, t.jsxs)(
+                    "button",
+                    {
+                      type: "button",
+                      onClick: () => s(e.id),
+                      "aria-pressed": a === e.id,
+                      className: `relative flex-1 rounded-lg px-3 py-2 text-[13px] font-medium ${a === e.id ? "text-[#2383e2]" : "text-neutral-600 hover:text-neutral-900"}`,
+                      children: [
+                        a === e.id &&
+                          (0, t.jsx)(p.motion.span, {
+                            layoutId: "side-tab",
+                            className:
+                              "absolute inset-0 -z-0 rounded-lg bg-white shadow-sm",
+                            transition: {
+                              type: "spring",
+                              stiffness: 500,
+                              damping: 40,
+                            },
+                          }),
+                        (0, t.jsx)("span", {
+                          className: "relative",
+                          children: e.label,
+                        }),
+                      ],
+                    },
+                    e.id,
+                  ),
+                ),
+              }),
+            ],
+          }),
+          (0, t.jsx)("div", {
+            className: "min-h-0 flex-1 overflow-y-auto px-1 pb-4 pt-4",
+            children: (0, t.jsx)(m.AnimatePresence, {
+              mode: "wait",
+              initial: !1,
+              children:
+                "outline" === a
+                  ? (0, t.jsx)(
+                      p.motion.div,
+                      {
+                        initial: { opacity: 0, y: 6 },
+                        animate: { opacity: 1, y: 0 },
+                        exit: { opacity: 0 },
+                        transition: { duration: 0.15 },
+                        children:
+                          0 === n.length
+                            ? (0, t.jsxs)("div", {
+                                className:
+                                  "mt-8 flex flex-col items-center gap-3 px-5 text-center text-xs leading-6 text-neutral-500",
+                                children: [
+                                  (0, t.jsx)("span", {
+                                    className:
+                                      "flex size-10 items-center justify-center rounded-xl bg-[#f1f1ef]",
+                                    children: (0, t.jsx)(rs, {
+                                      "aria-hidden": !0,
+                                      className: "size-5 text-neutral-400",
+                                    }),
+                                  }),
+                                  (0, t.jsx)("p", {
+                                    children:
+                                      "Tiêu đề và các câu hỏi sẽ hiện ở đây để bạn di chuyển nhanh trong đề.",
+                                  }),
+                                ],
+                              })
+                            : (0, t.jsx)("ul", {
+                                children: n.map((n) =>
+                                  (0, t.jsx)(
+                                    "li",
+                                    {
+                                      children: (0, t.jsx)("button", {
+                                        type: "button",
+                                        onClick: () => {
+                                          e &&
+                                            (e.commands.focus(n.pos + 1, {
+                                              scrollIntoView: !1,
+                                            }),
+                                            requestAnimationFrame(() => {
+                                              if (e.isDestroyed) return;
+                                              let t = e.view.nodeDOM(n.pos);
+                                              t instanceof HTMLElement &&
+                                                t.scrollIntoView({
+                                                  block: "center",
+                                                  inline: "nearest",
+                                                  behavior: window.matchMedia(
+                                                    "(prefers-reduced-motion: reduce)",
+                                                  ).matches
+                                                    ? "instant"
+                                                    : "smooth",
+                                                });
+                                            }));
+                                        },
+                                        "aria-current":
+                                          n.pos === o ? "location" : void 0,
+                                        className: `block w-full truncate rounded-lg py-2 pr-2 text-left text-[13px] leading-5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2383e2]/40 ${n.pos === o ? "bg-[#e7f3f8] text-[#2383e2]" : "text-neutral-700 hover:bg-black/[0.04]"} ${rc[n.level]}`,
+                                        title: n.text,
+                                        children: n.text,
+                                      }),
+                                    },
+                                    `${n.pos}`,
+                                  ),
+                                ),
+                              }),
+                      },
+                      "outline",
+                    )
+                  : (0, t.jsx)(
+                      p.motion.div,
+                      {
+                        initial: { opacity: 0, y: 6 },
+                        animate: { opacity: 1, y: 0 },
+                        exit: { opacity: 0 },
+                        transition: { duration: 0.15 },
+                        className: "space-y-4 px-1 pt-1",
+                        children: ne.map((e) =>
+                          (0, t.jsxs)(
+                            "section",
+                            {
+                              children: [
+                                (0, t.jsx)("h3", {
+                                  className:
+                                    "mb-1.5 px-1 text-[11px] font-medium text-neutral-500",
+                                  children: e.name,
+                                }),
+                                (0, t.jsx)("div", {
+                                  className: "space-y-1",
+                                  children: e.items.map((e) =>
+                                    (0, t.jsxs)(
+                                      "button",
+                                      {
+                                        type: "button",
+                                        draggable: !0,
+                                        onDragStart: (t) => {
+                                          (t.dataTransfer.setData(
+                                            t5.SNIPPET_MIME,
+                                            e.markdown(),
+                                          ),
+                                            (t.dataTransfer.effectAllowed =
+                                              "copy"));
+                                        },
+                                        onClick: () => r(e),
+                                        className:
+                                          "group flex w-full cursor-grab items-start gap-1.5 rounded-lg border border-transparent bg-transparent px-2 py-2 text-left transition-[background-color,border-color,transform] hover:border-[#a8cff0] hover:bg-[#f7f6f3] active:scale-[0.98] active:cursor-grabbing",
+                                        title:
+                                          "Bấm để chèn tại con trỏ, hoặc kéo vào trang",
+                                        children: [
+                                          (0, t.jsx)(ra.GripVertical, {
+                                            "aria-hidden": !0,
+                                            className:
+                                              "mt-0.5 size-3.5 shrink-0 text-neutral-300 group-hover:text-blue-400",
+                                          }),
+                                          (0, t.jsxs)("span", {
+                                            className: "min-w-0",
+                                            children: [
+                                              (0, t.jsx)("span", {
+                                                className:
+                                                  "block text-[13px] font-normal leading-5 text-neutral-800",
+                                                children: e.name,
+                                              }),
+                                              (0, t.jsx)("span", {
+                                                className:
+                                                  "mt-0.5 block truncate text-xs leading-5 text-neutral-500",
+                                                children: e.hint,
+                                              }),
+                                            ],
+                                          }),
+                                        ],
+                                      },
+                                      e.id,
+                                    ),
+                                  ),
+                                }),
+                              ],
+                            },
+                            e.name,
+                          ),
+                        ),
+                      },
+                      "snippets",
+                    ),
+            }),
+          }),
+        ],
+      });
+    }
+    var ru = e.i(882771),
+      rh = e.i(446022),
+      rm = e.i(959696);
+    let rp = /^(câu|bài)\s+\d+[a-zđ]?\b/i;
+    var rx = e.i(802071);
+    let rg = "doc-print-root";
+    function rf() {
+      let e = document.createElement("div");
+      return (
+        (e.className = "doc-print-break"),
+        e.setAttribute("aria-hidden", "true"),
+        e
+      );
+    }
+    function rb(e) {
+      (document.querySelector(`.${rg}`)?.remove(),
+        e.dispatchEvent(new Event(rx.PAGINATION_NOW_EVENT)));
+      let t = e.closest(".exam-paper"),
+        n = t ? getComputedStyle(t) : null,
+        r = document.createElement("div");
+      r.className = rg;
+      let i = r.appendChild(document.createElement("div"));
+      ((i.className = "doc-print-flow"),
+        (i.style.width = `${eJ.CONTENT_WIDTH_PX}px`),
+        n &&
+          ((i.style.fontSize = n.fontSize),
+          (i.style.lineHeight = n.lineHeight)));
+      let a = e.cloneNode(!0);
+      a.removeAttribute("contenteditable");
+      for (let e of (!(function (e, t) {
+        for (let r of Array.from(e.querySelectorAll(".doc-table-wrapper"))) {
+          var n;
+          let e = Array.from(r.querySelectorAll(":scope > .pg-table-gap")).map(
+            (e) => ({
+              id: e.dataset.pgGap,
+              row: e.dataset.pgRowIndex,
+              between: "true" === e.dataset.pgBetweenRows,
+              header: Number(e.dataset.pgHeader) || 0,
+            }),
+          );
+          r.querySelectorAll(".pg-table-gap").forEach((e) => e.remove());
+          let i = r.querySelector(":scope > table");
+          (i?.style.removeProperty("mask-image"),
+            i?.style.removeProperty("-webkit-mask-image"),
+            i?.removeAttribute("data-pg-masked"));
+          let a =
+              ((n = Math.max(0, ...e.map((e) => e.header))),
+              Array.from(
+                i?.tBodies[0]?.querySelectorAll(
+                  ":scope > tr:not(.pg-spacer)",
+                ) ?? [],
+              )
+                .slice(0, n)
+                .map((e) => {
+                  let t = e.cloneNode(!0);
+                  return (
+                    t.classList.add("pg-header-copy"),
+                    t.removeAttribute("data-pg-row"),
+                    t.style.removeProperty("--pg-row-height"),
+                    t
+                      .querySelectorAll("[id]")
+                      .forEach((e) => e.removeAttribute("id")),
+                    t
+                      .querySelectorAll("[contenteditable]")
+                      .forEach((e) =>
+                        e.setAttribute("contenteditable", "false"),
+                      ),
+                    t
+                  );
+                })),
+            s = r;
+          for (let n of e) {
+            let e = s.querySelector(":scope > table"),
+              r = Array.from(e.tBodies[0].rows),
+              i = r.find((e) =>
+                n.between
+                  ? e.dataset.pgGap === n.id
+                  : e.dataset.pgRow === n.row,
+              );
+            if (!i) continue;
+            let l = r.indexOf(i),
+              o = new Map(),
+              c = [],
+              d = [];
+            r.forEach((e, t) => {
+              let r = 0;
+              for (let i of Array.from(e.cells)) {
+                for (; (c[r] ?? 0) > t; ) r++;
+                o.set(i, r);
+                let e = t + i.rowSpan;
+                t <= l &&
+                  e > l + +!!n.between &&
+                  d.push({ cell: i, start: t, end: e, col: r });
+                for (let t = r; t < r + i.colSpan; t++) c[t] = e;
+                r += i.colSpan;
+              }
+            });
+            let u = s.cloneNode(!1),
+              h = e.cloneNode(!1),
+              m = e.querySelector(":scope > colgroup");
+            m && h.appendChild(m.cloneNode(!0));
+            let p = document.createElement("tbody");
+            for (n.between || p.appendChild(i.cloneNode(!1)); i.nextSibling; )
+              p.appendChild(i.nextSibling);
+            n.between && i.remove();
+            let x = p.rows[0];
+            (d.forEach(({ cell: e, start: t, end: r, col: i }) => {
+              let a = (function (e, t) {
+                let n = e.cloneNode(!1);
+                n.removeAttribute("id");
+                let r = Array.from(e.querySelectorAll(".pg-cell-spacer")).find(
+                  (e) => e.dataset.pgGap === t,
+                );
+                if (r) {
+                  let t = document.createRange();
+                  t.setStartAfter(r);
+                  let i = r.previousSibling;
+                  (r.classList.contains("pg-lift-spacer") &&
+                    i?.nodeType === Node.TEXT_NODE &&
+                    i.textContent &&
+                    t.setStart(i, i.textContent.length - 1),
+                    t.setEnd(e, e.childNodes.length),
+                    n.appendChild(t.extractContents()),
+                    r.remove());
+                }
+                return n;
+              })(e, n.id);
+              ((e.rowSpan = l - t + +!n.between),
+                (a.rowSpan = r - l - !!n.between),
+                o.set(a, i));
+              let s = Array.from(x.cells).find((e) => (o.get(e) ?? 1 / 0) > i);
+              x.insertBefore(a, s ?? null);
+            }),
+              n.header && p.prepend(...a.map((e) => e.cloneNode(!0))),
+              h.appendChild(p),
+              u.appendChild(h),
+              s.after(t(), u),
+              (s = u));
+          }
+        }
+        (e.querySelectorAll("[data-pg-row]").forEach((e) => {
+          (e.style.removeProperty("--pg-row-height"),
+            e.removeAttribute("data-pg-row"));
+        }),
+          e
+            .querySelectorAll("[data-pg-rowspan]")
+            .forEach((e) => e.removeAttribute("data-pg-rowspan")));
+      })(a, rf),
+      Array.from(a.querySelectorAll(".pg-spacer")))) {
+        if (!a.contains(e)) continue;
+        if (e.classList.contains("pg-column-spacer")) {
+          let t = e.closest(".doc-columns");
+          if (t) {
+            let n = document.createRange();
+            (n.setStartAfter(e), n.setEnd(t, t.childNodes.length));
+            let r = t.cloneNode(!1);
+            (r.appendChild(n.extractContents()), e.remove(), t.after(rf(), r));
+            continue;
+          }
+        }
+        if (e instanceof HTMLTableRowElement) {
+          !(function (e) {
+            let t = e.parentElement,
+              n = t?.closest("table");
+            if (!t || !n) return e.remove();
+            let r = n.closest(".doc-table-wrapper") ?? n,
+              i = n.cloneNode(!1),
+              a = n.querySelector(":scope > colgroup");
+            a && i.appendChild(a.cloneNode(!0));
+            let s = i.appendChild(t.cloneNode(!1));
+            for (; e.nextSibling; ) s.appendChild(e.nextSibling);
+            e.remove();
+            let l = i;
+            (r !== n && (l = r.cloneNode(!1)).appendChild(i), r.after(rf(), l));
+          })(e);
+          continue;
+        }
+        let t = e.parentElement?.closest("p, h1, h2, h3, h4, h5, h6");
+        t && a.contains(t)
+          ? (function (e, t) {
+              let n = t.querySelector(":scope > .doc-paragraph-content") ?? t,
+                r = document.createRange();
+              (r.setStartAfter(e), r.setEnd(n, n.childNodes.length));
+              let i = r.extractContents();
+              e.remove();
+              let a = t.cloneNode(!1);
+              ((n === t ? a : a.appendChild(n.cloneNode(!1))).appendChild(i),
+                (a.style.textIndent = "0"),
+                (a.style.paddingTop = "0"),
+                (t.style.paddingBottom = "0"),
+                "justify" === getComputedStyle(t).textAlign &&
+                  (t.style.textAlignLast = "justify"),
+                t.after(rf(), a));
+            })(e, t)
+          : e.replaceWith(rf());
+      }
+      return (i.appendChild(a), document.body.appendChild(r), r);
+    }
+    function ry() {
+      document.querySelector(`.${rg}`)?.remove();
+    }
+    var rw = e.i(411929),
+      rv = e.i(974881),
+      rj = e.i(567556),
+      rk = e.i(42529),
+      rN = e.i(378610),
+      rC = e.i(270030),
+      rT = e.i(469711),
+      rS = e.i(369421),
+      rA = e.i(811725),
+      rE = e.i(363574),
+      rM = e.i(594223);
+    let r$ = "#000000",
+      rD = (e) => Math.round(100 * e) / 100,
+      rI = (e) =>
+        (0, rC.latexToPlain)(e || "")
+          .trim()
+          .replace(/-/g, "−"),
+      rL = /^\s*([-+−]?)\s*\\[dt]?frac\s*\{([^{}]*)\}\s*\{([^{}]*)\}\s*$/;
+    function rR(e, t) {
+      let n = 0;
+      for (let t of e)
+        n +=
+          "∞" === t ? 0.95 : /[+−=<>±]/.test(t) ? 0.6 : (0, rM.textWidth)(t, 1);
+      return n * t;
+    }
+    function rz(e, t, n, r, i, a) {
+      let s = /[A-Za-zα-ω]/.test(e) ? ' font-style="italic"' : "",
+        l = e
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/∞/g, `<tspan font-size="${rD(1.3 * r)}">∞</tspan>`);
+      return `<text x="${rD(t)}" y="${rD(n)}" font-family="'Times New Roman', Times, serif" font-size="${r}" fill="${r$}" text-anchor="${i}"${s}${a ? ' font-weight="bold"' : ""}>${l}</text>`;
+    }
+    function r_(e, t, n, r, i, a = {}) {
+      let s, l;
+      if (!e) return "";
+      let o = !!a.bold,
+        c = rL.exec(e),
+        d = (e) => ("middle" === r ? t - e / 2 : "end" === r ? t - e : t);
+      if (c) {
+        let e = c[1] ? rI(c[1]) : "",
+          t = rI(c[2]),
+          r = rI(c[3]),
+          a = i - 2,
+          u = e ? rR(e, i) + 2 : 0,
+          h = Math.max(rR(t, a), rR(r, a)) + 4,
+          m = d((s = u + h)),
+          p = m + u + h / 2;
+        l =
+          (e ? rz(e, m, n + 0.33 * i, i, "start", o) : "") +
+          rz(t, p, n - 3.5, a, "middle", o) +
+          `<path d="M${rD(p - h / 2)} ${rD(n)}H${rD(p + h / 2)}" stroke="${r$}" stroke-width="0.8"/>` +
+          rz(r, p, n + 0.78 * a + 2, a, "middle", o);
+      } else {
+        let a = rI(e);
+        ((s = rR(a, i)), (l = rz(a, t, n + 0.33 * i, i, r, o)));
+      }
+      let u = d(s);
+      return (
+        (a.background
+          ? `<rect x="${rD(u - 4)}" y="${rD(n - 0.75 * i)}" width="${rD(s + 8)}" height="${rD(1.5 * i)}" fill="#ffffff"/>`
+          : "") + l
+      );
+    }
+    var rP = e.i(142725),
+      rH = e.i(617622);
+    function rq(e) {
+      return "string" == typeof e && /^#[0-9a-f]{6}$/i.test(e)
+        ? e.slice(1).toUpperCase()
+        : void 0;
+    }
+    function rF(e) {
+      let t =
+          null == e.borderWidth
+            ? 1
+            : Math.max(0, Math.min(12, Number(e.borderWidth) || 0)),
+        n = {
+          style:
+            0 === t || "none" === e.borderStyle
+              ? rv.BorderStyle.NONE
+              : "dashed" === e.borderStyle
+                ? rv.BorderStyle.DASHED
+                : "dotted" === e.borderStyle
+                  ? rv.BorderStyle.DOTTED
+                  : "double" === e.borderStyle
+                    ? rv.BorderStyle.DOUBLE
+                    : rv.BorderStyle.SINGLE,
+          size: Math.round(6 * t),
+          color: rq(e.borderColor) ?? "000000",
+        };
+      return { top: n, bottom: n, left: n, right: n };
+    }
+    let rB = "Times New Roman",
+      rO = (0, eJ.fontHalfPoints)(eJ.BASE_FONT_PX),
+      rW = (0, eJ.lineAuto)(eJ.BASE_LINE_HEIGHT),
+      rX = { style: rv.BorderStyle.NONE, size: 0, color: "FFFFFF" },
+      rG = { style: rv.BorderStyle.SINGLE, size: 6, color: "000000" },
+      rK = { top: rX, bottom: rX, left: rX, right: rX },
+      rU = { ...rK, insideHorizontal: rX, insideVertical: rX },
+      rV = {
+        marginUnitType: rv.WidthType.DXA,
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+      },
+      rJ = {
+        marginUnitType: rv.WidthType.DXA,
+        top: (0, eJ.pxToTwip)(eJ.CELL_PADDING_Y_PX),
+        bottom: (0, eJ.pxToTwip)(eJ.CELL_PADDING_Y_PX),
+        left: (0, eJ.pxToTwip)(eJ.CELL_PADDING_X_PX),
+        right: (0, eJ.pxToTwip)(eJ.CELL_PADDING_X_PX),
+      },
+      rQ = Object.fromEntries(
+        nt.HEADING_STYLES.map(({ level: e, before: t, after: n }) => [
+          e,
+          { before: t, after: n },
+        ]),
+      ),
+      rY = {
+        left: rv.AlignmentType.LEFT,
+        center: rv.AlignmentType.CENTER,
+        right: rv.AlignmentType.RIGHT,
+        justify: rv.AlignmentType.JUSTIFIED,
+      },
+      rZ = null;
+    function r0(e, t, n = {}) {
+      return new rv.Paragraph({
+        alignment: t,
+        numbering: n.numbering,
+        keepNext: n.keepNext,
+        border: n.border,
+        shading: n.shading,
+        indent:
+          n.firstLine || n.left || n.right
+            ? { firstLine: n.firstLine, left: n.left, right: n.right }
+            : void 0,
+        spacing: {
+          before: n.before ?? 0,
+          after: n.after ?? 0,
+          line: n.line ?? rW,
+          lineRule: rv.LineRuleType.AUTO,
+        },
+        children:
+          e.length > 0 ? e : [new rv.TextRun({ text: "", font: rB, size: rO })],
+      });
+    }
+    function r1(e, t = {}, n = rv.AlignmentType.JUSTIFIED, r = [], i) {
+      let a = e.attrs?.textAlign ? (rY[String(e.attrs.textAlign)] ?? n) : n,
+        s = (function (e, t = {}) {
+          let n = [[]];
+          for (let r of e ?? []) {
+            let e = n[n.length - 1];
+            if ("hardBreak" === r.type) {
+              n.push([]);
+              continue;
+            }
+            if ("math" === r.type) {
+              e.push(
+                (function (e, t, n) {
+                  let r = (0, rN.normalizeLatex)(e).replace(
+                      /\\hat(?![a-zA-Z])/g,
+                      "\\widehat",
+                    ),
+                    i = Math.max(
+                      2,
+                      Math.round((n.size ?? rO) * eJ.MATH_FONT_SCALE),
+                    ),
+                    a = (function (e, t, n) {
+                      let r = rZ;
+                      if (!r) return null;
+                      let i = `${t ? "D" : "I"}${n}|${e}`,
+                        a = r.cache.get(i);
+                      if (
+                        (void 0 === a &&
+                          ((a = r.api.latexToMathType(e, {
+                            display: t,
+                            sizePt: n,
+                          })),
+                          r.cache.set(i, a)),
+                        !a)
+                      )
+                        return ((r.kept += 1), null);
+                      let s = r.parts.length + 1;
+                      return (
+                        r.parts.push({ ...a, index: s }),
+                        r.api.mathTypeRun(a, s)
+                      );
+                    })(e, t, i / 2);
+                  if (a) return a;
+                  let s = (0, rT.latexToOmml)(r, {
+                    size: i,
+                    bold: n.bold,
+                    display: t,
+                  });
+                  if (s) {
+                    let e = new DOMParser().parseFromString(
+                      s,
+                      "application/xml",
+                    );
+                    if (0 === e.getElementsByTagName("parsererror").length)
+                      return (function e(t) {
+                        let n = {};
+                        for (let e of Array.from(t.attributes))
+                          "xmlns" === e.name ||
+                            e.name.startsWith("xmlns:") ||
+                            (n[e.name] = e.value);
+                        let r = new rv.ImportedXmlComponent(
+                          t.nodeName,
+                          Object.keys(n).length > 0 ? n : void 0,
+                        );
+                        for (let n of Array.from(t.childNodes))
+                          n.nodeType === Node.ELEMENT_NODE
+                            ? r.push(e(n))
+                            : n.nodeType === Node.TEXT_NODE &&
+                              n.textContent &&
+                              r.push(n.textContent);
+                        return r;
+                      })(e.documentElement);
+                  }
+                  return new rv.TextRun({
+                    text: (0, rC.latexToPlain)(e),
+                    font: rB,
+                    size: n.size ?? rO,
+                    italics: !/\\ce\s*\{/.test(e),
+                    bold: n.bold,
+                  });
+                })(
+                  decodeURIComponent(String(r.attrs?.latex ?? "")),
+                  !!r.attrs?.display,
+                  t,
+                ),
+              );
+              continue;
+            }
+            if ("text" !== r.type || !r.text) continue;
+            let i = new Set((r.marks ?? []).map((e) => e.type)),
+              a = Number(
+                (r.marks ?? []).find((e) => "fontSize" === e.type)?.attrs?.size,
+              ),
+              s = new rv.TextRun({
+                text: r.text,
+                font: String(
+                  (r.marks ?? []).find((e) => "fontFamily" === e.type)?.attrs
+                    ?.family ?? rB,
+                ),
+                color: rq(
+                  (r.marks ?? []).find((e) => "textColor" === e.type)?.attrs
+                    ?.color ?? t.color,
+                ),
+                shading: (r.marks ?? []).some((e) => "textHighlight" === e.type)
+                  ? {
+                      fill: rq(
+                        (r.marks ?? []).find((e) => "textHighlight" === e.type)
+                          ?.attrs?.color,
+                      ),
+                      type: rv.ShadingType.CLEAR,
+                    }
+                  : void 0,
+                size: a > 0 ? (0, eJ.fontHalfPoints)(a) : (t.size ?? rO),
+                bold: t.bold || i.has("bold") || void 0,
+                italics: t.italics || i.has("italic") || void 0,
+                underline: i.has("underline")
+                  ? { type: rv.UnderlineType.SINGLE }
+                  : void 0,
+                strike: i.has("strike") || void 0,
+                superScript: i.has("superscript") || void 0,
+                subScript: i.has("subscript") || void 0,
+                border: i.has("boxed")
+                  ? {
+                      style: rv.BorderStyle.SINGLE,
+                      size: 6,
+                      color: "000000",
+                      space: 3,
+                    }
+                  : void 0,
+              }),
+              l = String(
+                (r.marks ?? []).find((e) => "link" === e.type)?.attrs?.href ??
+                  "",
+              );
+            e.push(
+              /^(https?:|mailto:)/i.test(l)
+                ? new rv.ExternalHyperlink({ link: l, children: [s] })
+                : s,
+            );
+          }
+          return n;
+        })(e.content, t);
+      s[0] = [...r, ...s[0]];
+      let l = e.attrs ?? {},
+        o =
+          "heading" === e.type
+            ? rQ[Number(l.level)]
+            : nt.NAMED_PARAGRAPH_STYLES.find(
+                (e) => e.value === l.paragraphStyle,
+              ),
+        c = (0, eJ.pxToTwip)(
+          null != l.spaceBefore ? Number(l.spaceBefore) : (o?.before ?? 0),
+        ),
+        d = (0, eJ.pxToTwip)(
+          null != l.spaceAfter ? Number(l.spaceAfter) : (o?.after ?? 0),
+        ),
+        u =
+          Number(l.lineHeight) > 0
+            ? (0, eJ.lineAuto)(Number(l.lineHeight))
+            : void 0,
+        h = (function (e, t, n) {
+          let r = [0];
+          for (let i of e) {
+            if ("hardBreak" === i.type) {
+              r.push(0);
+              continue;
+            }
+            if ("math" !== i.type) continue;
+            let e = decodeURIComponent(String(i.attrs?.latex ?? "")),
+              a = !!i.attrs?.display,
+              s =
+                /\\(?:[dtc]?frac|[dt]?binom|begin\s*\{(?:[pbBvV]?matrix|cases|aligned|gathered|array)\})/.test(
+                  e,
+                ),
+              l = a ? Math.max(0.15, (n - 1) / 2) : 0.15 * !!s;
+            r[r.length - 1] = Math.max(r[r.length - 1], t * l);
+          }
+          return r;
+        })(
+          e.content ?? [],
+          (t.size ?? rO) / 1.5,
+          Number(l.lineHeight) > 0 ? Number(l.lineHeight) : eJ.BASE_LINE_HEIGHT,
+        ),
+        m =
+          Number.isFinite(Number(l.indentFirst)) && 0 !== Number(l.indentFirst)
+            ? Math.round(567 * Number(l.indentFirst))
+            : void 0,
+        p =
+          Number(l.indentLeft) > 0
+            ? Math.round(567 * Number(l.indentLeft))
+            : void 0,
+        x =
+          Number(l.indentRight) > 0
+            ? Math.round(567 * Number(l.indentRight))
+            : void 0;
+      return s.map((t, n) =>
+        r0(t, a, {
+          numbering: 0 === n ? i : void 0,
+          keepNext: "heading" === e.type || !!l.paragraphStyle,
+          border:
+            Number(l.paragraphBorderWidth) > 0
+              ? rF({
+                  borderColor: l.paragraphBorderColor,
+                  borderWidth: l.paragraphBorderWidth,
+                })
+              : void 0,
+          shading: l.paragraphBackground
+            ? { fill: rq(l.paragraphBackground), type: rv.ShadingType.CLEAR }
+            : void 0,
+          before: (0 === n ? c : 0) + (0, eJ.pxToTwip)(h[n]),
+          after: (n === s.length - 1 ? d : 0) + (0, eJ.pxToTwip)(h[n]),
+          line: u,
+          firstLine: 0 === n ? m : void 0,
+          left: p,
+          right: x,
+        }),
+      );
+    }
+    function r2(e, t, n = {}) {
+      return r1({ type: "paragraph", content: (0, en.parseInline)(e) }, n, t);
+    }
+    function r3(e, t) {
+      let n = e.content ?? [],
+        r = n[0]?.marks?.find((e) => "boxed" === e.type);
+      if (
+        !r ||
+        !n.length ||
+        n.some(
+          (e) =>
+            "text" !== e.type ||
+            !e.marks?.some(
+              (e) =>
+                "boxed" === e.type &&
+                JSON.stringify(e.attrs ?? {}) === JSON.stringify(r.attrs ?? {}),
+            ),
+        )
+      )
+        return null;
+      let i = ["Top", "Right", "Bottom", "Left"].map((e, t) =>
+          Math.max(
+            0,
+            Math.min(96, Number(r.attrs?.[`padding${e}`] ?? (t % 2 ? 8 : 3))),
+          ),
+        ),
+        a =
+          "u" > typeof document
+            ? document.createElement("canvas").getContext("2d")
+            : null,
+        s = 0;
+      for (let e of n) {
+        let t = e.marks ?? [],
+          n =
+            Number(t.find((e) => "fontSize" === e.type)?.attrs?.size) ||
+            eJ.BASE_FONT_PX;
+        if (a) {
+          let r = String(
+            t.find((e) => "fontFamily" === e.type)?.attrs?.family ?? rB,
+          );
+          ((a.font = `${t.some((e) => "italic" === e.type) ? "italic " : ""}${t.some((e) => "bold" === e.type) ? "bold " : ""}${(0, eJ.quantizedFontPx)(n)}px "${r}"`),
+            (s += a.measureText(e.text ?? "").width));
+        } else s += (e.text?.length ?? 0) * n * 0.55;
+      }
+      let l = (0, eJ.pxToTwip)(s + i[1] + i[3] + 2),
+        o = rY[String(e.attrs?.textAlign)] ?? t,
+        c = {
+          ...e,
+          attrs: {
+            ...e.attrs,
+            lineHeight: 1.15,
+            spaceBefore: 0,
+            spaceAfter: 0,
+          },
+          content: n.map((e) => ({
+            ...e,
+            marks: e.marks?.filter((e) => "boxed" !== e.type),
+          })),
+        };
+      return new rv.Table({
+        alignment: o === rv.AlignmentType.JUSTIFIED ? rv.AlignmentType.LEFT : o,
+        width: { size: l, type: rv.WidthType.DXA },
+        layout: rv.TableLayoutType.FIXED,
+        columnWidths: [l],
+        borders: rU,
+        rows: [
+          new rv.TableRow({
+            cantSplit: !0,
+            children: [
+              new rv.TableCell({
+                width: { size: l, type: rv.WidthType.DXA },
+                borders: rF({ borderWidth: 1, borderColor: "#000000" }),
+                margins: {
+                  marginUnitType: rv.WidthType.DXA,
+                  top: (0, eJ.pxToTwip)(i[0]),
+                  right: (0, eJ.pxToTwip)(i[1]),
+                  bottom: (0, eJ.pxToTwip)(i[2]),
+                  left: (0, eJ.pxToTwip)(i[3]),
+                },
+                children: r1(c, {}, rv.AlignmentType.LEFT),
+              }),
+            ],
+          }),
+        ],
+      });
+    }
+    function r5(e, t = {}, n = rv.AlignmentType.LEFT) {
+      let r = (e.content ?? []).flatMap((e) => {
+        let r = r3(e, n);
+        return r ? [r, iu()] : r1(e, t, n);
+      });
+      return r.length > 0 ? r : [r0([], n)];
+    }
+    function r7(e, t, n, r = 0, i = 0, a) {
+      return new rv.Table({
+        width: { size: e.reduce((e, t) => e + t, 0), type: rv.WidthType.DXA },
+        layout: rv.TableLayoutType.FIXED,
+        columnWidths: e,
+        borders: rU,
+        rows: t.map(
+          (t, s) =>
+            new rv.TableRow({
+              cantSplit: !0,
+              children: e.map(
+                (l, o) =>
+                  new rv.TableCell({
+                    width: { size: l, type: rv.WidthType.DXA },
+                    borders: rK,
+                    margins: {
+                      ...rV,
+                      bottom: i,
+                      right: o < e.length - 1 ? r : 0,
+                    },
+                    children:
+                      a?.[s]?.[o] ?? (t[o] ? r5(t[o], {}, n) : [r0([], n)]),
+                  }),
+              ),
+            }),
+        ),
+      });
+    }
+    let r4 = [
+      "geometryDiagram",
+      "vectorDiagram",
+      "functionGraph",
+      "statChart",
+      "examImage",
+    ];
+    async function r8(e) {
+      let t = e.content ?? [],
+        n = Math.min(
+          Math.max(4, t.length),
+          Math.max(1, Math.floor(Number(e.attrs?.columns) || 2)),
+        ),
+        r = (0, eJ.pxToTwip)(12),
+        i = Math.floor((eJ.CONTENT_WIDTH_TWIP - r * (n - 1)) / n),
+        a = Array.from({ length: n }, (e, t) => i + (t < n - 1 ? r : 0));
+      a[n - 1] += eJ.CONTENT_WIDTH_TWIP - a.reduce((e, t) => e + t, 0);
+      let s = [];
+      for (let e = 0; e < t.length; e += n) s.push(t.slice(e, e + n));
+      let l = await Promise.all(
+        s.map((e) =>
+          Promise.all(
+            e.map(async (e) => {
+              let t = (
+                await Promise.all(
+                  (e.content ?? []).map((t) =>
+                    r4.includes(t.type)
+                      ? id(t, i / 15)
+                      : r5({ ...e, content: [t] }),
+                  ),
+                )
+              ).flat();
+              return t.length ? t : [r0([], rv.AlignmentType.LEFT)];
+            }),
+          ),
+        ),
+      );
+      return r7(a, s, rv.AlignmentType.LEFT, (0, eJ.pxToTwip)(12), 0, l);
+    }
+    function r6(e) {
+      return e.text ?? (e.content ?? []).map(r6).join("");
+    }
+    async function r9(e) {
+      let t = e.content ?? [],
+        n = t[0]?.content ?? [],
+        r = n.some((e) => Number(e.attrs?.colspan) > 1) ? [] : n.map(r6),
+        i = (0, rP.rubricStyle)(r),
+        a = [],
+        s = 0;
+      (t.forEach((e, t) => {
+        let n = 0;
+        for (let r of e.content ?? []) {
+          for (; a[t]?.[n]; ) n++;
+          let e = Number(r.attrs?.colspan) || 1,
+            i = Number(r.attrs?.rowspan) || 1;
+          for (let r = 0; r < i; r++)
+            for (let i = 0; i < e; i++) (a[t + r] ??= [])[n + i] = !0;
+          ((n += e), (s = Math.max(s, n)));
+        }
+      }),
+        (s = Math.max(1, s)));
+      let l = e.attrs?.widths,
+        o = (r.length === s && (0, rP.rubricWidths)(r, l)) || l,
+        c =
+          Array.isArray(o) && o.length === s
+            ? o
+            : Array.from({ length: s }, () => 1),
+        d = c.reduce((e, t) => e + t, 0),
+        u = c.map((e) => Math.round((e / d) * eJ.CONTENT_WIDTH_TWIP)),
+        h = [];
+      return new rv.Table({
+        width: { size: eJ.CONTENT_WIDTH_TWIP, type: rv.WidthType.DXA },
+        layout: rv.TableLayoutType.FIXED,
+        columnWidths: u,
+        rows: await Promise.all(
+          t.map(async (e, t) => {
+            let n = 0,
+              r = await Promise.all(
+                (e.content ?? []).map(async (e) => {
+                  for (; h[t]?.[n]; ) n++;
+                  let r = Number(e.attrs?.colspan) || 1,
+                    a = Number(e.attrs?.rowspan) || 1;
+                  for (let e = 0; e < a; e++)
+                    for (let i = 0; i < r; i++) (h[t + e] ??= [])[n + i] = !0;
+                  let l = u.slice(n, n + r).reduce((e, t) => e + t, 0);
+                  n += r;
+                  let o = "tableHeader" === e.type,
+                    c = null !== i && n === s;
+                  return new rv.TableCell({
+                    width: { size: l, type: rv.WidthType.DXA },
+                    columnSpan: r > 1 ? r : void 0,
+                    rowSpan: a > 1 ? a : void 0,
+                    verticalAlign:
+                      e.attrs?.verticalAlign === "middle"
+                        ? rv.VerticalAlign.CENTER
+                        : e.attrs?.verticalAlign === "bottom"
+                          ? rv.VerticalAlign.BOTTOM
+                          : rv.VerticalAlign.TOP,
+                    borders: rF(e.attrs ?? {}),
+                    shading: e.attrs?.backgroundColor
+                      ? {
+                          fill: rq(e.attrs.backgroundColor),
+                          type: rv.ShadingType.CLEAR,
+                        }
+                      : void 0,
+                    margins:
+                      e.attrs?.cellPadding != null
+                        ? {
+                            marginUnitType: rv.WidthType.DXA,
+                            top: (0, eJ.pxToTwip)(Number(e.attrs.cellPadding)),
+                            bottom: (0, eJ.pxToTwip)(
+                              Number(e.attrs.cellPadding),
+                            ),
+                            left: (0, eJ.pxToTwip)(Number(e.attrs.cellPadding)),
+                            right: (0, eJ.pxToTwip)(
+                              Number(e.attrs.cellPadding),
+                            ),
+                          }
+                        : rJ,
+                    children: (
+                      await Promise.all(
+                        (e.content ?? []).map(async (t) =>
+                          r4.includes(t.type)
+                            ? id(
+                                t,
+                                Math.max(
+                                  100,
+                                  l / 15 -
+                                    2 *
+                                      Number(
+                                        e.attrs?.cellPadding ??
+                                          eJ.CELL_PADDING_X_PX,
+                                      ),
+                                ),
+                              )
+                            : r5(
+                                { ...e, content: [t] },
+                                o
+                                  ? { bold: !0 }
+                                  : c && "steps" === i
+                                    ? { italics: !0 }
+                                    : {},
+                                o || c
+                                  ? rv.AlignmentType.CENTER
+                                  : rv.AlignmentType.LEFT,
+                              ),
+                        ),
+                      )
+                    ).flat(),
+                  });
+                }),
+              );
+            return new rv.TableRow({
+              cantSplit: !0,
+              tableHeader: (e.content ?? []).every(
+                (e) => "tableHeader" === e.type,
+              ),
+              height: (e.content ?? []).some(
+                (e) => Number(e.attrs?.minHeight) > 0,
+              )
+                ? {
+                    value: (0, eJ.pxToTwip)(
+                      Math.max(
+                        ...(e.content ?? []).map(
+                          (e) => Number(e.attrs?.minHeight) || 0,
+                        ),
+                      ),
+                    ),
+                    rule: rv.HeightRule.ATLEAST,
+                  }
+                : void 0,
+              children: r,
+            });
+          }),
+        ),
+      });
+    }
+    async function ie(e) {
+      if (e.startsWith("data:")) return e.split(",")[1] ?? null;
+      try {
+        let t = await fetch(e, { cache: "no-store" });
+        if (!t.ok) return null;
+        return new Uint8Array(await t.arrayBuffer());
+      } catch {
+        return null;
+      }
+    }
+    async function it(e) {
+      let t,
+        n = String(e.attrs?.src ?? "");
+      if (!n) return null;
+      let r = await ie(n);
+      if (!r) return null;
+      let i = Math.min(
+          eJ.CONTENT_WIDTH_PX,
+          Math.max(20, Number(e.attrs?.width) || 220),
+        ),
+        a = await new Promise((e) => {
+          let t = new Image();
+          ((t.onload = () =>
+            e({
+              width: i,
+              height: Math.round(
+                i * (t.naturalHeight / t.naturalWidth || 0.75),
+              ),
+            })),
+            (t.onerror = () => e({ width: i, height: Math.round(0.75 * i) })),
+            (t.src = n));
+        }),
+        s = ir(String(e.attrs?.align ?? "center"));
+      return new rv.ImageRun({
+        type:
+          "jpeg" ===
+            (t = (/^data:image\/([a-z+]+)/i.exec(n) ??
+              /\.([a-z]+)(?:[?#]|$)/i.exec(n))?.[1]?.toLowerCase()) ||
+          "jpg" === t
+            ? "jpg"
+            : "gif" === t
+              ? "gif"
+              : "bmp" === t
+                ? "bmp"
+                : "png",
+        data: r,
+        transformation: a,
+        floating: s,
+        altText: {
+          name: "Hình",
+          description: String(e.attrs?.alt ?? ""),
+          title: "Hình",
+        },
+      });
+    }
+    function ir(e) {
+      return "left" === e || "right" === e
+        ? {
+            horizontalPosition: {
+              relative: rv.HorizontalPositionRelativeFrom.MARGIN,
+              align:
+                "left" === e
+                  ? rv.HorizontalPositionAlign.LEFT
+                  : rv.HorizontalPositionAlign.RIGHT,
+            },
+            verticalPosition: {
+              relative: rv.VerticalPositionRelativeFrom.PARAGRAPH,
+              offset: 0,
+            },
+            wrap: {
+              type: rv.TextWrappingType.SQUARE,
+              side: rv.TextWrappingSide.BOTH_SIDES,
+            },
+            margins: { left: 114300, right: 114300, top: 0, bottom: 57150 },
+          }
+        : void 0;
+    }
+    function ii(e) {
+      try {
+        let t = JSON.parse(String(e ?? "{}"));
+        return t && "object" == typeof t ? t : {};
+      } catch {
+        return {};
+      }
+    }
+    function ia(e) {
+      return Array.isArray(e) ? e.map((e, t) => ({ id: `i${t}`, ...e })) : [];
+    }
+    async function is(e) {
+      let t = ii(e.attrs?.data),
+        n = {
+          caption: "",
+          showDerivative: !0,
+          ...t,
+          points: ia(t.points),
+          intervals: ia(t.intervals),
+        };
+      try {
+        let e = (function (e) {
+          let { points: t, intervals: n } = (0, rj.resolveVariation)(
+            e.points,
+            e.intervals,
+          );
+          if (!t.length || !n.length) return null;
+          let r = (0, rj.variationGeometry)(e),
+            i = 3 + rj.HEADER_COL_WIDTH,
+            a = 3 + r.rowXHeight + r.rowYpHeight,
+            s = 3 + r.totalHeight,
+            l = 3 + r.width,
+            o = [],
+            c = `stroke="${r$}" stroke-width="1.5" fill="none"`;
+          o.push(
+            `<path d="M${i} 3V${s}M3 ${3 + r.rowXHeight}H${l}${e.showDerivative ? `M3 ${a}H${l}` : ""}" ${c}/>`,
+          );
+          let d = 3 + rj.HEADER_COL_WIDTH / 2;
+          for (let n of (o.push(
+            r_("x", d, 3 + r.rowXHeight / 2, "middle", 15, { bold: !0 }),
+          ),
+          e.showDerivative &&
+            o.push(
+              r_("y'", d, 3 + r.rowXHeight + r.rowYpHeight / 2, "middle", 15, {
+                bold: !0,
+              }),
+            ),
+          o.push(r_("y", d, a + r.yHeight / 2, "middle", 15, { bold: !0 })),
+          t))
+            o.push(
+              r_(
+                n.x,
+                i + r.milestoneX(n.index),
+                3 + r.rowXHeight / 2,
+                "middle",
+                14,
+              ),
+            );
+          if (e.showDerivative) {
+            let e = 3 + r.rowXHeight + r.rowYpHeight / 2;
+            for (let t of n)
+              t.sign &&
+                o.push(
+                  r_(
+                    t.sign,
+                    i + (r.milestoneX(t.index) + r.milestoneX(t.index + 1)) / 2,
+                    e,
+                    "middle",
+                    16,
+                    { bold: !0 },
+                  ),
+                );
+            for (let n of t)
+              !n.doubleLine &&
+                n.yPrime &&
+                0 !== n.index &&
+                n.index !== t.length - 1 &&
+                o.push(
+                  r_(n.yPrime, i + r.milestoneX(n.index), e, "middle", 14, {
+                    background: !0,
+                  }),
+                );
+          }
+          for (let e of t) {
+            if (!e.doubleLine || 0 === e.index || e.index === t.length - 1)
+              continue;
+            let n = i + r.milestoneX(e.index);
+            o.push(
+              `<path d="M${rD(n - 3)} ${3 + r.rowXHeight}V${s}M${rD(n + 3)} ${3 + r.rowXHeight}V${s}" ${c}/>`,
+            );
+          }
+          for (let e of n) {
+            let n = (0, rj.variationArrow)(e, t, r);
+            if (!n) continue;
+            let s = i + n.x1,
+              l = a + n.y1,
+              c = i + n.x2,
+              d = a + n.y2,
+              u = Math.hypot(c - s, d - l) || 1,
+              h = (c - s) / u,
+              m = (d - l) / u,
+              p = c - 7 * h,
+              x = d - 7 * m;
+            o.push(
+              `<path d="M${rD(s)} ${rD(l)}L${rD(p)} ${rD(x)}" stroke="${r$}" stroke-width="1.3" fill="none"/>`,
+              `<path d="M${rD(c)} ${rD(d)}L${rD(p - 3 * m)} ${rD(x + 3 * h)}L${rD(p + 3 * m)} ${rD(x - 3 * h)}Z" fill="${r$}"/>`,
+            );
+          }
+          for (let e of t) {
+            let t = i + r.milestoneX(e.index);
+            e.doubleLine
+              ? (e.left &&
+                  o.push(
+                    r_(e.left.text, t - 6, a + r.labelY(e.left.pos), "end", 14),
+                  ),
+                e.right &&
+                  o.push(
+                    r_(
+                      e.right.text,
+                      t + 6,
+                      a + r.labelY(e.right.pos),
+                      "start",
+                      14,
+                    ),
+                  ))
+              : e.label &&
+                o.push(
+                  r_(e.label.text, t, a + r.labelY(e.label.pos), "middle", 14, {
+                    background: !0,
+                  }),
+                );
+          }
+          let u = r.width + 6,
+            h = r.totalHeight + 6;
+          return {
+            width: u,
+            height: h,
+            svg: `<svg xmlns="http://www.w3.org/2000/svg" width="${u}" height="${h}" viewBox="0 0 ${u} ${h}"><rect width="${u}" height="${h}" fill="#ffffff"/>${o.join("")}</svg>`,
+          };
+        })(n);
+        if (!e) return [];
+        let t = await (0, rk.svgToPngDataUrl)(e.svg, 3 * e.width, 3 * e.height),
+          r = Math.min(e.width, eJ.CONTENT_WIDTH_PX);
+        return [
+          ...(n.caption
+            ? r2(n.caption, rv.AlignmentType.CENTER, { bold: !0 })
+            : []),
+          r0(
+            [
+              new rv.ImageRun({
+                type: "png",
+                data: t.split(",")[1] ?? "",
+                transformation: { width: r, height: (e.height * r) / e.width },
+                altText: {
+                  name: "Bảng biến thiên",
+                  title: "Bảng biến thiên",
+                  description:
+                    n.caption ||
+                    n.bottomCaption ||
+                    "Bảng biến thiên của hàm số",
+                },
+              }),
+            ],
+            rv.AlignmentType.CENTER,
+          ),
+          ...(n.bottomCaption
+            ? r2(n.bottomCaption, rv.AlignmentType.CENTER, { italics: !0 })
+            : []),
+        ];
+      } catch {
+        return (function (e) {
+          let { points: t, intervals: n } = (0, rj.resolveVariation)(
+            e.points,
+            e.intervals,
+          );
+          if (0 === n.length || 0 === t.length) return [];
+          let r = { up: "↗", down: "↘", flat: "→", none: "" },
+            i = t.map((e) =>
+              (0, rj.clamp)(2 * (0, rj.labelHalfWidth)(e.x) + 14, 28, 92),
+            ),
+            a = (0, rj.clamp)(
+              e.width || rj.VARIATION_DEFAULTS.width,
+              280,
+              eJ.CONTENT_WIDTH_PX,
+            ),
+            s = i.reduce((e, t) => e + t, 0),
+            l = Math.max((a - rj.HEADER_COL_WIDTH - s) / n.length, 48),
+            o = rj.HEADER_COL_WIDTH + s + l * n.length,
+            c = o > eJ.CONTENT_WIDTH_PX ? eJ.CONTENT_WIDTH_PX / o : 1,
+            d = (0, eJ.pxToTwip)(rj.HEADER_COL_WIDTH * c),
+            u = i.map((e) => (0, eJ.pxToTwip)(e * c)),
+            h = (0, eJ.pxToTwip)(l * c),
+            m = [d];
+          t.forEach((e, t) => {
+            (m.push(u[t]), t < n.length && m.push(h));
+          });
+          let p = (e) =>
+              new rv.TableCell({
+                width: { size: e.widthTwip, type: rv.WidthType.DXA },
+                margins: {
+                  ...rV,
+                  left: (0, eJ.pxToTwip)(2),
+                  right: (0, eJ.pxToTwip)(2),
+                },
+                rowSpan: e.rowSpan,
+                verticalAlign: rv.VerticalAlign.CENTER,
+                borders: {
+                  top: rX,
+                  bottom: e.bottom ? rG : rX,
+                  left: e.bars ? rG : rX,
+                  right: e.bars || e.right ? rG : rX,
+                },
+                children: r2(
+                  e.text ?? "",
+                  e.alignment ?? rv.AlignmentType.CENTER,
+                  { italics: e.italics, bold: e.bold },
+                ),
+              }),
+            x = (e) => (e ? `$${e}$` : ""),
+            g = (e) => t[e]?.doubleLine === !0,
+            f = (e) => ("-" === e ? "−" : e),
+            b = [
+              new rv.TableRow({
+                cantSplit: !0,
+                children: [
+                  p({
+                    text: "$x$",
+                    widthTwip: d,
+                    right: !0,
+                    bottom: !0,
+                    italics: !0,
+                    bold: !0,
+                  }),
+                  ...t.flatMap((e, t) => {
+                    let r = [p({ text: x(e.x), widthTwip: u[t], bottom: !0 })];
+                    return (
+                      t < n.length && r.push(p({ widthTwip: h, bottom: !0 })),
+                      r
+                    );
+                  }),
+                ],
+              }),
+            ];
+          e.showDerivative &&
+            b.push(
+              new rv.TableRow({
+                cantSplit: !0,
+                children: [
+                  p({
+                    text: "$y'$",
+                    widthTwip: d,
+                    right: !0,
+                    bottom: !0,
+                    italics: !0,
+                    bold: !0,
+                  }),
+                  ...t.flatMap((e, t) => {
+                    let r = [
+                      p({
+                        text: /^[+-]$/.test(e.yPrime.trim())
+                          ? f(e.yPrime.trim())
+                          : x(e.yPrime),
+                        widthTwip: u[t],
+                        bottom: !0,
+                        bars: e.doubleLine,
+                      }),
+                    ];
+                    return (
+                      t < n.length &&
+                        r.push(
+                          p({
+                            text: f(n[t].sign),
+                            widthTwip: h,
+                            bottom: !0,
+                            bold: !0,
+                          }),
+                        ),
+                      r
+                    );
+                  }),
+                ],
+              }),
+            );
+          let y = Math.round(
+            (15 * (e.yHeight || rj.VARIATION_DEFAULTS.yHeight)) / 3,
+          );
+          return (
+            ["top", "center", "bottom"].forEach((e, i) => {
+              let a = [];
+              0 === i &&
+                a.push(
+                  p({
+                    text: "$y$",
+                    widthTwip: d,
+                    right: !0,
+                    rowSpan: 3,
+                    italics: !0,
+                    bold: !0,
+                  }),
+                );
+              let s = (t) => (t && t.pos === e ? t.text : "");
+              (t.forEach((i, l) => {
+                if (
+                  (a.push(
+                    p({
+                      text: i.doubleLine ? "" : x(s(i.label)),
+                      widthTwip: u[l],
+                      bars: i.doubleLine,
+                    }),
+                  ),
+                  l >= n.length)
+                )
+                  return;
+                let o = [],
+                  c = g(l) ? s(t[l].right) : "",
+                  d = g(l + 1) ? s(t[l + 1].left) : "";
+                (c && o.push(x(c)),
+                  "center" === e &&
+                    "none" !== n[l].direction &&
+                    o.push(r[n[l].direction]),
+                  d && o.push(x(d)));
+                let m =
+                  c && !d
+                    ? rv.AlignmentType.LEFT
+                    : d && !c
+                      ? rv.AlignmentType.RIGHT
+                      : rv.AlignmentType.CENTER;
+                a.push(p({ text: o.join(" "), widthTwip: h, alignment: m }));
+              }),
+                b.push(
+                  new rv.TableRow({
+                    cantSplit: !0,
+                    height: { value: y, rule: rv.HeightRule.EXACT },
+                    children: a,
+                  }),
+                ));
+            }),
+            [
+              ...(e.caption
+                ? r2(e.caption, rv.AlignmentType.CENTER, { bold: !0 })
+                : []),
+              new rv.Table({
+                width: {
+                  size: m.reduce((e, t) => e + t, 0),
+                  type: rv.WidthType.DXA,
+                },
+                alignment: rv.AlignmentType.CENTER,
+                layout: rv.TableLayoutType.FIXED,
+                columnWidths: m,
+                borders: rU,
+                rows: b,
+              }),
+              ...(e.bottomCaption
+                ? r2(e.bottomCaption, rv.AlignmentType.CENTER, { italics: !0 })
+                : []),
+            ]
+          );
+        })(n);
+      }
+    }
+    async function il(e, t = eJ.CONTENT_WIDTH_PX) {
+      let n = { ...(0, t4.graphBaseFor)(e.attrs?.data), ...ii(e.attrs?.data) };
+      n.points = ia(n.points);
+      let r = n.caption
+          ? r2(n.caption, rv.AlignmentType.CENTER, { bold: !0 })
+          : [],
+        i = n.bottomCaption
+          ? r2(n.bottomCaption, rv.AlignmentType.CENTER, { italics: !0 })
+          : [],
+        a = n.expression ? "Đồ thị hàm số" : "Hình trong mặt phẳng toạ độ",
+        s = n.expression ? `Đồ thị h\xe0m số y = ${n.expression}` : a;
+      try {
+        let {
+            svg: e,
+            width: l,
+            height: o,
+          } = (0, rk.buildGraphSvg)(n, {
+            color: "#000000",
+            scale: 3,
+            background: "#ffffff",
+          }),
+          c = await (0, rk.svgToPngDataUrl)(e, l, o),
+          d = Math.min(n.width, t);
+        return [
+          ...r,
+          r0(
+            [
+              new rv.ImageRun({
+                type: "png",
+                data: c.split(",")[1] ?? "",
+                transformation: { width: d, height: (n.height * d) / n.width },
+                altText: { name: a, description: s, title: a },
+              }),
+            ],
+            rv.AlignmentType.CENTER,
+          ),
+          ...i,
+        ];
+      } catch {
+        return [
+          ...r,
+          ...r2(
+            n.expression
+              ? `[Đồ thị h\xe0m số $y = ${n.expression}$]`
+              : `[${a}]`,
+            rv.AlignmentType.CENTER,
+          ),
+          ...i,
+        ];
+      }
+    }
+    async function io(e, t = eJ.CONTENT_WIDTH_PX, n = !1) {
+      try {
+        let r = "vectorDiagram" === e.type,
+          i = "statChart" === e.type,
+          a = String(e.attrs?.data ?? ""),
+          s = i
+            ? (0, t8.parseChartData)(a)
+            : r
+              ? (0, t9.parseDiagramData)(a)
+              : (0, t6.parseGeometryData)(a),
+          {
+            svg: l,
+            width: o,
+            height: c,
+          } = i
+            ? (0, rA.buildChartSvg)(a)
+            : r
+              ? (0, rE.buildDiagramSvg)(a)
+              : await (0, rS.buildGeometrySvg)(a),
+          d = await (0, rk.svgToPngDataUrl)(l, 3 * o, 3 * c),
+          u = Math.min(o, t),
+          h = i ? "Biểu đồ" : r ? "Hình minh hoạ" : "Hình học";
+        return {
+          run: new rv.ImageRun({
+            type: "png",
+            data: d.split(",")[1] ?? "",
+            transformation: { width: u, height: (c * u) / o },
+            floating: n ? ir(s.align) : void 0,
+            altText: {
+              name: h,
+              title: h,
+              description:
+                ("alt" in s ? s.alt : "") || s.caption || s.bottomCaption || h,
+            },
+          }),
+          align: s.align,
+          before: s.caption
+            ? r2(s.caption, rv.AlignmentType.CENTER, { bold: !0 })
+            : [],
+          after: s.bottomCaption
+            ? r2(s.bottomCaption, rv.AlignmentType.CENTER, { italics: !0 })
+            : [],
+        };
+      } catch (t) {
+        let e = t instanceof Error ? t.message : "dữ liệu hình không hợp lệ";
+        return {
+          error: r0(
+            [
+              new rv.TextRun({
+                text: `[H\xecnh chưa dựng được: ${e}]`,
+                font: rB,
+                italics: !0,
+              }),
+            ],
+            rv.AlignmentType.CENTER,
+          ),
+        };
+      }
+    }
+    async function ic(e, t = eJ.CONTENT_WIDTH_PX) {
+      let n = await io(e, t);
+      return n.error
+        ? [n.error]
+        : [...n.before, r0([n.run], rv.AlignmentType.CENTER), ...n.after];
+    }
+    async function id(e, t) {
+      if ("functionGraph" === e.type) return il(e, t);
+      if ("examImage" !== e.type) return ic(e, t);
+      let n = await it({
+        ...e,
+        attrs: {
+          ...e.attrs,
+          align: "center",
+          width: Math.min(Number(e.attrs?.width) || 220, t),
+        },
+      });
+      return n
+        ? [r0([n], rv.AlignmentType.CENTER)]
+        : r2(
+            `[H\xecnh: ${String(e.attrs?.alt ?? "")}]`,
+            rv.AlignmentType.CENTER,
+          );
+    }
+    function iu() {
+      return new rv.Paragraph({
+        spacing: {
+          before: 0,
+          after: 0,
+          line: 20,
+          lineRule: rv.LineRuleType.AUTO,
+        },
+        children: [new rv.TextRun({ text: "", font: rB, size: 2 })],
+      });
+    }
+    async function ih(e, t, n = 0) {
+      let r = `list-${t.length}`;
+      t.push({
+        reference: r,
+        ordered: "orderedList" === e.type,
+        start: Number(e.attrs?.start) || 1,
+      });
+      let i = [];
+      for (let a of e.content ?? []) {
+        let e = !0;
+        for (let s of a.content ?? [])
+          if (["bulletList", "orderedList"].includes(s.type))
+            i.push(...(await ih(s, t, Math.min(8, n + 1))));
+          else {
+            let t = r1(
+              s,
+              {},
+              rv.AlignmentType.LEFT,
+              [],
+              e ? { reference: r, level: n } : void 0,
+            );
+            (i.push(...t), (e = !1));
+          }
+      }
+      return i;
+    }
+    async function im(e, t = []) {
+      let n = [],
+        r = [],
+        i = !1,
+        a = () => {
+          (i &&
+            n.push(
+              new rv.Paragraph({
+                spacing: {
+                  before: 0,
+                  after: 0,
+                  line: 20,
+                  lineRule: rv.LineRuleType.EXACT,
+                },
+                children: [
+                  new rv.TextRun({
+                    children: [
+                      rv.ImportedXmlComponent.fromXmlString(
+                        '<w:br w:type="textWrapping" w:clear="all"/>',
+                      ),
+                    ],
+                  }),
+                ],
+              }),
+            ),
+            (i = !1));
+        },
+        s = () => {
+          (r.length > 0 && n.push(r0(r, rv.AlignmentType.LEFT)), (r = []));
+        };
+      for (let l of e)
+        switch (l.type) {
+          case "bulletList":
+          case "orderedList":
+            (s(), n.push(...(await ih(l, t))));
+            break;
+          case "docColumns":
+            (s(), n.push(...(await im(l.content ?? [], t))));
+            break;
+          case "paragraph": {
+            0 === r.length &&
+              /^(?:câu|bài)\s+\d+[a-zđ]?\b/i.test(r6(l).trim()) &&
+              a();
+            let e = nt.NAMED_PARAGRAPH_STYLES.find(
+                (e) => e.value === l.attrs?.paragraphStyle,
+              ),
+              t = e ? rv.AlignmentType.LEFT : rv.AlignmentType.JUSTIFIED,
+              i = 0 !== r.length || e ? null : r3(l, t);
+            (i
+              ? n.push(i)
+              : n.push(
+                  ...r1(
+                    l,
+                    e
+                      ? {
+                          bold: e.bold,
+                          italics: e.italics,
+                          size: (0, eJ.fontHalfPoints)(e.size),
+                          color: e.color,
+                        }
+                      : {},
+                    t,
+                    r,
+                  ),
+                ),
+              (r = []));
+            break;
+          }
+          case "heading": {
+            s();
+            let e = Number(l.attrs?.level) || 2,
+              t =
+                nt.HEADING_STYLES.find((t) => t.level === e) ??
+                nt.HEADING_STYLES[1],
+              r = rv.AlignmentType.LEFT;
+            n.push(
+              ...r1(
+                l,
+                {
+                  bold: t.bold,
+                  italics: t.italics,
+                  size: (0, eJ.fontHalfPoints)(t.size),
+                },
+                r,
+              ),
+            );
+            break;
+          }
+          case "examImage": {
+            let e = await it(l),
+              t = String(l.attrs?.align ?? "center");
+            e
+              ? "left" === t || "right" === t
+                ? (0 === r.length && a(), r.push(e), (i = !0))
+                : (s(), n.push(r0([e], rv.AlignmentType.CENTER)))
+              : (s(),
+                n.push(
+                  ...r2(
+                    `*[H\xecnh: ${String(l.attrs?.alt ?? "")}]*`,
+                    rv.AlignmentType.CENTER,
+                  ),
+                ));
+            break;
+          }
+          case "geometryDiagram":
+          case "statChart":
+          case "vectorDiagram": {
+            let e = await io(l, eJ.CONTENT_WIDTH_PX, !0);
+            e.error
+              ? (s(), n.push(e.error))
+              : "left" === e.align || "right" === e.align
+                ? (0 === r.length && a(),
+                  n.push(...e.before),
+                  r.push(e.run),
+                  (i = !0),
+                  n.push(...e.after))
+                : (s(),
+                  n.push(
+                    ...e.before,
+                    r0([e.run], rv.AlignmentType.CENTER),
+                    ...e.after,
+                  ));
+            break;
+          }
+          default:
+            if ((s(), "pageBreak" === l.type))
+              n.push(
+                new rv.Paragraph({
+                  spacing: {
+                    before: 0,
+                    after: 0,
+                    line: 20,
+                    lineRule: rv.LineRuleType.AUTO,
+                  },
+                  children: [new rv.PageBreak()],
+                }),
+              );
+            else if ("horizontalRule" === l.type)
+              n.push(
+                new rv.Paragraph({
+                  indent: {
+                    left: Math.round(
+                      567 * Math.max(0, Number(l.attrs?.indentLeft) || 0),
+                    ),
+                    right: Math.round(
+                      567 * Math.max(0, Number(l.attrs?.indentRight) || 0),
+                    ),
+                  },
+                  spacing: {
+                    before: 0,
+                    after: (0, eJ.pxToTwip)(6),
+                    line: 20,
+                    lineRule: rv.LineRuleType.AUTO,
+                  },
+                  border: {
+                    bottom: {
+                      style: rv.BorderStyle.SINGLE,
+                      size: 6,
+                      color: "000000",
+                      space: 1,
+                    },
+                  },
+                  children: [],
+                }),
+              );
+            else
+              "examHeader" === l.type
+                ? n.push(
+                    (function (e) {
+                      let t = Math.round(
+                          (rH.HEADER_LAYOUT.leftPercent / 100) *
+                            eJ.CONTENT_WIDTH_TWIP,
+                        ),
+                        [n, r] = e.content ?? [],
+                        i = [n, r]
+                          .filter(Boolean)
+                          .map((e) => ({
+                            ...e,
+                            content: e.content?.map((e) => ({
+                              ...e,
+                              attrs: {
+                                ...e.attrs,
+                                lineHeight:
+                                  e.attrs?.lineHeight ??
+                                  rH.HEADER_LAYOUT.lineHeight,
+                              },
+                            })),
+                          }));
+                      return r7(
+                        [t, eJ.CONTENT_WIDTH_TWIP - t],
+                        [i],
+                        rv.AlignmentType.CENTER,
+                        (0, eJ.pxToTwip)(rH.HEADER_LAYOUT.columnGap),
+                        (0, eJ.pxToTwip)(rH.HEADER_LAYOUT.spaceAfter),
+                      );
+                    })(l),
+                  )
+                : "grid" === l.type
+                  ? n.push(await r8(l))
+                  : "table" === l.type
+                    ? n.push(
+                        await r9(l),
+                        new rv.Paragraph({
+                          keepNext: !0,
+                          spacing: {
+                            before: 0,
+                            after: 0,
+                            line: (0, eJ.pxToTwip)(eJ.TABLE_SPACE_AFTER_PX),
+                            lineRule: rv.LineRuleType.EXACT,
+                          },
+                          children: [
+                            new rv.TextRun({ text: "", font: rB, size: 2 }),
+                          ],
+                        }),
+                      )
+                    : "variationTable" === l.type
+                      ? n.push(...(await is(l)))
+                      : "functionGraph" === l.type && n.push(...(await il(l)));
+        }
+      s();
+      let l = n.flatMap((e, t) =>
+        e instanceof rv.Table &&
+        (t === n.length - 1 || n[t + 1] instanceof rv.Table)
+          ? [e, iu()]
+          : [e],
+      );
+      return l.length > 0 ? l : [r0([], rv.AlignmentType.LEFT)];
+    }
+    async function ip(t, n = {}) {
+      if ("mathtype" !== n.math)
+        return { blob: await ix(t), mathType: 0, mathKept: 0 };
+      if (rZ)
+        throw Error("Đang xuất một file Word khác, hãy thử lại sau giây lát.");
+      let r = { api: await e.A(370024), parts: [], cache: new Map(), kept: 0 };
+      rZ = r;
+      try {
+        let e = await ix(t);
+        if (!r.parts.length) return { blob: e, mathType: 0, mathKept: r.kept };
+        let n = await r.api.embedMathTypeParts(e, r.parts);
+        return {
+          blob: new Blob([n], { type: e.type }),
+          mathType: r.parts.length,
+          mathKept: r.kept,
+        };
+      } finally {
+        rZ = null;
+      }
+    }
+    async function ix(e) {
+      let t = [],
+        n = [],
+        r = [],
+        i = {
+          size: {
+            width: (0, eJ.mmToTwip)(eJ.PAGE_MM.width),
+            height: (0, eJ.mmToTwip)(eJ.PAGE_MM.height),
+          },
+          margin: eJ.PAGE_MARGIN_TWIP,
+        },
+        a = async () => {
+          r.length &&
+            (n.push({
+              properties: {
+                page: i,
+                type: rv.SectionType.CONTINUOUS,
+                column: { count: 1 },
+              },
+              children: await im(r, t),
+            }),
+            (r = []));
+        };
+      for (let s of e.content ?? []) {
+        if ("docColumns" !== s.type) {
+          r.push(s);
+          continue;
+        }
+        (await a(),
+          n.push({
+            properties: {
+              page: i,
+              type: rv.SectionType.CONTINUOUS,
+              column: {
+                count: Number(s.attrs?.columns) || 2,
+                space: (0, eJ.pxToTwip)(Number(s.attrs?.gap ?? 24)),
+                separate: !!s.attrs?.separator,
+                equalWidth: !0,
+              },
+            },
+            children: await im(s.content ?? [], t),
+          }));
+      }
+      (await a(),
+        n.length ||
+          n.push({
+            properties: { page: i },
+            children: [r0([], rv.AlignmentType.LEFT)],
+          }));
+      let s = new rv.Document({
+        styles: {
+          default: {
+            document: {
+              run: { font: rB, size: rO },
+              paragraph: { spacing: { before: 0, after: 0 } },
+            },
+          },
+        },
+        numbering: {
+          config: t.map(({ reference: e, ordered: t, start: n }) => ({
+            reference: e,
+            levels: Array.from({ length: 9 }, (e, r) => ({
+              level: r,
+              format: t
+                ? [
+                    rv.LevelFormat.DECIMAL,
+                    rv.LevelFormat.LOWER_LETTER,
+                    rv.LevelFormat.LOWER_ROMAN,
+                  ][r % 3]
+                : rv.LevelFormat.BULLET,
+              text: t ? `%${r + 1}.` : ["•", "◦", "▪"][r % 3],
+              start: n,
+              alignment: rv.AlignmentType.LEFT,
+              style: {
+                paragraph: { indent: { left: 360 * (r + 1), hanging: 240 } },
+              },
+            })),
+          })),
+        },
+        sections: n,
+      });
+      return rv.Packer.toBlob(s);
+    }
+    async function ig(e, t, n = {}) {
+      let r = await ip(t, n);
+      return ((0, h.saveAs)(r.blob, e), r);
+    }
+    function ib() {
+      return `exam_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
+    }
+    function iy(e) {
+      if (!e || "object" != typeof e) return null;
+      let t = e.data && "object" == typeof e.data ? e.data : e;
+      return "string" != typeof t.content
+        ? null
+        : {
+            id: "string" == typeof t.id && t.id ? t.id : ib(),
+            title:
+              "string" == typeof t.title && t.title.trim()
+                ? t.title.trim()
+                : "Đề thi",
+            content: t.content,
+          };
+    }
+    var iw = e.i(822804);
+    function iv() {
+      return (0, t.jsxs)("svg", {
+        "aria-hidden": !0,
+        viewBox: "0 0 24 24",
+        fill: "none",
+        stroke: "currentColor",
+        strokeWidth: "1.75",
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        className: "size-[18px]",
+        children: [
+          (0, t.jsx)("path", {
+            d: "M20.5 11.5a8.5 8.5 0 0 1-12.4 7.55L3.5 20.5l1.45-4.3A8.5 8.5 0 1 1 20.5 11.5Z",
+          }),
+          (0, t.jsx)("path", {
+            d: "M12 7.6c.45 2.2 1.45 3.2 3.65 3.65-2.2.45-3.2 1.45-3.65 3.65-.45-2.2-1.45-3.2-3.65-3.65 2.2-.45 3.2-1.45 3.65-3.65Z",
+            fill: "currentColor",
+            stroke: "none",
+          }),
+        ],
+      });
+    }
+    function ij({ open: e, onToggle: n }) {
+      return (0, t.jsx)(nm.TooltipProvider, {
+        delayDuration: 120,
+        children: (0, t.jsxs)(nm.Tooltip, {
+          children: [
+            (0, t.jsx)(nm.TooltipTrigger, {
+              asChild: !0,
+              children: (0, t.jsxs)("button", {
+                type: "button",
+                onClick: n,
+                "aria-label": e ? "Ẩn trợ lý AI" : "Mở trợ lý AI",
+                "aria-pressed": e,
+                className: `editor-action flex h-9 shrink-0 items-center gap-2 rounded-md px-3 text-sm font-medium text-[#37352f] transition-colors hover:bg-[#f1f1ef] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2383e2] ${e ? "bg-[#f1f1ef]" : ""}`,
+                children: [
+                  (0, t.jsx)(iv, {}),
+                  " ",
+                  (0, t.jsx)("span", {
+                    className: "editor-action-label",
+                    children: "Hỏi AI",
+                  }),
+                ],
+              }),
+            }),
+            (0, t.jsxs)(nm.TooltipContent, {
+              side: "bottom",
+              align: "end",
+              sideOffset: 10,
+              className:
+                "max-w-64 rounded-lg border border-[#e3e2e0] bg-white px-4 py-3 text-neutral-800 shadow-[0_8px_30px_-8px_#59628040] motion-reduce:animate-none",
+              children: [
+                (0, t.jsx)("p", {
+                  className: "text-sm font-semibold text-[#37352f]",
+                  children: "Trợ lý AI",
+                }),
+                (0, t.jsx)("p", {
+                  className: "mt-1 text-xs leading-5 text-neutral-500",
+                  children: "Soạn câu hỏi, chỉnh sửa và hoàn thiện đề thi.",
+                }),
+                (0, t.jsx)("p", {
+                  className: "mt-2 text-[11px] text-neutral-400",
+                  children: e ? "Bấm để thu gọn trợ lý" : "Bấm để mở trợ lý",
+                }),
+              ],
+            }),
+          ],
+        }),
+      });
+    }
+    var ik = e.i(758250);
+    let iN = "exam-builder:draft:v2",
+      iC = [0.2, 0, 0, 1],
+      iT = "(max-width: 1279px)",
+      iS = (e) => {
+        let t = window.matchMedia(iT);
+        return (
+          t.addEventListener("change", e),
+          () => t.removeEventListener("change", e)
+        );
+      },
+      iA = () => window.matchMedia(iT).matches,
+      iE = () => !1;
+    function iM(e) {
+      try {
+        window.localStorage.setItem(iN, JSON.stringify(e));
+      } catch {}
+    }
+    function i$(e) {
+      for (let t of (0, er.splitSegments)(e)) {
+        if (t.startsWith("```rich-block")) {
+          let e = (0, er.segmentFirstText)(t);
+          if (e) return e.slice(0, 80);
+          continue;
+        }
+        for (let e of t.split("\n")) {
+          let t = (0, er.plainText)(e);
+          if (
+            t &&
+            "|||" !== t &&
+            !e.trim().startsWith(":::") &&
+            !e.trim().startsWith("```")
+          )
+            return t.slice(0, 80);
+        }
+      }
+      return "Đề thi";
+    }
+    function iD(e) {
+      return (
+        e
+          .normalize("NFD")
+          .replace(/[̀-ͯ]/g, "")
+          .replace(/đ/gi, "d")
+          .replace(/[^a-zA-Z0-9]+/g, "-")
+          .replace(/^-+|-+$/g, "")
+          .toLowerCase() || "de-thi"
+      );
+    }
+    e.s(
+      [
+        "ExamBuilder",
+        0,
+        function ({ documentId: w } = {}) {
+          let T = !!w,
+            S = (0, d.useRouter)(),
+            [A, M] = (0, E.useState)(T ? "loading" : "ready"),
+            [$, I] = (0, E.useState)(""),
+            [L, R] = (0, E.useState)("saved"),
+            [z, _] = (0, E.useState)(""),
+            [P, H] = (0, E.useState)(!1),
+            [q, F] = (0, E.useState)(!1),
+            [B, O] = (0, E.useState)(null),
+            [W, X] = (0, E.useState)(!1),
+            [G, K] = (0, E.useState)(w ?? "exam_local"),
+            [U, V] = (0, E.useState)("Đề thi mới"),
+            [J, Q] = (0, E.useState)(""),
+            [Y, Z] = (0, E.useState)(1),
+            [et, ei] = (0, E.useState)(0),
+            [ea, es] = (0, E.useState)(!0),
+            [el, eo] = (0, E.useState)(!1),
+            [ec, ed] = (0, E.useState)(!1),
+            eu = (0, E.useSyncExternalStore)(iS, iA, iE),
+            [eh, eg] = (0, E.useState)(null),
+            [ef, eb] = (0, E.useState)(0),
+            [ey, ew] = (0, E.useState)(!0),
+            [eC, eT] = (0, E.useState)(null),
+            [eS, eA] = (0, E.useState)(null),
+            eE = eS ?? !eu,
+            e$ = (eC ?? !eu) && (!eu || !eE),
+            eD = ef - (eu ? 24 : e$ ? 312 : 32),
+            ez =
+              "number" == typeof eh
+                ? eh
+                : (eu || "fit" === eh) && eD > 0
+                  ? Math.min(1, eD / eJ.PAGE_WIDTH_PX)
+                  : 1,
+            e_ = (0, E.useCallback)(
+              (e) => {
+                (eT(e), eu && e && eA(!1));
+              },
+              [eu],
+            ),
+            eP = (0, E.useCallback)(
+              (e) => {
+                (eA(e), eu && e && eT(!1));
+              },
+              [eu],
+            ),
+            eH = (0, E.useCallback)(
+              (e) => {
+                (eP(!0), (0, n5.requestAddReference)(e));
+              },
+              [eP],
+            ),
+            [eq, eF] = (0, E.useState)(380),
+            [eB, eO] = (0, E.useState)(!1),
+            [eW, eQ] = (0, E.useState)("chat"),
+            [eY, eZ] = (0, E.useState)(null),
+            [e0, e1] = (0, E.useState)(!1),
+            [e2, e3] = (0, E.useState)(""),
+            e5 = (0, E.useCallback)(
+              (e) => {
+                ((0, ee.track)("versions_open", {
+                  from: e ? "chat" : "editor",
+                }),
+                  eQ("studio"),
+                  eP(!0),
+                  e && eZ((t) => ({ ...e, nonce: (t?.nonce ?? 0) + 1 })));
+              },
+              [eP],
+            ),
+            e7 = (0, E.useMemo)(
+              () =>
+                (0, n.editorUIActions)({
+                  renameDocument: V,
+                  setZoom: eg,
+                  setRulerVisible: ew,
+                  setOutlineVisible: e_,
+                  openVersionStudio: (e, t) => e5({ text: e, count: t }),
+                }),
+              [e_, e5],
+            ),
+            [e4, e8] = (0, E.useState)(null),
+            [e6, e9] = (0, E.useState)(!1),
+            [te, tt] = (0, E.useState)(!1),
+            [tn, tr] = (0, E.useState)(!1),
+            ti = (0, E.useRef)(null),
+            ta = (0, E.useRef)(null);
+          ((0, E.useEffect)(() => {
+            let e = ta.current;
+            if (!e) return;
+            let t = new ResizeObserver(([e]) => eb(e.contentRect.width));
+            return (t.observe(e), () => t.disconnect());
+          }, []),
+            (0, E.useEffect)(() => {
+              if (!eu || (!e$ && !eE)) return;
+              let e = (e) => {
+                "Escape" !== e.key || e.defaultPrevented || (e_(!1), eP(!1));
+              };
+              return (
+                window.addEventListener("keydown", e),
+                () => window.removeEventListener("keydown", e)
+              );
+            }, [eu, e$, eE, e_, eP]));
+          let ts = (0, E.useRef)(null),
+            tl = (0, E.useRef)(void 0),
+            to = (0, E.useRef)(U),
+            tc = (0, E.useRef)(G),
+            td = (0, E.useRef)(!1),
+            tu = (0, E.useRef)("base"),
+            [th, tm] = (0, E.useState)("base"),
+            tp = (0, E.useRef)(""),
+            tx = (0, E.useRef)(!1),
+            tg = (0, E.useRef)(() => {}),
+            [tf, tb] = (0, E.useState)("");
+          (0, E.useEffect)(() => {
+            ((to.current = U), (tc.current = G));
+          }, [Y, U, G]);
+          let ty = (0, u.useEditor)({
+              immediatelyRender: !1,
+              extensions: (0, ru.examExtensions)({
+                pagination: { metrics: eV.PAGE_METRICS, onPages: Z },
+              }),
+              editorProps: {
+                attributes: { class: "doc-content", spellcheck: "false" },
+                handleDrop: (e, t) => {
+                  let n = t.dataTransfer?.getData(t5.SNIPPET_MIME);
+                  if (!n || !e.editable) return !1;
+                  t.preventDefault();
+                  let r = (0, t5.dropRange)(e, t),
+                    i = tw.current;
+                  return (r && i && (0, t5.insertMarkdown)(i, n, r), !0);
+                },
+              },
+              onCreate: ({ editor: e }) => {
+                if (T) return void e.setEditable(!1);
+                if (td.current) return;
+                td.current = !0;
+                let t = (function () {
+                  try {
+                    let e = window.localStorage.getItem(iN);
+                    return e ? iy(JSON.parse(e)) : null;
+                  } catch {
+                    return null;
+                  }
+                })();
+                t
+                  ? (K(t.id),
+                    V(t.title),
+                    Q(t.content),
+                    (tp.current = t.content),
+                    tb(t.content),
+                    (0, t5.setEditorMarkdown)(e, t.content, !1))
+                  : K(ib());
+              },
+              onUpdate: ({ editor: e }) => {
+                if (ts.current || tx.current) return;
+                (es(!1), window.clearTimeout(tl.current));
+                let t = tu.current;
+                tl.current = window.setTimeout(() => {
+                  if (tu.current !== t) return;
+                  let n = (0, t5.editorMarkdown)(e);
+                  (Q(n),
+                    ei(e.getText().split(/\s+/).filter(Boolean).length),
+                    "base" === t
+                      ? ((tp.current = n),
+                        tb(n),
+                        tv.current
+                          ? tA.current()
+                          : iM({
+                              id: tc.current,
+                              title: to.current,
+                              content: n,
+                            }))
+                      : tg.current(t, n),
+                    es(!0));
+                }, 300);
+              },
+            }),
+            tw = (0, E.useRef)(ty);
+          (0, E.useEffect)(() => {
+            tw.current = ty;
+          }, [ty]);
+          let tv = (0, E.useRef)(T),
+            tj = (0, E.useRef)(void 0),
+            tk = (0, E.useRef)(!1),
+            tN = (0, E.useRef)(null),
+            tC = (0, E.useRef)({ title: "", content: "" }),
+            tT = (0, E.useCallback)(
+              async (e = !1) => {
+                let t = tw.current;
+                if (!w || !t || !td.current) return;
+                for (window.clearTimeout(tj.current); tN.current; )
+                  await tN.current.catch(() => {});
+                if (!tk.current) return;
+                tk.current = !1;
+                let n = to.current,
+                  r =
+                    "base" === tu.current
+                      ? (0, t5.editorMarkdown)(t)
+                      : tp.current;
+                if (n === tC.current.title && r === tC.current.content)
+                  return void R("saved");
+                R("saving");
+                let i = (0, s.saveDocument)(w, n, r, {
+                  keepalive: e && new Blob([n, r]).size < 6e4,
+                })
+                  .then(() => {
+                    ((tC.current = { title: n, content: r }),
+                      _(""),
+                      R(tk.current ? "dirty" : "saved"));
+                  })
+                  .catch((e) => {
+                    throw (
+                      (tk.current = !0),
+                      e instanceof a.ApiError &&
+                        401 === e.status &&
+                        (0, l.requestLogin)(),
+                      _(e instanceof Error ? e.message : "Không lưu được đề."),
+                      R("error"),
+                      e
+                    );
+                  })
+                  .finally(() => {
+                    tN.current = null;
+                  });
+                return ((tN.current = i), i);
+              },
+              [w],
+            ),
+            tS = (0, E.useCallback)(() => {
+              td.current &&
+                ((tk.current = !0),
+                R("dirty"),
+                window.clearTimeout(tj.current),
+                (tj.current = window.setTimeout(
+                  () => void tT().catch(() => {}),
+                  1200,
+                )));
+            }, [tT]),
+            tA = (0, E.useRef)(tS);
+          ((0, E.useEffect)(() => {
+            tA.current = tS;
+          }, [tS]),
+            (0, E.useEffect)(() => {
+              if (!w || !ty) return;
+              let e = !0;
+              return (
+                (0, s.getDocument)(w)
+                  .then(({ document: t }) => {
+                    if (!e) return;
+                    let n = t.content ?? "";
+                    ((0, t5.setEditorMarkdown)(ty, n, !1),
+                      (tp.current = (0, t5.editorMarkdown)(ty)),
+                      tb(tp.current),
+                      (tu.current = "base"),
+                      (tC.current = {
+                        title: t.title || "Đề thi mới",
+                        content: tp.current,
+                      }),
+                      K(t.id),
+                      V(t.title || "Đề thi mới"),
+                      (to.current = t.title || "Đề thi mới"),
+                      Q(n),
+                      ei(ty.getText().split(/\s+/).filter(Boolean).length),
+                      (td.current = !0),
+                      ty.setEditable(!0),
+                      M("ready"));
+                  })
+                  .catch((t) => {
+                    e &&
+                      (t instanceof a.ApiError && 401 === t.status
+                        ? ((0, l.requestLogin)(),
+                          I("Đăng nhập để mở đề đã lưu trong tài khoản."))
+                        : I(
+                            t instanceof Error
+                              ? t.message
+                              : "Không mở được đề.",
+                          ),
+                      M("error"));
+                  }),
+                () => {
+                  e = !1;
+                }
+              );
+            }, [w, ty]),
+            (0, E.useEffect)(() => {
+              if (!T) return;
+              let e = (e) => {
+                (tk.current || tN.current) &&
+                  (tT(!0).catch(() => {}), e.preventDefault());
+              };
+              return (
+                window.addEventListener("beforeunload", e),
+                () => {
+                  (window.removeEventListener("beforeunload", e),
+                    tk.current && tT(!0).catch(() => {}));
+                }
+              );
+            }, [T, tT]));
+          let tE = (function (e) {
+            let [t, n] = (0, E.useState)([]);
+            return (
+              (0, E.useEffect)(() => {
+                let t;
+                if (!e) return;
+                let r = () => {
+                  (window.clearTimeout(t),
+                    (t = window.setTimeout(() => {
+                      let t;
+                      return n(
+                        ((t = []),
+                        e.state.doc.forEach((e, n) => {
+                          let r = e.textContent.replace(/\s+/g, " ").trim();
+                          r &&
+                            ("heading" === e.type.name
+                              ? t.push({
+                                  pos: n,
+                                  level: Math.min(
+                                    6,
+                                    Math.max(1, Number(e.attrs.level)),
+                                  ),
+                                  text: r.slice(0, 80),
+                                })
+                              : "paragraph" === e.type.name &&
+                                rp.test(r) &&
+                                t.push({
+                                  pos: n,
+                                  level: 7,
+                                  text: r.slice(0, 80),
+                                }));
+                        }),
+                        t),
+                      );
+                    }, 250)));
+                };
+                return (
+                  r(),
+                  e.on("update", r),
+                  e.on("create", r),
+                  () => {
+                    (window.clearTimeout(t),
+                      e.off("update", r),
+                      e.off("create", r));
+                  }
+                );
+              }, [e]),
+              t
+            );
+          })(ty);
+          ((0, E.useEffect)(() => () => window.clearTimeout(tl.current), []),
+            (0, E.useEffect)(() => {
+              td.current &&
+                (tv.current
+                  ? tA.current()
+                  : iM({
+                      id: tc.current,
+                      title: U,
+                      content:
+                        "base" === tu.current && tw.current
+                          ? (0, t5.editorMarkdown)(tw.current)
+                          : tp.current,
+                    }));
+            }, [U]),
+            (0, E.useEffect)(() => {
+              let e = () => {
+                let e = tw.current;
+                e && rb(e.view.dom);
+              };
+              return (
+                window.addEventListener("beforeprint", e),
+                window.addEventListener("afterprint", ry),
+                () => {
+                  (window.removeEventListener("beforeprint", e),
+                    window.removeEventListener("afterprint", ry));
+                }
+              );
+            }, []),
+            (0, E.useEffect)(() => {
+              let e = (e) => {
+                if (!(e.ctrlKey || e.metaKey) || e.altKey) return;
+                let t = e.key.toLowerCase();
+                ("f" === t || "h" === t) &&
+                  (e.preventDefault(), tt("h" === t), e9(!0));
+              };
+              return (
+                window.addEventListener("keydown", e),
+                () => window.removeEventListener("keydown", e)
+              );
+            }, []));
+          let tM = (0, E.useCallback)(
+              () => ({
+                id: tc.current,
+                title: to.current,
+                content: tw.current ? (0, t5.editorMarkdown)(tw.current) : "",
+              }),
+              [],
+            ),
+            t$ = (0, E.useRef)([]),
+            tD = (0, E.useCallback)(() => {
+              t$.current = tw.current ? (0, rh.emptyImageAlts)(tw.current) : [];
+            }, []),
+            tI = (0, E.useCallback)(({ fromImages: e }) => {
+              let t = tw.current;
+              if (!t || e) return;
+              let n = (0, rm.newImageDescriptions)(
+                t$.current,
+                (0, rh.emptyImageAlts)(t),
+              );
+              n.length &&
+                (0, rh.drawImages)(
+                  t,
+                  n.map((e) => ({ alt: e, src: "" })),
+                );
+            }, []);
+          (0, E.useEffect)(() => {
+            (0, rh.setImageDrawingTitle)(() => to.current);
+          }, []);
+          let tL = (0, E.useCallback)(
+              (e, t = {}) => {
+                ty &&
+                  ((0, t5.setEditorMarkdown)(ty, e.content, !0, t),
+                  K(e.id || ib()),
+                  V(e.title || i$(e.content)),
+                  e8(null));
+              },
+              [ty],
+            ),
+            tR = (function (e, t) {
+              let [n, r] = (0, E.useState)([]),
+                [i, s] = (0, E.useState)(null),
+                [l, o] = (0, E.useState)("idle"),
+                [c, d] = (0, E.useState)(""),
+                [u, h] = (0, E.useState)(!e),
+                m = (0, E.useRef)({ tabs: [], meta: null }),
+                p = (0, E.useRef)(0),
+                x = (0, E.useRef)(void 0),
+                g = (0, E.useRef)(!1),
+                f = (0, E.useRef)(null),
+                b = (0, E.useRef)(!1);
+              (0, E.useEffect)(() => {
+                let n = !0;
+                return (
+                  (b.current = !1),
+                  e
+                    ? (0, C.getDocumentTabs)(e)
+                        .then((e) => {
+                          if (!n) return;
+                          p.current = e.revision;
+                          let t = eK(e.meta) ? e.meta : null;
+                          ((m.current = { tabs: e.tabs, meta: t }),
+                            r(e.tabs),
+                            s(t),
+                            o("saved"));
+                        })
+                        .catch(() => {})
+                        .finally(() => n && h(!0))
+                    : Promise.resolve().then(() => {
+                        if (n) {
+                          try {
+                            let e = window.localStorage.getItem(eG + t),
+                              n = e ? JSON.parse(e) : null,
+                              i = Array.isArray(n?.tabs) ? n.tabs : [],
+                              a = eK(n?.meta) ? n.meta : null;
+                            ((m.current = { tabs: i, meta: a }), r(i), s(a));
+                          } catch {
+                            ((m.current = { tabs: [], meta: null }),
+                              r([]),
+                              s(null));
+                          }
+                          h(!0);
+                        }
+                      }),
+                  () => {
+                    n = !1;
+                  }
+                );
+              }, [e, t]);
+              let y = (0, E.useCallback)(
+                  async (n = !1) => {
+                    for (window.clearTimeout(x.current); f.current; )
+                      await f.current.catch(() => {});
+                    if (!g.current || b.current) return;
+                    g.current = !1;
+                    let { tabs: r, meta: i } = m.current;
+                    if (!e) {
+                      try {
+                        (window.localStorage.setItem(
+                          eG + t,
+                          JSON.stringify({ tabs: r, meta: i }),
+                        ),
+                          o("saved"));
+                      } catch {
+                        (o("error"),
+                          d(
+                            "Trình duyệt hết chỗ lưu các mã đề. Hãy lưu đề vào tài khoản.",
+                          ));
+                      }
+                      return;
+                    }
+                    o("saving");
+                    let s = (0, C.saveDocumentTabs)(
+                      e,
+                      { tabs: r, meta: i ?? {}, revision: p.current },
+                      { keepalive: n },
+                    )
+                      .then((e) => {
+                        ((p.current = e.revision),
+                          d(""),
+                          o(g.current ? "dirty" : "saved"));
+                      })
+                      .catch((e) => {
+                        if (
+                          e instanceof a.ApiError &&
+                          "tabs_conflict" === e.code
+                        ) {
+                          ((b.current = !0), o("conflict"), d(e.message));
+                          return;
+                        }
+                        ((g.current = !0),
+                          o("error"),
+                          d(
+                            e instanceof Error
+                              ? e.message
+                              : "Chưa lưu được các mã đề.",
+                          ));
+                      })
+                      .finally(() => {
+                        f.current = null;
+                      });
+                    return ((f.current = s), s);
+                  },
+                  [e, t],
+                ),
+                w = (0, E.useCallback)(() => {
+                  ((g.current = !0),
+                    o((e) => ("conflict" === e ? e : "dirty")),
+                    window.clearTimeout(x.current),
+                    (x.current = window.setTimeout(() => void y(), 1200)));
+                }, [y]),
+                v = (0, E.useCallback)(
+                  (e, t) => {
+                    ((m.current = { tabs: e, meta: t }), r(e), s(t), w());
+                  },
+                  [w],
+                ),
+                j = (0, E.useCallback)(
+                  (e, t) => {
+                    let n = m.current.tabs.find((t) => t.id === e);
+                    if (!n || n.content === t) return;
+                    let i = m.current.tabs.map((n) =>
+                      n.id === e
+                        ? (function (e, t) {
+                            var n, r;
+                            let i, a, s;
+                            if (
+                              "version" !== e.kind ||
+                              !(
+                                (n = e.spec) &&
+                                "object" == typeof n &&
+                                1 === n.v &&
+                                Array.isArray(n.questions)
+                              )
+                            )
+                              return { ...e, content: t };
+                            let {
+                              spec: l,
+                              key: o,
+                              changed: c,
+                            } = ((r = e.spec),
+                            (i = ev(t)),
+                            (a = !1),
+                            (s = r.questions.map((e, t) => {
+                              let n = i.questions[t];
+                              if (!n) return e;
+                              let r = ex(
+                                ep(
+                                  eM(n.segments).replace(
+                                    /^(\s*(?:\*\*)?\s*(?:câu|bài)\s+\d+)/i,
+                                    "",
+                                  ),
+                                ),
+                              );
+                              if (r === e.rendered) return e;
+                              a = !0;
+                              let s = e.answer;
+                              if (
+                                "mc" === e.kind &&
+                                e.correctText &&
+                                n.options
+                              ) {
+                                let t = n.options.findIndex(
+                                  (t) => ep(t) === e.correctText,
+                                );
+                                s = t >= 0 ? ek[t] : "";
+                              }
+                              return {
+                                ...e,
+                                no: n.no || e.no,
+                                answer: s,
+                                rendered: r,
+                                manual: !0,
+                              };
+                            })),
+                            {
+                              spec: { ...r, questions: s },
+                              key: s.map((e) => ({
+                                label: `C\xe2u ${e.no}`,
+                                kind: eN[e.kind],
+                                answer: e.answer,
+                                solved: "base" !== e.source,
+                              })),
+                              changed: a,
+                            });
+                            if (!c) return { ...e, content: t };
+                            let d = o.some(
+                              (e) => "essay" !== e.kind && !e.answer,
+                            );
+                            return {
+                              ...e,
+                              content: t,
+                              spec: l,
+                              answerKey: o,
+                              status: d
+                                ? "needs_review"
+                                : "stale" === e.status
+                                  ? "stale"
+                                  : "ready",
+                            };
+                          })(n, t)
+                        : n,
+                    );
+                    ((m.current = { ...m.current, tabs: i }), r(i), w());
+                  },
+                  [w],
+                ),
+                k = (0, E.useCallback)(() => m.current, []);
+              return (
+                (0, E.useEffect)(
+                  () => () => window.clearTimeout(x.current),
+                  [],
+                ),
+                {
+                  tabs: n,
+                  meta: i,
+                  state: l,
+                  error: c,
+                  loaded: u,
+                  peek: k,
+                  replace: v,
+                  updateContent: j,
+                  flush: y,
+                  pending: () => g.current || !!f.current,
+                }
+              );
+            })(w, w ?? G),
+            tz = tR.peek;
+          (0, E.useEffect)(() => {
+            tg.current = tR.updateContent;
+          }, [tR.updateContent]);
+          let t_ = (0, E.useCallback)(
+              () =>
+                "base" === tu.current && tw.current
+                  ? (0, t5.editorMarkdown)(tw.current)
+                  : tp.current,
+              [],
+            ),
+            tP = (0, E.useCallback)(() => {
+              let e = tw.current;
+              if (!e) return;
+              window.clearTimeout(tl.current);
+              let t = (0, t5.editorMarkdown)(e);
+              ("base" === tu.current
+                ? t !== tp.current &&
+                  ((tp.current = t),
+                  tb(t),
+                  tv.current
+                    ? tA.current()
+                    : iM({ id: tc.current, title: to.current, content: t }))
+                : tR.updateContent(tu.current, t),
+                es(!0));
+            }, [tR]),
+            tH = (0, E.useCallback)(
+              (e, t) => {
+                let n = tw.current;
+                if (!n) return;
+                let r = tz().tabs.find((t) => t.id === e),
+                  i = "base" !== e && r ? e : "base",
+                  a = t ?? ("base" === i ? tp.current : r.content);
+                tx.current = !0;
+                try {
+                  (0, t5.setEditorMarkdown)(n, a, !1);
+                } finally {
+                  tx.current = !1;
+                }
+                ((tu.current = i),
+                  tm(i),
+                  Q(a),
+                  ei(n.getText().split(/\s+/).filter(Boolean).length));
+              },
+              [tz],
+            ),
+            tq = (0, E.useCallback)(
+              (e) => {
+                e === tu.current || ts.current || (tP(), tH(e));
+              },
+              [tP, tH],
+            ),
+            tF = (0, E.useCallback)(
+              (e, t, n) => {
+                "base" !== tu.current && tP();
+                let r = !tz().tabs.length,
+                  i = new Set(t.removed ?? []),
+                  a = e.filter((e) => "version" !== e.kind || !i.has(e.code));
+                if (n) {
+                  let e = new Map(
+                      tz()
+                        .tabs.filter((e) => "version" === e.kind)
+                        .map((e) => [e.code, e]),
+                    ),
+                    t = (a = a.map((t) =>
+                      "version" === t.kind && t.code !== n && e.has(t.code)
+                        ? e.get(t.code)
+                        : t,
+                    )).filter((e) => "version" === e.kind),
+                    r = new Map(
+                      ev(tp.current).questions.map((e) => [e.id, e.no]),
+                    ),
+                    i = eL(
+                      to.current,
+                      t.map((e) => ({
+                        code: e.code,
+                        key: e.answerKey ?? [],
+                        spec: e.spec,
+                      })),
+                      r,
+                    );
+                  a = a.map((e) =>
+                    "answers" === e.kind ? { ...e, content: i } : e,
+                  );
+                }
+                tR.replace(a, t);
+                let s = a.find((e) => e.id === tu.current);
+                "base" !== tu.current
+                  ? s
+                    ? tH(s.id, s.content)
+                    : tH("base")
+                  : a.length && r && tH(a[0].id, a[0].content);
+              },
+              [tP, tR, tz, tH],
+            ),
+            tB = tR.tabs.filter((e) => "version" === e.kind),
+            tO = tR.meta,
+            tW = (0, E.useMemo)(() => ex(tf), [tf]),
+            tX =
+              !!tO && tB.length > 0 && "" !== tO.baseHash && tW !== tO.baseHash,
+            tG = async (e, t) => {
+              if (!ty || !e.length) return;
+              eo(!0);
+              let n = tu.current;
+              try {
+                (tP(), await document.fonts.ready);
+                let n = new N.default();
+                for (let r of e) {
+                  let e = tz().tabs.find((e) => e.id === r);
+                  if (!e) continue;
+                  (tH(r),
+                    await new Promise((e) =>
+                      requestAnimationFrame(() => requestAnimationFrame(e)),
+                    ),
+                    await new Promise((e) => setTimeout(e, 150)));
+                  let { blob: i } = await ip(
+                      (0, rw.documentWithChoiceLayout)(ty.view),
+                    ),
+                    a =
+                      "answers" === e.kind
+                        ? `${iD(U)}-dap-an.docx`
+                        : `${iD(U)}-ma-${e.code}.docx`;
+                  t ? n.file(a, i) : (0, h.saveAs)(i, a);
+                }
+                (t && (0, h.saveAs)(await n.generateAsync({ type: "blob" }), t),
+                  (0, ee.track)("versions_export", {
+                    codes: String(e.length),
+                    format: t ? "zip" : "docx",
+                  }));
+              } catch (e) {
+                window.alert(
+                  `Chưa xuất được file Word: ${e instanceof Error ? e.message : "lỗi không rõ"}`,
+                );
+              } finally {
+                (tH(n), eo(!1));
+              }
+            },
+            [tK, tU] = (0, E.useState)(null),
+            tV = (e) => {
+              let t,
+                n =
+                  e &&
+                  (t = tz().tabs.filter(
+                    (e) =>
+                      "version" === e.kind &&
+                      Array.isArray(e.answerKey) &&
+                      e.answerKey.length,
+                  )).length
+                    ? t.map((e) => ({ code: e.code, items: e.answerKey }))
+                    : null;
+              (tU(n),
+                O(
+                  n
+                    ? {
+                        id: tc.current,
+                        title: to.current,
+                        content: tz()
+                          .tabs.map((e) => e.content)
+                          .join("\n\n"),
+                      }
+                    : tM(),
+                ),
+                F(!0));
+            },
+            [tJ, tQ] = (0, E.useState)(!1),
+            tY = (0, E.useMemo)(() => em(tf), [tf]),
+            tZ = "base" !== th || tB.length ? [] : tY,
+            t0 = (e) => {
+              ((0, ee.track)(
+                "exam_export",
+                w ? { format: e, documentId: w } : { format: e },
+              ),
+                tT().catch(() => {}));
+            },
+            t1 = async (e = "word") => {
+              if (ty) {
+                eo(!0);
+                try {
+                  (await document.fonts.ready,
+                    await ig(
+                      `${iD(U)}.docx`,
+                      (0, rw.documentWithChoiceLayout)(ty.view),
+                      { math: e },
+                    ),
+                    t0("mathtype" === e ? "docx_mathtype" : "docx"));
+                } catch (e) {
+                  window.alert(
+                    `Chưa xuất được file Word: ${e instanceof Error ? e.message : "lỗi không rõ"}`,
+                  );
+                } finally {
+                  eo(!1);
+                }
+              }
+            },
+            t2 = () => {
+              ty && (rb(ty.view.dom), t0("print"), window.print());
+            },
+            t3 = async () => {
+              if (!(0, l.readSession)()) return void (0, l.requestLogin)();
+              X(!0);
+              try {
+                tP();
+                let { document: e } = await (0, s.createDocument)(
+                  to.current,
+                  t_(),
+                );
+                (tz().tabs.length &&
+                  (await (0, C.saveDocumentTabs)(e.id, {
+                    tabs: tz().tabs,
+                    meta: tz().meta ?? {},
+                    revision: 0,
+                  }).catch(() => {})),
+                  (0, ee.track)("doc_create", { source: "draft" }),
+                  S.push(`/doc/${e.id}`));
+              } catch (e) {
+                (window.alert(
+                  e instanceof Error
+                    ? e.message
+                    : "Không lưu được đề vào tài khoản.",
+                ),
+                  X(!1));
+              }
+            },
+            t7 = (e) => {
+              ty?.isEditable &&
+                ("student" === e.id || "rule" === e.id
+                  ? (0, t5.insertExamFooter)(
+                      ty,
+                      e.markdown(),
+                      "student" === e.id,
+                    )
+                  : (0, t5.insertMarkdown)(ty, e.markdown()));
+            },
+            t4 = eu
+              ? `max(12px, calc((${ef}px - ${(eJ.PAGE_WIDTH_PX * ez).toFixed(1)}px) / 2))`
+              : `max(${e$ ? 296 : 16}px, calc((100vw - ${(eJ.PAGE_WIDTH_PX * ez).toFixed(1)}px) / 2))`,
+            t8 = eB ? { duration: 0 } : { duration: 0.28, ease: iC };
+          return (0, t.jsxs)("div", {
+            className:
+              "print-root editor-shell flex h-dvh flex-col overflow-hidden bg-[#f7f6f3]",
+            children: [
+              (0, t.jsxs)("header", {
+                className:
+                  "no-print editor-header flex h-14 shrink-0 items-center gap-2 border-b border-[#e9e9e7] bg-white px-(--gutter)",
+                children: [
+                  (0, t.jsx)(c.default, {
+                    href: "/",
+                    className:
+                      "flex size-9 shrink-0 items-center justify-center rounded-md hover:bg-[#f1f1ef]",
+                    title: "soandethi.com - trang chủ",
+                    "aria-label": "Về trang chủ",
+                    children: (0, t.jsx)(i.Logo, { className: "size-7" }),
+                  }),
+                  (0, t.jsxs)("div", {
+                    className: "editor-heading min-w-0 flex-1",
+                    children: [
+                      (0, t.jsxs)("div", {
+                        className:
+                          "editor-title flex h-6 min-w-0 items-center gap-2",
+                        children: [
+                          (0, t.jsx)("input", {
+                            value: U,
+                            onChange: (e) => V(e.target.value),
+                            className:
+                              "field-sizing-content h-6 w-auto min-w-32 max-w-full text-ellipsis rounded-md border border-transparent px-1.5 py-0 text-[15px] leading-6 font-medium text-[#37352f] outline-none hover:border-[#e3e2e0] focus:border-[#2383e2]",
+                            title: "Tên đề (cũng là tên file khi xuất)",
+                            "aria-label": "Tên đề",
+                          }),
+                          T
+                            ? (0, t.jsx)("span", {
+                                className: `hidden shrink-0 items-center gap-1 text-xs lg:inline-flex ${"error" === L ? "text-[#eb5757]" : "text-neutral-500"}`,
+                                "aria-live": "polite",
+                                title: z || void 0,
+                                children:
+                                  "loading" === A
+                                    ? (0, t.jsxs)(t.Fragment, {
+                                        children: [
+                                          (0, t.jsx)(j.Loader2, {
+                                            "aria-hidden": !0,
+                                            className: "size-3.5 animate-spin",
+                                          }),
+                                          " Đang mở đề…",
+                                        ],
+                                      })
+                                    : "error" === A
+                                      ? (0, t.jsxs)(t.Fragment, {
+                                          children: [
+                                            (0, t.jsx)(x.AlertTriangle, {
+                                              "aria-hidden": !0,
+                                              className:
+                                                "size-3.5 text-[#eb5757]",
+                                            }),
+                                            " Không mở được đề",
+                                          ],
+                                        })
+                                      : "error" === L
+                                        ? (0, t.jsxs)(t.Fragment, {
+                                            children: [
+                                              (0, t.jsx)(x.AlertTriangle, {
+                                                "aria-hidden": !0,
+                                                className: "size-3.5",
+                                              }),
+                                              " Chưa lưu được: ",
+                                              z,
+                                              " ",
+                                              (0, t.jsx)("button", {
+                                                type: "button",
+                                                className:
+                                                  "font-medium underline",
+                                                onClick: () =>
+                                                  void tT().catch(() => {}),
+                                                children: "Thử lại",
+                                              }),
+                                            ],
+                                          })
+                                        : "saved" === L && ea
+                                          ? (0, t.jsxs)(t.Fragment, {
+                                              children: [
+                                                (0, t.jsx)(g.Check, {
+                                                  "aria-hidden": !0,
+                                                  className:
+                                                    "size-3.5 text-emerald-600",
+                                                }),
+                                                " Đã lưu vào tài khoản",
+                                              ],
+                                            })
+                                          : (0, t.jsxs)(t.Fragment, {
+                                              children: [
+                                                (0, t.jsx)(j.Loader2, {
+                                                  "aria-hidden": !0,
+                                                  className:
+                                                    "size-3.5 animate-spin",
+                                                }),
+                                                " Đang lưu…",
+                                              ],
+                                            }),
+                              })
+                            : (0, t.jsx)("span", {
+                                className:
+                                  "hidden shrink-0 items-center gap-1 text-xs text-neutral-500 lg:inline-flex",
+                                "aria-live": "polite",
+                                children: ea
+                                  ? (0, t.jsxs)(t.Fragment, {
+                                      children: [
+                                        (0, t.jsx)(g.Check, {
+                                          "aria-hidden": !0,
+                                          className:
+                                            "size-3.5 text-emerald-600",
+                                        }),
+                                        " Đã lưu trong trình duyệt",
+                                      ],
+                                    })
+                                  : (0, t.jsxs)(t.Fragment, {
+                                      children: [
+                                        (0, t.jsx)(j.Loader2, {
+                                          "aria-hidden": !0,
+                                          className: "size-3.5 animate-spin",
+                                        }),
+                                        " Đang lưu…",
+                                      ],
+                                    }),
+                              }),
+                        ],
+                      }),
+                      (0, t.jsx)("div", {
+                        className: "editor-menubar",
+                        children: (0, t.jsx)(nh, {
+                          editor: ty,
+                          busy: el,
+                          streaming: ec,
+                          zoom: ez,
+                          setZoom: eg,
+                          onFitZoom: () => eg("fit"),
+                          showRuler: ey,
+                          setShowRuler: ew,
+                          showSidebar: e$,
+                          setShowSidebar: e_,
+                          aiOpen: eE,
+                          setAiOpen: eP,
+                          onNew: () => {
+                            T
+                              ? (async () => {
+                                  try {
+                                    await tT().catch(() => {});
+                                    let { document: e } = await (0,
+                                    s.createDocument)("Đề thi mới", "");
+                                    ((0, ee.track)("doc_create", {
+                                      source: "blank",
+                                    }),
+                                      S.push(`/doc/${e.id}`));
+                                  } catch (e) {
+                                    window.alert(
+                                      e instanceof Error
+                                        ? e.message
+                                        : "Không tạo được đề mới.",
+                                    );
+                                  }
+                                })()
+                              : ty &&
+                                window.confirm(
+                                  "Tạo đề mới? Nội dung hiện tại sẽ bị xoá (có thể hoàn tác bằng Ctrl+Z).",
+                                ) &&
+                                (tH("base"),
+                                tR.replace([], null),
+                                (tp.current = ""),
+                                tb(""),
+                                (0, t5.setEditorMarkdown)(ty, ""),
+                                K(ib()),
+                                V("Đề thi mới"));
+                          },
+                          onOpen: () => ti.current?.click(),
+                          onSaveMarkdown: () => {
+                            ty &&
+                              ((0, h.saveAs)(
+                                new Blob([(0, t5.editorMarkdown)(ty)], {
+                                  type: "text/markdown;charset=utf-8",
+                                }),
+                                `${iD(U)}.md`,
+                              ),
+                              t0("markdown"));
+                          },
+                          onSaveJson: () => {
+                            ((0, h.saveAs)(
+                              new Blob([JSON.stringify(tM(), null, 2)], {
+                                type: "application/json",
+                              }),
+                              `${iD(U)}.json`,
+                            ),
+                              t0("json"));
+                          },
+                          onExportDocx: () => void t1(),
+                          onExportDocxMathType: () => void t1("mathtype"),
+                          onExportTnmaker: () => tV(!0),
+                          onExportVersions: tB.length
+                            ? () =>
+                                void tG(
+                                  tR.tabs.map((e) => e.id),
+                                  `${iD(U)}-bo-ma-de.zip`,
+                                )
+                            : void 0,
+                          onPrint: t2,
+                          onFind: (e) => {
+                            (tt(e), e9(!0));
+                          },
+                          onShortcuts: () => tr(!0),
+                          onInsertSnippet: t7,
+                          onRemoveExtraBlanks: () => {
+                            ty?.isEditable &&
+                              (0, t5.setEditorMarkdown)(
+                                ty,
+                                (0, en.collapseBlankLines)(
+                                  (0, t5.editorMarkdown)(ty),
+                                ),
+                              );
+                          },
+                        }),
+                      }),
+                    ],
+                  }),
+                  T
+                    ? (0, t.jsxs)("button", {
+                        type: "button",
+                        onClick: () => H(!0),
+                        disabled: "ready" !== A,
+                        className:
+                          "editor-action flex h-9 shrink-0 items-center gap-2 rounded-md px-3 text-sm font-medium text-[#37352f] transition-colors hover:bg-[#f1f1ef] disabled:opacity-50",
+                        "aria-label": "Chia sẻ đề",
+                        title: "Chia sẻ đề lên mục Đề cộng đồng",
+                        children: [
+                          (0, t.jsx)(y.Globe2, {
+                            "aria-hidden": !0,
+                            className: "size-[18px]",
+                          }),
+                          " ",
+                          (0, t.jsx)("span", {
+                            className: "editor-action-label",
+                            children: "Chia sẻ",
+                          }),
+                        ],
+                      })
+                    : (0, t.jsxs)("button", {
+                        type: "button",
+                        onClick: t3,
+                        disabled: W,
+                        className:
+                          "editor-action editor-action-icon flex h-9 shrink-0 items-center gap-2 rounded-md px-3 text-sm font-medium text-[#37352f] transition-colors hover:bg-[#f1f1ef] disabled:opacity-50",
+                        "aria-label": "Lưu vào tài khoản",
+                        title:
+                          "Lưu bản nháp này vào tài khoản để mở lại ở mọi nơi và chia sẻ",
+                        children: [
+                          W
+                            ? (0, t.jsx)(j.Loader2, {
+                                "aria-hidden": !0,
+                                className: "size-[18px] animate-spin",
+                              })
+                            : (0, t.jsx)(f.CloudUpload, {
+                                "aria-hidden": !0,
+                                className: "size-[18px]",
+                              }),
+                          (0, t.jsx)("span", {
+                            className: "editor-action-label",
+                            children: "Lưu vào tài khoản",
+                          }),
+                        ],
+                      }),
+                  (0, t.jsxs)(c.default, {
+                    href: "/my-exams",
+                    className:
+                      "editor-action editor-action-icon flex h-9 shrink-0 items-center gap-2 rounded-md px-3 text-sm font-medium text-[#37352f] transition-colors hover:bg-[#f1f1ef]",
+                    "aria-label": "Xem kho đề của tôi",
+                    title: "Xem tất cả đề đã lưu trong tài khoản",
+                    children: [
+                      (0, t.jsx)(b.FolderOpen, {
+                        "aria-hidden": !0,
+                        className: "size-[18px]",
+                      }),
+                      " ",
+                      (0, t.jsx)("span", {
+                        className: "editor-action-label",
+                        children: "Xem kho đề của tôi",
+                      }),
+                    ],
+                  }),
+                  (0, t.jsxs)("button", {
+                    type: "button",
+                    onClick: () => (eE && "studio" === eW ? eP(!1) : e5()),
+                    "aria-pressed": eE && "studio" === eW,
+                    className: `editor-action flex h-9 shrink-0 items-center gap-2 rounded-md px-3 text-sm font-medium text-[#37352f] transition-colors hover:bg-[#f1f1ef] ${eE && "studio" === eW ? "bg-[#f1f1ef]" : ""}`,
+                    "aria-label": "Tạo nhiều mã đề",
+                    title:
+                      "Xưởng mã đề: trộn câu, đổi số liệu, câu tương đồng; mỗi mã một tab",
+                    children: [
+                      (0, t.jsx)(v, {
+                        "aria-hidden": !0,
+                        className: "size-[18px]",
+                      }),
+                      " ",
+                      (0, t.jsx)("span", {
+                        className: "editor-action-label",
+                        children: "Mã đề",
+                      }),
+                    ],
+                  }),
+                  (0, t.jsx)(ij, {
+                    open: eE && "chat" === eW,
+                    onToggle: () =>
+                      eE && "chat" === eW ? eP(!1) : (eQ("chat"), eP(!0)),
+                  }),
+                  (0, t.jsx)(r.AccountMenu, {
+                    className: "editor-account",
+                    topup: !1,
+                  }),
+                  (0, t.jsx)("input", {
+                    ref: ti,
+                    type: "file",
+                    accept:
+                      ".docx,.md,.markdown,.txt,.json,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/markdown,text/plain,application/json",
+                    hidden: !0,
+                    onChange: (t) => {
+                      let n = t.target.files?.[0];
+                      if (((t.target.value = ""), !n)) return;
+                      if (
+                        ("base" !== tu.current && tq("base"),
+                        /\.doc$/i.test(n.name))
+                      )
+                        return void window.alert(
+                          "Word .doc cũ chưa được hỗ trợ. Hãy mở file trong Word, lưu thành .docx rồi mở lại.",
+                        );
+                      if (/\.docx$/i.test(n.name)) {
+                        (eo(!0),
+                          (async () => {
+                            try {
+                              let { docxToExamMarkdown: t } = await e.A(177765),
+                                r = await t(await n.arrayBuffer(), {
+                                  fileName: n.name,
+                                });
+                              (tL({
+                                id: ib(),
+                                title: r.title,
+                                content: r.content,
+                              }),
+                                (0, ee.track)("exam_import", {
+                                  format: "docx",
+                                  needsNormalize: !!r.hints,
+                                }),
+                                r.hints &&
+                                  e8({ fileName: n.name, hints: r.hints }),
+                                r.warnings.length &&
+                                  window.alert(r.warnings.join("\n")));
+                            } catch (e) {
+                              window.alert(
+                                e instanceof Error
+                                  ? e.message
+                                  : "Không mở được tệp Word.",
+                              );
+                            } finally {
+                              eo(!1);
+                            }
+                          })());
+                        return;
+                      }
+                      let r = new FileReader();
+                      ((r.onload = () => {
+                        let e = String(r.result ?? "");
+                        if (/\.json$/i.test(n.name)) {
+                          let t = null;
+                          try {
+                            t = iy(JSON.parse(e));
+                          } catch {
+                            t = null;
+                          }
+                          return t
+                            ? (tL(t),
+                              void (0, ee.track)("exam_import", {
+                                format: "json",
+                              }))
+                            : void window.alert(
+                                "File JSON không phải đề dạng { id, title, content }.",
+                              );
+                        }
+                        (tL({
+                          id: ib(),
+                          title: n.name.replace(/\.[^.]+$/, "") || i$(e),
+                          content: e,
+                        }),
+                          (0, ee.track)("exam_import", { format: "text" }));
+                      }),
+                        r.readAsText(n));
+                    },
+                  }),
+                ],
+              }),
+              (0, t.jsxs)("div", {
+                className:
+                  "print-flow relative flex min-h-0 flex-1 overflow-hidden",
+                children: [
+                  eu &&
+                    (e$ || eE) &&
+                    (0, t.jsx)("button", {
+                      type: "button",
+                      "aria-label": "Đóng bảng bên",
+                      className: "no-print absolute inset-0 z-30 bg-black/20",
+                      onClick: () => {
+                        (e_(!1), eP(!1));
+                      },
+                    }),
+                  (0, t.jsxs)("div", {
+                    className: "print-flow flex min-w-0 flex-1 flex-col",
+                    children: [
+                      (0, t.jsx)(nC, {
+                        editor: ty,
+                        zoom: ez,
+                        setZoom: eg,
+                        onFitZoom: () => eg("fit"),
+                        onPrint: t2,
+                      }),
+                      (0, t.jsxs)("div", {
+                        className:
+                          "print-flow relative flex min-h-0 flex-1 overflow-hidden",
+                        children: [
+                          (0, t.jsx)(p.motion.aside, {
+                            initial: !1,
+                            animate: { x: e$ ? 0 : -280, opacity: +!!e$ },
+                            transition: { duration: 0.25, ease: iC },
+                            style: {
+                              width: eu
+                                ? "min(320px, calc(100vw - 32px))"
+                                : 280,
+                            },
+                            className: `no-print absolute left-0 top-0 bg-[#f7f6f3] ${eu ? "bottom-0 z-40 shadow-xl" : "bottom-11 z-20"}`,
+                            "aria-label": "Dàn ý và mẫu chèn",
+                            "aria-hidden": !e$,
+                            inert: !e$,
+                            children: (0, t.jsx)(rd, {
+                              editor: ty,
+                              outline: tE,
+                              onInsert: t7,
+                              onCollapse: () => e_(!1),
+                            }),
+                          }),
+                          (0, t.jsxs)("div", {
+                            className: "relative flex min-w-0 flex-1 flex-col",
+                            children: [
+                              !e$ &&
+                                (0, t.jsx)("button", {
+                                  type: "button",
+                                  onClick: () => e_(!0),
+                                  title: "Hiện dàn ý và mẫu chèn",
+                                  "aria-label": "Hiện dàn ý và mẫu chèn",
+                                  className:
+                                    "no-print absolute left-1 top-1 z-20 flex size-10 items-center justify-center rounded-full bg-[#f7f6f3]/90 text-neutral-500 transition-colors hover:bg-black/[0.06] xl:left-2 xl:top-2 xl:size-8",
+                                  children: (0, t.jsx)(k, {
+                                    "aria-hidden": !0,
+                                    className: "size-[18px]",
+                                  }),
+                                }),
+                              (0, t.jsx)(nA, {
+                                editor: ty,
+                                open: e6,
+                                replaceMode: te,
+                                onClose: () => e9(!1),
+                              }),
+                              (0, t.jsx)("main", {
+                                ref: ta,
+                                className:
+                                  "print-flow min-h-0 flex-1 overflow-auto pb-16 [overflow-anchor:none]",
+                                children: (0, t.jsxs)("div", {
+                                  className:
+                                    "min-w-fit pr-3 xl:pr-4 transition-[padding] duration-300",
+                                  style: { paddingLeft: t4 },
+                                  children: [
+                                    ey &&
+                                      (0, t.jsx)("div", {
+                                        className:
+                                          "sticky top-0 z-10 bg-[#f7f6f3] pb-1 pt-1",
+                                        children: (0, t.jsx)(n1, {
+                                          editor: ty,
+                                          zoom: ez,
+                                        }),
+                                      }),
+                                    (0, t.jsx)(m.AnimatePresence, {
+                                      children:
+                                        ec &&
+                                        (0, t.jsxs)(p.motion.div, {
+                                          initial: { opacity: 0, y: -8 },
+                                          animate: { opacity: 1, y: 0 },
+                                          exit: { opacity: 0, y: -8 },
+                                          className:
+                                            "no-print sticky top-9 z-10 mx-auto mb-2 flex w-fit items-center gap-2 rounded-full border border-[#a8cff0] bg-[#f7f6f3] px-3 py-1 text-xs text-[#2383e2] shadow-sm",
+                                          children: [
+                                            (0, t.jsx)(ik.ThinkingLoader, {
+                                              size: 28,
+                                              className: "-my-1.5 -ml-1.5",
+                                            }),
+                                            "Trợ lý AI đang viết vào đề… (tạm khoá chỉnh sửa)",
+                                          ],
+                                        }),
+                                    }),
+                                    ("conflict" === tR.state ||
+                                      "error" === tR.state) &&
+                                      (0, t.jsxs)("div", {
+                                        className:
+                                          "no-print mx-auto mb-2 flex w-fit max-w-[640px] items-center gap-2 rounded-xl border border-[#f2c9c6] bg-[#fbe6e5] px-3 py-2 text-[13px] text-[#9b302b]",
+                                        children: [
+                                          (0, t.jsx)(x.AlertTriangle, {
+                                            "aria-hidden": !0,
+                                            className: "size-4 shrink-0",
+                                          }),
+                                          (0, t.jsx)("span", {
+                                            children:
+                                              tR.error ||
+                                              "Chưa lưu được các mã đề.",
+                                          }),
+                                          "conflict" === tR.state
+                                            ? (0, t.jsx)("button", {
+                                                type: "button",
+                                                className:
+                                                  "font-medium underline",
+                                                onClick: () =>
+                                                  window.location.reload(),
+                                                children: "Tải lại",
+                                              })
+                                            : (0, t.jsx)("button", {
+                                                type: "button",
+                                                className:
+                                                  "font-medium underline",
+                                                onClick: () => void tR.flush(),
+                                                children: "Thử lại",
+                                              }),
+                                        ],
+                                      }),
+                                    tX &&
+                                      "base" !== th &&
+                                      (0, t.jsxs)("div", {
+                                        className:
+                                          "no-print mx-auto mb-2 flex w-fit max-w-[640px] flex-wrap items-center gap-2 rounded-xl border border-[#f0d9a8] bg-white px-3 py-2 text-[13px] text-[#37352f] shadow-sm",
+                                        children: [
+                                          (0, t.jsx)(x.AlertTriangle, {
+                                            "aria-hidden": !0,
+                                            className:
+                                              "size-4 shrink-0 text-[#cb912f]",
+                                          }),
+                                          (0, t.jsx)("span", {
+                                            children:
+                                              "Đề gốc đã sửa sau khi tạo các mã đề.",
+                                          }),
+                                          (0, t.jsxs)("button", {
+                                            type: "button",
+                                            className:
+                                              "rounded-md bg-[#37352f] px-2.5 py-1 text-[12.5px] font-medium text-white",
+                                            onClick: () => {
+                                              let e,
+                                                t = tz().meta;
+                                              if (!t) return;
+                                              tP();
+                                              let n = ev(tp.current),
+                                                r = tz().tabs.find(
+                                                  (e) => "version" === e.kind,
+                                                ),
+                                                i = r?.spec,
+                                                a = i?.questions
+                                                  ? ((e = new Map(
+                                                      n.questions.map((e) => [
+                                                        e.id,
+                                                        e,
+                                                      ]),
+                                                    )),
+                                                    i.questions.length !==
+                                                      n.questions.length ||
+                                                    i.questions.some(
+                                                      (t) =>
+                                                        !e.has(t.qid) ||
+                                                        e.get(t.qid).kind !==
+                                                          t.kind,
+                                                    )
+                                                      ? {
+                                                          structure: !0,
+                                                          changed: [],
+                                                        }
+                                                      : {
+                                                          structure: !1,
+                                                          changed: i.questions
+                                                            .filter(
+                                                              (t) =>
+                                                                e.get(t.qid)
+                                                                  .fingerprint !==
+                                                                t.baseFingerprint,
+                                                            )
+                                                            .map((e) => e.qid),
+                                                        })
+                                                  : {
+                                                      structure: !1,
+                                                      changed: [],
+                                                    };
+                                              if (a.structure) {
+                                                (e5(),
+                                                  window.alert(
+                                                    "Đề gốc đã thêm, bớt hoặc đổi dạng câu nên không cập nhật thẳng được. Hãy bấm Tạo lại các mã đề trong Xưởng mã đề.",
+                                                  ));
+                                                return;
+                                              }
+                                              if (
+                                                tz().tabs.some((e) =>
+                                                  e.spec?.questions?.some(
+                                                    (e) => e.manual,
+                                                  ),
+                                                ) &&
+                                                !window.confirm(
+                                                  "Một số mã có câu đã sửa tay. Cập nhật theo đề gốc sẽ ghi đè những câu đó. Tiếp tục?",
+                                                )
+                                              )
+                                                return;
+                                              let s = {
+                                                  ...t.baseAnswers,
+                                                  ...n.baseAnswers,
+                                                },
+                                                l = new Set(a.changed),
+                                                o = Object.entries(
+                                                  t.variants,
+                                                ).filter(
+                                                  ([e]) =>
+                                                    !e
+                                                      .split("+")
+                                                      .some((e) => l.has(e)),
+                                                ),
+                                                c =
+                                                  Object.keys(t.variants)
+                                                    .length - o.length,
+                                                d = eI({
+                                                  ir: n,
+                                                  settings: t.settings,
+                                                  constraints: t.constraints,
+                                                  codes: t.codes,
+                                                  answers: s,
+                                                  variants: Object.fromEntries(
+                                                    o.map(([e, t]) => [
+                                                      e,
+                                                      t.map((e) => e ?? void 0),
+                                                    ]),
+                                                  ),
+                                                  seed: t.seed,
+                                                }),
+                                                u = new Set(t.removed ?? []),
+                                                h = d.filter(
+                                                  (e) => !u.has(e.code),
+                                                ),
+                                                m = eR(n, h),
+                                                p = ex(tp.current),
+                                                x = new Map(
+                                                  tz()
+                                                    .tabs.filter(
+                                                      (e) =>
+                                                        "version" === e.kind,
+                                                    )
+                                                    .map((e) => [e.code, e]),
+                                                ),
+                                                g = tz().tabs.find(
+                                                  (e) => "answers" === e.kind,
+                                                ),
+                                                f = h.map((e) => ({
+                                                  id:
+                                                    x.get(e.code)?.id ??
+                                                    crypto.randomUUID(),
+                                                  kind: "version",
+                                                  code: e.code,
+                                                  title: `M\xe3 ${e.code}`,
+                                                  content: e.markdown,
+                                                  spec: e.spec,
+                                                  answerKey: e.key,
+                                                  baseHash: p,
+                                                  status: m.some(
+                                                    (t) => t.code === e.code,
+                                                  )
+                                                    ? "needs_review"
+                                                    : "ready",
+                                                }));
+                                              (g &&
+                                                f.push({
+                                                  ...g,
+                                                  content: eL(
+                                                    to.current,
+                                                    h,
+                                                    new Map(
+                                                      n.questions.map((e) => [
+                                                        e.id,
+                                                        e.no,
+                                                      ]),
+                                                    ),
+                                                  ),
+                                                  baseHash: p,
+                                                }),
+                                                tF(f, {
+                                                  ...t,
+                                                  variants:
+                                                    Object.fromEntries(o),
+                                                  baseAnswers: s,
+                                                  baseHash: p,
+                                                }),
+                                                e3(
+                                                  c
+                                                    ? `${a.changed.length} c\xe2u vừa sửa trong đề gốc đang d\xf9ng nội dung mới của đề gốc ở mọi m\xe3. Muốn đổi số liệu hoặc thay c\xe2u tương đồng cho c\xe1c c\xe2u n\xe0y th\xec mở Xưởng m\xe3 đề v\xe0 tạo lại.`
+                                                    : "",
+                                                ));
+                                            },
+                                            children: [
+                                              "Cập nhật ",
+                                              tB.length,
+                                              " mã theo đề gốc",
+                                            ],
+                                          }),
+                                        ],
+                                      }),
+                                    e2 &&
+                                      (0, t.jsxs)("div", {
+                                        className:
+                                          "no-print mx-auto mb-2 flex w-fit max-w-[680px] flex-wrap items-center gap-2 rounded-xl border border-[#cfe0f5] bg-[#f2f7fd] px-3 py-2 text-[13px] text-[#1f3d5c]",
+                                        children: [
+                                          (0, t.jsx)(v, {
+                                            "aria-hidden": !0,
+                                            className:
+                                              "size-4 shrink-0 text-[#1b64b0]",
+                                          }),
+                                          (0, t.jsx)("span", { children: e2 }),
+                                          (0, t.jsxs)("span", {
+                                            className: "flex gap-1.5",
+                                            children: [
+                                              (0, t.jsx)("button", {
+                                                type: "button",
+                                                className:
+                                                  "rounded-md bg-[#37352f] px-2.5 py-1 text-[12.5px] font-medium text-white",
+                                                onClick: () => {
+                                                  (e3(""), e5());
+                                                },
+                                                children: "Mở Xưởng mã đề",
+                                              }),
+                                              (0, t.jsx)("button", {
+                                                type: "button",
+                                                className:
+                                                  "rounded-md px-2.5 py-1 text-[12.5px] font-medium hover:bg-black/[0.05]",
+                                                onClick: () => e3(""),
+                                                children: "Đóng",
+                                              }),
+                                            ],
+                                          }),
+                                        ],
+                                      }),
+                                    tZ.length >= 2 &&
+                                      !tJ &&
+                                      "ready" === A &&
+                                      (0, t.jsxs)("div", {
+                                        className:
+                                          "no-print mx-auto mb-2 flex w-fit max-w-[680px] flex-wrap items-center gap-2 rounded-xl border border-[#cfe0f5] bg-[#f2f7fd] px-3 py-2 text-[13px] text-[#1f3d5c]",
+                                        children: [
+                                          (0, t.jsx)(v, {
+                                            "aria-hidden": !0,
+                                            className:
+                                              "size-4 shrink-0 text-[#1b64b0]",
+                                          }),
+                                          (0, t.jsxs)("span", {
+                                            children: [
+                                              "Tài liệu này có ",
+                                              tZ.length,
+                                              " mã đề (",
+                                              tZ.slice(0, 4).join(", "),
+                                              tZ.length > 4 ? "..." : "",
+                                              "). Tách mỗi mã thành một tab để trộn, sửa và chấm riêng?",
+                                            ],
+                                          }),
+                                          (0, t.jsxs)("span", {
+                                            className: "flex gap-1.5",
+                                            children: [
+                                              (0, t.jsx)("button", {
+                                                type: "button",
+                                                className:
+                                                  "rounded-md bg-[#37352f] px-2.5 py-1 text-[12.5px] font-medium text-white",
+                                                onClick: () => {
+                                                  var e;
+                                                  let t, n, r;
+                                                  tP();
+                                                  let i = (function (e) {
+                                                    let t = (0,
+                                                      er.splitSegments)(e),
+                                                      n = new Map();
+                                                    if (
+                                                      (t.forEach((e, t) => {
+                                                        let r = eU.exec(e)?.[1];
+                                                        r &&
+                                                          !n.has(r) &&
+                                                          n.set(r, t);
+                                                      }),
+                                                      n.size < 2)
+                                                    )
+                                                      return null;
+                                                    let r = ev(e),
+                                                      i = r.answerArea.length
+                                                        ? t.length -
+                                                          r.answerArea.length
+                                                        : t.length,
+                                                      a = [...n.entries()]
+                                                        .filter(
+                                                          ([, e]) => e < i,
+                                                        )
+                                                        .sort(
+                                                          (e, t) => e[1] - t[1],
+                                                        )
+                                                        .map(([e, n]) => {
+                                                          let r = n;
+                                                          for (
+                                                            let e = 1;
+                                                            e <= 8 &&
+                                                            n - e >= 0;
+                                                            e++
+                                                          ) {
+                                                            let i =
+                                                              t[n - e].trim();
+                                                            if (
+                                                              "\\newpage" === i
+                                                            )
+                                                              break;
+                                                            (i.startsWith(
+                                                              "::: header",
+                                                            ) ||
+                                                              i.startsWith(
+                                                                "```rich-block",
+                                                              )) &&
+                                                              (r = n - e);
+                                                          }
+                                                          return {
+                                                            code: e,
+                                                            start: r,
+                                                          };
+                                                        });
+                                                    if (a.length < 2)
+                                                      return null;
+                                                    a[0].start = 0;
+                                                    let s = a.map((e, n) => {
+                                                      let r =
+                                                          n + 1 < a.length
+                                                            ? a[n + 1].start
+                                                            : i,
+                                                        s = t.slice(e.start, r);
+                                                      for (
+                                                        ;
+                                                        s.length &&
+                                                        "\\newpage" ===
+                                                          s[
+                                                            s.length - 1
+                                                          ].trim();
+
+                                                      )
+                                                        s.pop();
+                                                      return {
+                                                        code: e.code,
+                                                        content: s.join("\n\n"),
+                                                      };
+                                                    });
+                                                    return s.some(
+                                                      (e) =>
+                                                        !ev(e.content).questions
+                                                          .length,
+                                                    )
+                                                      ? null
+                                                      : {
+                                                          versions: s,
+                                                          answers: t
+                                                            .slice(i)
+                                                            .filter(
+                                                              (e) =>
+                                                                "\\newpage" !==
+                                                                e.trim(),
+                                                            )
+                                                            .join("\n\n"),
+                                                        };
+                                                  })(tp.current);
+                                                  if (
+                                                    !i ||
+                                                    i.versions.length < 2
+                                                  )
+                                                    return void window.alert(
+                                                      "Chưa tách được: không thấy ranh giới rõ giữa các mã đề.",
+                                                    );
+                                                  let a =
+                                                      ((e = i.answers),
+                                                      (t = new Map()),
+                                                      (n = (e, n, r) => {
+                                                        if (!r) return;
+                                                        let i =
+                                                          t.get(e) ?? new Map();
+                                                        (i.has(n) ||
+                                                          i.set(n, r),
+                                                          t.set(e, i));
+                                                      }),
+                                                      (r = e
+                                                        .split("\n")
+                                                        .filter(
+                                                          (e) =>
+                                                            e
+                                                              .trim()
+                                                              .startsWith(
+                                                                "|",
+                                                              ) &&
+                                                            !/^\s*\|?\s*:?-{2,}/.test(
+                                                              e,
+                                                            ),
+                                                        )
+                                                        .map((e) =>
+                                                          e
+                                                            .trim()
+                                                            .replace(
+                                                              /^\||\|$/g,
+                                                              "",
+                                                            )
+                                                            .split("|")
+                                                            .map((e) =>
+                                                              (0, er.plainText)(
+                                                                e,
+                                                              ).trim(),
+                                                            ),
+                                                        )).forEach((e, t) => {
+                                                        if (
+                                                          !/^(mã|câu)/i.test(
+                                                            e[0] ?? "",
+                                                          ) ||
+                                                          e.length < 2
+                                                        )
+                                                          return;
+                                                        let i = e.slice(1),
+                                                          a =
+                                                            r[t + 1]?.[0] ?? "";
+                                                        if (
+                                                          /^\d{3,4}$/.test(a) &&
+                                                          i.every((e) =>
+                                                            /^\d{1,3}$/.test(e),
+                                                          )
+                                                        )
+                                                          for (
+                                                            let e = t + 1;
+                                                            e < r.length &&
+                                                            /^\d{3,4}$/.test(
+                                                              r[e][0] ?? "",
+                                                            );
+                                                            e++
+                                                          )
+                                                            i.forEach((t, i) =>
+                                                              n(
+                                                                r[e][0],
+                                                                Number(t),
+                                                                r[e][i + 1] ??
+                                                                  "",
+                                                              ),
+                                                            );
+                                                        else if (
+                                                          /^\d{1,2}$/.test(a) &&
+                                                          i.every((e) =>
+                                                            /^\d{3,4}$/.test(e),
+                                                          )
+                                                        )
+                                                          for (
+                                                            let e = t + 1;
+                                                            e < r.length &&
+                                                            /^\d{1,2}$/.test(
+                                                              r[e][0] ?? "",
+                                                            );
+                                                            e++
+                                                          )
+                                                            i.forEach((t, i) =>
+                                                              n(
+                                                                t,
+                                                                Number(r[e][0]),
+                                                                r[e][i + 1] ??
+                                                                  "",
+                                                              ),
+                                                            );
+                                                      }),
+                                                      t),
+                                                    s = (e, t) => {
+                                                      let n = a.get(e);
+                                                      return n
+                                                        ? ev(t).questions.map(
+                                                            (e) => ({
+                                                              label: `C\xe2u ${e.no}`,
+                                                              kind: eN[e.kind],
+                                                              answer: ej(
+                                                                e.kind,
+                                                                n.get(e.no) ??
+                                                                  "",
+                                                              ),
+                                                              solved: !1,
+                                                            }),
+                                                          )
+                                                        : null;
+                                                    },
+                                                    l = i.versions.map((e) => {
+                                                      let t = s(
+                                                          e.code,
+                                                          e.content,
+                                                        ),
+                                                        n =
+                                                          !!t?.length &&
+                                                          t.every(
+                                                            (e) =>
+                                                              "essay" ===
+                                                                e.kind ||
+                                                              e.answer,
+                                                          );
+                                                      return {
+                                                        id: crypto.randomUUID(),
+                                                        kind: "version",
+                                                        code: e.code,
+                                                        title: `M\xe3 ${e.code}`,
+                                                        content: e.content,
+                                                        spec: {},
+                                                        answerKey: t,
+                                                        baseHash: "",
+                                                        status: n
+                                                          ? "ready"
+                                                          : "needs_review",
+                                                      };
+                                                    });
+                                                  i.answers &&
+                                                    l.push({
+                                                      id: crypto.randomUUID(),
+                                                      kind: "answers",
+                                                      code: "",
+                                                      title: "Đáp án",
+                                                      content: i.answers,
+                                                      spec: {},
+                                                      answerKey: null,
+                                                      baseHash: "",
+                                                      status: "ready",
+                                                    });
+                                                  let o = i.versions[0],
+                                                    c =
+                                                      s(
+                                                        o.code,
+                                                        o.content,
+                                                      )?.filter(
+                                                        (e) => e.answer,
+                                                      ) ?? [],
+                                                    d = c.length
+                                                      ? `${o.content}
+
+\\newpage
+
+## Đ\xc1P \xc1N
+
+| C\xe2u | ${c.map((e) => e.label.replace(/^Câu\s+/, "")).join(" | ")} |
+|${"---|".repeat(c.length + 1)}
+| Đ\xe1p \xe1n | ${c.map((e) => e.answer).join(" | ")} |`
+                                                      : o.content;
+                                                  (tH("base", d),
+                                                    (tp.current = d),
+                                                    tb(d),
+                                                    tv.current
+                                                      ? tA.current()
+                                                      : iM({
+                                                          id: tc.current,
+                                                          title: to.current,
+                                                          content: d,
+                                                        }),
+                                                    tR.replace(l, null),
+                                                    (0, ee.track)(
+                                                      "versions_split",
+                                                      {
+                                                        codes: String(
+                                                          i.versions.length,
+                                                        ),
+                                                      },
+                                                    ));
+                                                },
+                                                children: "Tách thành tab",
+                                              }),
+                                              (0, t.jsx)("button", {
+                                                type: "button",
+                                                className:
+                                                  "rounded-md px-2.5 py-1 text-[12.5px] font-medium hover:bg-black/[0.05]",
+                                                onClick: () => tQ(!0),
+                                                children: "Để nguyên",
+                                              }),
+                                            ],
+                                          }),
+                                        ],
+                                      }),
+                                    e4 &&
+                                      (0, t.jsx)(n4, {
+                                        fileName: e4.fileName,
+                                        hints: e4.hints,
+                                        onDismiss: () => e8(null),
+                                        onNormalize: () => {
+                                          var e, t;
+                                          let n, r;
+                                          (eP(!0),
+                                            (0, n5.requestChatSend)(
+                                              ((e = e4.fileName),
+                                              (n = [
+                                                (t = e4.hints).page
+                                                  ? `
+Khổ giấy gốc: ${t.page} (tr\xecnh soạn d\xf9ng A4; chỉ ghi nhận, kh\xf4ng cần xử l\xfd).`
+                                                  : "",
+                                                n3("Đầu trang gốc", t.headers),
+                                                n3("Chân trang gốc", t.footers),
+                                                n3(
+                                                  "Hộp văn bản gốc (nội dung nằm ngoài luồng chữ chính, đã không được đưa vào đề)",
+                                                  t.textBoxes,
+                                                ),
+                                                n3(
+                                                  "Chữ có màu trong bản gốc",
+                                                  t.colors,
+                                                ),
+                                                n3(
+                                                  "Phông chữ khác trong bản gốc",
+                                                  t.fonts,
+                                                ),
+                                                n3(
+                                                  "Hình vẽ / đối tượng nhúng không chuyển được (kèm chữ ngay quanh vị trí đó; có thể là hình hình học, sơ đồ hoặc công thức MathType)",
+                                                  t.figures,
+                                                ),
+                                              ].join("")),
+                                              (r = `T\xf4i vừa mở file Word “${e}” v\xe0o tr\xecnh soạn. Bản chuyển đổi giữ được chữ, bảng, c\xf4ng thức v\xe0 ảnh, nhưng chưa mang theo c\xe1c phần b\xean dưới. H\xe3y chuẩn ho\xe1 đề đang mở cho đ\xfang định dạng của tr\xecnh soạn:
+- Dựng lại phần đầu đề (đầu đề hai cột, khung m\xe3 đề, th\xf4ng tin th\xed sinh) nếu bản gốc c\xf3; đưa nội dung hộp văn bản, đầu trang, ch\xe2n trang v\xe0o đ\xfang chỗ hợp l\xfd trong đề, bỏ phần chỉ l\xe0 số trang hoặc ghi ch\xfa in ấn.
+- \xc1p lại m\xe0u/ph\xf4ng chỉ ở chỗ c\xf3 \xfd nghĩa (ti\xeau đề, chữ nhấn mạnh) bằng <color=...>/<font=...>; đừng t\xf4 m\xe0u cả đề.
+- H\xecnh vẽ kh\xf4ng chuyển được: nếu lời đề đủ dữ kiện để dựng h\xecnh h\xecnh học/kh\xf4ng gian/vật l\xed th\xec dựng lại; c\xf4ng thức MathType th\xec viết lại bằng LaTeX; kh\xf4ng đủ dữ kiện th\xec giữ \xf4 h\xecnh trống v\xe0 n\xf3i r\xf5 trong phần trả lời.
+- TUYỆT ĐỐI kh\xf4ng đổi nội dung c\xe2u hỏi, phương \xe1n, đ\xe1p \xe1n v\xe0 số liệu.
+
+Phần Word chưa chuyển được:${n}`).length > 3200
+                                                ? `${r.slice(0, 3200)}…`
+                                                : r),
+                                            ),
+                                            e8(null));
+                                        },
+                                      }),
+                                    (0, t.jsx)("div", {
+                                      className: ey ? "pt-2" : "pt-4",
+                                      children: (0, t.jsx)(eV.DocCanvas, {
+                                        editor: ty,
+                                        pages: Y,
+                                        zoom: ez,
+                                      }),
+                                    }),
+                                  ],
+                                }),
+                              }),
+                              (0, t.jsx)(n2, {
+                                editor: ty,
+                                boundsRef: ta,
+                                onAsk: eH,
+                              }),
+                              (0, t.jsx)(D, {
+                                tabs: tR.tabs,
+                                active: th,
+                                busy: e0,
+                                stale: tX,
+                                meta: `${Y} trang \xb7 ${et.toLocaleString("vi-VN")} từ`,
+                                onSelect: tq,
+                                onCreate: () => e5(),
+                                onDelete: (e) => {
+                                  let t = tz().tabs.find((t) => t.id === e);
+                                  if (
+                                    !t ||
+                                    !window.confirm(
+                                      `Xo\xe1 ${t.title}? C\xf3 thể tạo lại trong Xưởng m\xe3 đề.`,
+                                    )
+                                  )
+                                    return;
+                                  tu.current === e && tH("base");
+                                  let n = tz().tabs.filter((t) => t.id !== e),
+                                    r = tz().meta,
+                                    i = n.filter((e) => "version" === e.kind),
+                                    a = n.find((e) => "answers" === e.kind),
+                                    s = n;
+                                  if (a && r) {
+                                    let e = i.map((e) => ({
+                                        code: e.code,
+                                        key: e.answerKey ?? [],
+                                        spec: e.spec,
+                                      })),
+                                      t = ev(tp.current);
+                                    s = i.length
+                                      ? n.map((n) =>
+                                          n.id === a.id
+                                            ? {
+                                                ...n,
+                                                content: eL(
+                                                  to.current,
+                                                  e,
+                                                  new Map(
+                                                    t.questions.map((e) => [
+                                                      e.id,
+                                                      e.no,
+                                                    ]),
+                                                  ),
+                                                ),
+                                              }
+                                            : n,
+                                        )
+                                      : [];
+                                  }
+                                  tR.replace(
+                                    s,
+                                    r
+                                      ? {
+                                          ...r,
+                                          removed: [
+                                            ...(r.removed ?? []),
+                                            t.code,
+                                          ],
+                                        }
+                                      : r,
+                                  );
+                                },
+                                onExport: (e) => void tG([e]),
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                  eE &&
+                    !eu &&
+                    (0, t.jsx)("div", {
+                      onPointerDown: (e) => {
+                        e.preventDefault();
+                        let t = e.clientX;
+                        eO(!0);
+                        let n = (e) =>
+                            eF(
+                              Math.max(
+                                300,
+                                Math.min(640, eq - (e.clientX - t)),
+                              ),
+                            ),
+                          r = () => {
+                            (eO(!1),
+                              window.removeEventListener("pointermove", n),
+                              window.removeEventListener("pointerup", r),
+                              document.body.style.removeProperty("cursor"),
+                              document.body.style.removeProperty(
+                                "user-select",
+                              ));
+                          };
+                        ((document.body.style.cursor = "col-resize"),
+                          (document.body.style.userSelect = "none"),
+                          window.addEventListener("pointermove", n),
+                          window.addEventListener("pointerup", r));
+                      },
+                      onDoubleClick: () => eF(380),
+                      className:
+                        "no-print group flex w-1.5 shrink-0 cursor-col-resize items-center justify-center hover:bg-blue-500/20",
+                      title: "Kéo để đổi độ rộng",
+                      children: (0, t.jsx)("div", {
+                        className:
+                          "h-8 w-1 rounded-full bg-neutral-300 group-hover:bg-blue-500",
+                      }),
+                    }),
+                  (0, t.jsx)(p.motion.aside, {
+                    initial: !1,
+                    animate: {
+                      width: eE ? (eu ? Math.min(ef, 420) : eq + 8) : 0,
+                    },
+                    transition: t8,
+                    className: `no-print shrink-0 overflow-hidden ${eu ? "absolute inset-y-0 right-0 z-40 shadow-xl" : ""}`,
+                    "aria-label": "Trợ lý AI",
+                    "aria-hidden": !eE,
+                    inert: !eE,
+                    children: (0, t.jsxs)(p.motion.div, {
+                      initial: !1,
+                      animate: { opacity: +!!eE, x: 32 * !eE },
+                      transition: eB
+                        ? { duration: 0 }
+                        : { duration: 0.24, ease: iC, delay: 0.05 * !!eE },
+                      style: { width: eu ? Math.min(ef, 420) : eq },
+                      className: `flex min-h-0 flex-col overflow-hidden border border-[#e3e2e0] bg-white ${eu ? "h-full" : "mb-2 mr-2 h-[calc(100%-0.5rem)] rounded-2xl"}`,
+                      children: [
+                        "studio" === eW &&
+                          (0, t.jsx)(eX, {
+                            open: eE && "studio" === eW,
+                            title: U,
+                            seed: w ?? G,
+                            readBase: t_,
+                            tabs: tR.tabs,
+                            meta: tR.meta,
+                            loggedIn: !!(0, l.readSession)(),
+                            activeTabId: th,
+                            request: eY,
+                            onApply: tF,
+                            onOpenTab: tq,
+                            onClose: () => eP(!1),
+                            onTnmaker: () => tV(!0),
+                            onBusy: e1,
+                            onExportAll: () =>
+                              void tG(
+                                tR.tabs.map((e) => e.id),
+                                `${iD(U)}-bo-ma-de.zip`,
+                              ),
+                          }),
+                        (0, t.jsx)("div", {
+                          className:
+                            "studio" === eW
+                              ? "hidden"
+                              : "flex min-h-0 flex-1 flex-col",
+                          children: (0, t.jsx)(iw.AiChatWidget, {
+                            scope:
+                              "base" === th
+                                ? void 0
+                                : tR.tabs.find((e) => e.id === th)?.title,
+                            uiActions: e7,
+                            variant: "docked",
+                            onCollapse: () => eP(!1),
+                            currentExam: { id: G, title: U, content: J },
+                            getExam: tM,
+                            getSelection: () =>
+                              ty ? (0, t5.selectionMarkdown)(ty) : "",
+                            onApplyExam: (e, t) => {
+                              if ((tD(), "base" !== tu.current)) {
+                                ty &&
+                                  (0, t5.setEditorMarkdown)(ty, e.content, !0, {
+                                    collapseBlank: !t?.preserveBlank,
+                                  });
+                                return;
+                              }
+                              (!(
+                                !t?.preserveBlank &&
+                                tz().tabs.some((e) => "version" === e.kind)
+                              ) ||
+                                window.confirm(
+                                  "Trợ lý sẽ thay toàn bộ đề gốc. Các mã đề đã tạo giữ nguyên và sẽ được báo cập nhật. Áp dụng?",
+                                )) &&
+                                tL(
+                                  { ...e, id: tc.current },
+                                  { collapseBlank: !t?.preserveBlank },
+                                );
+                            },
+                            onAppendContent: (e) => {
+                              (tD(),
+                                ty &&
+                                  (0, t5.appendMarkdown)(ty, e, {
+                                    collapseBlank: !0,
+                                  }));
+                            },
+                            onContentApplied: tI,
+                            onStreamStart: () => {
+                              ty &&
+                                !ts.current &&
+                                ((ts.current = (0, t5.startMarkdownStream)(
+                                  ty,
+                                  () => ta.current,
+                                )),
+                                ed(!0));
+                            },
+                            onStreamDelta: ({ action: e, text: t }) =>
+                              ts.current?.push(e, t),
+                            onStreamEnd: () => {
+                              (ts.current?.restore(),
+                                (ts.current = null),
+                                ed(!1));
+                            },
+                          }),
+                        }),
+                      ],
+                    }),
+                  }),
+                ],
+              }),
+              (0, t.jsx)(n6, { open: tn, onClose: () => tr(!1) }),
+              B &&
+                (0, t.jsx)(nU, {
+                  open: q,
+                  onOpenChange: F,
+                  exam: B,
+                  fileBase: iD(U),
+                  initialCodes: tK,
+                }),
+              T &&
+                w &&
+                (0, t.jsx)(o.ShareExamDialog, {
+                  open: P,
+                  onOpenChange: H,
+                  documentId: w,
+                  title: U,
+                  beforeShare: () => tT(),
+                }),
+              "error" === A &&
+                (0, t.jsx)("div", {
+                  className:
+                    "no-print fixed inset-0 z-50 flex items-center justify-center bg-white/80",
+                  children: (0, t.jsxs)("div", {
+                    className:
+                      "max-w-md rounded-2xl border border-[#e3e2e0] bg-white p-6 text-center shadow-lg",
+                    children: [
+                      (0, t.jsx)(x.AlertTriangle, {
+                        "aria-hidden": !0,
+                        className: "mx-auto mb-2 size-8 text-[#eb5757]",
+                      }),
+                      (0, t.jsx)("p", {
+                        className: "text-[15px] text-neutral-800",
+                        children: $,
+                      }),
+                      (0, t.jsx)(c.default, {
+                        href: "/",
+                        className:
+                          "mt-4 inline-block rounded-full bg-[#37352f] px-5 py-2 text-sm font-medium text-white hover:bg-[#1f1e1b]",
+                        children: "Về trang chủ",
+                      }),
+                    ],
+                  }),
+                }),
+            ],
+          });
+        },
+      ],
+      999613,
+    );
+  },
+  822804,
+  (e) => {
+    "use strict";
+    var t = e.i(843476),
+      n = e.i(271645),
+      r = e.i(307591),
+      i = e.i(857444),
+      a = e.i(846839),
+      s = e.i(878984),
+      l = e.i(197293),
+      o = e.i(519159),
+      c = e.i(575741),
+      d = e.i(689664),
+      u = e.i(482022),
+      h = e.i(632781),
+      m = e.i(648119),
+      p = e.i(566595),
+      x = e.i(725981),
+      g = e.i(522016),
+      f = e.i(781947),
+      b = e.i(167881),
+      y = e.i(630374),
+      w = e.i(463415),
+      v = e.i(23750),
+      j = e.i(715760),
+      k = e.i(647163),
+      N = e.i(488307),
+      C = e.i(10941),
+      T = e.i(603447),
+      S = e.i(689951),
+      A = e.i(681177);
+    function E(e) {
+      return e.open ? (0, t.jsx)(M, { ...e }) : null;
+    }
+    function M({
+      open: e,
+      onOpenChange: r,
+      library: a,
+      selectedIds: s,
+      focusId: l,
+      onConfirm: c,
+    }) {
+      let [d, u] = (0, n.useState)(s),
+        [g, E] = (0, n.useState)(l ?? s[0]),
+        [D, I] = (0, n.useState)(""),
+        [L, R] = (0, n.useState)("all"),
+        [z, _] = (0, n.useState)(""),
+        [P, H] = (0, n.useState)(!1),
+        [q, F] = (0, n.useState)(null),
+        [B, O] = (0, n.useState)(null),
+        W = (0, n.useRef)(null),
+        { docs: X, settings: G, uploading: K } = a,
+        U = G?.pagePoints ?? 0,
+        V = (0, S.useQuotaBalance)(U > 0),
+        J = (0, n.useMemo)(
+          () =>
+            (X ?? []).filter(
+              (e) =>
+                ("all" === L || e.kind === L) && (0, o.matchesSearch)(e, D),
+            ),
+          [X, L, D],
+        ),
+        Q = (X ?? []).find((e) => e.id === (g ?? J[0]?.id)),
+        Y = d.length >= i.MAX_SOURCES,
+        Z = (e) =>
+          u((t) =>
+            t.includes(e)
+              ? t.filter((t) => t !== e)
+              : t.length >= i.MAX_SOURCES
+                ? t
+                : [...t, e],
+          ),
+        ee = async (e) => {
+          if (0 === e.length) return;
+          _("");
+          let t = await a.upload(e),
+            n = t.documents.map((e) => e.id);
+          n.length &&
+            (u((e) => [...new Set([...e, ...n])].slice(0, i.MAX_SOURCES)),
+            E(n[0]));
+          let r = [...t.errors, ...t.notices];
+          for (let e of t.duplicates)
+            r.push(`“${e.name}” đ\xe3 c\xf3 trong kho, đ\xe3 chọn sẵn.`);
+          (t.needPoints && r.push("Nhận thêm điểm ở trang Nhiệm vụ."),
+            r.length && _(r.join("\n")));
+        },
+        et = !!G && !G.enabled,
+        en = a.error;
+      return (0, t.jsxs)(t.Fragment, {
+        children: [
+          (0, t.jsx)(y.Dialog, {
+            open: e,
+            onOpenChange: r,
+            children: (0, t.jsxs)(y.DialogContent, {
+              className:
+                "grid h-[min(680px,92vh)] w-[min(980px,calc(100%-2rem))] max-w-none grid-rows-[auto_auto_minmax(0,1fr)_auto] gap-0 overflow-hidden p-0 sm:max-w-none",
+              onDragOver: (e) => {
+                e.dataTransfer.types.includes("Files") &&
+                  !et &&
+                  (e.preventDefault(), H(!0));
+              },
+              onDragLeave: (e) => {
+                e.currentTarget.contains(e.relatedTarget) || H(!1);
+              },
+              onDrop: (e) => {
+                e.dataTransfer.types.includes("Files") &&
+                  (e.preventDefault(),
+                  H(!1),
+                  ee(Array.from(e.dataTransfer.files)));
+              },
+              children: [
+                (0, t.jsxs)("div", {
+                  className: "px-5 pt-4 pb-1 pr-12",
+                  children: [
+                    (0, t.jsx)(y.DialogTitle, {
+                      className: "font-display text-[22px] font-semibold",
+                      children: "Chọn tài liệu làm nguồn",
+                    }),
+                    (0, t.jsx)(y.DialogDescription, {
+                      className: "mt-1 text-[13px]",
+                      children:
+                        "Trợ lý đọc các tài liệu này ở mọi lượt chat của đề. Ma trận dùng làm cấu trúc đề, đề mẫu để soạn tương tự.",
+                    }),
+                  ],
+                }),
+                (0, t.jsxs)("div", {
+                  className:
+                    "flex flex-wrap items-center gap-2 border-b border-[#e9e9e7] px-5 pt-2 pb-3",
+                  children: [
+                    (0, t.jsxs)("label", {
+                      className: "relative min-w-[180px] flex-1",
+                      children: [
+                        (0, t.jsx)(p.Search, {
+                          "aria-hidden": !0,
+                          className:
+                            "pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-[#787774]",
+                        }),
+                        (0, t.jsx)(v.Input, {
+                          value: D,
+                          onChange: (e) => I(e.target.value),
+                          placeholder: "Tìm tài liệu",
+                          "aria-label": "Tìm trong kho",
+                          className: "h-9 pl-9",
+                        }),
+                      ],
+                    }),
+                    (0, t.jsx)("div", {
+                      className: "flex flex-wrap gap-1",
+                      children: o.KIND_FILTERS.map((e) =>
+                        (0, t.jsx)(
+                          "button",
+                          {
+                            type: "button",
+                            "aria-pressed": L === e.value,
+                            onClick: () => R(e.value),
+                            className: (0, k.cn)(
+                              "h-8 rounded-full border px-2.5 text-[12.5px] font-medium",
+                              L === e.value
+                                ? "border-[#37352f] bg-[#37352f] text-white"
+                                : "border-[#dfdfdd] bg-white text-[#5f5e5b] hover:bg-[#f7f6f3]",
+                            ),
+                            children: e.label,
+                          },
+                          e.value,
+                        ),
+                      ),
+                    }),
+                    (0, t.jsx)("input", {
+                      ref: W,
+                      type: "file",
+                      multiple: !0,
+                      hidden: !0,
+                      accept: G?.accept,
+                      onChange: (e) => {
+                        (ee(Array.from(e.target.files ?? [])),
+                          (e.target.value = ""));
+                      },
+                    }),
+                    (0, t.jsxs)(b.Button, {
+                      variant: "outline",
+                      size: "sm",
+                      disabled: et,
+                      onClick: () => W.current?.click(),
+                      children: [
+                        K > 0
+                          ? (0, t.jsx)(h.Loader2, {
+                              "aria-hidden": !0,
+                              className: "animate-spin",
+                            })
+                          : (0, t.jsx)(x.Upload, { "aria-hidden": !0 }),
+                        " Tải lên",
+                      ],
+                    }),
+                    U > 0 &&
+                      (0, t.jsxs)("p", {
+                        className: "basis-full text-xs text-[#787774]",
+                        children: [
+                          "Tải lên: PDF, Word, ảnh ",
+                          (0, t.jsxs)("b", {
+                            className: "font-semibold text-[#37352f]",
+                            children: [(0, A.formatPoints)(U), " điểm/trang"],
+                          }),
+                          " · Excel, TXT miễn phí",
+                          null !== V &&
+                            ` \xb7 c\xf2n ${V.toLocaleString("vi-VN")} điểm`,
+                        ],
+                      }),
+                  ],
+                }),
+                (0, t.jsxs)("div", {
+                  className:
+                    "grid min-h-0 md:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]",
+                  children: [
+                    (0, t.jsxs)("div", {
+                      className:
+                        "min-h-0 overflow-y-auto md:border-r md:border-[#e9e9e7]",
+                      children: [
+                        (z || en) &&
+                          (0, t.jsx)(f.Alert, {
+                            variant: en ? "destructive" : "default",
+                            className: "m-3 w-auto",
+                            children: (0, t.jsx)(f.AlertDescription, {
+                              className: "whitespace-pre-line text-[13px]",
+                              children: en || z,
+                            }),
+                          }),
+                        null === X &&
+                          !en &&
+                          (0, t.jsx)("p", {
+                            className: "p-6 text-sm text-[#787774]",
+                            children: "Đang tải kho tài liệu…",
+                          }),
+                        X &&
+                          0 === X.length &&
+                          (0, t.jsxs)("div", {
+                            className: "p-8 text-center text-sm text-[#5f5e5b]",
+                            children: [
+                              "Kho đang trống. Bấm ",
+                              (0, t.jsx)("b", { children: "Tải lên" }),
+                              " hoặc kéo thả đề mẫu, ma trận vào đây.",
+                            ],
+                          }),
+                        X &&
+                          X.length > 0 &&
+                          0 === J.length &&
+                          (0, t.jsx)("p", {
+                            className: "p-6 text-sm text-[#787774]",
+                            children: "Không có tài liệu khớp.",
+                          }),
+                        J.map((e) => {
+                          let n = d.includes(e.id),
+                            r = "failed" === e.status || (!n && Y);
+                          return (0, t.jsxs)(
+                            "div",
+                            {
+                              className: (0, k.cn)(
+                                "grid cursor-pointer grid-cols-[18px_30px_minmax(0,1fr)_auto] items-center gap-2.5 border-b border-[#e9e9e7] py-2.5 pr-2 pl-4 hover:bg-[#f7f6f3]",
+                                Q?.id === e.id && "bg-[#f1f7fc]",
+                                "failed" === e.status && "opacity-60",
+                              ),
+                              onClick: () => {
+                                (E(e.id), (!r || n) && Z(e.id));
+                              },
+                              children: [
+                                (0, t.jsx)("input", {
+                                  type: "checkbox",
+                                  className: "size-4 accent-[#2383e2]",
+                                  "aria-label": `Chọn ${e.name}`,
+                                  checked: n,
+                                  disabled: r && !n,
+                                  onClick: (e) => e.stopPropagation(),
+                                  onChange: () => {
+                                    (E(e.id), Z(e.id));
+                                  },
+                                }),
+                                (0, t.jsx)(T.FileBadge, { format: e.format }),
+                                (0, t.jsxs)("div", {
+                                  className: "min-w-0",
+                                  children: [
+                                    (0, t.jsx)("p", {
+                                      className:
+                                        "truncate text-[13.5px] font-medium text-[#37352f]",
+                                      title: e.name,
+                                      children: e.name,
+                                    }),
+                                    (0, t.jsxs)("div", {
+                                      className:
+                                        "mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-[#787774]",
+                                      children: [
+                                        (0, t.jsx)(T.KindBadge, {
+                                          doc: e,
+                                          className: "px-1.5 py-0 text-[11px]",
+                                        }),
+                                        e.grade &&
+                                          (0, t.jsxs)("span", {
+                                            children: ["Lớp ", e.grade],
+                                          }),
+                                        (0, o.isProcessing)(e) ||
+                                        "failed" === e.status
+                                          ? (0, t.jsx)(T.StatusChip, {
+                                              doc: e,
+                                              compact: !0,
+                                            })
+                                          : (0, t.jsx)("span", {
+                                              children: (0, o.contentSummary)(
+                                                e,
+                                              ),
+                                            }),
+                                        (0, t.jsx)(T.CostLabel, {
+                                          doc: e,
+                                          compact: !0,
+                                        }),
+                                      ],
+                                    }),
+                                  ],
+                                }),
+                                (0, t.jsx)("div", {
+                                  onClick: (e) => e.stopPropagation(),
+                                  children: (0, t.jsxs)(w.DropdownMenu, {
+                                    children: [
+                                      (0, t.jsx)(w.DropdownMenuTrigger, {
+                                        asChild: !0,
+                                        children: (0, t.jsx)("button", {
+                                          type: "button",
+                                          "aria-label": `Thao t\xe1c với ${e.name}`,
+                                          className:
+                                            "rounded-md p-1 text-[#787774] hover:bg-[#e9e9e7]",
+                                          children: (0, t.jsx)(
+                                            m.MoreHorizontal,
+                                            {
+                                              "aria-hidden": !0,
+                                              className: "size-4",
+                                            },
+                                          ),
+                                        }),
+                                      }),
+                                      (0, t.jsxs)(w.DropdownMenuContent, {
+                                        align: "end",
+                                        children: [
+                                          (0, t.jsx)(w.DropdownMenuItem, {
+                                            onSelect: () => F(e),
+                                            children: "Đổi tên / sửa nhãn",
+                                          }),
+                                          (0, t.jsx)(w.DropdownMenuItem, {
+                                            onSelect: () =>
+                                              (0, C.downloadOriginal)(e).catch(
+                                                (e) =>
+                                                  a.setError(
+                                                    (0, j.formatApiError)(e),
+                                                  ),
+                                              ),
+                                            children: "Tải bản gốc",
+                                          }),
+                                          "failed" === e.status &&
+                                            (0, t.jsx)(w.DropdownMenuItem, {
+                                              onSelect: () =>
+                                                a
+                                                  .retry(e.id)
+                                                  .catch((e) =>
+                                                    a.setError(
+                                                      (0, j.formatApiError)(e),
+                                                    ),
+                                                  ),
+                                              children: "Thử đọc lại",
+                                            }),
+                                          (0, t.jsx)(
+                                            w.DropdownMenuSeparator,
+                                            {},
+                                          ),
+                                          (0, t.jsx)(w.DropdownMenuItem, {
+                                            variant: "destructive",
+                                            onSelect: () => O(e),
+                                            children: "Xoá khỏi kho",
+                                          }),
+                                        ],
+                                      }),
+                                    ],
+                                  }),
+                                }),
+                              ],
+                            },
+                            e.id,
+                          );
+                        }),
+                      ],
+                    }),
+                    (0, t.jsx)("div", {
+                      className:
+                        "hidden min-h-0 overflow-y-auto px-5 py-4 md:block",
+                      children: Q ? (0, t.jsx)($, { doc: Q }, Q.id) : null,
+                    }),
+                  ],
+                }),
+                (0, t.jsxs)("div", {
+                  className:
+                    "flex flex-wrap items-center justify-between gap-2 border-t border-[#e9e9e7] px-5 py-3",
+                  children: [
+                    (0, t.jsxs)("span", {
+                      className: "text-[13px] text-[#5f5e5b]",
+                      children: [
+                        0 === d.length
+                          ? "Chưa chọn tài liệu nào"
+                          : `Đ\xe3 chọn ${d.length} t\xe0i liệu`,
+                        Y && ` (tối đa ${i.MAX_SOURCES})`,
+                      ],
+                    }),
+                    (0, t.jsxs)("div", {
+                      className: "flex gap-2",
+                      children: [
+                        (0, t.jsx)(b.Button, {
+                          variant: "ghost",
+                          onClick: () => r(!1),
+                          children: "Huỷ",
+                        }),
+                        (0, t.jsx)(b.Button, {
+                          onClick: () => {
+                            (c(d), r(!1));
+                          },
+                          children: d.length
+                            ? `D\xf9ng ${d.length} t\xe0i liệu`
+                            : "Không dùng tài liệu",
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+                P &&
+                  (0, t.jsx)("div", {
+                    className:
+                      "pointer-events-none absolute inset-0 z-10 grid place-items-center rounded-lg border-2 border-dashed border-[#2383e2] bg-[#e7f3f8]/90 text-center font-semibold text-[#0b6bcb]",
+                    children: (0, t.jsxs)("div", {
+                      children: [
+                        "Thả tệp để tải lên kho",
+                        (0, t.jsx)("p", {
+                          className: "mt-1 text-[13px] font-normal",
+                          children: "Tài liệu mới sẽ tự được chọn làm nguồn",
+                        }),
+                      ],
+                    }),
+                  }),
+              ],
+            }),
+          }),
+          (0, t.jsx)(N.EditLabelsDialog, {
+            doc: q,
+            onClose: () => F(null),
+            onSave: a.update,
+          }),
+          (0, t.jsx)(N.DeleteDialog, {
+            docs: B ? [B] : [],
+            onClose: () => O(null),
+            onConfirm: () => {
+              (O(null),
+                B &&
+                  (u((e) => e.filter((e) => e !== B.id)),
+                  a
+                    .remove(B.id)
+                    .catch((e) => a.setError((0, j.formatApiError)(e)))));
+            },
+          }),
+        ],
+      });
+    }
+    function $({ doc: e }) {
+      let [r, i] = (0, n.useState)(null);
+      (0, n.useEffect)(() => {
+        if ("ready" !== e.status || 0 === e.figureCount) return;
+        let t = new AbortController();
+        return (
+          (0, l.getLibraryDocument)(e.id, t.signal)
+            .then((e) => i(e.figures))
+            .catch(() => {}),
+          () => t.abort()
+        );
+      }, [e.id, e.status, e.figureCount]);
+      let a = (0, o.stepIndex)(e);
+      return (0, t.jsxs)("div", {
+        className: "text-sm",
+        children: [
+          (0, t.jsxs)("div", {
+            className:
+              "flex flex-wrap items-center gap-2 text-xs text-[#787774]",
+            children: [
+              (0, t.jsx)(T.FileBadge, { format: e.format, small: !0 }),
+              (0, t.jsx)(T.KindBadge, { doc: e }),
+              (0, T.subjectGrade)(e) &&
+                (0, t.jsx)("span", { children: (0, T.subjectGrade)(e) }),
+              (0, t.jsx)("span", {
+                className: "tabular-nums",
+                children: (0, o.contentSummary)(e),
+              }),
+            ],
+          }),
+          (0, t.jsx)("h3", {
+            className:
+              "font-display mt-2 text-lg leading-snug font-semibold text-balance [overflow-wrap:anywhere] text-[#37352f]",
+            children: e.name,
+          }),
+          (0, o.isProcessing)(e)
+            ? (0, t.jsxs)("ol", {
+                className: "mt-3 grid gap-1",
+                children: [
+                  o.STEPS.map((e, n) =>
+                    (0, t.jsxs)(
+                      "li",
+                      {
+                        className: (0, k.cn)(
+                          "flex items-center gap-2 text-[13px]",
+                          n > a ? "text-[#9b9a97]" : "text-[#37352f]",
+                        ),
+                        children: [
+                          n < a
+                            ? (0, t.jsx)(d.Check, {
+                                "aria-hidden": !0,
+                                className: "size-3.5 text-[#0f7b6c]",
+                              })
+                            : n === a
+                              ? (0, t.jsx)(h.Loader2, {
+                                  "aria-hidden": !0,
+                                  className:
+                                    "size-3.5 animate-spin text-[#2383e2]",
+                                })
+                              : (0, t.jsx)("span", { className: "size-3.5" }),
+                          e,
+                        ],
+                      },
+                      e,
+                    ),
+                  ),
+                  (0, t.jsx)("li", {
+                    className: "mt-2 text-[12.5px] text-[#787774]",
+                    children:
+                      "Vẫn chọn được. Gửi chat trước khi đọc xong thì lượt chat sẽ chờ tài liệu này.",
+                  }),
+                ],
+              })
+            : "failed" === e.status
+              ? (0, t.jsx)("p", {
+                  className: "mt-2 text-[13px] text-[#c4332b]",
+                  children: e.errorMessage || "Chưa đọc được tài liệu.",
+                })
+              : (0, t.jsxs)(t.Fragment, {
+                  children: [
+                    e.summary &&
+                      (0, t.jsx)("p", {
+                        className:
+                          "mt-2 text-[13px] leading-relaxed text-[#5f5e5b]",
+                        children: e.summary,
+                      }),
+                    e.outline.length > 0 &&
+                      (0, t.jsxs)(t.Fragment, {
+                        children: [
+                          (0, t.jsx)("h4", {
+                            className:
+                              "mt-4 mb-1.5 text-[11px] font-semibold tracking-wider text-[#787774] uppercase",
+                            children: "Dàn ý",
+                          }),
+                          (0, t.jsxs)("ul", {
+                            className: "grid gap-0.5 text-[12.5px]",
+                            children: [
+                              e.outline
+                                .slice(0, 14)
+                                .map((e, n) =>
+                                  (0, t.jsxs)(
+                                    "li",
+                                    {
+                                      className: "flex gap-2",
+                                      children: [
+                                        (0, t.jsx)("b", {
+                                          className:
+                                            "min-w-12 shrink-0 font-semibold",
+                                          children: e.label,
+                                        }),
+                                        (0, t.jsxs)("span", {
+                                          className: "text-[#5f5e5b]",
+                                          children: [
+                                            [e.type, e.topic]
+                                              .filter(Boolean)
+                                              .join(" · "),
+                                            e.figures?.length
+                                              ? ` [${e.figures.join(", ")}]`
+                                              : "",
+                                          ],
+                                        }),
+                                      ],
+                                    },
+                                    n,
+                                  ),
+                                ),
+                              e.outline.length > 14 &&
+                                (0, t.jsxs)("li", {
+                                  className: "text-[#787774]",
+                                  children: [
+                                    "… và ",
+                                    e.outline.length - 14,
+                                    " mục nữa",
+                                  ],
+                                }),
+                            ],
+                          }),
+                        ],
+                      }),
+                    r &&
+                      r.length > 0 &&
+                      (0, t.jsxs)(t.Fragment, {
+                        children: [
+                          (0, t.jsx)("h4", {
+                            className:
+                              "mt-4 mb-1.5 text-[11px] font-semibold tracking-wider text-[#787774] uppercase",
+                            children: "Hình",
+                          }),
+                          (0, t.jsx)("div", {
+                            className: "flex flex-wrap gap-1.5",
+                            children: r
+                              .slice(0, 8)
+                              .map((e) =>
+                                (0, t.jsx)(
+                                  "img",
+                                  {
+                                    src: e.url,
+                                    alt: e.caption || `H${e.ordinal}`,
+                                    title: e.caption
+                                      ? `H${e.ordinal}: ${e.caption}`
+                                      : `H${e.ordinal}`,
+                                    className:
+                                      "h-14 w-20 rounded-md border border-[#e9e9e7] bg-white object-contain",
+                                    loading: "lazy",
+                                  },
+                                  e.ordinal,
+                                ),
+                              ),
+                          }),
+                        ],
+                      }),
+                  ],
+                }),
+          (0, t.jsxs)(g.default, {
+            href: `/library/${e.id}`,
+            target: "_blank",
+            className:
+              "mt-4 inline-flex items-center gap-1 text-[13px] text-[#2383e2] hover:underline",
+            children: [
+              "Mở trang chi tiết ",
+              (0, t.jsx)(u.ExternalLink, {
+                "aria-hidden": !0,
+                className: "size-3.5",
+              }),
+            ],
+          }),
+        ],
+      });
+    }
+    var D = e.i(77071),
+      I = e.i(263676);
+    function L({
+      sources: e,
+      uploading: n,
+      disabled: r,
+      onOpenPicker: i,
+      onRemove: a,
+      notice: s,
+    }) {
+      let l = e.filter(o.isProcessing).length;
+      return (0, t.jsxs)("div", {
+        className:
+          "mb-2 rounded-xl border border-[#e9e9e7] bg-[#f7f6f3] px-2 py-1.5",
+        children: [
+          (0, t.jsxs)("div", {
+            className:
+              "flex items-center justify-between gap-2 px-0.5 pb-1 text-[11px] text-[#787774]",
+            children: [
+              (0, t.jsx)("span", {
+                className: "font-semibold tracking-wide text-[#5f5e5b]",
+                children: "NGUỒN CHO TRỢ LÝ",
+              }),
+              (0, t.jsx)("span", {
+                className: "truncate",
+                children:
+                  0 === e.length
+                    ? "Chọn đề mẫu, ma trận từ kho tài liệu"
+                    : l > 0
+                      ? `${l} t\xe0i liệu đang được đọc`
+                      : "",
+              }),
+            ],
+          }),
+          (0, t.jsxs)("div", {
+            className: "flex flex-wrap gap-1.5",
+            children: [
+              e.map((e) => {
+                let n = (0, o.isProcessing)(e),
+                  s = n ? (0, A.uploadEstimate)(e.id) : void 0;
+                return (0, t.jsxs)(
+                  "span",
+                  {
+                    className: (0, k.cn)(
+                      "inline-flex h-7 max-w-full items-center gap-1.5 rounded-md border bg-white pr-0.5 pl-1.5 text-[12.5px]",
+                      "failed" === e.status
+                        ? "border-[#f3c4bf] text-[#c4332b]"
+                        : n
+                          ? "border-dashed border-[#a8cff0] text-[#0b6bcb]"
+                          : "border-[#dfdfdd] text-[#37352f]",
+                    ),
+                    children: [
+                      n
+                        ? (0, t.jsx)(h.Loader2, {
+                            "aria-hidden": !0,
+                            className: "size-3.5 shrink-0 animate-spin",
+                          })
+                        : (0, t.jsx)(T.FileBadge, {
+                            format: e.format,
+                            small: !0,
+                          }),
+                      (0, t.jsx)("button", {
+                        type: "button",
+                        onClick: () => i(e.id),
+                        className:
+                          "max-w-[170px] truncate text-left hover:underline",
+                        title:
+                          "failed" === e.status
+                            ? `${e.name}: ${e.errorMessage || "chưa đọc được"}`
+                            : e.name,
+                        children: e.name.replace(/\.[a-z0-9]{1,5}$/i, ""),
+                      }),
+                      s &&
+                        (0, t.jsxs)("span", {
+                          className:
+                            "shrink-0 text-[11.5px] whitespace-nowrap text-[#787774] tabular-nums",
+                          children: [
+                            "≈ ",
+                            (0, A.formatPoints)(s.points),
+                            " điểm",
+                          ],
+                        }),
+                      (0, t.jsx)("button", {
+                        type: "button",
+                        "aria-label": `Bỏ nguồn ${e.name}`,
+                        disabled: r,
+                        onClick: () => a(e.id),
+                        className:
+                          "grid size-5 place-items-center rounded text-[#9b9a97] hover:bg-[#ffe2dd] hover:text-[#c4332b] disabled:opacity-40",
+                        children: (0, t.jsx)(I.X, {
+                          "aria-hidden": !0,
+                          className: "size-3",
+                        }),
+                      }),
+                    ],
+                  },
+                  e.id,
+                );
+              }),
+              n > 0 &&
+                (0, t.jsxs)("span", {
+                  className:
+                    "inline-flex h-7 items-center gap-1.5 rounded-md border border-dashed border-[#dfdfdd] px-2 text-[12.5px] text-[#787774]",
+                  children: [
+                    (0, t.jsx)(h.Loader2, {
+                      "aria-hidden": !0,
+                      className: "size-3.5 animate-spin",
+                    }),
+                    " Đang tải lên…",
+                  ],
+                }),
+              (0, t.jsxs)("button", {
+                type: "button",
+                onClick: () => i(),
+                disabled: r,
+                className:
+                  "inline-flex h-7 items-center gap-1 rounded-md border border-dashed border-[#dfdfdd] px-2 text-[12.5px] text-[#5f5e5b] hover:bg-white hover:text-[#37352f] disabled:opacity-50",
+                children: [
+                  (0, t.jsx)(D.Plus, {
+                    "aria-hidden": !0,
+                    className: "size-3.5",
+                  }),
+                  " Thêm từ kho",
+                ],
+              }),
+            ],
+          }),
+          s &&
+            (0, t.jsx)("p", {
+              role: "status",
+              className:
+                "mt-1.5 px-0.5 text-[12px] whitespace-pre-line text-[#0b6bcb]",
+              children: s,
+            }),
+        ],
+      });
+    }
+    var R = e.i(775691);
+    e.i(565594);
+    var z = e.i(608532),
+      _ = e.i(155415),
+      P = e.i(871813),
+      H = e.i(283990),
+      q = e.i(389567),
+      F = e.i(569190),
+      B = e.i(64805),
+      O = e.i(228742),
+      W = e.i(328623);
+    function X({ isOpen: e, onToggle: n }) {
+      return (0, t.jsxs)("div", {
+        className:
+          "no-print fixed bottom-6 right-6 z-40 flex items-center gap-2",
+        children: [
+          !e &&
+            (0, t.jsxs)("div", {
+              className:
+                "hidden sm:flex items-center gap-1.5 rounded-full bg-neutral-900/80 backdrop-blur-md px-3.5 py-1.5 text-xs font-medium text-white shadow-xl animate-fade-in border border-neutral-700/50",
+              children: [
+                (0, t.jsx)(W.Sparkles, {
+                  className: "size-3.5 text-emerald-400 animate-pulse",
+                }),
+                (0, t.jsx)("span", { children: "Chat AI tạo & sửa đề" }),
+              ],
+            }),
+          (0, t.jsx)("button", {
+            type: "button",
+            onClick: n,
+            className: `group relative flex size-14 items-center justify-center rounded-full shadow-2xl transition-all duration-300 ${e ? "bg-neutral-800 text-white rotate-90 hover:bg-neutral-700" : "bg-linear-to-tr from-emerald-600 to-teal-500 text-white hover:scale-105 hover:shadow-emerald-500/25"}`,
+            title: e ? "Đóng chat" : "Mở AI Chat tạo đề",
+            children: e
+              ? (0, t.jsx)(I.X, { className: "size-6 transition-transform" })
+              : (0, t.jsxs)(t.Fragment, {
+                  children: [
+                    (0, t.jsx)(W.Sparkles, {
+                      className:
+                        "size-6 text-white transition-transform group-hover:scale-110",
+                    }),
+                    (0, t.jsx)("span", {
+                      className:
+                        "absolute -top-1 -right-1 flex size-4 items-center justify-center rounded-full bg-rose-500 text-[10px] font-bold text-white ring-2 ring-white",
+                      children: "AI",
+                    }),
+                  ],
+                }),
+          }),
+        ],
+      });
+    }
+    var G = e.i(395925);
+    function K({ onClear: e, onCollapse: n, memoryOn: r = !1, scope: i }) {
+      return (0, t.jsxs)("div", {
+        className: "flex shrink-0 items-center justify-between px-4 pb-1 pt-3",
+        children: [
+          (0, t.jsxs)("div", {
+            className: "flex min-w-0 items-center gap-2",
+            children: [
+              (0, t.jsx)("h3", {
+                className: "text-[16px] font-medium text-neutral-900",
+                children: "Trợ lý AI soạn đề",
+              }),
+              i &&
+                (0, t.jsxs)("span", {
+                  className:
+                    "shrink-0 rounded-md bg-[#e7f0fb] px-1.5 py-0.5 text-[11.5px] font-medium text-[#1b6ec2]",
+                  title: "Trợ lý chỉ đọc và sửa tab đang mở",
+                  children: ["Đang sửa: ", i],
+                }),
+              r &&
+                (0, t.jsxs)(g.default, {
+                  href: "/memory",
+                  target: "_blank",
+                  className:
+                    "inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[11.5px] text-[#787774] transition-colors hover:bg-black/[0.05] hover:text-[#37352f]",
+                  title:
+                    "Trợ lý đang dùng trí nhớ ra đề của bạn. Bấm để xem, sửa hoặc tắt.",
+                  children: [
+                    (0, t.jsx)("span", {
+                      "aria-hidden": !0,
+                      className:
+                        "size-1.5 rounded-full bg-linear-to-r from-[#2383e2] to-[#9b72cb]",
+                    }),
+                    "Trí nhớ",
+                  ],
+                }),
+            ],
+          }),
+          (0, t.jsxs)("div", {
+            className: "flex items-center gap-0.5",
+            children: [
+              (0, t.jsx)(b.Button, {
+                type: "button",
+                variant: "ghost",
+                size: "icon-xs",
+                onClick: e,
+                className:
+                  "size-8 rounded-full text-neutral-500 transition-colors hover:bg-black/[0.06] hover:text-neutral-800",
+                title: "Làm mới đoạn chat",
+                children: (0, t.jsx)(G.RotateCcw, {
+                  "aria-hidden": !0,
+                  className: "size-[18px]",
+                }),
+              }),
+              (0, t.jsx)(b.Button, {
+                type: "button",
+                variant: "ghost",
+                size: "icon-xs",
+                onClick: n,
+                className:
+                  "size-8 rounded-full text-neutral-500 transition-colors hover:bg-black/[0.06] hover:text-neutral-800",
+                title: "Đóng",
+                children: (0, t.jsx)(I.X, {
+                  "aria-hidden": !0,
+                  className: "size-[18px]",
+                }),
+              }),
+            ],
+          }),
+        ],
+      });
+    }
+    var U = e.i(165358),
+      V = e.i(160523),
+      J = e.i(349776),
+      Q = e.i(399847),
+      Y = e.i(532181),
+      Z = e.i(758250),
+      ee = e.i(93306);
+    function et({
+      messages: e,
+      loading: n,
+      stage: r,
+      activity: i,
+      progressMessage: a,
+      error: s,
+      messagesEndRef: l,
+      onSend: o,
+      onPreviewImage: c,
+    }) {
+      return (0, t.jsx)(ee.MessageScrollerProvider, {
+        autoScroll: !0,
+        children: (0, t.jsxs)(ee.MessageScroller, {
+          className: "flex-1 min-h-0",
+          children: [
+            (0, t.jsx)(ee.MessageScrollerViewport, {
+              className: "size-full overflow-y-auto",
+              children: (0, t.jsxs)(ee.MessageScrollerContent, {
+                className: "flex flex-col gap-4 px-4 pb-4 pt-2 text-sm",
+                children: [
+                  e.map((e) =>
+                    (0, t.jsx)(
+                      ee.MessageScrollerItem,
+                      {
+                        messageId: e.id,
+                        children: (0, t.jsx)(Y.motion.div, {
+                          initial: { opacity: 0, y: 10 },
+                          animate: { opacity: 1, y: 0 },
+                          transition: { duration: 0.22, ease: [0.2, 0, 0, 1] },
+                          children:
+                            "user" === e.role
+                              ? (0, t.jsx)(V.UserBubble, {
+                                  message: e,
+                                  onPreviewImage: c,
+                                })
+                              : (0, t.jsx)(J.AssistantBubble, {
+                                  message: e,
+                                  loading: n,
+                                  onSend: o,
+                                }),
+                        }),
+                      },
+                      e.id,
+                    ),
+                  ),
+                  n &&
+                    (0, t.jsx)(ee.MessageScrollerItem, {
+                      scrollAnchor: !0,
+                      children: (0, t.jsx)(Z.ThinkingStatus, {
+                        stage: r,
+                        progressMessage: a,
+                        activity: i,
+                      }),
+                    }),
+                  s &&
+                    (0, t.jsx)(ee.MessageScrollerItem, {
+                      children: (0, t.jsxs)(f.Alert, {
+                        variant: "destructive",
+                        className:
+                          "rounded-2xl border-rose-200 bg-rose-50 px-3 py-2.5 text-rose-700 shadow-none",
+                        children: [
+                          (0, t.jsx)(Q.AlertCircle, {
+                            className: "size-4 text-rose-600 shrink-0",
+                          }),
+                          (0, t.jsx)(f.AlertDescription, {
+                            className:
+                              "text-xs text-rose-700 whitespace-pre-wrap break-words select-text",
+                            children: s,
+                          }),
+                        ],
+                      }),
+                    }),
+                  (0, t.jsx)("div", { ref: l }),
+                ],
+              }),
+            }),
+            (0, t.jsx)(ee.MessageScrollerButton, { direction: "end" }),
+          ],
+        }),
+      });
+    }
+    var en = e.i(345901),
+      er = e.i(64801),
+      ei = e.i(99570),
+      ea = e.i(302658);
+    e.s(
+      [
+        "AiChatWidget",
+        0,
+        function ({
+          currentExam: e,
+          uiActions: d,
+          getExam: u,
+          getSelection: h,
+          onApplyExam: m,
+          onAppendContent: p,
+          onContentApplied: x,
+          onStreamStart: g,
+          onStreamDelta: f,
+          onStreamEnd: b,
+          variant: y = "floating",
+          onCollapse: w,
+          scope: v,
+        }) {
+          let k = "docked" === y,
+            [N, C] = (0, n.useState)(!1),
+            T = k || N,
+            [S, A] = (0, n.useState)(null),
+            { user: M } = (0, r.useSessionUser)(),
+            $ = (function (e, t) {
+              let r = (0, c.useLibrary)(t),
+                [a, s] = (0, n.useState)(() => (0, i.loadSources)(e)),
+                d = (0, n.useMemo)(() => {
+                  if (!r.docs) return a;
+                  let e = new Set(r.docs.map((e) => e.id));
+                  return a.filter((t) => e.has(t));
+                }, [a, r.docs]),
+                u = (0, n.useCallback)(
+                  (t) => {
+                    let n = [...new Set(t)].slice(0, i.MAX_SOURCES);
+                    (s(n), (0, i.saveSources)(e, n));
+                  },
+                  [e],
+                ),
+                h = (0, n.useMemo)(() => {
+                  let e = new Map((r.docs ?? []).map((e) => [e.id, e]));
+                  return d.map((t) => e.get(t)).filter((e) => !!e);
+                }, [d, r.docs]),
+                m = (0, n.useCallback)((e) => u([...d, ...e]), [d, u]),
+                p = (0, n.useCallback)(
+                  (e) => u(d.filter((t) => t !== e)),
+                  [d, u],
+                );
+              return {
+                library: r,
+                ids: d,
+                sources: h,
+                setSources: u,
+                add: m,
+                remove: p,
+                waitUntilReady: (0, n.useCallback)(async (e, t, n) => {
+                  if (0 === e.length) return [];
+                  let r = Date.now();
+                  for (;;) {
+                    let i = await (0, l.libraryStatuses)(e, t),
+                      a = i.find((e) => "failed" === e.status);
+                    if (a)
+                      throw Error(
+                        `T\xe0i liệu “${a.name}” chưa đọc được${a.errorMessage ? `: ${a.errorMessage}` : "."} H\xe3y bỏ khỏi nguồn hoặc thử lại trong kho.`,
+                      );
+                    if (i.length < e.length)
+                      throw Error(
+                        "Một tài liệu nguồn đã bị xoá khỏi kho. Hãy chọn lại nguồn rồi gửi.",
+                      );
+                    let s = i.find(o.isProcessing);
+                    if (!s) return i;
+                    if (Date.now() - r > 3e5)
+                      throw Error(
+                        `“${s.name}” vẫn đang được đọc. H\xe3y đợi th\xeam hoặc bỏ t\xe0i liệu n\xe0y khỏi nguồn rồi gửi lại.`,
+                      );
+                    (n(
+                      `Đang chờ đọc xong “${s.name}” (${(0, o.progressLabel)(s).toLowerCase()})…`,
+                    ),
+                      await new Promise((e, n) => {
+                        let r = window.setTimeout(e, 2e3);
+                        t.addEventListener(
+                          "abort",
+                          () => {
+                            (window.clearTimeout(r),
+                              n(new DOMException("Aborted", "AbortError")));
+                          },
+                          { once: !0 },
+                        );
+                      }));
+                  }
+                }, []),
+              };
+            })(e.id, !!M),
+            D = !!M && ($.library.settings?.enabled ?? !0),
+            [I, W] = (0, n.useState)({ open: !1 }),
+            [G, V] = (0, n.useState)(""),
+            J = (0, n.useRef)([]);
+          (0, n.useEffect)(() => {
+            J.current = $.ids;
+          }, [$.ids]);
+          let Q = (0, n.useCallback)(() => J.current, []),
+            { waitUntilReady: Y } = $,
+            Z = (0, n.useCallback)(
+              async (e) =>
+                a.REMEMBER_HINT.test(e) ? (0, a.rememberFromChat)(e) : null,
+              [],
+            ),
+            ee = (0, n.useCallback)(
+              async (e, t, n) =>
+                (await Y(e, t, n)).map(({ id: e, name: t }) => ({
+                  id: e,
+                  name: t,
+                })),
+              [Y],
+            ),
+            {
+              input: es,
+              setInput: el,
+              loading: eo,
+              stage: ec,
+              activity: ed,
+              progressMessage: eu,
+              error: eh,
+              setError: em,
+              quotaError: ep,
+              setQuotaError: ex,
+              reasoning: eg,
+              setReasoning: ef,
+              messages: eb,
+              references: ey,
+              removeReference: ew,
+              messagesEndRef: ev,
+              textareaRef: ej,
+              panelRef: ek,
+              handleSend: eN,
+              handleClearChat: eC,
+            } = (function ({
+              currentExam: e,
+              uiActions: t,
+              getExam: r,
+              getSelection: i,
+              onApplyExam: a,
+              onAppendContent: s,
+              onContentApplied: l,
+              onStreamStart: o,
+              onStreamDelta: c,
+              onStreamEnd: d,
+              open: u,
+              getLibraryIds: h,
+              waitForLibrary: m,
+              remember: p,
+            }) {
+              let [x, g] = (0, n.useState)(""),
+                [f, b] = (0, n.useState)(!1),
+                [y, w] = (0, n.useState)(null),
+                [v, k] = (0, n.useState)(null),
+                [N, C] = (0, n.useState)(null),
+                [T, S] = (0, n.useState)(null),
+                [A, E] = (0, n.useState)(null),
+                [M, $] = (0, n.useState)(z.DEFAULT_REASONING),
+                [D, I] = (0, n.useState)([]),
+                [L, B] = (0, n.useState)([]),
+                O = (0, n.useRef)([]),
+                W = (0, n.useRef)(0),
+                [X, G] = (0, n.useState)([]),
+                K = (0, n.useRef)(null),
+                U = (0, n.useRef)(null),
+                V = (0, n.useRef)(null),
+                J = (0, n.useRef)(null),
+                Q = (0, n.useRef)(!1),
+                Y = (0, n.useRef)(null);
+              (0, n.useEffect)(() => {
+                let e = () => {
+                  if (!(0, R.readSession)()) return;
+                  let e = Y.current;
+                  ((Y.current = null), e?.());
+                };
+                return (
+                  window.addEventListener("exam-session-change", e),
+                  () => {
+                    (window.removeEventListener("exam-session-change", e),
+                      (Y.current = null));
+                  }
+                );
+              }, []);
+              let Z = (0, n.useRef)(null),
+                ee = (0, n.useCallback)(() => {
+                  K.current?.scrollIntoView({ behavior: "smooth" });
+                }, []);
+              ((0, n.useEffect)(() => {
+                u && (ee(), U.current?.focus());
+              }, [u, X, ee]),
+                (0, n.useEffect)(() => () => J.current?.abort(), []));
+              let et = (0, n.useCallback)((e) => {
+                  (B((t) => {
+                    if (t.some((t) => (0, P.sameReference)(t, e))) return t;
+                    if (t.length >= P.MAX_REFERENCES)
+                      return (
+                        S(
+                          `Mỗi lượt chỉ gắn tối đa ${P.MAX_REFERENCES} đoạn. H\xe3y xo\xe1 bớt hoặc gửi trước.`,
+                        ),
+                        t
+                      );
+                    W.current += 1;
+                    let n = { id: `R${W.current}`, ...e };
+                    return ((O.current = [...O.current, n]), [...t, n]);
+                  }),
+                    window.setTimeout(() => U.current?.focus(), 320));
+                }, []),
+                en = (0, n.useCallback)((e) => {
+                  B((t) => t.filter((t) => t.id !== e));
+                }, []);
+              (0, n.useEffect)(() => {
+                let e = (e) => {
+                  let t = e.detail;
+                  t && et(t);
+                };
+                return (
+                  window.addEventListener(P.ADD_REFERENCE_EVENT, e),
+                  () => window.removeEventListener(P.ADD_REFERENCE_EVENT, e)
+                );
+              }, [et]);
+              let er = (0, n.useRef)(() => {}),
+                ei = (0, n.useMemo)(
+                  () => X.filter((e) => "user" === e.role).length,
+                  [X],
+                ),
+                ea = (0, n.useCallback)(
+                  async (n, u, y, v = [], N, T, A = []) => {
+                    let $ = (n || x).trim();
+                    if ((!$ && 0 === v.length && 0 === A.length) || f) return;
+                    Y.current = null;
+                    let z = 0 === v.length && 0 === A.length ? Z.current : null,
+                      W = A.length > 0 ? A : (z?.files ?? []),
+                      X = u ?? z?.id,
+                      K = y ?? z?.extracted,
+                      U = ei + 1,
+                      V = {
+                        id: `user_${U}`,
+                        role: "user",
+                        content: $,
+                        references: L.map((e) => ({
+                          id: e.id,
+                          label: (0, P.referenceLabel)(e),
+                          preview: e.preview,
+                        })),
+                        images: v.map(({ id: e, previewUrl: t, name: n }) => ({
+                          id: e,
+                          previewUrl: t,
+                          name: n,
+                        })),
+                        files: A.map(({ id: e, name: t, bytes: n }) => ({
+                          id: e,
+                          name: t,
+                          bytes: n,
+                        })),
+                      };
+                    (G((e) => [
+                      ...(X
+                        ? e.map((e) =>
+                            e.id === X
+                              ? { ...e, clarificationAnswered: !0 }
+                              : e,
+                          )
+                        : e),
+                      V,
+                    ]),
+                      g(""),
+                      B([]),
+                      N?.());
+                    let ee = r?.() ?? e,
+                      et = h?.() ?? [],
+                      en = {
+                        uiActions: t,
+                        message: $,
+                        exam: ee,
+                        selection: i?.() ?? "",
+                        references: O.current,
+                        newReferenceIds: L.map((e) => e.id),
+                        notes: [],
+                        reasoning: M,
+                        plannerHistory: D,
+                        images: v,
+                        files: W,
+                        libraryIds: et,
+                        extracted: K,
+                        clarificationAnswers: T,
+                      },
+                      er = async () => {
+                        (S(null),
+                          E(null),
+                          b(!0),
+                          w(v.length > 0 ? "ocr" : "plan"),
+                          k({ since: Date.now(), writing: !1 }),
+                          C(null));
+                        let t = new AbortController();
+                        J.current = t;
+                        let n = Date.now(),
+                          i = {
+                            reasoning: M,
+                            hasImages: v.length > 0,
+                            hasFiles: W.length > 0,
+                            libraryCount: et.length,
+                          },
+                          u = p
+                            ? p($).catch(() => null)
+                            : Promise.resolve(null);
+                        try {
+                          let h =
+                            et.length > 0 && m ? await m(et, t.signal, C) : [];
+                          C(null);
+                          let p = await (0, _.runChatTurn)(en, {
+                            signal: t.signal,
+                            onStage: (e) => {
+                              (w(e),
+                                k({ since: Date.now(), writing: !1 }),
+                                "solve" === e && C(null));
+                            },
+                            onProgress: C,
+                            onDelta: (e) => {
+                              (Q.current ||
+                                ((Q.current = !0),
+                                k({ since: Date.now(), writing: !0 }),
+                                o?.()),
+                                c?.(e));
+                            },
+                            onReset: (e) => {
+                              (Q.current && ((Q.current = !1), d?.()),
+                                k({ since: Date.now(), writing: !1 }),
+                                e && C(e));
+                            },
+                            onPlannerHistory: I,
+                          });
+                          (Q.current && ((Q.current = !1), d?.()),
+                            "patch" === p.action
+                              ? a(
+                                  (0, H.applyExamPatches)(
+                                    ee,
+                                    p.patches ?? [],
+                                    p.editRanges ?? [],
+                                    r?.() ?? e,
+                                  ),
+                                  { preserveBlank: !0 },
+                                )
+                              : "replace" === p.action && p.exam
+                                ? a(p.exam)
+                                : "append" === p.action &&
+                                  p.content?.trim() &&
+                                  s(p.content),
+                            "none" !== p.action &&
+                              l?.({
+                                fromImages:
+                                  !!p.chooseApply ||
+                                  "images" === p.trace.contextSource ||
+                                  p.trace.operations.includes("ocr"),
+                              }));
+                          let x = {
+                            id: `ai_${U}`,
+                            role: "assistant",
+                            content: p.clarifications?.length
+                              ? p.reply
+                              : p.chooseApply && "replace" === p.action
+                                ? "Đã quét ảnh và cập nhật đề vào trang soạn thảo."
+                                : p.reply,
+                            rejected: p.rejected,
+                            trace: p.trace,
+                            warnings: p.warnings,
+                            clarifications: p.clarifications,
+                            clarificationContext: p.clarificationContext,
+                            sources:
+                              "proceed" === p.trace.decision &&
+                              !p.rejected &&
+                              h.length > 0
+                                ? h.map(({ id: e, name: t }) => ({
+                                    id: e,
+                                    name: t,
+                                  }))
+                                : void 0,
+                            grounding: p.grounding,
+                          };
+                          ((Z.current =
+                            "clarify" === p.trace.decision
+                              ? {
+                                  id: x.id,
+                                  extracted: p.clarificationContext,
+                                  files: W,
+                                }
+                              : null),
+                            G((e) => [...e, x]));
+                          let g =
+                            "replace" === p.action
+                              ? p.exam?.content
+                              : "append" === p.action
+                                ? p.content
+                                : "patch" === p.action
+                                  ? (p.patches ?? [])
+                                      .map((e) => e.content)
+                                      .join("\n\n")
+                                  : void 0;
+                          if (p.grounding?.verify && g?.trim()) {
+                            let e = (e) =>
+                              G((t) =>
+                                t.map((t) =>
+                                  t.id === x.id ? { ...t, verification: e } : t,
+                                ),
+                              );
+                            (e({ status: "running" }),
+                              (0, F.verifyContent)(g, p.grounding.subject)
+                                .then((t) => e({ status: "done", report: t }))
+                                .catch((t) =>
+                                  e({
+                                    status: "error",
+                                    error: (0, j.formatApiError)(t),
+                                  }),
+                                ));
+                          }
+                          (u.then((e) => {
+                            e &&
+                              G((t) =>
+                                t.map((t) =>
+                                  t.id === x.id
+                                    ? { ...t, remembered: e.text }
+                                    : t,
+                                ),
+                              );
+                          }),
+                            (0, q.track)("ai_turn", {
+                              ...i,
+                              outcome: p.trace.decision,
+                              intent: p.trace.intent,
+                              taskKind: p.trace.taskKind,
+                              action: p.action,
+                              seconds: Math.round((Date.now() - n) / 1e3),
+                            }));
+                        } catch (r) {
+                          if (
+                            (r instanceof DOMException &&
+                              "AbortError" === r.name) ||
+                            t.signal.aborted
+                          )
+                            return;
+                          (0, q.track)("ai_turn", {
+                            ...i,
+                            outcome: "error",
+                            errorCode:
+                              r instanceof j.ApiError
+                                ? (r.code ?? `http_${r.status}`)
+                                : "client_error",
+                            stage: r instanceof j.ApiError ? r.stage : void 0,
+                            seconds: Math.round((Date.now() - n) / 1e3),
+                          });
+                          let e = (0, j.formatApiError)(r);
+                          (S(e),
+                            r instanceof j.ApiError &&
+                              "quota_exhausted" === r.code &&
+                              E(e),
+                            r instanceof j.ApiError &&
+                              401 === r.status &&
+                              !(0, R.readSession)() &&
+                              ((Y.current = er), (0, R.requestLogin)()));
+                        } finally {
+                          (J.current === t && (J.current = null),
+                            Q.current && ((Q.current = !1), d?.()),
+                            b(!1),
+                            w(null),
+                            k(null),
+                            C(null));
+                        }
+                      };
+                    await er();
+                  },
+                  [x, f, L, ei, e, t, r, i, h, m, p, M, D, a, s, l, o, c, d],
+                );
+              ((0, n.useEffect)(() => {
+                er.current = (e) => void ea(e);
+              }, [ea]),
+                (0, n.useEffect)(() => {
+                  let e = (e) => {
+                    let t = e.detail;
+                    "string" == typeof t && t.trim() && er.current(t);
+                  };
+                  return (
+                    window.addEventListener(P.SEND_CHAT_EVENT, e),
+                    () => window.removeEventListener(P.SEND_CHAT_EVENT, e)
+                  );
+                }, []));
+              let es = (0, n.useCallback)(() => {
+                ((Y.current = null),
+                  J.current?.abort(),
+                  (J.current = null),
+                  G([]),
+                  I([]),
+                  B([]),
+                  (O.current = []),
+                  (W.current = 0),
+                  (Z.current = null),
+                  S(null),
+                  E(null));
+              }, []);
+              return {
+                input: x,
+                setInput: g,
+                loading: f,
+                stage: y,
+                activity: v,
+                progressMessage: N,
+                error: T,
+                setError: S,
+                quotaError: A,
+                setQuotaError: E,
+                reasoning: M,
+                setReasoning: $,
+                messages: X,
+                references: L,
+                addReference: et,
+                removeReference: en,
+                turnCount: ei,
+                messagesEndRef: K,
+                textareaRef: U,
+                panelRef: V,
+                handleSend: ea,
+                handleClearChat: es,
+                scrollToBottom: ee,
+              };
+            })({
+              currentExam: e,
+              uiActions: d,
+              getExam: u,
+              getSelection: h,
+              onApplyExam: m,
+              onAppendContent: p,
+              onContentApplied: x,
+              onStreamStart: g,
+              onStreamDelta: f,
+              onStreamEnd: b,
+              open: T,
+              getLibraryIds: D ? Q : void 0,
+              waitForLibrary: D ? ee : void 0,
+              remember: M ? Z : void 0,
+            }),
+            eT = (0, n.useMemo)(() => (0, s.buildExamIndex)(e), [e]),
+            eS = (0, n.useMemo)(
+              () => ({
+                examTitle: eT.questionCount > 0 ? e.title : "",
+                questionCount: eT.questionCount,
+                blockCount: eT.blockCount,
+                hasAnswers: /đáp án|hướng dẫn chấm|barem/i.test(e.content),
+                libraryIds: $.ids,
+              }),
+              [eT.questionCount, eT.blockCount, e.title, e.content, $.ids],
+            ),
+            eA = (function (e, t) {
+              let [r, i] = (0, n.useState)(null),
+                [s, l] = (0, n.useState)(!1),
+                [o, c] = (0, n.useState)(0),
+                d = JSON.stringify(t),
+                u = (0, n.useRef)(t),
+                h = (0, n.useRef)(!1);
+              return (
+                (0, n.useEffect)(() => {
+                  u.current = t;
+                }),
+                (0, n.useEffect)(() => {
+                  let t;
+                  if (!e) return;
+                  let n = new AbortController(),
+                    r = (e, s) => {
+                      (l(!0),
+                        (0, a.fetchSuggestions)(u.current, e, n.signal)
+                          .then((e) => {
+                            !n.signal.aborted &&
+                              (e.suggestions.length > 0 && i(e),
+                              e.pending &&
+                                s > 0 &&
+                                (t = window.setTimeout(
+                                  () => r(!1, s - 1),
+                                  5e3,
+                                )));
+                          })
+                          .catch(() => {})
+                          .finally(() => {
+                            n.signal.aborted || l(!1);
+                          }));
+                    },
+                    s = window.setTimeout(() => {
+                      let e = h.current;
+                      ((h.current = !1), r(e, 3));
+                    }, 400 * !h.current);
+                  return () => {
+                    (n.abort(), window.clearTimeout(s), window.clearTimeout(t));
+                  };
+                }, [e, d, o]),
+                {
+                  result: e ? r : null,
+                  loading: e && s,
+                  regenerate: (0, n.useCallback)(() => {
+                    ((h.current = !0), c((e) => e + 1));
+                  }, []),
+                }
+              );
+            })(!!M && 0 === eb.length, eS),
+            eE = (0, n.useCallback)(
+              (e) => {
+                el(e);
+                let t = ej.current;
+                if (!t) return;
+                (t.focus(),
+                  window.requestAnimationFrame(() => {
+                    (t.setSelectionRange(e.length, e.length),
+                      (t.style.height = "auto"),
+                      (t.style.height = `${Math.min(t.scrollHeight, 140)}px`));
+                  }));
+                let n = t.parentElement?.parentElement;
+                (n?.classList.add("gen-flash"),
+                  window.setTimeout(
+                    () => n?.classList.remove("gen-flash"),
+                    700,
+                  ));
+              },
+              [el, ej],
+            ),
+            { upload: eM } = $.library,
+            { add: e$ } = $,
+            eD = (0, n.useCallback)(
+              async (e) => {
+                (em(null), V(""));
+                let t = await eM(e);
+                t.documents.length && e$(t.documents.map((e) => e.id));
+                let n = [...t.errors];
+                for (let e of t.duplicates)
+                  n.push(
+                    `“${e.name}” đ\xe3 c\xf3 trong kho, đ\xe3 d\xf9ng l\xe0m nguồn.`,
+                  );
+                (t.needPoints && n.push("Nhận thêm điểm ở trang Nhiệm vụ."),
+                  n.length && em(n.join("\n")),
+                  t.notices.length && V(t.notices.join("\n")));
+              },
+              [eM, e$, em],
+            ),
+            eI = (0, n.useCallback)((e) => W({ open: !0, focusId: e }), []);
+          ((0, n.useEffect)(() => {
+            if (!G) return;
+            let e = window.setTimeout(() => V(""), 9e3);
+            return () => window.clearTimeout(e);
+          }, [G]),
+            (0, n.useEffect)(() => {
+              if (!D) return;
+              let e = () => eI();
+              return (
+                window.addEventListener(i.OPEN_LIBRARY_EVENT, e),
+                () => window.removeEventListener(i.OPEN_LIBRARY_EVENT, e)
+              );
+            }, [D, eI]));
+          let eL = (function ({
+              open: e,
+              panelRef: t,
+              disabled: r = !1,
+              onError: i,
+              onDocuments: a,
+            }) {
+              let [s, l] = (0, n.useState)([]),
+                [o, c] = (0, n.useState)([]),
+                d = (0, n.useRef)([]),
+                u = (0, n.useRef)([]),
+                h = (0, n.useRef)(!1),
+                m = (0, n.useRef)(null),
+                [p, x] = (0, n.useState)(!1),
+                [g, f] = (0, n.useState)(!1),
+                b = (0, n.useRef)(null),
+                y = (0, n.useRef)(null);
+              (0, n.useEffect)(() => () => m.current?.abort(), []);
+              let w = (0, n.useCallback)(
+                async (e) => {
+                  let t = Array.from(e);
+                  if (0 === t.length || r || h.current) return;
+                  if (a) {
+                    let e = t.filter((e) => !e.type.startsWith("image/"));
+                    if (
+                      (e.length > 0 && a(e),
+                      0 ===
+                        (t = t.filter((e) => e.type.startsWith("image/")))
+                          .length)
+                    )
+                      return;
+                  }
+                  ((h.current = !0), x(!0), i?.(null));
+                  let n = new AbortController();
+                  m.current = n;
+                  let s = [];
+                  try {
+                    for (let e of t) {
+                      if (n.signal.aborted) break;
+                      try {
+                        if (e.type.startsWith("image/")) {
+                          let t = await (0, O.prepareChatImages)(
+                            [e],
+                            d.current.length,
+                          );
+                          if (n.signal.aborted) break;
+                          ((d.current = [...d.current, ...t.images]),
+                            l(d.current),
+                            s.push(...t.errors));
+                        } else {
+                          if (u.current.length >= B.MAX_CHAT_FILES) {
+                            s.push(
+                              `Mỗi lượt chỉ được đ\xednh k\xe8m tối đa ${B.MAX_CHAT_FILES} tệp. “${e.name}” đ\xe3 bỏ qua.`,
+                            );
+                            continue;
+                          }
+                          let t = await (0, B.uploadChatFile)(e, n.signal);
+                          if (n.signal.aborted) break;
+                          let r = new TextEncoder();
+                          if (
+                            [...u.current, t].reduce(
+                              (e, t) => e + r.encode(t.content).byteLength,
+                              0,
+                            ) > B.MAX_CHAT_FILE_TEXT_BYTES
+                          ) {
+                            s.push(
+                              `“${e.name}” l\xe0m tổng nội dung vượt 120 KB văn bản. H\xe3y gửi th\xe0nh nhiều lượt.`,
+                            );
+                            continue;
+                          }
+                          (t.notice && s.push(t.notice),
+                            (u.current = [...u.current, t]),
+                            c(u.current));
+                        }
+                      } catch (t) {
+                        if (n.signal.aborted) break;
+                        s.push(`“${e.name}”: ${(0, j.formatApiError)(t)}`);
+                      }
+                    }
+                    !n.signal.aborted && s.length > 0 && i?.(s.join("\n"));
+                  } finally {
+                    ((m.current = null), (h.current = !1), x(!1));
+                  }
+                },
+                [r, i, a],
+              );
+              (0, n.useEffect)(() => {
+                if (!e) return;
+                let n = (e) => {
+                  let n = document.activeElement;
+                  if (
+                    (n && n !== document.body && !t.current?.contains(n)) ||
+                    r ||
+                    h.current
+                  )
+                    return;
+                  let i = (0, O.imagesFromClipboard)(e.clipboardData);
+                  0 !== i.length && (e.preventDefault(), w(i));
+                };
+                return (
+                  window.addEventListener("paste", n),
+                  () => window.removeEventListener("paste", n)
+                );
+              }, [e, w, t, r]);
+              let v = (0, n.useCallback)((e) => {
+                  ((d.current = d.current.filter((t) => t.id !== e)),
+                    (u.current = u.current.filter((t) => t.id !== e)),
+                    l(d.current),
+                    c(u.current));
+                }, []),
+                k = (0, n.useCallback)(() => {
+                  ((d.current = []), (u.current = []), l([]), c([]));
+                }, []),
+                N = (0, n.useCallback)(
+                  (e) => {
+                    !e.dataTransfer.types.includes("Files") ||
+                      (e.preventDefault(), r || h.current || f(!0));
+                  },
+                  [r],
+                ),
+                C = (0, n.useCallback)((e) => {
+                  e.currentTarget.contains(e.relatedTarget) || f(!1);
+                }, []),
+                T = (0, n.useCallback)(
+                  (e) => {
+                    e.dataTransfer.types.includes("Files") &&
+                      (e.preventDefault(), f(!1), w(e.dataTransfer.files));
+                  },
+                  [w],
+                );
+              return {
+                attachments: s,
+                documents: o,
+                preparing: p,
+                dragOver: g,
+                fileInputRef: b,
+                documentInputRef: y,
+                addFiles: w,
+                removeAttachment: v,
+                clearAttachments: k,
+                dropHandlers: { onDragOver: N, onDragLeave: C, onDrop: T },
+              };
+            })({
+              open: T,
+              panelRef: ek,
+              disabled: eo,
+              onError: em,
+              onDocuments: D ? (e) => void eD(e) : void 0,
+            }),
+            eR = (0, n.useCallback)(() => {
+              eL.preparing ||
+                eN(
+                  void 0,
+                  void 0,
+                  void 0,
+                  eL.attachments,
+                  eL.clearAttachments,
+                  void 0,
+                  eL.documents,
+                );
+            }, [eN, eL]),
+            ez = (0, n.useCallback)(
+              (e, t, n, r) => {
+                eN(e, t, n, [], void 0, r);
+              },
+              [eN],
+            );
+          return (0, t.jsxs)(t.Fragment, {
+            children: [
+              !k && (0, t.jsx)(X, { isOpen: N, onToggle: () => C((e) => !e) }),
+              (0, t.jsxs)("div", {
+                ref: ek,
+                ...eL.dropHandlers,
+                className: k
+                  ? "relative flex h-full w-full min-h-0 flex-col overflow-hidden bg-white"
+                  : `no-print fixed bottom-24 right-6 z-50 flex h-[600px] max-h-[85vh] w-[92vw] sm:w-[460px] flex-col rounded-2xl border border-neutral-200/80 bg-white/95 shadow-2xl backdrop-blur-xl transition-all overflow-hidden ${T ? "animate-in fade-in slide-in-from-bottom-5" : "pointer-events-none invisible"}`,
+                children: [
+                  eL.dragOver &&
+                    (0, t.jsxs)("div", {
+                      className:
+                        "pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-[#2383e2] bg-[#f7f6f3]/90 text-[#0b6bcb]",
+                      children: [
+                        (0, t.jsx)(er.Paperclip, { className: "size-8" }),
+                        (0, t.jsx)("p", {
+                          className: "text-sm font-semibold",
+                          children: D
+                            ? "Thả ảnh hoặc tài liệu vào đây"
+                            : "Thả ảnh hoặc tệp vào đây để gửi kèm",
+                        }),
+                        (0, t.jsx)("p", {
+                          className: "text-[11px]",
+                          children: D
+                            ? `Ảnh gửi k\xe8m lượt n\xe0y (tối đa ${O.MAX_CHAT_IMAGES}); t\xe0i liệu kh\xe1c lưu v\xe0o kho v\xe0 d\xf9ng l\xe0m nguồn`
+                            : `Tối đa ${O.MAX_CHAT_IMAGES} ảnh v\xe0 ${B.MAX_CHAT_FILES} tệp mỗi lượt`,
+                        }),
+                      ],
+                    }),
+                  (0, t.jsx)(K, {
+                    memoryOn: eA.result?.useMemory ?? !1,
+                    scope: v,
+                    onClear: eC,
+                    onCollapse: () => (k ? w?.() : C(!1)),
+                  }),
+                  0 !== eb.length || eo || eh
+                    ? (0, t.jsx)(et, {
+                        messages: eb,
+                        loading: eo,
+                        stage: ec,
+                        activity: ed,
+                        progressMessage: eu,
+                        error: eh,
+                        messagesEndRef: ev,
+                        onSend: ez,
+                        onPreviewImage: A,
+                      })
+                    : (0, t.jsx)(U.ChatEmptyState, {
+                        onPick: ez,
+                        disabled: eo,
+                        sourceKinds: $.sources
+                          .map((e) => e.kind)
+                          .filter(Boolean),
+                        result: eA.result,
+                        loading: eA.loading,
+                        onFill: eT.blockCount > 0 ? eE : void 0,
+                        onAction: (e, t) => {
+                          let n = d?.find((t) => t.name === e);
+                          return (n?.run([t]), !!n);
+                        },
+                      }),
+                  (0, t.jsx)(en.ChatInputBar, {
+                    input: es,
+                    onInputChange: el,
+                    onSend: eR,
+                    loading: eo,
+                    reasoning: eg,
+                    onReasoningChange: ef,
+                    references: ey,
+                    onRemoveReference: ew,
+                    attachments: eL.attachments,
+                    documents: eL.documents,
+                    preparing: eL.preparing,
+                    fileInputRef: eL.fileInputRef,
+                    documentInputRef: eL.documentInputRef,
+                    textareaRef: ej,
+                    onAddFiles: eL.addFiles,
+                    onRemoveAttachment: eL.removeAttachment,
+                    onClearAttachments: eL.clearAttachments,
+                    onPreviewImage: A,
+                    library: D
+                      ? {
+                          accept: $.library.settings?.accept ?? "",
+                          onUpload: (e) => void eD(e),
+                          onOpenPicker: () => eI(),
+                        }
+                      : void 0,
+                    sourceBar: D
+                      ? (0, t.jsx)(L, {
+                          sources: $.sources,
+                          uploading: $.library.uploading,
+                          disabled: eo,
+                          onOpenPicker: eI,
+                          onRemove: $.remove,
+                          notice: G,
+                        })
+                      : void 0,
+                  }),
+                ],
+              }),
+              D &&
+                (0, t.jsx)(E, {
+                  open: I.open,
+                  focusId: I.focusId,
+                  onOpenChange: (e) => W((t) => ({ ...t, open: e })),
+                  library: $.library,
+                  selectedIds: $.ids,
+                  onConfirm: $.setSources,
+                }),
+              (0, t.jsx)(ei.ImagePreviewModal, {
+                image: S,
+                onClose: () => A(null),
+              }),
+              (0, t.jsx)(ea.QuotaExhaustedDialog, {
+                error: ep,
+                onClose: () => ex(null),
+              }),
+            ],
+          });
+        },
+      ],
+      822804,
+    );
+  },
+]);

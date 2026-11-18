@@ -1,0 +1,126 @@
+// Reconstructed from 180c0fplvd4t3.pretty.js, module 561309.
+// deps: m843476, m271645, m856423, m716327, m482022, m632781, m516306, m584026, m747925, m569190
+// exports: GroundingPanel
+export { function ({ message: e, loading: r, onFix: i }) { let [d, h] = n.useState(!1), g = e.grounding, x = e.verification, b = g?.sources.filter((e) => "passage" === e.kind) ?? [], v = g?.sources.filter((e) => "lookup" === e.kind) ?? []; if (!g && !x) return null; let y = x?.report, w = y?.claims ?? []; return (0, t.jsxs)("div", { className: "mt-2 space-y-1.5 border-t border-dashed border-[#dfdfdd] pt-2 text-[11.5px] text-[#787774]", children: [ b.length > 0 && (0, t.jsxs)("div", { className: "flex flex-wrap items-center gap-1.5", children: [ (0, t.jsx)("span", { children: "Ngữ liệu thật:" }), b.map((e, n) => (0, t.jsx)( p, { source: e, label: [e.author, e.work].filter(Boolean).join(", ") || e.domain, }, m(e, n), ), ), ], }), v.length > 0 && (0, t.jsxs)("div", { className: "flex flex-wrap items-center gap-1.5", children: [ (0, t.jsx)("span", { children: "Tư liệu tra cứu:" }), v.map((e, n) => (0, t.jsx)(p, { source: e, label: e.domain }, m(e, n)), ), ], }), g && g.missing > 0 && (0, t.jsxs)("p", { children: [ "Có ", g.missing, " ngữ liệu chưa tìm được bản gốc trong kho ngữ liệu và trên web; trợ lý được dặn ghi là ngữ liệu tự biên soạn.", ], }), x?.status === "running" && (0, t.jsxs)("p", { className: "inline-flex items-center gap-1.5", children: [ (0, t.jsx)(l.Loader2, { "aria-hidden": !0, className: "size-3 animate-spin", }), "Đang kiểm chứng ngữ liệu và dữ kiện trong đề…", ], }), x?.status === "error" && (0, t.jsxs)("p", { children: ["Chưa kiểm chứng được: ", x.error], }), x?.status === "done" && y && 0 === w.length && (0, t.jsxs)("p", { className: "inline-flex items-center gap-1.5", children: [ (0, t.jsx)(o.ShieldCheck, { "aria-hidden": !0, className: "size-3.5 text-emerald-600", }), "Không có ngữ liệu hay dữ kiện cần kiểm chứng.", ], }), x?.status === "done" && y && w.length > 0 && (0, t.jsxs)("div", { className: "rounded-lg border border-[#e9e9e7] bg-white", children: [ (0, t.jsxs)("button", { type: "button", onClick: () => h((e) => !e), "aria-expanded": d, className: "flex w-full items-center gap-1.5 px-2 py-1.5 text-left", children: [ y.issues > 0 ? (0, t.jsx)(s.ShieldAlert, { "aria-hidden": !0, className: "size-3.5 shrink-0 text-amber-600", }) : (0, t.jsx)(o.ShieldCheck, { "aria-hidden": !0, className: "size-3.5 shrink-0 text-emerald-600", }), (0, t.jsx)("span", { className: "font-medium text-[#37352f]", children: y.issues > 0 ? `${y.issues} chỗ cần xem lại` : `Đ\xe3 kiểm chứng ${y.verified}/${y.checked} ngữ liệu v\xe0 dữ kiện`, }), y.issues > 0 && (0, t.jsxs)("span", { children: [ "· khớp nguồn ", y.verified, "/", y.checked, ], }), y.limited && (0, t.jsx)("span", { children: "· chưa kiểm hết" }), (0, t.jsx)(a.ChevronDown, { "aria-hidden": !0, className: `ml-auto size-3.5 shrink-0 transition-transform ${d ? "rotate-180" : ""}`, }), ], }), d && (0, t.jsxs)("div", { className: "border-t border-[#f1f1ef] px-2 pb-2", children: [ (0, t.jsx)("ul", { className: "divide-y divide-[#f1f1ef]", children: w.map((e, n) => (0, t.jsx)(f, { claim: e }, n), ), }), y.issues > 0 && (0, t.jsxs)("button", { type: "button", disabled: r, onClick: () => i((0, u.fixRequest)(y)), className: "mt-1.5 inline-flex items-center gap-1 rounded-md border border-[#e9e9e7] px-2 py-1 text-[#37352f] hover:bg-[#f7f6f3] disabled:opacity-50", children: [ (0, t.jsx)(c.Wrench, { "aria-hidden": !0, className: "size-3", }), "Sửa theo nguồn", ], }), (0, t.jsx)("p", { className: "mt-1.5 text-[10.5px]", children: "Kiểm chứng bằng tìm kiếm web, có thể sót; giáo viên vẫn nên đọc lại.", }), ], }), ], }), ], }); } as "GroundingPanel" };
+
+"use strict";
+    var t = m843476,
+      n = m271645,
+      r = m856423,
+      a = m716327,
+      i = m482022,
+      l = m632781,
+      s = m516306,
+      o = m584026,
+      c = m747925,
+      u = m569190;
+    let d = {
+        verified: {
+          label: "Khớp nguồn",
+          className: "bg-emerald-50 text-emerald-700",
+        },
+        contradicted: {
+          label: "Sai so với nguồn",
+          className: "bg-rose-50 text-rose-700",
+        },
+        not_found: {
+          label: "Không thấy nguồn",
+          className: "bg-amber-50 text-amber-800",
+        },
+        unclear: {
+          label: "Chưa đủ căn cứ",
+          className: "bg-[#f1f1ef] text-[#787774]",
+        },
+      },
+      h =
+        "inline-flex max-w-56 items-center gap-1 truncate rounded-md border border-[#e9e9e7] bg-[#f7f6f3] px-1.5 py-px text-[#5f5e5b]",
+      m = (e, t) => e.corpusId || e.url || `${e.domain}-${t}`;
+    function p({ source: e, label: n }) {
+      return e.url
+        ? (0, t.jsxs)("a", {
+            href: e.url,
+            target: "_blank",
+            rel: "noopener noreferrer",
+            title: e.url,
+            className: `${h} hover:text-[#37352f]`,
+            children: [
+              (0, t.jsx)("span", { className: "truncate", children: n }),
+              (0, t.jsx)(i.ExternalLink, {
+                "aria-hidden": !0,
+                className: "size-3 shrink-0 opacity-60",
+              }),
+            ],
+          })
+        : (0, t.jsxs)("span", {
+            title: "Lấy từ kho ngữ liệu đã duyệt",
+            className: h,
+            children: [
+              (0, t.jsx)(r.BookOpen, {
+                "aria-hidden": !0,
+                className: "size-3 shrink-0 opacity-60",
+              }),
+              (0, t.jsx)("span", { className: "truncate", children: n }),
+            ],
+          });
+    }
+    function f({ claim: e }) {
+      let n = d[e.verdict ?? ""] ?? {
+          label: "Chưa kiểm",
+          className: "bg-[#f1f1ef] text-[#787774]",
+        },
+        r = e.text.split("\n")[0];
+      return (0, t.jsxs)("li", {
+        className: "space-y-1 py-1.5",
+        children: [
+          (0, t.jsxs)("div", {
+            className: "flex items-start gap-1.5",
+            children: [
+              (0, t.jsx)("span", {
+                className: `shrink-0 rounded px-1.5 py-px text-[10.5px] font-medium ${n.className}`,
+                children: n.label,
+              }),
+              (0, t.jsx)("span", {
+                className: "min-w-0 text-[#37352f]",
+                children:
+                  "passage" === e.kind
+                    ? (0, t.jsxs)(t.Fragment, {
+                        children: [
+                          (0, t.jsxs)("span", {
+                            className: "italic",
+                            children: [
+                              "“",
+                              r,
+                              e.text.includes("\n") ? "…" : "",
+                              "”",
+                            ],
+                          }),
+                          (e.author || e.work) &&
+                            (0, t.jsxs)("span", {
+                              className: "text-[#787774]",
+                              children: [
+                                " - ",
+                                [e.author, e.work].filter(Boolean).join(", "),
+                              ],
+                            }),
+                        ],
+                      })
+                    : e.text,
+              }),
+            ],
+          }),
+          e.note &&
+            (0, t.jsx)("p", {
+              className: "pl-1 text-[#787774]",
+              children: e.note,
+            }),
+          e.sources.length > 0 &&
+            (0, t.jsx)("div", {
+              className: "flex flex-wrap gap-1 pl-1",
+              children: e.sources.map((e, n) =>
+                (0, t.jsx)(p, { source: e, label: e.domain }, m(e, n)),
+              ),
+            }),
+        ],
+      });
+    }
+    ;

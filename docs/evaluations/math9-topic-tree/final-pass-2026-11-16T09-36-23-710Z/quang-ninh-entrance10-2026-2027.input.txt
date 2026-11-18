@@ -1,0 +1,116 @@
+ SỞ GIÁO DỤC VÀ ĐÀO TẠO                           KỲ THI TUYỂN SINH TRUNG HỌC PHỔ THÔNG
+    TỈNH QUẢNG NINH                                          NĂM HỌC 2026 - 2027
+                                                          Môn thi: Toán (Dành cho mọi thí sinh)
+       ĐỀ THI CHÍNH THỨC                           Thời gian làm bài: 120 phút, không kể thời gian phát đề
+       (Đề thi này có 02 trang)
+
+PHẦN I. TRẮC NGHIỆM (3,0 ĐIỂM)
+Câu hỏi trắc nghiệm nhiều phương án lựa chọn. Mỗi câu thí sinh chỉ chọn một phương án. Mỗi câu trả
+lời đúng được 0,25 điểm.
+Câu 1. Căn bậc ba của −27 là
+  A. 3.                        B. −3.                            C. 3 3.                     D. −3 3.
+                                           1
+Câu 2. Cho điểm M thuộc đồ thị hàm số y = − x 2 . Biết điểm M có hoành độ bằng 2 , tung độ điểm M là
+                                           2
+  A. 1.                     B. −1.                        C. 2.                        D. −2.
+Câu 3. Giá trị nào của x dưới đây là một nghiệm của bất phương trình 2 x + 4 < 0 ?
+  A. −1.                       B. 0.                             C. −4.                      D. −2.
+Câu 4. Cặp số ( x; y ) nào dưới đây là một nghiệm của phương trình 2 x − 3 y =
+                                                                             −8 ?
+  A. ( 2; 4 ) .                B. ( 4; 2 ) .                     C. ( 2; −4 ) .              D. ( −4; 2 ) .
+Câu 5. Khảo sát thời gian tập thể dục trong ngày của 100 học sinh lớp 9 thu được bảng số liệu ghép nhóm sau:
+   Thời gian (phút)           [0; 20 )         [ 20; 40 )          [ 40;60 )      [60;80 )              [80;100 )
+        Số học sinh             20                40                   18           15                     7
+  Dựa vào bảng trên, hãy cho biết có bao nhiêu học sinh có thời gian tập thể dục trong ngày từ 60 phút đến
+dưới 100 phút?
+  A. 15 .                  B. 22 .                       C. 7 .                         D. 23 .
+Câu 6. Cho tam giác ABC vuông tại A , biết=    AC 4 . Giá trị của sin 
+                                          AB 2,=                      ABC là
+        5                     1                             2 5                                    1
+  A.      .                B. .                          C.     .                            D.      .
+       5                      5                              5                                    10
+Câu 7. Cho tam giác đều ABC nội tiếp đường tròn (O). Số đo góc BOC là
+  A. 600 .                     B. 900 .                          C. 1500 .                   D. 1200 .
+Câu 8. Một thùng đựng nước có dạng hình trụ với bán kính đáy bằng 3 dm và chiều cao bằng 9 dm . Thể
+tích của thùng là (làm tròn kết quả đến hàng đơn vị)
+  A. 85 dm3 .                  B. 254 dm3 .                      C. 170 dm3 .                D. 509 dm3 .
+Câu 9. Cho hình nón có bán kính đáy bằng 12 cm, độ dài đường cao bằng 5 cm. Diện tích xung quanh của
+hình nón là
+  A. 156π cm 2 .               B. 60π cm 2 .                     C. 720π cm 2 .              D. 240π cm 2 .
+
+Câu 10. Tính      4a 2 + a với a ≤ 0 ta được kết quả là
+  A. −a.                       B. 3a.                            C. 5a.                      D. −3a.
+Câu 11. Có 9 quả bóng được đánh số từ 1 đến 9. Lấy ngẫu nhiên một quả bóng, xác suất của biến cố “Lấy
+được quả bóng có ghi số chẵn’’ là
+       1                             4                                4                           5
+  A.                           B.      .                         C.     .                    D.     .
+       2                             5                                9                           9
+
+
+                                                       Trang 1
+Câu 12. Để đo chiều cao của cột đèn, người ta đặt giác kế
+thẳng đứng có chiều cao bằng 1,6 m tại một điểm cách chân
+cột đèn 20 m. Quay ống ngắm của giác kế sao cho thấy đỉnh
+cột đèn. Đọc trên giác kế số đo góc nhọn α (như hình vẽ). Biết
+α = 350 , chiều cao h của cột đèn là (làm tròn đến hàng phần                                                  α                             h
+mười)
+   A. 13,1m .                  B. 14 m .                                                 1,6 m
+
+   C. 11,5 m .                          D. 15, 6 m .
+                                                                                                                    20 m
+
+PHẦN II. TỰ LUẬN (7,0 ĐIỂM)
+                                       
+Câu 1. (0,75 điểm) Rút gọn biểu thức P =
+                                       
+                                           5
+                                               +
+                                                  1   
+                                                      :
+                                        2 x −3 2 x +3
+                                                                                         ( x + 1) với x ≥ 0, x ≠ 94 .
+                                        3 x − 4 y =8
+Câu 2. (0,75 điểm) Giải hệ phương trình 
+                                        x − 5y =  −1.
+                                                         5 x − 3 3x + 1
+Câu 3. (0,75 điểm) Giải bất phương trình                        +       > −3 .
+                                                            4      2
+Câu 4. (0,75 điểm) Cho phương trình x 2 − 4 x + 1 =0 có hai nghiệm x1 , x2 ( x1 > x2 ). Không giải phương trình,
+tính giá trị của biểu thức P =          ( x2 + 3) . x12 + 2 x2 − 7 − x12 .
+Câu 5. (1,0 điểm) Một bể bơi có thể tích là 144 m3 . Ban đầu bể chưa có nước, hai máy bơm cùng hoạt động
+để bơm nước vào bể, sau 2 giờ lượng nước trong bể là 60 m3 . Nếu mỗi máy hoạt động riêng thì thời gian
+bơm đầy bể của máy thứ hai nhiều hơn thời gian bơm đầy bể của máy thứ nhất là 4 giờ. Hỏi nếu máy bơm thứ
+nhất hoạt động riêng thì cần bao nhiêu giờ để bơm đầy bể?
+Câu 6. (2,5 điểm) Từ điểm M nằm bên ngoài đường tròn (O) kẻ hai tiếp tuyến MA, MB với đường tròn (A và
+B là các tiếp điểm). Vẽ đường kính BC của đường tròn (O), đường thẳng MC cắt đường tròn (O) tại điểm D
+khác C. Gọi H là giao điểm của AB và MO.
+   a) Chứng minh AC // MO.
+   b) Chứng minh tứ giác MDHB nội tiếp và ∆ MDH                               ∆ MOC.
+                                                                       S
+
+
+
+
+   c) Đường thẳng qua C song song với DH cắt đường thẳng AB tại E. Chứng minh A là trung điểm của EH.
+ Câu 7. (0,5 điểm) Một công ty cần vận chuyển
+hàng từ kho hàng A đến trung tâm phân phối D.
+Trên bản đồ, hai điểm A và D nằm cùng phía đối
+với tuyến đường thẳng HK. Biết khoảng cách từ
+                                                        A
+kho hàng A đến tuyến đường HK là 4 km, khoảng
+                                                                                                                                           D
+cách từ trung tâm phân phối D đến tuyến đường
+HK là 3 km, độ dài HK bằng 20 km. Công ty dự        4 km                                                                                   3 km
+định xây dựng lộ trình cho xe vận chuyển đi theo
+đường gấp khúc ABCD, trong đó B,C thuộc đoạn
+                                                          H                                               B                C           K
+HK (như hình vẽ). Tốc độ trung bình của xe trên
+các đoạn AB, BC, CD lần lượt là 30 km/h, 50 km/h                                                        20 km
+và 40 km/h. Hãy xác định vị trí các điểm B, C trên
+đoạn HK sao cho thời gian di chuyển từ A đến D là nhỏ nhất.
+
+                                            ............................ Hết ...........................
+                            Thí sinh không được sử dụng tài liệu. Giám thị không giải thích gì thêm.
+Họ và tên thí sinh: ................................................................... Số báo danh: ...............................
+Chữ kí của Giám thị 1:...................................... Chữ kí của Giám thị 2:...........................................
+                                                                    Trang 2

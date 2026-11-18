@@ -1,0 +1,57 @@
+// Reconstructed from 2-_e50duc2fl9.pretty.js, module 939717.
+// deps: none
+// exports: KIND_LABEL, QR_CODES_PER_IMAGE, QR_MAX_CODES, QR_MAX_IMAGES, SHEETS, answerProblem, checkAnswerKey, examCodesInText, excelRows, gradableItems, normalizeAnswer, tnmakerQrPayloads
+export { r as "KIND_LABEL" };
+export { 9 as "QR_CODES_PER_IMAGE" };
+export { 27 as "QR_MAX_CODES" };
+export { 3 as "QR_MAX_IMAGES" };
+export { t as "SHEETS" };
+export { s as "answerProblem" };
+export { function (e, a) { let o = [], l = t[a], u = e.length > 1, c = e[0]?.items ?? [], d = (e) => c.filter((t) => t.kind === e).length, f = (t) => e[t].code || `thứ ${t + 1}`; for (let t of (e.forEach((t, r) => { var n; ((n = t.code), /^\d{3,4}$/.test(n)) ? e.findIndex((e) => e.code === t.code) < r && o.push({ level: "error", code: r, message: `M\xe3 đề ${t.code} bị tr\xf9ng.`, }) : o.push({ level: "error", code: r, message: u ? `M\xe3 đề thứ ${r + 1} phải gồm 3 hoặc 4 chữ số.` : "Mã đề gồm 3 hoặc 4 chữ số.", }); }), 0 === i(c).length && o.push({ level: "error", message: "Đề không có câu nào TNMaker chấm được (trắc nghiệm, đúng/sai, trả lời ngắn).", }), n)) { let e = d(t), n = l.limits[t]; 0 === e || e <= n || o.push({ level: "error", message: 0 === n ? `${l.label} kh\xf4ng chấm dạng ${r[t]}. H\xe3y chọn phiếu TLTN-BGD-2025.` : `Đề c\xf3 ${e} c\xe2u ${r[t]}, phiếu chỉ c\xf3 ${n} c\xe2u.`, }); } (e.forEach((e, t) => { if (0 !== t) { if (e.items.length !== c.length) return void o.push({ level: "error", code: t, message: `M\xe3 đề ${f(t)} c\xf3 ${e.items.length} c\xe2u, m\xe3 đề ${f(0)} c\xf3 ${c.length} c\xe2u. C\xe1c m\xe3 đề của một b\xe0i phải c\xf9ng số c\xe2u.`, }); e.items.forEach((e, n) => { e.kind !== c[n].kind && o.push({ level: "error", code: t, index: n, message: `M\xe3 đề ${f(t)}, ${e.label}: dạng ${r[e.kind]}, kh\xe1c m\xe3 đề ${f(0)} (${r[c[n].kind]}).`, }); }); } }), e.forEach((e, t) => { e.items.forEach((e, r) => { let n = s(e); n && o.push({ level: "error", code: t, index: r, message: u ? `M\xe3 đề ${f(t)}, ${e.label}: ${n}.` : `${e.label}: ${n}.`, }); }); })); let p = d("essay"); p > 0 && o.push({ level: "warning", message: `${p} c\xe2u tự luận kh\xf4ng nằm trong file đ\xe1p \xe1n, thầy c\xf4 chấm tay.`, }); let h = c .filter((e) => "essay" !== e.kind) .map((e) => n.indexOf(e.kind)); return ( h.some((e, t) => t > 0 && e < h[t - 1]) && o.push({ level: "warning", message: "Các dạng câu trong đề đang xen kẽ. Phiếu TNMaker xếp nhiều lựa chọn trước, rồi đúng/sai, rồi trả lời ngắn.", }), e.length > 27 && o.push({ level: "warning", message: `TNMaker chỉ nhận tối đa 27 m\xe3 đề qua m\xe3 QR. Đề c\xf3 ${e.length} m\xe3 đề, thầy c\xf4 nạp bằng file Excel.`, }), o ); } as "checkAnswerKey" };
+export { function (e) { return [ ...new Set( [ ...e .normalize("NFC") .matchAll(/mã\s*đề[\s:*_\\]*(\d{3,4})(?!\d)/gi), ].map((e) => e[1]), ), ]; } as "examCodesInText" };
+export { function (e) { let t = e.map((e) => i(e.items).map((e) => e.answer)), r = Math.max(0, ...t.map((e) => e.length)); return [ ["Câu\\Mã đề", ...e.map((e) => e.code)], ...Array.from({ length: r }, (e, r) => [ String(r + 1), ...t.map((e) => e[r] ?? ""), ]), ]; } as "excelRows" };
+export { i as "gradableItems" };
+export { function (e, t) { let r = t.normalize("NFC").trim(); switch (e) { case "choice": return r.toUpperCase().replace(/[^A-Z]/g, ""); case "trueFalse": return [...r.toUpperCase()] .map((e) => "Đ" === e || "D" === e || "T" === e ? "Đ" : "S" === e || "F" === e ? "S" : "", ) .join(""); case "shortAnswer": return r.replace(/\s/g, "").replace(/−/g, "-").replace(/\./g, ","); default: return ""; } } as "normalizeAnswer" };
+export { function (e, r) { if (e.length > 27) return []; let n = []; for (let s = 0; s < e.length; s += 9) { let i = e.slice(s, s + 9), a = { success: !0, type: t[r].qrType }; for (let e of i) a[e.code] = (function (e, t) { let r = (t) => e.filter((e) => e.kind === t).map((e) => e.answer), n = r("choice").join(""); if ("bgd2025" === t) { let e = r("trueFalse"), t = r("shortAnswer").map((e) => e.replace(",", ".")); (e.length && (n += `#${e.join("_")}`), t.length && (n += `#${t.join("_")}`)); } return n; })(e.items, r); n.push({ payload: JSON.stringify(a), codes: i.map((e) => e.code) }); } return n; } as "tnmakerQrPayloads" };
+
+"use strict";
+    let t = {
+        bgd2025: {
+          label: "Phiếu TLTN-BGD-2025 (3 phần)",
+          qrType: 5,
+          limits: { choice: 40, trueFalse: 8, shortAnswer: 6 },
+        },
+        classic: {
+          label: "Phiếu thường 20–120 câu (chỉ A, B, C, D)",
+          qrType: 3,
+          limits: { choice: 120, trueFalse: 0, shortAnswer: 0 },
+        },
+      },
+      r = {
+        choice: "Nhiều lựa chọn",
+        trueFalse: "Đúng/Sai",
+        shortAnswer: "Trả lời ngắn",
+        essay: "Tự luận",
+      },
+      n = ["choice", "trueFalse", "shortAnswer"];
+    function s(e) {
+      let t = e.answer;
+      if ("essay" === e.kind) return "";
+      if (!t) return "chưa có đáp án";
+      switch (e.kind) {
+        case "choice":
+          return /^[A-D]$/.test(t)
+            ? ""
+            : "đáp án phải là đúng một chữ A, B, C hoặc D";
+        case "trueFalse":
+          return /^[ĐS]{4}$/.test(t) ? "" : "cần đúng 4 ý, mỗi ý Đ hoặc S";
+        default:
+          if (!/^-?\d+(,\d+)?$/.test(t))
+            return "đáp số chỉ gồm chữ số, dấu trừ và dấu phẩy";
+          return t.length <= 4 ? "" : "đáp số dài quá 4 ô của phiếu";
+      }
+    }
+    function i(e) {
+      return n.flatMap((t) => e.filter((e) => e.kind === t));
+    }
+    ;

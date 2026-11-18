@@ -1,0 +1,681 @@
+// Reconstructed from 1c8ttxz-uq6b-.pretty.js, module 985369.
+// deps: m271645
+// exports: RemoveScroll
+export { $ as "RemoveScroll" };
+
+"use strict";
+    var t,
+      n,
+      r,
+      o,
+      i,
+      u,
+      a,
+      c = function () {
+        return (c =
+          Object.assign ||
+          function (e) {
+            for (var t, n = 1, r = arguments.length; n < r; n++)
+              for (var o in (t = arguments[n]))
+                Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+            return e;
+          }).apply(this, arguments);
+      };
+    function s(e, t) {
+      var n = {};
+      for (var r in e)
+        Object.prototype.hasOwnProperty.call(e, r) &&
+          0 > t.indexOf(r) &&
+          (n[r] = e[r]);
+      if (null != e && "function" == typeof Object.getOwnPropertySymbols)
+        for (var o = 0, r = Object.getOwnPropertySymbols(e); o < r.length; o++)
+          0 > t.indexOf(r[o]) &&
+            Object.prototype.propertyIsEnumerable.call(e, r[o]) &&
+            (n[r[o]] = e[r[o]]);
+      return n;
+    }
+    var l =
+        ("function" == typeof SuppressedError && SuppressedError, m271645),
+      d = "right-scroll-bar-position",
+      f = "width-before-scroll-bar";
+    function m(e, t) {
+      return ("function" == typeof e ? e(t) : e && (e.current = t), e);
+    }
+    var v = "u" > typeof window ? l.useLayoutEffect : l.useEffect,
+      p = new WeakMap(),
+      h =
+        (void 0 === t && (t = {}),
+        ((void 0 === n &&
+          (n = function (e) {
+            return e;
+          }),
+        (r = []),
+        (o = !1),
+        (i = {
+          read: function () {
+            if (o)
+              throw Error(
+                "Sidecar: could not `read` from an `assigned` medium. `read` could be used only with `useMedium`.",
+              );
+            return r.length ? r[r.length - 1] : null;
+          },
+          useMedium: function (e) {
+            var t = n(e, o);
+            return (
+              r.push(t),
+              function () {
+                r = r.filter(function (e) {
+                  return e !== t;
+                });
+              }
+            );
+          },
+          assignSyncMedium: function (e) {
+            for (o = !0; r.length; ) {
+              var t = r;
+              ((r = []), t.forEach(e));
+            }
+            r = {
+              push: function (t) {
+                return e(t);
+              },
+              filter: function () {
+                return r;
+              },
+            };
+          },
+          assignMedium: function (e) {
+            o = !0;
+            var t = [];
+            if (r.length) {
+              var n = r;
+              ((r = []), n.forEach(e), (t = r));
+            }
+            var i = function () {
+                var n = t;
+                ((t = []), n.forEach(e));
+              },
+              u = function () {
+                return Promise.resolve().then(i);
+              };
+            (u(),
+              (r = {
+                push: function (e) {
+                  (t.push(e), u());
+                },
+                filter: function (e) {
+                  return ((t = t.filter(e)), r);
+                },
+              }));
+          },
+        })).options = c({ async: !0, ssr: !1 }, t)),
+        i),
+      E = function () {},
+      y = l.forwardRef(function (e, t) {
+        var n,
+          r,
+          o,
+          i,
+          u = l.useRef(null),
+          a = l.useState({
+            onScrollCapture: E,
+            onWheelCapture: E,
+            onTouchMoveCapture: E,
+          }),
+          d = a[0],
+          f = a[1],
+          y = e.forwardProps,
+          b = e.children,
+          g = e.className,
+          w = e.removeScrollBar,
+          S = e.enabled,
+          C = e.shards,
+          O = e.sideCar,
+          R = e.noRelative,
+          L = e.noIsolation,
+          P = e.inert,
+          N = e.allowPinchZoom,
+          T = e.as,
+          k = e.gapMode,
+          M = s(e, [
+            "forwardProps",
+            "children",
+            "className",
+            "removeScrollBar",
+            "enabled",
+            "shards",
+            "sideCar",
+            "noRelative",
+            "noIsolation",
+            "inert",
+            "allowPinchZoom",
+            "as",
+            "gapMode",
+          ]),
+          A =
+            ((n = [u, t]),
+            (r = function (e) {
+              return n.forEach(function (t) {
+                return m(t, e);
+              });
+            }),
+            ((o = (0, l.useState)(function () {
+              return {
+                value: null,
+                callback: r,
+                facade: {
+                  get current() {
+                    return o.value;
+                  },
+                  set current(value) {
+                    var e = o.value;
+                    e !== value && ((o.value = value), o.callback(value, e));
+                  },
+                },
+              };
+            })[0]).callback = r),
+            (i = o.facade),
+            v(
+              function () {
+                var e = p.get(i);
+                if (e) {
+                  var t = new Set(e),
+                    r = new Set(n),
+                    o = i.current;
+                  (t.forEach(function (e) {
+                    r.has(e) || m(e, null);
+                  }),
+                    r.forEach(function (e) {
+                      t.has(e) || m(e, o);
+                    }));
+                }
+                p.set(i, n);
+              },
+              [n],
+            ),
+            i),
+          D = c(c({}, M), d);
+        return l.createElement(
+          l.Fragment,
+          null,
+          S &&
+            l.createElement(O, {
+              sideCar: h,
+              removeScrollBar: w,
+              shards: C,
+              noRelative: R,
+              noIsolation: L,
+              inert: P,
+              setCallbacks: f,
+              allowPinchZoom: !!N,
+              lockRef: u,
+              gapMode: k,
+            }),
+          y
+            ? l.cloneElement(l.Children.only(b), c(c({}, D), { ref: A }))
+            : l.createElement(
+                void 0 === T ? "div" : T,
+                c({}, D, { className: g, ref: A }),
+                b,
+              ),
+        );
+      });
+    ((y.defaultProps = { enabled: !0, removeScrollBar: !0, inert: !1 }),
+      (y.classNames = { fullWidth: f, zeroRight: d }));
+    var b = function (e) {
+      var t = e.sideCar,
+        n = s(e, ["sideCar"]);
+      if (!t)
+        throw Error(
+          "Sidecar: please provide `sideCar` property to import the right car",
+        );
+      var r = t.read();
+      if (!r) throw Error("Sidecar medium not found");
+      return l.createElement(r, c({}, n));
+    };
+    b.isSideCarExport = !0;
+    var g = function () {
+        var e = 0,
+          t = null;
+        return {
+          add: function (n) {
+            if (
+              0 == e &&
+              (t = (function () {
+                if (!document) return null;
+                var e = document.createElement("style");
+                e.type = "text/css";
+                var t =
+                  a ||
+                  ("u" > typeof __webpack_nonce__ ? __webpack_nonce__ : void 0);
+                return (t && e.setAttribute("nonce", t), e);
+              })())
+            ) {
+              
+              ((r = t).styleSheet
+                ? (r.styleSheet.cssText = n)
+                : r.appendChild(document.createTextNode(n)),
+                (o = t),
+                (
+                  document.head || document.getElementsByTagName("head")[0]
+                ).appendChild(o));
+            }
+            e++;
+          },
+          remove: function () {
+            --e ||
+              !t ||
+              (t.parentNode && t.parentNode.removeChild(t), (t = null));
+          },
+        };
+      },
+      w = function () {
+        var e = g();
+        return function (t, n) {
+          l.useEffect(
+            function () {
+              return (
+                e.add(t),
+                function () {
+                  e.remove();
+                }
+              );
+            },
+            [t && n],
+          );
+        };
+      },
+      S = function () {
+        var e = w();
+        return function (t) {
+          return (e(t.styles, t.dynamic), null);
+        };
+      },
+      C = { left: 0, top: 0, right: 0, gap: 0 },
+      O = function (e) {
+        return parseInt(e || "", 10) || 0;
+      },
+      R = function (e) {
+        var t = window.getComputedStyle(document.body),
+          n = t["padding" === e ? "paddingLeft" : "marginLeft"],
+          r = t["padding" === e ? "paddingTop" : "marginTop"],
+          o = t["padding" === e ? "paddingRight" : "marginRight"];
+        return [O(n), O(r), O(o)];
+      },
+      L = function (e) {
+        if ((void 0 === e && (e = "margin"), "u" < typeof window)) return C;
+        var t = R(e),
+          n = document.documentElement.clientWidth,
+          r = window.innerWidth;
+        return {
+          left: t[0],
+          top: t[1],
+          right: t[2],
+          gap: Math.max(0, r - n + t[2] - t[0]),
+        };
+      },
+      P = S(),
+      N = "data-scroll-locked",
+      T = function (e, t, n, r) {
+        var o = e.left,
+          i = e.top,
+          u = e.right,
+          a = e.gap;
+        return (
+          void 0 === n && (n = "margin"),
+          "\n  ."
+            .concat("with-scroll-bars-hidden", " {\n   overflow: hidden ")
+            .concat(r, ";\n   padding-right: ")
+            .concat(a, "px ")
+            .concat(r, ";\n  }\n  body[")
+            .concat(N, "] {\n    overflow: hidden ")
+            .concat(r, ";\n    overscroll-behavior: contain;\n    ")
+            .concat(
+              [
+                t && "position: relative ".concat(r, ";"),
+                "margin" === n &&
+                  "\n    padding-left: "
+                    .concat(o, "px;\n    padding-top: ")
+                    .concat(i, "px;\n    padding-right: ")
+                    .concat(
+                      u,
+                      "px;\n    margin-left:0;\n    margin-top:0;\n    margin-right: ",
+                    )
+                    .concat(a, "px ")
+                    .concat(r, ";\n    "),
+                "padding" === n &&
+                  "padding-right: ".concat(a, "px ").concat(r, ";"),
+              ]
+                .filter(Boolean)
+                .join(""),
+              "\n  }\n  \n  .",
+            )
+            .concat(d, " {\n    right: ")
+            .concat(a, "px ")
+            .concat(r, ";\n  }\n  \n  .")
+            .concat(f, " {\n    margin-right: ")
+            .concat(a, "px ")
+            .concat(r, ";\n  }\n  \n  .")
+            .concat(d, " .")
+            .concat(d, " {\n    right: 0 ")
+            .concat(r, ";\n  }\n  \n  .")
+            .concat(f, " .")
+            .concat(f, " {\n    margin-right: 0 ")
+            .concat(r, ";\n  }\n  \n  body[")
+            .concat(N, "] {\n    ")
+            .concat("--removed-body-scroll-bar-size", ": ")
+            .concat(a, "px;\n  }\n")
+        );
+      },
+      k = function () {
+        var e = parseInt(document.body.getAttribute(N) || "0", 10);
+        return isFinite(e) ? e : 0;
+      },
+      M = function () {
+        l.useEffect(function () {
+          return (
+            document.body.setAttribute(N, (k() + 1).toString()),
+            function () {
+              var e = k() - 1;
+              e <= 0
+                ? document.body.removeAttribute(N)
+                : document.body.setAttribute(N, e.toString());
+            }
+          );
+        }, []);
+      },
+      A = function (e) {
+        var t = e.noRelative,
+          n = e.noImportant,
+          r = e.gapMode,
+          o = void 0 === r ? "margin" : r;
+        M();
+        var i = l.useMemo(
+          function () {
+            return L(o);
+          },
+          [o],
+        );
+        return l.createElement(P, {
+          styles: T(i, !t, o, n ? "" : "!important"),
+        });
+      },
+      D = !1;
+    if ("u" > typeof window)
+      try {
+        var I = Object.defineProperty({}, "passive", {
+          get: function () {
+            return ((D = !0), !0);
+          },
+        });
+        (window.addEventListener("test", I, I),
+          window.removeEventListener("test", I, I));
+      } catch (e) {
+        D = !1;
+      }
+    var F = !!D && { passive: !1 },
+      x = function (e, t) {
+        if (!(e instanceof Element)) return !1;
+        var n = window.getComputedStyle(e);
+        return (
+          "hidden" !== n[t] &&
+          (n.overflowY !== n.overflowX ||
+            "TEXTAREA" === e.tagName ||
+            "visible" !== n[t])
+        );
+      },
+      W = function (e, t) {
+        var n = t.ownerDocument,
+          r = t;
+        do {
+          if (
+            ("u" > typeof ShadowRoot && r instanceof ShadowRoot && (r = r.host),
+            j(e, r))
+          ) {
+            var o = _(e, r);
+            if (o[1] > o[2]) return !0;
+          }
+          r = r.parentNode;
+        } while (r && r !== n.body);
+        return !1;
+      },
+      j = function (e, t) {
+        return "v" === e ? x(t, "overflowY") : x(t, "overflowX");
+      },
+      _ = function (e, t) {
+        return "v" === e
+          ? [t.scrollTop, t.scrollHeight, t.clientHeight]
+          : [t.scrollLeft, t.scrollWidth, t.clientWidth];
+      },
+      U = function (e, t, n, r, o) {
+        var i,
+          u =
+            ((i = window.getComputedStyle(t).direction),
+            "h" === e && "rtl" === i ? -1 : 1),
+          a = u * r,
+          c = n.target,
+          s = t.contains(c),
+          l = !1,
+          d = a > 0,
+          f = 0,
+          m = 0;
+        do {
+          if (!c) break;
+          var v = _(e, c),
+            p = v[0],
+            h = v[1] - v[2] - u * p;
+          (p || h) && j(e, c) && ((f += h), (m += p));
+          var E = c.parentNode;
+          c = E && E.nodeType === Node.DOCUMENT_FRAGMENT_NODE ? E.host : E;
+        } while (
+          (!s && c !== document.body) ||
+          (s && (t.contains(c) || t === c))
+        );
+        return (
+          d && ((o && 1 > Math.abs(f)) || (!o && a > f))
+            ? (l = !0)
+            : !d && ((o && 1 > Math.abs(m)) || (!o && -a > m)) && (l = !0),
+          l
+        );
+      },
+      B = function (e) {
+        return "changedTouches" in e
+          ? [e.changedTouches[0].clientX, e.changedTouches[0].clientY]
+          : [0, 0];
+      },
+      H = function (e) {
+        return [e.deltaX, e.deltaY];
+      },
+      K = function (e) {
+        return e && "current" in e ? e.current : e;
+      },
+      V = 0,
+      X = [];
+    let Y =
+      ((u = function (e) {
+        var t = l.useRef([]),
+          n = l.useRef([0, 0]),
+          r = l.useRef(),
+          o = l.useState(V++)[0],
+          i = l.useState(S)[0],
+          u = l.useRef(e);
+        (l.useEffect(
+          function () {
+            u.current = e;
+          },
+          [e],
+        ),
+          l.useEffect(
+            function () {
+              if (e.inert) {
+                document.body.classList.add("block-interactivity-".concat(o));
+                var t = (function (e, t, n) {
+                  if (n || 2 == arguments.length)
+                    for (var r, o = 0, i = t.length; o < i; o++)
+                      (!r && o in t) ||
+                        (r || (r = Array.prototype.slice.call(t, 0, o)),
+                        (r[o] = t[o]));
+                  return e.concat(r || Array.prototype.slice.call(t));
+                })([e.lockRef.current], (e.shards || []).map(K), !0).filter(
+                  Boolean,
+                );
+                return (
+                  t.forEach(function (e) {
+                    return e.classList.add("allow-interactivity-".concat(o));
+                  }),
+                  function () {
+                    (document.body.classList.remove(
+                      "block-interactivity-".concat(o),
+                    ),
+                      t.forEach(function (e) {
+                        return e.classList.remove(
+                          "allow-interactivity-".concat(o),
+                        );
+                      }));
+                  }
+                );
+              }
+            },
+            [e.inert, e.lockRef.current, e.shards],
+          ));
+        var a = l.useCallback(function (e, t) {
+            if (
+              ("touches" in e && 2 === e.touches.length) ||
+              ("wheel" === e.type && e.ctrlKey)
+            )
+              return !u.current.allowPinchZoom;
+            var o,
+              i = B(e),
+              a = n.current,
+              c = "deltaX" in e ? e.deltaX : a[0] - i[0],
+              s = "deltaY" in e ? e.deltaY : a[1] - i[1],
+              l = e.target,
+              d = Math.abs(c) > Math.abs(s) ? "h" : "v";
+            if ("touches" in e && "h" === d && "range" === l.type) return !1;
+            var f = window.getSelection(),
+              m = f && f.anchorNode;
+            if (m && (m === l || m.contains(l))) return !1;
+            var v = W(d, l);
+            if (!v) return !0;
+            if (
+              (v ? (o = d) : ((o = "v" === d ? "h" : "v"), (v = W(d, l))), !v)
+            )
+              return !1;
+            if (
+              (!r.current &&
+                "changedTouches" in e &&
+                (c || s) &&
+                (r.current = o),
+              !o)
+            )
+              return !0;
+            var p = r.current || o;
+            return U(p, t, e, "h" === p ? c : s, !0);
+          }, []),
+          c = l.useCallback(function (e) {
+            if (X.length && X[X.length - 1] === i) {
+              var n = "deltaY" in e ? H(e) : B(e),
+                r = t.current.filter(function (t) {
+                  
+                  return (
+                    t.name === e.type &&
+                    (t.target === e.target || e.target === t.shadowParent) &&
+                    ((r = t.delta), r[0] === n[0] && r[1] === n[1])
+                  );
+                })[0];
+              if (r && r.should) {
+                e.cancelable && e.preventDefault();
+                return;
+              }
+              if (!r) {
+                var o = (u.current.shards || [])
+                  .map(K)
+                  .filter(Boolean)
+                  .filter(function (t) {
+                    return t.contains(e.target);
+                  });
+                (o.length > 0 ? a(e, o[0]) : !u.current.noIsolation) &&
+                  e.cancelable &&
+                  e.preventDefault();
+              }
+            }
+          }, []),
+          s = l.useCallback(function (e, n, r, o) {
+            var i = {
+              name: e,
+              delta: n,
+              target: r,
+              should: o,
+              shadowParent: (function (e) {
+                for (var t = null; null !== e; )
+                  (e instanceof ShadowRoot && ((t = e.host), (e = e.host)),
+                    (e = e.parentNode));
+                return t;
+              })(r),
+            };
+            (t.current.push(i),
+              setTimeout(function () {
+                t.current = t.current.filter(function (e) {
+                  return e !== i;
+                });
+              }, 1));
+          }, []),
+          d = l.useCallback(function (e) {
+            ((n.current = B(e)), (r.current = void 0));
+          }, []),
+          f = l.useCallback(function (t) {
+            s(t.type, H(t), t.target, a(t, e.lockRef.current));
+          }, []),
+          m = l.useCallback(function (t) {
+            s(t.type, B(t), t.target, a(t, e.lockRef.current));
+          }, []);
+        l.useEffect(function () {
+          return (
+            X.push(i),
+            e.setCallbacks({
+              onScrollCapture: f,
+              onWheelCapture: f,
+              onTouchMoveCapture: m,
+            }),
+            document.addEventListener("wheel", c, F),
+            document.addEventListener("touchmove", c, F),
+            document.addEventListener("touchstart", d, F),
+            function () {
+              ((X = X.filter(function (e) {
+                return e !== i;
+              })),
+                document.removeEventListener("wheel", c, F),
+                document.removeEventListener("touchmove", c, F),
+                document.removeEventListener("touchstart", d, F));
+            }
+          );
+        }, []);
+        var v = e.removeScrollBar,
+          p = e.inert;
+        return l.createElement(
+          l.Fragment,
+          null,
+          p
+            ? l.createElement(i, {
+                styles: "\n  .block-interactivity-"
+                  .concat(
+                    o,
+                    " {pointer-events: none;}\n  .allow-interactivity-",
+                  )
+                  .concat(o, " {pointer-events: all;}\n"),
+              })
+            : null,
+          v
+            ? l.createElement(A, {
+                noRelative: e.noRelative,
+                gapMode: e.gapMode,
+              })
+            : null,
+        );
+      }),
+      h.useMedium(u),
+      b);
+    var $ = l.forwardRef(function (e, t) {
+      return l.createElement(y, c({}, e, { ref: t, sideCar: Y }));
+    });
+    (($.classNames = y.classNames), );

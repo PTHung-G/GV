@@ -1,0 +1,1729 @@
+(globalThis.TURBOPACK || (globalThis.TURBOPACK = [])).push([
+  "object" == typeof document ? document.currentScript : void 0,
+  728231,
+  186336,
+  (e) => {
+    "use strict";
+    var t = e.i(843476),
+      n = e.i(647163),
+      r = e.i(271645),
+      i = e.i(981140),
+      a = e.i(820783),
+      o = e.i(30030),
+      s = e.i(726330),
+      l = e.i(610772),
+      c = e.i(853660),
+      d = e.i(774606),
+      u = e.i(296626),
+      h = e.i(248425),
+      p = e.i(991918),
+      x = e.i(369340),
+      m = e.i(934620),
+      f = e.i(959411),
+      g = Object.defineProperty,
+      b = (e, t) => g(e, "name", { value: t, configurable: !0 }),
+      [v, y] = (0, o.createContextScope)("Tooltip", [c.createPopperScope]),
+      j = (0, c.createPopperScope)(),
+      w = "tooltip.open",
+      [k, T] = v("TooltipProvider"),
+      N = b((e) => {
+        let {
+            __scopeTooltip: n,
+            delayDuration: i = 700,
+            skipDelayDuration: a = 300,
+            disableHoverableContent: o = !1,
+            children: s,
+          } = e,
+          l = r.useRef(!0),
+          c = r.useRef(!1),
+          d = r.useRef(0);
+        return (
+          r.useEffect(() => {
+            let e = d.current;
+            return () => window.clearTimeout(e);
+          }, []),
+          (0, t.jsx)(k, {
+            scope: n,
+            isOpenDelayedRef: l,
+            delayDuration: i,
+            onOpen: r.useCallback(() => {
+              a <= 0 || (window.clearTimeout(d.current), (l.current = !1));
+            }, [a]),
+            onClose: r.useCallback(() => {
+              a <= 0 ||
+                (window.clearTimeout(d.current),
+                (d.current = window.setTimeout(() => (l.current = !0), a)));
+            }, [a]),
+            isPointerInTransitRef: c,
+            onPointerInTransitChange: r.useCallback((e) => {
+              c.current = e;
+            }, []),
+            disableHoverableContent: o,
+            children: s,
+          })
+        );
+      }, "TooltipProvider"),
+      C = "Tooltip",
+      [E, P] = v(C),
+      S = b((e) => {
+        let {
+            __scopeTooltip: n,
+            children: i,
+            open: a,
+            defaultOpen: o,
+            onOpenChange: s,
+            disableHoverableContent: d,
+            delayDuration: u,
+          } = e,
+          h = T(C, e.__scopeTooltip),
+          p = j(n),
+          [m, f] = r.useState(null),
+          [g, v] = r.useState(void 0),
+          y = (0, l.useId)(),
+          k = r.useRef(0),
+          N = d ?? h.disableHoverableContent,
+          P = u ?? h.delayDuration,
+          S = r.useRef(!1),
+          [R, L] = (0, x.useControllableState)({
+            prop: a,
+            defaultProp: o ?? !1,
+            onChange: b((e) => {
+              (e
+                ? (h.onOpen(), document.dispatchEvent(new CustomEvent(w)))
+                : h.onClose(),
+                s?.(e));
+            }, "onChange"),
+            caller: C,
+          }),
+          D = r.useMemo(
+            () =>
+              R ? (S.current ? "delayed-open" : "instant-open") : "closed",
+            [R],
+          ),
+          M = r.useCallback(() => {
+            (window.clearTimeout(k.current),
+              (k.current = 0),
+              (S.current = !1),
+              L(!0));
+          }, [L]),
+          A = r.useCallback(() => {
+            (window.clearTimeout(k.current), (k.current = 0), L(!1));
+          }, [L]),
+          O = r.useCallback(() => {
+            (window.clearTimeout(k.current),
+              (k.current = window.setTimeout(() => {
+                ((S.current = !0), L(!0), (k.current = 0));
+              }, P)));
+          }, [P, L]);
+        return (
+          r.useEffect(
+            () => () => {
+              k.current && (window.clearTimeout(k.current), (k.current = 0));
+            },
+            [],
+          ),
+          (0, t.jsx)(c.Root, {
+            ...p,
+            children: (0, t.jsx)(E, {
+              scope: n,
+              contentId: g ?? y,
+              setContentId: v,
+              open: R,
+              stateAttribute: D,
+              trigger: m,
+              onTriggerChange: f,
+              onTriggerEnter: r.useCallback(() => {
+                h.isOpenDelayedRef.current ? O() : M();
+              }, [h.isOpenDelayedRef, O, M]),
+              onTriggerLeave: r.useCallback(() => {
+                N ? A() : (window.clearTimeout(k.current), (k.current = 0));
+              }, [A, N]),
+              onOpen: M,
+              onClose: A,
+              disableHoverableContent: N,
+              children: i,
+            }),
+          })
+        );
+      }, "Tooltip"),
+      R = "TooltipTrigger",
+      L = r.forwardRef(
+        b(function (e, n) {
+          let { __scopeTooltip: o, ...s } = e,
+            l = P(R, o),
+            d = T(R, o),
+            u = j(o),
+            p = r.useRef(null),
+            x = (0, a.useComposedRefs)(n, p, l.onTriggerChange),
+            m = r.useRef(!1),
+            f = r.useRef(!1),
+            g = r.useCallback(() => (m.current = !1), []);
+          return (
+            r.useEffect(
+              () => () => document.removeEventListener("pointerup", g),
+              [g],
+            ),
+            (0, t.jsx)(c.Anchor, {
+              asChild: !0,
+              ...u,
+              children: (0, t.jsx)(h.Primitive.button, {
+                "aria-describedby": l.open ? l.contentId : void 0,
+                "data-state": l.stateAttribute,
+                ...s,
+                ref: x,
+                onPointerMove: (0, i.composeEventHandlers)(
+                  e.onPointerMove,
+                  (e) => {
+                    "touch" !== e.pointerType &&
+                      (f.current ||
+                        d.isPointerInTransitRef.current ||
+                        (l.onTriggerEnter(), (f.current = !0)));
+                  },
+                ),
+                onPointerLeave: (0, i.composeEventHandlers)(
+                  e.onPointerLeave,
+                  () => {
+                    (l.onTriggerLeave(), (f.current = !1));
+                  },
+                ),
+                onPointerDown: (0, i.composeEventHandlers)(
+                  e.onPointerDown,
+                  () => {
+                    (l.open && l.onClose(),
+                      (m.current = !0),
+                      document.addEventListener("pointerup", g, { once: !0 }));
+                  },
+                ),
+                onFocus: (0, i.composeEventHandlers)(e.onFocus, () => {
+                  m.current || l.onOpen();
+                }),
+                onBlur: (0, i.composeEventHandlers)(e.onBlur, l.onClose),
+                onClick: (0, i.composeEventHandlers)(e.onClick, l.onClose),
+              }),
+            })
+          );
+        }, "TooltipTrigger"),
+      ),
+      D = "TooltipPortal",
+      [M, A] = v(D, { forceMount: void 0 }),
+      O = b((e) => {
+        let { __scopeTooltip: n, forceMount: r, children: i, container: a } = e,
+          o = P(D, n);
+        return (0, t.jsx)(M, {
+          scope: n,
+          forceMount: r,
+          children: (0, t.jsx)(u.Presence, {
+            present: r || o.open,
+            children: (0, t.jsx)(d.Portal, {
+              asChild: !0,
+              container: a,
+              children: i,
+            }),
+          }),
+        });
+      }, "TooltipPortal"),
+      I = "TooltipContent",
+      $ = r.forwardRef(
+        b(function (e, n) {
+          let r = A(I, e.__scopeTooltip),
+            { forceMount: i = r.forceMount, side: a = "top", ...o } = e,
+            s = P(I, e.__scopeTooltip);
+          return (0, t.jsx)(u.Presence, {
+            present: i || s.open,
+            children: s.disableHoverableContent
+              ? (0, t.jsx)(V, { side: a, ...o, ref: n })
+              : (0, t.jsx)(_, { side: a, ...o, ref: n }),
+          });
+        }, "TooltipContent"),
+      ),
+      _ = r.forwardRef(
+        b(function (e, n) {
+          let i = P(I, e.__scopeTooltip),
+            o = T(I, e.__scopeTooltip),
+            s = r.useRef(null),
+            l = (0, a.useComposedRefs)(n, s),
+            [c, d] = r.useState(null),
+            { trigger: u, onClose: h } = i,
+            p = s.current,
+            { onPointerInTransitChange: x } = o,
+            m = r.useCallback(() => {
+              (d(null), x(!1));
+            }, [x]),
+            f = r.useCallback(
+              (e, t) => {
+                let n = e.currentTarget,
+                  r = { x: e.clientX, y: e.clientY },
+                  i = q(r, n.getBoundingClientRect());
+                (d(Q([...B(r, i), ...J(t.getBoundingClientRect())])), x(!0));
+              },
+              [x],
+            );
+          return (
+            r.useEffect(() => () => m(), [m]),
+            r.useEffect(() => {
+              if (u && p) {
+                let e = b((e) => f(e, p), "handleTriggerLeave"),
+                  t = b((e) => f(e, u), "handleContentLeave");
+                return (
+                  u.addEventListener("pointerleave", e),
+                  p.addEventListener("pointerleave", t),
+                  () => {
+                    (u.removeEventListener("pointerleave", e),
+                      p.removeEventListener("pointerleave", t));
+                  }
+                );
+              }
+            }, [u, p, f, m]),
+            r.useEffect(() => {
+              if (c) {
+                let e = b((e) => {
+                  let t = e.target,
+                    n = { x: e.clientX, y: e.clientY },
+                    r = u?.contains(t) || p?.contains(t),
+                    i = !U(n, c);
+                  r ? m() : i && (m(), h());
+                }, "handleTrackPointerGrace");
+                return (
+                  document.addEventListener("pointermove", e),
+                  () => document.removeEventListener("pointermove", e)
+                );
+              }
+            }, [u, p, c, h, m]),
+            (0, t.jsx)(V, { ...e, ref: l })
+          );
+        }, "TooltipContentHoverable"),
+      ),
+      z = (0, p.createSlottable)("TooltipContent"),
+      V = r.forwardRef(
+        b(function (e, n) {
+          let {
+              __scopeTooltip: i,
+              children: a,
+              "aria-label": o,
+              id: l,
+              onEscapeKeyDown: d,
+              onPointerDownOutside: u,
+              ...h
+            } = e,
+            p = P(I, i),
+            x = j(i),
+            { onClose: g } = p;
+          (r.useEffect(
+            () => (
+              document.addEventListener(w, g),
+              () => document.removeEventListener(w, g)
+            ),
+            [g],
+          ),
+            r.useEffect(() => {
+              if (p.trigger) {
+                let e = b((e) => {
+                  e.target instanceof Node &&
+                    e.target.contains(p.trigger) &&
+                    g();
+                }, "handleScroll");
+                return (
+                  window.addEventListener("scroll", e, { capture: !0 }),
+                  () => window.removeEventListener("scroll", e, { capture: !0 })
+                );
+              }
+            }, [p.trigger, g]));
+          let { setContentId: v } = p;
+          return (
+            (0, m.useLayoutEffect)(
+              () => (
+                v(l),
+                () => {
+                  v(void 0);
+                }
+              ),
+              [l, v],
+            ),
+            (0, t.jsx)(s.DismissableLayer, {
+              asChild: !0,
+              disableOutsidePointerEvents: !1,
+              onEscapeKeyDown: d,
+              onPointerDownOutside: u,
+              onFocusOutside: (e) => e.preventDefault(),
+              onDismiss: g,
+              children: (0, t.jsxs)(c.Content, {
+                "data-state": p.stateAttribute,
+                role: o ? void 0 : "tooltip",
+                id: o ? void 0 : p.contentId,
+                ...x,
+                ...h,
+                ref: n,
+                style: {
+                  ...h.style,
+                  "--radix-tooltip-content-transform-origin":
+                    "var(--radix-popper-transform-origin)",
+                  "--radix-tooltip-content-available-width":
+                    "var(--radix-popper-available-width)",
+                  "--radix-tooltip-content-available-height":
+                    "var(--radix-popper-available-height)",
+                  "--radix-tooltip-trigger-width":
+                    "var(--radix-popper-anchor-width)",
+                  "--radix-tooltip-trigger-height":
+                    "var(--radix-popper-anchor-height)",
+                },
+                children: [
+                  (0, t.jsx)(z, { children: a }),
+                  o
+                    ? (0, t.jsx)(f.Root, {
+                        id: p.contentId,
+                        role: "tooltip",
+                        children: o,
+                      })
+                    : null,
+                ],
+              }),
+            })
+          );
+        }, "TooltipContentImpl"),
+      ),
+      H = r.forwardRef(
+        b(function (e, n) {
+          let { __scopeTooltip: r, ...i } = e,
+            a = j(r);
+          return (0, t.jsx)(c.Arrow, { ...a, ...i, ref: n });
+        }, "TooltipArrow"),
+      );
+    function q(e, t) {
+      let n = Math.abs(t.top - e.y),
+        r = Math.abs(t.bottom - e.y),
+        i = Math.abs(t.right - e.x),
+        a = Math.abs(t.left - e.x);
+      switch (Math.min(n, r, i, a)) {
+        case a:
+          return "left";
+        case i:
+          return "right";
+        case n:
+          return "top";
+        case r:
+          return "bottom";
+        default:
+          throw Error("unreachable");
+      }
+    }
+    function B(e, t, n = 5) {
+      let r = [];
+      switch (t) {
+        case "top":
+          r.push({ x: e.x - n, y: e.y + n }, { x: e.x + n, y: e.y + n });
+          break;
+        case "bottom":
+          r.push({ x: e.x - n, y: e.y - n }, { x: e.x + n, y: e.y - n });
+          break;
+        case "left":
+          r.push({ x: e.x + n, y: e.y - n }, { x: e.x + n, y: e.y + n });
+          break;
+        case "right":
+          r.push({ x: e.x - n, y: e.y - n }, { x: e.x - n, y: e.y + n });
+      }
+      return r;
+    }
+    function J(e) {
+      let { top: t, right: n, bottom: r, left: i } = e;
+      return [
+        { x: i, y: t },
+        { x: n, y: t },
+        { x: n, y: r },
+        { x: i, y: r },
+      ];
+    }
+    function U(e, t) {
+      let { x: n, y: r } = e,
+        i = !1;
+      for (let e = 0, a = t.length - 1; e < t.length; a = e++) {
+        let o = t[e],
+          s = t[a],
+          l = o.x,
+          c = o.y,
+          d = s.x,
+          u = s.y;
+        c > r != u > r && n < ((d - l) * (r - c)) / (u - c) + l && (i = !i);
+      }
+      return i;
+    }
+    function Q(e) {
+      let t = e.slice();
+      return (
+        t.sort((e, t) =>
+          e.x < t.x ? -1 : e.x > t.x ? 1 : e.y < t.y ? -1 : 1 * !!(e.y > t.y),
+        ),
+        F(t)
+      );
+    }
+    function F(e) {
+      if (e.length <= 1) return e.slice();
+      let t = [];
+      for (let n = 0; n < e.length; n++) {
+        let r = e[n];
+        for (; t.length >= 2; ) {
+          let e = t[t.length - 1],
+            n = t[t.length - 2];
+          if ((e.x - n.x) * (r.y - n.y) >= (e.y - n.y) * (r.x - n.x)) t.pop();
+          else break;
+        }
+        t.push(r);
+      }
+      t.pop();
+      let n = [];
+      for (let t = e.length - 1; t >= 0; t--) {
+        let r = e[t];
+        for (; n.length >= 2; ) {
+          let e = n[n.length - 1],
+            t = n[n.length - 2];
+          if ((e.x - t.x) * (r.y - t.y) >= (e.y - t.y) * (r.x - t.x)) n.pop();
+          else break;
+        }
+        n.push(r);
+      }
+      return (n.pop(),
+      1 === t.length &&
+        1 === n.length &&
+        t[0].x === n[0].x &&
+        t[0].y === n[0].y)
+        ? t
+        : t.concat(n);
+    }
+    (b(q, "getExitSideFromRect"),
+      b(B, "getPaddedExitPoints"),
+      b(J, "getPointsFromRect"),
+      b(U, "isPointInPolygon"),
+      b(Q, "getHull"),
+      b(F, "getHullPresorted"),
+      e.s(
+        [
+          "Arrow",
+          0,
+          H,
+          "Content",
+          0,
+          $,
+          "Portal",
+          0,
+          O,
+          "Provider",
+          0,
+          N,
+          "Root",
+          0,
+          S,
+          "Tooltip",
+          0,
+          S,
+          "TooltipArrow",
+          0,
+          H,
+          "TooltipContent",
+          0,
+          $,
+          "TooltipPortal",
+          0,
+          O,
+          "TooltipProvider",
+          0,
+          N,
+          "TooltipTrigger",
+          0,
+          L,
+          "Trigger",
+          0,
+          L,
+          "createTooltipScope",
+          0,
+          y,
+        ],
+        186336,
+      ),
+      e.s(
+        [
+          "Tooltip",
+          0,
+          function ({ ...e }) {
+            return (0, t.jsx)(S, { "data-slot": "tooltip", ...e });
+          },
+          "TooltipContent",
+          0,
+          function ({ className: e, sideOffset: r = 4, children: i, ...a }) {
+            return (0, t.jsx)(O, {
+              children: (0, t.jsx)($, {
+                "data-slot": "tooltip-content",
+                sideOffset: r,
+                className: (0, n.cn)(
+                  "z-50 overflow-hidden rounded-md bg-slate-900 px-2.5 py-1 text-xs text-slate-50 shadow-md animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+                  e,
+                ),
+                ...a,
+                children: i,
+              }),
+            });
+          },
+          "TooltipProvider",
+          0,
+          function ({ delayDuration: e = 150, ...n }) {
+            return (0, t.jsx)(N, {
+              "data-slot": "tooltip-provider",
+              delayDuration: e,
+              ...n,
+            });
+          },
+          "TooltipTrigger",
+          0,
+          function ({ ...e }) {
+            return (0, t.jsx)(L, { "data-slot": "tooltip-trigger", ...e });
+          },
+        ],
+        728231,
+      ));
+  },
+  239474,
+  501772,
+  763870,
+  (e) => {
+    "use strict";
+    var t = e.i(843476),
+      n = e.i(522016),
+      r = e.i(647163);
+    e.s(
+      [
+        "CheckoutConsent",
+        0,
+        function ({ className: e }) {
+          return (0, t.jsxs)("p", {
+            className: (0, r.cn)("text-[12.5px] leading-5 text-[#787774]", e),
+            children: [
+              "Chuyển khoản qua mã VietQR, giá đã bao gồm thuế. Bấm Thanh toán là thầy cô đồng ý với",
+              " ",
+              (0, t.jsx)(n.default, {
+                href: "/terms#gia",
+                target: "_blank",
+                className: "text-[#2383e2] hover:underline",
+                children: "Điều khoản sử dụng",
+              }),
+              " ",
+              "và",
+              " ",
+              (0, t.jsx)(n.default, {
+                href: "/privacy",
+                target: "_blank",
+                className: "text-[#2383e2] hover:underline",
+                children: "Chính sách bảo mật",
+              }),
+              ".",
+            ],
+          });
+        },
+      ],
+      239474,
+    );
+    var i = e.i(689664),
+      a = e.i(422768),
+      o = e.i(508734),
+      s = e.i(762368),
+      l = e.i(632781),
+      c = e.i(741120),
+      d = e.i(973134),
+      u = e.i(271645),
+      h = e.i(167881),
+      p = e.i(630374),
+      x = e.i(389567),
+      m = e.i(407860),
+      f = e.i(663756),
+      g = e.i(973381);
+    function b({ value: e }) {
+      let [n, a] = (0, u.useState)(!1);
+      return (0, t.jsxs)("button", {
+        type: "button",
+        onClick: () => {
+          (navigator.clipboard?.writeText(e).catch(() => {}),
+            a(!0),
+            window.setTimeout(() => a(!1), 1400));
+        },
+        className: (0, r.cn)(
+          "inline-flex h-7 shrink-0 items-center gap-1 rounded-md border px-2 text-xs transition-colors",
+          n
+            ? "border-[#c6dcc9] text-[#448361]"
+            : "border-[#e3e2e0] text-[#5f5e5b] hover:bg-[#f1f1ef]",
+        ),
+        children: [
+          n
+            ? (0, t.jsx)(i.Check, { "aria-hidden": !0, className: "size-3" })
+            : (0, t.jsx)(o.Copy, { "aria-hidden": !0, className: "size-3" }),
+          n ? "Đã chép" : "Sao chép",
+        ],
+      });
+    }
+    function v({ label: e, value: n, copy: i, highlight: a, mono: o }) {
+      return (0, t.jsxs)("div", {
+        className: (0, r.cn)(
+          "grid grid-cols-[96px_1fr_auto] items-center gap-2 border-t border-[#e9e9e7] px-3 py-2.5 first:border-t-0",
+          a && "bg-[#fffbea]",
+        ),
+        children: [
+          (0, t.jsx)("span", {
+            className: "text-[13px] text-[#787774]",
+            children: e,
+          }),
+          (0, t.jsx)("b", {
+            className: (0, r.cn)(
+              "min-w-0 text-[14.5px] break-words",
+              o && "font-mono",
+              a && "text-lg tracking-wider",
+            ),
+            children: n,
+          }),
+          i ? (0, t.jsx)(b, { value: i }) : (0, t.jsx)("span", {}),
+        ],
+      });
+    }
+    e.s(
+      [
+        "CheckoutDialog",
+        0,
+        function ({ order: e, onClose: o, onRecreate: b, supportZalo: y }) {
+          let [j, w] = (0, u.useState)(e),
+            [k, T] = (0, u.useState)(""),
+            [N, C] = (0, u.useState)(!1),
+            [E, P] = (0, u.useState)(!1),
+            [S, R] = (0, u.useState)(null),
+            [L, D] = (0, u.useState)(""),
+            [M, A] = (0, u.useState)(e),
+            O = (0, u.useRef)("");
+          M !== e && (A(e), w(e), D(""), R(null));
+          let I = (function (e) {
+              let [t, n] = (0, u.useState)(() => Date.now());
+              return ((0, u.useEffect)(() => {
+                let e = window.setInterval(() => n(Date.now()), 1e3);
+                return () => window.clearInterval(e);
+              }, []),
+              e)
+                ? Math.max(0, Math.floor((new Date(e).getTime() - t) / 1e3))
+                : 0;
+            })(j?.expiresAt),
+            $ = j?.payment?.qrPayload;
+          (0, u.useEffect)(() => {
+            if (!$) return;
+            let e = !0;
+            return (
+              d.default
+                .toDataURL($, {
+                  margin: 1,
+                  width: 480,
+                  errorCorrectionLevel: "M",
+                })
+                .then((t) => e && T(t))
+                .catch(() => e && T("")),
+              () => {
+                e = !1;
+              }
+            );
+          }, [$]);
+          let _ = j?.id,
+            z = j?.status;
+          async function V() {
+            if (j) {
+              (C(!0), D(""));
+              try {
+                (w(await (0, m.checkOrder)(j.id)),
+                  P(!0),
+                  window.setTimeout(() => P(!1), 2e4));
+              } catch (e) {
+                D(
+                  e instanceof Error
+                    ? e.message
+                    : "Không kiểm tra được, hãy thử lại.",
+                );
+              } finally {
+                C(!1);
+              }
+            }
+          }
+          async function H() {
+            if (j) {
+              try {
+                await (0, m.cancelOrder)(j.id);
+              } catch {}
+              o();
+            }
+          }
+          ((0, u.useEffect)(() => {
+            if (!_ || ("pending" !== z && "expired" !== z)) return;
+            let e = !0,
+              t = window.setInterval(
+                () => {
+                  (0, m.getOrder)(_)
+                    .then((t) => e && w(t))
+                    .catch(() => {});
+                },
+                "pending" === z ? 3e3 : 1e4,
+              );
+            return () => {
+              ((e = !1), window.clearInterval(t));
+            };
+          }, [_, z]),
+            (0, u.useEffect)(() => {
+              "paid" === z &&
+                _ &&
+                O.current !== _ &&
+                ((O.current = _),
+                window.dispatchEvent(new Event("exam-quota-change")),
+                (0, x.track)("topup_paid", {
+                  kind: j?.kind ?? "",
+                  amount: j?.paidAmount ?? 0,
+                }),
+                (0, m.getWallet)()
+                  .then((e) => R(e.balance))
+                  .catch(() => {}));
+            }, [_, z, j?.kind, j?.paidAmount]));
+          let q = "expired" === z || ("pending" === z && 0 === I),
+            B = "paid" === z,
+            J = j?.payment,
+            U =
+              j?.kind === "package" && j.paidAt && j.validDays
+                ? new Date(
+                    new Date(j.paidAt).getTime() + 864e5 * j.validDays,
+                  ).toISOString()
+                : null;
+          return (0, t.jsx)(p.Dialog, {
+            open: null !== j,
+            onOpenChange: (e) => !e && o(),
+            children: (0, t.jsx)(p.DialogContent, {
+              className: (0, r.cn)(
+                "max-h-[92dvh] gap-0 overflow-y-auto rounded-xl border-[#e3e2e0] bg-white p-0 text-[#37352f]",
+                B ? "sm:max-w-md" : "sm:max-w-3xl",
+              ),
+              children:
+                j && B
+                  ? (0, t.jsxs)("div", {
+                      className: "px-7 pt-9 pb-7 text-center",
+                      children: [
+                        (0, t.jsx)("div", {
+                          className:
+                            "mx-auto grid size-14 place-items-center rounded-full bg-[#edf3ec] text-[#448361]",
+                          children: (0, t.jsx)(i.Check, {
+                            "aria-hidden": !0,
+                            className: "size-7",
+                            strokeWidth: 3,
+                          }),
+                        }),
+                        (0, t.jsx)(p.DialogTitle, {
+                          className:
+                            "font-display mt-4 text-3xl font-medium tracking-tight",
+                          children: "Nạp điểm thành công",
+                        }),
+                        (0, t.jsxs)(p.DialogDescription, {
+                          className: "mt-1 text-[#787774]",
+                          children: [
+                            "Đã nhận ",
+                            (0, f.formatVnd)(j.paidAmount),
+                            j.paidAt &&
+                              ` l\xfac ${new Date(j.paidAt).toLocaleString("vi-VN", { hour: "2-digit", minute: "2-digit", day: "2-digit", month: "2-digit" })}`,
+                          ],
+                        }),
+                        (0, t.jsxs)("p", {
+                          className:
+                            "mt-3 text-4xl font-bold tracking-tight text-[#1c3829] tabular-nums",
+                          children: [
+                            "+",
+                            (0, f.formatPoints)(j.creditedPoints),
+                            " điểm",
+                          ],
+                        }),
+                        (0, t.jsxs)("div", {
+                          className:
+                            "mx-auto mt-5 max-w-sm text-left text-[13.5px]",
+                          children: [
+                            (0, t.jsxs)("div", {
+                              className:
+                                "flex justify-between border-t border-[#e9e9e7] py-2",
+                              children: [
+                                (0, t.jsx)("span", {
+                                  className: "text-[#787774]",
+                                  children:
+                                    "package" === j.kind ? "Gói" : "Loại",
+                                }),
+                                (0, t.jsx)("b", { children: j.label }),
+                              ],
+                            }),
+                            (0, t.jsxs)("div", {
+                              className:
+                                "flex justify-between border-t border-[#e9e9e7] py-2",
+                              children: [
+                                (0, t.jsx)("span", {
+                                  className: "text-[#787774]",
+                                  children: "Hạn dùng",
+                                }),
+                                (0, t.jsx)("b", {
+                                  children: U
+                                    ? (0, f.formatDate)(U)
+                                    : "Vĩnh viễn",
+                                }),
+                              ],
+                            }),
+                            null !== S &&
+                              (0, t.jsxs)("div", {
+                                className:
+                                  "flex justify-between border-t border-[#e9e9e7] py-2",
+                                children: [
+                                  (0, t.jsx)("span", {
+                                    className: "text-[#787774]",
+                                    children: "Số dư mới",
+                                  }),
+                                  (0, t.jsxs)("b", {
+                                    className: "tabular-nums",
+                                    children: [(0, f.formatPoints)(S), " điểm"],
+                                  }),
+                                ],
+                              }),
+                            (0, t.jsxs)("div", {
+                              className:
+                                "flex justify-between border-t border-[#e9e9e7] py-2",
+                              children: [
+                                (0, t.jsx)("span", {
+                                  className: "text-[#787774]",
+                                  children: "Mã đơn",
+                                }),
+                                (0, t.jsx)("b", {
+                                  className: "font-mono",
+                                  children: j.code,
+                                }),
+                              ],
+                            }),
+                          ],
+                        }),
+                        j.note &&
+                          (0, t.jsxs)("p", {
+                            className:
+                              "mx-auto mt-3 max-w-sm rounded-lg bg-[#fbf3db] px-3 py-2 text-left text-[12.5px] whitespace-pre-line text-[#6b5016]",
+                            children: [
+                              j.note,
+                              "\n",
+                              "Cần điều chỉnh, thầy cô nhắn ",
+                              (0, t.jsx)(g.ZaloLink, { phone: y }),
+                              " kèm mã đơn ",
+                              j.code,
+                              ".",
+                            ],
+                          }),
+                        (0, t.jsxs)("div", {
+                          className: "mt-6 flex justify-center gap-2",
+                          children: [
+                            (0, t.jsx)(h.Button, {
+                              variant: "outline",
+                              asChild: !0,
+                              children: (0, t.jsx)(n.default, {
+                                href: "/profile",
+                                onClick: o,
+                                children: "Xem ví điểm",
+                              }),
+                            }),
+                            (0, t.jsx)(h.Button, {
+                              onClick: o,
+                              children: "Xong",
+                            }),
+                          ],
+                        }),
+                      ],
+                    })
+                  : j && J
+                    ? (0, t.jsxs)(t.Fragment, {
+                        children: [
+                          (0, t.jsxs)("div", {
+                            className:
+                              "border-b border-[#e9e9e7] px-5 py-4 pr-12",
+                            children: [
+                              (0, t.jsx)(p.DialogTitle, {
+                                className: "text-base font-semibold",
+                                children: "Quét mã để thanh toán",
+                              }),
+                              (0, t.jsx)(p.DialogDescription, {
+                                className: "sr-only",
+                                children:
+                                  "Chuyển khoản đúng số tiền và nội dung để được cộng điểm tự động.",
+                              }),
+                            ],
+                          }),
+                          (0, t.jsxs)("div", {
+                            className: "grid sm:grid-cols-[300px_1fr]",
+                            children: [
+                              (0, t.jsxs)("div", {
+                                className:
+                                  "flex flex-col items-center border-b border-[#e9e9e7] bg-[#f7f6f3] p-5 sm:border-r sm:border-b-0",
+                                children: [
+                                  (0, t.jsxs)("div", {
+                                    className:
+                                      "relative w-[248px] rounded-xl border border-[#e3e2e0] bg-white p-3.5",
+                                    children: [
+                                      (0, t.jsxs)("div", {
+                                        className:
+                                          "mb-2 flex items-center justify-between text-[11px] text-[#787774]",
+                                        children: [
+                                          (0, t.jsx)("b", {
+                                            className:
+                                              "tracking-wide text-[#0f2f8a]",
+                                            children: "VIETQR",
+                                          }),
+                                          (0, t.jsxs)("span", {
+                                            children: [
+                                              "napas 247 · ",
+                                              J.bankName,
+                                            ],
+                                          }),
+                                        ],
+                                      }),
+                                      k
+                                        ? (0, t.jsx)("img", {
+                                            src: k,
+                                            alt: `M\xe3 QR chuyển ${(0, f.formatVnd)(J.amount)} tới ${J.bankName}`,
+                                            className:
+                                              "block size-[218px] [image-rendering:pixelated]",
+                                          })
+                                        : (0, t.jsx)("div", {
+                                            className:
+                                              "grid size-[218px] place-items-center",
+                                            children: (0, t.jsx)(l.Loader2, {
+                                              "aria-hidden": !0,
+                                              className:
+                                                "size-5 animate-spin text-[#9b9a97]",
+                                            }),
+                                          }),
+                                      q &&
+                                        (0, t.jsxs)("div", {
+                                          className:
+                                            "absolute inset-0 flex flex-col items-center justify-center gap-2.5 rounded-xl bg-white/95 p-5 text-center",
+                                          children: [
+                                            (0, t.jsx)("b", {
+                                              children: "Mã QR đã hết hạn",
+                                            }),
+                                            (0, t.jsx)("span", {
+                                              className:
+                                                "text-[12.5px] text-[#787774]",
+                                              children:
+                                                "Nếu thầy cô đã chuyển khoản, điểm vẫn được cộng khi hệ thống nhận được tiền.",
+                                            }),
+                                            b &&
+                                              (0, t.jsxs)(h.Button, {
+                                                size: "sm",
+                                                onClick: () => b(j),
+                                                children: [
+                                                  (0, t.jsx)(c.RefreshCw, {
+                                                    "aria-hidden": !0,
+                                                  }),
+                                                  " Tạo mã mới",
+                                                ],
+                                              }),
+                                          ],
+                                        }),
+                                    ],
+                                  }),
+                                  (0, t.jsx)("p", {
+                                    className:
+                                      "mt-3 text-[13px] text-[#787774]",
+                                    children: q
+                                      ? (0, t.jsx)("span", {
+                                          className: "text-[#eb5757]",
+                                          children: "Mã đã hết hạn",
+                                        })
+                                      : (0, t.jsxs)(t.Fragment, {
+                                          children: [
+                                            "Mã hết hạn sau",
+                                            " ",
+                                            (0, t.jsxs)("b", {
+                                              className:
+                                                "text-[#37352f] tabular-nums",
+                                              children: [
+                                                String(
+                                                  Math.floor(I / 60),
+                                                ).padStart(2, "0"),
+                                                ":",
+                                                String(I % 60).padStart(2, "0"),
+                                              ],
+                                            }),
+                                          ],
+                                        }),
+                                  }),
+                                  (0, t.jsxs)(h.Button, {
+                                    variant: "outline",
+                                    size: "sm",
+                                    className: "mt-2",
+                                    disabled: !k,
+                                    onClick: function () {
+                                      if (!k || !j) return;
+                                      let e = document.createElement("a");
+                                      ((e.href = k),
+                                        (e.download = `soandethi-${j.code}.png`),
+                                        e.click());
+                                    },
+                                    children: [
+                                      (0, t.jsx)(s.Download, {
+                                        "aria-hidden": !0,
+                                      }),
+                                      " Lưu ảnh QR",
+                                    ],
+                                  }),
+                                ],
+                              }),
+                              (0, t.jsxs)("div", {
+                                className: "p-5",
+                                children: [
+                                  (0, t.jsxs)("div", {
+                                    className:
+                                      "overflow-hidden rounded-lg border border-[#e3e2e0]",
+                                    children: [
+                                      (0, t.jsx)(v, {
+                                        label: "Ngân hàng",
+                                        value: J.bankName,
+                                      }),
+                                      (0, t.jsx)(v, {
+                                        label: "Số tài khoản",
+                                        value: J.accountNumber,
+                                        copy: J.accountNumber,
+                                        mono: !0,
+                                      }),
+                                      (0, t.jsx)(v, {
+                                        label: "Chủ tài khoản",
+                                        value: J.accountName,
+                                      }),
+                                      (0, t.jsx)(v, {
+                                        label: "Số tiền",
+                                        value: (0, f.formatVnd)(J.amount),
+                                        copy: String(J.amount),
+                                      }),
+                                      (0, t.jsx)(v, {
+                                        label: "Nội dung",
+                                        value: J.content,
+                                        copy: J.content,
+                                        highlight: !0,
+                                        mono: !0,
+                                      }),
+                                    ],
+                                  }),
+                                  (0, t.jsxs)("p", {
+                                    className:
+                                      "mt-3 rounded-lg bg-[#fbf3db] px-3 py-2 text-[12.5px] text-[#6b5016]",
+                                    children: [
+                                      "Mở ứng dụng ngân hàng, chọn quét mã QR. Vui lòng ",
+                                      (0, t.jsx)("b", {
+                                        children:
+                                          "giữ nguyên số tiền và nội dung",
+                                      }),
+                                      " để điểm được cộng tự động. Nếu chuyển khoản tay, thầy cô nhập nội dung y hệt ở trên.",
+                                    ],
+                                  }),
+                                  (0, t.jsxs)("div", {
+                                    role: "status",
+                                    className:
+                                      "mt-3 flex items-center gap-3 rounded-lg border border-[#e3e2e0] p-3",
+                                    children: [
+                                      (0, t.jsx)(l.Loader2, {
+                                        "aria-hidden": !0,
+                                        className:
+                                          "size-4 shrink-0 animate-spin text-[#2383e2]",
+                                      }),
+                                      (0, t.jsxs)("div", {
+                                        children: [
+                                          (0, t.jsx)("p", {
+                                            className:
+                                              "text-[13.5px] font-semibold",
+                                            children: E
+                                              ? "Đang kiểm tra giao dịch…"
+                                              : "Đang chờ thanh toán…",
+                                          }),
+                                          (0, t.jsx)("p", {
+                                            className: "text-xs text-[#787774]",
+                                            children:
+                                              "Trang tự cập nhật khi nhận được tiền, thường trong khoảng 1 phút. Thầy cô có thể đóng hộp này, đơn vẫn được giữ.",
+                                          }),
+                                        ],
+                                      }),
+                                    ],
+                                  }),
+                                  (0, t.jsxs)("p", {
+                                    className:
+                                      "mt-3 text-xs leading-5 text-[#787774]",
+                                    children: [
+                                      "Đã chuyển khoản hơn 5 phút mà chưa nhận được điểm? Thầy cô nhắn ",
+                                      (0, t.jsx)(g.ZaloLink, { phone: y }),
+                                      " kèm mã đơn ",
+                                      (0, t.jsx)("b", {
+                                        className: "font-mono",
+                                        children: j.code,
+                                      }),
+                                      ".",
+                                    ],
+                                  }),
+                                  L &&
+                                    (0, t.jsxs)("p", {
+                                      role: "alert",
+                                      className:
+                                        "mt-3 flex items-center gap-2 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700",
+                                      children: [
+                                        (0, t.jsx)(a.CircleAlert, {
+                                          "aria-hidden": !0,
+                                          className: "size-4",
+                                        }),
+                                        " ",
+                                        L,
+                                      ],
+                                    }),
+                                ],
+                              }),
+                            ],
+                          }),
+                          (0, t.jsxs)("div", {
+                            className:
+                              "flex flex-wrap items-center justify-between gap-3 border-t border-[#e9e9e7] px-5 py-3.5",
+                            children: [
+                              (0, t.jsxs)("span", {
+                                className: "text-[12.5px] text-[#787774]",
+                                children: [
+                                  j.label,
+                                  " · ",
+                                  (0, f.formatPoints)(j.points + j.bonusPoints),
+                                  " điểm · mã đơn ",
+                                  j.code,
+                                ],
+                              }),
+                              (0, t.jsxs)("div", {
+                                className: "flex gap-2",
+                                children: [
+                                  "pending" === z &&
+                                    (0, t.jsx)(h.Button, {
+                                      variant: "outline",
+                                      onClick: () => void H(),
+                                      children: "Huỷ đơn",
+                                    }),
+                                  (0, t.jsxs)(h.Button, {
+                                    disabled: N,
+                                    onClick: () => void V(),
+                                    children: [
+                                      N &&
+                                        (0, t.jsx)(l.Loader2, {
+                                          "aria-hidden": !0,
+                                          className: "animate-spin",
+                                        }),
+                                      "Tôi đã chuyển khoản",
+                                    ],
+                                  }),
+                                ],
+                              }),
+                            ],
+                          }),
+                        ],
+                      })
+                    : j
+                      ? (0, t.jsxs)("div", {
+                          className: "p-6",
+                          children: [
+                            (0, t.jsxs)(p.DialogTitle, {
+                              className: "text-base font-semibold",
+                              children: ["Đơn ", j.code],
+                            }),
+                            (0, t.jsx)(p.DialogDescription, {
+                              className: "mt-2",
+                              children:
+                                "Đơn này đã huỷ. Thầy cô có thể tạo đơn mới ở trang Nạp điểm.",
+                            }),
+                          ],
+                        })
+                      : null,
+            }),
+          });
+        },
+      ],
+      501772,
+    );
+    var y = e.i(775691);
+    e.s(
+      [
+        "useCheckout",
+        0,
+        function () {
+          let [e, t] = (0, u.useState)(null),
+            [n, r] = (0, u.useState)(!1),
+            [i, a] = (0, u.useState)(""),
+            o = (0, u.useCallback)(async (e) => {
+              let n = await (0, m.createOrder)(e);
+              ((0, x.track)("topup_order", {
+                kind: n.kind,
+                amount: n.amountVnd,
+              }),
+                t(n));
+            }, []),
+            s = (0, u.useCallback)(
+              async (e) => {
+                if ((a(""), !(0, y.readSession)()))
+                  return void (0, y.requestLogin)({
+                    title: "Đăng nhập để nạp điểm",
+                    action: "Tiếp tục thanh toán",
+                    working: "Đang tạo mã thanh toán…",
+                    run: () => o(e),
+                    next: "/nap-diem",
+                  });
+                r(!0);
+                try {
+                  await o(e);
+                } catch (e) {
+                  a(
+                    e instanceof Error
+                      ? e.message
+                      : "Không tạo được đơn nạp, hãy thử lại.",
+                  );
+                } finally {
+                  r(!1);
+                }
+              },
+              [o],
+            ),
+            l = (0, u.useCallback)(
+              (e) => {
+                (t(null),
+                  s(
+                    "package" === e.kind && e.packageId
+                      ? { kind: "package", packageId: e.packageId }
+                      : { kind: "topup", amountVnd: e.amountVnd },
+                  ));
+              },
+              [s],
+            );
+          return {
+            order: e,
+            setOrder: t,
+            start: s,
+            recreate: l,
+            busy: n,
+            error: i,
+            close: () => t(null),
+          };
+        },
+      ],
+      763870,
+    );
+  },
+  407860,
+  973381,
+  (e) => {
+    "use strict";
+    var t = e.i(715760);
+    async function n() {
+      return (
+        await (0, t.requestJson)("GET", "/api/billing/catalog", void 0, {
+          accessToken: null,
+        })
+      ).catalog;
+    }
+    async function r(e) {
+      return (await (0, t.requestJson)("POST", "/api/billing/orders", e)).order;
+    }
+    async function i(e) {
+      return (
+        await (0, t.requestJson)(
+          "GET",
+          `/api/billing/orders/${encodeURIComponent(e)}`,
+        )
+      ).order;
+    }
+    async function a(e) {
+      return (
+        await (0, t.requestJson)(
+          "POST",
+          `/api/billing/orders/${encodeURIComponent(e)}/check`,
+        )
+      ).order;
+    }
+    async function o(e) {
+      await (0, t.requestJson)(
+        "DELETE",
+        `/api/billing/orders/${encodeURIComponent(e)}`,
+      );
+    }
+    async function s(e = 30) {
+      return (await (0, t.requestJson)("GET", `/api/billing/orders?limit=${e}`))
+        .orders;
+    }
+    async function l() {
+      let e = await (0, t.requestJson)("GET", "/api/auth/quota");
+      return {
+        balance: e.balance,
+        debt: e.debt ?? 0,
+        lots: e.lots ?? [],
+        expiring: e.expiring ?? null,
+      };
+    }
+    e.s(
+      [
+        "cancelOrder",
+        0,
+        o,
+        "checkOrder",
+        0,
+        a,
+        "createOrder",
+        0,
+        r,
+        "getCatalog",
+        0,
+        n,
+        "getOrder",
+        0,
+        i,
+        "getWallet",
+        0,
+        l,
+        "listOrders",
+        0,
+        s,
+      ],
+      407860,
+    );
+    var c = e.i(843476),
+      d = e.i(615227),
+      u = e.i(647163);
+    function h({ phone: e, className: t }) {
+      let n = e || "0858562678";
+      return (0, c.jsxs)("a", {
+        href: `https://zalo.me/${n}`,
+        target: "_blank",
+        rel: "noopener noreferrer",
+        className: (0, u.cn)(
+          "font-semibold whitespace-nowrap text-[#0068ff] underline-offset-2 hover:underline",
+          t,
+        ),
+        children: ["Zalo ", n.replace(/(\d{4})(\d{3})(\d+)/, "$1 $2 $3")],
+      });
+    }
+    e.s(
+      [
+        "ZaloLink",
+        0,
+        h,
+        "ZaloSupportCard",
+        0,
+        function ({ phone: e, className: t }) {
+          return (0, c.jsxs)("div", {
+            className: (0, u.cn)(
+              "flex items-start gap-3 rounded-xl border border-[#d6e6ff] bg-[#f2f7ff] px-4 py-3.5",
+              t,
+            ),
+            children: [
+              (0, c.jsx)("span", {
+                className:
+                  "grid size-9 shrink-0 place-items-center rounded-full bg-[#0068ff] text-white",
+                children: (0, c.jsx)(d.MessageCircle, {
+                  "aria-hidden": !0,
+                  className: "size-4.5",
+                }),
+              }),
+              (0, c.jsxs)("div", {
+                className: "text-[13.5px] leading-6 text-[#37352f]",
+                children: [
+                  (0, c.jsx)("p", {
+                    className: "font-semibold",
+                    children: "Thầy cô cần hỗ trợ nạp điểm?",
+                  }),
+                  (0, c.jsxs)("p", {
+                    className: "text-[#5f5e5b]",
+                    children: [
+                      "Nhắn tin qua ",
+                      (0, c.jsx)(h, { phone: e }),
+                      " để được hướng dẫn trực tiếp. Nếu đã chuyển khoản mà chưa nhận được điểm, thầy cô gửi kèm mã đơn và ảnh chụp giao dịch, chúng tôi sẽ cộng điểm ngay.",
+                    ],
+                  }),
+                ],
+              }),
+            ],
+          });
+        },
+      ],
+      973381,
+    );
+  },
+  665137,
+  (e) => {
+    "use strict";
+    var t = e.i(715760),
+      n = e.i(775691);
+    async function r(e) {
+      let r = await (0, n.sessionAccessToken)(t.API_BASE_URL),
+        i = await (0, t.fetchAuthed)(
+          e,
+          (e) => ({
+            headers: e ? { Authorization: `Bearer ${e}` } : {},
+            cache: "no-store",
+          }),
+          r,
+          !0,
+        ),
+        a = await i.json();
+      if (!i.ok)
+        throw new t.ApiError(a.error || "Không tải được thông tin tài khoản.", {
+          status: i.status,
+          code: a.code,
+        });
+      return a;
+    }
+    async function i(e, r) {
+      let i = await (0, t.postJson)(e, r, { accessToken: null });
+      return ((0, n.saveSession)(i), i);
+    }
+    async function a(e, t) {
+      return i(
+        "google" === e ? "/api/auth/oauth/google/token" : "/api/auth/login",
+        t,
+      );
+    }
+    async function o() {
+      let e = (0, n.readSession)();
+      ((0, n.saveSession)(null),
+        e &&
+          (await (0, t.postJson)(
+            "/api/auth/logout",
+            { refreshToken: e.refreshToken },
+            { accessToken: null },
+          )));
+    }
+    async function s(e, t) {
+      let n = new URLSearchParams({ redirect_after: t });
+      return (await r(`/api/auth/oauth/${e}/start?${n}`)).url;
+    }
+    e.s([
+      "completeOAuth",
+      0,
+      function (e, t) {
+        return i(`/api/auth/oauth/${encodeURIComponent(e)}/callback`, t);
+      },
+      "completeRegistration",
+      0,
+      function (e, t) {
+        return i("/api/auth/register/verify", { email: e, code: t });
+      },
+      "forgotPassword",
+      0,
+      function (e) {
+        return (0, t.postJson)(
+          "/api/auth/password/forgot",
+          { email: e },
+          { accessToken: null },
+        );
+      },
+      "getAccount",
+      0,
+      r,
+      "login",
+      0,
+      a,
+      "logout",
+      0,
+      o,
+      "resendCode",
+      0,
+      function (e, n) {
+        return (0, t.postJson)(
+          `/api/auth/${e}/resend`,
+          { email: n },
+          { accessToken: null },
+        );
+      },
+      "resetPassword",
+      0,
+      function (e, t, n) {
+        return i("/api/auth/password/reset", {
+          email: e,
+          code: t,
+          newPassword: n,
+        });
+      },
+      "setPassword",
+      0,
+      function (e, n) {
+        return (0, t.requestJson)("PUT", "/api/auth/password", {
+          currentPassword: e,
+          newPassword: n,
+        });
+      },
+      "startOAuth",
+      0,
+      s,
+      "startRegistration",
+      0,
+      function (e) {
+        return (0, t.postJson)("/api/auth/register/start", e, {
+          accessToken: null,
+        });
+      },
+    ]);
+  },
+  663756,
+  (e) => {
+    "use strict";
+    e.s([
+      "daysUntil",
+      0,
+      function (e, t = Date.now()) {
+        return Math.max(0, Math.ceil((new Date(e).getTime() - t) / 864e5));
+      },
+      "estimatedTurns",
+      0,
+      function (e) {
+        return Math.max(1, Math.round(e / 2e3));
+      },
+      "formatDate",
+      0,
+      function (e) {
+        return new Date(e).toLocaleDateString("vi-VN", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+          timeZone: "Asia/Ho_Chi_Minh",
+        });
+      },
+      "formatPoints",
+      0,
+      function (e) {
+        return e.toLocaleString("vi-VN");
+      },
+      "formatVnd",
+      0,
+      function (e) {
+        return `${e.toLocaleString("vi-VN")}đ`;
+      },
+      "lotSourceLabel",
+      0,
+      function (e) {
+        switch (e) {
+          case "package":
+            return "Gói tháng";
+          case "topup":
+            return "Nạp lẻ";
+          case "promo":
+            return "Thưởng khuyến mãi";
+          case "reward":
+            return "Thưởng nhiệm vụ";
+          case "initial":
+            return "Điểm tặng ban đầu";
+          case "adjustment":
+            return "Quản trị viên cộng";
+          case "legacy":
+            return "Điểm hiện có";
+          default:
+            return "Điểm";
+        }
+      },
+      "orderStatusLabel",
+      0,
+      function (e) {
+        switch (e) {
+          case "pending":
+            return "Đang chờ";
+          case "paid":
+            return "Thành công";
+          case "expired":
+            return "Hết hạn";
+          case "cancelled":
+            return "Đã huỷ";
+          default:
+            return e;
+        }
+      },
+      "packageBonusPercent",
+      0,
+      function (e, t) {
+        let n = t.reduce(
+          (e, t) => (!e || t.priceVnd < e.priceVnd ? t : e),
+          null,
+        );
+        return n && n.id !== e.id
+          ? Math.round(
+              (e.points / e.priceVnd / (n.points / n.priceVnd) - 1) * 100,
+            )
+          : 0;
+      },
+      "parseAmountInput",
+      0,
+      function (e) {
+        let t = e.replace(/\D/g, "").slice(0, 9);
+        return t ? Number(t) : 0;
+      },
+      "promoUntil",
+      0,
+      function (e, t) {
+        if (!e) return "";
+        let [n, r = ""] = e.split("T"),
+          i =
+            n === t ? "hôm nay" : `ng\xe0y ${n.slice(8, 10)}/${n.slice(5, 7)}`;
+        if ("23:59:59" === r) return `đến hết ${i}`;
+        let a = r.endsWith(":00") ? r.slice(0, 5) : r;
+        return `đến ${a} ${i}`;
+      },
+      "topupQuote",
+      0,
+      function (e, t) {
+        let n = Math.floor((t * e.topupPointsPer1000) / 1e3),
+          r = e.promo?.percent ?? 0,
+          i = Math.floor((n * r) / 100);
+        return { base: n, bonus: i, total: n + i, percent: r };
+      },
+    ]);
+  },
+  367784,
+  765649,
+  (e) => {
+    "use strict";
+    var t = e.i(456420);
+    let n = (0, t.default)("log-out", [
+      ["path", { d: "m16 17 5-5-5-5", key: "1bji2h" }],
+      ["path", { d: "M21 12H9", key: "dn1m92" }],
+      ["path", { d: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4", key: "1uf3rs" }],
+    ]);
+    e.s(["LogOut", 0, n], 367784);
+    let r = (0, t.default)("user-round", [
+      ["circle", { cx: "12", cy: "8", r: "5", key: "1hypcn" }],
+      ["path", { d: "M20 21a8 8 0 0 0-16 0", key: "rfgkzh" }],
+    ]);
+    e.s(["UserRound", 0, r], 765649);
+  },
+  929272,
+  89011,
+  (e) => {
+    "use strict";
+    let t = (0, e.i(456420).default)("square", [
+      [
+        "rect",
+        { width: "18", height: "18", x: "3", y: "3", rx: "2", key: "afitv7" },
+      ],
+    ]);
+    e.s(["Square", 0, t], 929272);
+    var n = e.i(843476),
+      r = e.i(728231);
+    e.s(
+      [
+        "ToolbarTooltip",
+        0,
+        function ({ label: e, children: t }) {
+          return (0, n.jsxs)(r.Tooltip, {
+            children: [
+              (0, n.jsx)(r.TooltipTrigger, { asChild: !0, children: t }),
+              (0, n.jsx)(r.TooltipContent, {
+                side: "bottom",
+                sideOffset: 8,
+                collisionPadding: 8,
+                className: "pointer-events-none z-[60] max-w-64 text-center",
+                children: e,
+              }),
+            ],
+          });
+        },
+      ],
+      89011,
+    );
+  },
+  853138,
+  (e) => {
+    "use strict";
+    var t = e.i(755566);
+    e.s(["AlertTriangle", () => t.default]);
+  },
+]);

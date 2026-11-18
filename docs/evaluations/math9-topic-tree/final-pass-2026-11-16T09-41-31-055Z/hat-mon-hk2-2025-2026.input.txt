@@ -1,0 +1,64 @@
+   PHÒNG VH - XH XÃ HÁT MÔN               ĐỀ KIỂM TRA CUỐI HỌC KỲ II
+    TRƯỜNG THCS HÁT MÔN                        NĂM HỌC 2025 - 2026
+                                                   MÔN TOÁN 9
+         ĐỀ CHÍNH THỨC                       (Thời gian làm bài: 90 phút)
+
+Bài I (2,5 điểm).
+  1) Điểm bài kiểm tra môn toán học kì I của 32 học sinh lớp 9 được ghi trong bảng
+       sau:
+  7     4     4     6     6     4     6     8
+  8     7     2     6     4     8     5     6
+  9     8     4     7     9     5     5     5
+  7     2     7     6     7     8     6    10
+a) Lập bảng tần số
+b) Tìm tần số tương đối của điểm 8; điểm 9 (làm tròn kết quả đến chữ số thập phân
+thứ 2)
+  2) Một xưởng sản xuất đá giải khát đã thống kê số tạ đá bán được trong tháng 6 bằng
+biểu đồ sau:
+a) Số tạ đá bán được nhiều nhất là bao
+nhiêu? Ít nhất là bao nhiêu?
+b) Số tạ đá có tần số lớn nhất là bao
+nhiêu?
+c) Tính lượng đá trung bình bán được
+trong tháng 6 của xưởng?
+Bài II (2,0 điểm).
+1. Chỉ rõ các hệ số a, b, c và giải
+phương trình của phương trình bậc hai
+sau 3x2 - 4x + 5 = 0
+2. Trên mặt phẳng Oxy, cho parabol (P): y = x2 và đường thẳng (d): y = 2mx + 6
+a) Chứng minh rằng đường thẳng (d) luôn cắt (P) tại hai điểm phân biệt với mọi m.
+b) Tìm m để đường thẳng (d) cắt (P) tại hai điểm phân biệt có hoành độ x1, x2 thỏa
+       1 1
+mãn:     + = 3
+       x1 x2
+Bài III (1,5 điểm).
+Bác An có 500 triệu đồng để đầu tư vào hai khoản: Trái phiếu và gửi tiết kiệm ngân
+hàng với kỳ hạn 12 tháng. Lãi suất của trái phiếu và gửi tiết kiệm ngân hàng lần lượt
+là 7% một năm và 6% một năm. Tính số tiền mà bác An đầu tư vào mỗi khoản để mỗi
+năm nhận được tiền lãi là 32 triệu đồng từ hai khoản đầu tư đó.
+Bài IV (3,5 điểm).
+1. Một cái trục lăn sơn nước có dạng một
+hình trụ đường kính của đường tròn đáy
+là 5 (cm), chiều dài lăn là 23 (cm) (như
+hình vẽ sau). Sau khi lăn trọn 10 vòng thì
+trục lăn tạo lên tường phẳng lớp sơn có
+diện tích bằng bao nhiêu?
+2. Cho tam giác ABC vuông tại A. Lấy
+điểm M bất kì trên đoạn AC, đường tròn
+đường kính CM cắt hai đường thẳng BM,
+BC lần lượt tại D, N. Chứng minh rằng:
+a) Tứ giác ABCD nội tiếp.
+b) BM.BD = BN.BC
+c) Các đường thẳng AB, MN, CD cùng đi qua một điểm.
+Bài V. (0,5 điểm)                                              M
+   Nhà bạn Kiên có một mảnh sân hình vuông có cạnh
+là 8m. Kiên muốn lát gạch màu khác trên phần sân có                    N
+dạng hình vuông MNPQ để trang trí (như hình vẽ bên).
+Để tiết kiệm chi phí lát gạch, tìm vị trí của điểm M, N,
+P, Q lần lượt trên các cạnh của mảnh sân để hình           Q
+
+vuông MNPQ có diện tích nhỏ nhất.
+                                                                   P
+
+
+                            …. Hết …

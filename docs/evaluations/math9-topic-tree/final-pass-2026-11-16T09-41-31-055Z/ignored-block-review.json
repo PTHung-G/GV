@@ -1,0 +1,307 @@
+[
+  {
+    "stage": "extract:hat-mon-hk2-2025-2026",
+    "ignoredBlocks": [
+      {
+        "id": 0,
+        "text": "\f\f   PHÒNG VH - XH XÃ HÁT MÔN               ĐỀ KIỂM TRA CUỐI HỌC KỲ II\n",
+        "html": "<p style=\"white-space:pre-wrap\">\f\f   PHÒNG VH - XH XÃ HÁT MÔN               ĐỀ KIỂM TRA CUỐI HỌC KỲ II\n</p>"
+      },
+      {
+        "id": 1,
+        "text": "    TRƯỜNG THCS HÁT MÔN                        NĂM HỌC 2025 - 2026\n",
+        "html": "<p style=\"white-space:pre-wrap\">    TRƯỜNG THCS HÁT MÔN                        NĂM HỌC 2025 - 2026\n</p>"
+      },
+      {
+        "id": 2,
+        "text": "                                                   MÔN TOÁN 9\n",
+        "html": "<p style=\"white-space:pre-wrap\">                                                   MÔN TOÁN 9\n</p>"
+      },
+      {
+        "id": 3,
+        "text": "         ĐỀ CHÍNH THỨC                       (Thời gian làm bài: 90 phút)\n",
+        "html": "<p style=\"white-space:pre-wrap\">         ĐỀ CHÍNH THỨC                       (Thời gian làm bài: 90 phút)\n</p>"
+      },
+      {
+        "id": 4,
+        "text": "\n",
+        "html": "<p style=\"white-space:pre-wrap\">\n</p>"
+      },
+      {
+        "id": 5,
+        "text": "Bài I (2,5 điểm).\n",
+        "html": "<p style=\"white-space:pre-wrap\">Bài I (2,5 điểm).\n</p>"
+      },
+      {
+        "id": 23,
+        "text": "Bài II (2,0 điểm).\n",
+        "html": "<p style=\"white-space:pre-wrap\">Bài II (2,0 điểm).\n</p>"
+      },
+      {
+        "id": 33,
+        "text": "Bài III (1,5 điểm).\n",
+        "html": "<p style=\"white-space:pre-wrap\">Bài III (1,5 điểm).\n</p>"
+      },
+      {
+        "id": 38,
+        "text": "\fBài IV (3,5 điểm).\n",
+        "html": "<p style=\"white-space:pre-wrap\">\fBài IV (3,5 điểm).\n</p>"
+      },
+      {
+        "id": 58,
+        "text": "\n",
+        "html": "<p style=\"white-space:pre-wrap\">\n</p>"
+      },
+      {
+        "id": 61,
+        "text": "\n",
+        "html": "<p style=\"white-space:pre-wrap\">\n</p>"
+      },
+      {
+        "id": 62,
+        "text": "\n",
+        "html": "<p style=\"white-space:pre-wrap\">\n</p>"
+      },
+      {
+        "id": 63,
+        "text": "                            …. Hết …\n",
+        "html": "<p style=\"white-space:pre-wrap\">                            …. Hết …\n</p>"
+      }
+    ]
+  },
+  {
+    "stage": "extract:ly-son-hk1-2025-2026",
+    "ignoredBlocks": [
+      {
+        "id": 0,
+        "text": "     UBND PHƯỜNG VIỆT HƯNG                               ĐỀ KIỂM TRA CUỐI HỌC KÌ I\n",
+        "html": "<p style=\"white-space:pre-wrap\">     UBND PHƯỜNG VIỆT HƯNG                               ĐỀ KIỂM TRA CUỐI HỌC KÌ I\n</p>"
+      },
+      {
+        "id": 1,
+        "text": "       TRƯỜNG THCS LÝ SƠN                                           MÔN: TOÁN 9\n",
+        "html": "<p style=\"white-space:pre-wrap\">       TRƯỜNG THCS LÝ SƠN                                           MÔN: TOÁN 9\n</p>"
+      },
+      {
+        "id": 2,
+        "text": "         NĂM HỌC 2025 – 2026                                    Thời gian: 90 phút\n",
+        "html": "<p style=\"white-space:pre-wrap\">         NĂM HỌC 2025 – 2026                                    Thời gian: 90 phút\n</p>"
+      },
+      {
+        "id": 3,
+        "text": "                                                              Ngày thi: 25/ 12/ 2025\n",
+        "html": "<p style=\"white-space:pre-wrap\">                                                              Ngày thi: 25/ 12/ 2025\n</p>"
+      },
+      {
+        "id": 4,
+        "text": "             ĐỀ CHÍNH THỨC\n",
+        "html": "<p style=\"white-space:pre-wrap\">             ĐỀ CHÍNH THỨC\n</p>"
+      },
+      {
+        "id": 5,
+        "text": "                                                                    Mã đề thi: 901\n",
+        "html": "<p style=\"white-space:pre-wrap\">                                                                    Mã đề thi: 901\n</p>"
+      },
+      {
+        "id": 6,
+        "text": "            (Đề thi gồm 02 trang)\n",
+        "html": "<p style=\"white-space:pre-wrap\">            (Đề thi gồm 02 trang)\n</p>"
+      },
+      {
+        "id": 7,
+        "text": "Bài I. (2 điểm).\n",
+        "html": "<p style=\"white-space:pre-wrap\">Bài I. (2 điểm).\n</p>"
+      },
+      {
+        "id": 33,
+        "text": "Bài IV (3 điểm).\n",
+        "html": "<p style=\"white-space:pre-wrap\">Bài IV (3 điểm).\n</p>"
+      },
+      {
+        "id": 41,
+        "text": "                         Trang 0 1/0 2 – Môn thi Toán 9 – Mã đề thi 901\n",
+        "html": "<p style=\"white-space:pre-wrap\">                         Trang 0 1/0 2 – Môn thi Toán 9 – Mã đề thi 901\n</p>"
+      },
+      {
+        "id": 50,
+        "text": "\n",
+        "html": "<p style=\"white-space:pre-wrap\">\n</p>"
+      },
+      {
+        "id": 52,
+        "text": "Bài V (0,5 điểm)\n",
+        "html": "<p style=\"white-space:pre-wrap\">Bài V (0,5 điểm)\n</p>"
+      },
+      {
+        "id": 62,
+        "text": "                              Chúc các con làm bài tốt!\n",
+        "html": "<p style=\"white-space:pre-wrap\">                              Chúc các con làm bài tốt!\n</p>"
+      },
+      {
+        "id": 63,
+        "text": "\n",
+        "html": "<p style=\"white-space:pre-wrap\">\n</p>"
+      },
+      {
+        "id": 64,
+        "text": "\n",
+        "html": "<p style=\"white-space:pre-wrap\">\n</p>"
+      },
+      {
+        "id": 65,
+        "text": "\n",
+        "html": "<p style=\"white-space:pre-wrap\">\n</p>"
+      },
+      {
+        "id": 66,
+        "text": "\n",
+        "html": "<p style=\"white-space:pre-wrap\">\n</p>"
+      },
+      {
+        "id": 67,
+        "text": "                    Trang 0 2/0 2 – Môn thi Toán 9 – Mã đề thi 901\n",
+        "html": "<p style=\"white-space:pre-wrap\">                    Trang 0 2/0 2 – Môn thi Toán 9 – Mã đề thi 901\n</p>"
+      },
+      {
+        "id": 68,
+        "text": "\f\n",
+        "html": "<p style=\"white-space:pre-wrap\">\f\n</p>"
+      }
+    ]
+  },
+  {
+    "stage": "extract:quang-ninh-entrance10-2026-2027",
+    "ignoredBlocks": [
+      {
+        "id": 0,
+        "text": " SỞ GIÁO DỤC VÀ ĐÀO TẠO                           KỲ THI TUYỂN SINH TRUNG HỌC PHỔ THÔNG\n",
+        "html": "<p style=\"white-space:pre-wrap\"> SỞ GIÁO DỤC VÀ ĐÀO TẠO                           KỲ THI TUYỂN SINH TRUNG HỌC PHỔ THÔNG\n</p>"
+      },
+      {
+        "id": 1,
+        "text": "    TỈNH QUẢNG NINH                                          NĂM HỌC 2026 - 2027\n",
+        "html": "<p style=\"white-space:pre-wrap\">    TỈNH QUẢNG NINH                                          NĂM HỌC 2026 - 2027\n</p>"
+      },
+      {
+        "id": 2,
+        "text": "                                                          Môn thi: Toán (Dành cho mọi thí sinh)\n",
+        "html": "<p style=\"white-space:pre-wrap\">                                                          Môn thi: Toán (Dành cho mọi thí sinh)\n</p>"
+      },
+      {
+        "id": 3,
+        "text": "       ĐỀ THI CHÍNH THỨC                           Thời gian làm bài: 120 phút, không kể thời gian phát đề\n",
+        "html": "<p style=\"white-space:pre-wrap\">       ĐỀ THI CHÍNH THỨC                           Thời gian làm bài: 120 phút, không kể thời gian phát đề\n</p>"
+      },
+      {
+        "id": 4,
+        "text": "       (Đề thi này có 02 trang)\n",
+        "html": "<p style=\"white-space:pre-wrap\">       (Đề thi này có 02 trang)\n</p>"
+      },
+      {
+        "id": 5,
+        "text": "\n",
+        "html": "<p style=\"white-space:pre-wrap\">\n</p>"
+      },
+      {
+        "id": 6,
+        "text": "PHẦN I. TRẮC NGHIỆM (3,0 ĐIỂM)\n",
+        "html": "<p style=\"white-space:pre-wrap\">PHẦN I. TRẮC NGHIỆM (3,0 ĐIỂM)\n</p>"
+      },
+      {
+        "id": 7,
+        "text": "Câu hỏi trắc nghiệm nhiều phương án lựa chọn. Mỗi câu thí sinh chỉ chọn một phương án. Mỗi câu trả\n",
+        "html": "<p style=\"white-space:pre-wrap\">Câu hỏi trắc nghiệm nhiều phương án lựa chọn. Mỗi câu thí sinh chỉ chọn một phương án. Mỗi câu trả\n</p>"
+      },
+      {
+        "id": 8,
+        "text": "lời đúng được 0,25 điểm.\n",
+        "html": "<p style=\"white-space:pre-wrap\">lời đúng được 0,25 điểm.\n</p>"
+      },
+      {
+        "id": 39,
+        "text": "\n",
+        "html": "<p style=\"white-space:pre-wrap\">\n</p>"
+      },
+      {
+        "id": 47,
+        "text": "\n",
+        "html": "<p style=\"white-space:pre-wrap\">\n</p>"
+      },
+      {
+        "id": 48,
+        "text": "\n",
+        "html": "<p style=\"white-space:pre-wrap\">\n</p>"
+      },
+      {
+        "id": 49,
+        "text": "                                                       Trang 1\n",
+        "html": "<p style=\"white-space:pre-wrap\">                                                       Trang 1\n</p>"
+      },
+      {
+        "id": 57,
+        "text": "\n",
+        "html": "<p style=\"white-space:pre-wrap\">\n</p>"
+      },
+      {
+        "id": 60,
+        "text": "\n",
+        "html": "<p style=\"white-space:pre-wrap\">\n</p>"
+      },
+      {
+        "id": 61,
+        "text": "PHẦN II. TỰ LUẬN (7,0 ĐIỂM)\n",
+        "html": "<p style=\"white-space:pre-wrap\">PHẦN II. TỰ LUẬN (7,0 ĐIỂM)\n</p>"
+      },
+      {
+        "id": 89,
+        "text": "\n",
+        "html": "<p style=\"white-space:pre-wrap\">\n</p>"
+      },
+      {
+        "id": 90,
+        "text": "\n",
+        "html": "<p style=\"white-space:pre-wrap\">\n</p>"
+      },
+      {
+        "id": 91,
+        "text": "\n",
+        "html": "<p style=\"white-space:pre-wrap\">\n</p>"
+      },
+      {
+        "id": 92,
+        "text": "\n",
+        "html": "<p style=\"white-space:pre-wrap\">\n</p>"
+      },
+      {
+        "id": 110,
+        "text": "\n",
+        "html": "<p style=\"white-space:pre-wrap\">\n</p>"
+      },
+      {
+        "id": 111,
+        "text": "                                            ............................ Hết ...........................\n",
+        "html": "<p style=\"white-space:pre-wrap\">                                            ............................ Hết ...........................\n</p>"
+      },
+      {
+        "id": 112,
+        "text": "                            Thí sinh không được sử dụng tài liệu. Giám thị không giải thích gì thêm.\n",
+        "html": "<p style=\"white-space:pre-wrap\">                            Thí sinh không được sử dụng tài liệu. Giám thị không giải thích gì thêm.\n</p>"
+      },
+      {
+        "id": 113,
+        "text": "Họ và tên thí sinh: ................................................................... Số báo danh: ...............................\n",
+        "html": "<p style=\"white-space:pre-wrap\">Họ và tên thí sinh: ................................................................... Số báo danh: ...............................\n</p>"
+      },
+      {
+        "id": 114,
+        "text": "Chữ kí của Giám thị 1:...................................... Chữ kí của Giám thị 2:...........................................\n",
+        "html": "<p style=\"white-space:pre-wrap\">Chữ kí của Giám thị 1:...................................... Chữ kí của Giám thị 2:...........................................\n</p>"
+      },
+      {
+        "id": 115,
+        "text": "                                                                    Trang 2\n",
+        "html": "<p style=\"white-space:pre-wrap\">                                                                    Trang 2\n</p>"
+      }
+    ]
+  }
+]

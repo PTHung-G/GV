@@ -1,0 +1,26 @@
+{
+  "startedAt": "2026-11-17T09:10:33.051Z",
+  "goldSha256": "85c62af2861188d1639e2c98c6768e46625836e1e223d94e9f9add228de51e2a",
+  "manifestSha256": "c734327a70986dfec2b6bd6f5db8e55c3f23c8f4f75cb79df51d3f6a9e548f00",
+  "configuredModel": "chib/deepseek-v4.1-flash",
+  "publicCorpus": true,
+  "syntheticOwner": true,
+  "calls": [],
+  "stages": [],
+  "checks": {},
+  "retry": false,
+  "initialTree": [
+    {
+      "id": "root",
+      "label": "Kho câu hỏi",
+      "parentId": null
+    }
+  ],
+  "sourceCodeSha256": "17fbad25e4733a7e22e7f9e463ef0a17d6086ca273098f1ec9ab11873d41c5fe",
+  "resumedFrom": {
+    "path": "docs/evaluations/math9-ten-topic-tree/repair-pass-2026-11-17T09-01-11-757Z/ngo-gia-tu-hk2-2025-2026.organized-bank.json",
+    "sha256": "abaa6516e8bb1d477c51bd3ed76d18ec260516aebc74ab16661728885f945a27"
+  },
+  "outcome": "resume_verified_no_provider_calls",
+  "finishedAt": "2026-11-17T09:10:33.554Z"
+}

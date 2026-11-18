@@ -1,0 +1,79 @@
+      UBND XÃ TAM ANH        ĐỀ KIỂM TRA CUỐI KÌ I, NĂM HỌC 2025-2026
+TRƯỜNG THCS HUỲNH THÚC KHÁNG          MÔN: TOÁN – LỚP 9 – MÃ ĐỀ 1
+        (Đề gồm có 02 trang) Thời gian: 90 phút (không kể thời gian giao đề)
+
+    I. TRẮC NGHIỆM (3,0 điểm). Chọn câu trả lời đúng rồi ghi vào giấy làm bài.
+
+    Câu 1. Trong các phương trình sau, có bao nhiêu phương trình bậc nhất hai ẩn?
+          𝑥 = 0; −𝑥 − 𝑦 = 1; 0𝑥 + 0𝑦 = 2𝑥𝑦; −𝑥 + 𝑦 = 0.
+    A. 1.                    B. 2.                  C. 3.                D. 4.
+    Câu 2. x  1; x  5 là hai nghiệm của phương trình nào dưới đây?
+    A. (5  x )( x  1)  0.                  B. (5  x )( x  1)  0.
+    C. (5  x )( x  1)  0.                  D. (5  x )(  x  1)  0.
+    Câu 3. Để được điều khiển xe máy điện thì số tuổi 𝒙 của một người phải ít nhất là 16
+    tuổi, bất đẳng thức mô tả tình huống đó là
+    A. 𝑥 < 16.              B. 𝑥 ≤ 16.              C. 𝑥 > 16.        D. x ≥ 16.
+    Câu 4. Căn bậc hai của 36 là
+    A.   36 .               B.  6 .                 C. 6 .             D. -6 .
+    Câu 5. Giá trị của x để x  1 có nghĩa là
+    A. x  1 .             B. x  1 .              C. x 1.           D. x  1 .
+    Câu 6. Nếu M  0 và N  0 thì      M 2 N bằng
+    A. N M.                 B. N M.                  C.  M N.          D. M N.
+    Câu 7. Kết quả so sánh đúng là
+    A. 5  3.                B. 2  5.                C. 2  2 .         D. 4  16 .
+    Câu 8. Đường tròn là hình
+    A. có một tâm đối xứng và có vô số trục đối xứng.       B. có một trục đối xứng.
+    C. có vô số tâm đối xứng.                     A
+                                                            D. không có trục đối xứng.
+    Câu 9. Góc ở tâm ở hình vẽ bên là
+    A. AOB.
+    B. 𝐵𝐴𝑂.
+                                    C        O          B
+    C. 𝐶𝐴𝑂.
+    D. 𝐴𝐵𝑂.
+
+    Câu 10. Điểm M nằm trên đường tròn (O; 2cm) khi và chỉ khi
+    A. OM < 2cm.             B. OM = 2cm.            C. OM  2cm.      D. OM > 2cm.
+    Câu 11. Trong một đường tròn, số đo cung lớn bằng:
+    A. Số đo cung nhỏ .
+    B. Số đo của cung nửa đường tròn.
+    C. Hiệu giữa 360o và số đo của cung nhỏ (có chung 2 mút với cung lớn).
+    D. Tổng giữa 360o và số đo của cung nhỏ (có chung 2 mút với cung lớn).
+Câu 12. Diện tích của hình quạt tròn bán kính R, cung n0 được tính theo công thức
+          Rn                             R2n                         Rn                     R2n
+A. S           .               B. S            .           C. S           .       D. S            .
+         180                              180                         360                     360
+
+II. TỰ LUẬN (7,0 điểm).
+Bài 1. (1,25 điểm)
+      a. Giải bất phương trình 4x  3  1  2x .
+                                         x - y  1
+         b. Giải hệ phương trình: 
+                                         3x + y = 7
+Bài 2. (2,0 điểm)
+          a. Tính 81 ;       (2,5)2 ;    (1  2)2 ;
+          b. Rút gọn các biểu thức M và N
+            108x3 y                                                              1
+   M=                  (với x  0, y  0 ) ;            N = 5 48  3 27 
+                3xy3                                                             3 2
+                                                                = 300.
+Bài 3. (2,75 điểm) Cho tam giác ABC vuông tại A biết AB = 8cm, C
+      a. Giải tam giác vuông ABC.
+      b. Vẽ đường tròn tâm O đường kính AC cắt BC tại H. Chứng tỏ AB là tiếp tuyến
+của đường tròn tâm O.
+      c. Tính độ dài cung tròn AH.
+Bài 4. (1,0 điểm)
+                                    x x     x
+         a. Cho biểu thức A              -        với x > 0 và x ≠ 1. Tìm x để A = 3.
+                                     x -1 x( x -1)
+       b. Ba bộ phận truyền chuyển động của một
+chiếc xe đạp gồm một giò đĩa (bánh răng gắn với
+bàn đạp), một chiếc líp (cũng có dạng bánh răng)
+gắn với bánh xe và bộ xích (Hình a). Biết rằng giò
+đĩa có bán kính 14 cm, líp có bán kính 4 cm và bánh
+xe có đường kính 67 cm. Hỏi khi người đi xe đạp
+một vòng thì xe chạy được quãng đường dài bao
+nhiêu mét (làm tròn kết quả đến hàng phần chục)?
+Nếu muốn đi quãng đường 2km thì người đó cần
+phải đạp bao nhiêu vòng?
+                                                     -Hết-

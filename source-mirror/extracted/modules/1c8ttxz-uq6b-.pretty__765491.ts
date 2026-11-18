@@ -1,0 +1,211 @@
+// Reconstructed from 1c8ttxz-uq6b-.pretty.js, module 765491.
+// deps: m271645, m820783, m248425, m30207, m843476
+// exports: FocusScope
+export { d as "FocusScope" };
+
+"use strict";
+    var t = m271645,
+      n = m820783,
+      r = m248425,
+      o = m30207,
+      i = m843476,
+      u = Object.defineProperty,
+      a = (e, t) => u(e, "name", { value: t, configurable: !0 }),
+      c = "focusScope.autoFocusOnMount",
+      s = "focusScope.autoFocusOnUnmount",
+      l = { bubbles: !1, cancelable: !0 },
+      d = t.forwardRef(
+        a(function (e, u) {
+          let {
+              loop: d = !1,
+              trapped: p = !1,
+              onMountAutoFocus: h,
+              onUnmountAutoFocus: E,
+              ...g
+            } = e,
+            [w, C] = t.useState(null),
+            O = (0, o.useCallbackRef)(h),
+            R = (0, o.useCallbackRef)(E),
+            L = t.useRef(null),
+            P = (0, n.useComposedRefs)(u, C),
+            N = t.useRef({
+              paused: !1,
+              pause() {
+                this.paused = !0;
+              },
+              resume() {
+                this.paused = !1;
+              },
+            }).current;
+          (t.useEffect(() => {
+            if (p) {
+              let e = function (e) {
+                  if (N.paused || !w) return;
+                  let t = e.target;
+                  w.contains(t)
+                    ? (L.current = t)
+                    : y(L.current, { select: !0 });
+                },
+                t = function (e) {
+                  if (N.paused || !w) return;
+                  let t = e.relatedTarget;
+                  null !== t && (w.contains(t) || y(L.current, { select: !0 }));
+                },
+                n = function (e) {
+                  if (document.activeElement === document.body)
+                    for (let t of e) t.removedNodes.length > 0 && y(w);
+                };
+              (a(e, "handleFocusIn"),
+                a(t, "handleFocusOut"),
+                a(n, "handleMutations"),
+                document.addEventListener("focusin", e),
+                document.addEventListener("focusout", t));
+              let r = new MutationObserver(n);
+              return (
+                w && r.observe(w, { childList: !0, subtree: !0 }),
+                () => {
+                  (document.removeEventListener("focusin", e),
+                    document.removeEventListener("focusout", t),
+                    r.disconnect());
+                }
+              );
+            }
+          }, [p, w, N.paused]),
+            t.useEffect(() => {
+              if (w) {
+                b.add(N);
+                let e = document.activeElement;
+                if (!w.contains(e)) {
+                  let t = new CustomEvent(c, l);
+                  (w.addEventListener(c, O),
+                    w.dispatchEvent(t),
+                    t.defaultPrevented ||
+                      (f(S(v(w)), { select: !0 }),
+                      document.activeElement === e && y(w)));
+                }
+                return () => {
+                  (w.removeEventListener(c, O),
+                    setTimeout(() => {
+                      let t = new CustomEvent(s, l);
+                      (w.addEventListener(s, R),
+                        w.dispatchEvent(t),
+                        t.defaultPrevented ||
+                          y(e ?? document.body, { select: !0 }),
+                        w.removeEventListener(s, R),
+                        b.remove(N));
+                    }, 0));
+                };
+              }
+            }, [w, O, R, N]));
+          let T = t.useCallback(
+            (e) => {
+              if ((!d && !p) || N.paused) return;
+              let t = "Tab" === e.key && !e.altKey && !e.ctrlKey && !e.metaKey,
+                n = document.activeElement;
+              if (t && n) {
+                let t = e.currentTarget,
+                  [r, o] = m(t);
+                r && o
+                  ? e.shiftKey || n !== o
+                    ? e.shiftKey &&
+                      n === r &&
+                      (e.preventDefault(), d && y(o, { select: !0 }))
+                    : (e.preventDefault(), d && y(r, { select: !0 }))
+                  : n === t && e.preventDefault();
+              }
+            },
+            [d, p, N.paused],
+          );
+          return (0, i.jsx)(r.Primitive.div, {
+            tabIndex: -1,
+            ...g,
+            ref: P,
+            onKeyDown: T,
+          });
+        }, "FocusScope"),
+      );
+    function f(e, { select: t = !1 } = {}) {
+      let n = document.activeElement;
+      for (let r of e)
+        if ((y(r, { select: t }), document.activeElement !== n)) return;
+    }
+    function m(e) {
+      let t = v(e);
+      return [p(t, e), p(t.reverse(), e)];
+    }
+    function v(e) {
+      let t = [],
+        n = document.createTreeWalker(e, NodeFilter.SHOW_ELEMENT, {
+          acceptNode: a((e) => {
+            let t = "INPUT" === e.tagName && "hidden" === e.type;
+            return e.disabled || e.hidden || t
+              ? NodeFilter.FILTER_SKIP
+              : e.tabIndex >= 0
+                ? NodeFilter.FILTER_ACCEPT
+                : NodeFilter.FILTER_SKIP;
+          }, "acceptNode"),
+        });
+      for (; n.nextNode(); ) t.push(n.currentNode);
+      return t;
+    }
+    function p(e, t) {
+      let n =
+        "function" == typeof t.checkVisibility &&
+        t.checkVisibility({ checkVisibilityCSS: !0 });
+      for (let r of e)
+        if (
+          !(n
+            ? !r.checkVisibility({ checkVisibilityCSS: !0 })
+            : h(r, { upTo: t }))
+        )
+          return r;
+    }
+    function h(e, { upTo: t }) {
+      if ("hidden" === getComputedStyle(e).visibility) return !0;
+      for (; e && (void 0 === t || e !== t); ) {
+        if ("none" === getComputedStyle(e).display) return !0;
+        e = e.parentElement;
+      }
+      return !1;
+    }
+    function E(e) {
+      return e instanceof HTMLInputElement && "select" in e;
+    }
+    function y(e, { select: t = !1 } = {}) {
+      if (e && e.focus) {
+        let n = document.activeElement;
+        (e.focus({ preventScroll: !0 }), e !== n && E(e) && t && e.select());
+      }
+    }
+    (a(f, "focusFirst"),
+      a(m, "getTabbableEdges"),
+      a(v, "getTabbableCandidates"),
+      a(p, "findVisible"),
+      a(h, "isHidden"),
+      a(E, "isSelectableInput"),
+      a(y, "focus"));
+    var b = g();
+    function g() {
+      let e = [];
+      return {
+        add(t) {
+          let n = e[0];
+          (t !== n && n?.pause(), (e = w(e, t)).unshift(t));
+        },
+        remove(t) {
+          ((e = w(e, t)), e[0]?.resume());
+        },
+      };
+    }
+    function w(e, t) {
+      let n = [...e],
+        r = n.indexOf(t);
+      return (-1 !== r && n.splice(r, 1), n);
+    }
+    function S(e) {
+      return e.filter((e) => "A" !== e.tagName);
+    }
+    (a(g, "createFocusScopesStack"),
+      a(w, "arrayRemove"),
+      a(S, "removeLinks"),
+      );

@@ -1,0 +1,26 @@
+{
+  "startedAt": "2026-11-17T09:42:07.362Z",
+  "goldSha256": "85c62af2861188d1639e2c98c6768e46625836e1e223d94e9f9add228de51e2a",
+  "manifestSha256": "c734327a70986dfec2b6bd6f5db8e55c3f23c8f4f75cb79df51d3f6a9e548f00",
+  "configuredModel": "chib/deepseek-v4.1-flash",
+  "publicCorpus": true,
+  "syntheticOwner": true,
+  "calls": [],
+  "stages": [],
+  "checks": {},
+  "retry": false,
+  "initialTree": [
+    {
+      "id": "root",
+      "label": "Kho câu hỏi",
+      "parentId": null
+    }
+  ],
+  "sourceCodeSha256": "6899dc8f25d05a4cdf61d9ce884ba22b2bc67a0aec563aba0c5e75c80a4f2c9b",
+  "resumedFrom": {
+    "path": "docs/evaluations/math9-ten-topic-tree/repair-pass-2026-11-17T09-10-58-522Z/tran-phu-hk2-2025-2026.organized-bank.json",
+    "sha256": "c5ade767fadc9b3a737ea7e3c4f783887b9942fa0d9929a1d99b0da07a4aba56"
+  },
+  "outcome": "resume_verified_no_provider_calls",
+  "finishedAt": "2026-11-17T09:42:07.936Z"
+}

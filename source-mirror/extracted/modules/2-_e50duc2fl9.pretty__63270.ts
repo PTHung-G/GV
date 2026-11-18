@@ -1,0 +1,161 @@
+// Reconstructed from 2-_e50duc2fl9.pretty.js, module 63270.
+// deps: m843476, m271645, m705844, m30030, m30207, m934620, m248425, m97456, m647163
+// exports: Avatar, AvatarFallback, AvatarImage, Fallback, Image, Root, createAvatarScope, Avatar, AvatarFallback, AvatarImage
+export { g as "Avatar" };
+export { x as "AvatarFallback" };
+export { y as "AvatarImage" };
+export { x as "Fallback" };
+export { y as "Image" };
+export { g as "Root" };
+export { f as "createAvatarScope" };
+export { function ({ className: e, ...r }) { return (0, t.jsx)(j.Root, { "data-slot": "avatar", className: (0, S.cn)( "relative flex size-9 shrink-0 overflow-hidden rounded-full", e, ), ...r, }); } as "Avatar" };
+export { function ({ className: e, ...r }) { return (0, t.jsx)(j.Fallback, { "data-slot": "avatar-fallback", className: (0, S.cn)( "flex size-full items-center justify-center rounded-full bg-[#f1f1ef] text-sm font-medium text-[#2383e2]", e, ), ...r, }); } as "AvatarFallback" };
+export { function ({ className: e, ...r }) { return (0, t.jsx)(j.Image, { "data-slot": "avatar-image", referrerPolicy: "no-referrer", className: (0, S.cn)("aspect-square size-full object-cover", e), ...r, }); } as "AvatarImage" };
+
+"use strict";
+    var t = m843476,
+      r = m271645,
+      n = m705844,
+      s = m30030,
+      i = m30207,
+      a = m934620,
+      o = m248425,
+      l = Object.defineProperty,
+      u = (e, t) => l(e, "name", { value: t, configurable: !0 }),
+      c = "Avatar",
+      [d, f] = (0, s.createContextScope)(c),
+      p = [0, () => void 0],
+      [h, m] = d(c),
+      g = r.forwardRef(
+        u(function (e, n) {
+          let { __scopeAvatar: s, ...i } = e,
+            [a, l] = r.useState("idle"),
+            [u, c] = w();
+          return (0, t.jsx)(h, {
+            scope: s,
+            imageLoadingStatus: a,
+            setImageLoadingStatus: l,
+            imageCount: u,
+            setImageCount: c,
+            children: (0, t.jsx)(o.Primitive.span, { ...i, ref: n }),
+          });
+        }, "Avatar"),
+      ),
+      y = r.forwardRef(
+        u(function (e, n) {
+          let { __scopeAvatar: s, src: l, onLoadingStatusChange: u, ...c } = e,
+            d = m("AvatarImage", s);
+          k(d.setImageCount);
+          let f = v(l, {
+              referrerPolicy: c.referrerPolicy,
+              crossOrigin: c.crossOrigin,
+              loadingStatus: d.imageLoadingStatus,
+              setLoadingStatus: d.setImageLoadingStatus,
+            }),
+            p = (0, i.useCallbackRef)((e) => {
+              u?.(e);
+            }),
+            h = r.useRef(f);
+          return (
+            (0, a.useLayoutEffect)(() => {
+              let e = h.current;
+              ((h.current = f), f !== e && p(f));
+            }, [f, p]),
+            "loaded" === f
+              ? (0, t.jsx)(o.Primitive.img, { ...c, ref: n, src: l })
+              : null
+          );
+        }, "AvatarImage"),
+      ),
+      x = r.forwardRef(
+        u(function (e, n) {
+          let { __scopeAvatar: s, delayMs: i, ...a } = e,
+            l = m("AvatarFallback", s),
+            [u, c] = r.useState(void 0 === i);
+          return (
+            r.useEffect(() => {
+              if (void 0 !== i) {
+                let e = window.setTimeout(() => c(!0), i);
+                return () => window.clearTimeout(e);
+              }
+            }, [i]),
+            u && "loaded" !== l.imageLoadingStatus
+              ? (0, t.jsx)(o.Primitive.span, { ...a, ref: n })
+              : null
+          );
+        }, "AvatarFallback"),
+      );
+    function v(
+      e,
+      {
+        loadingStatus: t,
+        setLoadingStatus: r,
+        referrerPolicy: n,
+        crossOrigin: s,
+      },
+    ) {
+      return (
+        (0, a.useLayoutEffect)(() => {
+          if (!e) return void r("error");
+          let t = new window.Image(),
+            i = u((e) => {
+              r(b(e.currentTarget));
+            }, "handleLoad"),
+            a = u(() => r("error"), "handleError");
+          return (
+            t.addEventListener("load", i),
+            t.addEventListener("error", a),
+            n && (t.referrerPolicy = n),
+            (t.crossOrigin = s ?? null),
+            (t.src = e),
+            r(b(t)),
+            () => {
+              (t.removeEventListener("load", i),
+                t.removeEventListener("error", a),
+                r("idle"));
+            }
+          );
+        }, [e, s, n, r]),
+        t
+      );
+    }
+    function b(e) {
+      return e.complete ? (e.naturalWidth > 0 ? "loaded" : "error") : "loading";
+    }
+    function w() {
+      let e = p;
+      if (n.IS_DEVELOPMENT) {
+        let [t] = (e = r.useState(0)),
+          n = r.useRef(!1);
+        r.useEffect(() => {
+          t > 1 &&
+            !n.current &&
+            ((n.current = !0),
+            console.warn(
+              "Avatar: Only one `Avatar.Image` component should be rendered per `Avatar.Root`, but multiple were detected. This will lead to unexpected behavior.",
+            ));
+        }, [t]);
+      }
+      return e;
+    }
+    function k(e) {
+      n.IS_DEVELOPMENT &&
+        r.useEffect(
+          () => (
+            e((e) => e + 1),
+            () => {
+              e((e) => e - 1);
+            }
+          ),
+          [e],
+        );
+    }
+    (u(v, "useImageLoadingStatus"),
+      u(b, "getImageLoadingStatus"),
+      u(w, "useImageCount"),
+      u(k, "useUpdateImageCount"),
+      );
+    var j = m97456,
+      j = j,
+      S = m647163;
+    ;

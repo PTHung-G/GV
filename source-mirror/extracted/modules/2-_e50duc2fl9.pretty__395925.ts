@@ -1,0 +1,17 @@
+// Reconstructed from 2-_e50duc2fl9.pretty.js, module 395925.
+// deps: m456420
+// exports: RotateCcw
+export { t as "RotateCcw" };
+
+"use strict";
+    let t = (0, m456420.default)("rotate-ccw", [
+      [
+        "path",
+        {
+          d: "M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8",
+          key: "1357e3",
+        },
+      ],
+      ["path", { d: "M3 3v5h5", key: "1xhq8a" }],
+    ]);
+    ;

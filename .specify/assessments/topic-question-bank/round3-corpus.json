@@ -1,0 +1,296 @@
+{
+  "origin": "Original synthetic fixtures created for research; not real teacher data.",
+  "components": {
+    "P1": {
+      "kind": "passage",
+      "payload": "Tư liệu giả định: Năm thứ nhất làng có 20 hộ dệt; năm thứ hai có 30 hộ. Người ghi chép nhận xét: “Nghề dệt đang thịnh vượng”. Không có số liệu thu nhập hoặc dân số."
+    },
+    "F1": {
+      "kind": "figure",
+      "payload": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 100\"><path d=\"M10 10 L10 90 L110 90 Z\" fill=\"none\" stroke=\"black\"/><text x=\"0\" y=\"10\">A</text><text x=\"0\" y=\"99\">B</text><text x=\"110\" y=\"99\">C</text></svg>"
+    },
+    "F1-data": {
+      "kind": "shared_data",
+      "payload": "Tam giác ABC vuông tại B; AB=3 cm, AC=5 cm. Hình minh họa không theo tỉ lệ."
+    },
+    "Q01-body": {
+      "kind": "question_body",
+      "payload": "Giải phương trình $2x+3=11$."
+    },
+    "Q02-body": {
+      "kind": "question_body",
+      "payload": "Vật đi đều 120 m trong 20 s. Tính vận tốc trung bình."
+    },
+    "Q03-body": {
+      "kind": "question_body",
+      "payload": "Cân bằng phương trình $H_2+O_2\\rightarrow H_2O$."
+    },
+    "Q04-body": {
+      "kind": "question_body",
+      "payload": "Nêu chức năng của lục lạp trong quang hợp."
+    },
+    "Q05-body": {
+      "kind": "question_body",
+      "payload": "Từ nguồn tư liệu P1, nêu một thay đổi kinh tế và một giới hạn của kết luận."
+    },
+    "Q06-body": {
+      "kind": "question_body",
+      "payload": "Đọc P1: phân biệt câu nêu sự kiện và câu thể hiện nhận định."
+    },
+    "Q07-body": {
+      "kind": "question_body",
+      "payload": "Viết giả mã tìm số lớn nhất trong danh sách không rỗng."
+    },
+    "Q08-body": {
+      "kind": "question_body",
+      "payload": "Giá tăng từ 100 lên 110 nghìn đồng. Tính phần trăm tăng."
+    },
+    "Q09-body": {
+      "kind": "question_body",
+      "payload": "Giải phương trình $3x-6=0$."
+    },
+    "Q10-body": {
+      "kind": "question_body",
+      "payload": "Xe đi 60 km trong 1,5 giờ. Tính tốc độ trung bình."
+    },
+    "Q11-body": {
+      "kind": "question_body",
+      "payload": "Cân bằng phương trình $Fe+O_2\\rightarrow Fe_2O_3$."
+    },
+    "Q12-body": {
+      "kind": "question_body",
+      "payload": "So sánh vai trò của lục lạp và ti thể trong chuyển hóa năng lượng."
+    },
+    "Q13-body": {
+      "kind": "question_body",
+      "payload": "Dựa P1, viết đoạn văn phân tích quan hệ giữa thay đổi kinh tế và cách dùng ngôn ngữ trong nguồn; nêu giới hạn suy luận."
+    },
+    "Q14-body": {
+      "kind": "question_body",
+      "payload": "Cho tam giác trong F1: a) tính độ dài BC; b) tính diện tích."
+    },
+    "Q14-a": {
+      "kind": "subpart",
+      "payload": "Tính độ dài BC."
+    },
+    "Q14-b": {
+      "kind": "subpart",
+      "payload": "Tính diện tích tam giác ABC."
+    },
+    "Q15-body": {
+      "kind": "question_body",
+      "payload": "Thuật toán giảm giá: đọc giá p, nếu p>100 thì giảm 10%. a) Viết giả mã; b) tính giá sau giảm với p=150."
+    },
+    "Q15-a": {
+      "kind": "subpart",
+      "payload": "Viết giả mã."
+    },
+    "Q15-b": {
+      "kind": "subpart",
+      "payload": "Tính giá sau giảm với p=150."
+    },
+    "Q16-body": {
+      "kind": "question_body",
+      "payload": "Giải thích vì sao một phép đo nhiệt độ có thể sai lệch; đề xuất một cách kiểm tra."
+    }
+  },
+  "questions": [
+    {
+      "id": "Q01",
+      "required_components": [
+        "Q01-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "Q02",
+      "required_components": [
+        "Q02-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "Q03",
+      "required_components": [
+        "Q03-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "Q04",
+      "required_components": [
+        "Q04-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "Q05",
+      "required_components": [
+        "Q05-body",
+        "P1"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "Q06",
+      "required_components": [
+        "Q06-body",
+        "P1"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "Q07",
+      "required_components": [
+        "Q07-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "Q08",
+      "required_components": [
+        "Q08-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "Q09",
+      "required_components": [
+        "Q09-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "Q10",
+      "required_components": [
+        "Q10-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "Q11",
+      "required_components": [
+        "Q11-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "Q12",
+      "required_components": [
+        "Q12-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "Q13",
+      "required_components": [
+        "Q13-body",
+        "P1"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "Q14",
+      "required_components": [
+        "Q14-body",
+        "F1",
+        "F1-data",
+        "Q14-a",
+        "Q14-b"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "Q15",
+      "required_components": [
+        "Q15-body",
+        "Q15-a",
+        "Q15-b"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "Q16",
+      "required_components": [
+        "Q16-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    }
+  ],
+  "order_a": [
+    [
+      "Q01",
+      "Q02",
+      "Q03",
+      "Q04",
+      "Q05",
+      "Q06",
+      "Q07",
+      "Q08"
+    ],
+    [
+      "Q09",
+      "Q10",
+      "Q11",
+      "Q12",
+      "Q13",
+      "Q14",
+      "Q15",
+      "Q16"
+    ]
+  ],
+  "order_b": [
+    [
+      "Q09",
+      "Q10",
+      "Q11",
+      "Q12",
+      "Q13",
+      "Q14",
+      "Q15",
+      "Q16"
+    ],
+    [
+      "Q01",
+      "Q02",
+      "Q03",
+      "Q04",
+      "Q05",
+      "Q06",
+      "Q07",
+      "Q08"
+    ]
+  ]
+}

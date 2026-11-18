@@ -1,0 +1,73 @@
+2. ĐỀ KIỂM TRA:
+ĐỀ CHẴN:
+I. PHẦN TRẮC NGHIỆM (2,0 điểm, mỗi câu đúng được 0,25 điểm)
+ Hãy chọn phương án trả lời đúng và viết chữ cái đứng trước phương án đó vào bài làm.
+                                                             1
+Câu 1. Điều kiện xác định của biểu thức Z =    3
+                                                   3− x +        là:
+                                                            x −1
+     A. 1 ≤ x ≤ 3             B. 1 < x ≤ 3    C. x > 1                         D. x ≥ 1
+                                            8
+Câu 2. Kết quả rút gọn của biểu thức=
+                                    A 2 5−      bằng:
+                                           5 −1
+    A. 2                  B. -1                 C. 1                           D. -2
+Câu 3. Điểm nào sau đây thuộc đồ thị hàm số hàm số y = 3x2 ?
+    A. (1 ;3)             B. (3 ;12)            C. (2.-4)                      D. (-1;-3)
+Câu 4. Nghiệm của bất phương trình x + 2 > 0 là:
+    A. 𝑥𝑥 < −2           B. 𝑥𝑥 > 2               C. 𝑥𝑥 < 2                     D. 𝑥𝑥 > −2
+Câu 5. Một hình nón có bán kính đáy bằng 3cm, độ dài đường sinh bằng 6cm. Diện tích
+xung quanh của hình nón này là
+    A. 𝑆𝑆𝑥𝑥𝑥𝑥 = 3𝜋𝜋 (cm2 ) B. 𝑆𝑆𝑥𝑥𝑥𝑥 = 6𝜋𝜋(cm2 ) C.𝑆𝑆𝑥𝑥𝑥𝑥 = 18𝜋𝜋(cm2 ) D. 𝑆𝑆𝑥𝑥𝑥𝑥 = 36𝜋𝜋(cm2 ).
+                                                                                          B
+Câu 6. Trong hình bên, biết 
+                            AOB = 600 . Số đo cung nhỏ AmB bằng                               m
+
+    A. 600                 B. 300                                               O
+                                                                                    60°
+                                                                                                  A
+
+    C. 1200                D. một kết quả khác.
+
+Câu 7: Tại một trường THCS, thư viện của trường đã thống kê số lượt mượn các loại sách
+        trong 1 tuần như sau:
+      Loại sách       Sách giáo    Sách tham       Truyện     Truyện        Tiểu
+                        khoa          khảo          tranh      ngắn        thuyết
+       Số lượt           35             80            30        35           20
+        Khi đó, tỉ lệ mượn sách tham khảo là:
+     A. 40%              B. 17,5%             C. 15%            D. 10%
+Câu 8: Gieo đồng thời 2 con xúc sắc cân đối, đồng chất. Xác suất để tổng số chấm xuất
+        hiện trên 2 con xúc xắc bằng 8 là:
+               4                     5                              6                                  7
+         A.                    B.                             C.                              D.
+              36                    36                             36                                 36
+II. PHẦN TỰ LUẬN (8,0 điểm)
+Câu 9.(1,0 điểm) Giải phương trình: x 2 + 3x − 4 =0
+                                               2 x −9    2 x +1   x +3
+Câu 10.(1,0 điểm) Rút gọn biểu thức: =
+                                     A                 +        −      (với x ≥ 0; x ≠ 4; x ≠ 9 )
+                                             x −5 x +6     x −3   x −2
+Câu 11. (1,0 điểm) Cho phương trình: x 2 + 2 x + m − 1 =0 (m là tham số). Tìm m để phương
+trình có hai nghiệm x1 ; x2 thỏa mãn 3x1 + 2 x2 =
+                                                1
+Câu 12. (1,5 điểm) Quãng đường AB dài 270 km, hai ô tô khởi hành cùng một lúc đi từ A đến
+B, ô tô thứ nhất chạy nhanh hơn ô tô thứ hai 12 km/h nên đến B trước ô tô thứ hai 45 phút. Tính
+vận tốc của mỗi xe.
+Câu 13. (1,0 điểm) Một cái mũ bằng vải của nhà ảo
+thuật với kích thước như hình vẽ.
+a) Tính diện tích vải để làm ống mũ.
+b) Hãy tính tổng diện tích vải cần để làm cái mũ đó
+biết rằng vành mũ hình tròn và ống mũ hình trụ (làm
+tròn đến hàng đơn vị).
+Câu 14. (2,0 điểm) Từ điểm A nằm ngoài đường tròn (O) vẽ hai tiếp tuyến AB và AC với
+đường tròn (B, C là các tiếp điểm). Kẻ đường kính CD của (O).
+a) (1,0 điểm) Chứng minh tứ giác ABOC nội tiếp.
+b) (1,0 điểm) Kẻ 𝐵𝐵𝐵𝐵 ⊥ DC tại H. Gọi I là trung điểm của BH. Chứng minh ba điểm A, I, D
+thẳng hàng.
+                                                              3
+Câu 15. (0,5 điểm) Cho các số 𝑎𝑎, 𝑏𝑏, 𝑐𝑐 > 0 và 𝑎𝑎 + 𝑏𝑏 + 𝑐𝑐 ≤ . Tìm giá trị nhỏ nhất của biểu
+                                                              2
+                  1        1        1
+thức: Q =   a 2 + 2 + b2 + 2 + c2 + 2
+                 b        c        a
+                                        ---HẾT---

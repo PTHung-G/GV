@@ -1,0 +1,457 @@
+{
+  "method": "Independent corpus-induced hierarchical grouping in order_a. First snapshot committed before second-batch reasoning and preserved unchanged. Stage two is a complete cumulative snapshot built from the first tree: extend geometry, broaden biology and physics, move Q02 to a speed child, and permit parent/root assignments for composites. No external taxonomy, application API, source edits, paid calls, other-agent output, invented answers, or paraphrased retained payloads. Component references preserve declared source order. Structural and deterministic reference-assembly checks are not semantic extraction evaluation.",
+  "stages": [
+    {
+      "batch_ids": [
+        "Q01",
+        "Q02",
+        "Q03",
+        "Q04",
+        "Q05",
+        "Q06",
+        "Q07",
+        "Q08"
+      ],
+      "nodes": [
+        {
+          "id": "root",
+          "parent_id": null,
+          "label": "Question bank"
+        },
+        {
+          "id": "math",
+          "parent_id": "root",
+          "label": "Mathematics"
+        },
+        {
+          "id": "linear",
+          "parent_id": "math",
+          "label": "Linear equations"
+        },
+        {
+          "id": "percent",
+          "parent_id": "math",
+          "label": "Percentage change"
+        },
+        {
+          "id": "science",
+          "parent_id": "root",
+          "label": "Natural sciences"
+        },
+        {
+          "id": "physics",
+          "parent_id": "science",
+          "label": "Motion"
+        },
+        {
+          "id": "chemistry",
+          "parent_id": "science",
+          "label": "Chemical equations"
+        },
+        {
+          "id": "biology",
+          "parent_id": "science",
+          "label": "Photosynthesis"
+        },
+        {
+          "id": "source",
+          "parent_id": "root",
+          "label": "Source interpretation"
+        },
+        {
+          "id": "economic-evidence",
+          "parent_id": "source",
+          "label": "Economic change and evidence limits"
+        },
+        {
+          "id": "language",
+          "parent_id": "source",
+          "label": "Fact versus opinion"
+        },
+        {
+          "id": "algorithms",
+          "parent_id": "root",
+          "label": "Algorithms"
+        }
+      ],
+      "assignments": [
+        {
+          "question_id": "Q01",
+          "node_id": "linear",
+          "reason": "The assessed operation is solving a linear equation."
+        },
+        {
+          "question_id": "Q02",
+          "node_id": "physics",
+          "reason": "The assessed operation is finding average speed from distance and elapsed time."
+        },
+        {
+          "question_id": "Q03",
+          "node_id": "chemistry",
+          "reason": "The assessed operation is balancing a chemical equation."
+        },
+        {
+          "question_id": "Q04",
+          "node_id": "biology",
+          "reason": "The assessed knowledge is the chloroplast role in photosynthesis."
+        },
+        {
+          "question_id": "Q05",
+          "node_id": "economic-evidence",
+          "reason": "The shared source supports an economic-change interpretation with an explicit limit on inference; this is source analysis rather than numerical calculation."
+        },
+        {
+          "question_id": "Q06",
+          "node_id": "language",
+          "reason": "The assessed distinction is factual statement versus evaluative opinion in the shared source."
+        },
+        {
+          "question_id": "Q07",
+          "node_id": "algorithms",
+          "reason": "The assessed output is pseudocode for a list-processing algorithm."
+        },
+        {
+          "question_id": "Q08",
+          "node_id": "percent",
+          "reason": "The assessed operation is percentage increase; the price context does not by itself require a separate economics branch."
+        }
+      ]
+    },
+    {
+      "batch_ids": [
+        "Q09",
+        "Q10",
+        "Q11",
+        "Q12",
+        "Q13",
+        "Q14",
+        "Q15",
+        "Q16"
+      ],
+      "nodes": [
+        {
+          "id": "root",
+          "parent_id": null,
+          "label": "Question bank"
+        },
+        {
+          "id": "math",
+          "parent_id": "root",
+          "label": "Mathematics"
+        },
+        {
+          "id": "linear",
+          "parent_id": "math",
+          "label": "Linear equations"
+        },
+        {
+          "id": "percent",
+          "parent_id": "math",
+          "label": "Percentage change"
+        },
+        {
+          "id": "science",
+          "parent_id": "root",
+          "label": "Natural sciences"
+        },
+        {
+          "id": "physics",
+          "parent_id": "science",
+          "label": "Physical motion and measurement"
+        },
+        {
+          "id": "chemistry",
+          "parent_id": "science",
+          "label": "Chemical equations"
+        },
+        {
+          "id": "biology",
+          "parent_id": "science",
+          "label": "Organelle energy roles"
+        },
+        {
+          "id": "source",
+          "parent_id": "root",
+          "label": "Source interpretation"
+        },
+        {
+          "id": "economic-evidence",
+          "parent_id": "source",
+          "label": "Economic change and evidence limits"
+        },
+        {
+          "id": "language",
+          "parent_id": "source",
+          "label": "Fact versus opinion"
+        },
+        {
+          "id": "algorithms",
+          "parent_id": "root",
+          "label": "Algorithms"
+        },
+        {
+          "id": "motion",
+          "parent_id": "physics",
+          "label": "Average speed"
+        },
+        {
+          "id": "measurement",
+          "parent_id": "physics",
+          "label": "Measurement error and checks"
+        },
+        {
+          "id": "geometry",
+          "parent_id": "math",
+          "label": "Right-triangle geometry"
+        }
+      ],
+      "assignments": [
+        {
+          "question_id": "Q01",
+          "node_id": "linear",
+          "reason": "The assessed operation is solving a linear equation."
+        },
+        {
+          "question_id": "Q02",
+          "node_id": "motion",
+          "reason": "Moved from the former motion branch into its average-speed child when physical measurement made a broader physics parent useful; the assessed operation remains unchanged."
+        },
+        {
+          "question_id": "Q03",
+          "node_id": "chemistry",
+          "reason": "The assessed operation is balancing a chemical equation."
+        },
+        {
+          "question_id": "Q04",
+          "node_id": "biology",
+          "reason": "The assessed knowledge is the chloroplast role in photosynthesis."
+        },
+        {
+          "question_id": "Q05",
+          "node_id": "economic-evidence",
+          "reason": "The shared source supports an economic-change interpretation with an explicit limit on inference; this is source analysis rather than numerical calculation."
+        },
+        {
+          "question_id": "Q06",
+          "node_id": "language",
+          "reason": "The assessed distinction is factual statement versus evaluative opinion in the shared source."
+        },
+        {
+          "question_id": "Q07",
+          "node_id": "algorithms",
+          "reason": "The assessed output is pseudocode for a list-processing algorithm."
+        },
+        {
+          "question_id": "Q08",
+          "node_id": "percent",
+          "reason": "The assessed operation is percentage increase; the price context does not by itself require a separate economics branch."
+        },
+        {
+          "question_id": "Q09",
+          "node_id": "linear",
+          "reason": "The assessed operation matches the existing linear-equation branch."
+        },
+        {
+          "question_id": "Q10",
+          "node_id": "motion",
+          "reason": "Distance and elapsed time determine average speed, matching the refined location of Q02."
+        },
+        {
+          "question_id": "Q11",
+          "node_id": "chemistry",
+          "reason": "Balancing another chemical equation matches the existing chemistry branch."
+        },
+        {
+          "question_id": "Q12",
+          "node_id": "biology",
+          "reason": "Comparing chloroplast and mitochondrial energy roles extends the existing photosynthesis topic; broaden its label without moving Q04."
+        },
+        {
+          "question_id": "Q13",
+          "node_id": "source",
+          "reason": "Composite source analysis combines economic change, language use and inference limits; retain at their shared source-interpretation parent rather than force a single child."
+        },
+        {
+          "question_id": "Q14",
+          "node_id": "geometry",
+          "reason": "Both subparts concern the same right triangle; retain one question assignment and all figure, data and subpart references."
+        },
+        {
+          "question_id": "Q15",
+          "node_id": "root",
+          "reason": "Composite pseudocode and percentage calculation crosses the algorithms and mathematics branches; retain the intact question at their common root rather than privilege one part."
+        },
+        {
+          "question_id": "Q16",
+          "node_id": "measurement",
+          "reason": "Physical temperature-measurement error and a checking procedure justify a measurement child alongside average speed; the wording does not identify a unique error mechanism."
+        }
+      ]
+    }
+  ],
+  "retained_units": [
+    {
+      "question_id": "Q01",
+      "component_ids": [
+        "Q01-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q02",
+      "component_ids": [
+        "Q02-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q03",
+      "component_ids": [
+        "Q03-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q04",
+      "component_ids": [
+        "Q04-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q05",
+      "component_ids": [
+        "Q05-body",
+        "P1"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q06",
+      "component_ids": [
+        "Q06-body",
+        "P1"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q07",
+      "component_ids": [
+        "Q07-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q08",
+      "component_ids": [
+        "Q08-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q09",
+      "component_ids": [
+        "Q09-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q10",
+      "component_ids": [
+        "Q10-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q11",
+      "component_ids": [
+        "Q11-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q12",
+      "component_ids": [
+        "Q12-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q13",
+      "component_ids": [
+        "Q13-body",
+        "P1"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q14",
+      "component_ids": [
+        "Q14-body",
+        "F1",
+        "F1-data",
+        "Q14-a",
+        "Q14-b"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q15",
+      "component_ids": [
+        "Q15-body",
+        "Q15-a",
+        "Q15-b"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q16",
+      "component_ids": [
+        "Q16-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    }
+  ],
+  "teacher_taxonomy_actions": [],
+  "limitations": [
+    "Sixteen original synthetic pre-segmented questions are not representative teacher data; there is no human expert gold taxonomy or semantic correctness judgment.",
+    "A single-parent tree cannot express all cross-domain memberships. Q08 is grouped by its mathematical operation, Q13 remains at the source-analysis parent, and Q15 remains at the root. These are explicit modeling choices, not ground truth.",
+    "Taxonomy depth is uneven because only observed distinctions were introduced; first-batch categories may influence the second batch. No other ordering or agent output was inspected, so no between-order comparison is claimed.",
+    "Payload preservation is limited to exact declared component references and deterministic in-memory source-bundle assembly; it does not test AI extraction, source segmentation quality, production persistence, SVG rendering, or semantic completeness.",
+    "All answer, rubric, and points fields remain null; no answers or scoring were inferred.",
+    "No production privacy, readiness, all-domain quality, timing, or cost benchmark is established.",
+    "All local structural and reference checks passed; no execution failures occurred. The full corpus file exposed both batches, so sequential snapshot commitment is not a blinded first-batch exposure experiment."
+  ]
+}

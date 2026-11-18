@@ -1,0 +1,1527 @@
+{
+  "schema_version": 1,
+  "evaluation_only": true,
+  "paid_calls_this_review": 0,
+  "scope": "Only fifth and sixth papers in repair-pass-2026-11-17T09-01-11-757Z; every candidate/body/context/unused block, fifth complete topic paths; sixth semantics not scored after failed90s.",
+  "block_id_convention": "Zero-based indices into source.blocks. Source lines are LF-delimited, not formfeed-split.",
+  "frozen_evidence": {
+    "independent-gold.md": "85c62af2861188d1639e2c98c6768e46625836e1e223d94e9f9add228de51e2a",
+    "source-manifest.json": "c734327a70986dfec2b6bd6f5db8e55c3f23c8f4f75cb79df51d3f6a9e548f00"
+  },
+  "pdf_pages_visually_inspected": {
+    "thai-nien-hk1-2025-2026": [
+      13,
+      14,
+      15
+    ],
+    "ngo-gia-tu-hk2-2025-2026": [
+      5,
+      6
+    ]
+  },
+  "papers": [
+    {
+      "id": "thai-nien-hk1-2025-2026",
+      "reviewed_artifact": "thai-nien-hk1-2025-2026.organized-bank.json",
+      "counts": {
+        "printed_top_level": 22,
+        "preferred_retained": 22,
+        "candidates_reviewed": 22,
+        "boundary_pass": 22,
+        "body_preservation_pass_relative_to_input": 22,
+        "grouping_pass": 22,
+        "ambiguous_grouping": 0,
+        "extractor_failures": 0,
+        "blocks": 106,
+        "body_references": 82,
+        "unique_body_blocks": 82,
+        "context_references": 5,
+        "unique_context_blocks": 5,
+        "unique_used_blocks": 87,
+        "unused_blocks": 19,
+        "unused_substantive_blocks": 0,
+        "duplicate_body_assignments": 0,
+        "cross_body_context_overlap": 0,
+        "semantic_paths_scored": 22,
+        "semantic_pass_unqualified": 20,
+        "semantic_defensible_specificity_caveat": 2,
+        "semantic_definite_failure": 0
+      },
+      "candidates_unchanged_across_three_snapshots": true,
+      "organization": {
+        "status": "complete",
+        "attempts": 1
+      },
+      "candidates": [
+        {
+          "id": "candidate-1",
+          "label": "Phần I - Câu 1",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "Complete MC stem and all A–D choices; fraction and superscript layout flattened upstream.",
+          "body": [
+            {
+              "block_id": 11,
+              "source_line": 368,
+              "text": "Câu 1: Bất phương trình nào sau đây là bất phương trình bậc nhất một ẩn ?\n"
+            },
+            {
+              "block_id": 12,
+              "source_line": 369,
+              "text": "         x\n"
+            },
+            {
+              "block_id": 13,
+              "source_line": 370,
+              "text": "      A.   + 3y  0                             B. (x − 1)(x + 2)  0\n"
+            },
+            {
+              "block_id": 14,
+              "source_line": 371,
+              "text": "         7\n"
+            },
+            {
+              "block_id": 15,
+              "source_line": 372,
+              "text": "      C. 15 − 6x  3x + 5                  D. x = 3x 2 + 2\n"
+            }
+          ],
+          "context": [],
+          "topic_id": "bpt_bac_nhat",
+          "entire_topic_path": [
+            "Kho câu hỏi",
+            "Đại số",
+            "Bất đẳng thức và bất phương trình",
+            "Bất phương trình bậc nhất một ẩn"
+          ],
+          "semantic_path_verdict": "pass"
+        },
+        {
+          "id": "candidate-2",
+          "label": "Phần I - Câu 2",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "Complete MC with all numerator/denominator blocks and A–D choices; no model formula recovery credited.",
+          "body": [
+            {
+              "block_id": 16,
+              "source_line": 373,
+              "text": "Câu 2: Phương trình nào sau đây là phương trình chứa ẩn ở mẫu ?\n"
+            },
+            {
+              "block_id": 17,
+              "source_line": 374,
+              "text": "         x+2                       4\n"
+            },
+            {
+              "block_id": 18,
+              "source_line": 375,
+              "text": "      A.       =0           B. x + = 0\n"
+            },
+            {
+              "block_id": 19,
+              "source_line": 376,
+              "text": "          x                        3\n"
+            },
+            {
+              "block_id": 20,
+              "source_line": 377,
+              "text": "         3x + 5                    2x\n"
+            },
+            {
+              "block_id": 21,
+              "source_line": 378,
+              "text": "      C.        =0          D. x +    =0\n"
+            },
+            {
+              "block_id": 22,
+              "source_line": 379,
+              "text": "          11                        5\n"
+            }
+          ],
+          "context": [],
+          "topic_id": "pt_chua_an_o_mau",
+          "entire_topic_path": [
+            "Kho câu hỏi",
+            "Đại số",
+            "Phương trình và hệ phương trình",
+            "Phương trình chứa ẩn ở mẫu"
+          ],
+          "semantic_path_verdict": "pass"
+        },
+        {
+          "id": "candidate-3",
+          "label": "Phần I - Câu 3",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "Complete inequality-transformation MC with all four options.",
+          "body": [
+            {
+              "block_id": 23,
+              "source_line": 380,
+              "text": "Câu 3. Cho m  n , khẳng định nào sau đây là đúng?\n"
+            },
+            {
+              "block_id": 24,
+              "source_line": 381,
+              "text": "     A. m − 3  n − 3.                      B. m + 3  n + 3.\n"
+            },
+            {
+              "block_id": 25,
+              "source_line": 382,
+              "text": "     C. m − 2  n − 2.                      D. n + 2  m + 2.\n"
+            }
+          ],
+          "context": [],
+          "topic_id": "bat_dang_thuc",
+          "entire_topic_path": [
+            "Kho câu hỏi",
+            "Đại số",
+            "Bất đẳng thức và bất phương trình",
+            "Bất đẳng thức"
+          ],
+          "semantic_path_verdict": "pass"
+        },
+        {
+          "id": "candidate-4",
+          "label": "Phần I - Câu 4",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "Complete linear-inequality MC with all four options.",
+          "body": [
+            {
+              "block_id": 26,
+              "source_line": 383,
+              "text": "Câu 4: Bất phương trình 2x + 3 > 7 có nghiệm là:\n"
+            },
+            {
+              "block_id": 27,
+              "source_line": 384,
+              "text": "     A. x > -2            B. x > 2                 C. x > 4                D. x > -4\n"
+            }
+          ],
+          "context": [],
+          "topic_id": "bpt_bac_nhat",
+          "entire_topic_path": [
+            "Kho câu hỏi",
+            "Đại số",
+            "Bất đẳng thức và bất phương trình",
+            "Bất phương trình bậc nhất một ẩn"
+          ],
+          "semantic_path_verdict": "pass"
+        },
+        {
+          "id": "candidate-5",
+          "label": "Phần I - Câu 5",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "Complete radical-domain MC; radical sign missing upstream, not extractor loss.",
+          "body": [
+            {
+              "block_id": 28,
+              "source_line": 385,
+              "text": "Câu 5: x − 1 có điều kiện xác định là:\n"
+            },
+            {
+              "block_id": 29,
+              "source_line": 386,
+              "text": "     A. x  1             B. x  −1                C. 1                   D. 9\n"
+            }
+          ],
+          "context": [],
+          "topic_id": "can_thuc_khai_niem",
+          "entire_topic_path": [
+            "Kho câu hỏi",
+            "Đại số",
+            "Căn thức bậc hai và bậc ba",
+            "Khái niệm căn bậc hai và điều kiện xác định"
+          ],
+          "semantic_path_verdict": "pass"
+        },
+        {
+          "id": "candidate-6",
+          "label": "Phần I - Câu 6",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "Complete radical-domain MC; radical sign missing upstream, not extractor loss.",
+          "body": [
+            {
+              "block_id": 30,
+              "source_line": 387,
+              "text": "Câu 6: Cho biểu thức P = x điều kiện xác định của P là\n"
+            },
+            {
+              "block_id": 31,
+              "source_line": 388,
+              "text": "     A. x  0             B. x = −2                C. x = 0                D. x  0\n"
+            }
+          ],
+          "context": [],
+          "topic_id": "can_thuc_khai_niem",
+          "entire_topic_path": [
+            "Kho câu hỏi",
+            "Đại số",
+            "Căn thức bậc hai và bậc ba",
+            "Khái niệm căn bậc hai và điều kiện xác định"
+          ],
+          "semantic_path_verdict": "pass"
+        },
+        {
+          "id": "candidate-7",
+          "label": "Phần I - Câu 7",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "Complete cube-root MC: detached index 3 retained at block 33, all options retained; only blank 34 excluded.",
+          "body": [
+            {
+              "block_id": 32,
+              "source_line": 389,
+              "text": "Câu 7: Kết quả của phép tính 8 là:\n"
+            },
+            {
+              "block_id": 33,
+              "source_line": 390,
+              "text": "                                 3\n"
+            },
+            {
+              "block_id": 35,
+              "source_line": 392,
+              "text": "     A. -1                B. 0                     C. 1                    D. 2\n"
+            }
+          ],
+          "context": [],
+          "topic_id": "can_thuc_tinh_toan",
+          "entire_topic_path": [
+            "Kho câu hỏi",
+            "Đại số",
+            "Căn thức bậc hai và bậc ba",
+            "Tính toán và rút gọn biểu thức chứa căn"
+          ],
+          "semantic_path_verdict": "pass"
+        },
+        {
+          "id": "candidate-8",
+          "label": "Phần I - Câu 8",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "Complete square-root MC; option D numerator and denominator retained in blocks 37 and 39; radical missing upstream.",
+          "body": [
+            {
+              "block_id": 36,
+              "source_line": 393,
+              "text": "Câu 8: Kết quả của 100 là\n"
+            },
+            {
+              "block_id": 37,
+              "source_line": 394,
+              "text": "                                                                                2\n"
+            },
+            {
+              "block_id": 38,
+              "source_line": 395,
+              "text": "      A. 10                 B. −10                 C. 2                    D.\n"
+            },
+            {
+              "block_id": 39,
+              "source_line": 396,
+              "text": "                                                                                3\n"
+            }
+          ],
+          "context": [],
+          "topic_id": "can_thuc_tinh_toan",
+          "entire_topic_path": [
+            "Kho câu hỏi",
+            "Đại số",
+            "Căn thức bậc hai và bậc ba",
+            "Tính toán và rút gọn biểu thức chứa căn"
+          ],
+          "semantic_path_verdict": "pass"
+        },
+        {
+          "id": "candidate-9",
+          "label": "Phần I - Câu 9",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "Complete center-of-symmetry MC, all four options.",
+          "body": [
+            {
+              "block_id": 40,
+              "source_line": 397,
+              "text": "Câu 9: Đường tròn có mấy tâm đối xứng\n"
+            },
+            {
+              "block_id": 41,
+              "source_line": 398,
+              "text": "      A. 0                B. 1                  C. 2                        D. 3\n"
+            }
+          ],
+          "context": [],
+          "topic_id": "doi_xung_duong_tron",
+          "entire_topic_path": [
+            "Kho câu hỏi",
+            "Hình học",
+            "Đường tròn",
+            "Tính chất đối xứng của đường tròn"
+          ],
+          "semantic_path_verdict": "pass"
+        },
+        {
+          "id": "candidate-10",
+          "label": "Phần I - Câu 10",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "Complete axes-of-symmetry MC, all four options.",
+          "body": [
+            {
+              "block_id": 42,
+              "source_line": 399,
+              "text": "Câu 10: Đường tròn có mấy trục đối xứng\n"
+            },
+            {
+              "block_id": 43,
+              "source_line": 400,
+              "text": "      A. 1                                      B. 2\n"
+            },
+            {
+              "block_id": 44,
+              "source_line": 401,
+              "text": "      C. Không có trục đối xứng              D. Vô số trục đối xứng\n"
+            }
+          ],
+          "context": [],
+          "topic_id": "doi_xung_duong_tron",
+          "entire_topic_path": [
+            "Kho câu hỏi",
+            "Hình học",
+            "Đường tròn",
+            "Tính chất đối xứng của đường tròn"
+          ],
+          "semantic_path_verdict": "pass"
+        },
+        {
+          "id": "candidate-11",
+          "label": "Phần I - Câu 11",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "Complete circle-tangency MC, all four options.",
+          "body": [
+            {
+              "block_id": 45,
+              "source_line": 402,
+              "text": "Câu 11. Hai đường tròn chỉ có một điểm chung được gọi là hai đường tròn\n"
+            },
+            {
+              "block_id": 46,
+              "source_line": 403,
+              "text": "      A. Cắt nhau. B. Tiếp xúc nhau. C. Ngoài nhau.             D. Không xác định.\n"
+            }
+          ],
+          "context": [],
+          "topic_id": "vi_tri_hai_duong_tron",
+          "entire_topic_path": [
+            "Kho câu hỏi",
+            "Hình học",
+            "Đường tròn",
+            "Vị trí tương đối của hai đường tròn"
+          ],
+          "semantic_path_verdict": "pass"
+        },
+        {
+          "id": "candidate-12",
+          "label": "Phần I - Câu 12",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "Complete intersecting-circles MC, all four options; original uses R−R-prime without absolute bars, not an extractor correction.",
+          "body": [
+            {
+              "block_id": 47,
+              "source_line": 404,
+              "text": "Câu 12. Cho hai đường tròn ( O; R ) và ( O; R ) thỏa mãn R − R  OO  R + R . Số điểm\n"
+            },
+            {
+              "block_id": 48,
+              "source_line": 405,
+              "text": "chung của hai đường tròn là\n"
+            },
+            {
+              "block_id": 49,
+              "source_line": 406,
+              "text": "      A. 0.         B. 1.                C. 2.                   D. 3.\n"
+            }
+          ],
+          "context": [],
+          "topic_id": "vi_tri_hai_duong_tron",
+          "entire_topic_path": [
+            "Kho câu hỏi",
+            "Hình học",
+            "Đường tròn",
+            "Vị trí tương đối của hai đường tròn"
+          ],
+          "semantic_path_verdict": "pass"
+        },
+        {
+          "id": "candidate-13",
+          "label": "Phần II - Câu 1",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "One shared inequality and all four true/false assertions. Source malformed minimum-value assertions preserved unchanged, not leaked answers.",
+          "body": [
+            {
+              "block_id": 52,
+              "source_line": 409,
+              "text": "Câu 1: Cho bất phương trình 2 x − 4  6\n"
+            },
+            {
+              "block_id": 53,
+              "source_line": 410,
+              "text": "       a) Bất phương trình có nghiệm x  5\n"
+            },
+            {
+              "block_id": 54,
+              "source_line": 411,
+              "text": "       b) Bất phương trình có nghiệm x < 5\n"
+            },
+            {
+              "block_id": 55,
+              "source_line": 412,
+              "text": "       c) Bất phương trình có giá trị nhỏ nhất tại x = 5\n"
+            },
+            {
+              "block_id": 56,
+              "source_line": 413,
+              "text": "       d) Bất phương trình có giá trị nhỏ nhất tại x = 6\n"
+            }
+          ],
+          "context": [],
+          "topic_id": "bpt_bac_nhat",
+          "entire_topic_path": [
+            "Kho câu hỏi",
+            "Đại số",
+            "Bất đẳng thức và bất phương trình",
+            "Bất phương trình bậc nhất một ẩn"
+          ],
+          "semantic_path_verdict": "pass"
+        },
+        {
+          "id": "candidate-14",
+          "label": "Phần II - Câu 2",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "One shared expression B and four assertions; numerator block 57 retained before stem; radical signs and fraction layout missing upstream.",
+          "body": [
+            {
+              "block_id": 57,
+              "source_line": 414,
+              "text": "                                 1        1\n"
+            },
+            {
+              "block_id": 58,
+              "source_line": 415,
+              "text": "Câu 2: Cho biểu thức: B =          −\n"
+            },
+            {
+              "block_id": 59,
+              "source_line": 416,
+              "text": "                                x +1     x −1\n"
+            },
+            {
+              "block_id": 60,
+              "source_line": 417,
+              "text": "     a) Điều kiện xác định: x  0 , x  1\n"
+            },
+            {
+              "block_id": 61,
+              "source_line": 418,
+              "text": "              −2\n"
+            },
+            {
+              "block_id": 62,
+              "source_line": 419,
+              "text": "     b) B =\n"
+            },
+            {
+              "block_id": 63,
+              "source_line": 420,
+              "text": "             x −1\n"
+            },
+            {
+              "block_id": 64,
+              "source_line": 421,
+              "text": "               2\n"
+            },
+            {
+              "block_id": 65,
+              "source_line": 422,
+              "text": "     c) B =\n"
+            },
+            {
+              "block_id": 66,
+              "source_line": 423,
+              "text": "             x −1\n"
+            },
+            {
+              "block_id": 67,
+              "source_line": 424,
+              "text": "     d) Để B  0 thì x  1\n"
+            }
+          ],
+          "context": [],
+          "topic_id": "can_thuc_tinh_toan",
+          "entire_topic_path": [
+            "Kho câu hỏi",
+            "Đại số",
+            "Căn thức bậc hai và bậc ba",
+            "Tính toán và rút gọn biểu thức chứa căn"
+          ],
+          "semantic_path_verdict": "pass"
+        },
+        {
+          "id": "candidate-15",
+          "label": "Phần II - Câu 3",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "One connected right-triangle assertion unit, four assertions and all five nonblank diagram-label blocks in context. Diagram edges, altitude and right-angle marks absent upstream: H has no textual altitude definition. Not extractor omission.",
+          "body": [
+            {
+              "block_id": 68,
+              "source_line": 425,
+              "text": "Câu 3: Cho hình vẽ, biết ∆ ABC vuông tại A , có ABC = 60 , AC = 4 cm .\n"
+            },
+            {
+              "block_id": 76,
+              "source_line": 433,
+              "text": "                    AB\n"
+            },
+            {
+              "block_id": 77,
+              "source_line": 434,
+              "text": "       a) Cos B =\n"
+            },
+            {
+              "block_id": 78,
+              "source_line": 435,
+              "text": "                    BC\n"
+            },
+            {
+              "block_id": 80,
+              "source_line": 437,
+              "text": "                    1\n"
+            },
+            {
+              "block_id": 81,
+              "source_line": 438,
+              "text": "       b) Cos C =\n"
+            },
+            {
+              "block_id": 82,
+              "source_line": 439,
+              "text": "                    2\n"
+            },
+            {
+              "block_id": 83,
+              "source_line": 440,
+              "text": "                           3\n"
+            },
+            {
+              "block_id": 84,
+              "source_line": 441,
+              "text": "       c) Cos 600 =\n"
+            },
+            {
+              "block_id": 85,
+              "source_line": 442,
+              "text": "                          2\n"
+            },
+            {
+              "block_id": 86,
+              "source_line": 443,
+              "text": "       d) Độ dài cạnh AH bằng 2 ( cm )\n"
+            }
+          ],
+          "context": [
+            {
+              "block_id": 69,
+              "source_line": 426,
+              "text": "            A\n"
+            },
+            {
+              "block_id": 71,
+              "source_line": 428,
+              "text": "                      4\n"
+            },
+            {
+              "block_id": 72,
+              "source_line": 429,
+              "text": "      60o\n"
+            },
+            {
+              "block_id": 73,
+              "source_line": 430,
+              "text": "  B                            C\n"
+            },
+            {
+              "block_id": 74,
+              "source_line": 431,
+              "text": "            H\n"
+            }
+          ],
+          "topic_id": "tam_giac_vuong_ty_so",
+          "entire_topic_path": [
+            "Kho câu hỏi",
+            "Hình học",
+            "Hệ thức lượng và tỉ số lượng giác trong tam giác vuông"
+          ],
+          "semantic_path_verdict": "pass"
+        },
+        {
+          "id": "candidate-16",
+          "label": "Phần II - Câu 4",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "One chord/diameter assertion unit with all four assertions; split angle accent and CAD blocks 92–93 retained despite odd order. Upstream angle flattening, not missing assertion.",
+          "body": [
+            {
+              "block_id": 87,
+              "source_line": 444,
+              "text": "Câu 4: Cho đường tròn tâm O, dây AB không đi qua tâm. Kẻ đường kính CD vuông\n"
+            },
+            {
+              "block_id": 88,
+              "source_line": 445,
+              "text": "góc với AB tại H. Kết luận nào sau đây đúng sai?\n"
+            },
+            {
+              "block_id": 89,
+              "source_line": 446,
+              "text": "    a) AB < CD\n"
+            },
+            {
+              "block_id": 90,
+              "source_line": 447,
+              "text": "    b) AB > CD\n"
+            },
+            {
+              "block_id": 91,
+              "source_line": 448,
+              "text": "    c) AC > CB\n"
+            },
+            {
+              "block_id": 92,
+              "source_line": 449,
+              "text": "       ̂ = 900\n"
+            },
+            {
+              "block_id": 93,
+              "source_line": 450,
+              "text": "    d) 𝐶𝐴𝐷\n"
+            }
+          ],
+          "context": [],
+          "topic_id": "duong_kinh_day_cung",
+          "entire_topic_path": [
+            "Kho câu hỏi",
+            "Hình học",
+            "Đường tròn",
+            "Đường kính và dây cung"
+          ],
+          "semantic_path_verdict": "pass"
+        },
+        {
+          "id": "candidate-17",
+          "label": "Phần III - Câu 1",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "Complete independent coefficient question.",
+          "body": [
+            {
+              "block_id": 95,
+              "source_line": 452,
+              "text": "Câu 1. Hệ số a trong phương trình 3x + 2y = 5 là: ………………\n"
+            }
+          ],
+          "context": [],
+          "topic_id": "pt_bac_nhat_hai_an",
+          "entire_topic_path": [
+            "Kho câu hỏi",
+            "Đại số",
+            "Phương trình và hệ phương trình",
+            "Phương trình bậc nhất hai ẩn"
+          ],
+          "semantic_path_verdict": "pass"
+        },
+        {
+          "id": "candidate-18",
+          "label": "Phần III - Câu 2",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "Complete point-on-line question. Placement under linear equations in two unknowns is defensible although a linear-function/point-on-line leaf would be more specific.",
+          "body": [
+            {
+              "block_id": 96,
+              "source_line": 453,
+              "text": "Câu 2. Điểm A(1; b) thuộc đường thẳng x + y = 3 khi đó giá trị của b là: ……\n"
+            }
+          ],
+          "context": [],
+          "topic_id": "pt_bac_nhat_hai_an",
+          "entire_topic_path": [
+            "Kho câu hỏi",
+            "Đại số",
+            "Phương trình và hệ phương trình",
+            "Phương trình bậc nhất hai ẩn"
+          ],
+          "semantic_path_verdict": "defensible_with_specificity_caveat"
+        },
+        {
+          "id": "candidate-19",
+          "label": "Phần III - Câu 3",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "Complete radical-arithmetic question, including numerator and denominator blocks around stem; radicals absent upstream.",
+          "body": [
+            {
+              "block_id": 97,
+              "source_line": 454,
+              "text": "                                 49   25     \n"
+            },
+            {
+              "block_id": 98,
+              "source_line": 455,
+              "text": "Câu 3: Giá trị của biểu thức    −    + 3  . 3 bằng ……….\n"
+            },
+            {
+              "block_id": 99,
+              "source_line": 456,
+              "text": "                                 3    3      \n"
+            }
+          ],
+          "context": [],
+          "topic_id": "can_thuc_tinh_toan",
+          "entire_topic_path": [
+            "Kho câu hỏi",
+            "Đại số",
+            "Căn thức bậc hai và bậc ba",
+            "Tính toán và rút gọn biểu thức chứa căn"
+          ],
+          "semantic_path_verdict": "pass"
+        },
+        {
+          "id": "candidate-20",
+          "label": "Phần III - Câu 4",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "Complete circumference question across formfeed.",
+          "body": [
+            {
+              "block_id": 100,
+              "source_line": 457,
+              "text": "\fCâu 4: Cho đường tròn (O) có bán kính 5 cm. Chu vi của đường tròn tâm O là: ……\n"
+            }
+          ],
+          "context": [],
+          "topic_id": "chu_vi_duong_tron",
+          "entire_topic_path": [
+            "Kho câu hỏi",
+            "Hình học",
+            "Đường tròn",
+            "Chu vi đường tròn"
+          ],
+          "semantic_path_verdict": "pass"
+        },
+        {
+          "id": "candidate-21",
+          "label": "Phần III - Câu 5",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "Complete distance-minus-radius question. Line/circle relative-position leaf is related and defensible in context, but the explicit task is arithmetic clearance rather than deciding intersection.",
+          "body": [
+            {
+              "block_id": 101,
+              "source_line": 458,
+              "text": "Câu 5: Cho đường tròn tâm O bán kính 6 cm. Đường thẳng d cách tâm O một khoảng\n"
+            },
+            {
+              "block_id": 102,
+              "source_line": 459,
+              "text": "8 cm. Tính khoảng cách từ tâm O đến đường thẳng d trừ đi bán kính của đường tròn.\n"
+            }
+          ],
+          "context": [],
+          "topic_id": "vi_tri_duong_thang_duong_tron",
+          "entire_topic_path": [
+            "Kho câu hỏi",
+            "Hình học",
+            "Đường tròn",
+            "Vị trí tương đối của đường thẳng và đường tròn"
+          ],
+          "semantic_path_verdict": "defensible_with_specificity_caveat"
+        },
+        {
+          "id": "candidate-22",
+          "label": "Phần III - Câu 6",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "Complete line-circle intersection question; original typo đường trong retained.",
+          "body": [
+            {
+              "block_id": 103,
+              "source_line": 460,
+              "text": "Câu 6: Cho đường tròn tâm O bán kính r = 5 cm. Đường thẳng d cách tâm O một\n"
+            },
+            {
+              "block_id": 104,
+              "source_line": 461,
+              "text": "khoảng 3 cm. Hỏi d và đường trong tâm O có mấy điểm chung?\n"
+            }
+          ],
+          "context": [],
+          "topic_id": "vi_tri_duong_thang_duong_tron",
+          "entire_topic_path": [
+            "Kho câu hỏi",
+            "Hình học",
+            "Đường tròn",
+            "Vị trí tương đối của đường thẳng và đường tròn"
+          ],
+          "semantic_path_verdict": "pass"
+        }
+      ],
+      "unused_block_audit": [
+        {
+          "block_id": 0,
+          "source_line": 357,
+          "text": "\f     UBND XÃ BẢO THẮNG                              Ngày ….. tháng 11 năm 2025\n",
+          "verdict": "safe_header_section_instruction_or_end_marker"
+        },
+        {
+          "block_id": 1,
+          "source_line": 358,
+          "text": "   TRƯỜNG PTDTBT THCS                            ĐỀ KHẢO SÁT CHẤT LƯỢNG\n",
+          "verdict": "safe_header_section_instruction_or_end_marker"
+        },
+        {
+          "block_id": 2,
+          "source_line": 359,
+          "text": "       THÁI NIÊN                                            HỌC KỲ I\n",
+          "verdict": "safe_header_section_instruction_or_end_marker"
+        },
+        {
+          "block_id": 3,
+          "source_line": 360,
+          "text": "                  ĐỀ 1\n",
+          "verdict": "safe_header_section_instruction_or_end_marker"
+        },
+        {
+          "block_id": 4,
+          "source_line": 361,
+          "text": "                                                        Năm học 2025 - 2026\n",
+          "verdict": "safe_header_section_instruction_or_end_marker"
+        },
+        {
+          "block_id": 5,
+          "source_line": 362,
+          "text": "                                                           Môn: Toán 9\n",
+          "verdict": "safe_header_section_instruction_or_end_marker"
+        },
+        {
+          "block_id": 6,
+          "source_line": 363,
+          "text": "                                           Thời gian: 90 phút (không kể thời gian giao đề)\n",
+          "verdict": "safe_header_section_instruction_or_end_marker"
+        },
+        {
+          "block_id": 7,
+          "source_line": 364,
+          "text": "                                                      (Đề gồm 22 câu, 3 trang)\n",
+          "verdict": "safe_header_section_instruction_or_end_marker"
+        },
+        {
+          "block_id": 8,
+          "source_line": 365,
+          "text": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn. Thí sinh trả lời từ câu 1 đến\n",
+          "verdict": "safe_header_section_instruction_or_end_marker"
+        },
+        {
+          "block_id": 9,
+          "source_line": 366,
+          "text": "câu 12. Mỗi câu hỏi thí sinh chỉ chọn một phương án.\n",
+          "verdict": "safe_header_section_instruction_or_end_marker"
+        },
+        {
+          "block_id": 10,
+          "source_line": 367,
+          "text": "\n",
+          "verdict": "safe_blank"
+        },
+        {
+          "block_id": 34,
+          "source_line": 391,
+          "text": "\n",
+          "verdict": "safe_blank"
+        },
+        {
+          "block_id": 50,
+          "source_line": 407,
+          "text": "\fPHẦN II. Câu trắc nghiệm đúng sai. Thí sinh trả lời từ câu 1 đến câu 4. Trong mỗi\n",
+          "verdict": "safe_header_section_instruction_or_end_marker"
+        },
+        {
+          "block_id": 51,
+          "source_line": 408,
+          "text": "ý a), b), c), d) ở mỗi câu, thí sinh chọn đúng hoặc sai\n",
+          "verdict": "safe_header_section_instruction_or_end_marker"
+        },
+        {
+          "block_id": 70,
+          "source_line": 427,
+          "text": "\n",
+          "verdict": "safe_blank"
+        },
+        {
+          "block_id": 75,
+          "source_line": 432,
+          "text": "\n",
+          "verdict": "safe_blank"
+        },
+        {
+          "block_id": 79,
+          "source_line": 436,
+          "text": "\n",
+          "verdict": "safe_blank"
+        },
+        {
+          "block_id": 94,
+          "source_line": 451,
+          "text": "PHẦN III. Câu trắc nghiệm trả lời ngắn. Thí sinh trả lời từ câu 1 đến câu 6.\n",
+          "verdict": "safe_header_section_instruction_or_end_marker"
+        },
+        {
+          "block_id": 105,
+          "source_line": 462,
+          "text": "                    ----------------------------- Hết -----------------------------\n",
+          "verdict": "safe_header_section_instruction_or_end_marker"
+        }
+      ]
+    },
+    {
+      "id": "ngo-gia-tu-hk2-2025-2026",
+      "reviewed_artifact": "ngo-gia-tu-hk2-2025-2026.extracted-bank.json",
+      "counts": {
+        "printed_top_level": 5,
+        "preferred_retained": 7,
+        "candidates_reviewed": 7,
+        "boundary_pass": 7,
+        "body_preservation_pass_relative_to_input": 7,
+        "grouping_pass": 7,
+        "ambiguous_grouping": 0,
+        "extractor_failures": 0,
+        "blocks": 60,
+        "body_references": 38,
+        "unique_body_blocks": 38,
+        "context_references": 2,
+        "unique_context_blocks": 1,
+        "unique_used_blocks": 39,
+        "unused_blocks": 21,
+        "unused_substantive_blocks": 0,
+        "duplicate_body_assignments": 0,
+        "cross_body_context_overlap": 0,
+        "semantic_paths_scored": 0,
+        "semantic_pass_unqualified": null,
+        "semantic_defensible_specificity_caveat": null,
+        "semantic_definite_failure": null
+      },
+      "candidates_unchanged_across_three_snapshots": true,
+      "organization": {
+        "status": "failed",
+        "attempts": 1,
+        "error": "Chưa hoàn tất xử lý AI trong giới hạn 90 giây hoặc kết quả không hợp lệ. Nội dung giữ nguyên; bạn có thể thử lại."
+      },
+      "candidates": [
+        {
+          "id": "candidate-1",
+          "label": "Bài 1",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "One chart-context unit with a,b, year 2023, sample size 60 and both axis captions. Original PDF page 5 has histogram bin frequencies, but none are in supplied text: upstream chart loss, not extractor omission; no numeric-completeness credit.",
+          "body": [
+            {
+              "block_id": 6,
+              "source_line": 132,
+              "text": "Bài 1. (1 điểm). Một xã thống kê khối lượng ngô (đơn vị: tạ) mà 60 hộ gia đình trong xã thu hoạch\n"
+            },
+            {
+              "block_id": 7,
+              "source_line": 133,
+              "text": "được năm 2023. Số liệu được ghi lại trong biểu đồ tần số ghép nhóm sau:\n"
+            },
+            {
+              "block_id": 9,
+              "source_line": 135,
+              "text": "                        Tần số (n)\n"
+            },
+            {
+              "block_id": 14,
+              "source_line": 140,
+              "text": "                                                                           Khối lượng (tạ)\n"
+            },
+            {
+              "block_id": 15,
+              "source_line": 141,
+              "text": "a) Khối lượng ngô (đơn vị: tạ) mà 60 hộ gia đình trong xã thu hoạch được năm 2023 nhiều nhất ở\n"
+            },
+            {
+              "block_id": 16,
+              "source_line": 142,
+              "text": "nhóm nào ?\n"
+            },
+            {
+              "block_id": 17,
+              "source_line": 143,
+              "text": "b) Tính tần số tương đối ghép nhóm của nhóm [ 60;70 ) ?\n"
+            }
+          ],
+          "context": [],
+          "semantic_path_verdict": "not_scored_failed90s"
+        },
+        {
+          "id": "candidate-2",
+          "label": "Bài 2",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "One sample-space/probability unit with both a,b and uniform two-digit-number-below-30 stem.",
+          "body": [
+            {
+              "block_id": 18,
+              "source_line": 144,
+              "text": "Bài 2. (1,5 điểm) Viết ngẫu nhiên một số tự nhiên có hai chữ số nhỏ hơn 30.\n"
+            },
+            {
+              "block_id": 19,
+              "source_line": 145,
+              "text": "a) Viết tập hợp Ω tất cả các kết quả có thể xảy ra đối với số tự nhiên được viết ra .\n"
+            },
+            {
+              "block_id": 20,
+              "source_line": 146,
+              "text": "b) Tính xác suất của biến cố A: “Số tự nhiên được viết ra chia hết cho 6”.\n"
+            }
+          ],
+          "context": [],
+          "semantic_path_verdict": "not_scored_failed90s"
+        },
+        {
+          "id": "candidate-3",
+          "label": "Bài 3.1",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "Independent boat-modelling unit, all distance/time/current data and solve-by-equation instruction retained. Split from unrelated B3.2 is correct.",
+          "body": [
+            {
+              "block_id": 21,
+              "source_line": 147,
+              "text": "Bài 3 (3,5 điểm). Giải bài toán bằng cách lập phương trình hoặc hệ phương trình:\n"
+            },
+            {
+              "block_id": 22,
+              "source_line": 148,
+              "text": "1. Khoảng cách giữa hai bến sông từ A đến B là 48km. Một ca nô đi từ đến A đến bến B rồi quay lại\n"
+            },
+            {
+              "block_id": 23,
+              "source_line": 149,
+              "text": "bến A. Thời gian cả đi và về là 5 giờ. Tính vận tốc của ca nô khi nước yên lặng, biết rằng vận tốc của\n"
+            },
+            {
+              "block_id": 24,
+              "source_line": 150,
+              "text": "dòng nước là 4km/h.\n"
+            }
+          ],
+          "context": [],
+          "semantic_path_verdict": "not_scored_failed90s"
+        },
+        {
+          "id": "candidate-4",
+          "label": "Bài 3.2",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "One shared-function unit with line y=7x−5, parabola y=2x², graph and intersection tasks; complete text despite flattened superscript. Split from B3.1 is correct.",
+          "body": [
+            {
+              "block_id": 26,
+              "source_line": 152,
+              "text": "2. Trong mặt phẳng tọa độ Oxy , cho đường thẳng d  : y  7x  5 và parabol P  : y  2x 2 .\n"
+            },
+            {
+              "block_id": 28,
+              "source_line": 154,
+              "text": "       a) Vẽ đồ thị của hàm số y  2x 2\n"
+            },
+            {
+              "block_id": 30,
+              "source_line": 156,
+              "text": "       b) Xác định tọa độ giao điểm của d  và P  bằng công thức.\n"
+            }
+          ],
+          "context": [],
+          "semantic_path_verdict": "not_scored_failed90s"
+        },
+        {
+          "id": "candidate-5",
+          "label": "Bài 4.1",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "Independent annular-sector hand-fan unit with radii20/5, angle120, both faces and pi≈3.14 retained; shared B4 header in context is harmless chrome. Figure absent upstream, all textual dimensions survive.",
+          "body": [
+            {
+              "block_id": 32,
+              "source_line": 158,
+              "text": "1. Bạn Phương sử dụng các thanh tre, chuốt mỏng và cắt các\n"
+            },
+            {
+              "block_id": 33,
+              "source_line": 159,
+              "text": "đoạn tre bằng nhau có chiều dài 20cm rồi chốt lại bằng ốc\n"
+            },
+            {
+              "block_id": 34,
+              "source_line": 160,
+              "text": "vít. Bạn vẽ trên giấy thủ công các hình quạt OAB có bán\n"
+            },
+            {
+              "block_id": 35,
+              "source_line": 161,
+              "text": "kính 20cm, quạt OCD có bán kính 5 cm, có góc ở tâm            A                           B\n"
+            },
+            {
+              "block_id": 36,
+              "source_line": 162,
+              "text": "  COD    120o\n"
+            },
+            {
+              "block_id": 37,
+              "source_line": 163,
+              "text": "AOB                   Sau đó cắt bỏ phần hình quạt OCD,\n"
+            },
+            {
+              "block_id": 38,
+              "source_line": 164,
+              "text": "phần còn lại sẽ dán lên các nan quạt. Tính diện tích phần\n"
+            },
+            {
+              "block_id": 39,
+              "source_line": 165,
+              "text": "giấy thủ công dán lên các nan quạt, biết rằng giấy dán ở cả               C           D\n"
+            },
+            {
+              "block_id": 40,
+              "source_line": 166,
+              "text": "                                                                              O\n"
+            },
+            {
+              "block_id": 41,
+              "source_line": 167,
+              "text": "hai mặt quạt. Lấy 𝜋𝜋 ≈ 3,14.\n"
+            }
+          ],
+          "context": [
+            {
+              "block_id": 31,
+              "source_line": 157,
+              "text": "\fBài 4 (3,5 điểm).\n"
+            }
+          ],
+          "semantic_path_verdict": "not_scored_failed90s"
+        },
+        {
+          "id": "candidate-6",
+          "label": "Bài 4.2",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "Connected semicircle proof a–c retained, including later tangent and midpoint construction; detached angle accent/equality block retained. Shared B4 header is harmless context. No detached proof subparts.",
+          "body": [
+            {
+              "block_id": 43,
+              "source_line": 169,
+              "text": "2. Cho nửa đường tròn (O), đường kính AB. Lấy điểm D thuộc nửa đường tròn, điểm C thuộc cung\n"
+            },
+            {
+              "block_id": 44,
+              "source_line": 170,
+              "text": "AD; AC cắt BD tại E, AD cắt BC tại H.\n"
+            },
+            {
+              "block_id": 45,
+              "source_line": 171,
+              "text": "   a) Chứng minh tứ giác CHDE nội tiếp.\n"
+            },
+            {
+              "block_id": 46,
+              "source_line": 172,
+              "text": "                  = DEH\n"
+            },
+            {
+              "block_id": 47,
+              "source_line": 173,
+              "text": "   b) Chứng minh DAB .\n"
+            },
+            {
+              "block_id": 49,
+              "source_line": 175,
+              "text": "   c) Vẽ tiếp tuyến của (O) tại D, cắt EH tại I. Chứng minh I là trung điểm của EH.\n"
+            }
+          ],
+          "context": [
+            {
+              "block_id": 31,
+              "source_line": 157,
+              "text": "\fBài 4 (3,5 điểm).\n"
+            }
+          ],
+          "semantic_path_verdict": "not_scored_failed90s"
+        },
+        {
+          "id": "candidate-7",
+          "label": "Bài 5",
+          "boundary_verdict": "pass",
+          "body_preservation_verdict": "pass_relative_to_supplied_text",
+          "context_verdict": "pass",
+          "grouping_verdict": "pass",
+          "notes": "One rectangle-in-semicircle optimisation unit, radius6 and AB request retained. PDF page6 shows AB is vertical side, AD lies on diameter, B,C on arc; that placement/labels are absent upstream. Must not infer AB is width or invent missing geometry.",
+          "body": [
+            {
+              "block_id": 50,
+              "source_line": 176,
+              "text": "Bài 5 (0,5 điểm).\n"
+            },
+            {
+              "block_id": 51,
+              "source_line": 177,
+              "text": "Từ một miếng tôn hình bán nguyệt có bán kính R = 6m,\n"
+            },
+            {
+              "block_id": 52,
+              "source_line": 178,
+              "text": "một người thợ muốn cắt một hình chữ nhật ABCD có diện\n"
+            },
+            {
+              "block_id": 53,
+              "source_line": 179,
+              "text": "tích lớn nhất (như hình vẽ). Hỏi chiều dài cạnh AB bằng\n"
+            },
+            {
+              "block_id": 54,
+              "source_line": 180,
+              "text": "bao nhiêu để diện tích hình chữ nhật là lớn nhất?\n"
+            }
+          ],
+          "context": [],
+          "semantic_path_verdict": "not_scored_failed90s"
+        }
+      ],
+      "unused_block_audit": [
+        {
+          "block_id": 0,
+          "source_line": 126,
+          "text": "\f   UBND PHƯỜNG VIỆT HƯNG                                 ĐỀ KIỂM TRA HỌC KÌ II\n",
+          "verdict": "safe_header_section_instruction_or_end_marker"
+        },
+        {
+          "block_id": 1,
+          "source_line": 127,
+          "text": "   TRƯỜNG THCS NGÔ GIA TỰ                                     MÔN: TOÁN 9\n",
+          "verdict": "safe_header_section_instruction_or_end_marker"
+        },
+        {
+          "block_id": 2,
+          "source_line": 128,
+          "text": "                                                           Năm học: 2025 – 2026\n",
+          "verdict": "safe_header_section_instruction_or_end_marker"
+        },
+        {
+          "block_id": 3,
+          "source_line": 129,
+          "text": "               ĐỀ SỐ 01                                  Ngày kiểm tra: 07/04/2026\n",
+          "verdict": "safe_header_section_instruction_or_end_marker"
+        },
+        {
+          "block_id": 4,
+          "source_line": 130,
+          "text": "                                                         Thời gian làm bài: 90 phút\n",
+          "verdict": "safe_header_section_instruction_or_end_marker"
+        },
+        {
+          "block_id": 5,
+          "source_line": 131,
+          "text": "\n",
+          "verdict": "safe_blank"
+        },
+        {
+          "block_id": 8,
+          "source_line": 134,
+          "text": "\n",
+          "verdict": "safe_blank"
+        },
+        {
+          "block_id": 10,
+          "source_line": 136,
+          "text": "\n",
+          "verdict": "safe_blank"
+        },
+        {
+          "block_id": 11,
+          "source_line": 137,
+          "text": "\n",
+          "verdict": "safe_blank"
+        },
+        {
+          "block_id": 12,
+          "source_line": 138,
+          "text": "\n",
+          "verdict": "safe_blank"
+        },
+        {
+          "block_id": 13,
+          "source_line": 139,
+          "text": "\n",
+          "verdict": "safe_blank"
+        },
+        {
+          "block_id": 25,
+          "source_line": 151,
+          "text": "\n",
+          "verdict": "safe_blank"
+        },
+        {
+          "block_id": 27,
+          "source_line": 153,
+          "text": "\n",
+          "verdict": "safe_blank"
+        },
+        {
+          "block_id": 29,
+          "source_line": 155,
+          "text": "\n",
+          "verdict": "safe_blank"
+        },
+        {
+          "block_id": 42,
+          "source_line": 168,
+          "text": "\n",
+          "verdict": "safe_blank"
+        },
+        {
+          "block_id": 48,
+          "source_line": 174,
+          "text": "\n",
+          "verdict": "safe_blank"
+        },
+        {
+          "block_id": 55,
+          "source_line": 181,
+          "text": "\n",
+          "verdict": "safe_blank"
+        },
+        {
+          "block_id": 56,
+          "source_line": 182,
+          "text": "\n",
+          "verdict": "safe_blank"
+        },
+        {
+          "block_id": 57,
+          "source_line": 183,
+          "text": "\n",
+          "verdict": "safe_blank"
+        },
+        {
+          "block_id": 58,
+          "source_line": 184,
+          "text": "\n",
+          "verdict": "safe_blank"
+        },
+        {
+          "block_id": 59,
+          "source_line": 185,
+          "text": "                                          HẾT \n",
+          "verdict": "safe_header_section_instruction_or_end_marker"
+        }
+      ],
+      "organization_note": "Failed after 90076 ms (telemetry); stored existing nodes and root/default assignments are not completed organization and receive no semantic score. Extracted snapshot organization.complete is inherited from preceding paper, not sixth success."
+    }
+  ],
+  "aggregate_counts": {
+    "papers": 2,
+    "candidates_reviewed": 29,
+    "boundary_pass": 29,
+    "input_relative_body_preservation_pass": 29,
+    "grouping_pass": 29,
+    "ambiguous_grouping": 0,
+    "extractor_failures": 0,
+    "blocks": 166,
+    "unique_used_blocks": 126,
+    "unused_blocks": 40,
+    "unused_substantive_blocks": 0,
+    "semantic_paths_scored": 22,
+    "semantic_pass_unqualified": 20,
+    "semantic_defensible_specificity_caveat": 2,
+    "semantic_definite_failure": 0,
+    "semantic_unscored_failed90s": 7
+  },
+  "limitations": "No claim of lossless PDF-to-math recovery. Upstream radical/fraction/angle and graphic losses are distinct from extraction boundaries. No semantic score for sixth; no invented chart data, formula repair, gold mutation or model call."
+}

@@ -1,0 +1,79 @@
+{
+  "created_before_tested_model_output": true,
+  "paid_ai_calls": 0,
+  "search_status": "web_search attempted twice, failed with endpoint JSON errors; continued using web_fetch category discovery and fetched all three source pages",
+  "sources": [
+    {
+      "id": "hat-mon-hk2-2025-2026",
+      "source_url": "https://thcs.toanmath.com/2026/05/de-cuoi-hoc-ky-2-toan-9-nam-2025-2026-truong-thcs-hat-mon-ha-noi.html",
+      "download_url": "https://thcs.toanmath.com/thcs-pdf/de-cuoi-hoc-ky-2-toan-9-nam-2025-2026-truong-thcs-hat-mon-ha-noi.pdf",
+      "sha256": "e0cb8f51c93ef6f37b33dec61b018aaa0f08a4f30b9bb183f578874ac9e1acc0",
+      "bytes": 508688,
+      "school_or_authority": "THCS Hát Môn, Hà Nội",
+      "academic_year": "2025–2026",
+      "exam_type": "HK2",
+      "printed_top_level_count": 5,
+      "preferred_retained_count": 8,
+      "original_path": ".data/math9-evaluation/hat-mon-hk2-2025-2026/original.pdf",
+      "extracted_path": ".data/math9-evaluation/hat-mon-hk2-2025-2026/extracted.txt",
+      "exam_only_path": ".data/math9-evaluation/hat-mon-hk2-2025-2026/exam-only.txt",
+      "raw_exam_line_range": [
+        151,
+        214
+      ],
+      "downloaded_at_utc": "2026-11-16",
+      "extraction_method": "pdftotext -layout; no OCR; exam-only derived by physical text lines",
+      "publisher": "THCS.TOANMATH.com (third-party mirror; not independently school-verified)",
+      "exam_only_sha256": "02f87f3dc4c9aed707ee99e76c1841620f4ae40365b46c6b782ed3ed40000337",
+      "pdf_pages": 13
+    },
+    {
+      "id": "ly-son-hk1-2025-2026",
+      "source_url": "https://thcs.toanmath.com/2026/01/de-cuoi-ki-1-toan-9-nam-2025-2026-truong-thcs-ly-son-ha-noi.html",
+      "download_url": "https://thcs.toanmath.com/thcs-pdf/de-cuoi-ki-1-toan-9-nam-2025-2026-truong-thcs-ly-son-ha-noi.pdf",
+      "sha256": "b44e6a91714989ecfc6c8549346e290e7821d03c73f1d98fd50ffff717d9f292",
+      "bytes": 257459,
+      "school_or_authority": "THCS Lý Sơn, Hà Nội",
+      "academic_year": "2025–2026",
+      "exam_type": "HK1",
+      "printed_top_level_count": 5,
+      "preferred_retained_count": 10,
+      "original_path": ".data/math9-evaluation/ly-son-hk1-2025-2026/original.pdf",
+      "extracted_path": ".data/math9-evaluation/ly-son-hk1-2025-2026/extracted.txt",
+      "exam_only_path": ".data/math9-evaluation/ly-son-hk1-2025-2026/exam-only.txt",
+      "raw_exam_line_range": [
+        1,
+        69
+      ],
+      "downloaded_at_utc": "2026-11-16",
+      "extraction_method": "pdftotext -layout; no OCR; exam-only derived by physical text lines",
+      "publisher": "THCS.TOANMATH.com (third-party mirror; not independently school-verified)",
+      "exam_only_sha256": "27a24142f3fbfc08496118b7d3d7a959d1415105d595f87221a742f88d2daad6",
+      "pdf_pages": 2
+    },
+    {
+      "id": "quang-ninh-entrance10-2026-2027",
+      "source_url": "https://thcs.toanmath.com/2026/06/de-tuyen-sinh-lop-10-mon-toan-nam-2026-2027-so-gddt-quang-ninh.html",
+      "download_url": "https://thcs.toanmath.com/thcs-pdf/de-tuyen-sinh-lop-10-mon-toan-nam-2026-2027-so-gddt-quang-ninh.pdf",
+      "sha256": "f71ea2a41c06b3e81328d89e50ac3e4b070de6ef162f231cb41920f7f549f828",
+      "bytes": 466453,
+      "school_or_authority": "Sở GD&ĐT Quảng Ninh",
+      "academic_year": "2026–2027",
+      "exam_type": "entrance10-common",
+      "printed_top_level_count": 19,
+      "preferred_retained_count": 19,
+      "original_path": ".data/math9-evaluation/quang-ninh-entrance10-2026-2027/original.pdf",
+      "extracted_path": ".data/math9-evaluation/quang-ninh-entrance10-2026-2027/extracted.txt",
+      "exam_only_path": ".data/math9-evaluation/quang-ninh-entrance10-2026-2027/exam-only.txt",
+      "raw_exam_line_range": [
+        1,
+        116
+      ],
+      "downloaded_at_utc": "2026-11-16",
+      "extraction_method": "pdftotext -layout; no OCR; exam-only derived by physical text lines",
+      "publisher": "THCS.TOANMATH.com (third-party mirror; not independently school-verified)",
+      "exam_only_sha256": "6b8d62c1818909e1d4879280ac502bc0afb54e382a721c89d7e7362a2336a195",
+      "pdf_pages": 5
+    }
+  ]
+}

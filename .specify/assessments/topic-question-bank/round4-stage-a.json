@@ -1,0 +1,159 @@
+{
+  "nodes": [
+    {
+      "id": "root",
+      "parent_id": null,
+      "label": "Kiến thức và kỹ năng liên môn"
+    },
+    {
+      "id": "data-evidence",
+      "parent_id": "root",
+      "label": "Phân tích dữ liệu và đánh giá bằng chứng"
+    },
+    {
+      "id": "fact-opinion",
+      "parent_id": "data-evidence",
+      "label": "Phân biệt sự kiện và nhận định"
+    },
+    {
+      "id": "math",
+      "parent_id": "root",
+      "label": "Toán học"
+    },
+    {
+      "id": "linear-equations",
+      "parent_id": "math",
+      "label": "Phương trình bậc nhất một ẩn"
+    },
+    {
+      "id": "physics",
+      "parent_id": "root",
+      "label": "Vật lý"
+    },
+    {
+      "id": "uniform-motion",
+      "parent_id": "physics",
+      "label": "Vận tốc trong chuyển động đều"
+    },
+    {
+      "id": "chemistry",
+      "parent_id": "root",
+      "label": "Hóa học"
+    },
+    {
+      "id": "chemical-equations",
+      "parent_id": "chemistry",
+      "label": "Cân bằng phương trình hóa học"
+    },
+    {
+      "id": "biology",
+      "parent_id": "root",
+      "label": "Sinh học"
+    },
+    {
+      "id": "photosynthesis",
+      "parent_id": "biology",
+      "label": "Chức năng lục lạp trong quang hợp"
+    }
+  ],
+  "questions": [
+    {
+      "id": "A1",
+      "html_ranges": [
+        {
+          "start": 93,
+          "end": 291
+        },
+        {
+          "start": 291,
+          "end": 403
+        }
+      ],
+      "topic_id": "data-evidence",
+      "reason": "Câu hỏi kết hợp tính phần trăm tăng số hộ dệt và đánh giá giới hạn của bằng chứng về thu nhập; giữ nguyên một đơn vị và gán vào chủ đề cha phân tích dữ liệu, đánh giá bằng chứng.",
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "A2",
+      "html_ranges": [
+        {
+          "start": 93,
+          "end": 291
+        },
+        {
+          "start": 403,
+          "end": 497
+        }
+      ],
+      "topic_id": "fact-opinion",
+      "reason": "Yêu cầu phân biệt câu nêu sự kiện với câu nêu nhận định trong tư liệu chung.",
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "A3",
+      "html_ranges": [
+        {
+          "start": 497,
+          "end": 556
+        }
+      ],
+      "topic_id": "linear-equations",
+      "reason": "Yêu cầu giải phương trình bậc nhất một ẩn.",
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "A4",
+      "html_ranges": [
+        {
+          "start": 556,
+          "end": 633
+        }
+      ],
+      "topic_id": "uniform-motion",
+      "reason": "Yêu cầu tính vận tốc từ quãng đường và thời gian của chuyển động đều.",
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "A5",
+      "html_ranges": [
+        {
+          "start": 633,
+          "end": 712
+        }
+      ],
+      "topic_id": "chemical-equations",
+      "reason": "Yêu cầu cân bằng phương trình phản ứng hóa học.",
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "id": "A6",
+      "html_ranges": [
+        {
+          "start": 712,
+          "end": 788
+        }
+      ],
+      "topic_id": "photosynthesis",
+      "reason": "Yêu cầu giải thích chức năng của lục lạp trong quang hợp.",
+      "answer": null,
+      "rubric": null,
+      "points": null
+    }
+  ],
+  "limitations": [
+    "Nguồn tự ghi là dữ liệu nghiên cứu tự tạo; không có đáp án hoặc barem. Không suy diễn đáp án, rubric hay điểm; các trường tương ứng để null.",
+    "Câu 1 kết hợp tính phần trăm và đánh giá bằng chứng; giữ nguyên toàn bộ câu hỏi, gán vào chủ đề cha thay vì tách hoặc sửa câu.",
+    "html_ranges dùng chỉ số ký tự Unicode Python trên nguyên văn tệp UTF-8, start bao gồm và end không bao gồm; hai câu đầu cùng tham chiếu nguyên văn tiêu đề tư liệu và blockquote.",
+    "Chỉ khảo sát round4-batch-a.html; cây chủ đề được xây mới từ sáu câu hiện có, không giả định nội dung của đợt tiếp theo."
+  ]
+}

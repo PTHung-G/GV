@@ -1,0 +1,851 @@
+(globalThis.TURBOPACK || (globalThis.TURBOPACK = [])).push([
+  "object" == typeof document ? document.currentScript : void 0,
+  330009,
+  (e) => {
+    "use strict";
+    var t = e.i(843476),
+      a = e.i(179862),
+      r = e.i(271645),
+      i = e.i(30030),
+      n = e.i(820783),
+      l = e.i(326999),
+      o = e.i(981140),
+      s = Object.defineProperty,
+      d = (e, t) => s(e, "name", { value: t, configurable: !0 }),
+      [c, u] = (0, i.createContextScope)("AlertDialog", [l.createDialogScope]),
+      g = (0, l.createDialogScope)(),
+      f = d((e) => {
+        let { __scopeAlertDialog: a, ...r } = e,
+          i = g(a);
+        return (0, t.jsx)(l.Root, { ...i, ...r, modal: !0 });
+      }, "AlertDialog"),
+      m = r.forwardRef(
+        d(function (e, a) {
+          let { __scopeAlertDialog: r, ...i } = e,
+            n = g(r);
+          return (0, t.jsx)(l.Trigger, { ...n, ...i, ref: a });
+        }, "AlertDialogTrigger"),
+      ),
+      p = d((e) => {
+        let { __scopeAlertDialog: a, ...r } = e,
+          i = g(a);
+        return (0, t.jsx)(l.Portal, { ...i, ...r });
+      }, "AlertDialogPortal"),
+      x = r.forwardRef(
+        d(function (e, a) {
+          let { __scopeAlertDialog: r, ...i } = e,
+            n = g(r);
+          return (0, t.jsx)(l.Overlay, { ...n, ...i, ref: a });
+        }, "AlertDialogOverlay"),
+      ),
+      [v, h] = c("AlertDialogContent"),
+      y = r.forwardRef(
+        d(function (e, a) {
+          let { __scopeAlertDialog: i, children: s, ...d } = e,
+            c = g(i),
+            u = r.useRef(null),
+            f = (0, n.useComposedRefs)(a, u),
+            m = r.useRef(null);
+          return (0, t.jsx)(v, {
+            scope: i,
+            cancelRef: m,
+            children: (0, t.jsx)(l.Content, {
+              role: "alertdialog",
+              ...c,
+              ...d,
+              ref: f,
+              onOpenAutoFocus: (0, o.composeEventHandlers)(
+                d.onOpenAutoFocus,
+                (e) => {
+                  (e.preventDefault(), m.current?.focus({ preventScroll: !0 }));
+                },
+              ),
+              onPointerDownOutside: (e) => e.preventDefault(),
+              onInteractOutside: (e) => e.preventDefault(),
+              children: s,
+            }),
+          });
+        }, "AlertDialogContent"),
+      ),
+      j = r.forwardRef(
+        d(function (e, a) {
+          let { __scopeAlertDialog: r, ...i } = e,
+            n = g(r);
+          return (0, t.jsx)(l.Title, { ...n, ...i, ref: a });
+        }, "AlertDialogTitle"),
+      ),
+      b = r.forwardRef(
+        d(function (e, a) {
+          let { __scopeAlertDialog: r, ...i } = e,
+            n = g(r);
+          return (0, t.jsx)(l.Description, { ...n, ...i, ref: a });
+        }, "AlertDialogDescription"),
+      ),
+      D = r.forwardRef(
+        d(function (e, a) {
+          let { __scopeAlertDialog: r, ...i } = e,
+            n = g(r);
+          return (0, t.jsx)(l.Close, { ...n, ...i, ref: a });
+        }, "AlertDialogAction"),
+      ),
+      w = r.forwardRef(
+        d(function (e, a) {
+          let { __scopeAlertDialog: r, ...i } = e,
+            { cancelRef: o } = h("AlertDialogCancel", r),
+            s = g(r),
+            d = (0, n.useComposedRefs)(a, o);
+          return (0, t.jsx)(l.Close, { ...s, ...i, ref: d });
+        }, "AlertDialogCancel"),
+      );
+    e.s(
+      [
+        "Action",
+        0,
+        D,
+        "AlertDialog",
+        0,
+        f,
+        "AlertDialogAction",
+        0,
+        D,
+        "AlertDialogCancel",
+        0,
+        w,
+        "AlertDialogContent",
+        0,
+        y,
+        "AlertDialogDescription",
+        0,
+        b,
+        "AlertDialogOverlay",
+        0,
+        x,
+        "AlertDialogPortal",
+        0,
+        p,
+        "AlertDialogTitle",
+        0,
+        j,
+        "AlertDialogTrigger",
+        0,
+        m,
+        "Cancel",
+        0,
+        w,
+        "Content",
+        0,
+        y,
+        "Description",
+        0,
+        b,
+        "Overlay",
+        0,
+        x,
+        "Portal",
+        0,
+        p,
+        "Root",
+        0,
+        f,
+        "Title",
+        0,
+        j,
+        "Trigger",
+        0,
+        m,
+        "createAlertDialogScope",
+        0,
+        u,
+      ],
+      691162,
+    );
+    var A = e.i(691162),
+      A = A,
+      N = e.i(167881);
+    function z({ ...e }) {
+      return (0, t.jsx)(A.Portal, { "data-slot": "alert-dialog-portal", ...e });
+    }
+    function C({ className: e, ...r }) {
+      return (0, t.jsx)(A.Overlay, {
+        "data-slot": "alert-dialog-overlay",
+        className: (0, a.cn)(
+          "fixed inset-0 z-50 bg-black/50 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0",
+          e,
+        ),
+        ...r,
+      });
+    }
+    e.s(
+      [
+        "AlertDialog",
+        0,
+        function ({ ...e }) {
+          return (0, t.jsx)(A.Root, { "data-slot": "alert-dialog", ...e });
+        },
+        "AlertDialogAction",
+        0,
+        function ({
+          className: e,
+          variant: r = "default",
+          size: i = "default",
+          ...n
+        }) {
+          return (0, t.jsx)(N.Button, {
+            variant: r,
+            size: i,
+            asChild: !0,
+            children: (0, t.jsx)(A.Action, {
+              "data-slot": "alert-dialog-action",
+              className: (0, a.cn)(e),
+              ...n,
+            }),
+          });
+        },
+        "AlertDialogCancel",
+        0,
+        function ({
+          className: e,
+          variant: r = "outline",
+          size: i = "default",
+          ...n
+        }) {
+          return (0, t.jsx)(N.Button, {
+            variant: r,
+            size: i,
+            asChild: !0,
+            children: (0, t.jsx)(A.Cancel, {
+              "data-slot": "alert-dialog-cancel",
+              className: (0, a.cn)(e),
+              ...n,
+            }),
+          });
+        },
+        "AlertDialogContent",
+        0,
+        function ({ className: e, size: r = "default", ...i }) {
+          return (0, t.jsxs)(z, {
+            children: [
+              (0, t.jsx)(C, {}),
+              (0, t.jsx)(A.Content, {
+                "data-slot": "alert-dialog-content",
+                "data-size": r,
+                className: (0, a.cn)(
+                  "group/alert-dialog-content fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border bg-background p-6 shadow-lg duration-200 data-[size=sm]:max-w-xs data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[size=default]:sm:max-w-lg",
+                  e,
+                ),
+                ...i,
+              }),
+            ],
+          });
+        },
+        "AlertDialogDescription",
+        0,
+        function ({ className: e, ...r }) {
+          return (0, t.jsx)(A.Description, {
+            "data-slot": "alert-dialog-description",
+            className: (0, a.cn)("text-sm text-muted-foreground", e),
+            ...r,
+          });
+        },
+        "AlertDialogFooter",
+        0,
+        function ({ className: e, ...r }) {
+          return (0, t.jsx)("div", {
+            "data-slot": "alert-dialog-footer",
+            className: (0, a.cn)(
+              "flex flex-col-reverse gap-2 group-data-[size=sm]/alert-dialog-content:grid group-data-[size=sm]/alert-dialog-content:grid-cols-2 sm:flex-row sm:justify-end",
+              e,
+            ),
+            ...r,
+          });
+        },
+        "AlertDialogHeader",
+        0,
+        function ({ className: e, ...r }) {
+          return (0, t.jsx)("div", {
+            "data-slot": "alert-dialog-header",
+            className: (0, a.cn)(
+              "grid grid-rows-[auto_1fr] place-items-center gap-1.5 text-center has-data-[slot=alert-dialog-media]:grid-rows-[auto_auto_1fr] has-data-[slot=alert-dialog-media]:gap-x-6 sm:group-data-[size=default]/alert-dialog-content:place-items-start sm:group-data-[size=default]/alert-dialog-content:text-left sm:group-data-[size=default]/alert-dialog-content:has-data-[slot=alert-dialog-media]:grid-rows-[auto_1fr]",
+              e,
+            ),
+            ...r,
+          });
+        },
+        "AlertDialogTitle",
+        0,
+        function ({ className: e, ...r }) {
+          return (0, t.jsx)(A.Title, {
+            "data-slot": "alert-dialog-title",
+            className: (0, a.cn)(
+              "text-lg font-semibold sm:group-data-[size=default]/alert-dialog-content:group-has-data-[slot=alert-dialog-media]/alert-dialog-content:col-start-2",
+              e,
+            ),
+            ...r,
+          });
+        },
+        "AlertDialogTrigger",
+        0,
+        function ({ ...e }) {
+          return (0, t.jsx)(A.Trigger, {
+            "data-slot": "alert-dialog-trigger",
+            ...e,
+          });
+        },
+      ],
+      330009,
+    );
+  },
+  781947,
+  (e) => {
+    "use strict";
+    var t = e.i(843476),
+      a = e.i(225913),
+      r = e.i(647163);
+    let i = (0, a.cva)(
+      "relative grid w-full grid-cols-[0_1fr] items-start gap-y-0.5 rounded-lg border px-4 py-3 text-sm has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] has-[>svg]:gap-x-3 [&>svg]:size-4 [&>svg]:translate-y-0.5 [&>svg]:text-current",
+      {
+        variants: {
+          variant: {
+            default: "bg-card text-card-foreground",
+            destructive:
+              "bg-card text-destructive *:data-[slot=alert-description]:text-destructive/90 [&>svg]:text-current",
+          },
+        },
+        defaultVariants: { variant: "default" },
+      },
+    );
+    e.s([
+      "Alert",
+      0,
+      function ({ className: e, variant: a, ...n }) {
+        return (0, t.jsx)("div", {
+          "data-slot": "alert",
+          role: "alert",
+          className: (0, r.cn)(i({ variant: a }), e),
+          ...n,
+        });
+      },
+      "AlertDescription",
+      0,
+      function ({ className: e, ...a }) {
+        return (0, t.jsx)("div", {
+          "data-slot": "alert-description",
+          className: (0, r.cn)(
+            "col-start-2 grid justify-items-start gap-1 text-sm text-muted-foreground [&_p]:leading-relaxed",
+            e,
+          ),
+          ...a,
+        });
+      },
+      "AlertTitle",
+      0,
+      function ({ className: e, ...a }) {
+        return (0, t.jsx)("div", {
+          "data-slot": "alert-title",
+          className: (0, r.cn)(
+            "col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight",
+            e,
+          ),
+          ...a,
+        });
+      },
+    ]);
+  },
+  287336,
+  (e) => {
+    "use strict";
+    var t = e.i(843476),
+      a = e.i(179862),
+      r = e.i(271645),
+      i = e.i(30030),
+      n = e.i(248425),
+      l = Object.defineProperty,
+      o = (e, t) => l(e, "name", { value: t, configurable: !0 }),
+      s = "Progress",
+      [d, c] = (0, i.createContextScope)(s),
+      [u, g] = d(s),
+      f = r.forwardRef(
+        o(function (e, a) {
+          let {
+            __scopeProgress: r,
+            value: i = null,
+            max: l,
+            getValueLabel: o = p,
+            ...s
+          } = e;
+          (l || 0 === l) && !h(l) && console.error(j(`${l}`, "Progress"));
+          let d = h(l) ? l : 100;
+          null === i || y(i, d) || console.error(b(`${i}`, "Progress"));
+          let c = y(i, d) ? i : null,
+            g = v(c) ? o(c, d) : void 0;
+          return (0, t.jsx)(u, {
+            scope: r,
+            value: c,
+            max: d,
+            children: (0, t.jsx)(n.Primitive.div, {
+              "aria-valuemax": d,
+              "aria-valuemin": 0,
+              "aria-valuenow": v(c) ? c : void 0,
+              "aria-valuetext": g,
+              role: "progressbar",
+              "data-state": x(c, d),
+              "data-value": c ?? void 0,
+              "data-max": d,
+              ...s,
+              ref: a,
+            }),
+          });
+        }, "Progress"),
+      ),
+      m = r.forwardRef(
+        o(function (e, a) {
+          let { __scopeProgress: r, ...i } = e,
+            l = g("ProgressIndicator", r);
+          return (0, t.jsx)(n.Primitive.div, {
+            "data-state": x(l.value, l.max),
+            "data-value": l.value ?? void 0,
+            "data-max": l.max,
+            ...i,
+            ref: a,
+          });
+        }, "ProgressIndicator"),
+      );
+    function p(e, t) {
+      return `${Math.round((e / t) * 100)}%`;
+    }
+    function x(e, t) {
+      return null == e ? "indeterminate" : e === t ? "complete" : "loading";
+    }
+    function v(e) {
+      return "number" == typeof e;
+    }
+    function h(e) {
+      return v(e) && !isNaN(e) && e > 0;
+    }
+    function y(e, t) {
+      return v(e) && !isNaN(e) && e <= t && e >= 0;
+    }
+    function j(e, t) {
+      return `Invalid prop \`max\` of value \`${e}\` supplied to \`${t}\`. Only numbers greater than 0 are valid max values. Defaulting to \`100\`.`;
+    }
+    function b(e, t) {
+      return `Invalid prop \`value\` of value \`${e}\` supplied to \`${t}\`. The \`value\` prop must be:
+  - a positive number
+  - less than the value passed to \`max\` (or 100 if no \`max\` prop is set)
+  - \`null\` or \`undefined\` if the progress is indeterminate.
+
+Defaulting to \`null\`.`;
+    }
+    (o(p, "defaultGetValueLabel"),
+      o(x, "getProgressState"),
+      o(v, "isNumber"),
+      o(h, "isValidMaxNumber"),
+      o(y, "isValidValueNumber"),
+      o(j, "getInvalidMaxError"),
+      o(b, "getInvalidValueError"),
+      e.s(
+        [
+          "Indicator",
+          0,
+          m,
+          "Progress",
+          0,
+          f,
+          "ProgressIndicator",
+          0,
+          m,
+          "Root",
+          0,
+          f,
+          "createProgressScope",
+          0,
+          c,
+        ],
+        676027,
+      ));
+    var D = e.i(676027),
+      D = D;
+    e.s(
+      [
+        "Progress",
+        0,
+        function ({ className: e, value: r, ...i }) {
+          return (0, t.jsx)(D.Root, {
+            "data-slot": "progress",
+            className: (0, a.cn)(
+              "relative h-2 w-full overflow-hidden rounded-full bg-primary/20",
+              e,
+            ),
+            ...i,
+            children: (0, t.jsx)(D.Indicator, {
+              "data-slot": "progress-indicator",
+              className: "h-full w-full flex-1 bg-primary transition-all",
+              style: { transform: `translateX(-${100 - (r || 0)}%)` },
+            }),
+          });
+        },
+      ],
+      287336,
+    );
+  },
+  62870,
+  (e) => {
+    "use strict";
+    var t = e.i(843476),
+      a = e.i(179862),
+      r = e.i(593698),
+      i = e.i(26495),
+      i = i,
+      n = e.i(144716),
+      n = n,
+      l = e.i(129402),
+      l = l;
+    function o({ className: e, ...r }) {
+      return (0, t.jsx)(l.ScrollUpButton, {
+        "data-slot": "select-scroll-up-button",
+        className: (0, a.cn)(
+          "flex cursor-default items-center justify-center py-1",
+          e,
+        ),
+        ...r,
+        children: (0, t.jsx)(n.default, { className: "size-4" }),
+      });
+    }
+    function s({ className: e, ...r }) {
+      return (0, t.jsx)(l.ScrollDownButton, {
+        "data-slot": "select-scroll-down-button",
+        className: (0, a.cn)(
+          "flex cursor-default items-center justify-center py-1",
+          e,
+        ),
+        ...r,
+        children: (0, t.jsx)(i.default, { className: "size-4" }),
+      });
+    }
+    e.s(
+      [
+        "Select",
+        0,
+        function ({ ...e }) {
+          return (0, t.jsx)(l.Root, { "data-slot": "select", ...e });
+        },
+        "SelectContent",
+        0,
+        function ({
+          className: e,
+          children: r,
+          position: i = "item-aligned",
+          align: n = "center",
+          ...d
+        }) {
+          return (0, t.jsx)(l.Portal, {
+            children: (0, t.jsxs)(l.Content, {
+              "data-slot": "select-content",
+              className: (0, a.cn)(
+                "relative z-50 max-h-(--radix-select-content-available-height) min-w-[8rem] origin-(--radix-select-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-md border bg-popover text-popover-foreground shadow-md data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
+                "popper" === i &&
+                  "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
+                e,
+              ),
+              position: i,
+              align: n,
+              ...d,
+              children: [
+                (0, t.jsx)(o, {}),
+                (0, t.jsx)(l.Viewport, {
+                  className: (0, a.cn)(
+                    "p-1",
+                    "popper" === i &&
+                      "h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)] scroll-my-1",
+                  ),
+                  children: r,
+                }),
+                (0, t.jsx)(s, {}),
+              ],
+            }),
+          });
+        },
+        "SelectItem",
+        0,
+        function ({ className: e, children: i, ...n }) {
+          return (0, t.jsxs)(l.Item, {
+            "data-slot": "select-item",
+            className: (0, a.cn)(
+              "relative flex w-full cursor-default items-center gap-2 rounded-sm py-1.5 pr-8 pl-2 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-muted-foreground *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2",
+              e,
+            ),
+            ...n,
+            children: [
+              (0, t.jsx)("span", {
+                "data-slot": "select-item-indicator",
+                className:
+                  "absolute right-2 flex size-3.5 items-center justify-center",
+                children: (0, t.jsx)(l.ItemIndicator, {
+                  children: (0, t.jsx)(r.CheckIcon, { className: "size-4" }),
+                }),
+              }),
+              (0, t.jsx)(l.ItemText, { children: i }),
+            ],
+          });
+        },
+        "SelectTrigger",
+        0,
+        function ({ className: e, size: r = "default", children: n, ...o }) {
+          return (0, t.jsxs)(l.Trigger, {
+            "data-slot": "select-trigger",
+            "data-size": r,
+            className: (0, a.cn)(
+              "flex w-fit items-center justify-between gap-2 rounded-md border border-input bg-transparent px-3 py-2 text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 data-[placeholder]:text-muted-foreground data-[size=default]:h-9 data-[size=sm]:h-8 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 dark:bg-input/30 dark:hover:bg-input/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-muted-foreground",
+              e,
+            ),
+            ...o,
+            children: [
+              n,
+              (0, t.jsx)(l.Icon, {
+                asChild: !0,
+                children: (0, t.jsx)(i.default, {
+                  className: "size-4 opacity-50",
+                }),
+              }),
+            ],
+          });
+        },
+        "SelectValue",
+        0,
+        function ({ ...e }) {
+          return (0, t.jsx)(l.Value, { "data-slot": "select-value", ...e });
+        },
+      ],
+      62870,
+    );
+  },
+  671428,
+  (e) => {
+    "use strict";
+    var t = e.i(843476),
+      a = e.i(179862);
+    e.s([
+      "Skeleton",
+      0,
+      function ({ className: e, ...r }) {
+        return (0, t.jsx)("div", {
+          "data-slot": "skeleton",
+          className: (0, a.cn)("animate-pulse rounded-md bg-accent", e),
+          ...r,
+        });
+      },
+    ]);
+  },
+  42118,
+  (e) => {
+    "use strict";
+    let t = "Asia/Ho_Chi_Minh";
+    function a(e) {
+      let t = ["B", "KB", "MB", "GB", "TB"],
+        a = Math.max(0, e),
+        r = 0;
+      for (; a >= 1024 && r < t.length - 1; ) ((a /= 1024), r++);
+      let i = 0 === r || a >= 100 ? 0 : 1;
+      return `${a.toFixed(i).replace(".", ",").replace(/,0$/, "")} ${t[r]}`;
+    }
+    function r(e) {
+      return e
+        ? new Date(e).toLocaleString("vi-VN", {
+            timeZone: t,
+            hour: "2-digit",
+            minute: "2-digit",
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+          })
+        : "";
+    }
+    function i(e) {
+      return e
+        ? new Date(e).toLocaleDateString("vi-VN", {
+            timeZone: t,
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+          })
+        : "";
+    }
+    function n(e) {
+      let t =
+        e % 168 == 0
+          ? { size: e / 168, label: "tuần" }
+          : e % 24 == 0
+            ? { size: e / 24, label: "ngày" }
+            : { size: e, label: "giờ" };
+      return 1 === t.size ? `mỗi ${t.label}` : `mỗi ${t.size} ${t.label}`;
+    }
+    e.s([
+      "STATUS_LABEL",
+      0,
+      {
+        pending: "Chờ duyệt",
+        reviewing: "Đang xét duyệt",
+        awaiting_admin: "Chờ quản trị viên duyệt",
+        approved: "Đã duyệt",
+        rejected: "Không được duyệt",
+        failed: "Chưa duyệt được",
+      },
+      "VERDICT_LABEL",
+      0,
+      {
+        novel: "Câu mới",
+        variant: "Gần giống câu đã có",
+        duplicate: "Đã có trên hệ thống",
+        common: "Nội dung phổ biến",
+        invalid: "Không hợp lệ",
+      },
+      "formatBytes",
+      0,
+      a,
+      "formatDate",
+      0,
+      i,
+      "formatDateTime",
+      0,
+      r,
+      "formatRecent",
+      0,
+      function (e, a = new Date()) {
+        let r = new Date(e);
+        return r.toLocaleDateString("vi-VN", { timeZone: t }) ===
+          a.toLocaleDateString("vi-VN", { timeZone: t })
+          ? r.toLocaleTimeString("vi-VN", {
+              timeZone: t,
+              hour: "2-digit",
+              minute: "2-digit",
+            })
+          : i(e);
+      },
+      "isClaimMission",
+      0,
+      function (e) {
+        return "daily_checkin" === e.kind || "link_share" === e.kind;
+      },
+      "missionAttemptsText",
+      0,
+      function (e) {
+        return null === e.maxAttempts
+          ? `Đ\xe3 l\xe0m ${e.attemptsUsed} lượt`
+          : `Đ\xe3 d\xf9ng ${e.attemptsUsed}/${e.maxAttempts} lượt`;
+      },
+      "missionAvailable",
+      0,
+      function (e) {
+        return (
+          e.enabled && (null === e.attemptsRemaining || e.attemptsRemaining > 0)
+        );
+      },
+      "missionResetText",
+      0,
+      function (e) {
+        return null === e.resetHours
+          ? "Không làm mới"
+          : `L\xe0m mới ${n(e.resetHours)} \xb7 lần tới ${r(e.nextResetAt)}`;
+      },
+      "missionRewardText",
+      0,
+      function (e) {
+        return e.rewardPoints > 0
+          ? `+${e.rewardPoints.toLocaleString("vi-VN")} điểm t\xedn dụng AI mỗi lượt được duyệt`
+          : "Chưa có điểm thưởng";
+      },
+      "resetPeriodText",
+      0,
+      n,
+      "storageLimitNote",
+      0,
+      function (e) {
+        let t = e.override;
+        return t?.active
+          ? t.expiresAt
+            ? `Hạn mức ${a(t.limitBytes)} đến ${r(t.expiresAt)}, sau đ\xf3 về mức ${a(e.defaultLimitBytes)}.`
+            : `Hạn mức ${a(t.limitBytes)}, kh\xf4ng thời hạn.`
+          : `Hạn mức ${a(e.defaultLimitBytes)}.`;
+      },
+      "storageRatio",
+      0,
+      function (e) {
+        return e.limitBytes <= 0
+          ? +(e.usedBytes > 0)
+          : Math.min(1, e.usedBytes / e.limitBytes);
+      },
+    ]);
+  },
+  959411,
+  (e) => {
+    "use strict";
+    var t = e.i(271645),
+      a = e.i(248425),
+      r = e.i(843476),
+      i = Object.defineProperty,
+      n = Object.freeze({
+        position: "absolute",
+        border: 0,
+        width: 1,
+        height: 1,
+        padding: 0,
+        margin: -1,
+        overflow: "hidden",
+        clip: "rect(0, 0, 0, 0)",
+        whiteSpace: "nowrap",
+        wordWrap: "normal",
+      }),
+      l = t.forwardRef(
+        i(
+          function (e, t) {
+            return (0, r.jsx)(a.Primitive.span, {
+              ...e,
+              ref: t,
+              style: { ...n, ...e.style },
+            });
+          },
+          "name",
+          { value: "VisuallyHidden", configurable: !0 },
+        ),
+      );
+    e.s(["Root", 0, l, "VISUALLY_HIDDEN_STYLES", 0, n]);
+  },
+  446849,
+  (e) => {
+    "use strict";
+    let t = (0, e.i(456420).default)("ellipsis-vertical", [
+      ["circle", { cx: "12", cy: "12", r: "1", key: "41hilf" }],
+      ["circle", { cx: "12", cy: "5", r: "1", key: "gxeob9" }],
+      ["circle", { cx: "12", cy: "19", r: "1", key: "lyex9k" }],
+    ]);
+    e.s(["default", 0, t]);
+  },
+  189904,
+  (e) => {
+    "use strict";
+    var t = e.i(446849);
+    e.s(["MoreVertical", () => t.default]);
+  },
+  566595,
+  (e) => {
+    "use strict";
+    let t = (0, e.i(456420).default)("search", [
+      ["path", { d: "m21 21-4.34-4.34", key: "14j7rj" }],
+      ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }],
+    ]);
+    e.s(["Search", 0, t], 566595);
+  },
+  725981,
+  (e) => {
+    "use strict";
+    let t = (0, e.i(456420).default)("upload", [
+      ["path", { d: "M12 3v12", key: "1x0j5s" }],
+      ["path", { d: "m17 8-5-5-5 5", key: "7q97r8" }],
+      [
+        "path",
+        { d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4", key: "ih7n3h" },
+      ],
+    ]);
+    e.s(["Upload", 0, t], 725981);
+  },
+]);

@@ -1,0 +1,3 @@
+import { requireUser } from '@/lib/server/auth';import { jsonError } from '@/lib/server/http';import { printRelease } from '@/lib/exam-release/server';
+export const runtime='nodejs';export const dynamic='force-dynamic';
+export async function GET(req:Request,{params}:{params:Promise<{id:string}>}){try{const user=await requireUser();const url=new URL(req.url);return new Response(await printRelease(user.id,(await params).id,url.searchParams.get('kind')??'exam',url.searchParams.get('code')),{headers:{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store','Content-Security-Policy':"script-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'"}});}catch(e){return jsonError(e);}}

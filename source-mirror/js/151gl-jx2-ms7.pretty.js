@@ -1,0 +1,1881 @@
+(globalThis.TURBOPACK || (globalThis.TURBOPACK = [])).push([
+  "object" == typeof document ? document.currentScript : void 0,
+  829691,
+  97923,
+  (e) => {
+    "use strict";
+    var t = e.i(843476),
+      n = e.i(522016),
+      a = e.i(618566),
+      s = e.i(271645),
+      r = e.i(728574),
+      i = e.i(716327),
+      o = e.i(632781),
+      l = e.i(456420);
+    let c = (0, l.default)("log-in", [
+      ["path", { d: "m10 17 5-5-5-5", key: "1bsop3" }],
+      ["path", { d: "M15 12H3", key: "6jk70r" }],
+      [
+        "path",
+        { d: "M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4", key: "u53s6r" },
+      ],
+    ]);
+    e.s(["LogIn", 0, c], 97923);
+    var d = e.i(367784),
+      u = e.i(77071),
+      h = e.i(328623),
+      p = e.i(474816),
+      m = e.i(765649);
+    let x = (0, l.default)("wallet", [
+      [
+        "path",
+        {
+          d: "M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1",
+          key: "18etb6",
+        },
+      ],
+      [
+        "path",
+        { d: "M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4", key: "xoc0q4" },
+      ],
+    ]);
+    var g = e.i(127923),
+      f = e.i(63270),
+      v = e.i(167881),
+      b = e.i(630374);
+    let j = null;
+    function w() {
+      return window.google
+        ? Promise.resolve()
+        : (j ||
+            (j = new Promise((e, t) => {
+              let n = document.createElement("script");
+              ((n.src = "https://accounts.google.com/gsi/client"),
+                (n.async = !0),
+                (n.onload = () => e()),
+                (n.onerror = () => {
+                  ((j = null),
+                    n.remove(),
+                    t(Error("Không tải được đăng nhập Google.")));
+                }),
+                document.head.appendChild(n));
+            })),
+          j);
+    }
+    let y = "exam-google-client-id";
+    function k() {
+      try {
+        return localStorage.getItem(y) || "";
+      } catch {
+        return "";
+      }
+    }
+    function N({ clientId: e, onCredential: n }) {
+      let a = (0, s.useRef)(null),
+        r = (0, s.useRef)(n),
+        [i, o] = (0, s.useState)(""),
+        [l, c] = (0, s.useState)(!1);
+      return (
+        (0, s.useEffect)(() => {
+          r.current = n;
+        }, [n]),
+        (0, s.useEffect)(() => {
+          let t = !0;
+          return (
+            w()
+              .then(() => {
+                t &&
+                  a.current &&
+                  window.google &&
+                  (window.google.accounts.id.initialize({
+                    client_id: e,
+                    auto_select: !1,
+                    callback: ({ credential: e }) => {
+                      t && r.current(e);
+                    },
+                  }),
+                  a.current.replaceChildren(),
+                  window.google.accounts.id.renderButton(a.current, {
+                    theme: "filled_blue",
+                    size: "large",
+                    width: Math.min(
+                      320,
+                      a.current.parentElement?.clientWidth || 320,
+                    ),
+                    text: "signin_with",
+                    locale: "vi",
+                  }),
+                  c(!0));
+              })
+              .catch((e) => {
+                t && o(e.message);
+              }),
+            () => {
+              t = !1;
+            }
+          );
+        }, [e]),
+        (0, t.jsxs)("div", {
+          className: "relative min-h-10 w-full max-w-80",
+          children: [
+            !l &&
+              !i &&
+              (0, t.jsx)("div", {
+                "aria-busy": "true",
+                className:
+                  "absolute inset-0 flex animate-pulse items-center justify-center rounded-full bg-neutral-100 text-sm text-neutral-500",
+                children: "Đang tải đăng nhập Google…",
+              }),
+            (0, t.jsx)("div", { ref: a, className: "flex justify-center" }),
+            i &&
+              (0, t.jsx)("p", {
+                role: "alert",
+                className: "text-sm text-red-600",
+                children: i,
+              }),
+          ],
+        })
+      );
+    }
+    var C = e.i(665137),
+      P = e.i(775691);
+    let S = [
+        [/Barcelona/, "Threads"],
+        [/Instagram/, "Instagram"],
+        [/FBAN\/Messenger|MessengerForiOS|FB_IAB\/Orca/, "Messenger"],
+        [/FBAN|FBAV|FB_IAB|FBIOS|FB4A/, "Facebook"],
+        [/Zalo/i, "Zalo"],
+        [/musical_ly|BytedanceWebview|TikTok/, "TikTok"],
+        [/\bLine\//, "LINE"],
+      ],
+      A = "dang-nhap";
+    function _() {
+      return (function (e, t = "") {
+        let n = /Android/i.test(e)
+            ? "android"
+            : /iPhone|iPad|iPod/i.test(e)
+              ? "ios"
+              : "other",
+          a = S.find(([t]) => t.test(e));
+        return a
+          ? { app: a[1], os: n }
+          : /IABMV/.test(e)
+            ? { app: /threads\./.test(t) ? "Threads" : "Facebook", os: n }
+            : "android" === n && /; wv\)/.test(e)
+              ? { app: "", os: n }
+              : null;
+      })(navigator.userAgent, document.referrer);
+    }
+    var F = e.i(384185),
+      B = e.i(689664),
+      E = e.i(508734),
+      R = e.i(482022),
+      M = e.i(389567);
+    function I({ provider: e, className: n = "size-4" }) {
+      return "google" === e
+        ? (0, t.jsxs)("svg", {
+            viewBox: "0 0 24 24",
+            role: "img",
+            "aria-label": "Google",
+            className: n,
+            children: [
+              (0, t.jsx)("path", {
+                fill: "#2383e2",
+                d: "M21.6 12.2c0-.7-.1-1.4-.2-2.1H12v4h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.8 3-4.3 3-7.4Z",
+              }),
+              (0, t.jsx)("path", {
+                fill: "#34A853",
+                d: "M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.7-5.6-4H3.1v2.6A10 10 0 0 0 12 22Z",
+              }),
+              (0, t.jsx)("path", {
+                fill: "#FBBC05",
+                d: "M6.4 14.1a6 6 0 0 1 0-4.2V7.3H3.1a10 10 0 0 0 0 9.4l3.3-2.6Z",
+              }),
+              (0, t.jsx)("path", {
+                fill: "#EA4335",
+                d: "M12 5.9c1.5 0 2.8.5 3.8 1.5l2.9-2.8A9.7 9.7 0 0 0 12 2a10 10 0 0 0-8.9 5.3l3.3 2.6c.8-2.3 3-4 5.6-4Z",
+              }),
+            ],
+          })
+        : "facebook" === e
+          ? (0, t.jsxs)("svg", {
+              viewBox: "0 0 24 24",
+              role: "img",
+              "aria-label": "Facebook",
+              className: n,
+              children: [
+                (0, t.jsx)("circle", {
+                  cx: "12",
+                  cy: "12",
+                  r: "11",
+                  fill: "#1877F2",
+                }),
+                (0, t.jsx)("path", {
+                  fill: "white",
+                  d: "M13.6 23v-9h3l.5-3.5h-3.5V8.3c0-1 .3-1.7 1.8-1.7h1.8V3.5c-.3 0-1.4-.1-2.7-.1-2.7 0-4.5 1.6-4.5 4.6v2.5H7V14h3v9Z",
+                }),
+              ],
+            })
+          : (0, t.jsx)(m.UserRound, {
+              role: "img",
+              "aria-label": "Tài khoản",
+              className: n,
+            });
+    }
+    function D({ browser: e, next: n, busy: a, onGoogle: r }) {
+      let i,
+        [l, c] = (0, s.useState)(!1),
+        d = e.app || "ứng dụng",
+        u =
+          "ios" === e.os
+            ? "Safari"
+            : "android" === e.os
+              ? "Chrome"
+              : "trình duyệt",
+        h =
+          ((i = new URL(n, window.location.origin)).searchParams.set(A, "1"),
+          i.toString()),
+        p = (function (e, { app: t, os: n }) {
+          let a = new URL(e),
+            s = `${a.host}${a.pathname}${a.search}${a.hash}`;
+          return "android" === n
+            ? `intent://${s}#Intent;scheme=${a.protocol.slice(0, -1)};package=com.android.chrome;S.browser_fallback_url=${encodeURIComponent(e)};end`
+            : "ios" !== n
+              ? null
+              : "Threads" === t
+                ? `barcelona://extbrowser/?url=${encodeURIComponent(e)}`
+                : "Instagram" === t
+                  ? `instagram://extbrowser/?url=${encodeURIComponent(e)}`
+                  : `x-safari-${a.protocol.slice(0, -1)}://${s}`;
+        })(h, e),
+        m = "ios" === e.os ? r : void 0;
+      async function x() {
+        (0, M.track)("inapp_open_external", { app: e.app, how: "copy" });
+        try {
+          (await navigator.clipboard.writeText(h), c(!0));
+        } catch {
+          window.prompt("Sao chép liên kết này rồi dán vào trình duyệt:", h);
+        }
+      }
+      return (
+        (0, s.useEffect)(() => {
+          (0, M.track)("inapp_browser", { app: e.app, os: e.os });
+        }, [e]),
+        (0, t.jsxs)("div", {
+          className:
+            "grid w-full gap-3 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-[#37352f]",
+          children: [
+            m
+              ? (0, t.jsxs)(t.Fragment, {
+                  children: [
+                    (0, t.jsxs)("p", {
+                      children: [
+                        "Bạn đang xem trang trong ",
+                        (0, t.jsx)("b", { children: d }),
+                        ". Bấm nút dưới để đăng nhập Google ngay tại đây.",
+                      ],
+                    }),
+                    (0, t.jsxs)(v.Button, {
+                      className: `h-10 gap-2 ${F.inkButton}`,
+                      disabled: a,
+                      onClick: () => {
+                        ((0, M.track)("inapp_google_redirect", { app: e.app }),
+                          m());
+                      },
+                      children: [
+                        a
+                          ? (0, t.jsx)(o.Loader2, {
+                              className: "size-4 animate-spin",
+                              "aria-hidden": !0,
+                            })
+                          : (0, t.jsx)(I, {
+                              provider: "google",
+                              className: "size-4",
+                            }),
+                        "Tiếp tục với Google",
+                      ],
+                    }),
+                    (0, t.jsxs)("p", {
+                      className: "text-xs text-neutral-600",
+                      children: [
+                        "Google báo lỗi hoặc không quay lại được? Mở trang bằng ",
+                        u,
+                        ":",
+                      ],
+                    }),
+                  ],
+                })
+              : (0, t.jsxs)("p", {
+                  children: [
+                    "Bạn đang xem trang trong ",
+                    (0, t.jsx)("b", { children: d }),
+                    ". Google không cho đăng nhập ở đây, hãy mở trang bằng ",
+                    (0, t.jsx)("b", { children: u }),
+                    " để đăng nhập bằng Google.",
+                  ],
+                }),
+            p &&
+              (0, t.jsx)(v.Button, {
+                asChild: !0,
+                variant: m ? "outline" : "default",
+                className: m
+                  ? "h-10 gap-2 bg-white"
+                  : `h-10 gap-2 ${F.inkButton}`,
+                onClick: () =>
+                  (0, M.track)("inapp_open_external", {
+                    app: e.app,
+                    how: "button",
+                  }),
+                children: (0, t.jsxs)("a", {
+                  href: p,
+                  children: [
+                    (0, t.jsx)(R.ExternalLink, {
+                      className: "size-4",
+                      "aria-hidden": !0,
+                    }),
+                    "Mở bằng ",
+                    u,
+                  ],
+                }),
+              }),
+            (0, t.jsxs)(v.Button, {
+              variant: "outline",
+              className: "h-10 gap-2 bg-white",
+              onClick: () => void x(),
+              children: [
+                l
+                  ? (0, t.jsx)(B.Check, {
+                      className: "size-4",
+                      "aria-hidden": !0,
+                    })
+                  : (0, t.jsx)(E.Copy, {
+                      className: "size-4",
+                      "aria-hidden": !0,
+                    }),
+                l
+                  ? `Đ\xe3 sao ch\xe9p - d\xe1n v\xe0o ${u}`
+                  : "Sao chép liên kết",
+              ],
+            }),
+            (0, t.jsxs)("p", {
+              className: "text-xs text-neutral-600",
+              children: [
+                "Không mở được? Bấm nút ",
+                (0, t.jsx)("b", { children: "•••" }),
+                " hoặc ",
+                (0, t.jsx)("b", { children: "⋮" }),
+                " ở góc trên màn hình rồi chọn ",
+                (0, t.jsx)("b", { children: "Mở bằng trình duyệt" }),
+                ".",
+              ],
+            }),
+          ],
+        })
+      );
+    }
+    var L = e.i(647163);
+    function T({ enabled: e, children: n }) {
+      return e
+        ? (0, t.jsx)("div", {
+            className: "flex items-center gap-1.5",
+            children: n,
+          })
+        : (0, t.jsx)(t.Fragment, { children: n });
+    }
+    function O({ href: e, icon: a, onNavigate: s, children: r }) {
+      return (0, t.jsxs)(n.default, {
+        href: e,
+        onClick: s,
+        className:
+          "flex h-8 items-center gap-2 rounded-md px-2 text-sm text-[#37352f] hover:bg-[#f1f1ef] [&_svg]:size-4 [&_svg]:text-[#787774]",
+        children: [a, r],
+      });
+    }
+    e.s(
+      [
+        "AccountMenu",
+        0,
+        function ({ className: e, topup: l = !0, compact: j = !1 } = {}) {
+          let [S, B] = (0, s.useState)(null),
+            [E, R] = (0, s.useState)(!1),
+            [$, z] = (0, s.useState)(null),
+            [q, V] = (0, s.useState)(null),
+            [G, U] = (0, s.useState)(!1),
+            [H, Z] = (0, s.useState)(0),
+            [K, Q] = (0, s.useState)(!1),
+            [W, X] = (0, s.useState)({}),
+            [Y, J] = (0, s.useState)([]),
+            [ee, et] = (0, s.useState)(""),
+            [en, ea] = (0, s.useState)(null),
+            [es, er] = (0, s.useState)(null),
+            ei = (0, a.usePathname)(),
+            [eo, el] = (0, s.useState)(ei);
+          eo !== ei && (el(ei), U(!1));
+          let [ec, ed] = (0, s.useState)(k),
+            [eu, eh] = (0, s.useState)(!1),
+            [ep] = (0, s.useState)(_),
+            em = (0, s.useCallback)(() => {
+              let e = (0, P.readSession)()?.user.id;
+              if (!e) {
+                (z(null), V(null));
+                return;
+              }
+              (0, C.getAccount)("/api/auth/quota")
+                .then((t) => {
+                  (0, P.readSession)()?.user.id === e &&
+                    (z(t.balance), V(t.expiring ?? null));
+                })
+                .catch(() => {
+                  (0, P.readSession)()?.user.id === e && z(null);
+                });
+            }, []),
+            ex = (0, s.useCallback)((e) => {
+              (ea(e), er(null), et(""), J([]), Z((e) => e + 1), U(!0));
+            }, []);
+          (0, s.useEffect)(() => {
+            let e = () => {
+              (B((0, P.readSession)()?.user ?? null), R(!0), em());
+            };
+            e();
+            let t = _();
+            (0, P.readSession)() || t || w().catch(() => {});
+            let n = new URL(window.location.href),
+              a = n.searchParams.has(A);
+            (a &&
+              (n.searchParams.delete(A),
+              window.history.replaceState(window.history.state, "", n),
+              (0, M.track)("inapp_arrived", { embedded: !!t })),
+              (0, C.getAccount)("/api/auth/providers")
+                .then((e) => {
+                  var t = e.googleClientId;
+                  try {
+                    t && localStorage.setItem(y, t);
+                  } catch {}
+                  (ed(e.googleClientId),
+                    X({ facebook: e.facebook, emailCodes: e.emailCodes }));
+                })
+                .catch((e) => et(e.message)));
+            let s = (e) => {
+                (0, P.readSession)() ||
+                  (ex(e.detail ?? null), (0, M.track)("login_prompt"));
+              },
+              r = (t) => {
+                t.key === P.SESSION_KEY && e();
+              };
+            (window.addEventListener("exam-session-change", e),
+              window.addEventListener("storage", r),
+              window.addEventListener("exam-login-request", s),
+              window.addEventListener("exam-quota-change", em),
+              window.addEventListener("focus", em));
+            let i = window.setInterval(em, 3e4);
+            return (
+              a && (0, P.requestLogin)(),
+              () => {
+                (window.removeEventListener("exam-session-change", e),
+                  window.removeEventListener("storage", r),
+                  window.removeEventListener("exam-login-request", s),
+                  window.removeEventListener("exam-quota-change", em),
+                  window.removeEventListener("focus", em),
+                  window.clearInterval(i));
+              }
+            );
+          }, [em, ex]);
+          let eg = en && "run" in en ? en : null,
+            ef = G
+              ? (eg?.next ?? window.location.pathname + window.location.search)
+              : "/";
+          async function ev(e) {
+            (er("working"), et(""));
+            try {
+              await e.run();
+            } catch (e) {
+              (et(e instanceof Error ? e.message : "Đã xảy ra lỗi."),
+                er("failed"));
+            }
+          }
+          function eb(e) {
+            e.notices?.length ? J(e.notices) : eg ? ev(eg) : U(!1);
+          }
+          function ej(e) {
+            e || "working" === es || U(!1);
+          }
+          async function ew(e) {
+            if (!K) {
+              (Q(!0), et(""));
+              try {
+                let t = await (0, C.login)("google", { idToken: e });
+                ((0, M.track)("login_success", { method: "google" }), eb(t));
+              } catch (e) {
+                et(e instanceof Error ? e.message : "Đăng nhập thất bại.");
+              } finally {
+                Q(!1);
+              }
+            }
+          }
+          async function ey(e) {
+            if (!K) {
+              (Q(!0), et(""));
+              try {
+                window.location.assign(await (0, C.startOAuth)(e, ef));
+              } catch (t) {
+                (et(
+                  t instanceof Error
+                    ? t.message
+                    : `Kh\xf4ng mở được đăng nhập ${"google" === e ? "Google" : "Facebook"}.`,
+                ),
+                  Q(!1));
+              }
+            }
+          }
+          let ek = S?.displayName || S?.email || "Tài khoản",
+            eN = null !== $ && $ < 0;
+          return (0, t.jsxs)(t.Fragment, {
+            children: [
+              E
+                ? S
+                  ? (0, t.jsxs)(T, {
+                      enabled: l,
+                      children: [
+                        l &&
+                          (0, t.jsxs)(n.default, {
+                            href: "/nap-diem",
+                            title: "Nạp điểm",
+                            "aria-label": "Nạp điểm",
+                            className: (0, L.cn)(
+                              "hidden h-8 shrink-0 items-center gap-1.5 rounded-md border border-[#e3e2e0] bg-white px-2.5 text-[13px] font-medium text-[#37352f] hover:bg-[#f1f1ef]",
+                              j ? "md:flex md:px-2 xl:px-2.5" : "sm:flex",
+                            ),
+                            children: [
+                              (0, t.jsx)("span", {
+                                className:
+                                  "grid size-4 place-items-center rounded bg-[#37352f] text-white",
+                                children: (0, t.jsx)(u.Plus, {
+                                  "aria-hidden": !0,
+                                  className: "size-3",
+                                  strokeWidth: 3,
+                                }),
+                              }),
+                              (0, t.jsx)("span", {
+                                className: j ? "hidden xl:inline" : void 0,
+                                children: "Nạp điểm",
+                              }),
+                            ],
+                          }),
+                        (0, t.jsxs)(g.Popover.Root, {
+                          open: eu,
+                          onOpenChange: eh,
+                          children: [
+                            (0, t.jsx)(g.Popover.Trigger, {
+                              asChild: !0,
+                              children: (0, t.jsxs)(v.Button, {
+                                variant: "ghost",
+                                className: (0, L.cn)(
+                                  "group h-9 w-9 justify-center gap-2 rounded-md px-0 text-[#37352f] hover:bg-[#f1f1ef] data-[open=true]:bg-[#f1f1ef]",
+                                  j
+                                    ? "xl:w-[168px] xl:justify-start xl:px-1.5 xl:pr-2"
+                                    : "sm:w-[168px] sm:justify-start sm:px-1.5 sm:pr-2",
+                                  e,
+                                ),
+                                "data-open": eu,
+                                "aria-haspopup": "menu",
+                                "aria-label": `${ek}, ${null === $ ? "đang tải" : $.toLocaleString("vi-VN")} điểm`,
+                                children: [
+                                  (0, t.jsxs)(f.Avatar, {
+                                    className: "size-7 shrink-0 rounded-md",
+                                    children: [
+                                      (0, t.jsx)(f.AvatarImage, {
+                                        src: S.avatarUrl,
+                                        alt: "",
+                                        className: "rounded-md",
+                                      }),
+                                      (0, t.jsx)(f.AvatarFallback, {
+                                        className:
+                                          "rounded-md bg-[#e7f3f8] text-[11px] font-semibold text-[#0b6bcb]",
+                                        children: ek.slice(0, 2).toUpperCase(),
+                                      }),
+                                    ],
+                                  }),
+                                  (0, t.jsxs)("span", {
+                                    className: (0, L.cn)(
+                                      "hidden min-w-0 flex-1 flex-col text-left",
+                                      j ? "xl:flex" : "sm:flex",
+                                    ),
+                                    children: [
+                                      (0, t.jsx)("span", {
+                                        className:
+                                          "truncate text-[13px] leading-tight font-medium",
+                                        title: ek,
+                                        children: ek,
+                                      }),
+                                      (0, t.jsxs)("span", {
+                                        className: (0, L.cn)(
+                                          "mt-0.5 flex items-center gap-1 text-[11px] leading-none tabular-nums",
+                                          eN
+                                            ? "text-[#eb5757]"
+                                            : "text-[#787774]",
+                                        ),
+                                        children: [
+                                          (0, t.jsx)(h.Sparkles, {
+                                            className: "size-2.5 shrink-0",
+                                            "aria-hidden": !0,
+                                          }),
+                                          (0, t.jsxs)("span", {
+                                            children: [
+                                              null === $
+                                                ? "…"
+                                                : $.toLocaleString("vi-VN"),
+                                              " điểm",
+                                            ],
+                                          }),
+                                          q &&
+                                            (0, t.jsx)("span", {
+                                              "aria-label":
+                                                "Có điểm sắp hết hạn",
+                                              className:
+                                                "size-1.5 shrink-0 rounded-full bg-[#cb912f]",
+                                            }),
+                                        ],
+                                      }),
+                                    ],
+                                  }),
+                                  (0, t.jsx)(i.ChevronDown, {
+                                    className: (0, L.cn)(
+                                      "hidden size-3.5 shrink-0 text-[#9b9a97] transition-transform duration-200",
+                                      j ? "xl:block" : "sm:block",
+                                      eu && "rotate-180",
+                                    ),
+                                    "aria-hidden": !0,
+                                  }),
+                                ],
+                              }),
+                            }),
+                            (0, t.jsx)(g.Popover.Portal, {
+                              children: (0, t.jsxs)(g.Popover.Content, {
+                                align: "end",
+                                sideOffset: 6,
+                                collisionPadding: 12,
+                                onOpenAutoFocus: (e) => e.preventDefault(),
+                                className:
+                                  "doc-menu z-50 w-72 rounded-lg border border-[#e3e2e0] bg-white p-1.5 text-[#37352f] shadow-[0_8px_28px_-8px_rgba(55,53,47,0.28)] outline-none",
+                                children: [
+                                  (0, t.jsxs)("div", {
+                                    className:
+                                      "flex items-center gap-3 px-2 pt-2 pb-3",
+                                    children: [
+                                      (0, t.jsxs)(f.Avatar, {
+                                        className:
+                                          "size-10 shrink-0 rounded-md",
+                                        children: [
+                                          (0, t.jsx)(f.AvatarImage, {
+                                            src: S.avatarUrl,
+                                            alt: "",
+                                            className: "rounded-md",
+                                          }),
+                                          (0, t.jsx)(f.AvatarFallback, {
+                                            className:
+                                              "rounded-md bg-[#e7f3f8] text-xs font-semibold text-[#0b6bcb]",
+                                            children: ek
+                                              .slice(0, 2)
+                                              .toUpperCase(),
+                                          }),
+                                        ],
+                                      }),
+                                      (0, t.jsxs)("div", {
+                                        className: "min-w-0",
+                                        children: [
+                                          (0, t.jsx)("p", {
+                                            className:
+                                              "truncate text-sm font-semibold",
+                                            children: ek,
+                                          }),
+                                          S.email &&
+                                            (0, t.jsx)("p", {
+                                              className:
+                                                "truncate text-xs text-[#787774]",
+                                              children: S.email,
+                                            }),
+                                        ],
+                                      }),
+                                    ],
+                                  }),
+                                  (0, t.jsxs)("div", {
+                                    className:
+                                      "mx-1.5 mb-1.5 rounded-md bg-[#f7f6f3] px-3 py-2.5 text-sm",
+                                    children: [
+                                      (0, t.jsxs)("div", {
+                                        className:
+                                          "flex items-center justify-between",
+                                        children: [
+                                          (0, t.jsxs)("span", {
+                                            className:
+                                              "flex items-center gap-1.5 text-[#787774]",
+                                            children: [
+                                              (0, t.jsx)(h.Sparkles, {
+                                                "aria-hidden": !0,
+                                                className: "size-3.5",
+                                              }),
+                                              " Điểm tín dụng AI",
+                                            ],
+                                          }),
+                                          (0, t.jsx)("strong", {
+                                            className: (0, L.cn)(
+                                              "text-base tabular-nums",
+                                              eN && "text-[#eb5757]",
+                                            ),
+                                            children:
+                                              null === $
+                                                ? "…"
+                                                : $.toLocaleString("vi-VN"),
+                                          }),
+                                        ],
+                                      }),
+                                      q &&
+                                        (0, t.jsxs)("p", {
+                                          className:
+                                            "mt-1.5 rounded bg-[#fbf3db] px-2 py-1 text-xs text-[#8a6a1f]",
+                                          children: [
+                                            q.points.toLocaleString("vi-VN"),
+                                            " điểm hết hạn ngày",
+                                            " ",
+                                            new Date(q.at).toLocaleDateString(
+                                              "vi-VN",
+                                              {
+                                                day: "2-digit",
+                                                month: "2-digit",
+                                                timeZone: "Asia/Ho_Chi_Minh",
+                                              },
+                                            ),
+                                          ],
+                                        }),
+                                      (0, t.jsx)(v.Button, {
+                                        asChild: !0,
+                                        className: "mt-2.5 h-8 w-full",
+                                        children: (0, t.jsxs)(n.default, {
+                                          href: "/nap-diem",
+                                          onClick: () => eh(!1),
+                                          children: [
+                                            (0, t.jsx)(u.Plus, {
+                                              "aria-hidden": !0,
+                                            }),
+                                            " Nạp điểm",
+                                          ],
+                                        }),
+                                      }),
+                                    ],
+                                  }),
+                                  (0, t.jsx)(O, {
+                                    href: "/profile",
+                                    icon: (0, t.jsx)(m.UserRound, {
+                                      "aria-hidden": !0,
+                                    }),
+                                    onNavigate: () => eh(!1),
+                                    children: "Trang cá nhân",
+                                  }),
+                                  (0, t.jsx)(O, {
+                                    href: "/profile#vi-diem",
+                                    icon: (0, t.jsx)(x, { "aria-hidden": !0 }),
+                                    onNavigate: () => eh(!1),
+                                    children: "Ví điểm & lịch sử nạp",
+                                  }),
+                                  (0, t.jsx)(O, {
+                                    href: "/missions",
+                                    icon: (0, t.jsx)(p.Trophy, {
+                                      "aria-hidden": !0,
+                                    }),
+                                    onNavigate: () => eh(!1),
+                                    children: "Nhiệm vụ",
+                                  }),
+                                  (0, t.jsx)(O, {
+                                    href: "/memory",
+                                    icon: (0, t.jsx)(r.BrainCircuit, {
+                                      "aria-hidden": !0,
+                                    }),
+                                    onNavigate: () => eh(!1),
+                                    children: "Trí nhớ của trợ lý",
+                                  }),
+                                  (0, t.jsx)("div", {
+                                    className: "my-1 border-t border-[#e9e9e7]",
+                                  }),
+                                  (0, t.jsxs)("button", {
+                                    type: "button",
+                                    disabled: K,
+                                    className:
+                                      "flex h-8 w-full items-center gap-2 rounded-md px-2 text-sm text-[#5f5e5b] hover:bg-[#f1f1ef] disabled:opacity-50 [&_svg]:size-4",
+                                    onClick: async () => {
+                                      Q(!0);
+                                      try {
+                                        (await (0, C.logout)(), eh(!1));
+                                      } finally {
+                                        Q(!1);
+                                      }
+                                    },
+                                    children: [
+                                      (0, t.jsx)(d.LogOut, {
+                                        "aria-hidden": !0,
+                                      }),
+                                      " Đăng xuất",
+                                    ],
+                                  }),
+                                ],
+                              }),
+                            }),
+                          ],
+                        }),
+                      ],
+                    })
+                  : (0, t.jsx)("div", {
+                      className: (0, L.cn)(
+                        "flex h-9 w-9 justify-end sm:w-[168px]",
+                        e,
+                      ),
+                      children: (0, t.jsxs)(v.Button, {
+                        className: (0, L.cn)(
+                          "h-9 w-9 gap-1.5 rounded-md px-0 sm:w-auto sm:px-3",
+                          F.inkButton,
+                        ),
+                        title: "Đăng nhập",
+                        "aria-label": "Đăng nhập",
+                        onClick: () => ex(null),
+                        children: [
+                          (0, t.jsx)(c, {
+                            className: "size-4",
+                            "aria-hidden": !0,
+                          }),
+                          (0, t.jsx)("span", {
+                            className: "hidden sm:inline",
+                            children: "Đăng nhập",
+                          }),
+                        ],
+                      }),
+                    })
+                : (0, t.jsx)("div", {
+                    "aria-hidden": !0,
+                    className: (0, L.cn)(
+                      "h-9 w-9 rounded-md bg-[#f1f1ef]",
+                      j ? "xl:w-[168px]" : "sm:w-[168px]",
+                      e,
+                    ),
+                  }),
+              (0, t.jsx)(b.Dialog, {
+                open: G,
+                onOpenChange: ej,
+                children: (0, t.jsxs)(b.DialogContent, {
+                  className:
+                    "max-h-[90dvh] gap-6 overflow-y-auto rounded-xl border-[#e3e2e0] bg-white p-6 text-[#37352f] sm:max-w-md sm:p-8",
+                  children: [
+                    (0, t.jsxs)(b.DialogHeader, {
+                      className:
+                        "shrink-0 items-center text-center sm:text-center",
+                      children: [
+                        (0, t.jsx)(b.DialogTitle, {
+                          className: "text-2xl font-semibold tracking-tight",
+                          children:
+                            es || Y.length
+                              ? "Đăng nhập thành công"
+                              : (en?.title ?? "Chào mừng bạn"),
+                        }),
+                        (0, t.jsx)(b.DialogDescription, {
+                          className: "text-neutral-500",
+                          children: es
+                            ? "Đang tiếp tục việc bạn vừa chọn."
+                            : Y.length
+                              ? "Có vài điều bạn nên biết về tài khoản của mình."
+                              : "Đăng nhập để tạo đề và làm việc cùng trợ lý AI.",
+                        }),
+                      ],
+                    }),
+                    es && eg
+                      ? "working" === es
+                        ? (0, t.jsxs)("p", {
+                            role: "status",
+                            className:
+                              "flex items-center justify-center gap-2 text-sm font-medium text-neutral-700",
+                            children: [
+                              (0, t.jsx)(o.Loader2, {
+                                className: "size-4 animate-spin",
+                                "aria-hidden": !0,
+                              }),
+                              eg.working,
+                            ],
+                          })
+                        : (0, t.jsxs)(t.Fragment, {
+                            children: [
+                              (0, t.jsx)("p", {
+                                role: "alert",
+                                className:
+                                  "rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700",
+                                children: ee,
+                              }),
+                              (0, t.jsx)(v.Button, {
+                                className: `h-10 ${F.inkButton}`,
+                                onClick: () => void ev(eg),
+                                children: "Thử lại",
+                              }),
+                            ],
+                          })
+                      : Y.length > 0
+                        ? (0, t.jsxs)(t.Fragment, {
+                            children: [
+                              (0, t.jsx)("ul", {
+                                className: "grid gap-2",
+                                children: Y.map((e) =>
+                                  (0, t.jsx)(
+                                    "li",
+                                    {
+                                      className:
+                                        "rounded-lg border border-[#e3e2e0] bg-[#f7f6f3] px-3 py-2 text-sm leading-6",
+                                      children: e,
+                                    },
+                                    e,
+                                  ),
+                                ),
+                              }),
+                              (0, t.jsx)(v.Button, {
+                                className: `h-10 ${F.inkButton}`,
+                                onClick: () => (eg ? void ev(eg) : ej(!1)),
+                                children: eg?.action ?? "Đã hiểu",
+                              }),
+                            ],
+                          })
+                        : (0, t.jsxs)(t.Fragment, {
+                            children: [
+                              ee &&
+                                (0, t.jsx)("p", {
+                                  role: "alert",
+                                  className:
+                                    "shrink-0 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700",
+                                  children: ee,
+                                }),
+                              (0, t.jsxs)("div", {
+                                className: "grid justify-items-center gap-3",
+                                children: [
+                                  ep
+                                    ? (0, t.jsx)(D, {
+                                        browser: ep,
+                                        next: ef,
+                                        busy: K,
+                                        onGoogle: ec
+                                          ? () => void ey("google")
+                                          : void 0,
+                                      })
+                                    : ec
+                                      ? (0, t.jsxs)("div", {
+                                          className:
+                                            "relative flex w-full justify-center",
+                                          children: [
+                                            (0, t.jsx)("div", {
+                                              className: `flex w-full justify-center ${K ? "pointer-events-none opacity-30" : ""}`,
+                                              children: (0, t.jsx)(N, {
+                                                clientId: ec,
+                                                onCredential: (e) => void ew(e),
+                                              }),
+                                            }),
+                                            K &&
+                                              (0, t.jsxs)("div", {
+                                                role: "status",
+                                                className:
+                                                  "absolute inset-0 flex items-center justify-center gap-2 text-sm font-medium text-neutral-700",
+                                                children: [
+                                                  (0, t.jsx)(o.Loader2, {
+                                                    className:
+                                                      "size-4 animate-spin",
+                                                  }),
+                                                  "Đang đăng nhập…",
+                                                ],
+                                              }),
+                                          ],
+                                        })
+                                      : (0, t.jsx)("p", {
+                                          className:
+                                            "text-center text-sm text-neutral-500",
+                                          children:
+                                            "Đăng nhập Google chưa được cấu hình.",
+                                        }),
+                                  W.facebook &&
+                                    (0, t.jsxs)(v.Button, {
+                                      variant: "outline",
+                                      className:
+                                        "h-10 w-full max-w-80 gap-2 rounded-full",
+                                      disabled: K,
+                                      onClick: () => void ey("facebook"),
+                                      children: [
+                                        (0, t.jsx)(I, {
+                                          provider: "facebook",
+                                          className: "size-5",
+                                        }),
+                                        "Tiếp tục với Facebook",
+                                      ],
+                                    }),
+                                ],
+                              }),
+                              (0, t.jsxs)("div", {
+                                className:
+                                  "relative text-center text-xs text-neutral-400",
+                                children: [
+                                  (0, t.jsx)("div", {
+                                    className:
+                                      "absolute inset-x-0 top-1/2 border-t border-neutral-200",
+                                  }),
+                                  (0, t.jsx)("span", {
+                                    className: "relative bg-white px-3",
+                                    children: "hoặc tiếp tục với email",
+                                  }),
+                                ],
+                              }),
+                              (0, t.jsx)(
+                                F.EmailAuth,
+                                {
+                                  emailCodes: !!W.emailCodes,
+                                  busy: K,
+                                  setBusy: Q,
+                                  setError: et,
+                                  onSession: eb,
+                                },
+                                H,
+                              ),
+                              (0, t.jsxs)("p", {
+                                className:
+                                  "text-center text-xs text-neutral-500",
+                                children: [
+                                  "Khi tiếp tục, bạn đồng ý với",
+                                  " ",
+                                  (0, t.jsx)(n.default, {
+                                    href: "/terms",
+                                    className:
+                                      "text-[#2383e2] underline-offset-2 hover:underline",
+                                    onClick: () => U(!1),
+                                    children: "Điều khoản sử dụng",
+                                  }),
+                                  " ",
+                                  "và",
+                                  " ",
+                                  (0, t.jsx)(n.default, {
+                                    href: "/privacy",
+                                    className:
+                                      "text-[#2383e2] underline-offset-2 hover:underline",
+                                    onClick: () => U(!1),
+                                    children: "Chính sách bảo mật",
+                                  }),
+                                  ".",
+                                ],
+                              }),
+                            ],
+                          }),
+                  ],
+                }),
+              }),
+            ],
+          });
+        },
+      ],
+      829691,
+    );
+  },
+  384185,
+  (e) => {
+    "use strict";
+    var t = e.i(843476),
+      n = e.i(271645),
+      a = e.i(167881),
+      s = e.i(23750),
+      r = e.i(10708),
+      i = e.i(715760),
+      o = e.i(665137),
+      l = e.i(389567),
+      c = e.i(647163);
+    function d({
+      id: e,
+      name: a,
+      length: s = 6,
+      disabled: r,
+      autoFocus: i,
+      onComplete: o,
+    }) {
+      let [l, u] = (0, n.useState)(""),
+        [h, p] = (0, n.useState)(!1),
+        m = (0, n.useRef)(null),
+        x = Math.min(l.length, s - 1);
+      return (0, t.jsxs)("div", {
+        className: "relative mx-auto w-full max-w-xs",
+        onClick: () => m.current?.focus(),
+        children: [
+          (0, t.jsx)("div", {
+            "aria-hidden": !0,
+            className: "grid gap-2",
+            style: { gridTemplateColumns: `repeat(${s}, minmax(0, 1fr))` },
+            children: Array.from({ length: s }, (e, n) => {
+              let a = l[n],
+                i = h && n === x && (n !== s - 1 || l.length !== s);
+              return (0, t.jsx)(
+                "div",
+                {
+                  className: (0, c.cn)(
+                    "flex aspect-[4/5] items-center justify-center rounded-lg border bg-white font-mono text-2xl font-semibold text-[#37352f] transition-colors",
+                    a ? "border-[#37352f]/40" : "border-[#e3e2e0]",
+                    i && "border-[#37352f] ring-2 ring-[#37352f]/15",
+                    r && "opacity-50",
+                  ),
+                  children:
+                    a ??
+                    (i
+                      ? (0, t.jsx)(
+                          "span",
+                          {
+                            className:
+                              "h-7 w-0.5 rounded-full bg-[#37352f] animate-[caret-blink_1.06s_infinite] motion-reduce:animate-none",
+                          },
+                          l.length,
+                        )
+                      : (0, t.jsx)("span", {
+                          className: "text-[#c7c6c3]",
+                          children: "_",
+                        })),
+                },
+                n,
+              );
+            }),
+          }),
+          (0, t.jsx)("input", {
+            ref: m,
+            id: e,
+            name: a,
+            value: l,
+            inputMode: "numeric",
+            autoComplete: "one-time-code",
+            pattern: `\\d{${s}}`,
+            required: !0,
+            autoFocus: i,
+            disabled: r,
+            "aria-label": `M\xe3 x\xe1c minh ${s} chữ số`,
+            className:
+              "absolute inset-0 h-full w-full cursor-text bg-transparent text-transparent caret-transparent opacity-0 outline-none selection:bg-transparent",
+            onFocus: () => p(!0),
+            onBlur: () => p(!1),
+            onChange: (e) => {
+              let t = e.target.value.replace(/\D/g, "").slice(0, s);
+              (u(t), t.length === s && t !== l && o?.(t));
+            },
+          }),
+        ],
+      });
+    }
+    let u =
+        "bg-[#37352f] font-semibold text-white hover:bg-[#1f1e1b] focus-visible:ring-[#37352f]/30",
+      h =
+        "font-medium text-[#2383e2] underline-offset-4 hover:underline disabled:opacity-50";
+    function p({ label: e, htmlFor: n, aside: a, children: s }) {
+      return (0, t.jsxs)("div", {
+        className: "grid gap-2",
+        children: [
+          (0, t.jsxs)("div", {
+            className: "flex items-center justify-between",
+            children: [(0, t.jsx)(r.Label, { htmlFor: n, children: e }), a],
+          }),
+          s,
+        ],
+      });
+    }
+    function m({ defaultValue: e, busy: n }) {
+      return (0, t.jsx)(p, {
+        label: "Email",
+        htmlFor: "auth-email",
+        children: (0, t.jsx)(s.Input, {
+          id: "auth-email",
+          name: "email",
+          type: "email",
+          placeholder: "ban@example.com",
+          required: !0,
+          defaultValue: e,
+          autoComplete: "email",
+          disabled: n,
+        }),
+      });
+    }
+    e.s(
+      [
+        "EmailAuth",
+        0,
+        function ({
+          emailCodes: e,
+          busy: r,
+          setBusy: c,
+          setError: x,
+          onSession: g,
+          initialMode: f = "login",
+        }) {
+          let [v, b] = (0, n.useState)(f),
+            [j, w] = (0, n.useState)(""),
+            [y, k] = (0, n.useState)(null),
+            [N, C] = (0, n.useState)(0),
+            [P, S] = (0, n.useState)(() => Date.now()),
+            [A, _] = (0, n.useState)(!1),
+            F = (0, n.useRef)(null);
+          function B(e) {
+            (x(""), _(!1), b(e));
+          }
+          async function E(t) {
+            if (!r) {
+              (c(!0), x(""));
+              try {
+                await t();
+              } catch (t) {
+                (t instanceof i.ApiError &&
+                  "no_password" === t.code &&
+                  e &&
+                  _(!0),
+                  x(
+                    t instanceof Error
+                      ? t.message
+                      : "Đã có lỗi xảy ra. Vui lòng thử lại.",
+                  ));
+              } finally {
+                c(!1);
+              }
+            }
+          }
+          function R(e, t) {
+            (k(e), C(Date.now() + 1e3 * e.resendAfter), S(Date.now()), B(t));
+          }
+          function M(e, t) {
+            return String(new FormData(e.currentTarget).get(t) ?? "");
+          }
+          if (
+            ((0, n.useEffect)(() => {
+              if (N <= Date.now()) return;
+              let e = window.setInterval(() => S(Date.now()), 1e3);
+              return () => window.clearInterval(e);
+            }, [N]),
+            "register-code" === v || "reset" === v)
+          ) {
+            let e = "register-code" === v ? "register" : "password",
+              n = Math.max(0, Math.ceil((N - P) / 1e3));
+            return (0, t.jsxs)("form", {
+              ref: F,
+              className: "grid gap-4",
+              onSubmit: (e) => {
+                e.preventDefault();
+                let t = M(e, "code").replace(/\D/g, ""),
+                  n = M(e, "password");
+                E(async () => {
+                  if ("register-code" === v) {
+                    let e = await (0, o.completeRegistration)(j, t);
+                    ((0, l.track)("signup_success", { method: "password" }),
+                      g(e, "register"));
+                  } else {
+                    let e = await (0, o.resetPassword)(j, t, n);
+                    ((0, l.track)("password_reset_success"), g(e, "reset"));
+                  }
+                });
+              },
+              children: [
+                (0, t.jsxs)("p", {
+                  className: "text-sm leading-6 text-neutral-600",
+                  children: [
+                    "Đã gửi mã 6 chữ số tới ",
+                    (0, t.jsx)("span", {
+                      className: "font-medium text-[#37352f]",
+                      children: y?.email ?? j,
+                    }),
+                    ".",
+                    "reset" === v &&
+                      " Nếu email này có tài khoản, mã sẽ tới trong giây lát.",
+                    " Không thấy thư thì hãy xem cả mục Spam hoặc Quảng cáo.",
+                  ],
+                }),
+                (0, t.jsx)(d, {
+                  id: "auth-code",
+                  name: "code",
+                  autoFocus: !0,
+                  disabled: r,
+                  onComplete: () => {
+                    "register-code" === v
+                      ? F.current?.requestSubmit()
+                      : document.getElementById("auth-new-password")?.focus();
+                  },
+                }),
+                "reset" === v &&
+                  (0, t.jsx)(p, {
+                    label: "Mật khẩu mới",
+                    htmlFor: "auth-new-password",
+                    children: (0, t.jsx)(s.Input, {
+                      id: "auth-new-password",
+                      name: "password",
+                      type: "password",
+                      placeholder: "Ít nhất 8 ký tự",
+                      minLength: 8,
+                      required: !0,
+                      autoComplete: "new-password",
+                      disabled: r,
+                    }),
+                  }),
+                (0, t.jsx)(a.Button, {
+                  className: `h-10 ${u}`,
+                  disabled: r,
+                  children: r
+                    ? "Đang xử lý…"
+                    : "reset" === v
+                      ? "Đặt mật khẩu mới"
+                      : "Xác minh và tạo tài khoản",
+                }),
+                (0, t.jsxs)("div", {
+                  className: "flex items-center justify-between text-sm",
+                  children: [
+                    (0, t.jsx)("button", {
+                      type: "button",
+                      className: h,
+                      disabled: r,
+                      onClick: () => B("reset" === v ? "forgot" : "register"),
+                      children: "Đổi email",
+                    }),
+                    (0, t.jsx)("button", {
+                      type: "button",
+                      className: h,
+                      disabled: r || n > 0,
+                      onClick: () =>
+                        void E(async () => {
+                          R(await (0, o.resendCode)(e, j), v);
+                        }),
+                      children:
+                        n > 0 ? `Gửi lại m\xe3 sau ${n} gi\xe2y` : "Gửi lại mã",
+                    }),
+                  ],
+                }),
+              ],
+            });
+          }
+          if ("forgot" === v)
+            return (0, t.jsxs)("form", {
+              className: "grid gap-4",
+              onSubmit: (e) => {
+                e.preventDefault();
+                let t = M(e, "email").trim();
+                E(async () => {
+                  (w(t),
+                    R(await (0, o.forgotPassword)(t), "reset"),
+                    (0, l.track)("password_reset_requested"));
+                });
+              },
+              children: [
+                (0, t.jsx)("p", {
+                  className: "text-sm leading-6 text-neutral-600",
+                  children:
+                    "Nhập email của tài khoản. Chúng tôi sẽ gửi mã để bạn đặt mật khẩu mới.",
+                }),
+                (0, t.jsx)(m, { defaultValue: j, busy: r }),
+                (0, t.jsx)(a.Button, {
+                  className: `h-10 ${u}`,
+                  disabled: r,
+                  children: r ? "Đang gửi…" : "Gửi mã",
+                }),
+                (0, t.jsx)("p", {
+                  className: "text-center text-sm text-neutral-500",
+                  children: (0, t.jsx)("button", {
+                    type: "button",
+                    className: h,
+                    disabled: r,
+                    onClick: () => B("login"),
+                    children: "Quay lại đăng nhập",
+                  }),
+                }),
+              ],
+            });
+          let I = "register" === v;
+          return (0, t.jsxs)("form", {
+            className: "grid gap-4",
+            onSubmit: (e) => {
+              e.preventDefault();
+              let t = M(e, "email").trim(),
+                n = M(e, "password"),
+                a = M(e, "displayName").trim();
+              E(async () => {
+                if ((w(t), I))
+                  (R(
+                    await (0, o.startRegistration)({
+                      email: t,
+                      password: n,
+                      displayName: a,
+                    }),
+                    "register-code",
+                  ),
+                    (0, l.track)("signup_otp_sent"));
+                else {
+                  let e = await (0, o.login)("password", {
+                    email: t,
+                    password: n,
+                  });
+                  ((0, l.track)("login_success", { method: "password" }),
+                    g(e, "password"));
+                }
+              });
+            },
+            children: [
+              I &&
+                (0, t.jsx)(p, {
+                  label: "Tên hiển thị",
+                  htmlFor: "auth-display-name",
+                  children: (0, t.jsx)(s.Input, {
+                    id: "auth-display-name",
+                    name: "displayName",
+                    placeholder: "Tên của bạn",
+                    required: !0,
+                    maxLength: 80,
+                    autoComplete: "name",
+                    disabled: r,
+                  }),
+                }),
+              (0, t.jsx)(m, { defaultValue: j, busy: r }),
+              (0, t.jsx)(p, {
+                label: "Mật khẩu",
+                htmlFor: "auth-password",
+                aside:
+                  !I && e
+                    ? (0, t.jsx)("button", {
+                        type: "button",
+                        className: `text-xs ${h}`,
+                        disabled: r,
+                        onClick: () => B("forgot"),
+                        children: "Quên mật khẩu?",
+                      })
+                    : null,
+                children: (0, t.jsx)(s.Input, {
+                  id: "auth-password",
+                  name: "password",
+                  type: "password",
+                  placeholder: I ? "Ít nhất 8 ký tự" : "Nhập mật khẩu",
+                  required: !0,
+                  minLength: I ? 8 : 1,
+                  autoComplete: I ? "new-password" : "current-password",
+                  disabled: r,
+                }),
+              }),
+              A &&
+                (0, t.jsxs)("button", {
+                  type: "button",
+                  className:
+                    "rounded-lg border border-[#e3e2e0] px-3 py-2 text-left text-sm text-[#37352f] hover:bg-[#f7f6f3]",
+                  disabled: r,
+                  onClick: () =>
+                    void E(async () => {
+                      (R(await (0, o.forgotPassword)(j), "reset"),
+                        (0, l.track)("password_reset_requested", {
+                          source: "no_password",
+                        }));
+                    }),
+                  children: [
+                    (0, t.jsx)("span", {
+                      className: "font-medium",
+                      children: "Đặt mật khẩu qua email →",
+                    }),
+                    (0, t.jsxs)("span", {
+                      className: "block text-neutral-500",
+                      children: [
+                        "Gửi mã tới ",
+                        j,
+                        " để đặt mật khẩu cho tài khoản này.",
+                      ],
+                    }),
+                  ],
+                }),
+              (0, t.jsx)(a.Button, {
+                className: `h-10 ${u}`,
+                disabled: r,
+                children: r
+                  ? "Đang xử lý…"
+                  : I
+                    ? "Gửi mã xác minh"
+                    : "Đăng nhập",
+              }),
+              e &&
+                (0, t.jsxs)("p", {
+                  className: "text-center text-sm text-neutral-500",
+                  children: [
+                    I ? "Đã có tài khoản?" : "Chưa có tài khoản?",
+                    " ",
+                    (0, t.jsx)("button", {
+                      type: "button",
+                      className: h,
+                      disabled: r,
+                      onClick: () => B(I ? "login" : "register"),
+                      children: I ? "Đăng nhập" : "Đăng ký bằng email",
+                    }),
+                  ],
+                }),
+            ],
+          });
+        },
+        "inkButton",
+        0,
+        u,
+      ],
+      384185,
+    );
+  },
+  127923,
+  (e) => {
+    "use strict";
+    var t = e.i(271645),
+      n = e.i(981140),
+      a = e.i(820783),
+      s = e.i(30030),
+      r = e.i(726330),
+      i = e.i(303536),
+      o = e.i(765491),
+      l = e.i(610772),
+      c = e.i(853660),
+      d = e.i(774606),
+      u = e.i(296626),
+      h = e.i(248425),
+      p = e.i(991918),
+      m = e.i(369340),
+      x = e.i(186312),
+      g = e.i(985369),
+      f = e.i(843476),
+      v = Object.defineProperty,
+      b = (e, t) => v(e, "name", { value: t, configurable: !0 }),
+      j = "Popover",
+      [w, y] = (0, s.createContextScope)(j, [c.createPopperScope]),
+      k = (0, c.createPopperScope)(),
+      [N, C] = w(j),
+      P = b((e) => {
+        let {
+            __scopePopover: n,
+            children: a,
+            open: s,
+            defaultOpen: r,
+            onOpenChange: i,
+            modal: o = !1,
+          } = e,
+          d = k(n),
+          u = t.useRef(null),
+          [h, p] = t.useState(!1),
+          [x, g] = (0, m.useControllableState)({
+            prop: s,
+            defaultProp: r ?? !1,
+            onChange: i,
+            caller: j,
+          });
+        return (0, f.jsx)(c.Root, {
+          ...d,
+          children: (0, f.jsx)(N, {
+            scope: n,
+            contentId: (0, l.useId)(),
+            triggerRef: u,
+            open: x,
+            onOpenChange: g,
+            onOpenToggle: t.useCallback(() => g((e) => !e), [g]),
+            hasCustomAnchor: h,
+            onCustomAnchorAdd: t.useCallback(() => p(!0), []),
+            onCustomAnchorRemove: t.useCallback(() => p(!1), []),
+            modal: o,
+            children: a,
+          }),
+        });
+      }, "Popover"),
+      S = t.forwardRef(
+        b(function (e, n) {
+          let { __scopePopover: a, ...s } = e,
+            r = C("PopoverAnchor", a),
+            i = k(a),
+            { onCustomAnchorAdd: o, onCustomAnchorRemove: l } = r;
+          return (
+            t.useEffect(() => (o(), () => l()), [o, l]),
+            (0, f.jsx)(c.Anchor, { ...i, ...s, ref: n })
+          );
+        }, "PopoverAnchor"),
+      ),
+      A = t.forwardRef(
+        b(function (e, t) {
+          let { __scopePopover: s, ...r } = e,
+            i = C("PopoverTrigger", s),
+            o = k(s),
+            l = (0, a.useComposedRefs)(t, i.triggerRef),
+            d = (0, f.jsx)(h.Primitive.button, {
+              type: "button",
+              "aria-haspopup": "dialog",
+              "aria-expanded": i.open,
+              "aria-controls": i.open ? i.contentId : void 0,
+              "data-state": z(i.open),
+              ...r,
+              ref: l,
+              onClick: (0, n.composeEventHandlers)(e.onClick, i.onOpenToggle),
+            });
+          return i.hasCustomAnchor
+            ? d
+            : (0, f.jsx)(c.Anchor, { asChild: !0, ...o, children: d });
+        }, "PopoverTrigger"),
+      ),
+      _ = "PopoverPortal",
+      [F, B] = w(_, { forceMount: void 0 }),
+      E = b((e) => {
+        let { __scopePopover: t, forceMount: n, children: a, container: s } = e,
+          r = C(_, t);
+        return (0, f.jsx)(F, {
+          scope: t,
+          forceMount: n,
+          children: (0, f.jsx)(u.Presence, {
+            present: n || r.open,
+            children: (0, f.jsx)(d.Portal, {
+              asChild: !0,
+              container: s,
+              children: a,
+            }),
+          }),
+        });
+      }, "PopoverPortal"),
+      R = "PopoverContent",
+      M = t.forwardRef(
+        b(function (e, t) {
+          let n = B(R, e.__scopePopover),
+            { forceMount: a = n.forceMount, ...s } = e,
+            r = C(R, e.__scopePopover);
+          return (0, f.jsx)(u.Presence, {
+            present: a || r.open,
+            children: r.modal
+              ? (0, f.jsx)(D, { ...s, ref: t })
+              : (0, f.jsx)(L, { ...s, ref: t }),
+          });
+        }, "PopoverContent"),
+      ),
+      I = (0, p.createSlot)("PopoverContent.RemoveScroll"),
+      D = t.forwardRef(
+        b(function (e, s) {
+          let r = C(R, e.__scopePopover),
+            i = t.useRef(null),
+            o = (0, a.useComposedRefs)(s, i),
+            l = t.useRef(!1);
+          return (
+            t.useEffect(() => {
+              let e = i.current;
+              if (e) return (0, x.hideOthers)(e);
+            }, []),
+            (0, f.jsx)(g.RemoveScroll, {
+              as: I,
+              allowPinchZoom: !0,
+              children: (0, f.jsx)(T, {
+                ...e,
+                ref: o,
+                trapFocus: r.open,
+                disableOutsidePointerEvents: !0,
+                onCloseAutoFocus: (0, n.composeEventHandlers)(
+                  e.onCloseAutoFocus,
+                  (e) => {
+                    (e.preventDefault(),
+                      l.current || r.triggerRef.current?.focus());
+                  },
+                ),
+                onPointerDownOutside: (0, n.composeEventHandlers)(
+                  e.onPointerDownOutside,
+                  (e) => {
+                    let t = e.detail.originalEvent,
+                      n = 0 === t.button && !0 === t.ctrlKey;
+                    l.current = 2 === t.button || n;
+                  },
+                  { checkForDefaultPrevented: !1 },
+                ),
+                onFocusOutside: (0, n.composeEventHandlers)(
+                  e.onFocusOutside,
+                  (e) => e.preventDefault(),
+                  { checkForDefaultPrevented: !1 },
+                ),
+              }),
+            })
+          );
+        }, "PopoverContentModal"),
+      ),
+      L = t.forwardRef(
+        b(function (e, n) {
+          let a = C(R, e.__scopePopover),
+            s = t.useRef(!1),
+            r = t.useRef(!1);
+          return (0, f.jsx)(T, {
+            ...e,
+            ref: n,
+            trapFocus: !1,
+            disableOutsidePointerEvents: !1,
+            onCloseAutoFocus: (t) => {
+              (e.onCloseAutoFocus?.(t),
+                t.defaultPrevented ||
+                  (s.current || a.triggerRef.current?.focus(),
+                  t.preventDefault()),
+                (s.current = !1),
+                (r.current = !1));
+            },
+            onInteractOutside: (t) => {
+              (e.onInteractOutside?.(t),
+                t.defaultPrevented ||
+                  ((s.current = !0),
+                  "pointerdown" === t.detail.originalEvent.type &&
+                    (r.current = !0)));
+              let n = t.target;
+              (a.triggerRef.current?.contains(n) && t.preventDefault(),
+                "focusin" === t.detail.originalEvent.type &&
+                  r.current &&
+                  t.preventDefault());
+            },
+          });
+        }, "PopoverContentNonModal"),
+      ),
+      T = t.forwardRef(
+        b(function (e, t) {
+          let {
+              __scopePopover: n,
+              trapFocus: a,
+              onOpenAutoFocus: s,
+              onCloseAutoFocus: l,
+              disableOutsidePointerEvents: d,
+              onEscapeKeyDown: u,
+              onPointerDownOutside: h,
+              onFocusOutside: p,
+              onInteractOutside: m,
+              ...x
+            } = e,
+            g = C(R, n),
+            v = k(n);
+          return (
+            (0, i.useFocusGuards)(),
+            (0, f.jsx)(o.FocusScope, {
+              asChild: !0,
+              loop: !0,
+              trapped: a,
+              onMountAutoFocus: s,
+              onUnmountAutoFocus: l,
+              children: (0, f.jsx)(r.DismissableLayer, {
+                asChild: !0,
+                disableOutsidePointerEvents: d,
+                onInteractOutside: m,
+                onEscapeKeyDown: u,
+                onPointerDownOutside: h,
+                onFocusOutside: p,
+                onDismiss: () => g.onOpenChange(!1),
+                deferPointerDownOutside: !0,
+                children: (0, f.jsx)(c.Content, {
+                  "data-state": z(g.open),
+                  role: "dialog",
+                  id: g.contentId,
+                  ...v,
+                  ...x,
+                  ref: t,
+                  style: {
+                    ...x.style,
+                    "--radix-popover-content-transform-origin":
+                      "var(--radix-popper-transform-origin)",
+                    "--radix-popover-content-available-width":
+                      "var(--radix-popper-available-width)",
+                    "--radix-popover-content-available-height":
+                      "var(--radix-popper-available-height)",
+                    "--radix-popover-trigger-width":
+                      "var(--radix-popper-anchor-width)",
+                    "--radix-popover-trigger-height":
+                      "var(--radix-popper-anchor-height)",
+                  },
+                }),
+              }),
+            })
+          );
+        }, "PopoverContentImpl"),
+      ),
+      O = t.forwardRef(
+        b(function (e, t) {
+          let { __scopePopover: a, ...s } = e,
+            r = C("PopoverClose", a);
+          return (0, f.jsx)(h.Primitive.button, {
+            type: "button",
+            ...s,
+            ref: t,
+            onClick: (0, n.composeEventHandlers)(e.onClick, () =>
+              r.onOpenChange(!1),
+            ),
+          });
+        }, "PopoverClose"),
+      ),
+      $ = t.forwardRef(
+        b(function (e, t) {
+          let { __scopePopover: n, ...a } = e,
+            s = k(n);
+          return (0, f.jsx)(c.Arrow, { ...s, ...a, ref: t });
+        }, "PopoverArrow"),
+      );
+    function z(e) {
+      return e ? "open" : "closed";
+    }
+    (b(z, "getState"),
+      e.s(
+        [
+          "Anchor",
+          0,
+          S,
+          "Arrow",
+          0,
+          $,
+          "Close",
+          0,
+          O,
+          "Content",
+          0,
+          M,
+          "Popover",
+          0,
+          P,
+          "PopoverAnchor",
+          0,
+          S,
+          "PopoverArrow",
+          0,
+          $,
+          "PopoverClose",
+          0,
+          O,
+          "PopoverContent",
+          0,
+          M,
+          "PopoverPortal",
+          0,
+          E,
+          "PopoverTrigger",
+          0,
+          A,
+          "Portal",
+          0,
+          E,
+          "Root",
+          0,
+          P,
+          "Trigger",
+          0,
+          A,
+          "createPopoverScope",
+          0,
+          y,
+        ],
+        178761,
+      ));
+    var q = e.i(178761);
+    e.s(["Popover", 0, q], 127923);
+  },
+  728574,
+  (e) => {
+    "use strict";
+    let t = (0, e.i(456420).default)("brain-circuit", [
+      [
+        "path",
+        {
+          d: "M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z",
+          key: "l5xja",
+        },
+      ],
+      ["path", { d: "M9 13a4.5 4.5 0 0 0 3-4", key: "10igwf" }],
+      ["path", { d: "M6.003 5.125A3 3 0 0 0 6.401 6.5", key: "105sqy" }],
+      ["path", { d: "M3.477 10.896a4 4 0 0 1 .585-.396", key: "ql3yin" }],
+      ["path", { d: "M6 18a4 4 0 0 1-1.967-.516", key: "2e4loj" }],
+      ["path", { d: "M12 13h4", key: "1ku699" }],
+      ["path", { d: "M12 18h6a2 2 0 0 1 2 2v1", key: "105ag5" }],
+      ["path", { d: "M12 8h8", key: "1lhi5i" }],
+      ["path", { d: "M16 8V5a2 2 0 0 1 2-2", key: "u6izg6" }],
+      ["circle", { cx: "16", cy: "13", r: ".5", key: "ry7gng" }],
+      ["circle", { cx: "18", cy: "3", r: ".5", key: "1aiba7" }],
+      ["circle", { cx: "20", cy: "21", r: ".5", key: "yhc1fs" }],
+      ["circle", { cx: "20", cy: "8", r: ".5", key: "1e43v0" }],
+    ]);
+    e.s(["BrainCircuit", 0, t], 728574);
+  },
+]);

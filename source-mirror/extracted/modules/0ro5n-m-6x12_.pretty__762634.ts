@@ -1,0 +1,70 @@
+// Reconstructed from 0ro5n-m-6x12_.pretty.js, module 762634.
+// deps: m271645, m174080
+// exports: none
+
+
+"use strict";
+    (Object.defineProperty(r, "__esModule", { value: !0 }),
+      Object.defineProperty(r, "AppRouterAnnouncer", {
+        enumerable: !0,
+        get: function () {
+          return l;
+        },
+      }));
+    let n = m271645,
+      o = m174080,
+      a = "next-route-announcer";
+    function l({ tree: e }) {
+      let [t, r] = (0, n.useState)(null);
+      (0, n.useEffect)(
+        () => (
+          r(
+            (function () {
+              let e = document.getElementsByName(a)[0];
+              if (e?.shadowRoot?.childNodes[0])
+                return e.shadowRoot.childNodes[0];
+              {
+                let e = document.createElement(a);
+                e.style.cssText = "position:absolute";
+                let t = document.createElement("div");
+                return (
+                  (t.ariaLive = "assertive"),
+                  (t.id = "__next-route-announcer__"),
+                  (t.role = "alert"),
+                  (t.style.cssText =
+                    "position:absolute;border:0;height:1px;margin:-1px;padding:0;width:1px;clip:rect(0 0 0 0);overflow:hidden;white-space:nowrap;word-wrap:normal"),
+                  e.attachShadow({ mode: "open" }).appendChild(t),
+                  document.body.appendChild(e),
+                  t
+                );
+              }
+            })(),
+          ),
+          () => {
+            let e = document.getElementsByTagName(a)[0];
+            e?.isConnected && document.body.removeChild(e);
+          }
+        ),
+        [],
+      );
+      let [i, u] = (0, n.useState)(""),
+        d = (0, n.useRef)(void 0);
+      return (
+        (0, n.useEffect)(() => {
+          let e = "";
+          if (document.title) e = document.title;
+          else {
+            let t = document.querySelector("h1");
+            t && (e = t.innerText || t.textContent || "");
+          }
+          (void 0 !== d.current && d.current !== e && u(e), (d.current = e));
+        }, [e]),
+        t ? (0, o.createPortal)(i, t) : null
+      );
+    }
+    ("function" == typeof r.default ||
+      ("object" == typeof r.default && null !== r.default)) &&
+      void 0 === r.default.__esModule &&
+      (Object.defineProperty(r.default, "__esModule", { value: !0 }),
+      Object.assign(r.default, r),
+      (t.exports = r.default));

@@ -1,0 +1,51 @@
+    SỞ GDĐT TP HỒ CHÍ MINH                               KIỂM TRA CUỐI HỌC KỲ I
+ TRƯỜNG THCS TƯƠNG BÌNH HIỆP                                Môn : TOÁN – Lớp 9
+                                                            Năm học: 2025 – 2026
+                                                            Thời gian : 90 phút
+                                                          (Không kể thời gian phát đề)
+ĐỀ CHÍNH THỨC
+Câu 1 (0,5đ): Kiểm tra các giá trị sau có là nghiệm của bất phương trình −5 x + 9 > −2 x − 3
+không ?
+a) x = 4                                b) x = 3
+Câu 2 (0,75đ): Tìm điều kiện để các căn thức sau có nghĩa:
+                                                  −1
+a)   2x + 1                               b)
+                                                5 − 2x
+                                            1      
+Câu 3 (0,25đ): Giải phương trình ( 2 x + 1)  − 2 x  =
+                                                      0
+                                            2      
+Câu 4 (2,5đ):
+a) Sử dụng máy tính cầm tay, tính ( kết quả làm tròn đến chữ số thập phân thứ ba):
+                                                        25
+                27 ;        − 18,09 ;              3       ;           3
+                                                                           −26,098
+                                                       729
+b) Rút gọn biểu thức sau:   a 2 − 4a + 4 với a < 2 .
+                                          x2
+c) Khử mẫu của biểu thức lấy căn: 2 xy       với x < 0; y > 0 .
+                                          2y
+ Câu 5 (1,25đ): Cho ∆MNP vuông tại M biết MN
+ = 11 cm; MP = 14 cm
+ a) Tính NP.
+ b) Tính các tỉ số lượng giác của góc P (làm tròn
+ đến hàng phần trăm).
+
+
+ Câu 6 (1,25đ): Cho đường tròn (O), các điểm A,
+ B, C, D nằm trên đường tròn như hình vẽ.
+ a) Kể tên góc ở tâm, góc nội tiếp có trong hình.
+            � = 400. Tính số đo các góc BOD và
+ b) Giả sử 𝐵𝐵𝐵𝐵𝐵𝐵
+ BCD.
+Câu 7 (1đ): Một ô tô khởi hành từ A đi đến B, quãng đường AB dài 160 km. Cùng lúc đó, một
+xe khách khởi hành từ B đi đến A theo hướng ngược lại. Sau 1 giờ 36 phút, hai xe gặp nhau.
+Biết rằng vận tốc xe ô tô lớn hơn vận tốc xe khách 10 km/h. Tính vận tốc của mỗi xe.
+Câu 8 (2,5đ): Cho đường tròn (O; R), đường kính AB. Lấy điểm C thuộc (O; R) sao cho
+AC < BC. Kẻ hai tiếp tuyến Ax và By của đường tròn (O; R). Tiếp tuyến tại C của đường tròn
+lần lượt cắt Ax và By tại hai điểm D và E. Chứng minh:
+a) OD ⊥ OE .
+b) Bốn điểm O, C, E, B cùng thuộc một đường tròn.
+c) OD.CB = OE. AC .
+
+                                       --- HẾT ---

@@ -1,0 +1,21 @@
+// Reconstructed from 0arlwmr2oo6mr.pretty.js, module 575741.
+// deps: m271645, m715760, m197293, m519159, m681177, m389567, m775691
+// exports: useLibrary
+export { function (e) { let [d, u] = (0, t.useState)(null), [h, x] = (0, t.useState)(null), [m, p] = (0, t.useState)(null), [g, f] = (0, t.useState)(""), [b, j] = (0, t.useState)(0), y = (0, t.useCallback)( () => (0, a.listLibrary)() .then((e) => { (u(e.documents), x(e.storage), p(e.settings), f("")); }) .catch((e) => f((0, n.formatApiError)(e))), [], ); (0, t.useEffect)(() => { if (!e) return; y(); let t = () => void y(); return ( window.addEventListener(c, t), () => window.removeEventListener(c, t) ); }, [e, y]); let N = (d ?? []) .filter(s.isProcessing) .map((e) => e.id) .join(","); (0, t.useEffect)(() => { if (!e || !N) return; let t = new AbortController(), n = window.setInterval(async () => { try { let e = await (0, a.libraryStatuses)(N.split(","), t.signal), n = e.filter((e) => !(0, s.isProcessing)(e)); (u((t) => e.reduce(o, t ?? [])), n.length > 0 && y(), n.some((e) => e.pointsCharged > 0) && (0, l.quotaChanged)()); } catch {} }, 2500); return () => { (t.abort(), window.clearInterval(n)); }; }, [e, N, y]); let w = () => window.dispatchEvent(new Event(c)), v = (0, t.useCallback)( async (e) => { let t = { documents: [], errors: [], duplicates: [], notices: [], needPoints: !1, }, l = m?.accept ?? "", c = m?.maxFileBytes ?? 0x1e00000, d = []; for (let n of e) { let e = l ? (0, s.checkFile)(n, l, c) : null; e ? t.errors.push(e) : d.push(n); } let h = (0, s.uploadBatches)(d, m?.maxImages ?? 20); if (0 === h.length) return t; for (let e of (j((e) => e + h.length), h)) try { let n = await (0, a.uploadLibrary)(e); (t.documents.push(n.document), n.duplicate ? t.duplicates.push(n.document) : n.document.reused ? t.notices.push((0, i.reusedNotice)(n.document.name)) : n.estimate.points > 0 && ((0, i.rememberEstimate)(n.document.id, n.estimate), t.notices.push( (0, i.estimateNotice)(n.document.name, n.estimate), )), u((e) => o(e ?? [], n.document)), (0, r.track)("library_upload", { format: n.document.format, duplicate: n.duplicate, files: e.length, reused: n.document.reused, estimatedPoints: n.estimate.points, })); } catch (s) { s instanceof n.ApiError && "quota_exhausted" === s.code && (t.needPoints = !0); let a = e.length > 1 ? `${e.length} ảnh` : `“${e[0].name}”`; t.errors.push(`${a}: ${(0, n.formatApiError)(s)}`); } finally { j((e) => e - 1); } return (t.documents.length > 0 && w(), t); }, [m], ), S = (0, t.useCallback)(async (e) => { (await (0, a.deleteLibraryDocument)(e), u((t) => (t ?? []).filter((t) => t.id !== e)), (0, r.track)("library_delete"), w()); }, []); return { docs: d, storage: h, settings: m, error: g, setError: f, uploading: b, load: y, upload: v, remove: S, retry: (0, t.useCallback)(async (e) => { let t = await (0, a.retryLibraryDocument)(e); u((e) => o(e ?? [], t)); }, []), update: (0, t.useCallback)(async (e, t) => { let n = await (0, a.updateLibraryDocument)(e, t); return (u((e) => o(e ?? [], n)), w(), n); }, []), }; } as "useLibrary" };
+
+"use strict";
+    var t = m271645,
+      n = m715760,
+      a = m197293,
+      s = m519159,
+      i = m681177,
+      r = m389567,
+      l = m775691;
+    let c = "library-changed";
+    function o(e, t) {
+      let n = e.findIndex((e) => e.id === t.id);
+      if (n < 0) return [t, ...e];
+      let a = [...e];
+      return ((a[n] = t), a);
+    }
+    ;

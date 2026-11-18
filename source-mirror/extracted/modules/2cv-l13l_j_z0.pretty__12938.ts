@@ -1,0 +1,175 @@
+// Reconstructed from 2cv-l13l_j_z0.pretty.js, module 12938.
+// deps: none
+// exports: none
+
+
+"use strict";
+    var i = t.r(171770),
+      n = t.r(965464),
+      a = t.r(71471),
+      s = t.r(692861),
+      o = t.r(687780);
+    function h(t) {
+      ((this.files = []), (this.loadOptions = t));
+    }
+    ((h.prototype = {
+      checkSignature: function (t) {
+        if (!this.reader.readAndCheckSignature(t)) {
+          this.reader.index -= 4;
+          var e = this.reader.readString(4);
+          throw Error(
+            "Corrupted zip or bug: unexpected signature (" +
+              n.pretty(e) +
+              ", expected " +
+              n.pretty(t) +
+              ")",
+          );
+        }
+      },
+      isSignature: function (t, e) {
+        var r = this.reader.index;
+        this.reader.setIndex(t);
+        var i = this.reader.readString(4);
+        return (this.reader.setIndex(r), i === e);
+      },
+      readBlockEndOfCentral: function () {
+        ((this.diskNumber = this.reader.readInt(2)),
+          (this.diskWithCentralDirStart = this.reader.readInt(2)),
+          (this.centralDirRecordsOnThisDisk = this.reader.readInt(2)),
+          (this.centralDirRecords = this.reader.readInt(2)),
+          (this.centralDirSize = this.reader.readInt(4)),
+          (this.centralDirOffset = this.reader.readInt(4)),
+          (this.zipCommentLength = this.reader.readInt(2)));
+        var t = this.reader.readData(this.zipCommentLength),
+          e = o.uint8array ? "uint8array" : "array",
+          r = n.transformTo(e, t);
+        this.zipComment = this.loadOptions.decodeFileName(r);
+      },
+      readBlockZip64EndOfCentral: function () {
+        ((this.zip64EndOfCentralSize = this.reader.readInt(8)),
+          this.reader.skip(4),
+          (this.diskNumber = this.reader.readInt(4)),
+          (this.diskWithCentralDirStart = this.reader.readInt(4)),
+          (this.centralDirRecordsOnThisDisk = this.reader.readInt(8)),
+          (this.centralDirRecords = this.reader.readInt(8)),
+          (this.centralDirSize = this.reader.readInt(8)),
+          (this.centralDirOffset = this.reader.readInt(8)),
+          (this.zip64ExtensibleData = {}));
+        for (var t, e, r, i = this.zip64EndOfCentralSize - 44; 0 < i; )
+          ((t = this.reader.readInt(2)),
+            (e = this.reader.readInt(4)),
+            (r = this.reader.readData(e)),
+            (this.zip64ExtensibleData[t] = { id: t, length: e, value: r }));
+      },
+      readBlockZip64EndOfCentralLocator: function () {
+        if (
+          ((this.diskWithZip64CentralDirStart = this.reader.readInt(4)),
+          (this.relativeOffsetEndOfZip64CentralDir = this.reader.readInt(8)),
+          (this.disksCount = this.reader.readInt(4)),
+          this.disksCount > 1)
+        )
+          throw Error("Multi-volumes zip are not supported");
+      },
+      readLocalFiles: function () {
+        
+        for (t = 0; t < this.files.length; t++)
+          ((e = this.files[t]),
+            this.reader.setIndex(e.localHeaderOffset),
+            this.checkSignature(a.LOCAL_FILE_HEADER),
+            e.readLocalPart(this.reader),
+            e.handleUTF8(),
+            e.processAttributes());
+      },
+      readCentralDir: function () {
+        
+        for (
+          this.reader.setIndex(this.centralDirOffset);
+          this.reader.readAndCheckSignature(a.CENTRAL_FILE_HEADER);
+
+        )
+          ((t = new s({ zip64: this.zip64 }, this.loadOptions)).readCentralPart(
+            this.reader,
+          ),
+            this.files.push(t));
+        if (
+          this.centralDirRecords !== this.files.length &&
+          0 !== this.centralDirRecords &&
+          0 === this.files.length
+        )
+          throw Error(
+            "Corrupted zip or bug: expected " +
+              this.centralDirRecords +
+              " records in central dir, got " +
+              this.files.length,
+          );
+      },
+      readEndOfCentral: function () {
+        var t = this.reader.lastIndexOfSignature(a.CENTRAL_DIRECTORY_END);
+        if (t < 0) {
+          if (!this.isSignature(0, a.LOCAL_FILE_HEADER))
+            throw Error(
+              "Can't find end of central directory : is this a zip file ? If it is, see https://stuk.github.io/jszip/documentation/howto/read_zip.html",
+            );
+          throw Error("Corrupted zip: can't find end of central directory");
+        }
+        this.reader.setIndex(t);
+        var e = t;
+        if (
+          (this.checkSignature(a.CENTRAL_DIRECTORY_END),
+          this.readBlockEndOfCentral(),
+          this.diskNumber === n.MAX_VALUE_16BITS ||
+            this.diskWithCentralDirStart === n.MAX_VALUE_16BITS ||
+            this.centralDirRecordsOnThisDisk === n.MAX_VALUE_16BITS ||
+            this.centralDirRecords === n.MAX_VALUE_16BITS ||
+            this.centralDirSize === n.MAX_VALUE_32BITS ||
+            this.centralDirOffset === n.MAX_VALUE_32BITS)
+        ) {
+          if (
+            ((this.zip64 = !0),
+            (t = this.reader.lastIndexOfSignature(
+              a.ZIP64_CENTRAL_DIRECTORY_LOCATOR,
+            )) < 0)
+          )
+            throw Error(
+              "Corrupted zip: can't find the ZIP64 end of central directory locator",
+            );
+          if (
+            (this.reader.setIndex(t),
+            this.checkSignature(a.ZIP64_CENTRAL_DIRECTORY_LOCATOR),
+            this.readBlockZip64EndOfCentralLocator(),
+            !this.isSignature(
+              this.relativeOffsetEndOfZip64CentralDir,
+              a.ZIP64_CENTRAL_DIRECTORY_END,
+            ) &&
+              ((this.relativeOffsetEndOfZip64CentralDir =
+                this.reader.lastIndexOfSignature(
+                  a.ZIP64_CENTRAL_DIRECTORY_END,
+                )),
+              this.relativeOffsetEndOfZip64CentralDir < 0))
+          )
+            throw Error(
+              "Corrupted zip: can't find the ZIP64 end of central directory",
+            );
+          (this.reader.setIndex(this.relativeOffsetEndOfZip64CentralDir),
+            this.checkSignature(a.ZIP64_CENTRAL_DIRECTORY_END),
+            this.readBlockZip64EndOfCentral());
+        }
+        var r = this.centralDirOffset + this.centralDirSize;
+        this.zip64 && ((r += 20), (r += 12 + this.zip64EndOfCentralSize));
+        var i = e - r;
+        if (i > 0)
+          this.isSignature(e, a.CENTRAL_FILE_HEADER) || (this.reader.zero = i);
+        else if (i < 0)
+          throw Error("Corrupted zip: missing " + Math.abs(i) + " bytes.");
+      },
+      prepareReader: function (t) {
+        this.reader = i(t);
+      },
+      load: function (t) {
+        (this.prepareReader(t),
+          this.readEndOfCentral(),
+          this.readCentralDir(),
+          this.readLocalFiles());
+      },
+    }),
+      (e.exports = h));

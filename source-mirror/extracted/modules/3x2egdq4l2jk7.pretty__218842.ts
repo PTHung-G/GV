@@ -1,0 +1,32 @@
+// Reconstructed from 3x2egdq4l2jk7.pretty.js, module 218842.
+// deps: m843476, m508734, m522016, m63270, m140979, m263662, m647163, m216978
+// exports: CARD_COLUMNS, CARD_GRID, PUBLIC_CARD_SKELETON, PublicExamCard, PublicExamListHeader, PublicExamRow
+export { "w-full min-[520px]:mx-auto min-[520px]:w-[calc(round(down,100%_+_20px,230px)_-_20px)]" as "CARD_COLUMNS" };
+export { "grid grid-cols-2 gap-3 min-[520px]:grid-cols-[repeat(auto-fill,210px)] min-[520px]:gap-5" as "CARD_GRID" };
+export { "aspect-[210/390] w-full rounded" as "PUBLIC_CARD_SKELETON" };
+export { function ({ exam: e, subject: n, onOpen: l, showAuthor: d = !0 }) { let u = Number(e.metadata?.grade) || 0; return (0, t.jsxs)(s.default, { href: (0, i.examPath)(e), prefetch: !1, onClick: o(e, l), className: "flex w-full min-w-0 flex-col overflow-hidden rounded border border-[#c4c7c5] bg-white text-left transition-colors hover:border-[#5f5e5b] focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[#5f5e5b]", children: [ (0, t.jsx)("div", { className: "aspect-[208/263] w-full shrink-0", children: (0, t.jsx)(c.DocThumbnail, { excerpt: e.excerpt }), }), (0, t.jsxs)("div", { className: "min-w-0 border-t border-[#c4c7c5] pt-4 pr-2 pb-3.5 pl-4 max-[519px]:pt-3 max-[519px]:pb-2.5 max-[519px]:pl-3", children: [ (0, t.jsx)("p", { className: "ml-0.5 line-clamp-2 h-9 pr-1 text-sm leading-[18px] font-medium text-[#1f1f1f]", title: e.title, children: e.title, }), (0, t.jsxs)("div", { className: "mt-2 flex h-[22px] items-center gap-1 overflow-hidden", children: [ n && (0, t.jsx)("span", { className: "min-w-0 truncate rounded-md bg-[#f1f1ef] px-2 py-[3px] text-xs font-medium text-[#37352f]", title: n, children: n, }), u > 0 && (0, t.jsxs)("span", { className: "shrink-0 rounded-md bg-[#f1f1ef] px-2 py-[3px] text-xs font-medium text-[#37352f]", children: ["Lớp ", u], }), ], }), (0, t.jsxs)("div", { className: "mt-2.5 flex h-[18px] items-center gap-1.5 pr-2 text-xs text-[#5f5e5b]", children: [ d ? (0, t.jsxs)(t.Fragment, { children: [ (0, t.jsxs)(r.Avatar, { className: "size-[18px]", children: [ (0, t.jsx)(r.AvatarImage, { src: e.authorAvatarUrl, alt: "", }), (0, t.jsx)(r.AvatarFallback, { className: "bg-[#e7f3f8] text-[10px] text-[#2383e2]", children: (e.authorName || "?") .slice(0, 1) .toUpperCase(), }), ], }), (0, t.jsx)("span", { className: "min-w-0 flex-1 truncate", children: e.authorName || "Người dùng", }), ], }) : (0, t.jsx)("span", { className: "flex-1" }), (0, t.jsxs)("span", { className: "flex shrink-0 items-center gap-0.5", title: "Lượt sử dụng đề", children: [ (0, t.jsx)(a.Copy, { "aria-hidden": !0, className: "size-3", }), " ", e.copyCount, ], }), ], }), ], }), ], }); } as "PublicExamCard" };
+export { function ({ showAuthor: e = !0 }) { return (0, t.jsxs)("div", { "aria-hidden": !0, className: (0, l.cn)( "hidden items-center gap-4 border-b border-[#e9e9e7] px-3 pb-2 text-[13px] font-medium text-[#787774] sm:grid", d, ), children: [ (0, t.jsx)("span", { children: "Tên đề" }), (0, t.jsx)("span", { children: "Môn" }), (0, t.jsx)("span", { children: "Lớp" }), (0, t.jsx)("span", { children: e ? "Tác giả" : "" }), (0, t.jsx)("span", { className: "text-right", children: "Lượt sử dụng đề", }), ], }); } as "PublicExamListHeader" };
+export { function ({ exam: e, subject: n, onOpen: c, showAuthor: u = !0 }) { let x = Number(e.metadata?.grade) || 0; return (0, t.jsxs)(s.default, { href: (0, i.examPath)(e), prefetch: !1, onClick: o(e, c), className: (0, l.cn)( "grid w-full min-w-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-x-4 gap-y-1 rounded-md px-3 py-3 text-left transition-colors hover:bg-[#f7f6f3] focus-visible:outline-2 focus-visible:outline-[#2383e2]", d, ), children: [ (0, t.jsxs)("span", { className: "min-w-0", children: [ (0, t.jsx)("span", { className: "block truncate text-[15px] font-semibold text-[#37352f]", title: e.title, children: e.title, }), (0, t.jsx)("span", { className: "mt-0.5 block truncate text-[13px] text-[#5f5e5b] sm:hidden", children: [n, x > 0 && `Lớp ${x}`] .filter(Boolean) .join(" · "), }), ], }), (0, t.jsx)("span", { className: "hidden truncate text-sm text-[#37352f] sm:block", children: n, }), (0, t.jsx)("span", { className: "hidden text-sm text-[#37352f] sm:block", children: x > 0 ? `Lớp ${x}` : "", }), (0, t.jsx)("span", { className: "hidden min-w-0 items-center gap-2 text-[13px] text-[#5f5e5b] sm:flex", children: u && (0, t.jsxs)(t.Fragment, { children: [ (0, t.jsxs)(r.Avatar, { className: "size-5 shrink-0", children: [ (0, t.jsx)(r.AvatarImage, { src: e.authorAvatarUrl, alt: "", }), (0, t.jsx)(r.AvatarFallback, { className: "bg-[#e7f3f8] text-[10px] text-[#2383e2]", children: (e.authorName || "?") .slice(0, 1) .toUpperCase(), }), ], }), (0, t.jsx)("span", { className: "truncate", children: e.authorName || "Người dùng", }), ], }), }), (0, t.jsxs)("span", { className: "flex items-center justify-end gap-1 text-[13px] text-[#5f5e5b]", title: "Lượt sử dụng đề", children: [ (0, t.jsx)(a.Copy, { "aria-hidden": !0, className: "size-3" }), " ", e.copyCount, ], }), ], }); } as "PublicExamRow" };
+
+"use strict";
+    var t = m843476,
+      a = m508734,
+      s = m522016,
+      r = m63270,
+      n = m140979,
+      i = m263662,
+      l = m647163,
+      c = m216978;
+    function o(e, t) {
+      return (a) => {
+        ((0, n.rememberExams)([e]),
+          !t ||
+            a.metaKey ||
+            a.ctrlKey ||
+            a.shiftKey ||
+            0 !== a.button ||
+            (a.preventDefault(), t(e)));
+      };
+    }
+    let d = "sm:grid-cols-[minmax(0,1fr)_96px_72px_170px_112px]";
+    ;

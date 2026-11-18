@@ -1,0 +1,139 @@
+// Reconstructed from 16aj47n690ufs.pretty.js, module 959696.
+// deps: none
+// exports: none
+
+
+"use strict";
+    var e = t.i(954206);
+    let r = "[[ẢNH]]";
+    function n(t) {
+      return t.trim().length >= 3;
+    }
+    let a = new Map(),
+      i = new Set(),
+      l = /^\s*(?:\*\*|__)?\s*(?:Câu|Bài|Question|CÂU|BÀI)\s+\d+/,
+      s = /^#{1,6}\s/,
+      o = /\(data:[^)\s]*\)/g;
+    t.s([
+      "IMAGE_CONCURRENCY",
+      0,
+      2,
+      "IMAGE_MARKER",
+      0,
+      r,
+      "canDrawImage",
+      0,
+      n,
+      "imageContext",
+      0,
+      function (t, n) {
+        
+        let i = ((a = n.alt), (0, e.imageAlt)(a)),
+          u = t.replace(o, "()").split("\n"),
+          c = u.findIndex((t) =>
+            (function (t, e, r) {
+              let n = t.indexOf(`![${e}](`);
+              if (n < 0) return !1;
+              let a = t.slice(n + e.length + 4);
+              return r ? a.startsWith(r) : a.startsWith(")");
+            })(t, i, n.src),
+          ),
+          h = "";
+        if (c < 0) {
+          let t = `"src":${JSON.stringify(n.src)},"alt":${JSON.stringify(n.alt)}`;
+          if ((c = u.findIndex((e) => e.startsWith("{") && e.includes(t))) < 0)
+            return "";
+          let e = [
+              ...u[c].matchAll(
+                /"type":"examImage","attrs":\{"src":("(?:[^"\\]|\\.)*"),"alt":("(?:[^"\\]|\\.)*")/g,
+              ),
+            ],
+            a = !1;
+          h = e
+            .map((t, e) => {
+              let i = JSON.parse(t[2]),
+                l = !a && JSON.parse(t[1]) === n.src && i === n.alt;
+              return (l && (a = !0), `\xd4 ảnh ${e + 1}: ${l ? r : i}`);
+            })
+            .join("\n");
+        }
+        let p = (t) => l.test(t) || s.test(t.trim()),
+          f = c;
+        for (; f > 0 && !p(u[f]); ) f--;
+        let d = c + 1;
+        for (; d < u.length && !p(u[d]); ) d++;
+        if (
+          d < u.length &&
+          l.test(u[d]) &&
+          !u.slice(c + 1, d).some((t) => t.trim())
+        )
+          for (d++; d < u.length && !p(u[d]); ) d++;
+        let g = `![${i}](`,
+          m = u
+            .slice(f, d)
+            .map((t, e) => {
+              if (f + e !== c) return t;
+              if (h) return h;
+              let n = t.indexOf(g),
+                a = t.indexOf(")", n + g.length),
+                i = /^\{[^}\n]*\}/.exec(t.slice(a + 1));
+              return t.slice(0, n) + r + t.slice(a + 1 + (i ? i[0].length : 0));
+            })
+            .join("\n")
+            .trim();
+        if (m.length <= 2800) return m;
+        let y = Math.max(0, Math.min(m.indexOf(r) - 1400, m.length - 2800));
+        return m.slice(y, y + 2800);
+      },
+      "imageJob",
+      0,
+      function (t) {
+        return a.get(t);
+      },
+      "imageJobBusy",
+      0,
+      function (t) {
+        let e = a.get(t)?.status;
+        return "queued" === e || "drawing" === e;
+      },
+      "imageJobKey",
+      0,
+      function (t) {
+        return `${t.src}\u0000${t.alt}`;
+      },
+      "newImageDescriptions",
+      0,
+      function (t, e, r = 8) {
+        let a = new Set(t),
+          i = [];
+        for (let t of e)
+          if (!a.has(t) && n(t) && (a.add(t), i.push(t), i.length >= r)) break;
+        return i;
+      },
+      "setImageJob",
+      0,
+      function (t, e) {
+        for (let r of (e ? a.set(t, e) : a.delete(t), i)) r();
+      },
+      "stopsImageQueue",
+      0,
+      function (t, e) {
+        return (
+          401 === e ||
+          402 === e ||
+          "quota_exhausted" === t ||
+          "image_disabled" === t ||
+          "network_error" === t
+        );
+      },
+      "subscribeImageJobs",
+      0,
+      function (t) {
+        return (
+          i.add(t),
+          () => {
+            i.delete(t);
+          }
+        );
+      },
+    ]);

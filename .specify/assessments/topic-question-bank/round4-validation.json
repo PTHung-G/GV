@@ -1,0 +1,11 @@
+{
+  "stage_a_errors": [],
+  "stage_b_errors": [],
+  "old_content_changed": [],
+  "stage_a_questions": 6,
+  "stage_b_questions": 10,
+  "limitations": [
+    "exact substrings and predefined source-check assertions, not human semantic gold",
+    "no rendering, production storage, privacy or app-provider benchmark"
+  ]
+}

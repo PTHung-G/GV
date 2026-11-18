@@ -1,0 +1,35 @@
+// Reconstructed from 180c0fplvd4t3.pretty.js, module 165358.
+// deps: m843476, m96892, m129768, m226091, m779266, m325597, m271645, m647163
+// exports: ChatEmptyState
+export { function ({ onPick: e, onFill: r, onAction: a, disabled: i, sourceKinds: l = [], result: h, loading: m = !1, headlines: p = u, defaults: f = c, }) { let g = (e) => !!e.action && !!a?.(e.action, e.text), x = h?.headline ?? "", b = (0, s.useMemo)(() => (x ? [x] : p), [x, p]), { text: v, typing: y } = (function (e) { let [t, n] = (0, s.useState)({ text: "", typing: !0 }); return ( (0, s.useEffect)(() => { let t, r = window.matchMedia( "(prefers-reduced-motion: reduce)", ).matches, a = e.map((e) => Array.from(e.normalize("NFC"))), i = 0, l = 0, s = (e, n) => { t = window.setTimeout(e, n); }, o = (e, t) => n({ text: a[i].slice(0, e).join(""), typing: t }), c = () => { let e = a[i].length; (o((l = r ? e : l + 1), l < e), l < e ? s(c, 52 + 40 * Math.random()) : a.length > 1 && s(u, 2500)); }, u = () => { (o((l = r ? 0 : l - 1), !0), l > 0 ? s(u, 24) : ((i = (i + 1) % a.length), s(c, 380))); }; return (s(c, 250), () => window.clearTimeout(t)); }, [e]), t ); })(b), w = h?.suggestions.length ? h.suggestions : (function (e, t = c) { let n = e.some((e) => "matrix" === e || "spec" === e), r = e.includes("exam"), a = []; return ( n && r && a.push({ text: "Soạn đề theo ma trận đã chọn, lấy dạng câu và văn phong của đề mẫu", why: "src", reason: "Từ ma trận và đề mẫu", }), n && a.push({ text: "Soạn đề theo ma trận đã chọn, kèm đáp án và barem", why: "src", reason: "Từ ma trận đã chọn", }), r && a.push({ text: "Soạn một đề tương tự đề mẫu, đổi số liệu và giữ độ khó", why: "src", reason: "Từ đề mẫu đã chọn", }), e.includes("answer") && a.push({ text: "Soạn barem theo cách trình bày của đáp án đã chọn", why: "src", reason: "Từ đáp án đã chọn", }), [ ...a, ...t.map((e) => ({ text: e, why: "state", reason: "" })), ].slice(0, 3) ); })(l, f), k = w.map((e) => e.text).join("|"); return (0, t.jsxs)("div", { className: "flex min-h-0 flex-1 flex-col overflow-y-auto", children: [ (0, t.jsx)("div", { className: "flex flex-1 flex-col items-center justify-center gap-1.5 px-6", children: (0, t.jsx)("h2", { className: "flex min-h-[3.2rem] max-w-full items-center justify-center text-center text-2xl font-medium leading-[1.3] tracking-tight text-balance", "aria-label": b[0], children: (0, t.jsxs)("span", { className: "bg-linear-to-r from-[#2383e2] via-[#5b8def] to-[#9b72cb] bg-clip-text text-transparent", children: [ v, (0, t.jsx)("span", { "aria-hidden": !0, className: "ml-0.5 inline-block h-[1.05em] w-[2px] translate-y-[0.18em] rounded-full bg-[#2383e2]", style: y ? void 0 : { animation: "caret-blink 1s steps(1) infinite" }, }), ], }), }), }), (0, t.jsx)("div", { className: "shrink-0 px-3 pb-2", children: (0, t.jsx)( "ul", { className: "grid gap-1.5", children: w.map((a, l) => { let s = d[a.why] ?? d.state; return (0, t.jsxs)( "li", { className: "gen-rise relative overflow-hidden rounded-xl border border-transparent [background:linear-gradient(#fff,#fff)_padding-box,linear-gradient(100deg,#cfe3f7,#e4dbf3)_border-box] hover:[background:linear-gradient(#fbfcff,#fbfcff)_padding-box,linear-gradient(100deg,#2383e2,#9b72cb)_border-box]", style: { animationDelay: `${90 * l}ms` }, children: [ m && (0, t.jsx)("span", { "aria-hidden": !0, className: "gen-sweep pointer-events-none absolute inset-0", }), (0, t.jsxs)("div", { className: "flex items-start gap-2 py-2 pr-1.5 pl-2.5", children: [ (0, t.jsxs)("button", { type: "button", disabled: i, onClick: () => g(a) || (r ? r(a.text) : e(a.text)), className: "min-w-0 flex-1 text-left disabled:opacity-50", title: r ? "Đưa vào ô nhập để sửa trước khi gửi" : void 0, children: [ (0, t.jsx)("span", { className: "block text-[13px] leading-snug text-neutral-800", children: a.text, }), a.reason && (0, t.jsxs)("span", { className: (0, o.cn)( "mt-1 inline-flex items-center gap-1 rounded-full px-1.5 py-px text-[10.5px] font-medium", s.className, ), children: [ (0, t.jsx)(s.Icon, { "aria-hidden": !0, className: "size-3", }), a.reason, ], }), ], }), r && (0, t.jsx)("button", { type: "button", disabled: i, onClick: () => g(a) || e(a.text), "aria-label": `Gửi ngay: ${a.text}`, title: "Gửi ngay", className: "grid size-7 shrink-0 place-items-center rounded-full text-[#9b9a97] transition-colors hover:bg-[#f1f1ef] hover:text-[#37352f] disabled:opacity-50", children: (0, t.jsx)(n.ArrowUp, { "aria-hidden": !0, className: "size-3.5", }), }), ], }), ], }, a.text, ); }), }, k, ), }), ], }); } as "ChatEmptyState" };
+
+"use strict";
+    var t = m843476,
+      n = m96892,
+      r = m129768,
+      a = m226091,
+      i = m779266,
+      l = m325597,
+      s = m271645,
+      o = m647163;
+    let c = [
+        "Tạo đề thi giữa kỳ Toán lớp 9 gồm 5 câu tự luận",
+        "Giải đề trong trang và viết đáp án, barem chi tiết",
+        "Soát lỗi chính tả và định dạng của đề này",
+      ],
+      u = [
+        "Tạo đề thi, đáp án và cách chấm điểm chi tiết",
+        "Chuyển hình ảnh đề thi thành văn bản để chỉnh sửa",
+        "Sáng tạo các câu hỏi mới cho đề thi theo ý tưởng của bạn",
+        "Chỉnh sửa số liệu hoặc đổi câu hỏi tương tự cho đề thi",
+      ],
+      d = {
+        src: { className: "bg-[#dbeddb] text-[#0f7b6c]", Icon: a.FileText },
+        mem: { className: "bg-[#f1ebf8] text-[#6940a5]", Icon: i.History },
+        season: {
+          className: "bg-[#fbecdd] text-[#b25e09]",
+          Icon: r.CalendarDays,
+        },
+        state: { className: "bg-[#e7f3f8] text-[#0b6bcb]", Icon: l.PenLine },
+      };
+    ;

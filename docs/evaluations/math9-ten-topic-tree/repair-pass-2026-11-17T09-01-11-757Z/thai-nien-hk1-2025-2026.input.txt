@@ -1,0 +1,106 @@
+     UBND XÃ BẢO THẮNG                              Ngày ….. tháng 11 năm 2025
+   TRƯỜNG PTDTBT THCS                            ĐỀ KHẢO SÁT CHẤT LƯỢNG
+       THÁI NIÊN                                            HỌC KỲ I
+                  ĐỀ 1
+                                                        Năm học 2025 - 2026
+                                                           Môn: Toán 9
+                                           Thời gian: 90 phút (không kể thời gian giao đề)
+                                                      (Đề gồm 22 câu, 3 trang)
+PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn. Thí sinh trả lời từ câu 1 đến
+câu 12. Mỗi câu hỏi thí sinh chỉ chọn một phương án.
+
+Câu 1: Bất phương trình nào sau đây là bất phương trình bậc nhất một ẩn ?
+         x
+      A.   + 3y  0                             B. (x − 1)(x + 2)  0
+         7
+      C. 15 − 6x  3x + 5                  D. x = 3x 2 + 2
+Câu 2: Phương trình nào sau đây là phương trình chứa ẩn ở mẫu ?
+         x+2                       4
+      A.       =0           B. x + = 0
+          x                        3
+         3x + 5                    2x
+      C.        =0          D. x +    =0
+          11                        5
+Câu 3. Cho m  n , khẳng định nào sau đây là đúng?
+     A. m − 3  n − 3.                      B. m + 3  n + 3.
+     C. m − 2  n − 2.                      D. n + 2  m + 2.
+Câu 4: Bất phương trình 2x + 3 > 7 có nghiệm là:
+     A. x > -2            B. x > 2                 C. x > 4                D. x > -4
+Câu 5: x − 1 có điều kiện xác định là:
+     A. x  1             B. x  −1                C. 1                   D. 9
+Câu 6: Cho biểu thức P = x điều kiện xác định của P là
+     A. x  0             B. x = −2                C. x = 0                D. x  0
+Câu 7: Kết quả của phép tính 8 là:
+                                 3
+
+     A. -1                B. 0                     C. 1                    D. 2
+Câu 8: Kết quả của 100 là
+                                                                                2
+      A. 10                 B. −10                 C. 2                    D.
+                                                                                3
+Câu 9: Đường tròn có mấy tâm đối xứng
+      A. 0                B. 1                  C. 2                        D. 3
+Câu 10: Đường tròn có mấy trục đối xứng
+      A. 1                                      B. 2
+      C. Không có trục đối xứng              D. Vô số trục đối xứng
+Câu 11. Hai đường tròn chỉ có một điểm chung được gọi là hai đường tròn
+      A. Cắt nhau. B. Tiếp xúc nhau. C. Ngoài nhau.             D. Không xác định.
+Câu 12. Cho hai đường tròn ( O; R ) và ( O; R ) thỏa mãn R − R  OO  R + R . Số điểm
+chung của hai đường tròn là
+      A. 0.         B. 1.                C. 2.                   D. 3.
+PHẦN II. Câu trắc nghiệm đúng sai. Thí sinh trả lời từ câu 1 đến câu 4. Trong mỗi
+ý a), b), c), d) ở mỗi câu, thí sinh chọn đúng hoặc sai
+Câu 1: Cho bất phương trình 2 x − 4  6
+       a) Bất phương trình có nghiệm x  5
+       b) Bất phương trình có nghiệm x < 5
+       c) Bất phương trình có giá trị nhỏ nhất tại x = 5
+       d) Bất phương trình có giá trị nhỏ nhất tại x = 6
+                                 1        1
+Câu 2: Cho biểu thức: B =          −
+                                x +1     x −1
+     a) Điều kiện xác định: x  0 , x  1
+              −2
+     b) B =
+             x −1
+               2
+     c) B =
+             x −1
+     d) Để B  0 thì x  1
+Câu 3: Cho hình vẽ, biết ∆ ABC vuông tại A , có ABC = 60 , AC = 4 cm .
+            A
+
+                      4
+      60o
+  B                            C
+            H
+
+                    AB
+       a) Cos B =
+                    BC
+
+                    1
+       b) Cos C =
+                    2
+                           3
+       c) Cos 600 =
+                          2
+       d) Độ dài cạnh AH bằng 2 ( cm )
+Câu 4: Cho đường tròn tâm O, dây AB không đi qua tâm. Kẻ đường kính CD vuông
+góc với AB tại H. Kết luận nào sau đây đúng sai?
+    a) AB < CD
+    b) AB > CD
+    c) AC > CB
+       ̂ = 900
+    d) 𝐶𝐴𝐷
+PHẦN III. Câu trắc nghiệm trả lời ngắn. Thí sinh trả lời từ câu 1 đến câu 6.
+Câu 1. Hệ số a trong phương trình 3x + 2y = 5 là: ………………
+Câu 2. Điểm A(1; b) thuộc đường thẳng x + y = 3 khi đó giá trị của b là: ……
+                                 49   25     
+Câu 3: Giá trị của biểu thức    −    + 3  . 3 bằng ……….
+                                 3    3      
+Câu 4: Cho đường tròn (O) có bán kính 5 cm. Chu vi của đường tròn tâm O là: ……
+Câu 5: Cho đường tròn tâm O bán kính 6 cm. Đường thẳng d cách tâm O một khoảng
+8 cm. Tính khoảng cách từ tâm O đến đường thẳng d trừ đi bán kính của đường tròn.
+Câu 6: Cho đường tròn tâm O bán kính r = 5 cm. Đường thẳng d cách tâm O một
+khoảng 3 cm. Hỏi d và đường trong tâm O có mấy điểm chung?
+                    ----------------------------- Hết -----------------------------

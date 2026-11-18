@@ -1,0 +1,78 @@
+// Reconstructed from 2cv-l13l_j_z0.pretty.js, module 525625.
+// deps: none
+// exports: none
+
+
+"use strict";
+    var i = t.r(965464),
+      n = t.r(48913);
+    function a(t) {
+      n.call(this, "DataWorker");
+      var e = this;
+      ((this.dataIsReady = !1),
+        (this.index = 0),
+        (this.max = 0),
+        (this.data = null),
+        (this.type = ""),
+        (this._tickScheduled = !1),
+        t.then(
+          function (t) {
+            ((e.dataIsReady = !0),
+              (e.data = t),
+              (e.max = (t && t.length) || 0),
+              (e.type = i.getTypeOf(t)),
+              e.isPaused || e._tickAndRepeat());
+          },
+          function (t) {
+            e.error(t);
+          },
+        ));
+    }
+    (i.inherits(a, n),
+      (a.prototype.cleanUp = function () {
+        (n.prototype.cleanUp.call(this), (this.data = null));
+      }),
+      (a.prototype.resume = function () {
+        return (
+          !!n.prototype.resume.call(this) &&
+          (!this._tickScheduled &&
+            this.dataIsReady &&
+            ((this._tickScheduled = !0),
+            i.delay(this._tickAndRepeat, [], this)),
+          !0)
+        );
+      }),
+      (a.prototype._tickAndRepeat = function () {
+        ((this._tickScheduled = !1),
+          this.isPaused ||
+            this.isFinished ||
+            (this._tick(),
+            this.isFinished ||
+              (i.delay(this._tickAndRepeat, [], this),
+              (this._tickScheduled = !0))));
+      }),
+      (a.prototype._tick = function () {
+        if (this.isPaused || this.isFinished) return !1;
+        var t = null,
+          e = Math.min(this.max, this.index + 16384);
+        if (this.index >= this.max) return this.end();
+        switch (this.type) {
+          case "string":
+            t = this.data.substring(this.index, e);
+            break;
+          case "uint8array":
+            t = this.data.subarray(this.index, e);
+            break;
+          case "array":
+          case "nodebuffer":
+            t = this.data.slice(this.index, e);
+        }
+        return (
+          (this.index = e),
+          this.push({
+            data: t,
+            meta: { percent: this.max ? (this.index / this.max) * 100 : 0 },
+          })
+        );
+      }),
+      (e.exports = a));

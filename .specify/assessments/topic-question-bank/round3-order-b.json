@@ -1,0 +1,447 @@
+{
+  "method": "Independent order_b incremental classification from the protocol and corpus only, with no supplied taxonomy or other-agent output. First infer and commit the Q09–Q16 tree in a visible reasoning checkpoint; freeze that snapshot. Then reconsider that existing tree with Q01–Q08, retaining all old questions, adding branches and moving Q15 to a new common parent. Each stage records a complete cumulative tree and assignments, while batch_ids records only the newly introduced batch. Labels describe requested operations/content, not a canonical subject hierarchy. Retained units reference exact source component IDs in declared order without paraphrasing payloads or generating answers. Validate both trees, cumulative coverage, unchanged first snapshot, null fields, and deterministic exact-source bundle assembly before exclusive output creation.",
+  "stages": [
+    {
+      "batch_ids": [
+        "Q09",
+        "Q10",
+        "Q11",
+        "Q12",
+        "Q13",
+        "Q14",
+        "Q15",
+        "Q16"
+      ],
+      "nodes": [
+        {
+          "id": "root",
+          "parent_id": null,
+          "label": "Question collection"
+        },
+        {
+          "id": "math",
+          "parent_id": "root",
+          "label": "Mathematical relationships and shapes"
+        },
+        {
+          "id": "linear",
+          "parent_id": "math",
+          "label": "Linear equations"
+        },
+        {
+          "id": "triangle",
+          "parent_id": "math",
+          "label": "Right-triangle geometry"
+        },
+        {
+          "id": "measurement",
+          "parent_id": "root",
+          "label": "Motion and measurement"
+        },
+        {
+          "id": "speed",
+          "parent_id": "measurement",
+          "label": "Average speed"
+        },
+        {
+          "id": "reliability",
+          "parent_id": "measurement",
+          "label": "Measurement reliability"
+        },
+        {
+          "id": "balancing",
+          "parent_id": "root",
+          "label": "Chemical equation balancing"
+        },
+        {
+          "id": "cell-energy",
+          "parent_id": "root",
+          "label": "Cellular energy processes"
+        },
+        {
+          "id": "source",
+          "parent_id": "root",
+          "label": "Interpretation of source evidence"
+        }
+      ],
+      "assignments": [
+        {
+          "question_id": "Q09",
+          "node_id": "linear",
+          "reason": "Solving a single linear equation is the central requested operation."
+        },
+        {
+          "question_id": "Q10",
+          "node_id": "speed",
+          "reason": "The requested quantity is average speed from distance and elapsed time."
+        },
+        {
+          "question_id": "Q11",
+          "node_id": "balancing",
+          "reason": "The task is balancing a chemical reaction rather than solving an algebraic equation."
+        },
+        {
+          "question_id": "Q12",
+          "node_id": "cell-energy",
+          "reason": "The comparison concerns organelles and energy conversion within cells."
+        },
+        {
+          "question_id": "Q13",
+          "node_id": "source",
+          "reason": "Economic change, language use and inference limits are integrated in one source-based response; retain at this broad parent rather than force one disciplinary leaf."
+        },
+        {
+          "question_id": "Q14",
+          "node_id": "triangle",
+          "reason": "Both subparts concern the same right triangle; keep one assignment for the complete question, including figure and shared data."
+        },
+        {
+          "question_id": "Q15",
+          "node_id": "root",
+          "reason": "Algorithm construction and percentage-price calculation are both required; the first-batch tree has no suitable common substantive parent, so retain this composite at the root."
+        },
+        {
+          "question_id": "Q16",
+          "node_id": "reliability",
+          "reason": "Explaining a temperature-measurement error and proposing a check concerns measurement reliability rather than motion."
+        }
+      ]
+    },
+    {
+      "batch_ids": [
+        "Q01",
+        "Q02",
+        "Q03",
+        "Q04",
+        "Q05",
+        "Q06",
+        "Q07",
+        "Q08"
+      ],
+      "nodes": [
+        {
+          "id": "root",
+          "parent_id": null,
+          "label": "Question collection"
+        },
+        {
+          "id": "math",
+          "parent_id": "root",
+          "label": "Mathematical relationships and shapes"
+        },
+        {
+          "id": "linear",
+          "parent_id": "math",
+          "label": "Linear equations"
+        },
+        {
+          "id": "triangle",
+          "parent_id": "math",
+          "label": "Right-triangle geometry"
+        },
+        {
+          "id": "measurement",
+          "parent_id": "root",
+          "label": "Motion and measurement"
+        },
+        {
+          "id": "speed",
+          "parent_id": "measurement",
+          "label": "Average speed"
+        },
+        {
+          "id": "reliability",
+          "parent_id": "measurement",
+          "label": "Measurement reliability"
+        },
+        {
+          "id": "balancing",
+          "parent_id": "root",
+          "label": "Chemical equation balancing"
+        },
+        {
+          "id": "cell-energy",
+          "parent_id": "root",
+          "label": "Cellular energy processes"
+        },
+        {
+          "id": "source",
+          "parent_id": "root",
+          "label": "Interpretation of source evidence"
+        },
+        {
+          "id": "economic-evidence",
+          "parent_id": "source",
+          "label": "Economic change and evidential limits"
+        },
+        {
+          "id": "language-evidence",
+          "parent_id": "source",
+          "label": "Factual statements and evaluative language"
+        },
+        {
+          "id": "procedures",
+          "parent_id": "root",
+          "label": "Algorithms and percentage calculations"
+        },
+        {
+          "id": "algorithm",
+          "parent_id": "procedures",
+          "label": "Algorithm construction"
+        },
+        {
+          "id": "percent",
+          "parent_id": "procedures",
+          "label": "Percentage change calculations"
+        }
+      ],
+      "assignments": [
+        {
+          "question_id": "Q09",
+          "node_id": "linear",
+          "reason": "Solving a single linear equation is the central requested operation."
+        },
+        {
+          "question_id": "Q10",
+          "node_id": "speed",
+          "reason": "The requested quantity is average speed from distance and elapsed time."
+        },
+        {
+          "question_id": "Q11",
+          "node_id": "balancing",
+          "reason": "The task is balancing a chemical reaction rather than solving an algebraic equation."
+        },
+        {
+          "question_id": "Q12",
+          "node_id": "cell-energy",
+          "reason": "The comparison concerns organelles and energy conversion within cells."
+        },
+        {
+          "question_id": "Q13",
+          "node_id": "source",
+          "reason": "The new economic-evidence and language-analysis children clarify the overlap, but this integrated question requires both plus inference limits; retain it at their source-interpretation parent."
+        },
+        {
+          "question_id": "Q14",
+          "node_id": "triangle",
+          "reason": "Both subparts concern the same right triangle; keep one assignment for the complete question, including figure and shared data."
+        },
+        {
+          "question_id": "Q15",
+          "node_id": "procedures",
+          "reason": "Moved from the root after Q07 and Q08 establish algorithm and percentage-calculation children. Both are required here, so keep the complete composite at their common parent, not either child."
+        },
+        {
+          "question_id": "Q16",
+          "node_id": "reliability",
+          "reason": "Explaining a temperature-measurement error and proposing a check concerns measurement reliability rather than motion."
+        },
+        {
+          "question_id": "Q01",
+          "node_id": "linear",
+          "reason": "The requested linear-equation solution matches the branch established for Q09."
+        },
+        {
+          "question_id": "Q02",
+          "node_id": "speed",
+          "reason": "Distance and elapsed time are used for the same average-speed operation as Q10."
+        },
+        {
+          "question_id": "Q03",
+          "node_id": "balancing",
+          "reason": "Balancing a chemical reaction matches Q11 despite different substances."
+        },
+        {
+          "question_id": "Q04",
+          "node_id": "cell-energy",
+          "reason": "The function of chloroplasts in photosynthesis shares the cellular-energy focus of Q12; no separate leaf is necessary for these two questions."
+        },
+        {
+          "question_id": "Q05",
+          "node_id": "economic-evidence",
+          "reason": "The task emphasizes economic change and limitations of evidence in the common source, motivating a child beneath source interpretation."
+        },
+        {
+          "question_id": "Q06",
+          "node_id": "language-evidence",
+          "reason": "Distinguishing factual statements from evaluative wording motivates a language-focused child under source interpretation; sharing P1 alone is not its assignment criterion."
+        },
+        {
+          "question_id": "Q07",
+          "node_id": "algorithm",
+          "reason": "Constructing pseudocode motivates an algorithm-construction child, while the common procedures parent can accommodate the mixed Q15."
+        },
+        {
+          "question_id": "Q08",
+          "node_id": "percent",
+          "reason": "The operative task is percentage change; a price context alone does not require an economics assignment. Its calculation focus motivates a percentage child under the shared procedures parent."
+        }
+      ]
+    }
+  ],
+  "retained_units": [
+    {
+      "question_id": "Q01",
+      "component_ids": [
+        "Q01-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q02",
+      "component_ids": [
+        "Q02-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q03",
+      "component_ids": [
+        "Q03-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q04",
+      "component_ids": [
+        "Q04-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q05",
+      "component_ids": [
+        "Q05-body",
+        "P1"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q06",
+      "component_ids": [
+        "Q06-body",
+        "P1"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q07",
+      "component_ids": [
+        "Q07-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q08",
+      "component_ids": [
+        "Q08-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q09",
+      "component_ids": [
+        "Q09-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q10",
+      "component_ids": [
+        "Q10-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q11",
+      "component_ids": [
+        "Q11-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q12",
+      "component_ids": [
+        "Q12-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q13",
+      "component_ids": [
+        "Q13-body",
+        "P1"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q14",
+      "component_ids": [
+        "Q14-body",
+        "F1",
+        "F1-data",
+        "Q14-a",
+        "Q14-b"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q15",
+      "component_ids": [
+        "Q15-body",
+        "Q15-a",
+        "Q15-b"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    },
+    {
+      "question_id": "Q16",
+      "component_ids": [
+        "Q16-body"
+      ],
+      "answer": null,
+      "rubric": null,
+      "points": null
+    }
+  ],
+  "teacher_taxonomy_actions": [],
+  "limitations": [
+    "Original synthetic, pre-segmented sample of 16 questions only; not observed teacher demand, representative exams, or evidence of all-domain quality.",
+    "The corpus is one visible file, so later-batch content was accessible during reading; the first tree was explicitly reasoned and fixed before second-batch refinement, but this is not a blinded or mechanically gated exposure experiment.",
+    "The induced hierarchy is interpretive, not expert gold. Source interpretation and the algorithms/percentage parent are deliberate broad groupings; composite questions remain at parents rather than being forced into one leaf.",
+    "No comparison with another agent tree was performed; order sensitivity and final co-clustering comparison must be evaluated separately without treating labels as ground-truth accuracy.",
+    "Exact-ID resolution and deterministic source-bundle hash equality check reference completeness and assembly only, not AI extraction, source segmentation correctness, visual rendering, production storage, privacy, semantic correctness, or implementation readiness.",
+    "No source answers, rubrics or points were supplied; all remain null. No teacher taxonomy actions, paid calls, app API calls, or source edits were used.",
+    "No validation failures occurred in this run. Harness duration is not a production time/cost benchmark."
+  ]
+}

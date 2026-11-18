@@ -1,0 +1,445 @@
+{
+  "schema_version": 1,
+  "created_before_tested_model_output": true,
+  "created_at_utc": "2026-11-17T08:37:52.083540+00:00",
+  "paid_ai_calls": 0,
+  "model_inference_run": false,
+  "evaluation_only": true,
+  "taxonomy_policy": "No seeded tree or manual topic mappings enter organizer. independent-gold.md is held-out evaluation evidence only.",
+  "search_status": "web_search attempted; failed with endpoint truncated/invalid JSON. web_fetch succeeded for HK1 discovery and Trần Quang Diệu article; HTTPS category/page discovery and safe PDF downloads succeeded.",
+  "tool_versions": {
+    "pdftotext": "pdftotext version 24.02.0",
+    "pdfinfo": "pdfinfo version 24.02.0"
+  },
+  "source_count": 10,
+  "new_source_count": 10,
+  "prior_source_count": 0,
+  "printed_top_level_total": 154,
+  "preferred_retained_total": 167,
+  "sources": [
+    {
+      "id": "huynh-thuc-khang-hk1-2025-2026",
+      "source_url": "https://thcs.toanmath.com/2026/01/de-cuoi-ki-1-toan-9-nam-2025-2026-truong-thcs-huynh-thuc-khang-da-nang.html",
+      "download_url": "https://thcs.toanmath.com/thcs-pdf/de-cuoi-ki-1-toan-9-nam-2025-2026-truong-thcs-huynh-thuc-khang-da-nang.pdf",
+      "sha256": "406b7beade31ffeeefb9700e63b85d03567eb242910dcc7276cd2a198314fd7e",
+      "bytes": 875026,
+      "original_path": ".data/math9-ten-evaluation/huynh-thuc-khang-hk1-2025-2026/original.pdf",
+      "extracted_path": ".data/math9-ten-evaluation/huynh-thuc-khang-hk1-2025-2026/extracted.txt",
+      "source_page_path": ".data/math9-ten-evaluation/huynh-thuc-khang-hk1-2025-2026/source-page.html",
+      "pdf_pages": 15,
+      "exam_type": "HK1",
+      "academic_year": "2025–2026",
+      "downloaded_at_utc": "2026-11-17T08:32:47.199792+00:00",
+      "school_or_authority": "THCS Huỳnh Thúc Kháng, Tam Anh, Đà Nẵng",
+      "variant": "code 1",
+      "publisher": "THCS.TOANMATH.com (third-party public mirror, not independently school-verified)",
+      "printed_top_level_count": 16,
+      "preferred_retained_count": 20,
+      "exam_only_path": ".data/math9-ten-evaluation/huynh-thuc-khang-hk1-2025-2026/exam-only.txt",
+      "exam_only_sha256": "3e72737ddb93d03944c66bfcd6ce510ddf66917fe3c1b922b3964c476cd6d18f",
+      "extracted_sha256": "9bf2fd51122b023c4419e9af4a2bd8053027164efaf71170043b7b4445e7f856",
+      "source_page_sha256": "84afdedfb28320b8e6386876c093a54203a2b54cf43f2ce4a393edcb4463f9af",
+      "raw_exam_line_range": [
+        168,
+        246
+      ],
+      "line_convention": "1-based inclusive LF-delimited lines; preserve formfeed characters",
+      "original_pdf_page_range": [
+        6,
+        7
+      ],
+      "exam_only_line_count": 79,
+      "extraction_method": "pdftotext -layout; no OCR; exact LF-line slice with no transcription edits",
+      "capture_command": "pdftotext -layout .data/math9-ten-evaluation/huynh-thuc-khang-hk1-2025-2026/original.pdf .data/math9-ten-evaluation/huynh-thuc-khang-hk1-2025-2026/extracted.txt",
+      "input_fidelity_issues": [
+        "Text-only capture omits diagrams/chart graphics; see independent-gold.md for affected items.",
+        "Radical bars, superscript positioning, fractions and angle glyphs may be flattened; no symbolic repair."
+      ],
+      "new_relative_to_prior_corpus": true
+    },
+    {
+      "id": "tuong-binh-hiep-hk1-2025-2026",
+      "source_url": "https://thcs.toanmath.com/2026/01/de-cuoi-ky-1-toan-9-nam-2025-2026-truong-thcs-tuong-binh-hiep-tp-hcm.html",
+      "download_url": "https://thcs.toanmath.com/thcs-pdf/de-cuoi-ky-1-toan-9-nam-2025-2026-truong-thcs-tuong-binh-hiep-tp-hcm.pdf",
+      "sha256": "47556ad35d3a5415e2551558582e6d215a9cb1cd704f92310b5d03f3c4ae7c53",
+      "bytes": 505229,
+      "original_path": ".data/math9-ten-evaluation/tuong-binh-hiep-hk1-2025-2026/original.pdf",
+      "extracted_path": ".data/math9-ten-evaluation/tuong-binh-hiep-hk1-2025-2026/extracted.txt",
+      "source_page_path": ".data/math9-ten-evaluation/tuong-binh-hiep-hk1-2025-2026/source-page.html",
+      "pdf_pages": 5,
+      "exam_type": "HK1",
+      "academic_year": "2025–2026",
+      "downloaded_at_utc": "2026-11-17T08:32:47.131333+00:00",
+      "school_or_authority": "THCS Tương Bình Hiệp, TP Hồ Chí Minh",
+      "variant": "official",
+      "publisher": "THCS.TOANMATH.com (third-party public mirror, not independently school-verified)",
+      "printed_top_level_count": 8,
+      "preferred_retained_count": 11,
+      "exam_only_path": ".data/math9-ten-evaluation/tuong-binh-hiep-hk1-2025-2026/exam-only.txt",
+      "exam_only_sha256": "2bbf4c0b029c31f29991e8c0a8bfdb0dcb2abb036b64f9ae497339b4a43681c3",
+      "extracted_sha256": "99bc590a4770d226e300b4a0eccb50e9d2e6a079c74bae25c57dd4a24b25960e",
+      "source_page_sha256": "9e4f3e2b12939860e18a68efcb56b138ddaf467daae6fce0ccfe0041876b7ce3",
+      "raw_exam_line_range": [
+        1,
+        51
+      ],
+      "line_convention": "1-based inclusive LF-delimited lines; preserve formfeed characters",
+      "original_pdf_page_range": [
+        1,
+        2
+      ],
+      "exam_only_line_count": 51,
+      "extraction_method": "pdftotext -layout; no OCR; exact LF-line slice with no transcription edits",
+      "capture_command": "pdftotext -layout .data/math9-ten-evaluation/tuong-binh-hiep-hk1-2025-2026/original.pdf .data/math9-ten-evaluation/tuong-binh-hiep-hk1-2025-2026/extracted.txt",
+      "input_fidelity_issues": [
+        "Text-only capture omits diagrams/chart graphics; see independent-gold.md for affected items.",
+        "Radical bars, superscript positioning, fractions and angle glyphs may be flattened; no symbolic repair."
+      ],
+      "new_relative_to_prior_corpus": true
+    },
+    {
+      "id": "tran-quy-cap-hk1-2025-2026",
+      "source_url": "https://thcs.toanmath.com/2026/01/de-cuoi-ky-1-toan-9-nam-2025-2026-truong-thcs-tran-quy-cap-da-nang.html",
+      "download_url": "https://thcs.toanmath.com/thcs-pdf/de-cuoi-ky-1-toan-9-nam-2025-2026-truong-thcs-tran-quy-cap-da-nang.pdf",
+      "sha256": "252c76ca00ede4a8bfcb36dac79170539a5ddd18bfb3bf940992399bf9f77841",
+      "bytes": 444481,
+      "original_path": ".data/math9-ten-evaluation/tran-quy-cap-hk1-2025-2026/original.pdf",
+      "extracted_path": ".data/math9-ten-evaluation/tran-quy-cap-hk1-2025-2026/extracted.txt",
+      "source_page_path": ".data/math9-ten-evaluation/tran-quy-cap-hk1-2025-2026/source-page.html",
+      "pdf_pages": 6,
+      "exam_type": "HK1",
+      "academic_year": "2025–2026",
+      "downloaded_at_utc": "2026-11-17T08:33:31.729765+00:00",
+      "school_or_authority": "THCS Trần Quý Cáp, Đà Nẵng",
+      "variant": "official",
+      "publisher": "THCS.TOANMATH.com (third-party public mirror, not independently school-verified)",
+      "printed_top_level_count": 17,
+      "preferred_retained_count": 21,
+      "exam_only_path": ".data/math9-ten-evaluation/tran-quy-cap-hk1-2025-2026/exam-only.txt",
+      "exam_only_sha256": "7865b6c1e9d077ffaadd9b5cb9927dca72b95e08755d2db80fa39b26fed8fbd3",
+      "extracted_sha256": "d25e712556bf2e48df0f05cc72c5a5493d02d95491bfe5c3dc0189e37018026e",
+      "source_page_sha256": "6b9fe39eb84db92ed9382fe884ae7de56926d74ce33b5ffd9c23f05b5a6fe97e",
+      "raw_exam_line_range": [
+        1,
+        86
+      ],
+      "line_convention": "1-based inclusive LF-delimited lines; preserve formfeed characters",
+      "original_pdf_page_range": [
+        1,
+        2
+      ],
+      "exam_only_line_count": 86,
+      "extraction_method": "pdftotext -layout; no OCR; exact LF-line slice with no transcription edits",
+      "capture_command": "pdftotext -layout .data/math9-ten-evaluation/tran-quy-cap-hk1-2025-2026/original.pdf .data/math9-ten-evaluation/tran-quy-cap-hk1-2025-2026/extracted.txt",
+      "input_fidelity_issues": [
+        "Text-only capture omits diagrams/chart graphics; see independent-gold.md for affected items.",
+        "Radical bars, superscript positioning, fractions and angle glyphs may be flattened; no symbolic repair."
+      ],
+      "new_relative_to_prior_corpus": true
+    },
+    {
+      "id": "quan-toan-hk1-2025-2026",
+      "source_url": "https://thcs.toanmath.com/2026/01/de-cuoi-hoc-ki-1-toan-9-nam-2025-2026-truong-thcs-quan-toan-hai-phong.html",
+      "download_url": "https://thcs.toanmath.com/thcs-pdf/de-cuoi-hoc-ki-1-toan-9-nam-2025-2026-truong-thcs-quan-toan-hai-phong.pdf",
+      "sha256": "2a7adbfc62176c87969b4c80a386dfb8a863342d9514c983377de57704c5f13a",
+      "bytes": 514569,
+      "original_path": ".data/math9-ten-evaluation/quan-toan-hk1-2025-2026/original.pdf",
+      "extracted_path": ".data/math9-ten-evaluation/quan-toan-hk1-2025-2026/extracted-raw-order.txt",
+      "source_page_path": ".data/math9-ten-evaluation/quan-toan-hk1-2025-2026/source-page.html",
+      "pdf_pages": 7,
+      "exam_type": "HK1",
+      "academic_year": "2025–2026",
+      "downloaded_at_utc": "2026-11-17T08:32:47.110102+00:00",
+      "layout_extracted_path": ".data/math9-ten-evaluation/quan-toan-hk1-2025-2026/extracted.txt",
+      "school_or_authority": "THCS Quán Toan, Hải Phòng",
+      "variant": "code 901",
+      "publisher": "THCS.TOANMATH.com (third-party public mirror, not independently school-verified)",
+      "printed_top_level_count": 22,
+      "preferred_retained_count": 22,
+      "exam_only_path": ".data/math9-ten-evaluation/quan-toan-hk1-2025-2026/exam-only.txt",
+      "exam_only_sha256": "e61a7cddc54d6533b59c165eab054d6239ba2cadd1b624987424c6c68e3210e8",
+      "extracted_sha256": "8481f46d20e3a69636afe39d2e12482395b75b96b562cc885f00d3464da6b37f",
+      "source_page_sha256": "d04c9a55b5aeb6be61dbb7ae093210f5875d82dc2be325aad14748258f90ac2a",
+      "raw_exam_line_range": [
+        1,
+        322
+      ],
+      "line_convention": "1-based inclusive LF-delimited lines; preserve formfeed characters",
+      "original_pdf_page_range": [
+        1,
+        2
+      ],
+      "exam_only_line_count": 322,
+      "extraction_method": "pdftotext -raw; no OCR; exact LF-line slice with no transcription edits",
+      "capture_command": "pdftotext -raw .data/math9-ten-evaluation/quan-toan-hk1-2025-2026/original.pdf .data/math9-ten-evaluation/quan-toan-hk1-2025-2026/extracted-raw-order.txt",
+      "input_fidelity_issues": [
+        "Text-only capture omits diagrams/chart graphics; see independent-gold.md for affected items.",
+        "Radical bars, superscript positioning, fractions and angle glyphs may be flattened; no symbolic repair.",
+        "A3 PDF pages use two-column typesetting; layout mode interleaves columns. Raw mode chosen for coherent question ordering, still token-flattens fractions. PDF page 1 rendered and visually inspected; exam spans PDF pages 1–2."
+      ],
+      "new_relative_to_prior_corpus": true
+    },
+    {
+      "id": "thai-nien-hk1-2025-2026",
+      "source_url": "https://thcs.toanmath.com/2026/01/de-cuoi-hoc-ky-1-toan-9-nam-2025-2026-truong-thcs-thai-nien-lao-cai.html",
+      "download_url": "https://thcs.toanmath.com/thcs-pdf/de-cuoi-hoc-ky-1-toan-9-nam-2025-2026-truong-thcs-thai-nien-lao-cai.pdf",
+      "sha256": "0cf8d130e8fd77210a6646da776920315b57c9ff27742f0cf3bc2b32eab36940",
+      "bytes": 677471,
+      "original_path": ".data/math9-ten-evaluation/thai-nien-hk1-2025-2026/original.pdf",
+      "extracted_path": ".data/math9-ten-evaluation/thai-nien-hk1-2025-2026/extracted.txt",
+      "source_page_path": ".data/math9-ten-evaluation/thai-nien-hk1-2025-2026/source-page.html",
+      "pdf_pages": 24,
+      "exam_type": "HK1",
+      "academic_year": "2025–2026",
+      "downloaded_at_utc": "2026-11-17T08:32:47.581003+00:00",
+      "school_or_authority": "PTDTBT THCS Thái Niên, Lào Cai",
+      "variant": "đề 1; printed HK1 quality survey",
+      "publisher": "THCS.TOANMATH.com (third-party public mirror, not independently school-verified)",
+      "printed_top_level_count": 22,
+      "preferred_retained_count": 22,
+      "exam_only_path": ".data/math9-ten-evaluation/thai-nien-hk1-2025-2026/exam-only.txt",
+      "exam_only_sha256": "60689a8024ac642d5ed1ffb3958f012ca6b30ddd9aec779eeb1e898bc4efd783",
+      "extracted_sha256": "d1a8a3a4bffa4afcf6d5554d001e8e65cf2d0e23d9b804941d61d82e9df653a8",
+      "source_page_sha256": "1af6a7167ae8df3ce99415c6484064c30e20fe259f5e06f042cf35a4483d19e3",
+      "raw_exam_line_range": [
+        357,
+        462
+      ],
+      "line_convention": "1-based inclusive LF-delimited lines; preserve formfeed characters",
+      "original_pdf_page_range": [
+        13,
+        15
+      ],
+      "exam_only_line_count": 106,
+      "extraction_method": "pdftotext -layout; no OCR; exact LF-line slice with no transcription edits",
+      "capture_command": "pdftotext -layout .data/math9-ten-evaluation/thai-nien-hk1-2025-2026/original.pdf .data/math9-ten-evaluation/thai-nien-hk1-2025-2026/extracted.txt",
+      "input_fidelity_issues": [
+        "Text-only capture omits diagrams/chart graphics; see independent-gold.md for affected items.",
+        "Radical bars, superscript positioning, fractions and angle glyphs may be flattened; no symbolic repair."
+      ],
+      "new_relative_to_prior_corpus": true
+    },
+    {
+      "id": "ngo-gia-tu-hk2-2025-2026",
+      "source_url": "https://thcs.toanmath.com/2026/05/de-cuoi-ki-2-toan-9-nam-2025-2026-truong-thcs-ngo-gia-tu-ha-noi.html",
+      "download_url": "https://thcs.toanmath.com/thcs-pdf/de-cuoi-ki-2-toan-9-nam-2025-2026-truong-thcs-ngo-gia-tu-ha-noi.pdf",
+      "sha256": "408c76ea05a765813402992a659640bbebc5b5e3ebd7402bb7888d4ac5287a1d",
+      "bytes": 694211,
+      "original_path": ".data/math9-ten-evaluation/ngo-gia-tu-hk2-2025-2026/original.pdf",
+      "extracted_path": ".data/math9-ten-evaluation/ngo-gia-tu-hk2-2025-2026/extracted.txt",
+      "source_page_path": ".data/math9-ten-evaluation/ngo-gia-tu-hk2-2025-2026/source-page.html",
+      "pdf_pages": 15,
+      "exam_type": "HK2",
+      "academic_year": "2025–2026",
+      "downloaded_at_utc": "2026-11-17T08:32:47.522266+00:00",
+      "school_or_authority": "THCS Ngô Gia Tự, Hà Nội",
+      "variant": "đề 01",
+      "publisher": "THCS.TOANMATH.com (third-party public mirror, not independently school-verified)",
+      "printed_top_level_count": 5,
+      "preferred_retained_count": 7,
+      "exam_only_path": ".data/math9-ten-evaluation/ngo-gia-tu-hk2-2025-2026/exam-only.txt",
+      "exam_only_sha256": "d06a20ee58a5aa82d09b6947ce063549c9059435bb0cab2bd745f627f5bcbcb9",
+      "extracted_sha256": "f837e7ecb28def1ec7542d6a22f6a917b6dd0632d6160b12d97a4a7591a36eed",
+      "source_page_sha256": "cb6cf7e7b315ada39014b69894facaab936b7564e0abadef73d0754a3abb2c15",
+      "raw_exam_line_range": [
+        126,
+        185
+      ],
+      "line_convention": "1-based inclusive LF-delimited lines; preserve formfeed characters",
+      "original_pdf_page_range": [
+        5,
+        6
+      ],
+      "exam_only_line_count": 60,
+      "extraction_method": "pdftotext -layout; no OCR; exact LF-line slice with no transcription edits",
+      "capture_command": "pdftotext -layout .data/math9-ten-evaluation/ngo-gia-tu-hk2-2025-2026/original.pdf .data/math9-ten-evaluation/ngo-gia-tu-hk2-2025-2026/extracted.txt",
+      "input_fidelity_issues": [
+        "Text-only capture omits diagrams/chart graphics; see independent-gold.md for affected items.",
+        "Radical bars, superscript positioning, fractions and angle glyphs may be flattened; no symbolic repair."
+      ],
+      "new_relative_to_prior_corpus": true
+    },
+    {
+      "id": "tran-quoc-tuan-hk2-2025-2026",
+      "source_url": "https://thcs.toanmath.com/2026/05/de-cuoi-ky-2-toan-9-nam-2025-2026-truong-thcs-tran-quoc-tuan-tp-hcm.html",
+      "download_url": "https://thcs.toanmath.com/thcs-pdf/de-cuoi-ky-2-toan-9-nam-2025-2026-truong-thcs-tran-quoc-tuan-tp-hcm.pdf",
+      "sha256": "ae6d9ec55ab3debfdaa1c95dbbe011fcd2e7d17f7405536fd0312d6496c0e037",
+      "bytes": 721605,
+      "original_path": ".data/math9-ten-evaluation/tran-quoc-tuan-hk2-2025-2026/original.pdf",
+      "extracted_path": ".data/math9-ten-evaluation/tran-quoc-tuan-hk2-2025-2026/extracted.txt",
+      "source_page_path": ".data/math9-ten-evaluation/tran-quoc-tuan-hk2-2025-2026/source-page.html",
+      "pdf_pages": 8,
+      "exam_type": "HK2",
+      "academic_year": "2025–2026",
+      "downloaded_at_utc": "2026-11-17T08:32:47.517131+00:00",
+      "school_or_authority": "THCS Trần Quốc Tuấn, TP Hồ Chí Minh",
+      "variant": "official",
+      "publisher": "THCS.TOANMATH.com (third-party public mirror, not independently school-verified)",
+      "printed_top_level_count": 6,
+      "preferred_retained_count": 6,
+      "exam_only_path": ".data/math9-ten-evaluation/tran-quoc-tuan-hk2-2025-2026/exam-only.txt",
+      "exam_only_sha256": "b39c8725358caf307c971004d57e3a47fb7ba14a8332a07d8d2bd2c604b47684",
+      "extracted_sha256": "6967cdee6b04e8dbcf079c92a1eefd34bbc0be9f477e733bbcc8591fbe642150",
+      "source_page_sha256": "561971a0e1de78792adea762567a33aaf31689b354c5927f89f0b6e2d2c1736f",
+      "raw_exam_line_range": [
+        122,
+        195
+      ],
+      "line_convention": "1-based inclusive LF-delimited lines; preserve formfeed characters",
+      "original_pdf_page_range": [
+        5,
+        6
+      ],
+      "exam_only_line_count": 74,
+      "extraction_method": "pdftotext -layout; no OCR; exact LF-line slice with no transcription edits",
+      "capture_command": "pdftotext -layout .data/math9-ten-evaluation/tran-quoc-tuan-hk2-2025-2026/original.pdf .data/math9-ten-evaluation/tran-quoc-tuan-hk2-2025-2026/extracted.txt",
+      "input_fidelity_issues": [
+        "Text-only capture omits diagrams/chart graphics; see independent-gold.md for affected items.",
+        "Radical bars, superscript positioning, fractions and angle glyphs may be flattened; no symbolic repair."
+      ],
+      "new_relative_to_prior_corpus": true
+    },
+    {
+      "id": "tran-quang-dieu-hk2-2025-2026",
+      "source_url": "https://thcs.toanmath.com/2026/05/de-cuoi-ky-2-toan-9-nam-2025-2026-truong-thcs-tran-quang-dieu-gia-lai.html",
+      "download_url": "https://thcs.toanmath.com/thcs-pdf/de-cuoi-ky-2-toan-9-nam-2025-2026-truong-thcs-tran-quang-dieu-gia-lai.pdf",
+      "sha256": "a5df5343284a26c91a18d4ebcf60a63026a0825ad6107b14d77e52b7f6ace8e7",
+      "bytes": 443495,
+      "original_path": ".data/math9-ten-evaluation/tran-quang-dieu-hk2-2025-2026/original.pdf",
+      "extracted_path": ".data/math9-ten-evaluation/tran-quang-dieu-hk2-2025-2026/extracted.txt",
+      "source_page_path": ".data/math9-ten-evaluation/tran-quang-dieu-hk2-2025-2026/source-page.html",
+      "pdf_pages": 5,
+      "exam_type": "HK2",
+      "academic_year": "2025–2026",
+      "downloaded_at_utc": "2026-11-17T08:32:47.539897+00:00",
+      "school_or_authority": "THCS Trần Quang Diệu, Gia Lai",
+      "variant": "single paper; C20 physically before C19",
+      "publisher": "THCS.TOANMATH.com (third-party public mirror, not independently school-verified)",
+      "printed_top_level_count": 21,
+      "preferred_retained_count": 21,
+      "exam_only_path": ".data/math9-ten-evaluation/tran-quang-dieu-hk2-2025-2026/exam-only.txt",
+      "exam_only_sha256": "5aa3f8c7298a41e413235795e205cc8aefbbe25632b28cc93056c6aacf9893c2",
+      "extracted_sha256": "d67a5a38cb0cb6d85e59d788dbe57a085923d1ea8c8224575cf5247393df4e55",
+      "source_page_sha256": "3f7ec56f9a989f10c39de2bccf7f0e7caa862b4ae8d357e021114c02343e1781",
+      "raw_exam_line_range": [
+        1,
+        115
+      ],
+      "line_convention": "1-based inclusive LF-delimited lines; preserve formfeed characters",
+      "original_pdf_page_range": [
+        1,
+        3
+      ],
+      "exam_only_line_count": 115,
+      "extraction_method": "pdftotext -layout; no OCR; exact LF-line slice with no transcription edits",
+      "capture_command": "pdftotext -layout .data/math9-ten-evaluation/tran-quang-dieu-hk2-2025-2026/original.pdf .data/math9-ten-evaluation/tran-quang-dieu-hk2-2025-2026/extracted.txt",
+      "input_fidelity_issues": [
+        "Text-only capture omits diagrams/chart graphics; see independent-gold.md for affected items.",
+        "Radical bars, superscript positioning, fractions and angle glyphs may be flattened; no symbolic repair."
+      ],
+      "new_relative_to_prior_corpus": true
+    },
+    {
+      "id": "dong-cuong-hk2-2025-2026",
+      "source_url": "https://thcs.toanmath.com/2026/05/de-cuoi-hoc-ky-2-toan-9-nam-2025-2026-truong-thcs-dong-cuong-thanh-hoa.html",
+      "download_url": "https://thcs.toanmath.com/thcs-pdf/de-cuoi-hoc-ky-2-toan-9-nam-2025-2026-truong-thcs-dong-cuong-thanh-hoa.pdf",
+      "sha256": "9b999320e1d76d1fde60e363cba39715fdc5b950134a0daf64192fde1826bb88",
+      "bytes": 560821,
+      "original_path": ".data/math9-ten-evaluation/dong-cuong-hk2-2025-2026/original.pdf",
+      "extracted_path": ".data/math9-ten-evaluation/dong-cuong-hk2-2025-2026/extracted.txt",
+      "source_page_path": ".data/math9-ten-evaluation/dong-cuong-hk2-2025-2026/source-page.html",
+      "pdf_pages": 12,
+      "exam_type": "HK2",
+      "academic_year": "2025–2026",
+      "downloaded_at_utc": "2026-11-17T08:32:47.897455+00:00",
+      "school_or_authority": "THCS Đông Cương, Thanh Hóa",
+      "variant": "đề chẵn",
+      "publisher": "THCS.TOANMATH.com (third-party public mirror, not independently school-verified)",
+      "printed_top_level_count": 15,
+      "preferred_retained_count": 15,
+      "exam_only_path": ".data/math9-ten-evaluation/dong-cuong-hk2-2025-2026/exam-only.txt",
+      "exam_only_sha256": "b1b18f216cebc0dcbb4c3d3a3d8ecc761c422b2bc4d14b75de71aebc14a05b0d",
+      "extracted_sha256": "9db1565ddbf23f382e78ff6dc2fba505b34cada1acfe3a3d2dd6687e1686b37f",
+      "source_page_sha256": "84a8ffa3b6ad63cff15db27034d6f6d329f1cf80f5a7e8c282a43392605219da",
+      "raw_exam_line_range": [
+        61,
+        133
+      ],
+      "line_convention": "1-based inclusive LF-delimited lines; preserve formfeed characters",
+      "original_pdf_page_range": [
+        3,
+        4
+      ],
+      "exam_only_line_count": 73,
+      "extraction_method": "pdftotext -layout; no OCR; exact LF-line slice with no transcription edits",
+      "capture_command": "pdftotext -layout .data/math9-ten-evaluation/dong-cuong-hk2-2025-2026/original.pdf .data/math9-ten-evaluation/dong-cuong-hk2-2025-2026/extracted.txt",
+      "input_fidelity_issues": [
+        "Text-only capture omits diagrams/chart graphics; see independent-gold.md for affected items.",
+        "Radical bars, superscript positioning, fractions and angle glyphs may be flattened; no symbolic repair."
+      ],
+      "new_relative_to_prior_corpus": true
+    },
+    {
+      "id": "tran-phu-hk2-2025-2026",
+      "source_url": "https://thcs.toanmath.com/2026/05/de-cuoi-hoc-ki-2-toan-9-nam-2025-2026-truong-thcs-tran-phu-hai-phong.html",
+      "download_url": "https://thcs.toanmath.com/thcs-pdf/de-cuoi-hoc-ki-2-toan-9-nam-2025-2026-truong-thcs-tran-phu-hai-phong.pdf",
+      "sha256": "d2af32a4a51ababcfbb9c642c7fbfe7c1b51d9bef45b2f23c439e454ffe1cfbb",
+      "bytes": 585570,
+      "original_path": ".data/math9-ten-evaluation/tran-phu-hk2-2025-2026/original.pdf",
+      "extracted_path": ".data/math9-ten-evaluation/tran-phu-hk2-2025-2026/extracted.txt",
+      "source_page_path": ".data/math9-ten-evaluation/tran-phu-hk2-2025-2026/source-page.html",
+      "pdf_pages": 10,
+      "exam_type": "HK2",
+      "academic_year": "2025–2026",
+      "downloaded_at_utc": "2026-11-17T08:32:47.893091+00:00",
+      "school_or_authority": "THCS Trần Phú, Hải Phòng",
+      "variant": "single paper",
+      "publisher": "THCS.TOANMATH.com (third-party public mirror, not independently school-verified)",
+      "printed_top_level_count": 22,
+      "preferred_retained_count": 22,
+      "exam_only_path": ".data/math9-ten-evaluation/tran-phu-hk2-2025-2026/exam-only.txt",
+      "exam_only_sha256": "996dc15798b6d143984ef8de1ea525d20ec172dd5e53a2eb18dfb71dc8d63cc0",
+      "extracted_sha256": "8cc023eab040c4baac6608a4a2d2c5c5261f04d32403ec9e92716334dde5fa6d",
+      "source_page_sha256": "7547797e515a3192a47234804b879986b74776921032816115b88c151eade051",
+      "raw_exam_line_range": [
+        1,
+        159
+      ],
+      "line_convention": "1-based inclusive LF-delimited lines; preserve formfeed characters",
+      "original_pdf_page_range": [
+        1,
+        4
+      ],
+      "exam_only_line_count": 159,
+      "extraction_method": "pdftotext -layout; no OCR; exact LF-line slice with no transcription edits",
+      "capture_command": "pdftotext -layout .data/math9-ten-evaluation/tran-phu-hk2-2025-2026/original.pdf .data/math9-ten-evaluation/tran-phu-hk2-2025-2026/extracted.txt",
+      "input_fidelity_issues": [
+        "Text-only capture omits diagrams/chart graphics; see independent-gold.md for affected items.",
+        "Radical bars, superscript positioning, fractions and angle glyphs may be flattened; no symbolic repair."
+      ],
+      "new_relative_to_prior_corpus": true
+    }
+  ],
+  "excluded_sources": [
+    {
+      "id": "tinh-gia-hk1-2025-2026",
+      "source_url": "https://thcs.toanmath.com/2026/01/de-hoc-ky-1-toan-9-nam-2025-2026-phuong-tinh-gia-thanh-hoa.html",
+      "download_url": "https://thcs.toanmath.com/thcs-pdf/de-hoc-ky-1-toan-9-nam-2025-2026-phuong-tinh-gia-thanh-hoa.pdf",
+      "sha256": "4e1814fa35f07825d34c58dfb8a6a2e57e9e7f516e535690d252fd6bea6e5608",
+      "bytes": 804663,
+      "original_path": ".data/math9-ten-evaluation/tinh-gia-hk1-2025-2026/original.pdf",
+      "extracted_path": ".data/math9-ten-evaluation/tinh-gia-hk1-2025-2026/extracted.txt",
+      "source_page_path": ".data/math9-ten-evaluation/tinh-gia-hk1-2025-2026/source-page.html",
+      "pdf_pages": 2,
+      "exam_type": "HK1",
+      "academic_year": "2025–2026",
+      "downloaded_at_utc": "2026-11-17T08:32:47.126371+00:00",
+      "exclusion_reason": "Image-only 2-page PDF: pdftotext yields only formfeeds; no Vietnamese OCR language installed. Retained original, not an evaluation input."
+    }
+  ],
+  "input_contract": {
+    "allowed_model_content": "Only UTF-8 bytes at each sources[].exam_only_path. Use generic title and neutral source id; do not send manifest, independent gold, filenames with descriptors, expected counts, original answer-containing PDFs, source-page summaries or matrices.",
+    "blocks": "Use existing capture(text,id) strategy: one paragraph/source block per physical LF line, including blank/formfeed lines; no gold-informed question splitting.",
+    "gold_is_never_input": true
+  }
+}

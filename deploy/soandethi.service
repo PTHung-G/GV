@@ -1,0 +1,21 @@
+[Unit]
+Description=Soan de thi Next application
+After=network.target docker.service
+Requires=docker.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/dsh/trangchugiaovien
+Environment=NODE_ENV=production
+Environment=NEXT_BASE_PATH=/soandethi
+ExecStart=/usr/local/bin/node /home/dsh/trangchugiaovien/node_modules/next/dist/bin/next start -p 3210
+Restart=always
+RestartSec=5
+TimeoutStopSec=30
+KillSignal=SIGTERM
+NoNewPrivileges=true
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

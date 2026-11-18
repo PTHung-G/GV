@@ -1,0 +1,230 @@
+// Reconstructed from 04xc202ii67m6.pretty.js, module 218013.
+// deps: m843476, m522016, m716327, m569644, m632781, m203293, m304585, m618566, m829691, m463415, m335073, m647163, m504251, m213269
+// exports: BrandLink, SiteFooter, SiteHeader
+export { m as "BrandLink" };
+export { function () { return (0, t.jsxs)("footer", { className: "border-t border-[#e9e9e7] bg-[#f7f6f3]", children: [ (0, t.jsxs)("div", { className: "mx-auto grid w-full max-w-(--page-max) gap-10 px-(--gutter) py-14 sm:grid-cols-2 md:grid-cols-4 md:py-16 lg:grid-cols-[1fr_auto_auto_auto_auto] lg:gap-x-12 xl:gap-x-20", children: [ (0, t.jsxs)("div", { className: "sm:col-span-2 md:col-span-4 lg:col-span-1", children: [ (0, t.jsx)(m, { className: "-ml-1.5" }), (0, t.jsx)("p", { className: "mt-4 max-w-sm text-[15px] leading-relaxed text-[#5f5e5b]", children: "Trợ lý AI giúp giáo viên soạn đề thi, chỉnh số liệu, chuyển ảnh đề thành văn bản và làm đáp án cùng barem chấm điểm.", }), ], }), j.map((e) => (0, t.jsxs)( "nav", { "aria-label": e.title, children: [ (0, t.jsx)("h2", { className: "text-sm font-semibold text-[#37352f]", children: e.title, }), (0, t.jsx)("ul", { className: "mt-4 space-y-2.5", children: e.links.map((e) => (0, t.jsx)( "li", { children: e.external ? (0, t.jsx)("a", { href: e.href, className: w, ...(e.href.startsWith("mailto:") ? {} : { target: "_blank", rel: "noopener noreferrer", }), children: e.label, }) : (0, t.jsx)(n.default, { href: e.href, className: w, children: e.label, }), }, e.href, ), ), }), ], }, e.title, ), ), ], }), (0, t.jsx)("div", { className: "border-t border-[#e9e9e7]", children: (0, t.jsxs)("div", { className: "mx-auto w-full max-w-(--page-max) space-y-1 px-(--gutter) py-5 text-[13px] leading-relaxed text-[#787774]", children: [ (0, t.jsxs)("p", { className: "font-semibold text-[#5f5e5b]", children: ["Đơn vị chủ quản: ", u.BUSINESS.name], }), (0, t.jsxs)("p", { children: [ "Giấy chứng nhận đăng ký hộ kinh doanh số ", u.BUSINESS.registrationNo, " do ", u.BUSINESS.issuedBy, " cấp ngày ", u.BUSINESS.issuedOn, ". Mã số thuế: ", u.BUSINESS.taxCode, ".", ], }), (0, t.jsxs)("p", { children: [ "Địa chỉ: ", u.BUSINESS.address, ". Chủ hộ kinh doanh: ", u.BUSINESS.owner, ". Điện thoại: ", u.SUPPORT_PHONE, ". Email: ", u.CONTACT_EMAIL, ".", ], }), ], }), }), (0, t.jsx)("div", { className: "border-t border-[#e9e9e7]", children: (0, t.jsxs)("div", { className: "mx-auto flex w-full max-w-(--page-max) flex-wrap items-center justify-between gap-2 px-(--gutter) py-5 text-sm text-[#9b9a97]", children: [ (0, t.jsx)("p", { children: "© 2026 soandethi.com. Mọi quyền được bảo lưu.", }), (0, t.jsx)("p", { children: "Soạn đề thi nhanh hơn, với AI.", }), ], }), }), ], }); } as "SiteFooter" };
+export { function () { return (0, t.jsxs)("header", { className: "sticky top-0 z-30 border-b border-[#e9e9e7] bg-white", children: [ (0, t.jsxs)("div", { className: "grid h-14 grid-cols-[1fr_auto_1fr] items-center gap-2 px-(--gutter)", children: [ (0, t.jsx)("div", { className: "flex justify-start", children: (0, t.jsx)(m, { className: "-ml-1.5" }), }), (0, t.jsx)(y, { className: "hidden items-center gap-1 xl:flex", }), (0, t.jsx)("div", { className: "col-start-3 flex justify-end", children: (0, t.jsx)(d.AccountMenu, {}), }), ], }), (0, t.jsx)("div", { className: "border-t border-[#e9e9e7] xl:hidden", children: (0, t.jsx)(y, { className: "mx-auto flex h-11 max-w-(--page-max) items-center gap-1 overflow-x-auto px-(--gutter) [&::-webkit-scrollbar]:hidden", }), }), ], }); } as "SiteHeader" };
+
+"use strict";
+    var t = m843476,
+      n = m522016,
+      i = m716327,
+      r = m569644,
+      s = m632781,
+      a = m203293,
+      o = m304585,
+      l = m618566,
+      d = m829691,
+      c = m463415,
+      u = m335073,
+      f = m647163,
+      h = m504251,
+      p = m213269;
+    function m({ className: e }) {
+      return (0, t.jsxs)(n.default, {
+        href: "/",
+        "aria-label": "soandethi.com - về trang chủ",
+        className: (0, f.cn)(
+          "flex w-fit shrink-0 items-center gap-2 rounded-md px-1.5 py-1 hover:bg-[#f1f1ef]",
+          e,
+        ),
+        children: [
+          (0, t.jsx)(p.Logo, { className: "size-7 shrink-0" }),
+          (0, t.jsx)(p.Wordmark, {
+            className:
+              "text-[15px] font-semibold tracking-tight text-[#37352f]",
+          }),
+        ],
+      });
+    }
+    function x({ href: e, children: i }) {
+      let r = (0, l.usePathname)(),
+        s = "/" === e ? "/" === r : r === e || r.startsWith(`${e}/`);
+      return (0, t.jsx)(n.default, {
+        href: e,
+        "aria-current": s ? "page" : void 0,
+        className: (0, f.cn)(
+          "flex h-9 shrink-0 items-center rounded-md px-3 text-[15px] font-medium whitespace-nowrap text-[#5f5e5b] transition-colors hover:bg-[#f1f1ef] hover:text-[#37352f]",
+          s && "bg-[#f1f1ef] font-semibold text-[#37352f]",
+        ),
+        children: i,
+      });
+    }
+    function g() {
+      let { create: e, creating: n } = (0, h.useCreateExam)();
+      return (0, t.jsxs)("button", {
+        type: "button",
+        onClick: e,
+        disabled: n,
+        className:
+          "flex h-9 shrink-0 items-center gap-1.5 rounded-md px-3 text-[15px] font-medium whitespace-nowrap text-[#5f5e5b] transition-colors hover:bg-[#f1f1ef] hover:text-[#37352f] disabled:opacity-60",
+        children: [
+          n &&
+            (0, t.jsx)(s.Loader2, {
+              "aria-hidden": !0,
+              className: "size-3.5 animate-spin",
+            }),
+          "Soạn đề",
+        ],
+      });
+    }
+    let v = [
+      {
+        href: "/library",
+        label: "Kho tài liệu",
+        hint: "Đề mẫu, ma trận làm nguồn cho AI",
+        icon: r.FolderOpen,
+      },
+      {
+        href: "/board-renderer",
+        label: "Bảng vẽ",
+        hint: "Viết tay, hình học, đồ thị trên bảng",
+        icon: a.PencilRuler,
+      },
+      {
+        href: "/grading",
+        label: "Chấm trắc nghiệm",
+        hint: "Chấm phiếu trả lời bằng camera",
+        icon: o.ScanLine,
+      },
+    ];
+    function b() {
+      let e = (0, l.usePathname)(),
+        r = v.some((t) => e === t.href || e.startsWith(`${t.href}/`));
+      return (0, t.jsxs)(c.DropdownMenu, {
+        modal: !1,
+        children: [
+          (0, t.jsxs)(c.DropdownMenuTrigger, {
+            className: (0, f.cn)(
+              "group flex h-9 shrink-0 items-center gap-1 rounded-md px-3 text-[15px] font-medium whitespace-nowrap text-[#5f5e5b] outline-none transition-colors hover:bg-[#f1f1ef] hover:text-[#37352f] focus-visible:ring-2 focus-visible:ring-[#2383e2]/40 data-[state=open]:bg-[#f1f1ef] data-[state=open]:text-[#37352f]",
+              r && "bg-[#f1f1ef] font-semibold text-[#37352f]",
+            ),
+            children: [
+              "Công cụ",
+              (0, t.jsx)(i.ChevronDown, {
+                "aria-hidden": !0,
+                className:
+                  "size-4 opacity-60 transition-transform duration-150 group-data-[state=open]:rotate-180",
+              }),
+            ],
+          }),
+          (0, t.jsx)(c.DropdownMenuContent, {
+            align: "start",
+            sideOffset: 6,
+            collisionPadding: 12,
+            className:
+              "w-[min(300px,calc(100vw-24px))] rounded-xl border-[#e9e9e7] p-1.5 shadow-[0_2px_6px_rgba(15,15,15,0.06),0_10px_24px_rgba(15,15,15,0.1)]",
+            children: v.map(({ href: i, label: r, hint: s, icon: a }) => {
+              let o = e === i || e.startsWith(`${i}/`);
+              return (0, t.jsx)(
+                c.DropdownMenuItem,
+                {
+                  asChild: !0,
+                  className:
+                    "cursor-pointer items-start gap-3 rounded-lg px-2.5 py-2 focus:bg-[#f1f1ef]",
+                  children: (0, t.jsxs)(n.default, {
+                    href: i,
+                    "aria-current": o ? "page" : void 0,
+                    children: [
+                      (0, t.jsx)("span", {
+                        className: (0, f.cn)(
+                          "mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg border border-[#e9e9e7] bg-white text-[#5f5e5b]",
+                          o && "border-[#c9e0f5] bg-[#e7f3f8] text-[#2383e2]",
+                        ),
+                        children: (0, t.jsx)(a, {
+                          "aria-hidden": !0,
+                          className: "size-4",
+                        }),
+                      }),
+                      (0, t.jsxs)("span", {
+                        className: "min-w-0",
+                        children: [
+                          (0, t.jsx)("span", {
+                            className: (0, f.cn)(
+                              "block text-[14px] font-medium text-[#37352f]",
+                              o && "text-[#2383e2]",
+                            ),
+                            children: r,
+                          }),
+                          (0, t.jsx)("span", {
+                            className:
+                              "block text-[12.5px] leading-snug text-[#787774]",
+                            children: s,
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                },
+                i,
+              );
+            }),
+          }),
+        ],
+      });
+    }
+    function y({ className: e }) {
+      return (0, t.jsxs)("nav", {
+        "aria-label": "Điều hướng chính",
+        className: e,
+        children: [
+          (0, t.jsx)(x, { href: "/", children: "Trang chủ" }),
+          (0, t.jsx)(g, {}),
+          (0, t.jsx)(x, { href: "/slides", children: "Soạn slide" }),
+          (0, t.jsx)(x, { href: "/exams", children: "Đề thi cộng đồng" }),
+          (0, t.jsx)(x, { href: "/my-exams", children: "Đề thi của tôi" }),
+          (0, t.jsx)(b, {}),
+        ],
+      });
+    }
+    let j = [
+        {
+          title: "Khám phá",
+          links: [
+            { href: "/", label: "Trang chủ" },
+            { href: "/exams", label: "Đề thi cộng đồng" },
+            { href: "/my-exams", label: "Đề thi của tôi" },
+            { href: "/slides", label: "Slide bài giảng" },
+            { href: "/library", label: "Kho tài liệu" },
+            { href: "/board-renderer", label: "Bảng vẽ" },
+            { href: "/missions", label: "Nhiệm vụ" },
+            { href: "/nap-diem", label: "Nạp điểm" },
+          ],
+        },
+        {
+          title: "Giới thiệu",
+          links: [
+            { href: "/about", label: "Về chúng tôi" },
+            { href: "/about#faq", label: "Câu hỏi thường gặp" },
+          ],
+        },
+        {
+          title: "Chính sách",
+          links: [
+            { href: "/terms", label: "Điều khoản sử dụng" },
+            { href: "/privacy", label: "Chính sách bảo mật" },
+            { href: "/terms#gia", label: "Giá và thanh toán" },
+            { href: "/terms#hoan-tien", label: "Chấm dứt dịch vụ, hoàn tiền" },
+            { href: "/terms#khieu-nai", label: "Giải quyết khiếu nại" },
+          ],
+        },
+        {
+          title: "Liên hệ",
+          links: [
+            {
+              href: `mailto:${u.CONTACT_EMAIL}`,
+              label: u.CONTACT_EMAIL,
+              external: !0,
+            },
+            {
+              href: u.SUPPORT_ZALO_URL,
+              label: `Zalo ${u.SUPPORT_PHONE}`,
+              external: !0,
+            },
+            { href: u.ZALO_GROUP_URL, label: "Nhóm Zalo", external: !0 },
+            { href: u.TIKTOK_URL, label: "TikTok", external: !0 },
+          ],
+        },
+      ],
+      w = "text-[15px] text-[#787774] transition-colors hover:text-[#37352f]";
+    ;

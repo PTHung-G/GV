@@ -1,0 +1,734 @@
+[
+  {
+    "source": "huynh-thuc-khang-hk1-2025-2026",
+    "questions": 19,
+    "rawAndBlocksExact": true,
+    "duplicateBodyIds": 0,
+    "unreferencedBlocks": [
+      {
+        "id": 0,
+        "text": "\f      UBND XÃ TAM ANH        ĐỀ KIỂM TRA CUỐI KÌ I, NĂM HỌC 2025-2026\n"
+      },
+      {
+        "id": 1,
+        "text": "TRƯỜNG THCS HUỲNH THÚC KHÁNG          MÔN: TOÁN – LỚP 9 – MÃ ĐỀ 1\n"
+      },
+      {
+        "id": 2,
+        "text": "        (Đề gồm có 02 trang) Thời gian: 90 phút (không kể thời gian giao đề)\n"
+      },
+      {
+        "id": 3,
+        "text": "\n"
+      },
+      {
+        "id": 4,
+        "text": "    I. TRẮC NGHIỆM (3,0 điểm). Chọn câu trả lời đúng rồi ghi vào giấy làm bài.\n"
+      },
+      {
+        "id": 5,
+        "text": "\n"
+      },
+      {
+        "id": 33,
+        "text": "\n"
+      },
+      {
+        "id": 45,
+        "text": "\n"
+      },
+      {
+        "id": 46,
+        "text": "II. TỰ LUẬN (7,0 điểm).\n"
+      },
+      {
+        "id": 47,
+        "text": "Bài 1. (1,25 điểm)\n"
+      },
+      {
+        "id": 52,
+        "text": "Bài 2. (2,0 điểm)\n"
+      },
+      {
+        "id": 64,
+        "text": "Bài 4. (1,0 điểm)\n"
+      },
+      {
+        "id": 78,
+        "text": "                                                     -Hết-\n"
+      }
+    ]
+  },
+  {
+    "source": "tuong-binh-hiep-hk1-2025-2026",
+    "questions": 8,
+    "rawAndBlocksExact": true,
+    "duplicateBodyIds": 0,
+    "unreferencedBlocks": [
+      {
+        "id": 0,
+        "text": "    SỞ GDĐT TP HỒ CHÍ MINH                               KIỂM TRA CUỐI HỌC KỲ I\n"
+      },
+      {
+        "id": 1,
+        "text": " TRƯỜNG THCS TƯƠNG BÌNH HIỆP                                Môn : TOÁN – Lớp 9\n"
+      },
+      {
+        "id": 2,
+        "text": "                                                            Năm học: 2025 – 2026\n"
+      },
+      {
+        "id": 3,
+        "text": "                                                            Thời gian : 90 phút\n"
+      },
+      {
+        "id": 4,
+        "text": "                                                          (Không kể thời gian phát đề)\n"
+      },
+      {
+        "id": 5,
+        "text": "ĐỀ CHÍNH THỨC\n"
+      },
+      {
+        "id": 32,
+        "text": "\n"
+      },
+      {
+        "id": 33,
+        "text": "\n"
+      },
+      {
+        "id": 49,
+        "text": "\n"
+      },
+      {
+        "id": 50,
+        "text": "                                       --- HẾT ---\n"
+      }
+    ]
+  },
+  {
+    "source": "tran-quy-cap-hk1-2025-2026",
+    "questions": 21,
+    "rawAndBlocksExact": true,
+    "duplicateBodyIds": 0,
+    "unreferencedBlocks": [
+      {
+        "id": 0,
+        "text": "TRƯỜNG THCS TRẦN QUÝ CÁP                                 ĐỀ KIỂM TRA\n"
+      },
+      {
+        "id": 1,
+        "text": "                                              HỌC KỲ I - NĂM HỌC: 2025-2026\n"
+      },
+      {
+        "id": 2,
+        "text": "                                                         MÔN: TOÁN 9\n"
+      },
+      {
+        "id": 3,
+        "text": "            ĐỀ CHÍNH THỨC\n"
+      },
+      {
+        "id": 4,
+        "text": "                                                THỜI GIAN LÀM BÀI: 90 phút\n"
+      },
+      {
+        "id": 5,
+        "text": "                                               (không kể thời gian giao – nhận đề)\n"
+      },
+      {
+        "id": 6,
+        "text": "           (Đề gồm có 02 trang – Học sinh làm bài trên giấy thi do giám thị phát)\n"
+      },
+      {
+        "id": 7,
+        "text": "\n"
+      },
+      {
+        "id": 8,
+        "text": "I. TRẮC NGHIỆM: (3,0 điểm)\n"
+      },
+      {
+        "id": 34,
+        "text": "\n"
+      },
+      {
+        "id": 43,
+        "text": "\n"
+      },
+      {
+        "id": 53,
+        "text": "\fII. TỰ LUẬN: (7,0 điểm)\n"
+      },
+      {
+        "id": 54,
+        "text": "Bài 1: (2,25 điểm)\n"
+      },
+      {
+        "id": 60,
+        "text": "Bài 2: (2,0 điểm)\n"
+      },
+      {
+        "id": 68,
+        "text": "\n"
+      },
+      {
+        "id": 69,
+        "text": "Bài 3: (0,5 điểm)\n"
+      },
+      {
+        "id": 71,
+        "text": "Bài 4: (1,25 điểm)\n"
+      },
+      {
+        "id": 76,
+        "text": "Bài 5: (1,0 điểm)\n"
+      },
+      {
+        "id": 83,
+        "text": "\n"
+      },
+      {
+        "id": 84,
+        "text": "\n"
+      },
+      {
+        "id": 85,
+        "text": "                           ------------------ Hết-------------------\n"
+      }
+    ]
+  },
+  {
+    "source": "quan-toan-hk1-2025-2026",
+    "questions": 22,
+    "rawAndBlocksExact": true,
+    "duplicateBodyIds": 0,
+    "unreferencedBlocks": [
+      {
+        "id": 0,
+        "text": "Mã đề 901 Trang 1/2\n"
+      },
+      {
+        "id": 1,
+        "text": "UBND PHƯỜNG HỒNG AN\n"
+      },
+      {
+        "id": 2,
+        "text": "TRƯỜNG THCS QUÁN TOAN\n"
+      },
+      {
+        "id": 3,
+        "text": "--------------------\n"
+      },
+      {
+        "id": 4,
+        "text": "(Đề thi có 02 trang)\n"
+      },
+      {
+        "id": 5,
+        "text": "ĐỀ KIỂM TRA CUỐI HỌC KÌ I\n"
+      },
+      {
+        "id": 6,
+        "text": "NĂM HỌC 2025 - 2026\n"
+      },
+      {
+        "id": 7,
+        "text": "MÔN: TOÁN\n"
+      },
+      {
+        "id": 8,
+        "text": "Thời gian làm bài: 90 phút\n"
+      },
+      {
+        "id": 9,
+        "text": "(không kể thời gian phát đề)\n"
+      },
+      {
+        "id": 10,
+        "text": "Họ và tên: ............................................................................Số báo danh: ....... Mã đề 901\n"
+      },
+      {
+        "id": 11,
+        "text": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn. Thí sinh trả lời từ câu 1 đến câu 12. Mỗi\n"
+      },
+      {
+        "id": 12,
+        "text": "câu hỏi thí sinh chỉ chọn một phương án.\n"
+      },
+      {
+        "id": 179,
+        "text": "PHẦN II. Câu trắc nghiệm đúng sai. Thí sinh trả lời từ câu 1 đến câu 4. Trong mỗi ý a), b), c), d)\n"
+      },
+      {
+        "id": 180,
+        "text": "ở mỗi câu, thí sinh chọn đúng hoặc sai.\n"
+      },
+      {
+        "id": 277,
+        "text": "PHẦN III. Câu trắc nghiệm trả lời ngắn. Thí sinh trả lời từ câu 1 đến câu 6.\n"
+      },
+      {
+        "id": 283,
+        "text": "\fMã đề 901 Trang 2/2\n"
+      },
+      {
+        "id": 321,
+        "text": "------ HẾT ------\n"
+      }
+    ]
+  },
+  {
+    "source": "thai-nien-hk1-2025-2026",
+    "questions": 22,
+    "rawAndBlocksExact": true,
+    "duplicateBodyIds": 0,
+    "unreferencedBlocks": [
+      {
+        "id": 0,
+        "text": "\f     UBND XÃ BẢO THẮNG                              Ngày ….. tháng 11 năm 2025\n"
+      },
+      {
+        "id": 1,
+        "text": "   TRƯỜNG PTDTBT THCS                            ĐỀ KHẢO SÁT CHẤT LƯỢNG\n"
+      },
+      {
+        "id": 2,
+        "text": "       THÁI NIÊN                                            HỌC KỲ I\n"
+      },
+      {
+        "id": 3,
+        "text": "                  ĐỀ 1\n"
+      },
+      {
+        "id": 4,
+        "text": "                                                        Năm học 2025 - 2026\n"
+      },
+      {
+        "id": 5,
+        "text": "                                                           Môn: Toán 9\n"
+      },
+      {
+        "id": 6,
+        "text": "                                           Thời gian: 90 phút (không kể thời gian giao đề)\n"
+      },
+      {
+        "id": 7,
+        "text": "                                                      (Đề gồm 22 câu, 3 trang)\n"
+      },
+      {
+        "id": 8,
+        "text": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn. Thí sinh trả lời từ câu 1 đến\n"
+      },
+      {
+        "id": 9,
+        "text": "câu 12. Mỗi câu hỏi thí sinh chỉ chọn một phương án.\n"
+      },
+      {
+        "id": 10,
+        "text": "\n"
+      },
+      {
+        "id": 34,
+        "text": "\n"
+      },
+      {
+        "id": 50,
+        "text": "\fPHẦN II. Câu trắc nghiệm đúng sai. Thí sinh trả lời từ câu 1 đến câu 4. Trong mỗi\n"
+      },
+      {
+        "id": 51,
+        "text": "ý a), b), c), d) ở mỗi câu, thí sinh chọn đúng hoặc sai\n"
+      },
+      {
+        "id": 70,
+        "text": "\n"
+      },
+      {
+        "id": 75,
+        "text": "\n"
+      },
+      {
+        "id": 79,
+        "text": "\n"
+      },
+      {
+        "id": 94,
+        "text": "PHẦN III. Câu trắc nghiệm trả lời ngắn. Thí sinh trả lời từ câu 1 đến câu 6.\n"
+      },
+      {
+        "id": 105,
+        "text": "                    ----------------------------- Hết -----------------------------\n"
+      }
+    ]
+  },
+  {
+    "source": "ngo-gia-tu-hk2-2025-2026",
+    "questions": 7,
+    "rawAndBlocksExact": true,
+    "duplicateBodyIds": 0,
+    "unreferencedBlocks": [
+      {
+        "id": 0,
+        "text": "\f   UBND PHƯỜNG VIỆT HƯNG                                 ĐỀ KIỂM TRA HỌC KÌ II\n"
+      },
+      {
+        "id": 1,
+        "text": "   TRƯỜNG THCS NGÔ GIA TỰ                                     MÔN: TOÁN 9\n"
+      },
+      {
+        "id": 2,
+        "text": "                                                           Năm học: 2025 – 2026\n"
+      },
+      {
+        "id": 3,
+        "text": "               ĐỀ SỐ 01                                  Ngày kiểm tra: 07/04/2026\n"
+      },
+      {
+        "id": 4,
+        "text": "                                                         Thời gian làm bài: 90 phút\n"
+      },
+      {
+        "id": 5,
+        "text": "\n"
+      },
+      {
+        "id": 8,
+        "text": "\n"
+      },
+      {
+        "id": 10,
+        "text": "\n"
+      },
+      {
+        "id": 11,
+        "text": "\n"
+      },
+      {
+        "id": 12,
+        "text": "\n"
+      },
+      {
+        "id": 13,
+        "text": "\n"
+      },
+      {
+        "id": 25,
+        "text": "\n"
+      },
+      {
+        "id": 27,
+        "text": "\n"
+      },
+      {
+        "id": 29,
+        "text": "\n"
+      },
+      {
+        "id": 42,
+        "text": "\n"
+      },
+      {
+        "id": 48,
+        "text": "\n"
+      },
+      {
+        "id": 55,
+        "text": "\n"
+      },
+      {
+        "id": 56,
+        "text": "\n"
+      },
+      {
+        "id": 57,
+        "text": "\n"
+      },
+      {
+        "id": 58,
+        "text": "\n"
+      },
+      {
+        "id": 59,
+        "text": "                                          HẾT \n"
+      }
+    ]
+  },
+  {
+    "source": "tran-quoc-tuan-hk2-2025-2026",
+    "questions": 6,
+    "rawAndBlocksExact": true,
+    "duplicateBodyIds": 0,
+    "unreferencedBlocks": [
+      {
+        "id": 0,
+        "text": "\f UBND PHƯỜNG TÂN HƯNG                           ĐỀ KIỂM TRA CUỐI HỌC KỲ II\n"
+      },
+      {
+        "id": 1,
+        "text": "TRƯỜNG TRUNG HỌC CƠ SỞ                               NĂM HỌC 2025 – 2026\n"
+      },
+      {
+        "id": 2,
+        "text": "    TRẦN QUỐC TUẤN                                    Môn: Toán - Khối: 9\n"
+      },
+      {
+        "id": 3,
+        "text": "                                                    Thời gian làm bài: 90 phút\n"
+      },
+      {
+        "id": 4,
+        "text": "      ĐỀ CHÍNH THỨC                                (Không kể thời gian phát đề)\n"
+      },
+      {
+        "id": 5,
+        "text": "       (Đề có 02 trang)\n"
+      },
+      {
+        "id": 6,
+        "text": "\n"
+      },
+      {
+        "id": 7,
+        "text": "\n"
+      },
+      {
+        "id": 8,
+        "text": "\n"
+      },
+      {
+        "id": 9,
+        "text": "\n"
+      },
+      {
+        "id": 15,
+        "text": "\n"
+      },
+      {
+        "id": 20,
+        "text": "\n"
+      },
+      {
+        "id": 28,
+        "text": "\n"
+      },
+      {
+        "id": 29,
+        "text": "\n"
+      },
+      {
+        "id": 30,
+        "text": "\n"
+      },
+      {
+        "id": 31,
+        "text": "\n"
+      },
+      {
+        "id": 34,
+        "text": "\n"
+      },
+      {
+        "id": 35,
+        "text": "\n"
+      },
+      {
+        "id": 36,
+        "text": "\n"
+      },
+      {
+        "id": 37,
+        "text": "\n"
+      },
+      {
+        "id": 38,
+        "text": "                                            1\n"
+      },
+      {
+        "id": 43,
+        "text": "\n"
+      },
+      {
+        "id": 63,
+        "text": "\n"
+      },
+      {
+        "id": 70,
+        "text": "\n"
+      },
+      {
+        "id": 71,
+        "text": "                                   ---------- HẾT ----------\n"
+      },
+      {
+        "id": 72,
+        "text": "\n"
+      },
+      {
+        "id": 73,
+        "text": "                                              2\n"
+      }
+    ]
+  },
+  {
+    "source": "tran-quang-dieu-hk2-2025-2026",
+    "questions": 21,
+    "rawAndBlocksExact": true,
+    "duplicateBodyIds": 0,
+    "unreferencedBlocks": [
+      {
+        "id": 0,
+        "text": "ỦY BAN NHÂN DÂN P. QUY NHƠN BẮC                                      BÀI KIỂM TRA CUỐI HỌC KỲ II\n"
+      },
+      {
+        "id": 1,
+        "text": " TRƯỜNG THCS TRẦN QUANG DIỆU                                                NĂM HỌC 2025–2026\n"
+      },
+      {
+        "id": 2,
+        "text": "                                                                         MÔN KIỂM TRA: TOÁN 9\n"
+      },
+      {
+        "id": 3,
+        "text": "                                                          Thời gian làm bài: 90 phút (Không kể thời gian giao đề)\n"
+      },
+      {
+        "id": 4,
+        "text": "                                                          Chữ ký GT 1…………………………                       Mã Phách\n"
+      },
+      {
+        "id": 5,
+        "text": "Họ và tên: ...........................................    Chữ ký GT 2…………………………\n"
+      },
+      {
+        "id": 6,
+        "text": "SBD: .................... Phòng: .................\n"
+      },
+      {
+        "id": 7,
+        "text": "Lớp: ........ Ngày kiểm tra: .../...../2026\n"
+      },
+      {
+        "id": 8,
+        "text": "\n"
+      },
+      {
+        "id": 9,
+        "text": "\n"
+      },
+      {
+        "id": 10,
+        "text": "   Điểm (bằng số)              Điểm (bằng chữ)           Giám khảo 1              Giám khảo 2           Mã phách\n"
+      },
+      {
+        "id": 11,
+        "text": "\n"
+      },
+      {
+        "id": 12,
+        "text": "\n"
+      },
+      {
+        "id": 13,
+        "text": "\n"
+      }
+    ]
+  },
+  {
+    "source": "dong-cuong-hk2-2025-2026",
+    "questions": 15,
+    "rawAndBlocksExact": true,
+    "duplicateBodyIds": 0,
+    "unreferencedBlocks": [
+      {
+        "id": 0,
+        "text": "\f2. ĐỀ KIỂM TRA:\n"
+      },
+      {
+        "id": 1,
+        "text": "ĐỀ CHẴN:\n"
+      },
+      {
+        "id": 2,
+        "text": "I. PHẦN TRẮC NGHIỆM (2,0 điểm, mỗi câu đúng được 0,25 điểm)\n"
+      },
+      {
+        "id": 3,
+        "text": " Hãy chọn phương án trả lời đúng và viết chữ cái đứng trước phương án đó vào bài làm.\n"
+      },
+      {
+        "id": 24,
+        "text": "\n"
+      },
+      {
+        "id": 28,
+        "text": "\n"
+      },
+      {
+        "id": 30,
+        "text": "\n"
+      },
+      {
+        "id": 43,
+        "text": "II. PHẦN TỰ LUẬN (8,0 điểm)\n"
+      },
+      {
+        "id": 72,
+        "text": "                                        ---HẾT---\n"
+      }
+    ]
+  },
+  {
+    "source": "tran-phu-hk2-2025-2026",
+    "questions": 22,
+    "rawAndBlocksExact": true,
+    "duplicateBodyIds": 0,
+    "unreferencedBlocks": [
+      {
+        "id": 0,
+        "text": "                         ĐỀ KIỂM TRA CUỐI HỌC KÌ II TOÁN 9\n"
+      },
+      {
+        "id": 1,
+        "text": "PHẦN I ( 3,0 điểm ) . Câu trắc nghiệm nhiều phương án lựa chọn. Thí sinh trả lời từ câu 1\n"
+      },
+      {
+        "id": 2,
+        "text": "đến câu 12. Mỗi câu hỏi thí sinh chỉ chọn một phương án.\n"
+      },
+      {
+        "id": 60,
+        "text": "PHẦN II (4,0 điểm). Câu trắc nghiệm đúng sai. Thí sinh trả lời từ câu 1 đến câu 4. Trong mỗi\n"
+      },
+      {
+        "id": 61,
+        "text": "ý a), b), c), d) ở mỗi câu, thí sinh chọn đúng hoặc sai.\n"
+      },
+      {
+        "id": 118,
+        "text": "PHẦN III (3,0 điểm). Câu trắc nghiệm trả lời ngắn. Thí sinh trả lời từ câu 1 đến câu 6.\n"
+      },
+      {
+        "id": 124,
+        "text": "\n"
+      },
+      {
+        "id": 125,
+        "text": "\n"
+      },
+      {
+        "id": 128,
+        "text": "\n"
+      },
+      {
+        "id": 129,
+        "text": "\n"
+      },
+      {
+        "id": 158,
+        "text": "                    …………………………… Hết ………………………….\n"
+      }
+    ]
+  }
+]

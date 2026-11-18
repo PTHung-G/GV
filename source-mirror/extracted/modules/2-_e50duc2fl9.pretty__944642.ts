@@ -1,0 +1,345 @@
+// Reconstructed from 2-_e50duc2fl9.pretty.js, module 944642.
+// deps: m716400, m148043
+// exports: chemToUnicode, expandChem, findChem
+export { function (e, t) { let r = g(e); return r ? (function e(t, r, n = !1) { return t .map((t) => { if (t.arrow) { let n = [e(t.arrow.above, r), e(t.arrow.below, r)] .filter(Boolean) .join("; "); return ` ${s[t.arrow.name].plain}${n ? `(${n})` : ""} `; } let i = t.inner ? e(t.inner, r) : t.plain; (t.frac && (i = `${e(t.frac[0], r)}/${e(t.frac[1], r)}`), t.op && n && (i = ` ${i} `)); let a = t.sub ? r.sub(e(t.sub, r)) : "", o = t.sup ? r.sup(e(t.sup, r)) : ""; return t.pre ? o + a : i + a + o; }) .join(""); })(r, t, !0) .replace(/\s+/g, " ") .trim() : null; } as "chemToUnicode" };
+export { function (e) { let t = y(e), r = "", n = 0; for (let { start: s, end: i, body: a } of t) { let t = g(a); if (!t) return null; ((r += `${e.slice(n, s)}{${m(t)}}`), (n = i)); } return ((r += e.slice(n)), /\\ce(?![a-zA-Z])/.test(r) ? null : r); } as "expandChem" };
+export { y as "findChem" };
+
+"use strict";
+    var t = m716400;
+    m148043;
+    let r = t.default.__parse;
+    class n extends Error {}
+    let s = {
+        "\\xrightarrow": {
+          latex: "\\rightarrow",
+          plain: "→",
+          stretchy: "\\xrightarrow",
+        },
+        "\\xleftarrow": {
+          latex: "\\leftarrow",
+          plain: "←",
+          stretchy: "\\xleftarrow",
+        },
+        "\\xleftrightarrow": { latex: "\\leftrightarrow", plain: "↔" },
+        "\\xrightleftharpoons": { latex: "\\rightleftharpoons", plain: "⇌" },
+        "\\xrightequilibrium": { latex: "\\rightleftharpoons", plain: "⇌" },
+        "\\xleftequilibrium": { latex: "\\rightleftharpoons", plain: "⇌" },
+        "\\xrightleftarrows": { latex: "\\rightleftarrows", plain: "⇄" },
+      },
+      i = {
+        "\\equiv": "≡",
+        "\\cdot": "·",
+        "\\bullet": "•",
+        "\\uparrow": "↑",
+        "\\downarrow": "↓",
+        "\\circ": "°",
+        "\\times": "×",
+        "\\pm": "±",
+        "\\approx": "≈",
+        "\\sim": "~",
+        "\\ll": "≪",
+        "\\gg": "≫",
+        "\\prime": "′",
+        "\\ldots": "…",
+        "\\rightarrow": "→",
+        "\\leftarrow": "←",
+        "-": "-",
+      },
+      a = new Set(["\\uparrow", "\\downarrow"]),
+      o = {
+        "\\acute": "́",
+        "\\grave": "̀",
+        "\\hat": "̂",
+        "\\tilde": "̃",
+        "\\ddot": "̈",
+        "\\bar": "̄",
+        "\\dot": "̇",
+        "\\breve": "̆",
+        "\\check": "̌",
+        "\\mathring": "̊",
+        "\\'": "́",
+        "\\`": "̀",
+        "\\^": "̂",
+        "\\~": "̃",
+        '\\"': "̈",
+        "\\=": "̄",
+        "\\.": "̇",
+        "\\u": "̆",
+        "\\v": "̌",
+        "\\r": "̊",
+      },
+      l = {
+        "{": "\\{",
+        "}": "\\}",
+        "%": "\\%",
+        "#": "\\#",
+        "&": "\\&",
+        $: "\\$",
+        _: "\\_",
+      };
+    function u(e) {
+      return e ? (Array.isArray(e) ? e : [e]) : [];
+    }
+    let c = (e) => String(e.text ?? "");
+    function d(e) {
+      return e.startsWith("\\") ? (i[e] ?? e.slice(1)) : e;
+    }
+    function f(e) {
+      return u(e).some(
+        (e) => "lap" === e.type || ["body", "sub", "sup"].some((t) => f(e[t])),
+      );
+    }
+    function p(e) {
+      if ("spacing" === e.type) return " ";
+      if (
+        ("textord" === e.type || "mathord" === e.type) &&
+        !c(e).startsWith("\\")
+      )
+        return c(e).replace("ı", "i").replace("ȷ", "j");
+      if ("ordgroup" === e.type) return u(e.body).map(p).join("");
+      let t = "accent" === e.type ? o[String(e.label)] : void 0;
+      if (!t) throw new n(`text ${e.type}`);
+      return (u(e.base).map(p).join("") + t).normalize("NFC");
+    }
+    function h(e, t) {
+      return {
+        ...(e.length ? { sub: e } : {}),
+        ...(t.length ? { sup: t } : {}),
+      };
+    }
+    function m(e) {
+      return e
+        .map((e) => {
+          if (e.arrow)
+            return (function (e) {
+              let { latex: t, stretchy: r } = s[e.name],
+                n = m(e.above),
+                i = m(e.below);
+              if (!n && !i) return t;
+              if (r) return `${r}${i ? `[${i}]` : ""}{${n}}`;
+              let a = n ? `\\overset{${n}}{${t}}` : t;
+              return i ? `\\underset{${i}}{${a}}` : a;
+            })(e.arrow);
+          let t = e.latex;
+          return (
+            (e.sub || e.sup) &&
+              !/^(.|\\[a-zA-Z]+|\\[a-zA-Z]+\{[^{}]*\}|\{.*\})$/.test(t) &&
+              (t = `{${t}}`),
+            t +
+              (e.sub ? `_{${m(e.sub)}}` : "") +
+              (e.sup ? `^{${m(e.sup)}}` : "")
+          );
+        })
+        .reduce(
+          (e, t) =>
+            /\\[a-zA-Z]+$/.test(e) && /^[a-zA-Z]/.test(t) ? `${e} ${t}` : e + t,
+          "",
+        );
+    }
+    function g(e) {
+      try {
+        return (function e(t) {
+          let r = [];
+          for (let i of t)
+            !(function (t, r) {
+              switch (r.type) {
+                case "ordgroup": {
+                  let n = u(r.body);
+                  if (1 === n.length && "atom" === n[0].type)
+                    return t.push({ latex: `{${c(n[0])}}`, plain: d(c(n[0])) });
+                  t.push(...e(n));
+                  return;
+                }
+                case "font": {
+                  let s = e(u(r.body));
+                  if (s.some((e) => e.sub || e.sup || e.arrow || e.pre))
+                    throw new n("font");
+                  t.push({
+                    latex: `\\${String(r.font)}{${m(s)}}`,
+                    plain: "",
+                    inner: s,
+                  });
+                  return;
+                }
+                case "mathord":
+                case "textord":
+                  t.push({ latex: c(r), plain: d(c(r)) });
+                  return;
+                case "atom": {
+                  let e = c(r),
+                    n = ("bin" === r.family || "rel" === r.family) && !a.has(e);
+                  t.push({ latex: e, plain: d(e), op: n });
+                  return;
+                }
+                case "supsub": {
+                  let n = e(u(r.sub)),
+                    s = e(u(r.sup));
+                  if (
+                    !(function e(t) {
+                      return u(t).every((t) =>
+                        "ordgroup" === t.type
+                          ? e(t.body)
+                          : ["vphantom", "hphantom", "phantom"].includes(
+                              t.type,
+                            ),
+                      );
+                    })(r.base)
+                  ) {
+                    let i = e(u(r.base));
+                    t.push({
+                      latex: `{${m(i)}}`,
+                      plain: "",
+                      inner: i,
+                      ...h(n, s),
+                    });
+                    return;
+                  }
+                  if (!n.length && !s.length) return;
+                  let i = t[t.length - 1];
+                  if (f(r) || !i || i.op || i.pre)
+                    return t.push({
+                      latex: "{}",
+                      plain: "",
+                      pre: f(r),
+                      ...h(n, s),
+                    });
+                  if ((n.length && i.sub) || (s.length && i.sup)) {
+                    t[t.length - 1] = {
+                      latex: `{${m([i])}}`,
+                      plain: "",
+                      inner: [i],
+                      ...h(n, s),
+                    };
+                    return;
+                  }
+                  Object.assign(i, h(n, s));
+                  return;
+                }
+                case "smash":
+                case "lap":
+                case "styling":
+                case "color":
+                  t.push(...e(u(r.body)));
+                  return;
+                case "mathchoice":
+                  t.push(...e(u(r.text)));
+                  return;
+                case "vphantom":
+                case "hphantom":
+                case "phantom":
+                case "kern":
+                  return;
+                case "spacing":
+                  t.push({ latex: "\\,", plain: " " });
+                  return;
+                case "text": {
+                  let e = u(r.body).map(p).join("");
+                  t.push({
+                    latex: `\\text{${e.replace(/[{}%#&$_]/g, (e) => l[e])}}`,
+                    plain: e,
+                  });
+                  return;
+                }
+                case "xArrow": {
+                  let i = String(r.label);
+                  if (!s[i]) throw new n(i);
+                  t.push({
+                    latex: "",
+                    plain: "",
+                    op: !0,
+                    arrow: {
+                      name: i,
+                      above: e(u(r.body)),
+                      below: e(u(r.below)),
+                    },
+                  });
+                  return;
+                }
+                case "genfrac": {
+                  if (!r.hasBarLine || r.leftDelim || r.rightDelim)
+                    throw new n("genfrac");
+                  let s = e(u(r.numer)),
+                    i = e(u(r.denom));
+                  t.push({
+                    latex: `\\frac{${m(s)}}{${m(i)}}`,
+                    plain: "",
+                    frac: [s, i],
+                  });
+                  return;
+                }
+                case "mclass": {
+                  let n = u(r.body),
+                    [s] = n,
+                    i = s?.type === "supsub" ? u(s.base)[0] : void 0;
+                  if (
+                    1 === n.length &&
+                    i?.type === "op" &&
+                    i.suppressBaseShift
+                  ) {
+                    let r = e(u(i.body)),
+                      n = e(u(s.sup)),
+                      a = e(u(s.sub)),
+                      o = m(r);
+                    (n.length && (o = `\\overset{${m(n)}}{${o}}`),
+                      a.length && (o = `\\underset{${m(a)}}{${o}}`),
+                      t.push({ latex: o, plain: "", inner: r }));
+                    return;
+                  }
+                  t.push(...e(n));
+                  return;
+                }
+                case "accent": {
+                  let n = (function (e) {
+                    try {
+                      let t = p(e);
+                      return 1 == [...t].length ? t : void 0;
+                    } catch {
+                      return;
+                    }
+                  })(r);
+                  if (n) return t.push({ latex: `\\text{${n}}`, plain: n });
+                  let s = e(u(r.base));
+                  t.push({
+                    latex: `${String(r.label)}{${m(s)}}`,
+                    plain: "",
+                    inner: s,
+                  });
+                  return;
+                }
+                case "overline":
+                case "underline": {
+                  let n = e(u(r.body));
+                  t.push({
+                    latex: `\\${r.type}{${m(n)}}`,
+                    plain: "",
+                    inner: n,
+                  });
+                  return;
+                }
+                default:
+                  throw new n(r.type);
+              }
+            })(r, i);
+          return r;
+        })(r(`\\ce{${e}}`, { strict: !1, throwOnError: !0 }));
+      } catch {
+        return null;
+      }
+    }
+    function y(e) {
+      let t = [],
+        r = /\\ce\s*\{/g;
+      for (let n = r.exec(e); n; n = r.exec(e)) {
+        let s = n.index + n[0].length,
+          i = 1,
+          a = s;
+        for (; a < e.length && i > 0; a++)
+          "\\" === e[a] ? a++ : "{" === e[a] ? i++ : "}" === e[a] && i--;
+        if (i > 0) break;
+        (t.push({ start: n.index, end: a, body: e.slice(s, a - 1) }),
+          (r.lastIndex = a));
+      }
+      return t;
+    }
+    ;

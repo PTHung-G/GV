@@ -1,0 +1,195 @@
+// Reconstructed from 2ibjbohrkj52w.pretty.js, module 11485.
+// deps: m843476, m716327, m226091, m576248, m328623, m271645, m994179, m981140, m30030, m369340, m934620, m820783, m248425, m296626, m610772, m687607, m604131, m42118, m647163
+// exports: Collapsible, CollapsibleContent, CollapsibleTrigger, Content, Root, Trigger, createCollapsibleScope, SubmissionCard
+export { w as "Collapsible" };
+export { $ as "CollapsibleContent" };
+export { C as "CollapsibleTrigger" };
+export { $ as "Content" };
+export { w as "Root" };
+export { C as "Trigger" };
+export { j as "createCollapsibleScope" };
+export { function ({ submission: e, compact: o }) { let [d, c] = (0, r.useState)(!1), u = e.review?.questions ?? [], m = "pending" === e.status || "reviewing" === e.status || "awaiting_admin" === e.status; return (0, t.jsxs)("div", { className: "rounded-xl border border-[#e9e9e7] bg-white p-4", children: [ (0, t.jsxs)("div", { className: "flex items-start gap-3", children: [ (0, t.jsx)("span", { className: "mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-[#e7f3f8] text-[#2383e2]", children: "exam" === e.kind ? (0, t.jsx)(n.FileText, { "aria-hidden": !0, className: "size-4", }) : (0, t.jsx)(a.HelpCircle, { "aria-hidden": !0, className: "size-4", }), }), (0, t.jsxs)("div", { className: "min-w-0 flex-1", children: [ (0, t.jsxs)("div", { className: "flex flex-wrap items-center gap-2", children: [ (0, t.jsx)("p", { className: "min-w-0 truncate font-medium text-[#37352f]", children: e.title || "Không tên", }), (0, t.jsx)(E, { status: e.status }), e.rewardPoints > 0 && (0, t.jsxs)(l.Badge, { className: "border-0 bg-[#dbeddb] text-[#1c3829]", children: [ (0, t.jsx)(s.Sparkles, { "aria-hidden": !0 }), " +", e.rewardPoints.toLocaleString("vi-VN"), " điểm", ], }), "approved" === e.status && "exam" === e.kind && !e.published && (0, t.jsx)(l.Badge, { variant: "outline", children: "Đã bị ẩn khỏi cộng đồng", }), ], }), (0, t.jsxs)("p", { className: "mt-1 text-xs text-[#787774]", children: [ "exam" === e.kind ? "Đề thi" : "Câu hỏi", " · gửi ", (0, I.formatDateTime)(e.createdAt), e.reviewedAt && ` \xb7 duyệt ${(0, I.formatDateTime)(e.reviewedAt)}`, e.missionId ? " · tính cho nhiệm vụ" : " · không tính nhiệm vụ", ], }), (e.reason || m) && (0, t.jsx)("p", { className: "mt-2 text-sm text-[#5f5e5b]", children: e.reason || "Bài của bạn đang được xét duyệt. Kết quả sẽ tự cập nhật.", }), !o && e.excerpt && "question" === e.kind && (0, t.jsx)("p", { className: "mt-2 line-clamp-3 whitespace-pre-wrap rounded-md bg-[#f7f6f3] p-2 text-sm text-[#3c4043]", children: (0, t.jsx)(B.RichText, { text: e.excerpt }), }), ], }), ], }), u.length > 0 && (0, t.jsxs)(D, { open: d, onOpenChange: c, className: "mt-3", children: [ (0, t.jsxs)(R, { className: "flex items-center gap-1 text-sm font-medium text-[#2383e2] hover:underline", children: [ (0, t.jsx)(i.ChevronDown, { "aria-hidden": !0, className: (0, _.cn)( "size-4 transition-transform", d && "rotate-180", ), }), "Chi tiết từng câu (", e.novelCount, "/", u.length, " câu mới)", ], }), (0, t.jsx)(L, { children: (0, t.jsx)("ol", { className: "mt-3 space-y-2", children: u.map((e) => (0, t.jsxs)( "li", { className: "rounded-lg border border-[#e9e9e7] p-3", children: [ (0, t.jsxs)("div", { className: "flex flex-wrap items-center gap-2", children: [ (0, t.jsx)("span", { className: "text-sm font-medium", children: e.number || `C\xe2u ${e.index}`, }), (0, t.jsx)(l.Badge, { className: (0, _.cn)( "border-0", P[e.verdict] ?? P.variant, ), children: I.VERDICT_LABEL[e.verdict] ?? e.verdict, }), ], }), (0, t.jsx)("p", { className: "mt-1 line-clamp-3 text-sm text-[#787774]", children: (0, t.jsx)(B.RichText, { text: e.stem, }), }), e.reason && (0, t.jsx)("p", { className: "mt-1 text-sm text-[#37352f]", children: (0, t.jsx)(B.RichText, { text: e.reason, }), }), (e.candidates ?? []).length > 0 && (0, t.jsx)("p", { className: "mt-2 rounded-md bg-[#f7f6f3] p-2 text-xs text-[#787774]", children: "Câu này giống với nội dung đã có trên hệ thống.", }), ], }, e.index, ), ), }), }), ], }), ], }); } as "SubmissionCard" };
+
+"use strict";
+    var t = m843476,
+      i = m716327,
+      n = m226091,
+      a = m576248,
+      s = m328623,
+      r = m271645,
+      l = m994179,
+      o = m981140,
+      d = m30030,
+      c = m369340,
+      u = m934620,
+      m = m820783,
+      g = m248425,
+      x = m296626,
+      h = m610772,
+      f = Object.defineProperty,
+      p = (e, t) => f(e, "name", { value: t, configurable: !0 }),
+      v = "Collapsible",
+      [b, j] = (0, d.createContextScope)(v),
+      [y, N] = b(v),
+      w = r.forwardRef(
+        p(function (e, i) {
+          let {
+              __scopeCollapsible: n,
+              open: a,
+              defaultOpen: s,
+              disabled: l,
+              onOpenChange: o,
+              ...d
+            } = e,
+            [u, m] = (0, c.useControllableState)({
+              prop: a,
+              defaultProp: s ?? !1,
+              onChange: o,
+              caller: v,
+            });
+          return (0, t.jsx)(y, {
+            scope: n,
+            disabled: l,
+            contentId: (0, h.useId)(),
+            open: u,
+            onOpenToggle: r.useCallback(() => m((e) => !e), [m]),
+            children: (0, t.jsx)(g.Primitive.div, {
+              "data-state": k(u),
+              "data-disabled": l ? "" : void 0,
+              ...d,
+              ref: i,
+            }),
+          });
+        }, "Collapsible"),
+      ),
+      C = r.forwardRef(
+        p(function (e, i) {
+          let { __scopeCollapsible: n, ...a } = e,
+            s = N("CollapsibleTrigger", n);
+          return (0, t.jsx)(g.Primitive.button, {
+            type: "button",
+            "aria-controls": s.open ? s.contentId : void 0,
+            "aria-expanded": s.open || !1,
+            "data-state": k(s.open),
+            "data-disabled": s.disabled ? "" : void 0,
+            disabled: s.disabled,
+            ...a,
+            ref: i,
+            onClick: (0, o.composeEventHandlers)(e.onClick, s.onOpenToggle),
+          });
+        }, "CollapsibleTrigger"),
+      ),
+      S = "CollapsibleContent",
+      $ = r.forwardRef(
+        p(function (e, i) {
+          let { forceMount: n, ...a } = e,
+            s = N(S, e.__scopeCollapsible);
+          return (0, t.jsx)(x.Presence, {
+            present: n || s.open,
+            children: ({ present: e }) =>
+              (0, t.jsx)(T, { ...a, ref: i, present: e }),
+          });
+        }, "CollapsibleContent"),
+      ),
+      T = r.forwardRef(
+        p(function (e, i) {
+          let { __scopeCollapsible: n, present: a, children: s, ...l } = e,
+            o = N(S, n),
+            [d, c] = r.useState(a),
+            x = r.useRef(null),
+            h = (0, m.useComposedRefs)(i, x),
+            f = r.useRef(0),
+            p = f.current,
+            v = r.useRef(0),
+            b = v.current,
+            j = o.open || d,
+            y = r.useRef(j),
+            w = r.useRef(void 0);
+          return (
+            r.useEffect(() => {
+              let e = requestAnimationFrame(() => (y.current = !1));
+              return () => cancelAnimationFrame(e);
+            }, []),
+            (0, u.useLayoutEffect)(() => {
+              let e = x.current;
+              if (e) {
+                ((w.current = w.current || {
+                  transitionDuration: e.style.transitionDuration,
+                  animationName: e.style.animationName,
+                }),
+                  (e.style.transitionDuration = "0s"),
+                  (e.style.animationName = "none"));
+                let t = e.getBoundingClientRect();
+                ((f.current = t.height),
+                  (v.current = t.width),
+                  y.current ||
+                    ((e.style.transitionDuration =
+                      w.current.transitionDuration),
+                    (e.style.animationName = w.current.animationName)),
+                  c(a));
+              }
+            }, [o.open, a]),
+            (0, t.jsx)(g.Primitive.div, {
+              "data-state": k(o.open),
+              "data-disabled": o.disabled ? "" : void 0,
+              id: o.contentId,
+              hidden: !j,
+              ...l,
+              ref: h,
+              style: {
+                "--radix-collapsible-content-height": p ? `${p}px` : void 0,
+                "--radix-collapsible-content-width": b ? `${b}px` : void 0,
+                ...e.style,
+              },
+              children: j && s,
+            })
+          );
+        }, "CollapsibleContentImpl"),
+      );
+    function k(e) {
+      return e ? "open" : "closed";
+    }
+    (p(k, "getState"),
+      );
+    var A = m687607,
+      A = A;
+    function D({ ...e }) {
+      return (0, t.jsx)(A.Root, { "data-slot": "collapsible", ...e });
+    }
+    function R({ ...e }) {
+      return (0, t.jsx)(A.CollapsibleTrigger, {
+        "data-slot": "collapsible-trigger",
+        ...e,
+      });
+    }
+    function L({ ...e }) {
+      return (0, t.jsx)(A.CollapsibleContent, {
+        "data-slot": "collapsible-content",
+        ...e,
+      });
+    }
+    var B = m604131,
+      I = m42118,
+      _ = m647163;
+    let z = {
+        pending: "bg-[#fef7e0] text-[#8a5a00]",
+        reviewing: "bg-[#e7f3f8] text-[#2383e2]",
+        awaiting_admin: "bg-[#fef7e0] text-[#8a5a00]",
+        approved: "bg-[#dbeddb] text-[#1c3829]",
+        rejected: "bg-[#fdebec] text-[#a50e0e]",
+        failed: "bg-[#fdebec] text-[#a50e0e]",
+      },
+      P = {
+        novel: "bg-[#dbeddb] text-[#1c3829]",
+        variant: "bg-[#fef7e0] text-[#8a5a00]",
+        duplicate: "bg-[#fdebec] text-[#a50e0e]",
+        common: "bg-[#f1f1ef] text-[#5f5e5b]",
+        invalid: "bg-[#fdebec] text-[#a50e0e]",
+      };
+    function E({ status: e }) {
+      return (0, t.jsx)(l.Badge, {
+        className: (0, _.cn)("border-0 font-medium", z[e]),
+        children: I.STATUS_LABEL[e],
+      });
+    }
+    ;

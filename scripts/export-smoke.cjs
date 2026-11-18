@@ -1,0 +1,25 @@
+const { chromium } = require('@playwright/test');
+(async () => {
+ const browser=await chromium.launch({headless:true});
+ const page=await browser.newPage({viewport:{width:1440,height:1000}});
+ const root='http://127.0.0.1:3210/soandethi';
+ const reg=await page.request.post(root+'/api/auth/register',{data:{name:'Export verification',email:`export-${Date.now()}@example.test`,password:'Verification123!'}});if(!reg.ok())throw Error(await reg.text());
+ const me=await (await page.request.get(root+'/api/auth/me')).json();
+ const current=await (await page.request.get(root+'/api/documents')).json();
+ const stamp=new Date().toISOString();
+ const content='<h1>ĐỀ KIỂM TRA</h1><p>Câu 1. Tính $\\sqrt{81}$.</p><div class="doc-grid" data-columns="4"><div>A. 9</div><div>B. 8</div><div>C. 7</div><div>D. 6</div></div><svg viewBox="0 0 100 100" width="100" height="100"><path d="M10 90L50 10L90 90Z" stroke="black" fill="none"/></svg>';
+ const put=await page.request.put(root+'/api/documents',{data:{ownerId:me.user.id,revision:current.revision,documents:[{id:'export-check',title:'Kiểm tra bản in',subject:'toan',grade:9,content,createdAt:stamp,updatedAt:stamp}]}});if(!put.ok())throw Error(await put.text());
+ await page.goto(root+'/doc/export-check');
+ await page.getByRole('button',{name:'Chốt đề & xuất PDF',exact:true}).click();
+ const frame=page.frameLocator('iframe[title="Xem trước bản in"]');
+ await frame.locator('math').waitFor();
+ if(await frame.locator('svg path').count()!==1)throw Error('Figure missing');
+ const pdf=await page.request.post(root+'/api/editor/export-sheet',{data:{title:'Kiểm tra bản in',numbers:Array.from({length:60},(_,i)=>i+1)}});if(!pdf.ok())throw Error(await pdf.text());
+ await page.getByRole('button',{name:'Phiếu tô trắc nghiệm',exact:true}).click();await page.getByLabel('Số câu A–D').fill('60');await page.getByRole('button',{name:'Tạo phiếu xem trước'}).click();await frame.locator('.sheet').waitFor();
+ if(await frame.locator('.bubble').count()!==300)throw Error('Wrong bubbles');
+ const overflow=await frame.locator('.sheet').evaluate(el=>el.scrollHeight>el.clientHeight);if(overflow)throw Error('Sheet overflow');
+ await page.setViewportSize({width:390,height:844});
+ const bounds=await page.getByRole('dialog').boundingBox();if(bounds.width>390)throw Error('Mobile overflow');
+ console.log('Production subpath: auth, live editor, math, SVG, 60-question sheet, mobile dialog PASS');
+ await browser.close();
+})().catch(e=>{console.error(e);process.exit(1)});

@@ -1,0 +1,325 @@
+{
+  "id": "root",
+  "label": "Kho câu hỏi",
+  "directQuestions": 0,
+  "totalQuestions": 163,
+  "children": [
+    {
+      "id": "hinh_hoc",
+      "label": "Hình học",
+      "directQuestions": 0,
+      "totalQuestions": 65,
+      "children": [
+        {
+          "id": "toi_uu_hinh_hoc",
+          "label": "Bài toán tối ưu hình học",
+          "directQuestions": 1,
+          "totalQuestions": 1,
+          "children": []
+        },
+        {
+          "id": "hinh_khong_gian",
+          "label": "Hình trụ, hình nón, hình cầu và thể tích",
+          "directQuestions": 4,
+          "totalQuestions": 16,
+          "children": [
+            {
+              "id": "hinh_cau",
+              "label": "Hình cầu",
+              "directQuestions": 3,
+              "totalQuestions": 3,
+              "children": []
+            },
+            {
+              "id": "hinh_non",
+              "label": "Hình nón",
+              "directQuestions": 5,
+              "totalQuestions": 5,
+              "children": []
+            },
+            {
+              "id": "hinh_tru",
+              "label": "Hình trụ",
+              "directQuestions": 4,
+              "totalQuestions": 4,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "tam_giac_vuong_ty_so",
+          "label": "Hệ thức lượng và tỉ số lượng giác trong tam giác vuông",
+          "directQuestions": 12,
+          "totalQuestions": 12,
+          "children": []
+        },
+        {
+          "id": "tam_giac_vuong_duong_tron",
+          "label": "Tam giác vuông và đường tròn",
+          "directQuestions": 2,
+          "totalQuestions": 2,
+          "children": []
+        },
+        {
+          "id": "duong_tron",
+          "label": "Đường tròn",
+          "directQuestions": 2,
+          "totalQuestions": 34,
+          "children": [
+            {
+              "id": "chu_vi_duong_tron",
+              "label": "Chu vi đường tròn",
+              "directQuestions": 1,
+              "totalQuestions": 1,
+              "children": []
+            },
+            {
+              "id": "goc_tam_cung",
+              "label": "Góc ở tâm, góc nội tiếp và cung tròn",
+              "directQuestions": 8,
+              "totalQuestions": 8,
+              "children": []
+            },
+            {
+              "id": "hinh_quat_tron",
+              "label": "Hình quạt tròn",
+              "directQuestions": 2,
+              "totalQuestions": 2,
+              "children": []
+            },
+            {
+              "id": "hinh_vanh_khuyen",
+              "label": "Hình vành khuyên",
+              "directQuestions": 1,
+              "totalQuestions": 1,
+              "children": []
+            },
+            {
+              "id": "tiep_tuyen_duong_tron",
+              "label": "Tiếp tuyến của đường tròn",
+              "directQuestions": 4,
+              "totalQuestions": 4,
+              "children": []
+            },
+            {
+              "id": "doi_xung_duong_tron",
+              "label": "Tính chất đối xứng của đường tròn",
+              "directQuestions": 5,
+              "totalQuestions": 5,
+              "children": []
+            },
+            {
+              "id": "tu_giac_noi_tiep",
+              "label": "Tứ giác và đa giác nội tiếp",
+              "directQuestions": 4,
+              "totalQuestions": 4,
+              "children": []
+            },
+            {
+              "id": "vi_tri_hai_duong_tron",
+              "label": "Vị trí tương đối của hai đường tròn",
+              "directQuestions": 3,
+              "totalQuestions": 3,
+              "children": []
+            },
+            {
+              "id": "vi_tri_duong_thang_duong_tron",
+              "label": "Vị trí tương đối của đường thẳng và đường tròn",
+              "directQuestions": 2,
+              "totalQuestions": 2,
+              "children": []
+            },
+            {
+              "id": "diem_thuoc_duong_tron",
+              "label": "Điểm thuộc đường tròn",
+              "directQuestions": 1,
+              "totalQuestions": 1,
+              "children": []
+            },
+            {
+              "id": "duong_kinh_day_cung",
+              "label": "Đường kính và dây cung",
+              "directQuestions": 1,
+              "totalQuestions": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thong_ke_xac_suat",
+      "label": "Thống kê và xác suất",
+      "directQuestions": 2,
+      "totalQuestions": 21,
+      "children": [
+        {
+          "id": "thong_ke_ghep_nhom",
+          "label": "Thống kê ghép nhóm",
+          "directQuestions": 3,
+          "totalQuestions": 3,
+          "children": []
+        },
+        {
+          "id": "thong_ke_mo_ta",
+          "label": "Thống kê mô tả",
+          "directQuestions": 6,
+          "totalQuestions": 6,
+          "children": []
+        },
+        {
+          "id": "xac_suat_bien_co",
+          "label": "Xác suất của biến cố",
+          "directQuestions": 10,
+          "totalQuestions": 10,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "toan_thuc_te",
+      "label": "Toán thực tế",
+      "directQuestions": 0,
+      "totalQuestions": 10,
+      "children": [
+        {
+          "id": "toan_chuyen_dong",
+          "label": "Bài toán chuyển động đều",
+          "directQuestions": 6,
+          "totalQuestions": 6,
+          "children": []
+        },
+        {
+          "id": "ung_dung_dien_tich",
+          "label": "Bài toán diện tích và biểu thức",
+          "directQuestions": 2,
+          "totalQuestions": 2,
+          "children": []
+        },
+        {
+          "id": "banh_rang_banh_xe",
+          "label": "Chuyển động của bánh răng và bánh xe",
+          "directQuestions": 1,
+          "totalQuestions": 1,
+          "children": []
+        },
+        {
+          "id": "bai_toan_lap_pt",
+          "label": "Giải toán bằng cách lập phương trình/hệ phương trình",
+          "directQuestions": 1,
+          "totalQuestions": 1,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "dai_so",
+      "label": "Đại số",
+      "directQuestions": 0,
+      "totalQuestions": 67,
+      "children": [
+        {
+          "id": "bd_bpt",
+          "label": "Bất đẳng thức và bất phương trình",
+          "directQuestions": 0,
+          "totalQuestions": 16,
+          "children": [
+            {
+              "id": "bpt_bac_nhat",
+              "label": "Bất phương trình bậc nhất một ẩn",
+              "directQuestions": 9,
+              "totalQuestions": 9,
+              "children": []
+            },
+            {
+              "id": "bat_dang_thuc",
+              "label": "Bất đẳng thức",
+              "directQuestions": 7,
+              "totalQuestions": 7,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "can_thuc",
+          "label": "Căn thức bậc hai và bậc ba",
+          "directQuestions": 0,
+          "totalQuestions": 29,
+          "children": [
+            {
+              "id": "can_thuc_khai_niem",
+              "label": "Khái niệm căn bậc hai và điều kiện xác định",
+              "directQuestions": 10,
+              "totalQuestions": 10,
+              "children": []
+            },
+            {
+              "id": "so_sanh_can",
+              "label": "So sánh căn bậc hai",
+              "directQuestions": 1,
+              "totalQuestions": 1,
+              "children": []
+            },
+            {
+              "id": "can_thuc_tinh_toan",
+              "label": "Tính toán và rút gọn biểu thức chứa căn",
+              "directQuestions": 18,
+              "totalQuestions": 18,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "ham_so_bac_hai",
+          "label": "Hàm số bậc hai và đồ thị",
+          "directQuestions": 5,
+          "totalQuestions": 5,
+          "children": []
+        },
+        {
+          "id": "pt_he",
+          "label": "Phương trình và hệ phương trình",
+          "directQuestions": 0,
+          "totalQuestions": 17,
+          "children": [
+            {
+              "id": "he_pt_bac_nhat",
+              "label": "Hệ phương trình bậc nhất hai ẩn",
+              "directQuestions": 3,
+              "totalQuestions": 3,
+              "children": []
+            },
+            {
+              "id": "pt_bac_hai_viet",
+              "label": "Phương trình bậc hai một ẩn và hệ thức Vi-ét",
+              "directQuestions": 6,
+              "totalQuestions": 6,
+              "children": []
+            },
+            {
+              "id": "pt_bac_nhat_hai_an",
+              "label": "Phương trình bậc nhất hai ẩn",
+              "directQuestions": 4,
+              "totalQuestions": 4,
+              "children": []
+            },
+            {
+              "id": "pt_chua_an_o_mau",
+              "label": "Phương trình chứa ẩn ở mẫu",
+              "directQuestions": 2,
+              "totalQuestions": 2,
+              "children": []
+            },
+            {
+              "id": "pt_tich_nghiem",
+              "label": "Phương trình tích và nghiệm",
+              "directQuestions": 2,
+              "totalQuestions": 2,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

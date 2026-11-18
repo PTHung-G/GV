@@ -1,0 +1,60 @@
+   UBND PHƯỜNG VIỆT HƯNG                                 ĐỀ KIỂM TRA HỌC KÌ II
+   TRƯỜNG THCS NGÔ GIA TỰ                                     MÔN: TOÁN 9
+                                                           Năm học: 2025 – 2026
+               ĐỀ SỐ 01                                  Ngày kiểm tra: 07/04/2026
+                                                         Thời gian làm bài: 90 phút
+
+Bài 1. (1 điểm). Một xã thống kê khối lượng ngô (đơn vị: tạ) mà 60 hộ gia đình trong xã thu hoạch
+được năm 2023. Số liệu được ghi lại trong biểu đồ tần số ghép nhóm sau:
+
+                        Tần số (n)
+
+
+
+
+                                                                           Khối lượng (tạ)
+a) Khối lượng ngô (đơn vị: tạ) mà 60 hộ gia đình trong xã thu hoạch được năm 2023 nhiều nhất ở
+nhóm nào ?
+b) Tính tần số tương đối ghép nhóm của nhóm [ 60;70 ) ?
+Bài 2. (1,5 điểm) Viết ngẫu nhiên một số tự nhiên có hai chữ số nhỏ hơn 30.
+a) Viết tập hợp Ω tất cả các kết quả có thể xảy ra đối với số tự nhiên được viết ra .
+b) Tính xác suất của biến cố A: “Số tự nhiên được viết ra chia hết cho 6”.
+Bài 3 (3,5 điểm). Giải bài toán bằng cách lập phương trình hoặc hệ phương trình:
+1. Khoảng cách giữa hai bến sông từ A đến B là 48km. Một ca nô đi từ đến A đến bến B rồi quay lại
+bến A. Thời gian cả đi và về là 5 giờ. Tính vận tốc của ca nô khi nước yên lặng, biết rằng vận tốc của
+dòng nước là 4km/h.
+
+2. Trong mặt phẳng tọa độ Oxy , cho đường thẳng d  : y  7x  5 và parabol P  : y  2x 2 .
+
+       a) Vẽ đồ thị của hàm số y  2x 2
+
+       b) Xác định tọa độ giao điểm của d  và P  bằng công thức.
+Bài 4 (3,5 điểm).
+1. Bạn Phương sử dụng các thanh tre, chuốt mỏng và cắt các
+đoạn tre bằng nhau có chiều dài 20cm rồi chốt lại bằng ốc
+vít. Bạn vẽ trên giấy thủ công các hình quạt OAB có bán
+kính 20cm, quạt OCD có bán kính 5 cm, có góc ở tâm            A                           B
+  COD    120o
+AOB                   Sau đó cắt bỏ phần hình quạt OCD,
+phần còn lại sẽ dán lên các nan quạt. Tính diện tích phần
+giấy thủ công dán lên các nan quạt, biết rằng giấy dán ở cả               C           D
+                                                                              O
+hai mặt quạt. Lấy 𝜋𝜋 ≈ 3,14.
+
+2. Cho nửa đường tròn (O), đường kính AB. Lấy điểm D thuộc nửa đường tròn, điểm C thuộc cung
+AD; AC cắt BD tại E, AD cắt BC tại H.
+   a) Chứng minh tứ giác CHDE nội tiếp.
+                  = DEH
+   b) Chứng minh DAB .
+
+   c) Vẽ tiếp tuyến của (O) tại D, cắt EH tại I. Chứng minh I là trung điểm của EH.
+Bài 5 (0,5 điểm).
+Từ một miếng tôn hình bán nguyệt có bán kính R = 6m,
+một người thợ muốn cắt một hình chữ nhật ABCD có diện
+tích lớn nhất (như hình vẽ). Hỏi chiều dài cạnh AB bằng
+bao nhiêu để diện tích hình chữ nhật là lớn nhất?
+
+
+
+
+                                          HẾT 

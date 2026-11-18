@@ -1,0 +1,223 @@
+// Reconstructed from 3bg0pkvz9zgwr.pretty.js, module 555072.
+// deps: none
+// exports: none
+
+
+"use strict";
+    let e = [
+        { id: "heading", label: "Tiêu đề của theme" },
+        { id: "body", label: "Nội dung của theme" },
+        { id: "serif", label: "Có chân của theme" },
+        { id: "mono", label: "Đơn cách" },
+      ],
+      n = "system-ui, sans-serif",
+      a = "Georgia, serif",
+      i = [
+        { name: "Be Vietnam Pro", category: "sans", axes: "ital", fallback: n },
+        { name: "Roboto", category: "sans", axes: "ital", fallback: n },
+        { name: "Open Sans", category: "sans", axes: "ital", fallback: n },
+        { name: "Montserrat", category: "sans", axes: "ital", fallback: n },
+        { name: "Inter", category: "sans", axes: "wght", fallback: n },
+        { name: "Noto Sans", category: "sans", axes: "ital", fallback: n },
+        { name: "Nunito", category: "sans", axes: "ital", fallback: n },
+        { name: "Lexend", category: "sans", axes: "wght", fallback: n },
+        { name: "Quicksand", category: "sans", axes: "wght", fallback: n },
+        { name: "Josefin Sans", category: "sans", axes: "ital", fallback: n },
+        { name: "Raleway", category: "sans", axes: "ital", fallback: n },
+        { name: "Work Sans", category: "sans", axes: "ital", fallback: n },
+        { name: "Source Sans 3", category: "sans", axes: "ital", fallback: n },
+        { name: "Barlow", category: "sans", axes: "ital", fallback: n },
+        { name: "Oswald", category: "sans", axes: "wght", fallback: n },
+        { name: "Chakra Petch", category: "sans", axes: "ital", fallback: n },
+        { name: "Bai Jamjuree", category: "sans", axes: "ital", fallback: n },
+        { name: "Baloo 2", category: "sans", axes: "wght", fallback: n },
+        { name: "Lora", category: "serif", axes: "ital", fallback: a },
+        { name: "Merriweather", category: "serif", axes: "ital", fallback: a },
+        {
+          name: "Playfair Display",
+          category: "serif",
+          axes: "ital",
+          fallback: a,
+        },
+        { name: "Noto Serif", category: "serif", axes: "ital", fallback: a },
+        { name: "EB Garamond", category: "serif", axes: "ital", fallback: a },
+        { name: "Alegreya", category: "serif", axes: "ital", fallback: a },
+        {
+          name: "Cormorant Garamond",
+          category: "serif",
+          axes: "ital",
+          fallback: a,
+        },
+        { name: "Roboto Slab", category: "serif", axes: "wght", fallback: a },
+        { name: "Comfortaa", category: "display", axes: "wght", fallback: n },
+        {
+          name: "Paytone One",
+          category: "display",
+          axes: "plain",
+          fallback: n,
+        },
+        { name: "Bungee", category: "display", axes: "plain", fallback: n },
+        {
+          name: "Lobster",
+          category: "display",
+          axes: "plain",
+          fallback: "cursive",
+        },
+        {
+          name: "Pacifico",
+          category: "handwriting",
+          axes: "plain",
+          fallback: "cursive",
+        },
+        {
+          name: "Dancing Script",
+          category: "handwriting",
+          axes: "wght",
+          fallback: "cursive",
+        },
+        {
+          name: "Charm",
+          category: "handwriting",
+          axes: "wght",
+          fallback: "cursive",
+        },
+        {
+          name: "Patrick Hand",
+          category: "handwriting",
+          axes: "plain",
+          fallback: "cursive",
+        },
+        {
+          name: "Itim",
+          category: "handwriting",
+          axes: "plain",
+          fallback: "cursive",
+        },
+        {
+          name: "Mali",
+          category: "handwriting",
+          axes: "ital",
+          fallback: "cursive",
+        },
+        {
+          name: "Pangolin",
+          category: "handwriting",
+          axes: "plain",
+          fallback: "cursive",
+        },
+        {
+          name: "Sriracha",
+          category: "handwriting",
+          axes: "plain",
+          fallback: "cursive",
+        },
+        {
+          name: "Roboto Mono",
+          category: "mono",
+          axes: "ital",
+          fallback: "monospace",
+        },
+        {
+          name: "Source Code Pro",
+          category: "mono",
+          axes: "ital",
+          fallback: "monospace",
+        },
+        {
+          name: "JetBrains Mono",
+          category: "mono",
+          axes: "ital",
+          fallback: "monospace",
+        },
+        { name: "Arial", category: "system", axes: "", fallback: n },
+        {
+          name: "Times New Roman",
+          category: "system",
+          axes: "",
+          fallback: "serif",
+        },
+        { name: "Georgia", category: "system", axes: "", fallback: "serif" },
+        { name: "Verdana", category: "system", axes: "", fallback: n },
+        { name: "Tahoma", category: "system", axes: "", fallback: n },
+        {
+          name: "Courier New",
+          category: "system",
+          axes: "",
+          fallback: "monospace",
+        },
+      ],
+      r = new Map(i.map((t) => [t.name.toLowerCase(), t])),
+      o = new Set(e.map((t) => t.id)),
+      l = (t) => o.has(t);
+    function s(t) {
+      return r.get(t.toLowerCase());
+    }
+    t.s([
+      "FONT_CATEGORY_LABEL",
+      0,
+      {
+        sans: "Không chân",
+        serif: "Có chân",
+        display: "Trang trí",
+        handwriting: "Viết tay",
+        mono: "Đơn cách",
+        system: "Có sẵn trên máy",
+      },
+      "FONT_LIBRARY",
+      0,
+      i,
+      "FONT_ROLES",
+      0,
+      e,
+      "fontFaceName",
+      0,
+      function (t, e) {
+        let n = t && !l(t) ? s(t)?.name : void 0;
+        if (n) return n;
+        let a = e.fonts[t && l(t) ? t : "body"];
+        return a.includes("slide-serif")
+          ? "Lora"
+          : a.includes("mono")
+            ? "Consolas"
+            : a.includes("slide-rounded")
+              ? "Nunito"
+              : "Be Vietnam Pro";
+      },
+      "fontInfo",
+      0,
+      s,
+      "fontLabel",
+      0,
+      function (t) {
+        return e.find((e) => e.id === t)?.label ?? s(t)?.name ?? t;
+      },
+      "fontStack",
+      0,
+      function (t, e) {
+        if (!t) return e.fonts.body;
+        if (l(t)) return e.fonts[t];
+        let n = s(t);
+        return n ? `"${n.name}", ${n.fallback}` : e.fonts.body;
+      },
+      "googleFontUrl",
+      0,
+      function (t) {
+        if (!t.axes) return "";
+        let e = t.name.replace(/ /g, "+"),
+          n =
+            "ital" === t.axes
+              ? ":ital,wght@0,400;0,700;1,400;1,700"
+              : "wght" === t.axes
+                ? ":wght@400;700"
+                : "";
+        return `https://fonts.googleapis.com/css2?family=${e}${n}&display=swap`;
+      },
+      "isFontName",
+      0,
+      function (t) {
+        return "string" == typeof t && (o.has(t) || r.has(t.toLowerCase()));
+      },
+      "isFontRole",
+      0,
+      l,
+    ]);

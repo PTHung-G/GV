@@ -1,0 +1,5946 @@
+soandethi.com
+Trang chủ
+Soạn đề
+Soạn slide
+Đề thi cộng đồng
+Đề thi của tôi
+Công cụ
+Đăng nhập
+Đề thi được chia sẻ
+Mọi lớp
+Tất cả môn
+Toán
+Ngữ văn
+Tiếng Việt
+Tiếng Anh
+Vật lí
+Hoá học
+Sinh học
+Khoa học tự nhiên
+Lịch sử
+Địa lí
+Lịch sử và Địa lí
+Giáo dục công dân
+Giáo dục kinh tế và pháp luật
+Tin học
+Công nghệ
+Môn khác
+
+593 đề
+
+SỞ GIÁO DỤC VÀ ĐÀO TẠO …
+
+TRƯỜNG THPT............
+
+Đề chính thức
+
+ĐỀ KIỂM TRA CHUYÊN ĐỀ HỌC KỲ II
+
+Môn: Toán – Lớp 10
+
+Năm học: 2026 – 2027
+
+Thời gian làm bài: 90 phút (không kể thời gian phát đề)
+
+PHẦN I. CÂU TRẮC NGHIỆM NHIỀU LỰA CHỌN (6,0 điểm)
+
+Thí sinh trả lời từ Câu 1 đến Câu 24. Mỗi câu hỏi thí sinh chỉ chọn một phương án.
+
+Câu 1. Trong mặt phẳng toạ độ Oxy, một trạm phát sóng vô tuyến đặt tại điểm S(2;−1) truyền tín hiệu tới một đường cao tốc thẳng có phương trình d:3x−4y+5=0. Vùng phủ sóng trực tiếp dọc theo đường cao tốc là đoạn AB sao cho góc nhìn từ trạm phát sóng tới đoạn này thỏa mãn 
+ASB
+=90
+∘
+ và tam giác SAB cân tại S. Bán kính vùng phủ sóng tối thiểu R=SA là
+
+A. R=3
+2
+	​
+
+.
+
+B. R=3.
+
+C. R=6.
+
+D. R=2
+3
+	​
+
+.
+
+Câu 2. Một gương phẳng được đặt dọc theo đường thẳng Δ:x−y+2=0. Một tia sáng phát ra từ điểm A(1;5), phản xạ trên mặt gương tại điểm M∈Δ rồi đi qua điểm B(6;2). Toạ độ điểm phản xạ M trên mặt gương là
+
+A. M(1;3).
+
+B. M(2;4).
+
+C. M(3;5).
+
+D. M(0;2).
+
+Câu 3. Cho hai điểm A(1;2), B(3;4) và đường thẳng d:x−2y+1=0. Điểm M di động trên d. Giá trị nhỏ nhất của biểu thức P=2MA
+2
++3MB
+2
+ đạt được khi hoành độ của M là
+
+A. x=
+5
+7
+	​
+
+.
+
+B. x=
+5
+11
+	​
+
+.
+
+C. x=
+5
+13
+	​
+
+.
+
+D. x=
+5
+9
+	​
+
+.
+
+Câu 4. Trong mặt phẳng Oxy, cho tam giác ABC có trực tâm H(2;1), tâm đường tròn ngoại tiếp I(4;3) và trung điểm cạnh BC là M(5;4). Tọa độ đỉnh A của tam giác là
+
+A. A(0;−1).
+
+B. A(−2;−1).
+
+C. A(0;1).
+
+D. A(1;0).
+
+Câu 5. Một thiết bị tưới nước tự động đặt tại gốc tọa độ O có vùng phun nước giới hạn bởi đường tròn (C
+1
+	​
+
+):x
+2
++y
+2
+−4x−6y−12=0. Người ta lắp thêm một thiết bị phụ trợ phun sương có ranh giới là đường tròn (C
+2
+	​
+
+) đồng tâm với (C
+1
+	​
+
+) và tiếp xúc với đường thẳng cứu hỏa Δ:3x+4y−8=0. Phương trình của đường tròn (C
+2
+	​
+
+) là
+
+A. (x−2)
+2
++(y−3)
+2
+=4.
+
+B. (x−2)
+2
++(y−3)
+2
+=9.
+
+C. (x−2)
+2
++(y−3)
+2
+=16.
+
+D. (x−2)
+2
++(y−3)
+2
+=2.
+
+Câu 6. Trong mặt phẳng Oxy, cho đường tròn (C):x
+2
++y
+2
+−2x+4y−20=0 và điểm A(4;2). Từ A kẻ hai tiếp tuyến AM,AN đến (C) (M,N là các tiếp điểm). Phương trình đường thẳng đi qua hai tiếp điểm M và N là
+
+A. 3x+4y−10=0.
+
+B. 3x+4y−17=0.
+
+C. 4x+3y−15=0.
+
+D. 2x−y+5=0.
+
+Câu 7. Một chiếc vòm cửa bằng kính hình bán nguyệt được mô tả trong hệ toạ độ bởi nửa trên của đường tròn (C):x
+2
++y
+2
+=25 (y≥0). Một thanh ngang kim loại MN song song với trục Ox tựa hai đầu vào vòm kính, đồng thời một bóng đèn treo tại điểm I(0;3) luôn nhìn đoạn kim loại MN dưới một góc vuông 
+MIN
+=90
+∘
+. Tung độ của thanh ngang MN là
+
+A. y=4.
+
+B. y=
+2
+7
+	​
+
+.
+
+C. y=3.
+
+D. y=
+2
+9
+	​
+
+.
+
+Câu 8. Cho hai đường tròn (C
+1
+	​
+
+):(x−1)
+2
++y
+2
+=4 và (C
+2
+	​
+
+):(x−6)
+2
++y
+2
+=9. Tập hợp tâm I(x;y) của các đường tròn (C) tiếp xúc ngoài với (C
+1
+	​
+
+) và tiếp xúc trong với (C
+2
+	​
+
+) thuộc một nhánh của đường cong nào sau đây?
+
+A. Parabol có đỉnh O(0;0).
+
+B. Hypebol có tiêu cự 2c=5.
+
+C. Elip có độ dài trục lớn bằng 5.
+
+D. Elip có độ dài trục lớn bằng 7.
+
+Câu 9. Trong hệ toạ độ Oxy, một hầm đường bộ có mặt cắt là một nửa hình elip với phương trình 
+36
+x
+2
+	​
+
++
+16
+y
+2
+	​
+
+=1 (y≥0, đơn vị đo: mét). Người ta dự định chia làn đường bằng dải phân cách và cho phép xe tải chở hàng hình hộp chữ nhật có chiều cao 3 m đi qua. Chiều rộng tối đa của xe tải (được đặt đối xứng qua trục hầm Oy) để đi lọt qua hầm mà nóc xe không chạm vòm trần là
+
+ĐỀ KIỂM TRA CHUYÊN ĐỀ TOÁN 10 - PHƯƠNG PHÁP TOẠ ĐỘ TRONG MẶT PHẲNG
+
+Toán
+Lớp 10
+An Hoang
+2
+
+TRƯỜNG ĐẠI HỌC …
+
+KHOA LUẬT
+
+Đề ôn tập
+
+BÀI QUIZ ÔN TẬP CUỐI KỲ – ĐỢT 1 (CÂU 1–20)
+
+Năm học 2026 – 2027
+
+Học phần: Luật Môi trường
+
+Thời gian làm bài: 30 phút
+
+PHẦN I. CÂU HỎI TRẮC NGHIỆM (10,0 điểm)
+
+Mỗi câu có bốn phương án, chỉ chọn một phương án đúng. Câu hỏi căn cứ vào Luật Bảo vệ môi trường 2020 và các văn bản pháp luật hiện hành đến thời điểm ra đề.
+
+Câu 1 (0,5 điểm). Công ty B kinh doanh khu nghỉ dưỡng sinh thái tại tỉnh Y, khai thác cảnh quan rừng ngập mặn và hệ sinh thái tự nhiên để bán tour trải nghiệm. Hoạt động của Công ty B không xả thải vượt quy chuẩn kỹ thuật. Cơ quan có thẩm quyền yêu cầu Công ty B chi trả tiền dịch vụ hệ sinh thái tự nhiên. Yêu cầu này thể hiện trực tiếp nguyên tắc nào của Luật Bảo vệ môi trường 2020?
+
+A. Người gây ô nhiễm phải trả tiền, vì hoạt động du lịch của Công ty B có phát sinh chất thải.
+
+B. Người được hưởng lợi từ môi trường có nghĩa vụ đóng góp tài chính cho hoạt động bảo vệ môi trường.
+
+C. Hoạt động bảo vệ môi trường ưu tiên dự báo, phòng ngừa ô nhiễm, sự cố, suy thoái môi trường.
+
+D. Bảo vệ môi trường gắn kết với phát triển kinh tế và quản lý tài nguyên trong hoạt động phát triển.
+
+Câu 2 (0,5 điểm). Công ty logistics A nhận vận chuyển một lô bo mạch điện tử thải bỏ từ nước P sang nước Q. Tàu chỉ ghé cảng Hải Phòng 05 ngày để chuyển tải, container không dỡ hàng. Nước P và nước Q đều là thành viên Công ước Basel và đã hoàn tất thủ tục thông báo, chấp thuận giữa hai nước. Theo pháp luật Việt Nam, việc quá cảnh lô hàng này:
+
+A. Được phép, vì Công ước Basel cho phép vận chuyển xuyên biên giới khi đã có thông báo và chấp thuận trước.
+
+B. Được phép, nếu Bộ Nông nghiệp và Môi trường có văn bản chấp thuận cho quá cảnh qua cảng biển.
+
+C. Được phép, vì hàng chỉ chuyển tải dưới 30 ngày và không đưa vào lưu thông trong nội địa.
+
+D. Bị nghiêm cấm, vì pháp luật Việt Nam cấm quá cảnh chất thải từ nước ngoài dưới mọi hình thức.
+
+Câu 3 (0,5 điểm). Theo Luật Bảo vệ môi trường 2020, điểm khác biệt cốt lõi giữa "ô nhiễm môi trường" và "suy thoái môi trường" là:
+
+A. Ô nhiễm gắn với sự không phù hợp quy chuẩn kỹ thuật, tiêu chuẩn môi trường; suy thoái là sự suy giảm chất lượng, số lượng thành phần môi trường.
+
+B. Ô nhiễm chỉ do hoạt động của con người gây ra; suy thoái chỉ do biến đổi bất thường của tự nhiên gây ra.
+
+C. Ô nhiễm phải gây thiệt hại về tài sản cho tổ chức, cá nhân; suy thoái chỉ cần gây ảnh hưởng xấu đến sinh vật.
+
+D. Suy thoái là mức độ nhẹ của ô nhiễm, chưa vượt quy chuẩn kỹ thuật nên chưa thuộc phạm vi điều chỉnh của Luật.
+
+Câu 4 (0,5 điểm). Công ty A (dệt nhuộm) đã kê khai và nộp đủ phí bảo vệ môi trường đối với nước thải. Trong đợt sản xuất cao điểm, A xả nước thải có thông số độ màu và COD vượt quy chuẩn kỹ thuật ra kênh. Khi bị kiểm tra, A lập luận rằng việc nộp phí chính là thực hiện nguyên tắc "người gây ô nhiễm phải trả tiền". Lập luận của A:
+
+A. Đúng, vì phí bảo vệ môi trường đối với nước thải là khoản chi trả cho phần ô nhiễm do A gây ra.
+
+B. Đúng một phần, A chỉ bị xử lý đối với phần lưu lượng nước thải chưa được kê khai nộp phí.
+
+C. Sai, vì nộp phí không thay thế nghĩa vụ xử lý nước thải đạt quy chuẩn kỹ thuật trước khi xả thải.
+
+D. Sai, vì nguyên tắc người gây ô nhiễm phải trả tiền chỉ áp dụng khi có thiệt hại cho bên thứ ba.
+
+Câu 5 (0,5 điểm). Theo Luật Tiêu chuẩn và quy chuẩn kỹ thuật, nhận định nào sau đây đúng về quy chuẩn kỹ thuật môi trường?
+
+A. Do tổ chức xã hội - nghề nghiệp công bố dưới dạng văn bản và được tự nguyện áp dụng.
+
+B. Do cơ quan nhà nước, người có thẩm quyền ban hành dưới dạng văn bản quy phạm pháp luật để bắt buộc áp dụng.
+
+C. Chỉ phát sinh hiệu lực bắt buộc đối với doanh nghiệp sau khi doanh nghiệp đó công bố hợp quy.
+
+D. Có giá trị khuyến nghị, doanh nghiệp được lựa chọn áp dụng quy chuẩn hoặc tiêu chuẩn cơ sở của mình.
+
+Quiz Luật Môi trường – Đợt 1 (Câu 1–20)
+
+B
+Bảo Ngọc
+0
+
+
+
+
+
+
+
+根據下列語篇內容，從 A、B、C、D 四個選項中選出正確答案
+
+在現代社會中，不少剛走出校園的求職者對未來的職業生涯充滿憧憬，卻往往忽略了自我能力的（1）限制。面對激烈的競爭，如果只是一味（2）眼紅他人的成就，而不願腳踏實地累積經驗，終究難以在職場中立足。專家指出，求職者應當（3）正視自己的優缺點，努力提升專業技能與團隊合作精神。唯有透過持續不斷的（4）磨練，才能在關鍵時刻展現自身價值，獲得上司與同事的肯定。
+
+Câu 1. 文中的「限制」意思是：
+
+A. 規定與界線
+
+B. 缺點與錯誤
+
+C. 自由與權益
+
+D. 興趣與愛好
+
+Câu 2. 文中的「眼紅」意思是：
+
+A. 眼睛疼痛
+
+B. 羨慕嫉妒
+
+C. 感到難過
+
+D. 充滿同情
+
+Câu 3. 文中的「正視」意思是：
+
+A. 偷偷觀察
+
+B. 認真面對
+
+C. 抬頭觀看
+
+D. 刻意迴避
+
+Câu 4. 文中的「磨練」意思是：
+
+A. 鍛鍊考驗
+
+B. 互相推卸
+
+C. 簡單模仿
+
+D. 浪費時間
+
+很多企業在挑選人才時，特別看重應聘者是否（5）具備良好的溝通協調能力。當團隊成員之間意見相左時，若只懂得指責抱怨，往往會讓緊張的氣氛（6）雪上加霜。相反地，懂得互相包容、彼此扶持的團隊，才能把危機（7）化為轉機。因此，在職場上建立良好的同仁關係，不僅有助於個人的成長，更能讓整個企業的營運（8）蒸蒸日上。
+
+Câu 5. 文中的「具備」意思是：
+
+A. 具有擁有
+
+B. 準備就緒
+
+C. 完全缺少
+
+D. 暫時借用
+
+Câu 6. 文中的「雪上加霜」意思是：
+
+A. 使困難更為加劇
+
+B. 天氣變得異常寒冷
+
+C. 得到及時的救助
+
+D. 事情出現好的轉變
+
+Câu 7. 文中的「化」意思是：
+
+A. 分開
+
+B. 轉變
+
+C. 融解
+
+D. 消失
+
+Câu 8. 文中的「蒸蒸日上」意思是：
+
+A. 變化不大
+
+B. 停滯不前
+
+C. 日益繁榮
+
+D. 面臨倒閉
+
+閱讀下列短文，從 A、B、C、D 四個選項中選出最佳答案填入空格
+
+面對全球氣候變暖與能源短缺的嚴峻挑戰，發展可再生清潔能源已成為各國政府不可忽視的（9）______。與傳統的煤炭火力發電（10）______，風力、水力以及太陽能發電不僅能大幅降低二氧化碳等溫室氣體的（11）______，更有利於改善空氣品質與生態環境。
+
+然而，任何新型能源的推廣都並非一帆風順。許多專家指出，綠色能源的開發初期往往需要龐大的（12）______投入，且受限於地理位置與氣候條件的（13）______，其供電穩定性仍存有（14）______。如果缺乏完善的配套設施與電網儲存技術，盲目推進甚至可能引發能源供應（15）______，進而影響整體民生與工業運作。
+
+因此，尋求經濟效益與環境保護之間的（16）______，才是實現可持續發展的真正（17）______。各國應當藉由科技創新與跨國合作，（18）______推動能源結構的綠色轉型。
+
+Câu 9.
+
+A. 趨勢
+
+B. 藉口
+
+C. 盲點
+
+D. 障礙
+
+Câu 10.
+
+A. 相信
+
+B. 相比
+
+C. 相同
+
+D. 相當
+
+Câu 11.
+
+A. 吸收量
+
+B. 製造量
+
+C. 排放量
+
+D. 保留量
+
+Câu 12.
+
+A. 資金
+
+B. 原則
+
+C. 概念
+
+D. 資格
+
+Câu 13.
+
+A. 影響
+
+B. 待遇
+
+C. 福利
+
+D. 權益
+
+Câu 14.
+
+A. 隱憂
+
+B. 興趣
+
+C. 經驗
+
+D. 熱情
+
+Câu 15.
+
+A. 發達
+
+B. 停擺
+
+C. 前進
+
+D. 改善
+
+Câu 16.
+
+A. 偏見
+
+B. 衝突
+
+C. 平衡
+
+D. 距離
+
+Câu 17.
+
+A. 危言聳聽
+
+B. 解決之道
+
+C. 一概而論
+
+D. 不勞而獲
+
+Câu 18.
+
+A. 漸漸
+
+B. 逐步
+
+C. 隨意
+
+D. 勉強
+
+根據對話內容，從 A、B、C、D 四個選項中選出最佳答案
+
+李明：張華，聽說你最近正在準備跨國公司的求職面試？
+
+張華：是啊，這是我畢業後的第一份正式面試，心裡難免有些緊張。
+
+李明：別太擔心！面試時除了穿著得體，最重要的是（19）______，展現出自己的自信與優勢。
+
+張華：你說得對。對了，這家公司非常看重英語口語能力，（20）______我的口說剛好是強項。
+
+李明：那真是太棒了！只要做好充分準備，相信你一定能（21）______！
+
+Câu 19.
+
+A. 慌張失措
+
+B. 保持冷靜
+
+C. 閉嘴不語
+
+D. 隨意發揮
+
+Câu 20.
+
+A. 偏偏
+
+B. 何況
+
+C. 而
+
+D. 幸好
+
+Câu 21.
+
+A. 脫穎而出
+
+B. 左右為難
+
+C. 無所事事
+
+D. 一無所有
+
+閱讀下列各題的句子，選出排列順序最恰當的一組
+
+Câu 22.
+a. 才能在未來的職場與生活中處變不驚
+b. 現代社會的知識更新換代極為迅速
+c. 唯有樹立終身學習的觀念並不斷充實自我
+d. 如果我們僅僅滿足於學校課本所學的有限內容
+
+A. b – d – c – a
+
+B. c – a – b – d
+
+C. b – c – d – a
+
+D. d – a – b – c
+
+Câu 23.
+a. 從而形成全社會共同參與環保的良好風氣
+b. 政府應加強對垃圾分類與資源回收的宣傳力度
+c. 引導廣大市民自覺養成綠色低碳的生活習慣
+d. 同時完善相關法律法規以強化監督管理
+
+A. b – c – d – a
+
+B. b – d – c – a
+
+C. c – a – b – d
+
+D. d – b – a – c
+
+閱讀下列求職信，從 A、B、C、D 四個選項中選出最佳答案填入空格
+
+尊敬的企劃部經理：
+
+您好！
+
+我是國立大學中文系的應屆畢業生陳冠宇。從貴公司官方網站上得知，貴部門目前正公開（24）______一名企劃專員。我對貴公司的企業文化與業務發展方向深感認同，並對該職位（25）______極大的熱情，非常希望能有機會加入貴團隊。
+
+在校（26）______，我系統地學習了公關傳播與專案管理的相關理論，並曾擔任校學生會副會長，多次（27）______大型文藝活動及校際交流項目。在這些活動的籌辦過程中，我充分（28）______了自己的組織協調與抗壓能力。此外，大三暑假期間我曾在大眾傳媒公司實習，參與市場調研報告的撰寫，實習表現獲得主管的一致（29）______。
+
+我深信，（30）______紮實的專業知識、良好的團隊協作意識以及勇於挑戰的熱忱，我能迅速融入貴公司並勝任這項工作。（31）______信附上我的個人履歷與作品集，期盼能有機會與您進一步面談。
+
+祝
+工作順利！
+
+陳冠宇 敬上
+2027年5月10日
+
+Câu 24.
+
+A. 應徵
+
+B. 招聘
+
+C. 解雇
+
+D. 辭退
+
+Câu 25.
+
+A. 對於
+
+B. 抱有
+
+C. 充滿
+
+D. 懷疑
+
+Câu 26.
+
+A. 期間
+
+B. 時刻
+
+C. 以後
+
+D. 過去
+
+Câu 27.
+
+A. 阻礙
+
+B. 組織
+
+C. 停止
+
+D. 破壞
+
+Câu 28.
+
+A. 鍛鍊
+
+B. 隱瞞
+
+C. 拋棄
+
+D. 喪失
+
+Câu 29.
+
+A. 批評
+
+B. 好評
+
+C. 謠言
+
+D. 偏見
+
+當代4-5.on1
+
+Hải Nam
+1
+根據下列語篇內容，從 A、B、C、D 四個選項中選出正確答案
+
+面對日益嚴重的極端氣候與環境破壞，綠色能源的開發已成為全球不可忽視的（1）＿＿。為了減少溫室氣體的排放，許多國家紛紛投入大量資金發展風力與太陽能發電。專家指出，單純依靠傳統石化燃料的時代已經過去，尋找乾淨且可再生的（2）＿＿方案是當前的當務之急。
+
+然而，能源轉型的過程並非一帆風順。在推動大型綠能工程時，往往會（3）＿＿生態環境保護與經濟效益之間的衝突。例如，部分地區因興建發電設備而對當地鳥類與海洋（4）＿＿的棲息地造成干擾，甚至引發周邊居民的不滿與抗議。這說明了任何政策的制定都不能（5）＿＿，必須全面評估各方利益。
+
+面對這些挑戰，政府與相關企業必須展現足夠的智慧與（6）＿＿，積極與公眾溝通，化解社會疑慮。唯有透過科學的規劃與持續的技術創新，才能有效（7）＿＿環境風險，並在保障民生供電穩定的同時，達到減碳的長期（8）＿＿。保護地球環境是全人類的共同責任，任何人都不應該（9）＿＿。只要大家齊心協力，我們終能找到一條人與自然和諧共存的（10）＿＿。
+
+Câu 1.
+
+A. 潮流
+
+B. 趨勢
+
+C. 局面
+
+D. 風氣
+
+Câu 2.
+
+A. 替代
+
+B. 互換
+
+C. 改換
+
+D. 取代
+
+Câu 3.
+
+A. 遇上
+
+B. 遭殃
+
+C. 惹出
+
+D. 面臨
+
+Câu 4.
+
+A. 生產
+
+B. 生意
+
+C. 生物
+
+D. 生活
+
+Câu 5.
+
+A. 一概而論
+
+B. 左右為難
+
+C. 有備無患
+
+D. 危言聳聽
+
+Câu 6.
+
+A. 勇氣
+
+B. 氣憤
+
+C. 盲點
+
+D. 偏見
+
+Câu 7.
+
+A. 消除
+
+B. 廢除
+
+C. 排除
+
+D. 開除
+
+Câu 8.
+
+A. 概念
+
+B. 目標
+
+C. 目的
+
+D. 限制
+
+Câu 9.
+
+A. 不勞而獲
+
+B. 無濟於事
+
+C. 置身事外
+
+D. 劫富濟貧
+
+Câu 10.
+
+A. 解決之道
+
+B. 漫漫長路
+
+C. 沙盤推演
+
+D. 井水不犯河水
+
+張明：聽說你明天要去一家知名外商公司面試？
+李華：是啊，這是我第一次去應徵正式工作，心裡非常緊張。
+張明：別慌，你之前不是已經熟讀了歷年的考古題嗎？
+李華：話是這麼說，但我還是擔心自己的穿著不夠得體。
+張明：我覺得你穿那件淺藍色的襯衫就很合適，再（11）＿＿一條素色領帶，看起來既專業又大方。
+李華：太好了，謝謝你的建議！（12）＿＿，面試時如果遇到不會回答的專業問題，該怎麼辦？
+張明：誠實以對就好，可以坦白說明自己所學有限，但強調願意虛心學習，這樣通常會得到面試官的（13）＿＿。
+
+Câu 11.
+
+A. 穿
+
+B. 配
+
+C. 挑
+
+D. 帶
+
+Câu 12.
+
+A. 此外
+
+B. 幸虧
+
+C. 畢竟
+
+D. 反之
+
+Câu 13.
+
+A. 好評
+
+B. 顧慮
+
+C. 批評
+
+D. 隱憂
+
+- a. 只要事前做好沙盤推演並保持冷靜
+- b. 面對突如其來的自然災害與緊急狀況
+- c. 往往就能在關鍵時刻化險為夷
+- d. 具備基礎的防災知識與應變能力格外重要
+
+Câu 14.
+
+A. b-d-a-c
+
+B. b-a-c-d
+
+C. a-c-b-d
+
+D. d-b-a-c
+
+尊敬的招聘主管：
+
+您好！
+
+我是國立大學企管系的應屆畢業生陳志遠。從貴公司的招聘公告中得知，貴公司企劃部目前正在招募一名業務企劃專員。我（15）＿＿這份工作深具熱忱，渴望能加入貴公司的優秀團隊。
+
+在校（16）＿＿，我除了主修企業營運與行銷管理等核心課程外，也曾擔任學生會會長，多次統籌大型校際活動，累積了豐富的組織協調與溝通技巧。（17）＿＿，我也曾在知名電商企業實習半年，協助團隊制定市場推廣方案，工作表現獲得了主管與同仁的高度（18）＿＿。
+
+我深知作為一名職場新鮮人，自己仍有許多需要（19）＿＿之處。然而，我具備良好的抗壓性與解決問題的能力，並能在團隊合作中（20）＿＿積極主動的態度。我相信（21）＿＿自己的專業背景與實踐經驗，定能迅速勝任這項職務的挑戰。
+
+懇請貴公司能給予我面試的機會，讓我能進一步（22）＿＿個人的求職動機與未來規劃。隨信附上完整履歷與相關證明文件，期待您的回音。
+
+此致。
+敬禮！
+
+應徵者：陳志遠
+2027年5月10日
+
+Câu 15.
+
+A. 與
+
+B. 對
+
+C. 朝
+
+D. 替
+
+Câu 16.
+
+A. 期間
+
+B. 階段
+
+C. 時候
+
+D. 日子
+
+Câu 17.
+
+A. 況且
+
+B. 不過
+
+C. 此外
+
+D. 因而
+
+Câu 18.
+
+A. 責怪
+
+B. 誇獎
+
+C. 辯護
+
+D. 指示
+
+Câu 19.
+
+A. 磨練
+
+B. 考驗
+
+C. 運作
+
+D. 限制
+
+Câu 20.
+
+A. 保持
+
+B. 堅持
+
+C. 保護
+
+D. 挽救
+
+Câu 21.
+
+A. 遵循
+
+B. 鑑於
+
+C. 憑藉
+
+D. 順應
+
+Câu 22.
+
+A. 聊天
+
+B. 說明
+
+C. 打聽
+
+D. 議論
+
+- a. 唯有雙方秉持理性與包容的態度展開溝通
+- b. 針對公共議題產生意見分歧是在所難免的現象
+- c. 才能消除彼此的隔閡並凝聚真正的社會共識
+- d. 在一個多元開放的民主社會當中
+
+Câu 23.
+
+A. d-a-c-b
+
+B. d-b-a-c
+
+C. b-d-a-c
+
+D. a-c-d-b
+
+在現代網路社群時代，資訊傳播的速度極為驚人。然而，許多未經證實的謠言與惡意批評也藉由網路迅速擴散，甚至演變成嚴重的網路霸凌事件。許多匿名發言者（24）肆無忌憚地攻擊他人，完全無視自身言論對受害者造成的心理創傷。面對排山倒海的負面言論，許多人常感到無助與（25）恐懼，甚至導致身心健康亮起紅燈。法律專家指出，言論自由並非毫無邊界，任何人都必須為自己的言行負起法律責任。為了維護健康的網路環境，主管機關應加強法規制定，依法嚴懲散布不實訊息的違法行為，絕不能（26）便宜了那些惡意中傷他人的鍵盤俠。同時，一般民眾在接收各類網路資訊時，也應提高警覺與判斷力，切勿盲目轉發，才能共同（27）遏止網路亂象的持續蔓延。
+
+Câu 24. 文中的“肆無忌憚”意思是：
+
+A. 毫無顧忌與約束
+
+B. 充滿擔憂與害怕
+
+C. 顯得小心且謹慎
+
+D. 具有同情與愛心
+
+Câu 25. 文中的“恐懼”意思是：
+
+A. 憤怒的心情
+
+B. 害怕的心態
+
+C. 悔恨的感受
+
+D. 失望的態度
+
+Câu 26. 文中的“便宜”意思是：
+
+A. 價格十分低廉
+
+B. 給予特殊照顧
+
+C. 輕易饒恕放過
+
+D. 獲取額外利益
+
+Câu 27. 文中的“遏止”意思是：
+
+A. 加快進行
+
+B. 制止阻止
+
+C. 默默支持
+
+D. 宣傳推廣
+
+- a. 因為每個人都有權利追求幸福的生活
+- b. 社會對於不同族群的包容度正逐漸擴大
+- c. 這是推動人權平權運動的重要基石
+- d. 隨著文明與教育水準的日益提升
+
+Câu 28.
+
+A. d-b-c-a
+
+B. d-a-c-b
+
+C. b-a-d-c
+
+D. c-a-d-b
+
+當代4-5.ontap3
+
+Hải Nam
+0
+
+SỞ GD&ĐT …
+
+TRƯỜNG THPT …
+
+Đề tham khảo
+
+ĐỀ KIỂM TRA GIỮA HỌC KỲ I
+
+NĂM HỌC 2026 – 2027
+
+Môn: Sinh học – Lớp 12
+
+Thời gian làm bài: 50 phút, không kể thời gian phát đề
+
+Chương trình GDPT 2018 – Sách Kết nối tri thức với cuộc sống.
+Phạm vi: Bài 1 đến Bài 9. Đề gồm 3 phần; tổng điểm: 10,0.
+
+PHẦN I. TRẮC NGHIỆM NHIỀU PHƯƠNG ÁN LỰA CHỌN (4,5 điểm)
+
+Thí sinh trả lời từ Câu 1 đến Câu 18. Mỗi câu chọn một phương án đúng; mỗi câu đúng được 0,25 điểm.
+
+Câu 1. Một phân tử DNA có cả hai mạch được đánh dấu bằng đồng vị nitrogen nặng 
+15
+N được chuyển sang môi trường chỉ có 
+14
+N. Sau ba lần tái bản liên tiếp theo nguyên tắc bán bảo toàn, tỉ lệ phân tử DNA chỉ chứa 
+14
+N là bao nhiêu? Biết không xảy ra đột biến.
+
+A. 12,5%.
+
+B. 75%.
+
+C. 50%.
+
+D. 87,5%.
+
+Câu 2. Một đoạn mạch khuôn của gene có trình tự 3
+′
+–TAC GGA TTT ACT–5
+′
+. Trình tự đoạn mRNA được phiên mã từ đoạn mạch khuôn này là
+
+A. 3
+′
+–AUG CCU AAA UGA–5
+′
+.
+
+B. 5
+′
+–UAC GGA UUU ACU–3
+′
+.
+
+C. 5
+′
+–ATG CCT AAA TGA–3
+′
+.
+
+D. 5
+′
+–AUG CCU AAA UGA–3
+′
+.
+
+Câu 3. Một mRNA có đoạn mã hóa 5
+′
+–AUG GAA UUU GGC UAA–3
+′
+. Biết AUG mã hóa methionine, GAA mã hóa glutamic acid, UUU mã hóa phenylalanine, GGC mã hóa glycine và UAA là mã kết thúc. Chuỗi polypeptide vừa được tổng hợp, trước khi loại bỏ amino acid mở đầu, có trình tự nào sau đây?
+
+A. Methionine – glutamic acid – phenylalanine – glycine.
+
+B. Methionine – phenylalanine – glutamic acid – glycine.
+
+C. Methionine – glutamic acid – phenylalanine – glycine – UAA.
+
+D. Glutamic acid – phenylalanine – glycine.
+
+Câu 4. Ở vi khuẩn E. coli, một đột biến tại vùng vận hành của operon lac làm protein ức chế không thể liên kết với vùng này. Gene điều hòa, promoter và các gene cấu trúc vẫn bình thường. Trong điều kiện không có lactose nhưng các điều kiện khác thuận lợi cho phiên mã, hệ quả trực tiếp của đột biến là
+
+A. RNA polymerase không thể liên kết với promoter.
+
+B. Protein ức chế không còn được tổng hợp.
+
+C. Các gene cấu trúc vẫn được phiên mã.
+
+D. Các gene cấu trúc bị loại khỏi DNA.
+
+Câu 5. Một đột biến làm bộ ba trên mạch mã hóa của gene đổi từ 5
+′
+–CAG–3
+′
+ thành 5
+′
+–TAG–3
+′
+. Biết CAG trên mRNA mã hóa glutamine, còn UAG là mã kết thúc. Đột biến này thuộc trường hợp nào sau đây?
+
+A. Đột biến đồng nghĩa.
+
+B. Đột biến vô nghĩa.
+
+C. Đột biến dịch khung.
+
+D. Đột biến mất một bộ ba.
+
+Câu 6. Ở tế bào nhân thực, một vùng nhiễm sắc chất chuyển từ trạng thái đóng xoắn chặt sang trạng thái ít đóng xoắn hơn. Sự thay đổi này có thể làm tăng biểu hiện của một gene trong vùng đó chủ yếu vì
+
+A. Bộ máy phiên mã dễ tiếp cận DNA hơn.
+
+B. Mọi intron của gene đều được chuyển thành exon.
+
+C. Trình tự nucleotide của gene được thay đổi đồng loạt.
+
+D. Ribosome liên kết trực tiếp với mạch khuôn DNA.
+
+Câu 7. Trong một quy trình tạo DNA tái tổ hợp, plasmid và đoạn DNA mang gene cần chuyển được cắt bằng cùng một enzyme giới hạn, tạo các đầu dính tương thích. Sau khi các đầu dính bắt cặp bổ sung, enzyme ligase có vai trò chủ yếu là
+
+A. Tổng hợp mRNA từ gene cần chuyển.
+
+B. Tách hai mạch của phân tử plasmid.
+
+C. Nhân đôi đoạn DNA mang gene cần chuyển.
+
+D. Nối các đoạn DNA bằng liên kết phosphodiester.
+
+Câu 8. Trong thực hành tách chiết DNA từ tế bào thực vật, sau khi phá vỡ tế bào và lọc bỏ phần bã, người thực hiện bổ sung nhẹ nhàng cồn lạnh vào dịch lọc. Mục đích chính của thao tác này là
+
+A. Thủy phân DNA thành các nucleotide riêng lẻ.
+
+B. Biến đổi RNA thành DNA nhờ enzyme.
+
+C. Làm DNA kết tủa để có thể quan sát và thu nhận.
+
+D. Làm DNA liên kết bổ sung với protein trong dịch lọc.
+
+Câu 9. Thành phần cốt lõi của một nucleosome ở sinh vật nhân thực là
+
+Đề giữa học kì I Sinh học 12 – Kết nối tri thức – Bài 1–9 – Mức độ khó
+
+Sinh học
+Lớp 12
+Vân H
+2
+
+HỘI TOÁN HỌC VIỆT NAM
+
+BAN TỔ CHỨC OLYMPIC
+
+Đề chính thức
+
+KỲ THI OLYMPIC TOÁN HỌC SINH VIÊN TOÀN QUỐC
+
+Môn thi: GIẢI TÍCH – BẢNG A
+
+Thời gian làm bài: 180 phút (không kể thời gian phát đề)
+
+Câu 1 (4,0 điểm).
+Cho dãy số thực (x
+n
+	​
+
+)
+n=1
+∞
+	​
+
+ xác định bởi:
+
+x
+1
+	​
+
+=1,x
+n+1
+	​
+
+=x
+n
+	​
+
++
+3
+x
+n
+2
+	​
+
+	​
+
+1
+	​
+
+(∀n≥1)
+
+a) Chứng minh rằng lim
+n→∞
+	​
+
+x
+n
+	​
+
+=+∞ và tính giới hạn lim
+n→∞
+	​
+
+5
+n
+3
+	​
+
+x
+n
+	​
+
+	​
+
+.
+b) Xác định hằng số thực C sao cho giới hạn sau tồn tại hữu hạn và khác 0:
+
+n→∞
+lim
+	​
+
+n
+α
+(
+5
+n
+3
+	​
+
+x
+n
+	​
+
+	​
+
+−C)
+
+Đồng thời tìm giá trị của số mũ α và giá trị giới hạn đó.
+
+Câu 2 (4,0 điểm).
+Cho hàm số f:[0,1]→R khả vi liên tục hai lần trên đoạn [0,1] thỏa mãn f(0)=f(1)=0 và min
+x∈[0,1]
+	​
+
+f(x)=−1.
+a) Chứng minh rằng tồn tại ít nhất một điểm c∈(0,1) sao cho f
+′′
+(c)≥8.
+b) Giả sử thêm rằng ∣f
+′′
+(x)∣≤M với mọi x∈[0,1]. Chứng minh rằng:
+
+∫
+0
+1
+	​
+
+(f
+′
+(x))
+2
+dx≤
+12
+M
+2
+	​
+
+
+Câu 3 (4,0 điểm).
+a) Tính tích phân suy rộng:
+
+I=∫
+0
++∞
+	​
+
+1+x
+2
+ln(1+x
+2
+)
+	​
+
+dx
+
+b) Cho hàm số g:[0,1]→R liên tục trên [0,1]. Chứng minh rằng:
+
+n→∞
+lim
+	​
+
+n∫
+0
+1
+	​
+
+x
+n
+g(x)dx=g(1)
+
+Từ đó, hãy tìm giới hạn:
+
+n→∞
+lim
+	​
+
+n(n∫
+0
+1
+	​
+
+x
+n
+g(x)dx−g(1))
+
+trong trường hợp g khả vi liên tục trên [0,1].
+
+Câu 4 (4,0 điểm).
+Cho chuỗi hàm ∑
+n=1
+∞
+	​
+
+u
+n
+	​
+
+(x) xác định trên [0,+∞), với:
+
+u
+n
+	​
+
+(x)=
+n(1+n
+2
+x
+2
+)
+x
+	​
+
+
+a) Khảo sát sự hội tụ đều của chuỗi hàm trên đoạn [0,a] (với a>0) và trên toàn bộ nửa khoảng [0,+∞).
+b) Đặt S(x)=∑
+n=1
+∞
+	​
+
+u
+n
+	​
+
+(x) với x≥0. Chứng minh rằng hàm số S(x) liên tục trên [0,+∞) và khả vi tại mọi điểm x>0. Hàm số S(x) có khả vi tại điểm x=0 hay không? Vì sao?
+
+Câu 5 (4,0 điểm).
+Cho hàm số f:R
+2
+→R có các đạo hàm riêng cấp hai liên tục trên toàn bộ R
+2
+ và thỏa mãn phương trình Laplace:
+
+Δf(x,y)=
+∂x
+2
+∂
+2
+f
+	​
+
+(x,y)+
+∂y
+2
+∂
+2
+f
+	​
+
+(x,y)=0(∀(x,y)∈R
+2
+)
+
+a) Cho D
+R
+	​
+
+={(x,y)∈R
+2
+∣x
+2
++y
+2
+≤R
+2
+} (R>0). Chứng minh tính chất giá trị trung bình trên đường tròn:
+
+f(0,0)=
+2π
+1
+	​
+
+∫
+0
+2π
+	​
+
+f(Rcosθ,Rsinθ)dθ
+
+b) Giả sử tồn tại các hằng số M>0 và α∈[0,1) sao cho:
+
+∣f(x,y)∣≤M(1+
+x
+2
++y
+2
+	​
+
+)
+α
+(∀(x,y)∈R
+2
+)
+
+Chứng minh rằng f(x,y) là một hàm hằng trên R
+2
+.
+
+--------- HẾT ---------
+
+Họ và tên thí sinh: ................................................ Số báo danh: ........................
+
+LỜI GIẢI CHI TIẾT
+Câu 1
+
+a) Chứng minh lim
+n→∞
+	​
+
+x
+n
+	​
+
+=+∞ và tính lim
+n→∞
+	​
+
+5
+n
+3
+	​
+
+x
+n
+	​
+
+	​
+
+
+
+
+Ta có x
+1
+	​
+
+=1>0. Bằng quy nạp, dễ thấy x
+n
+	​
+
+>0 với mọi n≥1.
+
+Từ hệ thức truy hồi:
+
+x
+n+1
+	​
+
+−x
+n
+	​
+
+=
+3
+x
+n
+2
+	​
+
+	​
+
+1
+	​
+
+>0(∀n≥1)
+
+Suy ra (x
+n
+	​
+
+) là dãy số thực tăng nghiêm ngặt.
+
+Giả sử dãy (x
+n
+	​
+
+) bị chặn trên. Khi đó tồn tại giới hạn hữu hạn lim
+n→∞
+	​
+
+x
+n
+	​
+
+=L (L≥x
+1
+	​
+
+=1>0). Chuyển qua giới hạn hai vế của hệ thức truy hồi:
+
+L=L+
+3
+L
+2
+	​
+
+1
+	​
+
+⟹
+3
+L
+2
+	​
+
+1
+	​
+
+=0(v
+o
+ˆ
+ l
+y
+ˊ
+	​
+
+)
+
+Do đó, dãy (x
+n
+	​
+
+) không bị chặn trên. Vì (x
+n
+	​
+
+) tăng nên:
+
+n→∞
+lim
+	​
+
+x
+n
+	​
+
+=+∞
+
+Để tìm giới hạn lim
+n→∞
+	​
+
+5
+n
+3
+	​
+
+x
+n
+	​
+
+	​
+
+, ta xét đại lượng x
+n
+5/3
+	​
+
+:
+
+x
+n+1
+5/3
+	​
+
+=(x
+n
+	​
+
++x
+n
+−2/3
+	​
+
+)
+5/3
+=x
+n
+5/3
+	​
+
+(1+
+x
+n
+5/3
+	​
+
+1
+	​
+
+)
+5/3
+
+Đề thi Olympic Toán sinh viên toàn quốc - Môn Giải tích (Bảng A)
+
+Toán
+Tran Phu Sang B2600060
+0
+
+CHUYÊN ĐỀ TOÁN 10
+
+VECTƠ VÀ HỆ THỨC LƯỢNG
+
+Bài tập tự luận
+
+PHIẾU BÀI TẬP TỰ LUẬN
+
+Chủ đề: Phân tích vectơ và tính độ dài
+
+Môn: Toán – Lớp 10
+
+CÁC BÀI TẬP TỰ LUẬN
+
+Bài 1. Cho tam giác ABC có AB=3, AC=6 và BC=3
+3
+	​
+
+. Gọi D là điểm thuộc cạnh BC sao cho BD=
+3
+1
+	​
+
+BC, và M là trung điểm của AD.
+a) Biểu diễn vectơ 
+AM
+ và 
+BM
+ theo hai vectơ 
+AB
+ và 
+AC
+.
+b) Tính độ dài đoạn thẳng BM.
+
+Bài 2. Cho tam giác ABC có AB=4, AC=6 và 
+A
+=60
+∘
+. Gọi D là chân đường phân giác trong của góc A. Kẻ DE∥AB (E∈AC).
+a) Phân tích 
+AD
+ theo 
+AB
+,
+AC
+ và tìm tỉ số 
+AC
+AE
+	​
+
+.
+b) Tính độ dài đoạn thẳng DE.
+
+Bài 3. Cho tam giác ABC có AB=5, AC=8 và độ dài đường trung tuyến AM=
+2
+129
+	​
+
+	​
+
+. Gọi I là điểm thỏa mãn 
+AI
+=
+3
+2
+	​
+
+AM
+.
+a) Biểu diễn 
+AI
+ và 
+BI
+ theo hai vectơ 
+AB
+ và 
+AC
+.
+b) Tính độ dài đoạn thẳng BI.
+
+Bài 4. Cho tam giác ABC. Gọi M là trung điểm BC, N là điểm trên cạnh AC sao cho AN=2NC. Gọi I là giao điểm của AM và BN.
+a) Tìm các số thực x,y sao cho 
+AI
+=x
+AB
++y
+AC
+, từ đó suy ra tỉ số 
+AM
+AI
+	​
+
+.
+b) Cho diện tích tam giác ABC bằng 24 cm
+2
+. Tính diện tích tam giác ABI.
+
+Bài 5. Cho tam giác ABC vuông tại A có AB=6, AC=8. Gọi G là trọng tâm tam giác ABC.
+a) Phân tích 
+AG
+ theo 
+AB
+ và 
+AC
+.
+b) Tính độ dài đoạn thẳng AG và khoảng cách từ G đến cạnh AC.
+
+Bài 6. Cho tam giác ABC có AB=5, AC=7, BC=8. Gọi D là điểm thỏa mãn 
+BD
+=
+4
+3
+	​
+
+BC
+, E là trung điểm của AD.
+a) Phân tích 
+BE
+ theo hai vectơ 
+BA
+ và 
+BC
+.
+b) Tính độ dài đoạn thẳng BE.
+
+Bài 7. Cho tam giác ABC. Gọi M,N là hai điểm lần lượt thỏa mãn 
+MA
++2
+MB
+=
+0
+ và 
+NC
++3
+NA
+=
+0
+.
+a) Biểu diễn 
+MN
+ theo 
+AB
+ và 
+AC
+.
+b) Gọi P là trung điểm của MN. Biết diện tích tam giác ABC bằng 48 cm
+2
+, tính diện tích tam giác AMP.
+
+Bài 8. Cho hình bình hành ABCD. Gọi M là trung điểm của CD, N là điểm trên cạnh AB sao cho AN=
+3
+1
+	​
+
+AB. Gọi I là giao điểm của AM và DN.
+a) Biểu diễn 
+AI
+ theo 
+AB
+ và 
+AD
+. Tìm tỉ số 
+AM
+AI
+	​
+
+.
+b) Biết diện tích hình bình hành ABCD bằng 60 cm
+2
+. Tính diện tích tam giác ADI.
+
+Bài 9. Cho tam giác ABC có AB=3, AC=5 và BC=2
+13
+	​
+
+.
+a) Gọi M là trung điểm BC. Biểu diễn 
+AM
+ theo 
+AB
+ và 
+AC
+.
+b) Tính độ dài đường trung tuyến AM và diện tích tam giác ABC.
+
+Bài 10. Cho tam giác ABC có AB=6, AC=9. Gọi D là điểm thuộc cạnh BC sao cho BD=2DC. Cho biết AD=6.
+a) Phân tích 
+AD
+ theo 
+AB
+ và 
+AC
+.
+b) Gọi H là hình chiếu vuông góc của B lên AD. Tính độ dài đoạn thẳng BH và diện tích tam giác ABD.
+
+--------- HẾT ---------
+
+LỜI GIẢI CHI TIẾT
+Bài 1
+
+Chuyên đề Toán 10: Phân tích vectơ và tính độ dài
+
+Toán
+Lớp 10
+THPT HÀM NGHI - LÊ THANH NHƯỠNG
+1
+
+UBND XÃ/PHƯỜNG …
+
+TRƯỜNG TIỂU HỌC …
+
+Đề chính thức
+
+ĐỀ KIỂM TRA GIỮA HỌC KỲ I
+
+NĂM HỌC 2026 – 2027
+
+Môn: Toán – Lớp 4
+
+Thời gian làm bài: 40 phút (không kể thời gian phát đề)
+
+PHẦN I. TRẮC NGHIỆM (5,0 điểm)
+
+Khoanh tròn vào chữ cái đặt trước câu trả lời đúng (từ Câu 1 đến Câu 7) và điền số/chữ thích hợp vào chỗ chấm (từ Câu 8 đến Câu 10):
+
+Câu 1 (0,5 điểm). Trong số 358120, chữ số 5 thuộc hàng nào, lớp nào?
+
+A. Hàng chục nghìn, lớp nghìn
+
+B. Hàng trăm nghìn, lớp nghìn
+
+C. Hàng nghìn, lớp nghìn
+
+D. Hàng chục nghìn, lớp đơn vị
+
+Câu 2 (0,5 điểm). Năm 1945 thuộc thế kỉ nào?
+
+A. Thế kỉ XIX
+
+B. Thế kỉ XX
+
+C. Thế kỉ XXI
+
+D. Thế kỉ XVIII
+
+Câu 3 (0,5 điểm). Góc có số đo lớn hơn góc vuông nhưng bé hơn góc bẹt là:
+
+A. Góc nhọn
+
+B. Góc tù
+
+C. Góc vuông
+
+D. Góc bẹt
+
+Câu 4 (0,5 điểm). Làm tròn số 475830 đến hàng chục nghìn, ta được số:
+
+A. 470000
+
+
+B. 475000
+
+
+C. 480000
+
+
+D. 500000
+
+
+Câu 5 (0,5 điểm). Một ô tô chở được 3 tấn 5 tạ gạo. Ô tô đó chở được tất cả số ki-lô-gam gạo là:
+
+A. 3050 kg
+
+B. 3500 kg
+
+C. 350 kg
+
+D. 3550 kg
+
+Câu 6 (0,5 điểm). Dãy số nào dưới đây gồm các số được sắp xếp theo thứ tự từ bé đến lớn?
+
+A. 652104; 652401; 625999; 655000
+
+
+B. 625999; 652104; 652401; 655000
+
+
+C. 655000; 652401; 652104; 625999
+
+
+D. 625999; 652401; 652104; 655000
+
+
+Câu 7 (0,5 điểm). Giá trị của biểu thức m+n×4 với m=120 và n=35 là:
+
+A. 260
+
+B. 620
+
+C. 140
+
+D. 240
+
+Câu 8 (0,5 điểm). Điền số thích hợp vào chỗ chấm:
+5 tạ 6 kg = ............ kg.
+
+Câu 9 (0,5 điểm). Điền số thích hợp vào chỗ chấm:
+Số lớn nhất có 6 chữ số khác nhau được viết từ sáu chữ số 0, 3, 5, 7, 8, 9 là ........................
+
+Câu 10 (0,5 điểm). Điền số thích hợp vào chỗ chấm:
+Một trường tiểu học mua 3 cái bàn giáo viên và 6 cái ghế với tổng số tiền là 3600000 đồng. Biết giá tiền của 1 cái bàn bằng giá tiền của 3 cái ghế. Như vậy, giá tiền của 1 cái ghế là ........................ đồng.
+
+PHẦN II. TỰ LUẬN (5,0 điểm)
+
+Bài 1 (2,0 điểm). Đặt tính rồi tính:
+a) 48259+26415
+b) 85924−37468
+c) 15214×4
+d) 78546:6
+
+
+Bài 2 (2,0 điểm). Một hợp tác xã nông nghiệp thu hoạch thóc trong ba ngày. Ngày thứ nhất thu hoạch được 2450 kg thóc. Ngày thứ hai thu hoạch được nhiều hơn ngày thứ nhất 400 kg thóc. Ngày thứ ba thu hoạch được số thóc bằng một nửa tổng số thóc thu hoạch của hai ngày đầu. Hỏi trong cả ba ngày, hợp tác xã đó thu hoạch được tất cả bao nhiêu ki-lô-gam thóc?
+
+Bài 3 (1,0 điểm). Trong phạm vi 1000000000, hãy tìm số tự nhiên lớn nhất có 9 chữ số khác nhau, biết rằng số đó có chữ số hàng trăm triệu là 8, tổng các chữ số thuộc lớp triệu bằng 15 và ba chữ số thuộc lớp đơn vị là ba chữ số chẵn nhỏ nhất.
+
+--------- HẾT ---------
+
+Họ và tên thí sinh: ................................................................ Lớp: ........................
+
+UBND XÃ/PHƯỜNG …
+
+TRƯỜNG TIỂU HỌC …
+
+Hướng dẫn chấm chính thức
+
+HƯỚNG DẪN CHẤM VÀ THANG ĐIỂM
+
+BÀI KIỂM TRA GIỮA HỌC KỲ I
+
+NĂM HỌC 2026 – 2027
+
+Môn: Toán – Lớp 4
+
+HƯỚNG DẪN CHẤM VÀ THANG ĐIỂM
+A. HƯỚNG DẪN CHUNG
+
+- Chấm theo đúng thang điểm và bước điểm quy định; bài làm trình bày rõ ràng, sạch sẽ.
+- Ở các bài toán tự luận, học sinh có thể trình bày theo các cách giải khác nhau, nếu đúng và lập luận chặt chẽ vẫn cho điểm tối đa.
+- Sai hoặc thiếu tên đơn vị ở phần lời giải hoặc phép tính thì trừ 0,25 điểm cho toàn bài.
+
+B. ĐÁP ÁN VÀ THANG ĐIỂM
+
+PHẦN I. TRẮC NGHIỆM (5,0 điểm)
+
+Mỗi câu trả lời đúng được 0,5 điểm:
+
+Câu
+
+	
+
+1
+
+	
+
+2
+
+	
+
+3
+
+	
+
+4
+
+	
+
+5
+
+	
+
+6
+
+	
+
+7
+
+Đề kiểm tra Giữa học kì I môn Toán lớp 4 năm học 2026 - 2027
+
+Toán
+Lớp 4
+Hà Thu
+7
+
+KỲ THI CHỌN ĐỘI TUYỂN OLYMPIC
+
+BỒI DƯỠNG NĂNG KHIẾU TOÁN HỌC
+
+Đề tham khảo
+
+ĐỀ THI OLYMPIC TOÁN HỌC QUỐC TẾ (IMO)
+
+Năm học 2026 – 2027
+
+Thời gian làm bài: 270 phút mỗi ngày (không kể thời gian phát đề)
+
+NGÀY THI THỨ NHẤT
+
+Thời gian làm bài: 270 phút
+
+Bài 1 (7,0 điểm).
+Tìm tất cả các hàm số f:R→R thoả mãn điều kiện:
+
+f(x
+2
+−y
+2
+)=xf(x)−yf(y)
+
+với mọi số thực x,y.
+
+Bài 2 (7,0 điểm).
+Cho tam giác nhọn, không cân ABC nội tiếp đường tròn (O). Gọi H là trực tâm và M là trung điểm của cạnh BC. Đường thẳng qua H vuông góc với AM cắt các cạnh AB,AC lần lượt tại P,Q. Đường tròn ngoại tiếp tam giác APQ cắt lại đường tròn (O) tại điểm S (S
+
+=A).
+a) Chứng minh rằng bốn điểm B,C,Q,P cùng thuộc một đường tròn.
+b) Chứng minh rằng đường thẳng AS đi qua trung điểm của đoạn thẳng PQ và tiếp xúc với đường tròn ngoại tiếp tam giác SMH.
+
+Bài 3 (7,0 điểm).
+Một tập hợp hữu hạn S gồm các số nguyên dương được gọi là cân bằng nếu với mọi tập con khác rỗng T⊆S, trung bình cộng của các phần tử trong T không phải là một số nguyên, ngoại trừ trường hợp T=S (nghĩa là trung bình cộng của toàn bộ tập S là một số nguyên).
+a) Chứng minh rằng tồn tại một tập hợp cân bằng gồm đúng 2026 phần tử.
+b) Giả sử S là một tập cân bằng gồm n phần tử (n≥2). Chứng minh rằng tổng tất cả các phần tử của S không nhỏ hơn 
+2
+n(n
+2
+−n+2)
+	​
+
+.
+
+--------- HẾT NGÀY THỨ NHẤT ---------
+
+NGÀY THI THỨ HAI
+
+Thời gian làm bài: 270 phút
+
+Bài 4 (7,0 điểm).
+Tìm tất cả các cặp số nguyên dương (a,b) thoả mãn a≥2,b≥2 sao cho số
+
+A=
+b
+a
+b−1
+−1
+	​
+
+v
+a
+ˋ
+B=
+a
+b
+a−1
+−1
+	​
+
+
+đều là các số nguyên.
+
+Bài 5 (7,0 điểm).
+Cho tam giác ABC nội tiếp đường tròn (O) có tâm đường tròn nội tiếp là I. Đường tròn (I) tiếp xúc với các cạnh BC,CA,AB lần lượt tại D,E,F. Gọi M là trung điểm của BC và N là trung điểm của AD. Đường thẳng MN cắt đường thẳng EF tại K.
+a) Chứng minh rằng AK∥BC.
+b) Gọi L là trực tâm của tam giác IBC. Chứng minh rằng KD vuông góc với IL.
+
+Bài 6 (7,0 điểm).
+Cho bảng ô vuông kích thước 2027×2027. Hai ô vuông được gọi là kề nhau nếu chúng có chung một cạnh. Ban đầu, có k quân cờ được đặt vào k ô phân biệt của bảng. Ở mỗi bước, nếu một ô trống có ít nhất hai ô kề nó đã chứa quân cờ, ta được phép đặt thêm một quân cờ vào ô trống đó. Quá trình này được lặp lại cho đến khi không thể bổ sung thêm quân cờ nào nữa.
+a) Chứng minh rằng nếu toàn bộ bảng ô vuông đều được lấp đầy quân cờ sau một số hữu hạn bước thì k≥2027.
+b) Tìm giá trị nhỏ nhất của k sao cho ta có thể đặt k quân cờ ban đầu sao cho sau một số bước, toàn bộ bảng ô vuông được lấp đầy, đồng thời ban đầu không có hai quân cờ nào nằm ở hai ô kề nhau.
+
+--------- HẾT ---------
+Thí sinh không được sử dụng tài liệu và máy tính cầm tay.
+Cán bộ coi thi không giải thích gì thêm.
+
+Họ và tên thí sinh: ................................................ Số báo danh: ........................
+
+HƯỚNG DẪN CHẤM VÀ THANG ĐIỂM
+A. HƯỚNG DẪN CHUNG
+
+1. Điểm toàn bài tối đa là 42,0 điểm (mỗi bài tối đa 7,0 điểm).
+2. Thí sinh giải theo cách khác nếu đúng và lập luận chặt chẽ vẫn cho điểm tối đa của từng phần tương ứng.
+3. Đối với bài toán hình học, nếu thí sinh vẽ hình sai hoặc không có hình vẽ thì không chấm điểm phần bài làm đó.
+
+Đề thi mới
+
+Toán
+N
+Nguyễn Vũ Khương
+1
+
+SỞ GIÁO DỤC VÀ ĐÀO TẠO …
+
+TRƯỜNG THPT …
+
+Đề tham khảo
+
+ĐỀ KIỂM TRA GIỮA HỌC KÌ I
+
+NĂM HỌC 2026 – 2027
+
+Môn: Vật lí – Lớp 11
+
+Thời gian làm bài: 45 phút, không kể thời gian phát đề
+
+Phạm vi kiểm tra: Hết Chương I – Dao động. Học sinh được sử dụng máy tính cầm tay.
+
+PHẦN I. TRẮC NGHIỆM NHIỀU LỰA CHỌN (3,0 điểm)
+
+Học sinh trả lời từ Câu 1 đến Câu 12. Mỗi câu chỉ chọn một phương án đúng. Mỗi câu trả lời đúng được 0,25 điểm.
+
+Câu 1. Đặc điểm nào sau đây xác định một chuyển động là dao động cơ?
+
+A. Vật chuyển động qua lại quanh một vị trí cân bằng.
+
+B. Vật chuyển động lặp lại trên một quỹ đạo kín bất kì.
+
+C. Vật chuyển động theo một chiều quanh một trục cố định.
+
+D. Vật chuyển động giữa hai điểm với tốc độ không đổi.
+
+Câu 2. Một vật dao động điều hòa có li độ biến thiên từ −4 cm đến 4 cm. Biên độ dao động của vật là
+
+A. 2 cm.
+
+B. 8 cm.
+
+C. 4 cm.
+
+D. 16 cm.
+
+Câu 3. Tần số dao động là đại lượng cho biết
+
+A. thời gian để vật thực hiện một dao động toàn phần.
+
+B. số dao động toàn phần vật thực hiện trong một giây.
+
+C. độ biến thiên pha khi vật thực hiện một dao động.
+
+D. quãng đường vật đi được trong một giây chuyển động.
+
+Câu 4. Một vật dao động điều hòa theo phương trình x=6cos(5πt−
+3
+π
+	​
+
+) cm, với t tính bằng giây. Pha ban đầu của dao động là
+
+A. 
+3
+π
+	​
+
+ rad.
+
+B. −
+3
+2π
+	​
+
+ rad.
+
+C. 
+3
+2π
+	​
+
+ rad.
+
+D. −
+3
+π
+	​
+
+ rad.
+
+Câu 5. Trong dao động điều hòa, vận tốc của vật
+
+A. sớm pha 
+2
+π
+	​
+
+ rad so với li độ.
+
+B. trễ pha 
+2
+π
+	​
+
+ rad so với li độ.
+
+C. cùng pha với li độ của vật.
+
+D. ngược pha với li độ của vật.
+
+Câu 6. Một vật dao động điều hòa có tần số góc ω và li độ x. Gia tốc a của vật được xác định bằng biểu thức nào?
+
+A. a=−ωx.
+
+B. a=ω
+2
+x.
+
+C. a=−ω
+2
+x.
+
+D. a=−ω
+2
+A.
+
+Câu 7. Với một hệ dao động có lực cản nhỏ, hiện tượng cộng hưởng xảy ra khi tần số của ngoại lực tuần hoàn xấp xỉ
+
+A. một nửa tần số riêng của hệ.
+
+B. hai lần tần số riêng của hệ.
+
+C. ba lần tần số riêng của hệ.
+
+D. tần số riêng của hệ.
+
+Câu 8. Khi dao động cưỡng bức đã ổn định, tần số dao động của hệ bằng
+
+A. tần số riêng của hệ dao động.
+
+B. tần số của ngoại lực tuần hoàn.
+
+C. tổng tần số riêng và tần số ngoại lực.
+
+D. độ lớn hiệu tần số riêng và tần số ngoại lực.
+
+Câu 9. Một vật dao động điều hòa theo phương trình x=4cos(2πt+
+3
+π
+	​
+
+) cm, với t tính bằng giây. Tại thời điểm t=
+6
+1
+	​
+
+ s, li độ của vật là
+
+A. 2 cm.
+
+B. −2
+3
+	​
+
+ cm.
+
+C. 2
+3
+	​
+
+ cm.
+
+D. −2 cm.
+
+Câu 10. Đồ thị li độ theo thời gian của một vật dao động điều hòa được cho dưới đây.
+
+t (s)
+x (cm)
+O
+1
+2
+3
+4
+−4
+−3
+−2
+−1
+1
+2
+3
+4
+
+Chu kì dao động của vật là
+
+A. 1 s.
+
+B. 2 s.
+
+C. 4 s.
+
+D. 0,5 s.
+
+Câu 11. Hai vật dao động điều hòa có cùng biên độ, với các chu kì thỏa mãn T
+1
+	​
+
+=2T
+2
+	​
+
+. Gọi v
+1max
+	​
+
+ và v
+2max
+	​
+
+ lần lượt là tốc độ cực đại của hai vật. Hệ thức nào sau đây đúng?
+
+A. v
+1max
+	​
+
+=2v
+2max
+	​
+
+.
+
+B. v
+1max
+	​
+
+=4v
+2max
+	​
+
+.
+
+C. v
+1max
+	​
+
+=
+2
+1
+	​
+
+v
+2max
+	​
+
+.
+
+D. v
+1max
+	​
+
+=
+4
+1
+	​
+
+v
+2max
+	​
+
+.
+
+Câu 12. Một vật dao động điều hòa có cơ năng 20 mJ. Chọn mốc thế năng tại vị trí cân bằng. Khi độ lớn li độ bằng một nửa biên độ, động năng của vật là
+
+A. 15 mJ.
+
+B. 5 mJ.
+
+C. 10 mJ.
+
+D. 20 mJ.
+
+Đề kiểm tra giữa học kì I Vật lí 11 – Chương I: Dao động
+
+Vật lí
+Lớp 11
+Thanh Tùng
+2
+
+TRƯỜNG THCS …
+
+Tài liệu ôn tập
+
+ĐỀ CHUYÊN (TĂNG CƯỜNG 4) – LỜI GIẢI CHI TIẾT
+
+Môn: Toán – Lớp 9
+
+Năm học 2026 – 2027
+
+PHẦN I. TRẮC NGHIỆM (20 câu – 5,0 điểm)
+
+Câu 1. Với x>0,y>0,2x
+
+=y, rút gọn biểu thức B=
+2x−y
+2x−
+2xy
+	​
+
+	​
+
+ ta được:
+
+A. 
+2x
+	​
+
+−
+y
+	​
+
+2xy
+	​
+
+	​
+
+
+
+
+B. 
+2
+x
+	​
+
+−
+y
+	​
+
+1
+	​
+
+
+
+
+C. 
+2x
+	​
+
++
+y
+	​
+
+2x
+	​
+
+	​
+
+
+
+
+D. 
+2x
+	​
+
++
+y
+	​
+
+2
+x
+	​
+
+	​
+
+
+
+
+Lời giải:
+Đặt u=
+2x
+	​
+
+>0 và v=
+y
+	​
+
+>0 (u
+
+=v). Ta có:
+
+2x−y=u
+2
+−v
+2
+=(u−v)(u+v)
+
+2x−
+2xy
+	​
+
+=u
+2
+−uv=u(u−v)
+
+Suy ra:
+
+B=
+(u−v)(u+v)
+u(u−v)
+	​
+
+=
+u+v
+u
+	​
+
+=
+2x
+	​
+
++
+y
+	​
+
+2x
+	​
+
+	​
+
+
+Chọn C.
+
+Câu 2. Tìm giá trị của biểu thức A=
+x
+	​
+
++3
+x−2
+	​
+
+ khi x=16.
+
+A. 2
+
+
+B. 5
+
+
+C. 10
+
+
+D. 8
+
+
+Lời giải:
+Thay x=16 (thỏa mãn điều kiện x≥0) vào biểu thức A, ta được:
+
+A=
+16
+	​
+
++3
+16−2
+	​
+
+=
+4+3
+14
+	​
+
+=
+7
+14
+	​
+
+=2
+
+Chọn A.
+
+Câu 3. Tổng các nghiệm của phương trình 3
+x
+4
+−3x
+2
+=81 là:
+
+A. 0
+
+
+B. 1
+
+
+C. 3
+
+
+D. 4
+
+
+Lời giải:
+Ta có 81=3
+4
+, do đó:
+
+3
+x
+4
+−3x
+2
+=3
+4
+⇔x
+4
+−3x
+2
+=4⇔x
+4
+−3x
+2
+−4=0
+
+Đặt t=x
+2
+ (t≥0), phương trình trở thành:
+
+t
+2
+−3t−4=0⇔(t−4)(t+1)=0⇔
+	​
+
+t=4 (nhận)
+t=−1 (loại)
+	​
+
+
+Với t=4⇒x
+2
+=4⇔x=±2.
+Tổng các nghiệm của phương trình là: 2+(−2)=0.
+Chọn A.
+
+Câu 4. Cho phương trình x
+2
+−(m−1)x−m
+2
++m−2=0. Phương trình luôn có hai nghiệm trái dấu. Tìm m để biểu thức A=x
+1
+2
+	​
+
++x
+2
+2
+	​
+
+ đạt giá trị nhỏ nhất.
+
+A. 
+3
+2
+	​
+
+
+
+
+B. 1
+
+
+C. 
+5
+3
+	​
+
+
+
+
+D. 6
+
+
+Lời giải:
+Xét tích hai nghiệm: P=x
+1
+	​
+
+x
+2
+	​
+
+=−(m
+2
+−m+2)=−[(m−
+2
+1
+	​
+
+)
+2
++
+4
+7
+	​
+
+]≤−
+4
+7
+	​
+
+<0 với mọi m.
+Do đó phương trình luôn có hai nghiệm trái dấu x
+1
+	​
+
+,x
+2
+	​
+
+.
+Theo định lí Viète: x
+1
+	​
+
++x
+2
+	​
+
+=m−1 và x
+1
+	​
+
+x
+2
+	​
+
+=−m
+2
++m−2.
+Ta có:
+
+A=x
+1
+2
+	​
+
++x
+2
+2
+	​
+
+=(x
+1
+	​
+
++x
+2
+	​
+
+)
+2
+−2x
+1
+	​
+
+x
+2
+	​
+
+=(m−1)
+2
+−2(−m
+2
++m−2)=3m
+2
+−4m+5
+
+Biểu thức 3m
+2
+−4m+5=3(m−
+3
+2
+	​
+
+)
+2
++
+3
+11
+	​
+
+≥
+3
+11
+	​
+
+.
+Dấu "=" xảy ra khi m=
+3
+2
+	​
+
+.
+Chọn A.
+
+Câu 5. Cho phương trình x
+2
++6x+m=0 (với m là tham số). Tìm m để phương trình đã cho có hai nghiệm phân biệt.
+
+A. m<9
+
+
+B. m>9
+
+
+C. m=9
+
+
+D. Không có giá trị m thỏa mãn
+
+Lời giải:
+Phương trình có hai nghiệm phân biệt khi và chỉ khi:
+
+Δ
+′
+=3
+2
+−1⋅m>0⇔9−m>0⇔m<9
+
+Chọn A.
+
+Câu 6. Cho phương trình 2x
+2
+−7x−1=0 có hai nghiệm phân biệt x
+1
+	​
+
+,x
+2
+	​
+
+. Tính giá trị của biểu thức S=x
+1
+2
+	​
+
++x
+2
+2
+	​
+
+−3x
+1
+	​
+
+x
+2
+	​
+
+.
+
+A. 
+4
+59
+	​
+
+
+
+
+B. 50
+
+
+C. 29
+
+
+D. 37
+
+
+Lời giải:
+Phương trình có a⋅c=2⋅(−1)=−2<0 nên luôn có hai nghiệm phân biệt x
+1
+	​
+
+,x
+2
+	​
+
+.
+Theo hệ thức Viète: x
+1
+	​
+
++x
+2
+	​
+
+=
+2
+7
+	​
+
+ và x
+1
+	​
+
+x
+2
+	​
+
+=−
+2
+1
+	​
+
+.
+Ta có:
+
+S=x
+1
+2
+	​
+
++x
+2
+2
+	​
+
+−3x
+1
+	​
+
+x
+2
+	​
+
+=(x
+1
+	​
+
++x
+2
+	​
+
+)
+2
+−5x
+1
+	​
+
+x
+2
+	​
+
+=(
+2
+7
+	​
+
+)
+2
+−5(−
+2
+1
+	​
+
+)=
+4
+49
+	​
+
++
+2
+5
+	​
+
+=
+4
+59
+	​
+
+
+Chọn A.
+
+Câu 7. Tính giá trị của biểu thức M=a
+2
++b
+2
+ biết a,b thỏa mãn hệ phương trình:
+
+⎩
+⎨
+⎧
+	​
+
+b
+2
+3a
+2
+	​
+
++
+b
+3
+1
+	​
+
+a
+2
+3b
+2
+	​
+
++
+a
+3
+2
+	​
+
+	​
+
+=1
+=1
+	​
+
+
+A. 5
+
+
+B. 
+3
+5
+	​
+
+
+
+
+C. 5
+3
+
+
+
+D. 
+5
+1
+	​
+
+
+
+
+Lời giải:
+Điều kiện a
+
+=0,b
+
+=0. Quy đồng hệ phương trình:
+
+Toán 9 - Đề chuyên (Tăng cường 4) kèm Lời giải chi tiết
+
+Toán
+Lớp 9
+Toàn Trịnh
+3
+
+
+
+
+
+
+
+根據下列各題或語篇內容，從 A、B、C、D 四個選項中選出正確答案
+
+第 1 題至第 8 題：閱讀短文，從各題選項中選出最適當的詞語填入空格。
+
+面對全球暖化日益嚴重，發展乾淨能源已經成為世界各國的（1）＿＿之急。傳統的火力發電雖然能提供穩定的電量，但燃燒煤炭所產生的二氧化碳（2）＿＿極高，對大氣環境造成嚴重的傷害。相較之下，風力、水力以及太陽能等綠色能源，由於不產生污染物質，因此被普遍（3）＿＿解決氣候變遷問題的重要替代方案。
+
+然而，這些新能源並非完全沒有缺點。以風力和太陽能為例，其發電量往往（4）＿＿天氣與自然條件的限制，在氣候不佳時，發電效率可能大幅（5）＿＿。此外，核能發電雖然碳排放量極低，但大眾對於輻射外洩或爆炸事故的（6）＿＿始終存在，這使得核電廠的興建常常引發激烈的社會爭議。專家指出，解決能源危機不能（7）＿＿，政府必須綜合考量經濟效益、環境保護與民生需求，才能規劃出最為合理且具體的（8）＿＿。
+
+Câu 1.
+
+A. 迫切
+
+B. 暫時
+
+C. 勉強
+
+D. 刻意
+
+Câu 2.
+
+A. 面積
+
+B. 排放量
+
+C. 速度
+
+D. 空間
+
+Câu 3.
+
+A. 視為
+
+B. 連線
+
+C. 傳達
+
+D. 干涉
+
+Câu 4.
+
+A. 藉由
+
+B. 朝向
+
+C. 取決於
+
+D. 致力於
+
+Câu 5.
+
+A. 倒塌
+
+B. 下降
+
+C. 搖晃
+
+D. 溶解
+
+Câu 6.
+
+A. 隱憂
+
+B. 榮幸
+
+C. 好感
+
+D. 理想
+
+Câu 7.
+
+A. 置身事外
+
+B. 一概而論
+
+C. 雪上加霜
+
+D. 興旺發達
+
+Câu 8.
+
+A. 難民
+
+B. 天災
+
+C. 解決之道
+
+D. 繳稅單
+
+第 9 題至第 11 題：閱讀對話，從各題選項中選出最適當的詞語填入空格。
+
+大明：聽說你最近正在準備去一家跨國企業應徵行銷企劃的職位？
+小華：是啊，這家公司是業界的龍頭，薪水跟福利都非常好，競爭一定很激烈。
+大明：別擔心，你專業能力強，做事又認真，（9）＿＿。
+小華：謝謝你的鼓勵！不過面試那天我不知道該穿什麼，你覺得深藍色西裝（10）＿＿粉紅色領帶合適嗎？
+大明：領帶顏色有點太（11）＿＿了，換成素色的會顯得更專業、更穩重。
+小華：好主意，那我今天下班就去買一條素色領帶！
+
+Câu 9.
+
+A. 是做這行的料
+
+B. 無濟於事
+
+C. 左右為難
+
+D. 不勞而獲
+
+Câu 10.
+
+A. 替
+
+B. 配
+
+C. 抓
+
+D. 搶
+
+Câu 11.
+
+A. 穩
+
+B. 慘
+
+C. 花
+
+D. 歪
+
+第 12 題至第 14 題：下列各題均有四個句子，請依邏輯順序組合成一篇通順的短文。
+
+Câu 12.
+- a. 從長遠來看，這無疑將直接影響一個國家未來的整體競爭力與生產力
+- b. 越來越多適婚年齡的年輕人選擇晚婚甚至不婚
+- c. 隨著現代社會經濟壓力的持續上升與生活成本的不斷增加
+- d. 這種現象直接導致近年來新生兒的出生率創下歷史新低
+
+A. c-b-d-a
+
+B. b-c-a-d
+
+C. c-d-a-b
+
+D. b-a-d-c
+
+Câu 13.
+- a. 如果公眾能多一些理性的溝通與換位思考
+- b. 在網絡發達的今天，人們在社交平臺上的言論往往十分尖銳
+- c. 很多原本微不足道的爭議就不至於演變成激烈的網絡暴力
+- d. 常常因為一時的誤解而對他人造成難以彌補的精神傷害
+
+A. b-a-d-c
+
+B. b-d-a-c
+
+C. a-c-b-d
+
+D. d-b-c-a
+
+Câu 14.
+- a. 當面對無法解決的法律糾紛或重大突發事故時
+- b. 唯有在嚴格且公正的司法制度規範之下
+- c. 個人切不可意氣用事或採取非法手段進行私下報復
+- d. 社會的整體秩序才能獲得長久的穩定與保障
+
+A. a-c-b-d
+
+B. b-d-a-c
+
+C. a-b-c-d
+
+D. c-a-d-b
+
+第 15 題至第 22 題：閱讀求職信，從各題選項中選出最適當的詞語填入空格。
+
+> 尊敬的人事主管先生／女士：
+>
+> 您好！
+>
+> 欣聞 貴公司近期正在公開（15）＿＿海外業務專員，本人對此職位抱有極高的熱忱，特致函表達應聘意向。
+>
+> 本人係國立大學外語系應屆畢業生。在校（16）＿＿，本人不僅熟讀專業課程，積極汲取經貿相關知識，更曾（17）＿＿學生會幹部，多次策劃大型國際交流活動，並獲得師生的一致（18）＿＿。這些寶貴的實踐經驗，大幅鍛鍊了本人的溝通協調能力與抗壓素質。
+>
+> 本人深知初入職場（19）＿＿，仍有許多實務技巧需要磨練。然而，本人具備良好的學習態度，願意在團隊的（20）＿＿下全力以赴。我相信，（21）＿＿自己紮實的外語能力與積極進取的精神，必定能為 貴公司的發展貢獻力量。
+>
+> 隨信附上個人履歷表與各項證明文件，懇請 貴公司賜予面試機會，以便進一步說明本人之資格。
+>
+> 耑此。敬祝
+> 商祺！
+>
+> 應聘人：林書豪 敬上
+> 2027年3月15日
+
+Câu 15.
+
+A. 召開
+
+B. 招募
+
+C. 捐贈
+
+D. 淘汰
+
+Câu 16.
+
+A. 期間
+
+B. 之後
+
+C. 眼前
+
+D. 原來
+
+Câu 17.
+
+A. 擔任
+
+B. 違規
+
+C. 假釋
+
+D. 連線
+
+Câu 18.
+
+A. 批評
+
+B. 諷刺
+
+C. 好評
+
+D. 偏見
+
+Câu 19.
+
+A. 所學有限
+
+B. 危言聳聽
+
+C. 有備無患
+
+D. 劫富濟貧
+
+Câu 20.
+
+A. 阻礙
+
+B. 領導
+
+C. 恐懼
+
+D. 盲點
+
+Câu 21.
+
+A. 朝著
+
+B. 憑藉
+
+C. 關於
+
+D. 反而
+
+Câu 22. 本信最後的「賜予」意思是：
+
+A. 命令他人完成
+
+B. 客氣地給予
+
+C. 拒絕別人的要求
+
+D. 互相交換物品
+
+第 23 題至第 26 題：閱讀短文，從各題選項中選出畫線詞語的最恰當解釋。
+
+在多元民主的社會中，對於各項重大公共政策出現分歧是極其普遍的現象。然而，近來在諸多社會民生議題的討論上，正反雙方往往各執一詞，使得原本立意良善的對話陷入難以突破的（23）僵局。更令人擔憂的是，部分自媒體為了吸引點閱率，頻繁發表不實言論，這無疑是（24）火上澆油，更加深了群體之間的對立與仇恨。
+
+身為現代公民，面對層出不窮的社會衝突與弱勢困境，我們絕不能抱持著（25）置身事外的冷漠心態。唯有社會各階層共同分擔責任、攜手扶持，才能建立起一個包容、理性且（26）和諧的公義社會。
+
+Câu 23. 文中的「僵局」意思是：
+
+A. 雙方達成共識的局面
+
+B. 事情順利進行的過程
+
+C. 事情相持不下、無法進展的局面
+
+D. 充滿競爭力的商業市場
+
+Câu 24. 文中的「火上澆油」意思是：
+
+A. 徹底撲滅燃燒的火災
+
+B. 使得矛盾或事態更加惡化
+
+C. 採用科技手段解決能源問題
+
+D. 主動給予弱勢群體物質援助
+
+Câu 25. 文中的「置身事外」意思是：
+
+A. 站在客觀的立場發表評論
+
+B. 竭盡全力參與問題的解決
+
+C. 把自己放在事情之外，毫不關心
+
+D. 由於害怕承擔責任而逃離現場
+
+Câu 26. 文中的「和諧」意思是：
+
+A. 步調一致且融洽友好
+
+B. 意見紛亂且互不相讓
+
+C. 競爭激烈且殘酷無情
+
+D. 講話非常大聲且富有熱情
+
+當代4-5.ontap2
+
+Hải Nam
+1
+
+SỞ GIÁO DỤC VÀ ĐÀO TẠO …
+
+TRƯỜNG THPT …
+
+Đề thi thử
+
+KỲ THI TỐT NGHIỆP TRUNG HỌC PHỔ THÔNG NĂM 2027
+
+Bài thi: LỊCH SỬ
+
+Thời gian làm bài: 50 phút, không kể thời gian phát đề
+
+Họ và tên thí sinh: ................................................................
+
+Số báo danh: ............................................................
+
+	
+
+Mã đề: 101
+
+PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn (6,0 điểm)
+
+Thí sinh trả lời từ Câu 1 đến Câu 24. Mỗi câu hỏi thí sinh chỉ chọn một phương án.
+
+Câu 1. Tổ chức quốc tế nào sau đây được thành lập năm 1945 với mục tiêu hàng đầu là duy trì hòa bình và an ninh quốc tế?
+
+A. Hiệp hội các quốc gia Đông Nam Á (ASEAN).
+
+B. Liên bang Cộng hòa xã hội chủ nghĩa Xô viết.
+
+C. Liên minh châu Âu (EU).
+
+D. Liên Hợp Quốc (UN).
+
+Câu 2. Cơ quan nào của Liên Hợp Quốc giữ vai trò trọng yếu trong việc duy trì hòa bình và an ninh thế giới?
+
+A. Đại hội đồng.
+
+B. Hội đồng Bảo an.
+
+C. Ban Thư ký.
+
+D. Tòa án Công lý Quốc tế.
+
+Câu 3. Năm nước Ủy viên thường trực Hội đồng Bảo an Liên Hợp Quốc có quyền
+
+A. đơn phương giải tán các phiên họp Đại hội đồng.
+
+B. phủ quyết trong việc thông qua các quyết định quan trọng.
+
+C. tự ý sửa đổi Hiến chương Liên Hợp Quốc.
+
+D. can thiệp quân sự vào mọi quốc gia mà không cần biểu quyết.
+
+Câu 4. Ngày 20-9-1977 ghi dấu mốc quan trọng nào trong quan hệ đối ngoại của nước Cộng hòa xã hội chủ nghĩa Việt Nam?
+
+A. Việt Nam gia nhập Hiệp hội các quốc gia Đông Nam Á.
+
+B. Việt Nam bình thường hóa quan hệ ngoại giao với Mỹ.
+
+C. Việt Nam chính thức trở thành thành viên thứ 149 của Liên Hợp Quốc.
+
+D. Việt Nam trúng cử Ủy viên không thường trực Hội đồng Bảo an.
+
+Câu 5. Một trong những nguyên tắc hoạt động cơ bản của Liên Hợp Quốc được ghi trong Hiến chương là
+
+A. giải quyết các tranh chấp quốc tế bằng biện pháp hòa bình.
+
+B. thiết lập một liên minh phòng thủ quân sự chung toàn cầu.
+
+C. duy trì trật tự thuộc địa ở các nước Á, Phi và Mỹ Latinh.
+
+D. can thiệp có điều kiện vào công việc nội bộ của các nước nhỏ.
+
+Câu 6. Hoạt động nào sau đây của Liên Hợp Quốc đã đóng góp tích cực vào thắng lợi của phong trào giải phóng dân tộc trên thế giới trong thế kỉ XX?
+
+A. Thành lập Quỹ Tiền tệ Quốc tế (IMF).
+
+BỘ 2 ĐỀ THI TỐT NGHIỆP THPT MÔN LỊCH SỬ 12 (BÀI 1 - 4) KÈM ĐÁP ÁN
+
+Lịch sử
+Lớp 12
+N
+Nguyễn Thị Đào
+3
+
+SỞ GIÁO DỤC VÀ ĐÀO TẠO …
+
+TRƯỜNG THPT …
+
+Đề tham khảo
+
+ĐỀ LUYỆN TẬP CHUYÊN ĐỀ VẬT LÍ 10
+
+Chuyên đề: Phương trình trạng thái của khí lí tưởng
+
+Thời gian làm bài: 60 phút (không kể thời gian phát đề)
+
+Cho hằng số khí R=8,31 J/(mol.K); 1 atm =1,0⋅10
+5
+ Pa; khối lượng mol của không khí là 29 g/mol.
+
+DẠNG 1. BÀI TẬP CƠ BẢN VỀ PHƯƠNG TRÌNH TRẠNG THÁI (Câu 1 – Câu 15)
+A. Trắc nghiệm nhiều phương án lựa chọn (Câu 1 – Câu 9)
+
+Câu 1. Một lượng khí ở nhiệt độ 27
+∘
+C, áp suất 950 mmHg và thể tích 80 cm
+3
+. Thể tích của lượng khí này ở điều kiện tiêu chuẩn (0
+∘
+C và 760 mmHg) là
+
+A. 82 cm
+3
+.
+
+B. 91 cm
+3
+.
+
+C. 76 cm
+3
+.
+
+D. 100 cm
+3
+.
+
+Câu 2. Nén 12 lít khí ở nhiệt độ 27
+∘
+C xuống còn 5 lít, quá trình nén nhanh nên nhiệt độ của khí tăng đến 87
+∘
+C. Áp suất của khí đã tăng lên bao nhiêu lần so với ban đầu?
+
+A. 2,88.
+
+B. 2,40.
+
+C. 3,00.
+
+D. 2,16.
+
+Câu 3. Trong kì nén của một động cơ đốt trong, nhiệt độ hỗn hợp khí tăng từ 47
+∘
+C đến 367
+∘
+C, còn thể tích giảm từ 2,0 lít xuống 0,4 lít. Biết áp suất khí lúc đầu là 100 kPa, áp suất của khí ở cuối kì nén là
+
+A. 1,2⋅10
+6
+ Pa.
+
+B. 2,0⋅10
+6
+ Pa.
+
+C. 1,0⋅10
+6
+ Pa.
+
+D. 0,8⋅10
+6
+ Pa.
+
+Câu 4. Khối khí trong xilanh của một động cơ có nhiệt độ ban đầu 527
+∘
+C được nén để thể tích giảm còn một phần tư thể tích ban đầu, đồng thời áp suất tăng 1,5 lần so với ban đầu. Nhiệt độ của khối khí sau khi nén là
+
+A. 127
+∘
+C.
+
+B. 87
+∘
+C.
+
+C. 227
+∘
+C.
+
+D. 27
+∘
+C.
+
+Câu 5. Một quả bóng thám không được bơm khí ở áp suất 1 atm và nhiệt độ 27
+∘
+C. Khi bóng bay lên tầng khí quyển có áp suất 0,04 atm và nhiệt độ 250 K thì bán kính của bóng là 9 m. Bán kính của bóng lúc bơm ở mặt đất là
+
+A. 3,27 m.
+
+B. 2,85 m.
+
+C. 4,05 m.
+
+D. 3,60 m.
+
+Câu 6. Khối lượng riêng của không khí ở 0
+∘
+C và áp suất 1,0⋅10
+5
+ Pa là 1,29 kg/m
+3
+. Khối lượng riêng của không khí ở 87
+∘
+C và áp suất 1,5⋅10
+5
+ Pa là
+
+A. 1,29 kg/m
+3
+.
+
+B. 2,06 kg/m
+3
+.
+
+C. 1,47 kg/m
+3
+.
+
+D. 0,98 kg/m
+3
+.
+
+Câu 7. Trong một động cơ điêzen, khối khí có nhiệt độ ban đầu 27
+∘
+C được nén để thể tích giảm 10 lần và áp suất tăng 30 lần. Nhiệt độ của khối khí sau khi nén là
+
+A. 327
+∘
+C.
+
+B. 627
+∘
+C.
+
+C. 900
+∘
+C.
+
+D. 573
+∘
+C.
+
+Câu 8. Một bình thép dung tích 40 lít chứa khí hydrogen ở áp suất 5,0⋅10
+6
+ Pa và nhiệt độ 27
+∘
+C. Dùng bình này để bơm các quả bóng bay, mỗi quả có dung tích 2,0 lít, áp suất 1,0⋅10
+5
+ Pa và nhiệt độ 12
+∘
+C. Coi khí còn lại trong bình sau khi bơm có cùng áp suất và nhiệt độ với khí trong bóng. Số bóng bay bơm được là
+
+A. 465 quả.
+
+B. 1860 quả.
+
+C. 1020 quả.
+
+D. 930 quả.
+
+Câu 9. Hai bình có dung tích bằng nhau chứa cùng một loại khí, khối lượng khí trong hai bình lần lượt là m
+1
+	​
+
+ và m
+2
+	​
+
+. Đồ thị biểu diễn sự phụ thuộc của áp suất p vào nhiệt độ tuyệt đối T của khí trong hai bình như hình vẽ.
+
+T
+p
+O
+(1)
+(2)
+
+Hệ thức đúng là
+
+A. m
+2
+	​
+
+>m
+1
+	​
+
+.
+
+B. m
+2
+	​
+
+<m
+1
+	​
+
+.
+
+C. m
+2
+	​
+
+=m
+1
+	​
+
+.
+
+D. Không so sánh được.
+
+B. Trắc nghiệm đúng/sai (Câu 10 – Câu 11)
+
+Đề luyện tập chuyên đề Phương trình trạng thái của khí lí tưởng – Vật lí 10
+
+Vật lí
+Lớp 10
+Thanh Uyên Mẫn
+1
+
+SỞ GIÁO DỤC VÀ ĐÀO TẠO …
+
+TRƯỜNG THPT …
+
+Đề chính thức
+
+ĐỀ KIỂM TRA GIỮA HỌC KỲ I – ĐỀ SỐ 01
+
+NĂM HỌC 2026 – 2027
+
+Môn: Toán – Lớp 12
+
+Thời gian làm bài: 90 phút (không kể thời gian phát đề)
+
+PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn (3,0 điểm)
+
+Thí sinh trả lời từ câu 1 đến câu 12. Mỗi câu hỏi thí sinh chỉ chọn một phương án.
+
+Câu 1 (0,25 điểm). Cho hàm số y=f(x) có đạo hàm f
+′
+(x)=x(x−1)
+2
+(x+2)
+3
+ với mọi x∈R. Hàm số y=f(x) đồng biến trên khoảng nào dưới đây?
+
+A. (−∞;−2)
+
+
+B. (−2;0)
+
+
+C. (0;1)
+
+
+D. (−2;1)
+
+
+Câu 2 (0,25 điểm). Cho hàm số bậc ba y=f(x)=ax
+3
++bx
+2
++cx+d (a
+
+=0) có đồ thị đi qua hai điểm cực trị là A(1;3) và B(−1;−1). Giá trị của biểu thức P=a+c bằng
+
+A. 1
+
+
+B. −1
+
+
+C. 2
+
+
+D. 0
+
+
+Câu 3 (0,25 điểm). Giá trị nhỏ nhất của hàm số f(x)=x+
+x−1
+4
+	​
+
+ trên khoảng (1;+∞) bằng
+
+A. 5
+
+
+B. 4
+
+
+C. 3
+
+
+D. 6
+
+
+Câu 4 (0,25 điểm). Tổng số đường tiệm cận đứng và tiệm cận ngang của đồ thị hàm số y=
+x
+2
+−3x+2
+x
+2
+−4
+	​
+
+	​
+
+ là
+
+A. 1
+
+
+B. 2
+
+
+C. 3
+
+
+D. 4
+
+
+Câu 5 (0,25 điểm). Cho hàm số y=
+cx+d
+ax+b
+	​
+
+ (ad−bc
+
+=0, c
+
+=0) có đồ thị nhận đường thẳng x=2 làm tiệm cận đứng và đường thẳng y=−1 làm tiệm cận ngang. Biết đồ thị hàm số cắt trục tung tại điểm có tung độ bằng −2. Giá trị của biểu thức T=
+c+d
+a+b
+	​
+
+ bằng
+
+A. 3
+
+
+B. −3
+
+
+C. 1
+
+
+D. −1
+
+
+Câu 6 (0,25 điểm). Đường cong ở hình dưới đây là đồ thị của hàm số nào?
+
+x
+y
+O
+−2
+(2; 2)
+x = 1
+
+A. y=
+x−1
+x
+2
+−x+1
+	​
+
+
+
+
+B. y=
+x−1
+x
+2
+−2x+2
+	​
+
+
+
+
+C. y=
+x−1
+x
+2
++2x−2
+	​
+
+
+
+
+D. y=
+x−1
+2x
+2
+−3x+2
+	​
+
+
+
+
+Câu 7 (0,25 điểm). Cho hình lập phương ABCD.A
+′
+B
+′
+C
+′
+D
+′
+. Góc giữa hai vectơ 
+AC
+ và 
+DA
+′
+ bằng
+
+A. 60
+∘
+
+
+
+B. 90
+∘
+
+
+
+C. 120
+∘
+
+
+
+D. 45
+∘
+
+
+
+Câu 8 (0,25 điểm). Cho tứ diện ABCD. Gọi M,N lần lượt là trung điểm của các cạnh AB và CD. Khẳng định nào sau đây là sai?
+
+A. 
+MN
+=
+2
+1
+	​
+
+(
+AD
++
+BC
+)
+
+
+B. 
+MN
+=
+2
+1
+	​
+
+(
+AC
++
+BD
+)
+
+
+C. 
+MN
+=
+2
+1
+	​
+
+(
+AN
++
+BN
+)
+
+
+D. 
+MN
+=
+2
+1
+	​
+
+(
+MD
++
+MC
+)
+
+
+Câu 9 (0,25 điểm). Trong không gian với hệ tọa độ Oxyz, cho hai vectơ 
+u
+=(1;−2;2) và 
+v
+=(−2;m;1). Tìm tất cả các giá trị của tham số m để góc giữa hai vectơ 
+u
+ và 
+v
+ bằng 60
+∘
+.
+
+A. m=0
+
+
+B. m=−1
+
+
+C. m=1
+
+
+D. m=−2
+
+
+Câu 10 (0,25 điểm). Trong không gian với hệ tọa độ Oxyz, cho ba điểm A(1;2;−1), B(2;−1;3), C(−3;5;1). Tọa độ điểm D sao cho tứ giác ABCD là hình bình hành là
+
+A. D(−4;8;−3)
+
+
+B. D(−2;2;5)
+
+
+C. D(−4;2;3)
+
+
+D. D(4;−8;3)
+
+
+Câu 11 (0,25 điểm). Cho hàm số y=f(x) liên tục trên R và có đồ thị đạo hàm y=f
+′
+(x) cắt trục hoành tại ba điểm phân biệt có hoành độ x
+1
+	​
+
+<x
+2
+	​
+
+<x
+3
+	​
+
+. Biết f
+′
+(x)>0 với mọi x∈(x
+1
+	​
+
+;x
+2
+	​
+
+)∪(x
+3
+	​
+
+;+∞). Khẳng định nào sau đây là đúng?
+
+A. Hàm số đạt cực đại tại x=x
+1
+	​
+
+
+
+
+Bộ 2 đề kiểm tra Giữa học kì I môn Toán 12 (Cấu trúc mới - Khá Giỏi)
+
+Toán
+Lớp 12
+Minh Thư Nguyễn Huỳnh
+0
+
+Bộ 3 đề kiểm tra Giữa học kỳ I Lịch sử 11 (Năm học 2026 - 2027)
+
+Lịch sử
+Lớp 11
+Dinh Nguyễn
+2
+
+Câu hỏi trắc nghiệm Lịch sử 12 – Sự xói mòn Trật tự hai cực Ianta (mức vận dụng)
+
+Lịch sử
+Lớp 12
+22. Nguyễn Linh Giang
+0
+
+Bài toán Vận dụng cao Tập hợp – Toán 10
+
+Toán
+Lớp 10
+Ngọc Lâm Nguyễn
+0
+
+Bộ 4 đề kiểm tra giữa học kỳ I môn Giáo dục địa phương 9 (Bài 1 và Bài 2)
+
+Lịch sử
+Lớp 9
+Luyến Kim
+0
+
+Bài tập về nhà Toán 8 – Tam giác, Hình thang và Hình bình hành
+
+Toán
+Lớp 8
+DHai Nguyen
+0
+
+SỞ GIÁO DỤC VÀ ĐÀO TẠO …
+
+TRƯỜNG THPT …
+
+Chuyên đề
+
+BÀI TẬP CHUYÊN ĐỀ HÓA HỌC 12 – NĂM HỌC 2026 – 2027
+
+CHUYÊN ĐỀ: ESTER – LIPID (68 CÂU LÝ THUYẾT TRỌNG TÂM)
+
+Thời gian làm bài: 90 phút (không kể thời gian phát đề)
+
+PHẦN I. TRẮC NGHIỆM NHIỀU PHƯƠNG ÁN LỰA CHỌN
+
+Thí sinh trả lời từ Câu 1 đến Câu 50. Mỗi câu hỏi chỉ chọn một phương án.
+
+Câu 1. Chất nào sau đây là ester?
+
+A. HCOOH.
+
+B. CH
+X
+3
+	​
+
+CHO.
+
+C. CH
+X
+3
+	​
+
+OH.
+
+D. CH
+X
+3
+	​
+
+COOC
+X
+2
+	​
+
+H
+X
+5
+	​
+
+.
+
+Câu 2. Một số ester được dùng trong hương liệu, mĩ phẩm, bột giặt là nhờ các ester
+
+A. là chất lỏng dễ bay hơi.
+
+B. có mùi thơm, an toàn với người.
+
+C. có thể bay hơi nhanh sau khi sử dụng.
+
+D. đều có nguồn gốc từ thiên nhiên.
+
+Câu 3. Một số ester được dùng trong tách, chiết các hợp chất hữu cơ là nhờ các ester
+
+A. là chất lỏng dễ bay hơi.
+
+B. có mùi thơm, an toàn với người.
+
+C. hòa tan tốt trong các hợp chất hữu cơ.
+
+D. đều có nguồn gốc từ thiên nhiên.
+
+Câu 4. Ester X được tạo bởi methyl alcohol và acetic acid. Công thức của X là
+
+A. HCOOC
+X
+2
+	​
+
+H
+X
+5
+	​
+
+.
+
+B. CH
+X
+3
+	​
+
+COOC
+X
+2
+	​
+
+H
+X
+5
+	​
+
+.
+
+C. CH
+X
+3
+	​
+
+COOCH
+X
+3
+	​
+
+.
+
+D. HCOOCH
+X
+3
+	​
+
+.
+
+Câu 5. Thủy phân ester X trong dung dịch acid, thu được CH
+X
+3
+	​
+
+COOH và CH
+X
+3
+	​
+
+OH. Công thức cấu tạo của X là
+
+A. HCOOC
+X
+2
+	​
+
+H
+X
+5
+	​
+
+.
+
+B. CH
+X
+3
+	​
+
+COOC
+X
+2
+	​
+
+H
+X
+5
+	​
+
+.
+
+C. C
+X
+2
+	​
+
+H
+X
+5
+	​
+
+COOCH
+X
+3
+	​
+
+.
+
+D. CH
+X
+3
+	​
+
+COOCH
+X
+3
+	​
+
+.
+
+Câu 6. Ester nào sau đây có phản ứng tráng bạc?
+
+A. HCOOCH
+X
+3
+	​
+
+.
+
+B. CH
+X
+3
+	​
+
+COOCH
+X
+3
+	​
+
+.
+
+C. CH
+X
+3
+	​
+
+COOC
+X
+2
+	​
+
+H
+X
+5
+	​
+
+.
+
+D. C
+X
+2
+	​
+
+H
+X
+5
+	​
+
+COOCH
+X
+3
+	​
+
+.
+
+Câu 7. Polymer dùng để chế tạo thủy tinh hữu cơ (poly(methyl methacrylate)) được điều chế bằng phản ứng trùng hợp monomer nào sau đây?
+
+A. CH
+X
+3
+	​
+
+COOCH=CH
+X
+2
+	​
+
+.
+
+B. C
+X
+6
+	​
+
+H
+X
+5
+	​
+
+CH=CH
+X
+2
+	​
+
+.
+
+C. CH
+X
+2
+	​
+
+=CHCOOCH
+X
+3
+	​
+
+.
+
+D. CH
+X
+2
+	​
+
+=C(CH
+X
+3
+	​
+
+)COOCH
+X
+3
+	​
+
+.
+
+Câu 8. Đun nóng ester CH
+X
+3
+	​
+
+COOC
+X
+2
+	​
+
+H
+X
+5
+	​
+
+ với một lượng vừa đủ dung dịch NaOH, sản phẩm thu được là
+
+A. CH
+X
+3
+	​
+
+COONa và CH
+X
+3
+	​
+
+OH.
+
+B. CH
+X
+3
+	​
+
+COONa và C
+X
+2
+	​
+
+H
+X
+5
+	​
+
+OH.
+
+C. HCOONa và C
+X
+2
+	​
+
+H
+X
+5
+	​
+
+OH.
+
+D. C
+X
+2
+	​
+
+H
+X
+5
+	​
+
+COONa và CH
+X
+3
+	​
+
+OH.
+
+Câu 9. Khi đun nóng chất X có công thức phân tử C
+X
+3
+	​
+
+H
+X
+6
+	​
+
+O
+X
+2
+	​
+
+ với dung dịch NaOH thu được CH
+X
+3
+	​
+
+COONa. Công thức cấu tạo của X là
+
+A. CH
+X
+3
+	​
+
+COOC
+X
+2
+	​
+
+H
+X
+5
+	​
+
+.
+
+B. HCOOC
+X
+2
+	​
+
+H
+X
+5
+	​
+
+.
+
+C. CH
+X
+3
+	​
+
+COOCH
+X
+3
+	​
+
+.
+
+D. C
+X
+2
+	​
+
+H
+X
+5
+	​
+
+COOH.
+
+Câu 10. Ở điều kiện thích hợp, hai chất phản ứng với nhau tạo thành methyl formate là
+
+A. HCOOH và NaOH.
+
+B. HCOOH và CH
+X
+3
+	​
+
+OH.
+
+C. HCOOH và C
+X
+2
+	​
+
+H
+X
+5
+	​
+
+NH
+X
+2
+	​
+
+.
+
+D. CH
+X
+3
+	​
+
+COONa và CH
+X
+3
+	​
+
+OH.
+
+Câu 11. Tên gọi của ester CH
+X
+3
+	​
+
+COOC
+X
+2
+	​
+
+H
+X
+5
+	​
+
+ là
+
+A. ethyl formate.
+
+B. ethyl acetate.
+
+C. methyl acetate.
+
+D. methyl formate.
+
+Câu 12. Methyl acrylate là một chất kích thích mạnh, có thể gây chóng mặt, đau đầu, hoa mắt và khó thở khi tiếp xúc với da hoặc hít phải. Ester này có công thức cấu tạo thu gọn là
+
+A. CH
+X
+3
+	​
+
+COOC
+X
+2
+	​
+
+H
+X
+5
+	​
+
+.
+
+B. CH
+X
+3
+	​
+
+COOCH
+X
+3
+	​
+
+.
+
+C. C
+X
+2
+	​
+
+H
+X
+5
+	​
+
+COOCH
+X
+3
+	​
+
+.
+
+D. CH
+X
+2
+	​
+
+=CHCOOCH
+X
+3
+	​
+
+.
+
+Câu 13. Ester được tạo thành từ CH
+X
+3
+	​
+
+COOH và C
+X
+2
+	​
+
+H
+X
+5
+	​
+
+OH có công thức cấu tạo là
+
+A. CH
+X
+3
+	​
+
+COOCH
+X
+3
+	​
+
+.
+
+B. CH
+X
+3
+	​
+
+COOC
+X
+2
+	​
+
+H
+X
+5
+	​
+
+.
+
+C. C
+X
+2
+	​
+
+H
+X
+5
+	​
+
+COOCH
+X
+3
+	​
+
+.
+
+D. HCOOC
+X
+2
+	​
+
+H
+X
+5
+	​
+
+.
+
+Câu 14. Một hợp chất hữu cơ X đơn chức có công thức phân tử là C
+X
+3
+	​
+
+H
+X
+6
+	​
+
+O
+X
+2
+	​
+
+. X không tác dụng với kim loại Na nhưng tác dụng được với dung dịch NaOH khi đun nóng. Chất X thuộc dãy đồng đẳng của loại hợp chất nào sau đây?
+
+A. Alcohol.
+
+B. Ester no, đơn chức, mạch hở.
+
+C. Aldehyde.
+
+D. Carboxylic acid.
+
+Câu 15. Số đồng phân ester ứng với công thức phân tử C
+X
+4
+	​
+
+H
+X
+8
+	​
+
+O
+X
+2
+	​
+
+ là
+
+A. 2.
+
+B. 3.
+
+C. 4.
+
+D. 5.
+
+BÀI TẬP CHUYÊN ĐỀ HÓA HỌC 12 – ESTER VÀ LIPID (68 CÂU LÝ THUYẾT TRỌNG TÂM)
+
+Hoá học
+Lớp 12
+Hải Đăng Phan
+0
+
+SỞ GIÁO DỤC VÀ ĐÀO TẠO …
+
+TRƯỜNG THPT CHUYÊN …
+
+Đề chính thức
+
+KỲ THI HỌC SINH GIỎI GIẢI TOÁN TRÊN MTCT
+
+Môn: Toán – Lớp 12
+
+Thời gian làm bài: 90 phút (không kể thời gian phát đề)
+
+Quy định chung đối với thí sinh:
+- Thí sinh được phép sử dụng các loại máy tính cầm tay được Bộ GD&ĐT cho phép mang vào phòng thi.
+- Thí sinh phải trình bày vắn tắt phương pháp giải, công thức tính và ghi rõ kết quả.
+- Nếu kết quả tính không phải là số nguyên thì lấy 5 chữ số thập phân không làm tròn (ví dụ: 3,14159265... ghi là 3,14159).
+
+Câu 1 (1,0 điểm).
+Thống kê sản lượng thu hoạch cam (đơn vị: tạ/ha) của 40 trang trại nông nghiệp công nghệ cao được ghi lại ở bảng số liệu sau:
+
+Sản lượng (x
+i
+	​
+
+)
+
+	
+
+52
+
+	
+
+55
+
+	
+
+58
+
+	
+
+61
+
+	
+
+63
+
+	
+
+66
+
+	
+
+68
+
+	
+
+71
+
+	
+
+74
+
+	
+
+76
+
+	
+
+79
+
+	
+
+82
+
+
+
+
+Số trang trại (n
+i
+	​
+
+)
+
+	
+
+2
+
+	
+
+3
+
+	
+
+3
+
+	
+
+4
+
+	
+
+4
+
+	
+
+6
+
+	
+
+5
+
+	
+
+4
+
+	
+
+3
+
+	
+
+3
+
+	
+
+2
+
+	
+
+1
+
+Hãy chuyển mẫu số liệu trên thành mẫu số liệu ghép nhóm gồm sáu nhóm có độ dài bằng nhau, nhóm đầu tiên là [50;56). Gọi s
+g
+	​
+
+ là độ lệch chuẩn của mẫu số liệu gốc và s
+n
+	​
+
+ là độ lệch chuẩn của mẫu số liệu ghép nhóm. Tính giá trị của biểu thức T=
+	​
+
+s
+n
+2
+	​
+
+−s
+g
+2
+	​
+
+	​
+
++∣s
+n
+	​
+
+−s
+g
+	​
+
+∣.
+
+Câu 2 (1,0 điểm).
+Giải phương trình sau trên tập số thực:
+
+log
+2
+3
+	​
+
+(4x)−7log
+2
+	​
+
+2
+	​
+
+x+8log
+2
+1
+	​
+
+	​
+
+(2x)+36=0
+
+Biết phương trình có ba nghiệm thực phân biệt x
+1
+	​
+
+,x
+2
+	​
+
+,x
+3
+	​
+
+. Tính giá trị của biểu thức P=x
+1
+	​
+
+⋅x
+2
+	​
+
+⋅x
+3
+	​
+
++
+x
+1
+	​
+
+1
+	​
+
++
+x
+2
+	​
+
+1
+	​
+
++
+x
+3
+	​
+
+1
+	​
+
+.
+
+Câu 3 (1,0 điểm).
+Cho hàm số f(x)=sin(2x)⋅cos
+2
+x. Ký hiệu f
+′
+(x) là đạo hàm cấp một của hàm số f(x). Hãy tính giá trị của tổng hữu hạn sau:
+
+S=
+k=1
+∑
+18
+	​
+
+f
+′
+(
+37
+kπ
+	​
+
+)=f
+′
+(
+37
+π
+	​
+
+)+f
+′
+(
+37
+2π
+	​
+
+)+…+f
+′
+(
+37
+18π
+	​
+
+)
+
+Câu 4 (1,0 điểm).
+Cho hàm số y=
+x−1
+x
+2
++mx−2
+	​
+
+ có đồ thị là (C
+m
+	​
+
+) (m là tham số thực). Biết rằng tồn tại hai giá trị của m để đồ thị (C
+m
+	​
+
+) có hai điểm cực trị và khoảng cách từ gốc toạ độ O(0;0) đến đường thẳng đi qua hai điểm cực trị đó bằng 
+5
+5
+	​
+
+	​
+
+. Tính tổng bình phương của tất cả các giá trị m thoả mãn điều kiện trên.
+
+Câu 5 (1,0 điểm).
+Cho dãy số (u
+n
+	​
+
+) xác định bởi hệ thức truy hồi:
+
+⎩
+⎨
+⎧
+	​
+
+u
+1
+	​
+
+=
+2026
+	​
+
+u
+n+1
+	​
+
+=
+1+(2n+1)u
+n
+	​
+
+u
+n
+	​
+
+	​
+
+,∀n∈N
+∗
+	​
+
+
+Đặt S
+n
+	​
+
+=∑
+k=1
+n
+	​
+
+u
+k
+2
+	​
+
+1
+	​
+
+. Tính giá trị của biểu thức P=
+2026
+S
+20
+	​
+
+	​
+
+.
+
+Câu 6 (1,0 điểm).
+Một người dự định di chuyển từ vị trí A ở bờ phía Nam của một con kênh thẳng có bề rộng d=120 m để đến vị trí B nằm ở bờ phía Bắc. Biết rằng hình chiếu vuông góc của B lên bờ phía Nam là điểm H, cách A một khoảng AH=350 m. Người này chọn phương án xuất phát từ A, chạy bộ dọc theo bờ phía Nam một đoạn AM=x (với 0≤x≤350 m), sau đó nhảy xuống bơi thẳng từ M vượt kênh đến điểm B.
+Vận tốc chạy bộ của người đó là v
+1
+	​
+
+=4 m/s, còn vận tốc bơi trong nước tĩnh là v
+2
+	​
+
+=1,5 m/s. Nước kênh chảy chậm không đáng kể. Hỏi thời gian tối thiểu để người đó đến được vị trí B là bao nhiêu giây?
+
+Câu 7 (1,0 điểm).
+Trong không gian toạ độ Oxyz (mỗi đơn vị trên hệ trục tương ứng với 10 km), một trạm thu phát tín hiệu ra-đa kiểm soát bờ biển đặt tại vị trí A(3;−2;1). Hai tàu tuần tra hải quân di chuyển theo quỹ đạo là hai đường thẳng chéo nhau:
+- Tàu thứ nhất chuyển động dọc theo đường thẳng d
+1
+	​
+
+:
+2
+x−1
+	​
+
+=
+−1
+y+3
+	​
+
+=
+2
+z−4
+	​
+
+.
+- Tàu thứ hai chuyển động dọc theo đường thẳng d
+2
+	​
+
+:
+1
+x+2
+	​
+
+=
+2
+y−1
+	​
+
+=
+−2
+z+1
+	​
+
+.
+
+Một thiết bị tiếp sóng M được gắn cố định trên đoạn thẳng ngắn nhất nối giữa hai đường chuyển động d
+1
+	​
+
+ và d
+2
+	​
+
+. Tính khoảng cách thực tế từ trạm ra-đa A đến thiết bị tiếp sóng M (theo đơn vị ki-lô-mét).
+
+Câu 8 (1,0 điểm).
+
+Đề thi HSG Giải toán trên MTCT môn Toán 12 nâng cao (10 chủ đề chuyên sâu)
+
+Toán
+Lớp 12
+châu pha trương
+0
+
+TRUNG TÂM TOÁN ATINA
+
+ĐỀ KIỂM TRA HỌC KỲ II
+
+Năm học: 2026 – 2027
+
+Môn: Toán – Lớp 9
+
+Thời gian làm bài: 90 phút (không kể thời gian phát đề)
+
+PHẦN I. TRẮC NGHIỆM (32 câu – 6,4 điểm)
+
+Câu 1. Giá trị của biểu thức 
+(−16)
+2
+	​
+
+ bằng
+
+A. ±16
+
+
+B. 16
+
+
+C. 256
+
+
+D. −16
+
+
+Câu 2. Phương trình 2x
+2
+−x−m+1=0 có hai nghiệm phân biệt khi
+
+A. m>
+7
+8
+	​
+
+
+
+
+B. m>
+8
+7
+	​
+
+
+
+
+C. m<
+8
+7
+	​
+
+
+
+
+D. m<
+7
+8
+	​
+
+
+
+
+Câu 3. Thống kê điểm sau 20 lần bắn bia của một xạ thủ như sau:
+
+8  9  10  10  9  7  9  10  8  9  10  7  9  10  9  10  8  7  9  10
+
+Tần số xạ thủ bắn vào điểm 10 là
+
+A. 8
+
+B. 7
+
+C. 9
+
+D. 10
+
+Câu 4. Cho tam giác ABC có đường cao AH, AB=5 cm; AC=12 cm; BC=13 cm. Độ dài HB là (làm tròn đến chữ số thập phân thứ hai)
+
+A. 1,92 cm
+
+
+B. 4,62 cm
+
+
+C. 11,08 cm
+
+
+D. 4 cm
+
+
+Câu 5. Cho tam giác ABC vuông tại A, đường cao AH có CH=4 cm, BH=5 cm. Khi đó cosC bằng
+
+A. 
+5
+4
+	​
+
+
+
+
+B. 
+5
+3
+	​
+
+
+
+
+C. 
+3
+2
+	​
+
+
+
+
+D. 
+6
+5
+	​
+
+
+
+
+Câu 6. Cho tam giác MNP vuông tại M có MN=6 cm, MP=8 cm. Bán kính đường tròn ngoại tiếp tam giác MNP là
+
+A. 5 cm
+
+
+B. 6 cm
+
+
+C. 7 cm
+
+
+D. 8 cm
+
+
+Câu 7. Cho (O;3 cm) tiếp xúc ngoài với (O
+′
+;1 cm). Vẽ bán kính OB và O
+′
+C song song với nhau cùng nằm một phía so với đường thẳng OO
+′
+. Gọi D là giao điểm của BC và OO
+′
+. Độ dài OD bằng
+
+A. 4,5 cm
+
+
+B. 5 cm
+
+
+C. 8 cm
+
+
+D. 6 cm
+
+
+Câu 8. Cho tam giác ABC có ba góc nhọn nội tiếp đường tròn tâm (O), đường kính AM. Số đo 
+ABM
+ bằng số đo
+
+A. 
+AMC
+
+
+
+B. 
+MBC
+
+
+
+C. 
+OCM
+
+
+
+D. 
+ABC
+
+
+
+Câu 9. Tổng tất cả các giá trị của m để phương trình x
+2
+−2mx+1=0 có nghiệm kép là
+
+A. −1
+
+
+B. 0
+
+
+C. 1
+
+
+D. 2
+
+
+Câu 10. Với giá trị nào của m thì phương trình (m−1)x
+2
++2(m−1)x+m−3=0 vô nghiệm?
+
+A. m>1
+
+
+B. m≥1
+
+
+C. m≤1
+
+
+D. m<1
+
+
+Câu 11. Cho hệ phương trình 
+⎩
+⎨
+⎧
+	​
+
+−x−y=m−1
+3x+y=m+1
+	​
+
+ (m∈R). Có bao nhiêu giá trị của m để hệ phương trình có nghiệm duy nhất (1;−1)?
+
+A. 0
+
+B. 1
+
+C. 2
+
+D. 3
+
+Câu 12. Trong các hàm số sau, hàm số nào không phải là hàm số bậc nhất?
+
+A. y=1−x
+
+
+B. y=2
+x
+	​
+
+−3
+
+
+C. y=(1−
+2
+	​
+
+)x
+
+
+D. y=−2x+6
+
+
+Câu 13. Cho hàm số y=ax
+2
+ (a
+
+=0). Điểm M(1;2) thuộc đồ thị hàm số khi
+
+A. a=2
+
+
+B. a=
+2
+1
+	​
+
+
+
+
+C. a=−2
+
+
+D. a=
+4
+1
+	​
+
+
+
+
+Câu 14. Từ điểm A nằm bên ngoài đường tròn (O) kẻ hai tiếp tuyến AB,AC tới đường tròn (B,C là các tiếp điểm). Kẻ đường kính BK. Biết 
+BAC
+=30
+∘
+. Số đo của cung nhỏ 
+CK
+ là
+
+A. 30
+∘
+
+
+
+B. 60
+∘
+
+
+
+C. 120
+∘
+
+
+
+D. 150
+∘
+
+
+
+Câu 15. Với giá trị nào của m thì phương trình x
+2
+−(3m+1)x+m−5=0 có một nghiệm x=−1?
+
+A. m=1
+
+
+B. m=−
+2
+5
+	​
+
+
+
+
+C. m=
+2
+5
+	​
+
+
+
+
+D. m=
+4
+3
+	​
+
+
+
+
+Câu 16. Phương trình (x−2)(x−3)=0 có nghiệm là
+
+A. x∈{2;−3}
+
+
+B. x∈{−2;3}
+
+
+C. x∈{2;3}
+
+
+D. x∈{−2;−3}
+
+
+Câu 17. Cho phương trình mx
+2
++3x+6=0. Với điều kiện nào của m thì phương trình là phương trình bậc nhất một ẩn?
+
+A. m>0
+
+
+B. m
+
+=0
+
+
+C. m<0
+
+
+D. m=0
+
+
+Đề kiểm tra học kỳ II môn Toán 9
+
+Toán
+Lớp 9
+ttatinaedu huyen
+0
+
+SỞ GIÁO DỤC VÀ ĐÀO TẠO …
+
+TRƯỜNG THPT …
+
+Đề chính thức
+
+ĐỀ KIỂM TRA GIỮA HỌC KỲ I
+
+NĂM HỌC 2026 – 2027
+
+Môn: TIẾNG ANH – Lớp 12
+
+Thời gian làm bài: 50 phút (không kể thời gian phát đề)
+
+ĐỀ SỐ 1
+
+(Đề thi gồm có 40 câu trắc nghiệm)
+
+Mark the letter A, B, C, or D on your answer sheet to indicate the correct answer to each of the following questions.
+
+Question 1. When we were on a voluntary tour, we ______ to public places to collect rubbish every day.
+
+A. were going
+
+B. went
+
+C. have gone
+
+D. had gone
+
+Question 2. While he ______ some plants in the garden, his wife was preparing dinner.
+
+A. waters
+
+B. is watering
+
+C. would water
+
+D. was watering
+
+Question 3. We spent nearly 1 day climbing Mountain Everest in ______ Himalayas.
+
+A. a
+
+B. an
+
+C. ∅ (no article)
+
+D. the
+
+Question 4. Poor Linda! She suffers ______ migraine headaches.
+
+A. to
+
+B. at
+
+C. for
+
+D. from
+
+Question 5. Solar panels are becoming more popular, ______ is a trend that helps decrease reliance on fossil fuels.
+
+A. that
+
+B. whom
+
+C. whose
+
+D. which
+
+Question 6. His ______ to become a doctor encouraged him to study hard despite many challenges.
+
+A. determining
+
+B. determine
+
+C. determined
+
+D. determination
+
+Question 7. The nurse devoted her time to ______ injured soldiers in the field hospital.
+
+A. putting on
+
+B. take after
+
+C. taking care of
+
+D. break down
+
+Question 8. The soldiers fought bravely to defend their homeland from the ______.
+
+A. ally
+
+B. enemy
+
+C. hero
+
+D. neighbor
+
+Question 9. Respect for elders is a ______ of Asian cultures, while individualism is often seen in Western societies.
+
+A. tradition
+
+B. feature
+
+C. characteristic
+
+D. custom
+
+Question 10. New policies were introduced to ______ natural resources, which are rapidly depleting.
+
+A. pollute
+
+B. damage
+
+C. consume
+
+D. conserve
+
+Question 11. Living in a ______ city has taught me to appreciate different perspectives.
+
+A. multicultural
+
+B. culture shock
+
+C. uncultured
+
+D. cultural confusion
+
+Question 12. Not until the professional chef shared his recipe did we realize why the dish was so ______ that everyone wanted a second serving.
+
+A. beautiful
+
+B. tasty
+
+C. interesting
+
+D. expensive
+
+Read the following announcement and mark the letter A, B, C, or D on your answer sheet to indicate the correct option that best fits each of the numbered blanks from 13 to 18.
+
+GREEN YOUTH CLUB ANNOUNCEMENT: SCHOOL CLEAN-UP DAY
+
+Our school Green Club is thrilled to announce the annual "Campus Cleanup Day" next Saturday!
+- Please bring (13) ______ reusable water bottles and work gloves if you have them.
+- All participants are requested to (14) ______ at the school gate at 7:30 a.m.
+- We aim (15) ______ our school's carbon footprint and foster environmental awareness among students.
+- Make sure you (16) ______ organic waste from recyclable materials before putting them into bins.
+- This practical activity contributes to the (17) ______ of our natural surroundings.
+- Joining hands in this campaign offers a(n) (18) ______ opportunity to inspire the whole community to adopt a sustainable lifestyle.
+
+Question 13.
+
+A. every
+
+B. some
+
+C. much
+
+D. another
+
+Question 14.
+
+A. turn up
+
+B. give away
+
+C. pass away
+
+D. break out
+
+Question 15.
+
+A. reduce
+
+B. to reduce
+
+C. reducing
+
+D. reduced
+
+Question 16.
+
+A. sort
+
+B. release
+
+C. decompose
+
+D. contaminate
+
+Question 17.
+
+A. protect
+
+B. protective
+
+Bộ 02 Đề Kiểm Tra Giữa Học Kỳ I Tiếng Anh 12 (Kèm Đáp Án và Lời Giải Chi Tiết)
+
+Tiếng Anh
+Lớp 12
+Thảo Nguyễn
+5
+Xem thêm đề
+soandethi.com
+
+Trợ lý AI giúp giáo viên soạn đề thi, chỉnh số liệu, chuyển ảnh đề thành văn bản và làm đáp án cùng barem chấm điểm.
+
+Khám phá
+Trang chủ
+Đề thi cộng đồng
+Đề thi của tôi
+Slide bài giảng
+Kho tài liệu
+Bảng vẽ
+Nhiệm vụ
+Nạp điểm
+Giới thiệu
+Về chúng tôi
+Câu hỏi thường gặp
+Chính sách
+Điều khoản sử dụng
+Chính sách bảo mật
+Giá và thanh toán
+Chấm dứt dịch vụ, hoàn tiền
+Giải quyết khiếu nại
+Liên hệ
+lienhe@soandethi.com
+Zalo 0858 562 678
+Nhóm Zalo
+TikTok
+
+Đơn vị chủ quản: Hộ kinh doanh Ngũ Thành An
+
+Giấy chứng nhận đăng ký hộ kinh doanh số 040203005266 do Phòng Kinh tế UBND xã Tân Kỳ, tỉnh Nghệ An cấp ngày 15/10/2026. Mã số thuế: 040203005266.
+
+Địa chỉ: Số 191, đường Trường Sơn, xóm Trường Sơn, xã Tân Kỳ, tỉnh Nghệ An. Chủ hộ kinh doanh: Ngũ Thành An. Điện thoại: 0858 562 678. Email: lienhe@soandethi.com.
+
+© 2026 soandethi.com. Mọi quyền được bảo lưu.
+
+Soạn đề thi nhanh hơn, với AI.

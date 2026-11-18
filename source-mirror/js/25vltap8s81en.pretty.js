@@ -1,0 +1,1592 @@
+(globalThis.TURBOPACK || (globalThis.TURBOPACK = [])).push([
+  "object" == typeof document ? document.currentScript : void 0,
+  871813,
+  482534,
+  (e) => {
+    "use strict";
+    function t(e) {
+      let t = [],
+        r = -1,
+        n = 0,
+        i = 0,
+        a = !1,
+        l = 0,
+        o = () => {
+          (r >= 0 && t.push({ from: r, to: n }), (r = -1));
+        },
+        s = e.split(/(\r\n|\r|\n)/);
+      for (let e = 0; e < s.length; e += 2) {
+        let t = s[e],
+          h = t.trim();
+        (/^```/.test(h)
+          ? (a = !a)
+          : !a &&
+            h.startsWith(":::") &&
+            (":::" === h ? (l = Math.max(0, l - 1)) : l++),
+          "" !== h || a || 0 !== l
+            ? (r < 0 && (r = i), (n = i + t.length))
+            : o(),
+          (i += t.length + (s[e + 1]?.length ?? 0)));
+      }
+      return (o(), t);
+    }
+    function r(e) {
+      return e
+        .trim()
+        .replace(/^#{1,6}\s+/, "")
+        .replace(/\[\[(.*?)\]\]/g, "$1")
+        .replace(
+          /<\/?(?:size|color|highlight|font|link|box|u|sup|sub|s|br)(?:=[^>]*)?\s*\/?>/gi,
+          "",
+        )
+        .replace(/\*\*|\*|~~|\\(?=[\\$*|[\]_#`~<>!:])/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+    let n = /^(câu|bài)\s+\d+[a-zđ]?\b/i;
+    function i(e) {
+      for (let t of e.split("\n").slice(1)) {
+        let e = r(t);
+        if (e && "|||" !== e && !e.startsWith(":::")) return e;
+      }
+      return "";
+    }
+    function a(e) {
+      let t = o(e);
+      if (t) {
+        let e = s(t);
+        return {
+          kind:
+            "table" === t.type
+              ? "bảng"
+              : "examHeader" === t.type
+                ? "đầu đề"
+                : "grid" === t.type
+                  ? "lưới"
+                  : "heading" === t.type
+                    ? "tiêu đề"
+                    : ["bulletList", "orderedList"].includes(t.type ?? "")
+                      ? "danh sách"
+                      : n.test(e)
+                        ? "câu hỏi"
+                        : "đoạn",
+          label: e,
+        };
+      }
+      let a = e.split("\n", 1)[0].trim(),
+        l = r(a);
+      return "\\newpage" === a
+        ? { kind: "ngắt trang", label: "" }
+        : a.startsWith("::: columns")
+          ? { kind: "cột văn bản", label: i(e) }
+          : a.startsWith("::: header")
+            ? { kind: "đầu đề", label: i(e) }
+            : a.startsWith("::: grid") || a.startsWith("::: choices")
+              ? { kind: "lưới", label: i(e) }
+              : a.startsWith(":::")
+                ? { kind: "căn lề", label: i(e) }
+                : a.startsWith("```variation")
+                  ? { kind: "bảng biến thiên", label: "" }
+                  : a.startsWith("```graph")
+                    ? { kind: "đồ thị", label: "" }
+                    : a.startsWith("```geometry")
+                      ? { kind: "hình học", label: "" }
+                      : a.startsWith("```diagram")
+                        ? { kind: "hình", label: "" }
+                        : a.startsWith("```")
+                          ? { kind: "khối code", label: "" }
+                          : a.startsWith("|")
+                            ? { kind: "bảng", label: l }
+                            : a.startsWith("![")
+                              ? { kind: "hình", label: l }
+                              : a.startsWith("#")
+                                ? { kind: "tiêu đề", label: l }
+                                : n.test(l)
+                                  ? { kind: "câu hỏi", label: l }
+                                  : { kind: "đoạn", label: l };
+    }
+    let l =
+      /^#{1,6}\s+.*(hướng dẫn chấm|đáp án|lời giải|barem|thang điểm|bài làm mẫu)/i;
+    function o(e) {
+      if (!e.trimStart().startsWith("```rich-block\n")) return null;
+      try {
+        let t = JSON.parse(e.trim().split("\n").slice(1, -1).join("\n"));
+        return t && "object" == typeof t ? t : null;
+      } catch {
+        return null;
+      }
+    }
+    function s(e, t = 0) {
+      return t > 32
+        ? ""
+        : "string" == typeof e.text
+          ? e.text
+          : Array.isArray(e.content)
+            ? e.content
+                .map((e) => s(e, t + 1))
+                .join(
+                  ["paragraph", "heading"].includes(e.type ?? "") ? "" : " ",
+                )
+                .trim()
+            : "";
+    }
+    function h(e) {
+      let t = o(e);
+      return t ? s(t) : r(e.split("\n", 1)[0]);
+    }
+    e.s(
+      [
+        "describeSegment",
+        0,
+        a,
+        "isHeading",
+        0,
+        function (e) {
+          return /^#{1,6}\s/.test(e.trimStart()) || o(e)?.type === "heading";
+        },
+        "isQuestionStart",
+        0,
+        function (e) {
+          return n.test(h(e));
+        },
+        "plainText",
+        0,
+        r,
+        "questionLabel",
+        0,
+        function (e) {
+          let t = n.exec(h(e));
+          return t ? t[0].replace(/\s+/g, " ") : "";
+        },
+        "segmentFirstText",
+        0,
+        h,
+        "solutionStart",
+        0,
+        function (e) {
+          let t = e.findIndex(
+            (e, t) =>
+              t > 0 &&
+              (l.test(e.trimStart()) ||
+                (o(e)?.type === "heading" &&
+                  /hướng dẫn chấm|đáp án|lời giải|barem|thang điểm|bài làm mẫu/i.test(
+                    h(e),
+                  ))),
+          );
+          if (t < 0) return -1;
+          let r = t;
+          for (; r > 0; ) {
+            let t = a(e[r - 1]).kind;
+            if ("ngắt trang" !== t && "đầu đề" !== t) break;
+            r--;
+          }
+          return r;
+        },
+        "splitSegmentRanges",
+        0,
+        t,
+        "splitSegments",
+        0,
+        function (e) {
+          return t(e).map(({ from: t, to: r }) =>
+            e.slice(t, r).replace(/\r\n?/g, "\n"),
+          );
+        },
+      ],
+      482534,
+    );
+    let c = (e, t) => {
+        let r = 1;
+        for (
+          let n = e.indexOf("\n");
+          n >= 0 && n < t;
+          n = e.indexOf("\n", n + 1)
+        )
+          r++;
+        return r;
+      },
+      d = "exam-chat-add-reference",
+      u = "exam-chat-send";
+    e.s(
+      [
+        "ADD_REFERENCE_EVENT",
+        0,
+        d,
+        "MAX_REFERENCES",
+        0,
+        5,
+        "SEND_CHAT_EVENT",
+        0,
+        u,
+        "locateReference",
+        0,
+        function (e, r, n) {
+          let i,
+            a = r.trim();
+          if (!a) return null;
+          let l = -1,
+            o = -1,
+            s = e.indexOf(a);
+          if (s >= 0) ((l = s), (o = s + a.length));
+          else {
+            let t = a
+                .split("\n")
+                .map((e) => e.trim())
+                .filter(Boolean),
+              r = t[0] ?? "",
+              i = t[t.length - 1] ?? "",
+              s = r ? e.indexOf(r) : -1,
+              h = i && s >= 0 ? e.indexOf(i, s) : -1;
+            s >= 0 && h >= s
+              ? ((l = s), (o = h + i.length))
+              : n &&
+                ((l = Math.max(0, n.start)),
+                (o = Math.min(e.length, Math.max(n.end, l + 1))));
+          }
+          if (l < 0) return null;
+          let h = t(e),
+            d = h.flatMap((e, t) => (e.from < o && e.to > l ? [t + 1] : [])),
+            u = d[0] ?? Math.max(1, h.findIndex((e) => e.from >= l) + 1),
+            m = d[d.length - 1] ?? u;
+          return {
+            startLine: c(e, l),
+            endLine: c(e, Math.max(l, o - 1)),
+            fromSegment: u,
+            toSegment: m,
+            preview:
+              (i = a
+                .replace(
+                  /<(geometry|diagram|graph|chart)>[\s\S]*?<\/\1>/g,
+                  "[hình]",
+                )
+                .replace(/\s+/g, " ")
+                .trim()).length > 140
+                ? `${i.slice(0, 140)}…`
+                : i,
+            text:
+              a.length > 6e3
+                ? `${a.slice(0, 6e3)}
+…(đ\xe3 cắt)`
+                : a,
+          };
+        },
+        "readLines",
+        0,
+        function (e, t, r) {
+          let n = e.split(/\r\n|\r|\n/),
+            i = Math.min(Math.max(1, Math.floor(t) || 1), n.length),
+            a = Math.min(Math.max(i, Math.floor(r) || i), n.length);
+          return {
+            text: n.slice(i - 1, a).join("\n"),
+            from: i,
+            to: a,
+            total: n.length,
+          };
+        },
+        "referenceLabel",
+        0,
+        function (e) {
+          return e.startLine === e.endLine
+            ? `D\xf2ng ${e.startLine}`
+            : `D\xf2ng ${e.startLine}–${e.endLine}`;
+        },
+        "referencesPayload",
+        0,
+        function (e) {
+          return (e ?? [])
+            .slice(0, 5)
+            .map(
+              ({
+                id: e,
+                startLine: t,
+                endLine: r,
+                fromSegment: n,
+                toSegment: i,
+                preview: a,
+              }) => ({
+                ref: e,
+                startLine: t,
+                endLine: r,
+                fromSegment: n,
+                toSegment: i,
+                preview: a,
+              }),
+            );
+        },
+        "requestAddReference",
+        0,
+        function (e) {
+          window.dispatchEvent(new CustomEvent(d, { detail: e }));
+        },
+        "requestChatSend",
+        0,
+        function (e) {
+          window.dispatchEvent(new CustomEvent(u, { detail: e }));
+        },
+        "sameReference",
+        0,
+        function (e, t) {
+          return (
+            e.startLine === t.startLine &&
+            e.endLine === t.endLine &&
+            e.text === t.text
+          );
+        },
+      ],
+      871813,
+    );
+  },
+  743232,
+  119076,
+  627380,
+  (e) => {
+    "use strict";
+    var t = e.i(843476),
+      r = e.i(271645);
+    let n = 0,
+      i = !1,
+      a = new Set();
+    function l() {
+      if (i || !window.mathVirtualKeyboard) return;
+      i = !0;
+      let e = window.mathVirtualKeyboard,
+        t = () => {
+          let t = e.visible ? Math.round(e.boundingRect.height) : 0;
+          if (t !== n)
+            for (let e of ((n = t),
+            document.documentElement.style.setProperty(
+              "--math-keyboard-height",
+              `${t}px`,
+            ),
+            a))
+              e();
+        };
+      (e.addEventListener("geometrychange", t),
+        e.addEventListener("virtual-keyboard-toggle", t),
+        t());
+    }
+    e.s(
+      [
+        "bindMathKeyboard",
+        0,
+        l,
+        "mathKeyboardHeight",
+        0,
+        () => n,
+        "subscribeMathKeyboard",
+        0,
+        function (e) {
+          return (a.add(e), () => a.delete(e));
+        },
+      ],
+      119076,
+    );
+    let o = "\\placeholder{}",
+      s = {
+        sqrt: 1,
+        frac: 2,
+        dfrac: 2,
+        tfrac: 2,
+        cfrac: 2,
+        binom: 2,
+        dbinom: 2,
+        tbinom: 2,
+        overline: 1,
+        underline: 1,
+        widehat: 1,
+        widetilde: 1,
+        hat: 1,
+        bar: 1,
+        vec: 1,
+        dot: 1,
+        ddot: 1,
+        overrightarrow: 1,
+        overleftarrow: 1,
+        overleftrightarrow: 1,
+      },
+      h = new Set([
+        "text",
+        "textrm",
+        "textsf",
+        "texttt",
+        "textnormal",
+        "textbf",
+        "textit",
+        "textup",
+        "operatorname",
+        "mbox",
+        "hbox",
+        "ce",
+        "url",
+        "href",
+      ]);
+    function c(e, t) {
+      let r = e[t],
+        n = "[" === r ? "]" : "}",
+        i = 1;
+      for (let a = t + 1; a < e.length; a++) {
+        if ("\\" === e[a]) {
+          a++;
+          continue;
+        }
+        if (e[a] === r) i++;
+        else if (e[a] === n && 0 == --i) return a;
+      }
+      return -1;
+    }
+    function d(e) {
+      let t = new Map(),
+        r = (t) => {
+          for (; /\s/.test(e[t] ?? "") && t < e.length; ) t++;
+          return t;
+        },
+        n = (r, n) => {
+          e.slice(r + 1, n).trim() || t.set(r + 1, n);
+        };
+      for (let t = 0; t < e.length; t++) {
+        if ("^" === e[t] || "_" === e[t]) {
+          let i = r(t + 1);
+          if ("{" === e[i]) {
+            let t = c(e, i);
+            t >= 0 && n(i, t);
+          }
+          continue;
+        }
+        if ("\\" !== e[t]) continue;
+        let i = /^[a-zA-Z]+/.exec(e.slice(t + 1))?.[0];
+        if (!i) {
+          t++;
+          continue;
+        }
+        let a = r((t += i.length) + 1);
+        if (h.has(i) && "{" === e[a]) {
+          let r = c(e, a);
+          r >= 0 && (t = r);
+          continue;
+        }
+        if ("sqrt" === i && "[" === e[a]) {
+          let t = c(e, a);
+          if (t < 0) continue;
+          (n(a, t), (a = r(t + 1)));
+        }
+        for (let t = 0; t < (s[i] ?? 0) && "{" === e[a]; t++) {
+          let t = c(e, a);
+          if (t < 0) break;
+          (n(a, t), (a = r(t + 1)));
+        }
+      }
+      let i = e;
+      for (let [e, r] of [...t].sort(([e], [t]) => t - e))
+        i = i.slice(0, e) + o + i.slice(r);
+      return i;
+    }
+    var u = e.i(368308),
+      m = e.i(636607);
+    let p = (e, t, r) => ({ latex: e, title: t, preview: r }),
+      f = [
+        {
+          id: "basic",
+          label: "Cơ bản",
+          symbols: [
+            p("\\frac{#@}{#?}", "Phân số", "\\frac{a}{b}"),
+            p("\\sqrt{#?}", "Căn bậc hai", "\\sqrt{x}"),
+            p("\\sqrt[#?]{#?}", "Căn bậc n", "\\sqrt[n]{x}"),
+            p("^{#?}", "Luỹ thừa", "x^{n}"),
+            p("_{#?}", "Chỉ số dưới", "x_{n}"),
+            p("^{2}", "Bình phương", "x^{2}"),
+            p("\\left|#?\\right|", "Giá trị tuyệt đối", "|x|"),
+            p("\\left(#?\\right)", "Ngoặc tròn", "(\\ )"),
+            p("\\cdot ", "Nhân", "\\cdot"),
+            p("\\times ", "Nhân chéo", "\\times"),
+            p("\\div ", "Chia", "\\div"),
+            p("\\pm ", "Cộng trừ", "\\pm"),
+            p("\\infty ", "Vô cùng", "\\infty"),
+            p("\\%", "Phần trăm", "\\%"),
+          ],
+        },
+        {
+          id: "relation",
+          label: "So sánh",
+          symbols: [
+            p("\\ne ", "Khác", "\\ne"),
+            p("\\le ", "Nhỏ hơn hoặc bằng", "\\le"),
+            p("\\ge ", "Lớn hơn hoặc bằng", "\\ge"),
+            p("\\approx ", "Xấp xỉ", "\\approx"),
+            p("\\equiv ", "Đồng dư", "\\equiv"),
+            p("\\Rightarrow ", "Suy ra", "\\Rightarrow"),
+            p("\\Leftrightarrow ", "Tương đương", "\\Leftrightarrow"),
+            p("\\rightarrow ", "Mũi tên", "\\rightarrow"),
+            p("\\in ", "Thuộc", "\\in"),
+            p("\\notin ", "Không thuộc", "\\notin"),
+            p("\\subset ", "Tập con", "\\subset"),
+            p("\\cup ", "Hợp", "\\cup"),
+            p("\\cap ", "Giao", "\\cap"),
+            p("\\emptyset ", "Tập rỗng", "\\emptyset"),
+            p("\\forall ", "Với mọi", "\\forall"),
+            p("\\exists ", "Tồn tại", "\\exists"),
+          ],
+        },
+        {
+          id: "calculus",
+          label: "Hàm & giải tích",
+          symbols: [
+            p("\\sin\\left(#?\\right)", "Sin", "\\sin"),
+            p("\\cos\\left(#?\\right)", "Cos", "\\cos"),
+            p("\\tan\\left(#?\\right)", "Tan", "\\tan"),
+            p("\\log_{#?}\\left(#?\\right)", "Logarit", "\\log_a"),
+            p("\\ln\\left(#?\\right)", "Logarit tự nhiên", "\\ln"),
+            p("\\lim_{x\\to #?}", "Giới hạn", "\\lim"),
+            p("\\sum_{i=#?}^{#?}", "Tổng", "\\sum"),
+            p("\\prod_{i=#?}^{#?}", "Tích", "\\prod"),
+            p("\\int_{#?}^{#?}", "Tích phân", "\\int"),
+            p("\\frac{d}{dx}", "Đạo hàm", "\\frac{d}{dx}"),
+            p("f'\\left(x\\right)", "f phẩy", "f'"),
+            p("C_{#?}^{#?}", "Tổ hợp chập k của n", "C_n^k"),
+            p("A_{#?}^{#?}", "Chỉnh hợp chập k của n", "A_n^k"),
+            p("!", "Giai thừa", "n!"),
+            p("\\binom{#?}{#?}", "Nhị thức", "\\binom{n}{k}"),
+          ],
+        },
+        {
+          id: "greek",
+          label: "Chữ Hy Lạp",
+          symbols: [
+            "alpha",
+            "beta",
+            "gamma",
+            "delta",
+            "varepsilon",
+            "theta",
+            "lambda",
+            "mu",
+            "pi",
+            "rho",
+            "sigma",
+            "varphi",
+            "omega",
+            "Delta",
+            "Sigma",
+            "Omega",
+          ].map((e) => p(`\\${e} `, e, `\\${e}`)),
+        },
+        {
+          id: "geometry",
+          label: "Hình học",
+          symbols: [
+            p("\\widehat{#?}", "Góc", "\\widehat{A}"),
+            p("\\angle ", "Ký hiệu góc", "\\angle"),
+            p("\\overrightarrow{#?}", "Vectơ", "\\vec{v}"),
+            p("\\overline{#?}", "Đoạn thẳng", "\\overline{AB}"),
+            p("^{\\circ}", "Độ", "^{\\circ}"),
+            p("\\perp ", "Vuông góc", "\\perp"),
+            p("\\parallel ", "Song song", "\\parallel"),
+            p("\\triangle ", "Tam giác", "\\triangle"),
+            p("\\cong ", "Bằng nhau", "\\cong"),
+            p("\\sim ", "Đồng dạng", "\\sim"),
+          ],
+        },
+      ];
+    function g({ onInsert: e, onToggleKeyboard: n, size: i = "md" }) {
+      let [a, l] = (0, r.useState)(f[0].id),
+        o = "sm" === i;
+      return (0, t.jsxs)("div", {
+        className:
+          "shrink-0 overflow-hidden rounded-lg border border-neutral-200",
+        children: [
+          (0, t.jsxs)("div", {
+            className:
+              "flex items-center border-b border-neutral-200 bg-neutral-50",
+            children: [
+              (0, t.jsx)("div", {
+                className:
+                  "flex min-w-0 flex-1 gap-1 overflow-x-auto p-1 [scrollbar-width:none] max-sm:pr-6 max-sm:[mask-image:linear-gradient(to_right,#000_calc(100%-1.5rem),transparent)] [&::-webkit-scrollbar]:hidden",
+                role: "tablist",
+                "aria-label": "Nhóm ký hiệu",
+                children: f.map((e) =>
+                  (0, t.jsx)(
+                    "button",
+                    {
+                      type: "button",
+                      role: "tab",
+                      "aria-selected": a === e.id,
+                      onMouseDown: (e) => e.preventDefault(),
+                      onClick: () => l(e.id),
+                      className: `shrink-0 whitespace-nowrap rounded-md px-2.5 py-1 text-xs font-medium transition-colors [@media(pointer:coarse)]:py-2 [@media(pointer:coarse)]:text-sm ${a === e.id ? "bg-white text-blue-700 shadow-xs" : "text-neutral-600 hover:bg-neutral-200/70"}`,
+                      children: e.label,
+                    },
+                    e.id,
+                  ),
+                ),
+              }),
+              n &&
+                (0, t.jsx)("button", {
+                  type: "button",
+                  onMouseDown: (e) => e.preventDefault(),
+                  onClick: n,
+                  title: "Bàn phím toán",
+                  "aria-label": "Bật/tắt bàn phím toán",
+                  className:
+                    "mr-1 hidden shrink-0 items-center gap-1 rounded-md px-2 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-200/70 [@media(pointer:coarse)]:flex",
+                  children: (0, t.jsx)(u.Keyboard, {
+                    "aria-hidden": !0,
+                    className: "size-4",
+                  }),
+                }),
+            ],
+          }),
+          (0, t.jsx)("div", {
+            className: o
+              ? "grid grid-cols-[repeat(auto-fill,minmax(2.5rem,1fr))] gap-0.5 p-1"
+              : "grid grid-cols-[repeat(auto-fill,minmax(2.75rem,1fr))] gap-1 p-1.5 sm:grid-cols-[repeat(auto-fill,minmax(3rem,1fr))] sm:p-2",
+            role: "tabpanel",
+            children: f
+              .find((e) => e.id === a)
+              ?.symbols.map((r) =>
+                (0, t.jsx)(
+                  "button",
+                  {
+                    type: "button",
+                    title: r.title,
+                    "aria-label": r.title,
+                    onMouseDown: (e) => e.preventDefault(),
+                    onClick: () => e(r.latex),
+                    className: `flex items-center justify-center overflow-hidden rounded-md border border-transparent text-neutral-800 transition-colors hover:border-blue-200 hover:bg-blue-50 active:bg-blue-100 [@media(pointer:coarse)]:h-11 ${o ? "h-9 text-sm" : "h-10 text-base"}`,
+                    children: (0, t.jsx)(m.InlineMath, {
+                      math: r.preview ?? r.latex,
+                    }),
+                  },
+                  r.latex,
+                ),
+              ),
+          }),
+        ],
+      });
+    }
+    function b(e) {
+      let t = window.mathVirtualKeyboard;
+      t && (t.visible ? t.hide() : (e(), t.show()));
+    }
+    e.s(["FormulaPalette", 0, g, "toggleMathKeyboard", 0, b], 627380);
+    let y = `
+:host { --eb-math-caret-width: clamp(1px, 0.045em, 2px); }
+.ML__content .ML__caret::after, .ML__content .ML__text-caret::after {
+  --_caret-width: var(--eb-math-caret-width);
+  height: 0.66em;
+  left: 0;
+  bottom: -0.02em;
+}
+.ML__content .ML__latex-caret::after { --_caret-width: var(--eb-math-caret-width); }
+:is(span:has(> .ML__sqrt-sign), .ML__mfrac, .ML__msubsup, .ML__left-right) + .ML__caret {
+  margin-left: 0.18em;
+}
+.ML__focused .ML__contains-highlight {
+  background: hsl(212, 95%, 95%);
+  box-shadow: inset 0 0 0 1px hsl(212, 75%, 78%);
+  border-radius: 4px;
+}
+/* Font IME v\xe0 \xf4 trống thay đổi sau khi MathLive đo overlay. Đặt khung l\xean
+   nh\xf3m thật để n\xf3 lu\xf4n \xf4m đ\xfang c\xf4ng thức đang gh\xe9p, kể cả khi cuộn/ph\xf3ng to. */
+.ML__content:has(.ML__composition) > .ML__contains-highlight { display: none; }
+.ML__focused .eb-ime-group {
+  background: hsl(212, 95%, 95%);
+  box-shadow: inset 0 0 0 1px hsl(212, 75%, 78%);
+  border-radius: 4px;
+}
+.ML__content-placeholder .ML__text { background: transparent !important; }
+.ML__selection, .ML__contains-highlight { pointer-events: none; }
+/* MathLive d\xf9ng font hệ thống + nền v\xe0ng cho chữ IME chưa chốt. Giữ c\xf9ng
+   font to\xe1n khi g\xf5 tiếng Việt, nhưng vẫn để bộ g\xf5 tự gh\xe9p v\xe0 chốt chữ. */
+.ML__composition.eb-ime-math {
+  font-family: KaTeX_Main, "Times New Roman", serif;
+  font-style: normal;
+  background: transparent;
+  color: var(--selection-color, #000);
+  text-decoration: none;
+}
+.ML__composition.eb-ime-variable {
+  font-family: KaTeX_Math, "Times New Roman", serif;
+  font-style: italic;
+}
+.eb-ph {
+  color: transparent !important;
+  opacity: 1 !important;
+  position: relative;
+  display: inline-block;
+  width: max(0.72em, 8px);
+  height: max(0.84em, 10px);
+  margin: 0 0.06em;
+  vertical-align: -0.16em;
+}
+.eb-ph::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  border: 1.5px dashed hsl(215, 14%, 66%);
+  border-radius: 3px;
+  background: hsl(215, 30%, 97%);
+  pointer-events: none;
+}
+/* \xd4 trống vẫn nằm trong m\xf4 h\xecnh để huỷ nhập/undo giữ nguy\xean cấu tr\xfac.
+   Chỉ ẩn phần vẽ khi bộ g\xf5 đang ch\xe8n chữ ngay trước n\xf3. */
+.ML__composition:not(:empty) + .eb-ph,
+.ML__composition:not(:empty) + .ML__caret + .eb-ph { display: none; }
+.ML__composition:empty,
+.ML__composition:empty + .ML__caret { display: none; }
+:host([data-placeholder-caret]) .ML__selection { display: none !important; }
+:host([data-placeholder-caret]) .eb-ph.ML__selected::before,
+.ML__composition:empty + .ML__caret + .eb-ph::before {
+  border: 1.5px solid hsl(212, 80%, 52%);
+  background: hsl(212, 90%, 96%);
+}
+.ML__focused .eb-ph.ML__selected::after,
+.ML__focused .ML__composition:empty + .ML__caret + .eb-ph::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 14%;
+  bottom: 14%;
+  width: var(--eb-math-caret-width);
+  margin-left: calc(-0.5 * var(--eb-math-caret-width));
+  border-radius: 1px;
+  background: hsl(212, 80%, 45%);
+  animation: ML__caret-blink 1.05s step-end infinite;
+  pointer-events: none;
+}
+`,
+      x = ["AA", "EE", "ee", "oo", "xx"];
+    e.s(
+      [
+        "MathLiveInput",
+        0,
+        function ({
+          value: n,
+          onChange: i,
+          autoFocus: a,
+          className: s,
+          compact: h,
+          placeholder: c,
+          placeholderText: u,
+          title: m,
+          toolbar: p = !0,
+          handleRef: f,
+        }) {
+          let k = (0, r.useRef)(null),
+            M = (0, r.useRef)(null),
+            w = (0, r.useRef)(i),
+            v = (0, r.useRef)(n),
+            _ = (e) => {
+              let t = e.getValue("latex-without-placeholders");
+              ((v.current = t), w.current(t));
+            };
+          ((0, r.useEffect)(() => {
+            w.current = i;
+          }, [i]),
+            (0, r.useEffect)(() => {
+              let t = !1,
+                r = () => {},
+                i = k.current;
+              return (
+                e.A(200785).then(({ MathfieldElement: e }) => {
+                  let p, f, g, b, k, w, v, L, E, T, A;
+                  if (t || !i) return;
+                  ((e.fontsDirectory = "/fonts"),
+                    (e.soundsDirectory = null),
+                    l());
+                  let C = new e();
+                  ((C.className =
+                    s ??
+                    (h
+                      ? "block w-full rounded-md border border-neutral-300 bg-white px-1.5 py-0.5 text-sm leading-tight text-neutral-900 focus:border-blue-500"
+                      : "block w-full rounded-md border border-neutral-300 bg-white px-2 py-1.5 text-base text-neutral-900 focus:border-blue-500")),
+                    c && C.setAttribute("placeholder", u ? `\\text{${c}}` : c),
+                    m && C.setAttribute("title", m),
+                    i.replaceChildren(C));
+                  try {
+                    ((C.mathVirtualKeyboardPolicy = window.matchMedia(
+                      "(pointer: coarse)",
+                    ).matches
+                      ? "auto"
+                      : "manual"),
+                      (C.menuItems = []),
+                      (C.inlineShortcuts = Object.fromEntries(
+                        Object.entries(C.inlineShortcuts).filter(
+                          ([e]) => !x.includes(e),
+                        ),
+                      )));
+                  } catch {}
+                  ((C.value = d(n)),
+                    C.addEventListener("input", (e) => {
+                      (e.inputType?.startsWith("delete") &&
+                        (function (e) {
+                          if ("math" !== e.mode || !e.selectionIsCollapsed)
+                            return;
+                          let t = e.getElementInfo(e.position),
+                            r = e.getElementInfo(e.position + 1);
+                          t?.latex === "" &&
+                            t.depth &&
+                            r &&
+                            void 0 !== r.depth &&
+                            (r.depth < t.depth ||
+                              (r.depth === t.depth && "" === r.latex)) &&
+                            e.insert(o, {
+                              selectionMode: "placeholder",
+                              silenceNotifications: !0,
+                            });
+                        })(C),
+                        _(C));
+                    }));
+                  let S = (function (e) {
+                      let t = e.shadowRoot;
+                      if (!t) return () => {};
+                      let r = document.createElement("style");
+                      ((r.textContent = y), t.append(r));
+                      let n = () => {
+                          let r = t.querySelector(".ML__content");
+                          if (!r) return;
+                          for (let e of Array.from(r.querySelectorAll("span")))
+                            0 === e.childElementCount &&
+                              "▢" === e.textContent &&
+                              e.classList.add("eb-ph");
+                          for (let e of Array.from(
+                            r.querySelectorAll(".eb-ime-group"),
+                          ))
+                            e.classList.remove("eb-ime-group");
+                          for (let t of Array.from(
+                            r.querySelectorAll(".ML__composition"),
+                          )) {
+                            let r = "math" === e.mode;
+                            (t.classList.toggle("eb-ime-math", r),
+                              t.classList.toggle(
+                                "eb-ime-variable",
+                                r && /^[a-z]+$/i.test(t.textContent ?? ""),
+                              ),
+                              r &&
+                                t
+                                  .closest(".ML__contains-caret")
+                                  ?.classList.add("eb-ime-group"));
+                          }
+                          let n = Array.from(
+                            r.querySelectorAll(".ML__selected"),
+                          ).filter((e) => 0 === e.childElementCount);
+                          e.toggleAttribute(
+                            "data-placeholder-caret",
+                            n.length > 0 &&
+                              n.every((e) => e.classList.contains("eb-ph")),
+                          );
+                        },
+                        i = new MutationObserver(n);
+                      return (
+                        i.observe(t, {
+                          childList: !0,
+                          characterData: !0,
+                          subtree: !0,
+                        }),
+                        n(),
+                        () => {
+                          (i.disconnect(), r.remove());
+                        }
+                      );
+                    })(C),
+                    R =
+                      ((b = !1),
+                      (k = !1),
+                      (w = () => {
+                        ((f = void 0), clearTimeout(g));
+                      }),
+                      (v = () => {
+                        ((b = !1), (k = !1), clearTimeout(p), w());
+                      }),
+                      (L = () => {
+                        (v(),
+                          (b = !0),
+                          "math" !== C.mode ||
+                            C.selectionIsCollapsed ||
+                            ("\\placeholder{}" ===
+                              C.getValue(C.selection, "latex") &&
+                              (C.position = Math.min(
+                                ...C.selection.ranges[0],
+                              ))));
+                      }),
+                      (E = (e) => {
+                        (w(),
+                          clearTimeout(p),
+                          (k =
+                            ("Space" === e.code ||
+                              " " === e.key ||
+                              "Spacebar" === e.key ||
+                              32 === e.keyCode) &&
+                            (b || e.isComposing || 229 === e.keyCode) &&
+                            !e.ctrlKey &&
+                            !e.metaKey &&
+                            !e.altKey &&
+                            "math" === C.mode));
+                      }),
+                      (T = (e) => {
+                        let t = k;
+                        ((b = !1),
+                          (k = !1),
+                          w(),
+                          e.data && ((f = e.data), (g = setTimeout(w))),
+                          !t ||
+                            !e.data ||
+                            e.data.endsWith(" ") ||
+                            (p = setTimeout(() => {
+                              C.isConnected &&
+                                "math" === C.mode &&
+                                C.executeCommand("moveAfterParent");
+                            })));
+                      }),
+                      (A = (e) => {
+                        let t = e.composedPath()[0];
+                        if (
+                          !t?.matches?.('[part="keyboard-sink"]') ||
+                          void 0 === f ||
+                          ("insertCompositionText" === e.inputType &&
+                            e.data === f)
+                        )
+                          return;
+                        let r =
+                          e.data === f &&
+                          ("insertText" === e.inputType ||
+                            "insertFromComposition" === e.inputType ||
+                            "" === e.inputType);
+                        (w(),
+                          r &&
+                            ((t.textContent = ""),
+                            e.stopImmediatePropagation()));
+                      }),
+                      C.addEventListener("keydown", E, { capture: !0 }),
+                      C.addEventListener("compositionstart", L, {
+                        capture: !0,
+                      }),
+                      C.addEventListener("compositionend", T, { capture: !0 }),
+                      C.addEventListener("input", A, { capture: !0 }),
+                      C.addEventListener("pointerdown", w, { capture: !0 }),
+                      C.addEventListener("blur", v, { capture: !0 }),
+                      () => {
+                        (v(),
+                          C.removeEventListener("keydown", E, { capture: !0 }),
+                          C.removeEventListener("compositionstart", L, {
+                            capture: !0,
+                          }),
+                          C.removeEventListener("compositionend", T, {
+                            capture: !0,
+                          }),
+                          C.removeEventListener("input", A, { capture: !0 }),
+                          C.removeEventListener("pointerdown", w, {
+                            capture: !0,
+                          }),
+                          C.removeEventListener("blur", v, { capture: !0 }));
+                      });
+                  ((r = () => {
+                    (S(), R());
+                  }),
+                    a && C.focus(),
+                    (M.current = C));
+                }),
+                () => {
+                  ((t = !0),
+                    r(),
+                    (M.current = null),
+                    i?.replaceChildren(),
+                    document.querySelector("math-field") ||
+                      window.mathVirtualKeyboard?.hide());
+                }
+              );
+            }, []),
+            (0, r.useEffect)(() => {
+              let e = M.current;
+              e &&
+                n !== v.current &&
+                ((v.current = n),
+                e.getValue("latex-without-placeholders") !== n &&
+                  (e.value = d(n)));
+            }, [n]));
+          let L = (e) => {
+            let t = M.current;
+            t && (t.insert(d(e), { focus: !0 }), _(t));
+          };
+          return ((0, r.useEffect)(() => {
+            if (f)
+              return (
+                (f.current = { insert: L, focus: () => M.current?.focus() }),
+                () => {
+                  f.current = null;
+                }
+              );
+          }),
+          h)
+            ? (0, t.jsx)("div", {
+                ref: k,
+                className: "w-full [&>math-field]:min-h-0",
+              })
+            : (0, t.jsxs)("div", {
+                className: "flex w-full flex-col gap-2",
+                children: [
+                  (0, t.jsx)("div", {
+                    ref: k,
+                    className: "min-h-[46px] w-full",
+                  }),
+                  p &&
+                    (0, t.jsx)(g, {
+                      size: "sm",
+                      onInsert: L,
+                      onToggleKeyboard: () => b(() => M.current?.focus()),
+                    }),
+                ],
+              });
+        },
+      ],
+      743232,
+    );
+  },
+  235447,
+  (e) => {
+    "use strict";
+    let t = ["ML__", "MLK__", "ML-"],
+      r =
+        ".ML__keyboard, .MLK__backdrop, .ML__menu, .ML__popover, #mathlive-suggestion-popover";
+    function n(e) {
+      if (!e || "object" != typeof e || 1 !== e.nodeType) return !1;
+      if ("MATH-FIELD" === e.tagName) return !0;
+      for (let r of Array.from(e.classList ?? []))
+        if (t.some((e) => r.startsWith(e))) return !0;
+      return !1;
+    }
+    e.s([
+      "isMathLiveSurface",
+      0,
+      function (e) {
+        if (
+          ("function" == typeof e.composedPath ? e.composedPath() : []).some(n)
+        )
+          return !0;
+        let t = e.target;
+        if (!t || 1 !== t.nodeType) return !1;
+        if (n(t) || ("function" == typeof t.closest && t.closest(r))) return !0;
+        if ("u" > typeof document) {
+          for (let e of Array.from(document.querySelectorAll(r)))
+            if (e.contains(t)) return !0;
+        }
+        return !1;
+      },
+    ]);
+  },
+  996296,
+  (e) => {
+    "use strict";
+    async function t(e) {
+      if ("function" == typeof createImageBitmap)
+        try {
+          let t = await createImageBitmap(e);
+          return {
+            source: t,
+            width: t.width,
+            height: t.height,
+            release: () => t.close(),
+          };
+        } catch {}
+      let t = URL.createObjectURL(e);
+      try {
+        let e = await new Promise((e, r) => {
+          let n = new Image();
+          ((n.onload = () => e(n)),
+            (n.onerror = () => r(Error("Trình duyệt không đọc được ảnh này."))),
+            (n.src = t));
+        });
+        return {
+          source: e,
+          width: e.naturalWidth,
+          height: e.naturalHeight,
+          release: () => URL.revokeObjectURL(t),
+        };
+      } catch {
+        return (URL.revokeObjectURL(t), null);
+      }
+    }
+    function r(e) {
+      return new Promise((t, r) => {
+        let n = new FileReader();
+        ((n.onload = () => t(n.result)),
+          (n.onerror = () => r(Error("Không đọc được dữ liệu ảnh."))),
+          n.readAsDataURL(e));
+      });
+    }
+    function n(e) {
+      let t = e.indexOf(",");
+      return -1 === t ? e : e.slice(t + 1);
+    }
+    async function i(e) {
+      let t = await r(e);
+      return {
+        dataUrl: t,
+        base64: n(t),
+        mimeType: e.type || "image/jpeg",
+        bytes: e.size,
+        originalBytes: e.size,
+        width: 0,
+        height: 0,
+        compressed: !1,
+      };
+    }
+    async function a(e, l = {}) {
+      let o = l.maxDimension ?? 1600,
+        s = l.maxBytes ?? 921600,
+        h = l.mimeType ?? "image/jpeg",
+        c = l.skipBelowBytes ?? 204800,
+        d = Math.max(0.1, Math.min(1, l.minQuality ?? 0.45));
+      if (e.size <= c) return i(e);
+      let u = await t(e);
+      if (!u || 0 === u.width || 0 === u.height) return i(e);
+      try {
+        let t = Math.min(1, o / Math.max(u.width, u.height)),
+          a = Math.min(t, (l.minDimension ?? 1) / Math.max(u.width, u.height)),
+          c = Math.max(d, l.quality ?? 0.82),
+          m = null;
+        for (let e = 0; e < 6; e += 1) {
+          let e = Math.max(1, Math.round(u.width * t)),
+            r = Math.max(1, Math.round(u.height * t)),
+            n = await (function (e, t, r) {
+              return new Promise((n, i) => {
+                e.toBlob(
+                  (e) => (e ? n(e) : i(Error("Không mã hoá lại được ảnh."))),
+                  t,
+                  r,
+                );
+              });
+            })(
+              (function (e, t, r) {
+                let n = document.createElement("canvas");
+                ((n.width = t), (n.height = r));
+                let i = n.getContext("2d");
+                if (!i) throw Error("Trình duyệt không hỗ trợ canvas 2D.");
+                return (
+                  (i.fillStyle = "#ffffff"),
+                  i.fillRect(0, 0, t, r),
+                  (i.imageSmoothingEnabled = !0),
+                  (i.imageSmoothingQuality = "high"),
+                  i.drawImage(e.source, 0, 0, t, r),
+                  n
+                );
+              })(u, e, r),
+              h,
+              c,
+            );
+          if (((m = { blob: n, width: e, height: r }), n.size <= s)) break;
+          if (c > d) c = Math.max(d, c - 0.12);
+          else {
+            let e = Math.max(a, 0.8 * t);
+            if (e === t) break;
+            t = e;
+          }
+        }
+        if (!m || m.blob.size >= e.size) return i(e);
+        let p = await r(m.blob);
+        return {
+          dataUrl: p,
+          base64: n(p),
+          mimeType: h,
+          bytes: m.blob.size,
+          originalBytes: e.size,
+          width: m.width,
+          height: m.height,
+          compressed: !0,
+        };
+      } catch {
+        return i(e);
+      } finally {
+        u.release();
+      }
+    }
+    e.s([
+      "blobToDataURL",
+      0,
+      r,
+      "compressImageFile",
+      0,
+      a,
+      "formatBytes",
+      0,
+      function (e) {
+        return e < 1024
+          ? `${e} B`
+          : e < 1048576
+            ? `${Math.round(e / 1024)} KB`
+            : `${(e / 1048576).toFixed(1).replace(".", ",")} MB`;
+      },
+    ]);
+  },
+  761719,
+  (e) => {
+    "use strict";
+    let t = (0, e.i(456420).default)("align-vertical-justify-center", [
+      [
+        "rect",
+        { width: "14", height: "6", x: "5", y: "16", rx: "2", key: "1i8z2d" },
+      ],
+      [
+        "rect",
+        { width: "10", height: "6", x: "7", y: "2", rx: "2", key: "ypihtt" },
+      ],
+      ["path", { d: "M2 12h20", key: "9i4pu4" }],
+    ]);
+    e.s(["AlignVerticalJustifyCenter", 0, t], 761719);
+  },
+  380669,
+  371406,
+  (e) => {
+    "use strict";
+    var t = e.i(456420);
+    let r = (0, t.default)("align-vertical-justify-end", [
+      [
+        "rect",
+        { width: "14", height: "6", x: "5", y: "12", rx: "2", key: "4l4tp2" },
+      ],
+      [
+        "rect",
+        { width: "10", height: "6", x: "7", y: "2", rx: "2", key: "ypihtt" },
+      ],
+      ["path", { d: "M2 22h20", key: "272qi7" }],
+    ]);
+    e.s(["AlignVerticalJustifyEnd", 0, r], 380669);
+    let n = (0, t.default)("align-vertical-justify-start", [
+      [
+        "rect",
+        { width: "14", height: "6", x: "5", y: "16", rx: "2", key: "1i8z2d" },
+      ],
+      [
+        "rect",
+        { width: "10", height: "6", x: "7", y: "6", rx: "2", key: "13squh" },
+      ],
+      ["path", { d: "M2 2h20", key: "1ennik" }],
+    ]);
+    e.s(["AlignVerticalJustifyStart", 0, n], 371406);
+  },
+  667259,
+  (e) => {
+    "use strict";
+    let t = (0, e.i(456420).default)("columns-3", [
+      [
+        "rect",
+        { width: "18", height: "18", x: "3", y: "3", rx: "2", key: "afitv7" },
+      ],
+      ["path", { d: "M9 3v18", key: "fh3hqa" }],
+      ["path", { d: "M15 3v18", key: "14nvp0" }],
+    ]);
+    e.s(["Columns3", 0, t], 667259);
+  },
+  762368,
+  (e) => {
+    "use strict";
+    let t = (0, e.i(456420).default)("download", [
+      ["path", { d: "M12 15V3", key: "m9g1x1" }],
+      [
+        "path",
+        { d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4", key: "ih7n3h" },
+      ],
+      ["path", { d: "m7 10 5 5 5-5", key: "brsn70" }],
+    ]);
+    e.s(["Download", 0, t], 762368);
+  },
+  513797,
+  (e) => {
+    "use strict";
+    let t = (0, e.i(456420).default)("image-plus", [
+      ["path", { d: "M16 5h6", key: "1vod17" }],
+      ["path", { d: "M19 2v6", key: "4bpg5p" }],
+      [
+        "path",
+        {
+          d: "M21 11.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7.5",
+          key: "1ue2ih",
+        },
+      ],
+      [
+        "path",
+        { d: "m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21", key: "1xmnt7" },
+      ],
+      ["circle", { cx: "9", cy: "9", r: "2", key: "af1f0g" }],
+    ]);
+    e.s(["ImagePlus", 0, t], 513797);
+  },
+  368308,
+  (e) => {
+    "use strict";
+    let t = (0, e.i(456420).default)("keyboard", [
+      ["path", { d: "M10 8h.01", key: "1r9ogq" }],
+      ["path", { d: "M12 12h.01", key: "1mp3jc" }],
+      ["path", { d: "M14 8h.01", key: "1primd" }],
+      ["path", { d: "M16 12h.01", key: "1l6xoz" }],
+      ["path", { d: "M18 8h.01", key: "emo2bl" }],
+      ["path", { d: "M6 8h.01", key: "x9i8wu" }],
+      ["path", { d: "M7 16h10", key: "wp8him" }],
+      ["path", { d: "M8 12h.01", key: "czm47f" }],
+      [
+        "rect",
+        { width: "20", height: "16", x: "2", y: "4", rx: "2", key: "18n3k1" },
+      ],
+    ]);
+    e.s(["Keyboard", 0, t], 368308);
+  },
+  701679,
+  (e) => {
+    "use strict";
+    let t = (0, e.i(456420).default)("mouse-pointer-2", [
+      [
+        "path",
+        {
+          d: "M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z",
+          key: "edeuup",
+        },
+      ],
+    ]);
+    e.s(["MousePointer2", 0, t], 701679);
+  },
+  337161,
+  435184,
+  (e) => {
+    "use strict";
+    var t = e.i(456420);
+    let r = (0, t.default)("paint-bucket", [
+      ["path", { d: "M11 7 6 2", key: "1jwth8" }],
+      ["path", { d: "M18.992 12H2.041", key: "xw1gg" }],
+      [
+        "path",
+        {
+          d: "M21.145 18.38A3.34 3.34 0 0 1 20 16.5a3.3 3.3 0 0 1-1.145 1.88c-.575.46-.855 1.02-.855 1.595A2 2 0 0 0 20 22a2 2 0 0 0 2-2.025c0-.58-.285-1.13-.855-1.595",
+          key: "1nkol4",
+        },
+      ],
+      [
+        "path",
+        {
+          d: "m8.5 4.5 2.148-2.148a1.205 1.205 0 0 1 1.704 0l7.296 7.296a1.205 1.205 0 0 1 0 1.704l-7.592 7.592a3.615 3.615 0 0 1-5.112 0l-3.888-3.888a3.615 3.615 0 0 1 0-5.112L5.67 7.33",
+          key: "1nk1rd",
+        },
+      ],
+    ]);
+    e.s(["PaintBucket", 0, r], 337161);
+    let n = (0, t.default)("type", [
+      ["path", { d: "M12 4v16", key: "1654pz" }],
+      ["path", { d: "M4 7V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2", key: "e0r10z" }],
+      ["path", { d: "M9 20h6", key: "s66wpe" }],
+    ]);
+    e.s(["Type", 0, n], 435184);
+  },
+  7891,
+  (e) => {
+    "use strict";
+    let t = (0, e.i(456420).default)("pen-line", [
+      ["path", { d: "M13 21h8", key: "1jsn5i" }],
+      [
+        "path",
+        {
+          d: "M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z",
+          key: "1a8usu",
+        },
+      ],
+    ]);
+    e.s(["default", 0, t]);
+  },
+  203293,
+  (e) => {
+    "use strict";
+    let t = (0, e.i(456420).default)("pencil-ruler", [
+      [
+        "path",
+        {
+          d: "M13 7 8.7 2.7a2.41 2.41 0 0 0-3.4 0L2.7 5.3a2.41 2.41 0 0 0 0 3.4L7 13",
+          key: "orapub",
+        },
+      ],
+      ["path", { d: "m8 6 2-2", key: "115y1s" }],
+      ["path", { d: "m18 16 2-2", key: "ee94s4" }],
+      [
+        "path",
+        {
+          d: "m17 11 4.3 4.3c.94.94.94 2.46 0 3.4l-2.6 2.6c-.94.94-2.46.94-3.4 0L11 17",
+          key: "cfq27r",
+        },
+      ],
+      [
+        "path",
+        {
+          d: "M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z",
+          key: "1a8usu",
+        },
+      ],
+      ["path", { d: "m15 5 4 4", key: "1mk7zo" }],
+    ]);
+    e.s(["PencilRuler", 0, t], 203293);
+  },
+  250832,
+  (e) => {
+    "use strict";
+    let t = (0, e.i(456420).default)("settings-2", [
+      ["path", { d: "M14 17H5", key: "gfn3mx" }],
+      ["path", { d: "M19 7h-9", key: "6i9tg" }],
+      ["circle", { cx: "17", cy: "17", r: "3", key: "18b49y" }],
+      ["circle", { cx: "7", cy: "7", r: "3", key: "dfmy0x" }],
+    ]);
+    e.s(["Settings2", 0, t], 250832);
+  },
+  69193,
+  189622,
+  161961,
+  456539,
+  (e) => {
+    "use strict";
+    var t = e.i(456420);
+    let r = (0, t.default)("text-align-center", [
+      ["path", { d: "M21 5H3", key: "1fi0y6" }],
+      ["path", { d: "M17 12H7", key: "16if0g" }],
+      ["path", { d: "M19 19H5", key: "vjpgq2" }],
+    ]);
+    e.s(["AlignCenter", 0, r], 69193);
+    let n = (0, t.default)("text-align-start", [
+      ["path", { d: "M21 5H3", key: "1fi0y6" }],
+      ["path", { d: "M15 12H3", key: "6jk70r" }],
+      ["path", { d: "M17 19H3", key: "z6ezky" }],
+    ]);
+    e.s(["AlignLeft", 0, n], 189622);
+    let i = (0, t.default)("text-align-end", [
+      ["path", { d: "M21 5H3", key: "1fi0y6" }],
+      ["path", { d: "M21 12H9", key: "dn1m92" }],
+      ["path", { d: "M21 19H7", key: "4cu937" }],
+    ]);
+    e.s(["AlignRight", 0, i], 161961);
+    var a = e.i(144716);
+    e.s(["ChevronUp", () => a.default], 456539);
+  },
+  994533,
+  524815,
+  (e) => {
+    "use strict";
+    let t = (0, e.i(456420).default)("wand-sparkles", [
+      [
+        "path",
+        {
+          d: "m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72",
+          key: "ul74o6",
+        },
+      ],
+      ["path", { d: "m14 7 3 3", key: "1r5n42" }],
+      ["path", { d: "M5 6v4", key: "ilb8ba" }],
+      ["path", { d: "M19 14v4", key: "blhpug" }],
+      ["path", { d: "M10 2v2", key: "7u0qdc" }],
+      ["path", { d: "M7 8H3", key: "zfb6yr" }],
+      ["path", { d: "M21 16h-4", key: "1cnmox" }],
+      ["path", { d: "M11 3H9", key: "1obp7u" }],
+    ]);
+    e.s(["Wand2", 0, t], 994533);
+    var r = e.i(271645);
+    let n = "boardrenderer-import";
+    async function i(e) {
+      let t = new Blob([e])
+        .stream()
+        .pipeThrough(new DecompressionStream("deflate"));
+      return new TextDecoder().decode(await new Response(t).arrayBuffer());
+    }
+    async function a(e) {
+      if (e.length < 8 || 80 !== e[1] || 78 !== e[2] || 71 !== e[3])
+        return null;
+      let t = new DataView(e.buffer, e.byteOffset, e.byteLength);
+      for (let r = 8; r + 12 <= e.length; ) {
+        let n = t.getUint32(r),
+          a = String.fromCharCode(...e.subarray(r + 4, r + 8));
+        if ("tEXt" === a) {
+          let t = e.subarray(r + 8, r + 8 + n),
+            a = t.indexOf(0);
+          if (
+            a > 0 &&
+            "boardrenderer" === new TextDecoder().decode(t.subarray(0, a))
+          )
+            try {
+              let e = Uint8Array.from(
+                  atob(new TextDecoder().decode(t.subarray(a + 1))),
+                  (e) => e.charCodeAt(0),
+                ),
+                r = JSON.parse(await i(e));
+              return r?.clip && Array.isArray(r.clip.strokes) ? r.clip : null;
+            } catch {
+              break;
+            }
+        }
+        if ("IEND" === a) break;
+        r += 12 + n;
+      }
+      return null;
+    }
+    let l = new Map();
+    function o(e) {
+      if (!e || !(/^data:image\/png/i.test(e) || /^https?:/i.test(e)))
+        return Promise.resolve(null);
+      let t = l.get(e);
+      return (
+        t ||
+          ((t = fetch(e)
+            .then((e) => (e.ok ? e.arrayBuffer() : null))
+            .then((e) => (e ? a(new Uint8Array(e)) : null))
+            .catch(() => null)),
+          l.set(e, t)),
+        t
+      );
+    }
+    async function s(e) {
+      let t = await o(e);
+      if (!t) return !1;
+      try {
+        localStorage.setItem(n, JSON.stringify({ clip: t, at: Date.now() }));
+      } catch {
+        return !1;
+      }
+      return (window.open("/board-renderer?import=1", "_blank"), !0);
+    }
+    e.s(
+      [
+        "BOARD_IMPORT_KEY",
+        0,
+        n,
+        "boardImageFromHtml",
+        0,
+        function (e) {
+          if (!e || !e.includes("data-boardrenderer")) return null;
+          let t = e.match(/<img\b[^>]*data-boardrenderer[^>]*>/i)?.[0],
+            r = t?.match(
+              /\bsrc="(data:image\/png;base64,[A-Za-z0-9+/=]+)"/i,
+            )?.[1];
+          if (!t || !r) return null;
+          let n = (e) =>
+            Number(t.match(RegExp(`\\b${e}="(\\d+(?:\\.\\d+)?)"`, "i"))?.[1]) ||
+            0;
+          return { src: r, width: n("width"), height: n("height") };
+        },
+        "openInBoard",
+        0,
+        s,
+        "useIsBoardImage",
+        0,
+        function (e, t = !0) {
+          let [n, i] = (0, r.useState)({ src: "", yes: !1 });
+          return (
+            (0, r.useEffect)(() => {
+              if (!t || !e) return;
+              let r = !0;
+              return (
+                o(e).then((t) => {
+                  r && i({ src: e, yes: !!t });
+                }),
+                () => {
+                  r = !1;
+                }
+              );
+            }, [e, t]),
+            n.src === e && n.yes
+          );
+        },
+      ],
+      524815,
+    );
+  },
+]);

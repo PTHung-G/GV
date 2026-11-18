@@ -1,0 +1,6 @@
+// Reconstructed from 42t5am4xfcidi.js, module 93547.
+// deps: none
+// exports: none
+
+
+let n=t.r(87201),o=t.r(848125),i=t.r(473133),a=t.r(150882),s=t.r(67483),u=n.getBCHDigit(7973);function l(t,e){return a.getCharCountIndicator(t,e)+4}r.from=function(t,e){return s.isValid(t)?parseInt(t,10):e},r.getCapacity=function(t,e,r){if(!s.isValid(t))throw Error("Invalid QR Code version");void 0===r&&(r=a.BYTE);let i=(n.getSymbolTotalCodewords(t)-o.getTotalCodewordsCount(t,e))*8;if(r===a.MIXED)return i;let u=i-l(r,t);switch(r){case a.NUMERIC:return Math.floor(u/10*3);case a.ALPHANUMERIC:return Math.floor(u/11*2);case a.KANJI:return Math.floor(u/13);case a.BYTE:default:return Math.floor(u/8)}},r.getBestVersionForData=function(t,e){let n,o=i.from(e,i.M);if(Array.isArray(t)){if(t.length>1){for(let e=1;e<=40;e++)if(function(t,e){let r=0;return t.forEach(function(t){let n=l(t.mode,e);r+=n+t.getBitsLength()}),r}(t,e)<=r.getCapacity(e,o,a.MIXED))return e;return}if(0===t.length)return 1;n=t[0]}else n=t;return function(t,e,n){for(let o=1;o<=40;o++)if(e<=r.getCapacity(o,n,t))return o}(n.mode,n.getLength(),o)},r.getEncodedBits=function(t){if(!s.isValid(t)||t<7)throw Error("Invalid QR Code version");let e=t<<12;for(;n.getBCHDigit(e)-u>=0;)e^=7973<<n.getBCHDigit(e)-u;return t<<12|e}

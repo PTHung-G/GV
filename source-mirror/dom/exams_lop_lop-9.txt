@@ -1,0 +1,3741 @@
+soandethi.com
+Trang chủ
+Soạn đề
+Soạn slide
+Đề thi cộng đồng
+Đề thi của tôi
+Công cụ
+Đăng nhập
+Đề thi lớp 9
+Lớp 9
+Tất cả môn
+Toán
+Ngữ văn
+Tiếng Việt
+Tiếng Anh
+Vật lí
+Hoá học
+Sinh học
+Khoa học tự nhiên
+Lịch sử
+Địa lí
+Lịch sử và Địa lí
+Giáo dục công dân
+Giáo dục kinh tế và pháp luật
+Tin học
+Công nghệ
+Môn khác
+
+79 đề
+
+Xoá bộ lọc
+
+TRƯỜNG THCS …
+
+Tài liệu ôn tập
+
+ĐỀ CHUYÊN (TĂNG CƯỜNG 4) – LỜI GIẢI CHI TIẾT
+
+Môn: Toán – Lớp 9
+
+Năm học 2026 – 2027
+
+PHẦN I. TRẮC NGHIỆM (20 câu – 5,0 điểm)
+
+Câu 1. Với x>0,y>0,2x
+
+=y, rút gọn biểu thức B=
+2x−y
+2x−
+2xy
+	​
+
+	​
+
+ ta được:
+
+A. 
+2x
+	​
+
+−
+y
+	​
+
+2xy
+	​
+
+	​
+
+
+
+
+B. 
+2
+x
+	​
+
+−
+y
+	​
+
+1
+	​
+
+
+
+
+C. 
+2x
+	​
+
++
+y
+	​
+
+2x
+	​
+
+	​
+
+
+
+
+D. 
+2x
+	​
+
++
+y
+	​
+
+2
+x
+	​
+
+	​
+
+
+
+
+Lời giải:
+Đặt u=
+2x
+	​
+
+>0 và v=
+y
+	​
+
+>0 (u
+
+=v). Ta có:
+
+2x−y=u
+2
+−v
+2
+=(u−v)(u+v)
+
+2x−
+2xy
+	​
+
+=u
+2
+−uv=u(u−v)
+
+Suy ra:
+
+B=
+(u−v)(u+v)
+u(u−v)
+	​
+
+=
+u+v
+u
+	​
+
+=
+2x
+	​
+
++
+y
+	​
+
+2x
+	​
+
+	​
+
+
+Chọn C.
+
+Câu 2. Tìm giá trị của biểu thức A=
+x
+	​
+
++3
+x−2
+	​
+
+ khi x=16.
+
+A. 2
+
+
+B. 5
+
+
+C. 10
+
+
+D. 8
+
+
+Lời giải:
+Thay x=16 (thỏa mãn điều kiện x≥0) vào biểu thức A, ta được:
+
+A=
+16
+	​
+
++3
+16−2
+	​
+
+=
+4+3
+14
+	​
+
+=
+7
+14
+	​
+
+=2
+
+Chọn A.
+
+Câu 3. Tổng các nghiệm của phương trình 3
+x
+4
+−3x
+2
+=81 là:
+
+A. 0
+
+
+B. 1
+
+
+C. 3
+
+
+D. 4
+
+
+Lời giải:
+Ta có 81=3
+4
+, do đó:
+
+3
+x
+4
+−3x
+2
+=3
+4
+⇔x
+4
+−3x
+2
+=4⇔x
+4
+−3x
+2
+−4=0
+
+Đặt t=x
+2
+ (t≥0), phương trình trở thành:
+
+t
+2
+−3t−4=0⇔(t−4)(t+1)=0⇔
+	​
+
+t=4 (nhận)
+t=−1 (loại)
+	​
+
+
+Với t=4⇒x
+2
+=4⇔x=±2.
+Tổng các nghiệm của phương trình là: 2+(−2)=0.
+Chọn A.
+
+Câu 4. Cho phương trình x
+2
+−(m−1)x−m
+2
++m−2=0. Phương trình luôn có hai nghiệm trái dấu. Tìm m để biểu thức A=x
+1
+2
+	​
+
++x
+2
+2
+	​
+
+ đạt giá trị nhỏ nhất.
+
+A. 
+3
+2
+	​
+
+
+
+
+B. 1
+
+
+C. 
+5
+3
+	​
+
+
+
+
+D. 6
+
+
+Lời giải:
+Xét tích hai nghiệm: P=x
+1
+	​
+
+x
+2
+	​
+
+=−(m
+2
+−m+2)=−[(m−
+2
+1
+	​
+
+)
+2
++
+4
+7
+	​
+
+]≤−
+4
+7
+	​
+
+<0 với mọi m.
+Do đó phương trình luôn có hai nghiệm trái dấu x
+1
+	​
+
+,x
+2
+	​
+
+.
+Theo định lí Viète: x
+1
+	​
+
++x
+2
+	​
+
+=m−1 và x
+1
+	​
+
+x
+2
+	​
+
+=−m
+2
++m−2.
+Ta có:
+
+A=x
+1
+2
+	​
+
++x
+2
+2
+	​
+
+=(x
+1
+	​
+
++x
+2
+	​
+
+)
+2
+−2x
+1
+	​
+
+x
+2
+	​
+
+=(m−1)
+2
+−2(−m
+2
++m−2)=3m
+2
+−4m+5
+
+Biểu thức 3m
+2
+−4m+5=3(m−
+3
+2
+	​
+
+)
+2
++
+3
+11
+	​
+
+≥
+3
+11
+	​
+
+.
+Dấu "=" xảy ra khi m=
+3
+2
+	​
+
+.
+Chọn A.
+
+Câu 5. Cho phương trình x
+2
++6x+m=0 (với m là tham số). Tìm m để phương trình đã cho có hai nghiệm phân biệt.
+
+A. m<9
+
+
+B. m>9
+
+
+C. m=9
+
+
+D. Không có giá trị m thỏa mãn
+
+Lời giải:
+Phương trình có hai nghiệm phân biệt khi và chỉ khi:
+
+Δ
+′
+=3
+2
+−1⋅m>0⇔9−m>0⇔m<9
+
+Chọn A.
+
+Câu 6. Cho phương trình 2x
+2
+−7x−1=0 có hai nghiệm phân biệt x
+1
+	​
+
+,x
+2
+	​
+
+. Tính giá trị của biểu thức S=x
+1
+2
+	​
+
++x
+2
+2
+	​
+
+−3x
+1
+	​
+
+x
+2
+	​
+
+.
+
+A. 
+4
+59
+	​
+
+
+
+
+B. 50
+
+
+C. 29
+
+
+D. 37
+
+
+Lời giải:
+Phương trình có a⋅c=2⋅(−1)=−2<0 nên luôn có hai nghiệm phân biệt x
+1
+	​
+
+,x
+2
+	​
+
+.
+Theo hệ thức Viète: x
+1
+	​
+
++x
+2
+	​
+
+=
+2
+7
+	​
+
+ và x
+1
+	​
+
+x
+2
+	​
+
+=−
+2
+1
+	​
+
+.
+Ta có:
+
+S=x
+1
+2
+	​
+
++x
+2
+2
+	​
+
+−3x
+1
+	​
+
+x
+2
+	​
+
+=(x
+1
+	​
+
++x
+2
+	​
+
+)
+2
+−5x
+1
+	​
+
+x
+2
+	​
+
+=(
+2
+7
+	​
+
+)
+2
+−5(−
+2
+1
+	​
+
+)=
+4
+49
+	​
+
++
+2
+5
+	​
+
+=
+4
+59
+	​
+
+
+Chọn A.
+
+Câu 7. Tính giá trị của biểu thức M=a
+2
++b
+2
+ biết a,b thỏa mãn hệ phương trình:
+
+⎩
+⎨
+⎧
+	​
+
+b
+2
+3a
+2
+	​
+
++
+b
+3
+1
+	​
+
+a
+2
+3b
+2
+	​
+
++
+a
+3
+2
+	​
+
+	​
+
+=1
+=1
+	​
+
+
+A. 5
+
+
+B. 
+3
+5
+	​
+
+
+
+
+C. 5
+3
+
+
+
+D. 
+5
+1
+	​
+
+
+
+
+Lời giải:
+Điều kiện a
+
+=0,b
+
+=0. Quy đồng hệ phương trình:
+
+Toán 9 - Đề chuyên (Tăng cường 4) kèm Lời giải chi tiết
+
+Toán
+Lớp 9
+Toàn Trịnh
+3
+
+UBND XÃ/PHƯỜNG …
+
+TRƯỜNG THCS …
+
+Đề chính thức
+
+ĐỀ KIỂM TRA GIỮA HỌC KỲ I – ĐỀ SỐ 1
+
+NĂM HỌC 2026 – 2027
+
+Môn: Giáo dục địa phương – Lớp 9
+
+Thời gian làm bài: 45 phút (không kể thời gian phát đề)
+
+PHẦN I. CÂU HỎI TRẮC NGHIỆM NHIỀU LỰA CHỌN (3,0 điểm)
+
+Thí sinh chọn một phương án đúng nhất trong mỗi câu sau (mỗi câu trả lời đúng được 0,25 điểm):
+
+Câu 1. Chi bộ Cộng sản đầu tiên ở Việt Nam được thành lập vào tháng 3/1929 tại địa chỉ nào ở Hà Nội?
+
+A. Số 48 phố Hàng Ngang.
+
+B. Số 5D phố Hàm Long.
+
+C. Số 90 phố Thợ Nhuộm.
+
+D. Số 19 phố Hàng Đào.
+
+Câu 2. Đồng chí nào được bầu làm Bí thư Chi bộ Cộng sản đầu tiên thành lập tại số 5D phố Hàm Long (Hà Nội)?
+
+A. Trần Phú.
+
+B. Ngô Gia Tự.
+
+C. Trần Văn Cung.
+
+D. Nguyễn Đức Cảnh.
+
+Câu 3. Địa điểm lịch sử nào diễn ra cuộc mít tinh khổng lồ của quần chúng nhân dân Hà Nội vào sáng ngày 19/8/1945 rồi biến thành biểu tình vũ trang khởi nghĩa?
+
+A. Quảng trường Đông Kinh Nghĩa Thục.
+
+B. Quảng trường Nhà hát Lớn.
+
+C. Quảng trường Ba Đình.
+
+D. Cột cờ Hà Nội.
+
+Câu 4. Ngày 2/9/1945, tại Quảng trường Ba Đình lịch sử, Chủ tịch Hồ Chí Minh đã thay mặt Chính phủ lâm thời đọc văn kiện lịch sử trọng đại nào?
+
+A. Lời kêu gọi Toàn quốc kháng chiến.
+
+B. Tuyên ngôn Độc lập.
+
+C. Bản Chỉ thị Toàn dân kháng chiến.
+
+D. Báo cáo Bàn về cách mạng Việt Nam.
+
+Câu 5. Sau Cách mạng tháng Tám năm 1945, nhân dân Hà Nội cùng cả nước phải đối mặt với muôn vàn khó khăn, được ví như tình thế nào?
+
+A. Nước sôi lửa bỏng.
+
+B. Trứng để đầu đẳng.
+
+C. Ngàn cân treo sợi tóc.
+
+D. Bão táp cách mạng.
+
+Câu 6. Lời kêu gọi Toàn quốc kháng chiến của Chủ tịch Hồ Chí Minh được phát đi vào ngày tháng năm nào?
+
+A. Ngày 19/12/1946.
+
+B. Ngày 19/8/1945.
+
+C. Ngày 10/10/1954.
+
+D. Ngày 22/12/1946.
+
+Câu 7. Khẩu hiệu lịch sử hào hùng thể hiện ý chí quật cường của quân và dân Thủ đô trong mùa đông năm 1946 là:
+
+A. "Không có gì quý hơn độc lập, tự do".
+
+B. "Quyết tử để Tổ quốc quyết sinh".
+
+C. "Tất cả cho tiền tuyến, tất cả để chiến thắng".
+
+D. "Nhằm thẳng quân thù mà bắn".
+
+Câu 8. Đơn vị quân đội nào đã kiên cường chiến đấu giam chân địch suốt 60 ngày đêm trong lòng Hà Nội (19/12/1946 – 17/2/1947)?
+
+A. Sư đoàn 308.
+
+B. Trung đoàn Ba Tơ.
+
+C. Trung đoàn Thủ đô.
+
+D. Trung đoàn Đồng Nai.
+
+Câu 9. Sự kiện Ngày Giải phóng Thủ đô đánh dấu mốc đoàn quân chiến thắng tiến vào tiếp quản Hà Nội diễn ra vào thời gian nào?
+
+A. Ngày 10/10/1954.
+
+B. Ngày 02/09/1945.
+
+C. Ngày 19/08/1945.
+
+D. Ngày 30/04/1975.
+
+Câu 10. Trận quyết chiến chiến lược trên bầu trời Hà Nội trong 12 ngày đêm cuối tháng 12 năm 1972 được vinh danh trong lịch sử là:
+
+A. Chiến dịch Đường 9 – Nam Lào.
+
+B. Chiến dịch Hồ Chí Minh.
+
+C. Chiến thắng "Hà Nội – Điện Biên Phủ trên không".
+
+D. Chiến thắng Điện Biên Phủ.
+
+Câu 11. Loại máy bay ném bom chiến lược tối tân nào của Mỹ đã bị quân dân Thủ đô Hà Nội bắn rơi nhiều nhất trong 12 ngày đêm năm 1972?
+
+A. Pháo đài bay B-52.
+
+B. Máy bay tiêm kích F-111.
+
+C. Máy bay trinh sát U-2.
+
+D. Trực thăng vũ trang Chinook.
+
+Câu 12. Năm 1999, Hà Nội vinh dự được tổ chức UNESCO trao tặng danh hiệu cao quý nào?
+
+A. Đô thị xanh bền vững.
+
+B. Thành phố sáng tạo nghệ thuật.
+
+C. Thành phố vì hòa bình.
+
+D. Đô thị du lịch thông minh.
+
+PHẦN II. CÂU HỎI TRẮC NGHIỆM ĐÚNG/SAI (2,0 điểm)
+
+Thí sinh ghi Đúng (Đ) hoặc Sai (S) cho mỗi ý a), b), c), d) ở từng câu:
+
+Câu 1. Về phong trào yêu nước và cách mạng ở Hà Nội giai đoạn 1918 – 1945:
+a) Chi bộ Cộng sản đầu tiên tại Hà Nội ra đời đã khẳng định sự trưởng thành vượt bậc của lực lượng cách mạng Thủ đô.
+
+Bộ 4 đề kiểm tra giữa học kỳ I môn Giáo dục địa phương 9 (Bài 1 và Bài 2)
+
+Lịch sử
+Lớp 9
+Luyến Kim
+0
+
+TRUNG TÂM TOÁN ATINA
+
+ĐỀ KIỂM TRA HỌC KỲ II
+
+Năm học: 2026 – 2027
+
+Môn: Toán – Lớp 9
+
+Thời gian làm bài: 90 phút (không kể thời gian phát đề)
+
+PHẦN I. TRẮC NGHIỆM (32 câu – 6,4 điểm)
+
+Câu 1. Giá trị của biểu thức 
+(−16)
+2
+	​
+
+ bằng
+
+A. ±16
+
+
+B. 16
+
+
+C. 256
+
+
+D. −16
+
+
+Câu 2. Phương trình 2x
+2
+−x−m+1=0 có hai nghiệm phân biệt khi
+
+A. m>
+7
+8
+	​
+
+
+
+
+B. m>
+8
+7
+	​
+
+
+
+
+C. m<
+8
+7
+	​
+
+
+
+
+D. m<
+7
+8
+	​
+
+
+
+
+Câu 3. Thống kê điểm sau 20 lần bắn bia của một xạ thủ như sau:
+
+8  9  10  10  9  7  9  10  8  9  10  7  9  10  9  10  8  7  9  10
+
+Tần số xạ thủ bắn vào điểm 10 là
+
+A. 8
+
+B. 7
+
+C. 9
+
+D. 10
+
+Câu 4. Cho tam giác ABC có đường cao AH, AB=5 cm; AC=12 cm; BC=13 cm. Độ dài HB là (làm tròn đến chữ số thập phân thứ hai)
+
+A. 1,92 cm
+
+
+B. 4,62 cm
+
+
+C. 11,08 cm
+
+
+D. 4 cm
+
+
+Câu 5. Cho tam giác ABC vuông tại A, đường cao AH có CH=4 cm, BH=5 cm. Khi đó cosC bằng
+
+A. 
+5
+4
+	​
+
+
+
+
+B. 
+5
+3
+	​
+
+
+
+
+C. 
+3
+2
+	​
+
+
+
+
+D. 
+6
+5
+	​
+
+
+
+
+Câu 6. Cho tam giác MNP vuông tại M có MN=6 cm, MP=8 cm. Bán kính đường tròn ngoại tiếp tam giác MNP là
+
+A. 5 cm
+
+
+B. 6 cm
+
+
+C. 7 cm
+
+
+D. 8 cm
+
+
+Câu 7. Cho (O;3 cm) tiếp xúc ngoài với (O
+′
+;1 cm). Vẽ bán kính OB và O
+′
+C song song với nhau cùng nằm một phía so với đường thẳng OO
+′
+. Gọi D là giao điểm của BC và OO
+′
+. Độ dài OD bằng
+
+A. 4,5 cm
+
+
+B. 5 cm
+
+
+C. 8 cm
+
+
+D. 6 cm
+
+
+Câu 8. Cho tam giác ABC có ba góc nhọn nội tiếp đường tròn tâm (O), đường kính AM. Số đo 
+ABM
+ bằng số đo
+
+A. 
+AMC
+
+
+
+B. 
+MBC
+
+
+
+C. 
+OCM
+
+
+
+D. 
+ABC
+
+
+
+Câu 9. Tổng tất cả các giá trị của m để phương trình x
+2
+−2mx+1=0 có nghiệm kép là
+
+A. −1
+
+
+B. 0
+
+
+C. 1
+
+
+D. 2
+
+
+Câu 10. Với giá trị nào của m thì phương trình (m−1)x
+2
++2(m−1)x+m−3=0 vô nghiệm?
+
+A. m>1
+
+
+B. m≥1
+
+
+C. m≤1
+
+
+D. m<1
+
+
+Câu 11. Cho hệ phương trình 
+⎩
+⎨
+⎧
+	​
+
+−x−y=m−1
+3x+y=m+1
+	​
+
+ (m∈R). Có bao nhiêu giá trị của m để hệ phương trình có nghiệm duy nhất (1;−1)?
+
+A. 0
+
+B. 1
+
+C. 2
+
+D. 3
+
+Câu 12. Trong các hàm số sau, hàm số nào không phải là hàm số bậc nhất?
+
+A. y=1−x
+
+
+B. y=2
+x
+	​
+
+−3
+
+
+C. y=(1−
+2
+	​
+
+)x
+
+
+D. y=−2x+6
+
+
+Câu 13. Cho hàm số y=ax
+2
+ (a
+
+=0). Điểm M(1;2) thuộc đồ thị hàm số khi
+
+A. a=2
+
+
+B. a=
+2
+1
+	​
+
+
+
+
+C. a=−2
+
+
+D. a=
+4
+1
+	​
+
+
+
+
+Câu 14. Từ điểm A nằm bên ngoài đường tròn (O) kẻ hai tiếp tuyến AB,AC tới đường tròn (B,C là các tiếp điểm). Kẻ đường kính BK. Biết 
+BAC
+=30
+∘
+. Số đo của cung nhỏ 
+CK
+ là
+
+A. 30
+∘
+
+
+
+B. 60
+∘
+
+
+
+C. 120
+∘
+
+
+
+D. 150
+∘
+
+
+
+Câu 15. Với giá trị nào của m thì phương trình x
+2
+−(3m+1)x+m−5=0 có một nghiệm x=−1?
+
+A. m=1
+
+
+B. m=−
+2
+5
+	​
+
+
+
+
+C. m=
+2
+5
+	​
+
+
+
+
+D. m=
+4
+3
+	​
+
+
+
+
+Câu 16. Phương trình (x−2)(x−3)=0 có nghiệm là
+
+A. x∈{2;−3}
+
+
+B. x∈{−2;3}
+
+
+C. x∈{2;3}
+
+
+D. x∈{−2;−3}
+
+
+Câu 17. Cho phương trình mx
+2
++3x+6=0. Với điều kiện nào của m thì phương trình là phương trình bậc nhất một ẩn?
+
+A. m>0
+
+
+B. m
+
+=0
+
+
+C. m<0
+
+
+D. m=0
+
+
+Đề kiểm tra học kỳ II môn Toán 9
+
+Toán
+Lớp 9
+ttatinaedu huyen
+0
+
+UBND PHƯỜNG BẠCH MAI
+
+TRƯỜNG THCS NGÔ GIA TỰ
+
+(Đề thi gồm 04 trang)
+
+ĐỀ KIỂM TRA GIỮA HỌC KÌ I
+
+NĂM HỌC 2026 – 2027
+
+MÔN: TIẾNG ANH 9
+
+Thời gian làm bài: 60 phút (không kể thời gian phát đề)
+
+Họ và tên thí sinh: ................................................................
+
+Số báo danh: ............................................................
+
+	
+
+Mã đề 901
+
+Read the following sign or notice and mark the letter A, B, C, or D on your answer sheet to indicate the correct answer to each of the following questions.
+
+FRESH CHILLED PHO SOUP
+REFRIGERATE PROMPTLY AFTER OPENING
+CONSUME WITHIN TWO DAYS OF BREAKING SEAL
+
+Question 1. What does this food container notice instruct consumers to do?
+
+A. Leave the soup at normal room temperature for two days before boiling.
+
+B. Keep the soup inside the refrigerator for no more than two days once opened.
+
+C. Avoid putting this food container into the refrigerator at all times.
+
+D. You must finish eating the soup before opening the protective seal.
+
+LIBRARY NOTICE
+COMMUNITY STUDY ROOM
+THE SCHEDULED ENGLISH SPEAKING CLUB TODAY HAS BEEN MOVED FROM ROOM 201 TO THE MAIN AUDITORIUM ON FLOOR 1.
+STARTING TIME: 3:00 PM (UNCHANGED).
+
+Question 2. What does this notice announce?
+
+A. The English speaking session will begin later than usual.
+
+B. The English club meeting has been cancelled until next week.
+
+C. Only students registered in Room 201 can join the club.
+
+D. The English club meeting will take place in a different room today.
+
+Mark the letter A, B, C, or D on your answer sheet to indicate the word that differs from the other three in the position of primary stress in each of the following questions.
+
+Question 3.
+
+A. convenient
+
+B. reliable
+
+C. polluted
+
+D. fabulous
+
+Question 4.
+
+A. local
+
+B. healthy
+
+C. pricey
+
+D. remind
+
+Mark the letter A, B, C, or D on your answer sheet to indicate the correct option that best fits each of the numbered blanks.
+
+Đề kiểm tra giữa học kì I môn Tiếng Anh 9 - Mã đề 901
+
+Tiếng Anh
+Lớp 9
+Trần Long Vũ
+9
+LỜI GIẢI CHI TIẾT VÀ PHƯƠNG PHÁP TRẢ LỜI
+ĐỀ SỐ 1 – CUỘC CHIA LI MÀU ĐỎ (Nguyễn Mĩ, 9 – 1964)
+I. ĐỌC HIỂU (3,0 điểm)
+Câu 1 (0,5 điểm). Xác định thể thơ của bài thơ.
+
+Đáp án: Bài thơ được viết theo thể thơ tự do.
+
+Phương pháp trả lời:
+- Bước 1: Đếm số chữ ở một số dòng liên tiếp: "Đó là cuộc chia li chói ngời sắc đỏ" (9 chữ), "Tươi như cánh nhạn lai hồng" (6 chữ), "Trưa một ngày sắp ngả sang đông" (8 chữ), "Thu, bỗng nắng vàng lên rực rỡ" (7 chữ).
+- Bước 2: Nhận xét: số chữ trong dòng không đều nhau, không có niêm luật cố định, cách ngắt nhịp tự nhiên theo mạch cảm xúc, vần thơ lỏng và không theo một khuôn mẫu nào.
+- Bước 3: Kết luận: đó là thể thơ tự do (không phải thơ 5 chữ, 7 chữ hay lục bát).
+
+Lưu ý: Học sinh hay nhầm với thơ "hiện đại" nói chung. Cần trả lời đúng tên thể thơ, không trả lời bằng nội dung hay cảm xúc. Chỉ ghi "thơ tự do" là đủ điểm; ghi sai thành "thơ bảy chữ", "thơ lục bát" là mất điểm.
+
+Gợi ý chấm: Trả lời đúng "thơ tự do" – 0,5 điểm.
+
+Câu 2 (0,5 điểm). Cụm từ "màu đỏ" được nhắc mấy lần trong khổ thơ cuối?
+
+Đáp án: Trong khổ thơ cuối, cụm từ "màu đỏ" xuất hiện 4 lần, ở ba dòng:
+- "Nhưng tôi biết cái màu đỏ ấy" (lần 1)
+- "Cái màu đỏ như màu đỏ ấy" (lần 2, lần 3)
+- "Nghĩa là màu đỏ ấy theo đi" (lần 4)
+
+Phương pháp trả lời:
+- Bước 1: Xác định đúng ranh giới khổ thơ cuối (từ "Nhưng tôi biết cái màu đỏ ấy" đến "Như không hề có cuộc chia li…").
+- Bước 2: Đọc chậm từng dòng, gạch chân cụm từ cần đếm; chú ý dòng thứ hai có tới hai lần xuất hiện.
+- Bước 3: Vừa nêu con số vừa chỉ rõ vị trí để chứng minh cách đếm.
+
+Lưu ý: Đây là câu hỏi nhận biết, phải trả lời bằng một con số chính xác. Nếu học sinh chỉ ghi "nhiều lần" hoặc "3 lần" do bỏ sót một lần ở dòng thứ hai thì không cho điểm. Nên viết kèm dẫn chứng để người chấm đối chiếu.
+
+Gợi ý chấm: Nêu đúng 4 lần (kèm vị trí càng tốt) – 0,5 điểm.
+
+Câu 3 (1,0 điểm). Những hình ảnh nào tác giả muốn xây dựng để gợi màu đỏ thị giác? Những hình ảnh nào không cảm nhận được bằng thị giác? Ý nghĩa của những hình ảnh đó?
+
+Đáp án:
+- Những hình ảnh gợi màu đỏ có thể cảm nhận bằng thị giác (nhìn thấy được): "bông hoa chuối đỏ tươi – Trên đỉnh dốc cao vẫy gọi đoàn người", "ánh lửa hồng trên bếp".
+- Những hình ảnh không cảm nhận được bằng thị giác mà chỉ hình dung, tưởng tượng: "Một làng xa giữa đêm gió rét" – ngọn lửa hồng ấy nằm ở một làng xa, giữa đêm tối và giá rét, người viết không nhìn thấy mà đang nghĩ, đang tin, đang hình dung về nó; đó là hình ảnh của tâm tưởng, của niềm tin hơn là của con mắt.
+- Ý nghĩa:
+  + Màu đỏ không chỉ là một sắc màu vật chất, hữu hình mà còn là màu của tình yêu, của lí tưởng, của sự sống và niềm tin.
+  + Màu đỏ ấy "theo đi" cùng người ra trận, lan tỏa khắp mọi miền Tổ quốc: nơi đỉnh dốc cao, nơi làng xa trong đêm gió rét. Nhờ vậy, chia li chỉ còn là khoảng cách không gian, không thể chia cắt được tình cảm và khát vọng.
+  + Cách chuyển từ cái nhìn thấy sang cái chỉ cảm nhận bằng tâm tưởng cho thấy sức mạnh của tình yêu và lí tưởng lớn hơn mọi giới hạn của hoàn cảnh chiến tranh.
+
+Phương pháp trả lời:
+- Bước 1: Đọc kĩ ba yêu cầu nhỏ trong một câu hỏi (hình ảnh thị giác – hình ảnh phi thị giác – ý nghĩa), trả lời lần lượt, không bỏ sót ý nào.
+- Bước 2: Trích đúng ngữ liệu, đặt trong dấu ngoặc kép; không diễn giải thay bằng hình ảnh khác.
+- Bước 3: Từ hình ảnh cụ thể nâng lên ý nghĩa khái quát (màu đỏ = tình yêu, lí tưởng, sự sống; chia li không chia cắt được lòng người).
+
+Lưu ý: Câu hỏi ba ý nên phải tách ý rõ ràng. Sai thường gặp: chỉ kể lại hình ảnh mà không nêu ý nghĩa, hoặc gộp "hoa chuối" và "ánh lửa" vào cùng một nhóm mà không phân biệt được cái nhìn thấy với cái tưởng tượng.
+
+Gợi ý chấm: Nêu đúng hình ảnh thị giác – 0,25; nêu đúng hình ảnh không cảm nhận bằng thị giác – 0,25; lí giải được ý nghĩa – 0,5.
+
+Câu 4 (1,0 điểm). Lí giải ý nghĩa thông điệp: "Như không hề có cuộc chia li".
+
+Đề thi mới
+
+Ngữ văn
+Lớp 9
+Tran Minh Ngoc
+0
+
+SỞ GIÁO DỤC VÀ ĐÀO TẠO
+
+BAN ĐỀ THI HỌC SINH GIỎI
+
+Đề chính thức
+
+KỲ THI CHỌN HỌC SINH GIỎI CẤP THÀNH PHỐ
+
+Môn: Giáo dục công dân – Lớp 9
+
+Thời gian làm bài: 150 phút (không kể thời gian giao đề)
+
+Câu 1 (2,0 điểm).
+Theo Cục Cảnh sát Phòng cháy, chữa cháy và Cứu nạn, cứu hộ (PCCC & CNCH), trong giai đoạn vừa qua cả nước ghi nhận nhiều vụ hỏa hoạn liên quan đến phương tiện giao thông cơ giới đường bộ (xe máy, ô tô, xe buýt), chiếm tỉ lệ từ 14,5% đến 16,1% tổng số vụ cháy theo từng tháng, gây thiệt hại nghiêm trọng về người và tài sản (Theo Báo điện tử VietnamNet, ngày 15/01/2026).
+a) Căn cứ theo Thông tư số 148/2020/TT-BCA của Bộ trưởng Bộ Công an, em hãy cho biết thông tư này quy định về vấn đề gì? Thời điểm thông tư được ban hành và chính thức có hiệu lực thi hành?
+b) Từ thực trạng trên, hãy trình bày các quy định cơ bản của pháp luật nước ta về quản lý, phòng ngừa tai nạn vũ khí, cháy, nổ và chất độc hại.
+c) Để giảm thiểu nguy cơ cháy, nổ phương tiện giao thông và chấp hành đúng quy định pháp luật, học sinh cấp Trung học cơ sở khi tham gia giao thông bằng xe đạp điện, xe máy điện cần thực hiện những biện pháp cụ thể nào?
+
+Câu 2 (2,0 điểm).
+Chỉ trong hai giờ đêm 12, rạng sáng ngày 13/9/2023, vụ cháy chung cư mini tại phố Khương Hạ (quận Thanh Xuân, Hà Nội) đã cướp đi sinh mạng của 56 người và làm 37 người bị thương. Cơ quan chức năng xác định nguyên nhân xuất phát từ sự cố chập điện bình ắc quy xe máy tại tầng 1, kết hợp các vi phạm nghiêm trọng: xây dựng sai phép, không có lối thoát nạn thứ hai, không có giải pháp ngăn cháy lan tại trục thang bộ và cư dân thiếu kỹ năng thoát hiểm (Theo Báo điện tử VnExpress, chuyên đề điều tra nguyên nhân cháy, cập nhật tư liệu ngày 18/09/2025).
+a) Em hãy nêu các hậu quả nghiêm trọng của tai nạn cháy, nổ đối với con người, tài sản, xã hội và môi trường.
+b) Dưới góc độ pháp luật, theo Luật Phòng cháy và chữa cháy hiện hành, hành vi xây dựng công trình không bảo đảm an toàn PCCC, tự ý chuyển đổi công năng hoặc bịt lối thoát nạn bị nghiêm cấm như thế nào? Chủ công trình vi phạm gây hậu quả đặc biệt nghiêm trọng có thể phải chịu những hình thức chế tài pháp lý nào?
+c) Nếu không may phát hiện đám cháy bùng phát tại khu vực tầng để xe khi đang ở trong một căn hộ tập thể/nhà tầng, em hãy đề xuất quy trình thoát hiểm an toàn và kỹ năng tự bảo vệ bản thân.
+
+Câu 3 (2,0 điểm).
+Ngày 20/01/2026, Công an tỉnh Nghệ An phát hiện và bắt giữ một nhóm học sinh THCS và THPT mua hóa chất gồm lưu huỳnh, kali clorat (KClO
+X
+3
+	​
+
+), bột than trên mạng xã hội về tự phối trộn, chế tạo pháo nổ để bán dịp Tết Nguyên đán. Trong quá trình tán bột hoá chất, một lượng pháo phát nổ làm một học sinh bị dập nát bàn tay phải và hỏng mắt trái (Theo Cổng thông tin điện tử Bộ Công an, bản tin an ninh trật tự ngày 22/01/2026).
+a) Hành vi chế tạo, tàng trữ, buôn bán pháo nổ tự chế đã vi phạm điều cấm nào trong quy định phòng ngừa tai nạn vũ khí, cháy, nổ theo bài học GDCD 9?
+b) Theo Nghị định số 137/2020/NĐ-CP của Chính phủ về quản lý, sử dụng pháo, công dân được phép sử dụng loại pháo nào? Phân biệt sự khác nhau cơ bản giữa pháo hoa và pháo nổ theo quy định pháp luật.
+c) Là một tuyên truyền viên măng non tại trường học, em hãy xây dựng một thông điệp ngắn gọn (khoảng 3 - 5 câu) và nêu 3 hành động cụ thể nhằm ngăn chặn tình trạng tự chế tạo pháo nổ trong thanh thiếu niên hiện nay.
+
+Câu 4 (2,0 điểm).
+Báo Sức khỏe và Đời sống (Bộ Y tế) ngày 10/11/2025 phản ánh tình trạng ngộ độc thực phẩm tập thể xảy ra tại một số bếp ăn bán trú học đường và cơ sở kinh doanh thức ăn đường phố do sử dụng nguyên liệu nhiễm vi khuẩn Salmonella, độc tố Botulinum hoặc thực phẩm ôi thiu chứa chất bảo quản vượt ngưỡng cho phép, khiến hàng trăm học sinh phải nhập viện cấp cứu.
+a) Em hãy kể tên các nguồn chất độc hại phổ biến có thể gây tai nạn ngộ độc cho con người trong đời sống thường ngày.
+
+Đề thi HSG Thành phố GDCD 9 - Sở GD&ĐT Hải Phòng (Kèm Hướng dẫn chấm)
+
+Giáo dục công dân
+Lớp 9
+Tuyết Vũ
+0
+
+SỞ GIÁO DỤC VÀ ĐÀO TẠO …
+
+KỲ THI CHỌN HỌC SINH GIỎI CẤP THÀNH PHỐ
+
+Đề chính thức
+
+ĐỀ THI MÔN: KHOA HỌC TỰ NHIÊN (VẬT LÍ) – LỚP 9
+
+Năm học: 2026 – 2027
+
+Thời gian làm bài: 150 phút (không kể thời gian phát đề)
+
+ĐỀ SỐ 01
+
+Bài 1 (2,0 điểm). Khối lượng riêng và áp suất
+Một bình thông nhau gồm hai nhánh hình trụ thẳng đứng có tiết diện lần lượt là S
+1
+	​
+
+=100 cm
+2
+ và S
+2
+	​
+
+=50 cm
+2
+, đáy thông với nhau bằng một ống nhỏ có dung tích không đáng kể. Bình đang chứa nước có khối lượng riêng D
+0
+	​
+
+=1000 kg/m
+3
+.
+1. Thả một khối gỗ hình trụ đặc có khối lượng m=360 g, tiết diện đáy S
+g
+	​
+
+=60 cm
+2
+, chiều cao h
+g
+	​
+
+=10 cm vào nhánh lớn S
+1
+	​
+
+.
+a) Giải thích vì sao khối gỗ nổi thẳng đứng và tính chiều cao phần gỗ chìm trong nước.
+b) Khi khối gỗ đã ở trạng thái cân bằng, mực nước ở mỗi nhánh dâng lên một đoạn bao nhiêu so với khi chưa thả khối gỗ?
+2. Sau đó, người ta đổ từ từ một lượng dầu có khối lượng riêng D
+1
+	​
+
+=800 kg/m
+3
+ vào nhánh nhỏ S
+2
+	​
+
+ cho đến khi mặt thoáng của dầu ở nhánh S
+2
+	​
+
+ ngang bằng với mặt trên của khối gỗ ở nhánh S
+1
+	​
+
+. Biết toàn bộ lượng dầu nằm hoàn toàn trong nhánh S
+2
+	​
+
+ và không có chất lỏng nào tràn ra ngoài. Xác định:
+a) Độ cao cột dầu đã đổ vào nhánh S
+2
+	​
+
+.
+b) Áp suất tác dụng lên mặt đáy dưới của khối gỗ ở nhánh S
+1
+	​
+
+. Cho áp suất khí quyển p
+0
+	​
+
+=10
+5
+ N/m
+2
+, lấy g=10 m/s
+2
+.
+
+Bài 2 (2,0 điểm). Năng lượng cơ học
+Một hệ thống cơ học gồm một xe con có khối lượng M=1,2 kg chuyển động dọc theo một máng trượt thẳng nằm ngang. Ban đầu xe đứng yên tại vị trí O. Một động cơ mini tác dụng lên xe một lực kéo theo phương ngang có độ lớn không đổi F
+k
+	​
+
+=3 N.
+1. Trên đoạn đường OA dài s
+1
+	​
+
+=2 m đầu tiên, ma sát giữa bánh xe và mặt đường là không đáng kể. Tính:
+a) Công của lực kéo của động cơ trên đoạn OA.
+b) Động năng và vận tốc của xe tại điểm A.
+2. Từ điểm A, xe bắt đầu đi vào đoạn đường AB có bề mặt nhám. Lực ma sát cản trở chuyển động của xe tăng dần đều theo quãng đường x tính từ A theo quy luật: F
+ms
+	​
+
+=2x (với F
+ms
+	​
+
+ tính bằng N, x là khoảng cách tính từ điểm A bằng m). Động cơ kéo vẫn duy trì hoạt động với lực F
+k
+	​
+
+=3 N cho đến khi xe đến điểm C (với AC=2 m) thì tắt máy hoàn toàn.
+a) Tính công của lực ma sát trên đoạn đường AC.
+b) Xe tiếp tục chuyển động trên mặt nhám đó (lực ma sát vẫn tuân theo quy luật F
+ms
+	​
+
+=2x tính từ A). Hãy xác định vị trí điểm dừng lại D của xe và công suất tức thời cực đại của lực kéo động cơ trong suốt quá trình chuyển động.
+
+Bài 3 (3,0 điểm). Ánh sáng
+1. (1,0 điểm) Một chùm tia sáng hẹp song song chiếu tới một bản thuỷ tinh phẳng có hai mặt song song với nhau, bề dày e=6 cm, đặt trong không khí. Chiết suất của bản thuỷ tinh là n=
+3
+	​
+
+. Góc tới của chùm sáng tại mặt trên là i=60
+∘
+.
+a) Tính góc khúc xạ r của tia sáng trong bản thuỷ tinh.
+b) Chứng minh rằng tia sáng ló ra khỏi mặt dưới song song với tia tới ở mặt trên. Tính khoảng cách vuông góc giữa đường truyền của tia tới và tia ló (độ dời ngang của tia sáng).
+2. (2,0 điểm) Trên trục chính của một thấu kính hội tụ mỏng có quang tâm O, tiêu cự f, lần lượt có ba điểm A,B,C cố định theo đúng thứ tự đó sao cho AB=20 cm, AC=50 cm.
+a) Người ta nhận thấy: Nếu đặt một vật sáng nhỏ vuông góc với trục chính tại điểm A thì thu được ảnh thật của nó qua thấu kính ở tại vị trí C; còn nếu đặt vật sáng đó tại điểm B thì lại thu được ảnh ảo của nó cũng tại vị trí C. Hãy xác định vị trí đặt thấu kính (khoảng cách từ thấu kính đến A) và tính tiêu cự f của thấu kính.
+
+BỘ 02 ĐỀ THI HỌC SINH GIỎI MÔN KHTN LỚP 9 (VẬT LÍ) VÀ HƯỚNG DẪN CHẤM CHI TIẾT
+
+Vật lí
+Lớp 9
+Huyền Ngọc
+1
+
+CHỦ ĐỀ: GIẢI BÀI TOÁN BẰNG CÁP LẬP PHƯƠNG TRÌNH
+
+Bài 1: Một tổ sản xuất phải làm sản phẩm trong một thời gian quy định với năng suất như nhau. Sau khi làm được  sản phẩm, tổ đã tăng năng suất thêm mỗi ngày  sản phẩm, do đó đã hoàn thành công việc sớm hơn một ngày. Tính số sản phẩm làm trong mỗi ngày theo quy định.
+
+Bài 2: Một xí nghiệp sản xuất nước mắm dự định thu mua 120 tấn cá trong một thời gian nhất định, nhờ đổi mới phương pháp thu mua xí nghiệp đã mua vượt mức 6 tấn mỗi tuần. Vì vậy xí nghiệp đã hoàn thành kế hoạch sớm hơn 1 tuần và vượt mức 10 tấn cá. Tính số cá mà xí nghiệp phải mua mỗi tuần theo kế hoạch.
+
+Bài 3: Hưởng ứng phong trào trồng cây xanh vì môi trường xanh sạch đẹp. Một chi đoàn dự định trồng 600 cây xanh trong thời gian quy định. Do mỗi ngày họ trồng được nhiều hơn dự định 30 cây nên công việc được hoàn thành sớm hơn quy định 1 ngày. Tính số ngày chi đoàn dự kiến hoàn thành công việc ?
+
+Bài 4: Một công nhân dự định làm 72 sản phẩm trong một thời gian đã định. Nhưng thực tế xí nghiệp lại giao 80 sản phẩm. Mặc dù người đó mỗi giờ đã làm thêm một sản phẩm so với dự kiến, nhưng thời gian hoàn thành công việc vẫn chậm so với dự định là 12 phút. Tính số sản phẩm dự kiến làm trong 1 giờ của người đó. Biết mỗi giờ người đó làm không quá 20 sản phẩm.(Giả định rằng số sản phẩm mà công nhân  đó làm được trong mỗi giờ là bằng nhau).
+
+Bài 5: Một người mua hai loại hàng và phải trả tổng cộng  triệu đồng, kể cả thuế giá trị gia tăng (VAT) với mức  đối với loại hàng loạt hàng thứ nhất và  đối với loại hàng thứ hai. Nếu thuế VAT là  đối với cả hai loại hàng thì người đó phải trả tổng cộng triệu đồng. Hỏi nếu không kể thuế VAT thì người đó phải trả bao nhiêu tiền cho mỗi loại hàng?
+
+Bài 6: Hai người thợ quét sơn một ngôi nhà. Nếu họ cùng làm thì trong 6 ngày xong việc. Nếu người thợ thứ nhất làm một mình trong 5 ngày rồi nghỉ, người thứ hai làm tiếp 4 ngày thì cả hai làm được 
+9
+7
+	​
+
+ công việc. Hỏi nếu làm riêng thì mỗi người thợ phải làm trong bao nhiêu ngày để xong việc.
+
+Bài 7: Hai đội công nhân dệt may cần sản xuất một số lượng khẩu trang theo đơn đặt hàng. Nếu làm chung thì sau  giờ họ sẽ làm xong. Nhưng hai đội mới làm chung được  giờ thì đội   nghỉ , đội  tiếp tục làm trong  giờ nữa mới xong. Hỏi mỗi đội nếu làm một mình thì phải bao lâu mới xong công việc ?
+
+Bài 8: Hai vòi nước cùng chảy vào một bể không chứa nước thì sau  giờ đầy bể. Nếu mở vòi thứ nhất chảy một mình trong  phút, rồi khóa lại, mở tiếp vòi thứ hai chảy trong  phút thì cả hai vòi chảy được  bể. Tính thời gian mỗi vòi chảy một mình đầy bể.
+
+Bài 9: Một người đi ô tô từ   đến  cách nhau  km với vận tốc xác định. Khi từ  trở về  người đó đi theo đường khác dài hơn đường cũ  km nhưng với vận tốc lớn hơn vận tốc lúc đi mỗi giờ  km. Vì vậy thời gian về ít hơn thời gian đi  phút. Tính vận tốc lúc đi.
+
+Bài 10: Theo kế hoạch, một dây chuyền phải sản xuất một số sản phẩm trong 15 ngày với số lượng sản phẩm làm được trong mỗi ngày là như nhau. Thực tế, mỗi ngày dây chuyền đã sản xuất vượt mức 5 sản phẩm nên sau 14 ngày dây chuyền chẳng những đã hoàn thành kế hoạch mà còn làm thêm được 30 sản phẩm nữa. Tìm số sản phẩm thực tế dây chuyền làm được mỗi ngày.
+
+Bài 11: Hai tổ sản xuất được giao làm  sản phẩm trong một thời gian quy định, nhờ tăng năng suất lao động, tổ một vượt mức %, tổ hai vượt mức % nên cả hai tổ đã làm được  sản phẩm. Tính số sản phẩm phải làm theo kế hoạch của mỗi tổ?
+
+PBT Giải toán bằng cách lập pt
+
+Toán
+Lớp 9
+Thiên minh
+2
+
+Hotline: 1900 2609 Trang 1 ĐỀ KIỂM TRA GIỮA KÌ I BỘ KẾT NỐI TRI THỨC Đề số 1 I. TRẮC NGHIỆM (3 điểm). Mỗi ý đúng nhận 0,5 điểm. Câu 1. Trong các phương trình sau, phương trình nào là phương trình bậc nhất hai ẩn? A.  2 2x 3 1 y B.    2 6x 2x 1 0 C.   0x 0 2 y D.   3x 4 6 y Câu 2. Biết hệ phương trình 2 5 x by a bx ay            có nghiệm   1;3 . Tính   10a b A. 15 B. 16 C. 17 D. 18 Câu 3. Điều kiện xác định của phương trình: 3 1 2x 1 3 x x x    là: A. 1 2 x B. 3 x C. 1 ; 3 2 x x   D. 1 ; 3 2 x x   Câu 4. Cho tam giác ABC vuông tại A có 7, 5 AC AB   . Tính  , BCC. A.  74, 3532' BC C    B.  74, 3632' BC C    C.  74, 3533' BC C    D.  74, 3522' BC C    Câu 5. Cho tam giác MNP vuông tại M. Khi đó  tanMNP bằng: A.  tan MN MNP NP  B.  tan MP MNP NP  C.  tan MN MNP MP  D.  tan MP MNP MN  Câu 6. Nghiệm của phương trình    2 1 2x 1 0 x    là: A. 1 x B. 1 2 x C. 1 2 x D. 1 x II. TỰ LUẬN (7 điểm) Bài 1. (2 điểm) Giải các phương trình và hệ phương trình sau: Học toán cơ bản lớp 9 Đề kiểm tra giữa kì I Hotline: 1900 2609 Trang 2 a) 2 4 3 2 1 x y x y           b) 3 10 2x 1 x y y           c)    4 3x 5 0 x   d) 3 2 2 3 x x x x      Bài 2. (1 điểm) Để tổ chức cho 345 người bao gồm học sinh khối lớp 9 và giáo viên phụ trách tham dự hội trại kỉ niệm 26/3 tại Hà Nội, nhà trường đã thuê 9 chiếc xe gồm 2 loại : loại 45 chỗ ngồi và loại 15 chỗ ngồi (không kể tài xế). Hỏi mỗi loại có bao nhiêu chiếc xe biết rằng không có xe nào còn trống chỗ? Bài 3. (3,5 điểm) 1. Ca nô kéo một người mang dù bay lên không bằng một sợi dây dài 12 m tạo với mặt nước biển một góc 65. Khi ca nô giảm tốc độ thì độ cao người đó giảm xuống 3 m. Hỏi lúc ca nô giảm tốc độ thì người đó cách mặt nước biển bao nhiêu mét? 2. Cho tam giác ABC vuông tại A (AB < AC), đường cao AH. Gọi D và E lần lượt là chân đường vuông góc kẻ từ H đến AB và AC. a) Chứng minh tứ giác ADHE là hình chữ nhật. b) Gọi K là điểm đối xứng của A qua H. Chứng minh A, B, K, C cùng thuộc một đường tròn. c) Chứng minh 2 D.AB + AE.AC = 2DE A . Bài 4. (0,5 điểm) Cho 3 số thực dương a, b, c thỏa a 2b 3c 20    . Tìm GTNN của 3 9 4 A a b c a 2b c      . ______Hết_______ Học toán cơ bản lớp 9 Đề kiểm tra giữa kì I Hotline: 1900 2609 Trang 3 Đề số 2 I. TRẮC NGHIỆM (3 điểm). Mỗi đáp án đúng ghi nhận 0,5 điểm Câu 1. Cho tam giác ABC vuông ở A, đường cao AH. Khi đó sinC bằng: A. AH AC B. AB AC C. AC BC D. AC AB Câu 2. Một cột đèn cao 6m. Tại một thời điểm tia sáng mặt trời với mặt đất một góc 60. Bóng của cột đèn đó trên mặt đất có độ dài là: A. 6 3 B. 6 3 C. 6 2 D. 12 3 Câu 3. Hai số thực ,ab để hệ phương trình 4 2 3 3 8 ax by bx ay            có nghiệm   2;3  là: A. 1, 11 a b   B. 11 1, 6 a b   C. 11 1, 6 a b   D. 11 1, 6 a b   Câu 4. Điều kiện xác định của phương trình 2 2 2 3 3 3 9 y y y y       là: A. 3 y B. 3 y C. 3 y D. Với mọi giá trị của y Câu 5. Nghiệm của bất phương trình    2 2 3 4 0 x x    là: A. 3 4 x B. 3 4 x C. 2 x D. 2 x Câu 6. Cho tam giác ABC có các đường cao BD, CE. Chọn khẳng định đúng. A. Bốn điểm B, E, D, C cùng nằm trên một đường tròn. B. Năm điểm A, B, E, D, C cùng nằm trên một đường tròn. C. Cả A và B đều sai. D. Cả A và B đều đúng. II. TỰ LUẬN (7 điểm) Bài 1. (2 điểm) Học toán cơ bản lớp 9 Đề kiểm tra giữa kì I Hotline: 1900 2609 Trang 4 1. Giải các hệ phương trình sau: a) 2 5 3 3 4 x y x y            b) x 2 y 3 x y 10 0                2. Giải các phương trình sau a)    4 5 3 1 2 1 2 x x x x        b)     3 2 9 2 0 x x     Bài 2. (1 điểm) Giải bài toán bằng cách lập hệ phương trình. Trong tháng đầu hai tổ sản xuất được 800 sản phẩm. Sang tháng thứ hai, tổ 1 sản xuất vượt mức 12%, tổ 2 giảm 10% so với tháng đầu tiên nên hai tổ làm được 786 sản phẩm. Tính số sản phẩm của mỗi tổ trong tháng đầu. Bài 3. (3,0 điểm) Cho tam giác ABC vuông
+
+Đề thi mới
+
+Toán
+Lớp 9
+vu thi thanh
+0
+
+Họ và Tên:
+
+................................................
+
+TOÁN 9
+
+NĂM HỌC 2026 – 2027
+
+BÀI 14. CUNG VÀ DÂY CỦA MỘT ĐƯỜNG TRÒN
+
+Tài liệu lưu hành nội bộ
+
+TÓM TẮT LÝ THUYẾT TRỌNG TÂM
+1. Dây và đường kính của đường tròn
+
+- Đoạn thẳng nối hai điểm tùy ý của một đường tròn gọi là một dây (hay dây cung) của đường tròn.
+- Mỗi dây đi qua tâm là một đường kính của đường tròn. Đường kính của đường tròn bán kính R có độ dài bằng 2R.
+
+
+
+
+
+
+
+Định lí: Trong một đường tròn, đường kính là dây cung lớn nhất.
+
+2. Góc ở tâm, cung và số đo của một cung
+
+a) Khái niệm góc ở tâm và cung tròn
+- Góc ở tâm là góc có đỉnh trùng với tâm của đường tròn.
+
+
+
+
+
+
+
+Chú ý:
+- Khi góc 
+AOB
+ không bẹt thì cung nằm trong góc 
+AOB
+ gọi là cung nhỏ, kí hiệu là 
+AmB
+ hay 
+AB
+. Cung còn lại 
+AnB
+ gọi là cung lớn. Khi góc 
+AOB
+ bẹt thì mỗi cung 
+AB
+ gọi là một nửa đường tròn.
+- Ta còn nói góc 
+AOB
+ chắn cung 
+AB
+ hay cung 
+AB
+ bị chắn bởi góc 
+AOB
+.
+
+b) Cách xác định số đo của một cung
+- Số đo của cung nửa đường tròn bằng 180
+∘
+.
+- Số đo của cung nhỏ bằng số đo của góc ở tâm chắn cung đó.
+- Số đo của cung lớn bằng hiệu giữa 360
+∘
+ và số đo của cung nhỏ có chung hai mút.
+- Số đo của cung AB được kí hiệu là sđ
+AB
+.
+
+
+
+
+
+
+
+Trên hình vẽ: sđ
+AmB
+=
+AOB
+=α; sđ
+AnB
+=360
+∘
+−α.
+
+Chú ý:
+- Cung có số đo n
+∘
+ còn gọi là cung n
+∘
+. Cả đường tròn được coi là cung 360
+∘
+.
+- Hai cung trên một đường tròn gọi là bằng nhau nếu chúng có cùng số đo.
+- Nếu điểm C thuộc cung 
+AB
+ thì: sđ
+AB
+=sđ
+AC
++sđ
+CB
+.
+
+PHẦN A. TỰ LUẬN PHÂN DẠNG TOÁN
+DẠNG 1. TÍNH SỐ ĐO GÓC Ở TÂM VÀ SỐ ĐO CUNG BỊ CHẮN
+
+Kiến thức cần nhớ:
+- Số đo của cung nhỏ bằng số đo của góc ở tâm chắn cung đó: sđ
+AmB
+=
+AOB
+=α.
+- Số đo của cung lớn: sđ
+AnB
+=360
+∘
+−α.
+- Số đo cung của nửa đường tròn bằng 180
+∘
+.
+- Nếu B là một điểm thuộc cung 
+ABC
+ thì sđ
+ABC
+=sđ
+AB
++sđ
+BC
+.
+
+
+
+
+
+
+
+Bài 1. Cho ba điểm A,B và C thuộc đường tròn (O) như hình vẽ.
+
+
+
+
+
+
+
+a) Tìm các góc ở tâm có hai cạnh đi qua hai trong ba điểm A,B,C.
+b) Tìm các cung có hai mút là hai trong ba điểm A,B,C.
+
+Bài 2. Cho đường tròn (O) như hình vẽ dưới đây, biết rằng 
+AOC
+=30
+∘
+ và 
+BOC
+=80
+∘
+.
+
+
+
+
+
+
+
+a) Tính số đo cung AC.
+b) Tính số đo cung AB.
+
+Bài 3. Cho đường tròn (O) có đường kính BC. A là điểm trên đường tròn sao cho 
+AOC
+=78
+∘
+.
+
+
+
+
+
+
+
+a) Tính số đo cung BC.
+
+Chuyên đề Toán 9 - Bài 14: Cung và dây của một đường tròn
+
+Toán
+Lớp 9
+Chi Linh
+2
+
+UBND XÃ NGUYÊN GIÁP
+
+TRƯỜNG THCS NGUYÊN GIÁP
+
+Đề chính thức
+
+ĐỀ KIỂM TRA GIỮA HỌC KỲ I – ĐỀ SỐ 02
+
+Năm học: 2026 – 2027
+
+Môn: Toán – Lớp 9
+
+Thời gian làm bài: 90 phút (không kể thời gian phát đề)
+
+PHẦN I. TRẮC NGHIỆM NHIỀU PHƯƠNG ÁN LỰA CHỌN (3,0 điểm)
+
+Thí sinh trả lời từ Câu 1 đến Câu 12. Mỗi câu hỏi chỉ chọn một phương án đúng nhất. Mỗi câu trả lời đúng được 0,25 điểm.
+
+Câu 1. Cặp số nào sau đây là nghiệm của phương trình bậc nhất hai ẩn 2x−3y=7?
+
+A. (2;−1)
+
+
+B. (−1;−3)
+
+
+C. (5;1)
+
+
+D. (1;−2)
+
+
+Câu 2. Hệ phương trình 
+⎩
+⎨
+⎧
+	​
+
+3x+y=5
+2x−y=0
+	​
+
+ có nghiệm duy nhất (x
+0
+	​
+
+;y
+0
+	​
+
+). Giá trị của biểu thức P=x
+0
+	​
+
++2y
+0
+	​
+
+ bằng
+
+A. 5
+
+
+B. 3
+
+
+C. 4
+
+
+D. 1
+
+
+Câu 3. Điều kiện xác định của biểu thức 
+6−2x
+	​
+
+ là
+
+A. x≥3
+
+
+B. x≤3
+
+
+C. x>3
+
+
+D. x≤−3
+
+
+Câu 4. Giá trị của biểu thức 
+(3−2
+3
+	​
+
+)
+2
+	​
+
++
+12
+	​
+
+ bằng
+
+A. 3
+
+
+B. 4
+3
+	​
+
+−3
+
+
+C. −3
+
+
+D. 3−4
+3
+	​
+
+
+
+
+Câu 5. Trục căn thức ở mẫu của biểu thức 
+7
+	​
+
+−1
+6
+	​
+
+ ta được kết quả là
+
+A. 
+7
+	​
+
++1
+
+
+B. 
+7
+	​
+
+−1
+
+
+C. 6(
+7
+	​
+
++1)
+
+
+D. 
+6
+7
+	​
+
++1
+	​
+
+
+
+
+Câu 6. Bất đẳng thức nào sau đây diễn tả khẳng định: "x không vượt quá hai lần y trừ đi 5"?
+
+A. x<2y−5
+
+
+B. x≤2y−5
+
+
+C. x≥2y−5
+
+
+D. x>2y−5
+
+
+Câu 7. Nghiệm của bất phương trình 3x−7>2 là
+
+A. x>3
+
+
+B. x<3
+
+
+C. x>−3
+
+
+D. x≥3
+
+
+Câu 8. Cho tam giác ABC vuông tại A có AB=6 cm, AC=8 cm. Giá trị của sin
+B
+ bằng
+
+A. 
+5
+3
+	​
+
+
+
+
+B. 
+5
+4
+	​
+
+
+
+
+C. 
+4
+3
+	​
+
+
+
+
+D. 
+3
+4
+	​
+
+
+
+
+Câu 9. Cho tam giác MNP vuông tại M, đường cao MH. Hệ thức nào sau đây là sai?
+
+A. MH
+2
+=NH⋅HP
+
+
+B. MN
+2
+=NH⋅NP
+
+
+C. MN⋅MP=MH⋅NP
+
+
+D. 
+MH
+2
+1
+	​
+
+=
+MN
+2
+1
+	​
+
+−
+MP
+2
+1
+	​
+
+
+
+
+Câu 10. Một cột cờ vuông góc với mặt đất có bóng trên mặt đất dài 7 m khi góc tạo bởi tia nắng mặt trời và mặt đất là 50
+∘
+. Chiều cao của cột cờ (làm tròn đến hàng phần mười của mét) là
+
+A. 8,3 m
+
+B. 5,9 m
+
+C. 8,4 m
+
+D. 4,5 m
+
+Câu 11. Rút gọn biểu thức A=
+a
+4
+(b−2)
+2
+	​
+
+ với b<2 ta được kết quả là
+
+A. a
+2
+(b−2)
+
+
+B. a
+2
+(2−b)
+
+
+C. −a
+2
+(2−b)
+
+
+D. a(2−b)
+
+
+Câu 12. Cho góc nhọn α thoả mãn cosα=
+13
+5
+	​
+
+. Giá trị của tanα bằng
+
+A. 
+13
+12
+	​
+
+
+
+
+B. 
+12
+5
+	​
+
+
+
+
+C. 
+5
+12
+	​
+
+
+
+
+D. 
+12
+13
+	​
+
+
+
+
+PHẦN II. TRẮC NGHIỆM ĐÚNG/SAI (4,0 điểm)
+
+Thí sinh trả lời từ Câu 1 đến Câu 4. Trong mỗi ý a), b), c), d) ở mỗi câu, thí sinh chọn Đúng hoặc Sai.
+
+Câu 1. Cho hệ phương trình 
+⎩
+⎨
+⎧
+	​
+
+(m−1)x+y=2
+2x+2y=4
+	​
+
+ (m là tham số).
+a) Khi m=3, hệ phương trình có vô số nghiệm.
+b) Khi m=2, hệ phương trình có nghiệm duy nhất là (0;2).
+c) Hệ phương trình luôn có nghiệm với mọi giá trị của m.
+d) Với m
+
+=2, nếu gọi (x;y) là nghiệm duy nhất của hệ thì biểu thức T=x
+2
++y
+2
+ luôn đạt giá trị nhỏ nhất khi m=3.
+
+Câu 2. Cho hai biểu thức P=
+x
+	​
+
+−1
+x
+	​
+
++2
+	​
+
+ và Q=
+x−1
+x+
+x
+	​
+
+	​
+
+−
+x
+	​
+
++1
+2
+	​
+
+ với x≥0,x
+
+=1.
+a) Tại x=9, giá trị của biểu thức P bằng 
+2
+5
+	​
+
+.
+b) Rút gọn biểu thức Q ta được Q=
+x
+	​
+
+−1
+x
+	​
+
+−2
+	​
+
+.
+c) Biểu thức M=
+P
+Q
+	​
+
+ nhận giá trị bằng 
+x
+	​
+
++2
+x
+	​
+
+−2
+	​
+
+.
+d) Có đúng 3 giá trị nguyên của x để biểu thức M nhận giá trị nguyên.
+
+Câu 3. Cho bất phương trình bậc nhất một ẩn: 
+3
+2x−1
+	​
+
+−
+2
+x−3
+	​
+
+≤1.
+
+BỘ ĐỀ KIỂM TRA GIỮA HỌC KỲ I TOÁN 9 (ĐỀ 02, 03, 04) - NĂM HỌC 2026 - 2027
+
+Toán
+Lớp 9
+vân phạm
+5
+
+SỞ GIÁO DỤC VÀ ĐÀO TẠO
+
+THÀNH PHỐ HỒ CHÍ MINH
+
+Đề chính thức
+
+(Đề thi có 02 trang)
+
+KỲ THI TUYỂN SINH LỚP 10 THPT
+
+NĂM HỌC 2026 – 2027
+
+MÔN THI: NGỮ VĂN
+
+Thời gian làm bài: 120 phút (không kể thời gian phát đề)
+
+PHẦN 1. (5,0 điểm)
+
+I. ĐỌC HIỂU (3,0 điểm)
+
+Đọc đoạn trích sau:
+
+Bà nội tôi lưng còng, đôi mắt mờ đục như phủ một lớp sương mỏng của thời gian. Mỗi chiều, bà thường ngồi ở bậc thềm nhìn ra ngõ, nơi bóng cây hoàng lan xoè bóng mát rượi. Tôi lớn lên giữa nhịp sống hối hả của thành phố, đi học về là vùi đầu vào màn hình điện thoại hoặc những bài tập chất chồng. Nhiều hôm, tôi đi qua bậc thềm chỉ buông một câu chào vội vã: "Nội, con mới về!" rồi biến nhanh vào phòng, bỏ lại sau lưng tiếng thở dài trầm nhẹ và ánh mắt trông ngóng lặng thầm của bà.
+
+Cho đến một buổi chiều mưa lớn, khu phố đột ngột mất điện. Không gian tối sầm, chiếc điện thoại hết pin câm bặt. Bực dọc bước ra phòng khách, tôi thấy nội đang lụi cụi thắp cây nến nhỏ đặt trên chiếc đĩa sành. Ngọn lửa vàng lay lắt soi rõ những vết đồi mồi trên mu bàn tay gầy guộc.
+
+– Lại đây với nội, con! Mưa thế này mát trời, ngồi đây nội kể chuyện ngày xưa...
+
+Tôi ngập ngừng ngồi xuống bên nội. Bàn tay thô ráp của bà khẽ chạm vào vai tôi, ấm áp lạ lùng. Trong bóng tối dìu dịu của ánh nến và tiếng mưa rào ngoài hiên, nội bắt đầu kể về những ngày gian khó, về thời nội gánh từng gánh gánh gồng qua những mùa lũ để nuôi cha tôi ăn học. Giọng nội chầm chậm, khi trầm khi bổng, tựa như một dòng suối mát lành chảy qua tâm hồn vốn đang khô cằn và vội vã của tôi. Bất giác, tôi nhận ra bấy lâu nay mình đã vô tâm đến nhường nào. Tôi đã mải miết đi tìm những điều lớn lao ở thế giới ảo xa xôi mà quên mất rằng, ngay dưới mái nhà này, có một miền yêu thương bao la luôn kiên nhẫn đợi chờ tôi dừng lại để lắng nghe.
+
+(Trích Ánh nến bên thềm mưa, Nguyễn Thị Ánh Nguyệt, NXB Trẻ, 2024)
+
+Thực hiện các yêu cầu sau:
+
+Câu 1 (0,5 điểm). Xác định ngôi kể của người kể chuyện trong đoạn trích trên.
+
+Câu 2 (0,5 điểm). Trong đoạn trích, sự việc bất ngờ nào đã khiến nhân vật "tôi" rời khỏi căn phòng và bước ra trò chuyện cùng bà nội?
+
+Câu 3 (1,0 điểm). Nêu tác dụng của biện pháp tu từ so sánh được sử dụng trong câu văn sau: "Giọng nội chầm chậm, khi trầm khi bổng, tựa như một dòng suối mát lành chảy qua tâm hồn vốn đang khô cằn và vội vã của tôi."
+
+Câu 4 (1,0 điểm). Lời nhận ra của nhân vật "tôi" ở cuối đoạn trích: "Tôi đã mải miết đi tìm những điều lớn lao ở thế giới ảo xa xôi mà quên mất rằng, ngay dưới mái nhà này, có một miền yêu thương bao la luôn kiên nhẫn đợi chờ tôi dừng lại để lắng nghe" gợi cho em suy nghĩ gì về thái độ sống của người trẻ đối với gia đình?
+
+II. VIẾT (2,0 điểm)
+
+Từ nội dung văn bản ở phần Đọc hiểu, em hãy viết một đoạn văn (khoảng 200 chữ) chia sẻ suy nghĩ về ý nghĩa của việc biết dừng lại để lắng nghe những người thân yêu trong gia đình.
+
+PHẦN 2. (5,0 điểm)
+
+I. ĐỌC HIỂU (1,0 điểm)
+
+Đọc đoạn trích sau:
+
+Trong thời đại chuyển đổi số, khoảng cách giữa các thế hệ dường như không còn được đo bằng năm tháng mà được đo bằng thói quen công nghệ và nhịp sống. Người trẻ sinh ra trong thời đại số (Gen Z, Gen Alpha) dễ dàng kết nối với cả thế giới qua màn hình chỉ bằng một cú chạm, nhưng lại thường gặp khó khăn khi trò chuyện cùng ông bà, cha mẹ bên mâm cơm gia đình. Ngược lại, người lớn tuổi đôi khi cảm thấy bị bỏ lại phía sau trước làn sóng thay đổi quá nhanh của công nghệ, dẫn đến sự lạc lõng ngay trong chính tổ ấm của mình.
+
+Đề thi tuyển sinh lớp 10 THPT môn Ngữ văn - TP. Hồ Chí Minh
+
+Ngữ văn
+Lớp 9
+Phương Uyên Nguyễn
+1
+
+UBND XÃ/PHƯỜNG …
+
+TRƯỜNG THCS …
+
+Đề chính thức
+
+ĐỀ KIỂM TRA GIỮA HỌC KỲ I
+
+NĂM HỌC 2026 – 2027
+
+Môn: Giáo dục công dân – Lớp 9
+
+Thời gian làm bài: 45 phút (không kể thời gian phát đề)
+
+PHẦN I. TRẮC NGHIỆM NHIỀU PHƯƠNG ÁN LỰA CHỌN (3,0 điểm)
+
+Thí sinh trả lời từ Câu 1 đến Câu 12. Mỗi câu hỏi thí sinh chỉ chọn một phương án đúng nhất. Mỗi câu trả lời đúng được 0,25 điểm.
+
+Câu 1. Sống có lí tưởng nghĩa là gì?
+
+A. Biết ước mơ, hoài bão để định hướng cuộc sống của mình.
+
+B. Có ước mơ và cố gắng thực hiện bằng hành động cụ thể.
+
+C. Xác định mục tiêu sống cao đẹp và nỗ lực phấn đấu để đạt được mục tiêu đó.
+
+D. Sống tự do theo sở thích cá nhân, miễn là không làm hại đến ai.
+
+Câu 2. Trong giai đoạn hiện nay, lí tưởng sống cao đẹp của thanh niên, học sinh Việt Nam là gì?
+
+A. Phấn đấu học tập để sau này tìm được việc làm nhàn hạ, thu nhập cao.
+
+B. Nỗ lực học tập, rèn luyện để cống hiến xây dựng quê hương, đất nước giàu đẹp.
+
+C. Chỉ cần chăm lo cuộc sống gia đình ấm no, không cần tham gia việc xã hội.
+
+D. Tìm mọi cách để khẳng định bản thân và trở nên nổi tiếng trên mạng xã hội.
+
+Câu 3. Người sống có lí tưởng sống cao đẹp sẽ mang lại ý nghĩa nào dưới đây?
+
+A. Luôn có động lực, tinh thần trách nhiệm và hướng tới những điều tốt đẹp.
+
+B. Chắc chắn sẽ trở thành người giàu có và có chức vụ cao trong xã hội.
+
+C. Dễ dàng đạt được mọi điều mình muốn mà không cần tốn nhiều công sức.
+
+D. Được mọi người phục tùng và luôn luôn dẫn đầu trong mọi công việc.
+
+Câu 4. Thái độ nào dưới đây thể hiện sự khoan dung trong cuộc sống hằng ngày?
+
+A. Không bao giờ góp ý khi thấy bạn bè mắc sai lầm nghiêm trọng.
+
+B. Rộng lượng tha thứ khi người khác biết nhận lỗi và sửa sai.
+
+C. Bỏ qua lỗi lầm của người khác nhưng luôn để bụng, nhắc lại nhiều lần.
+
+D. Dễ dãi chấp nhận mọi hành vi sai trái để giữ hòa khí trong tập thể.
+
+Câu 5. Biểu hiện nào dưới đây là biểu hiện của lòng khoan dung?
+
+A. Tha thứ cho bạn khi bạn vô tình làm hỏng đồ dùng của mình và đã xin lỗi.
+
+B. Bỏ mặc bạn bè mắc khuyết điểm vì sợ làm mất lòng nhau.
+
+C. Chỉ biết quan tâm và bảo vệ lợi ích của bản thân mình.
+
+D. Tìm cách chê bai, chỉ trích khuyết điểm của người khác trước đám đông.
+
+Câu 6. Sự khác biệt cơ bản giữa "khoan dung" và "dễ dãi" là gì?
+
+A. Khoan dung là bỏ qua có nguyên tắc và giúp người khác tiến bộ; dễ dãi là buông xuôi, dung túng sai trái.
+
+B. Khoan dung chỉ dành cho người thân trong gia đình; dễ dãi thì áp dụng với tất cả mọi người ngoài xã hội.
+
+C. Khoan dung chỉ cần thiết trong học tập; dễ dãi thì cần thiết trong sinh hoạt hằng ngày.
+
+D. Khoan dung làm người khác ỷ lại; dễ dãi giúp người khác nhận ra khuyết điểm nhanh hơn.
+
+Câu 7. Vì sao người có lòng khoan dung thường được mọi người yêu mến, quý trọng?
+
+A. Vì họ luôn nhường nhịn mọi quyền lợi cá nhân cho người khác.
+
+B. Vì họ biết lắng nghe, cảm thông, thấu hiểu và tôn trọng người khác.
+
+C. Vì họ không bao giờ tham gia tranh luận hay đưa ra ý kiến riêng.
+
+D. Vì họ sẵn sàng làm thay công việc của người khác khi được nhờ vả.
+
+Câu 8. Thế nào là tích cực tham gia các hoạt động cộng đồng?
+
+A. Tự giác, chủ động, nhiệt tình đóng góp công sức vào các hoạt động chung của tập thể và xã hội.
+
+B. Tham gia các hoạt động của thôn xóm chỉ khi được gia đình và nhà trường nhắc nhở, ép buộc.
+
+C. Đi tham gia các hoạt động phong trào chỉ với mục đích gặp gỡ bạn bè để vui chơi.
+
+D. Chỉ tham gia những hoạt động nào đem lại lợi ích vật chất trực tiếp cho bản thân.
+
+Câu 9. Việc tích cực tham gia các hoạt động cộng đồng mang lại ý nghĩa nào sau đây đối với xã hội?
+
+A. Giúp mỗi cá nhân nâng cao thứ hạng thi đua trong lớp học.
+
+B. Góp phần xây dựng khối đại đoàn kết, thúc đẩy quê hương phát triển.
+
+Đề kiểm tra Giữa học kì I môn GDCD 9 (KNTT) - Mã đề 102
+
+Giáo dục công dân
+Lớp 9
+Hạnh Nguyễn Thị
+0
+
+UBND XÃ/PHƯỜNG …
+
+TRƯỜNG THCS …
+
+Phiếu bài tập
+
+CHUYÊN ĐỀ TỪ VỰNG TIẾNG ANH 9 (UNITS 1 - 2 - 3)
+
+Chủ đề: Local Community - City Life - Healthy Living for Teens
+
+Thời gian làm bài: 90 phút (không kể thời gian phát đề)
+
+TỔNG HỢP TỪ VỰNG & COLLOCATIONS TRỌNG TÂM
+
+Unit
+
+	
+
+Từ vựng / Cụm từ trọng tâm
+
+	
+
+Từ loại / Cấu trúc
+
+	
+
+Ý nghĩa
+
+
+
+
+Unit 1
+
+	
+
+artisan / craftsperson
+
+	
+
+noun
+
+	
+
+nghệ nhân, thợ thủ công
+
+
+
+
+community helper
+
+	
+
+noun phr.
+
+	
+
+người phục vụ cộng đồng (công an, thợ điện, lao công...)
+
+
+
+
+handicraft / pottery
+
+	
+
+noun
+
+	
+
+đồ thủ công mỹ nghệ / đồ gốm
+
+
+
+
+speciality
+
+	
+
+noun
+
+	
+
+đặc sản
+
+
+
+
+preserve / preservation
+
+	
+
+verb / noun
+
+	
+
+bảo tồn / sự bảo tồn
+
+
+
+
+shorten / fragrance
+
+	
+
+verb / noun
+
+	
+
+rút ngắn / hương thơm thoang thoảng
+
+
+
+
+hand down / pass down
+
+	
+
+phrasal verb
+
+	
+
+truyền lại (cho thế hệ sau)
+
+
+
+
+get on with / look around
+
+	
+
+phrasal verb
+
+	
+
+hòa thuận với / ngắm nghía xung quanh
+
+
+
+
+Unit 2
+
+	
+
+concrete jungle
+
+	
+
+noun phr.
+
+	
+
+rừng bê tông (khu vực dày đặc nhà cao tầng)
+
+
+
+
+public amenities
+
+	
+
+noun phr.
+
+	
+
+tiện ích công cộng (công viên, thư viện, hồ bơi...)
+
+
+
+
+congested / congestion
+
+	
+
+adj / noun
+
+	
+
+tắc nghẽn / sự ùn tắc giao thông
+
+
+
+
+liveable
+
+	
+
+adj
+
+	
+
+đáng sống
+
+
+
+
+bustling / pricey
+
+	
+
+adj / adj
+
+	
+
+nhộn nhịp, hối hả / đắt đỏ
+
+
+
+
+come down with
+
+	
+
+phrasal verb
+
+	
+
+bị ốm, mắc bệnh nhẹ
+
+
+
+
+hang out with / get around
+
+	
+
+phrasal verb
+
+	
+
+đi chơi với / di chuyển quanh nơi nào
+
+
+
+
+Unit 3
+
+	
+
+well-balanced
+
+	
+
+adj
+
+	
+
+cân bằng, hài hòa
+
+
+
+
+counsellor / guidance
+
+	
+
+noun / noun
+
+	
+
+chuyên viên tư vấn / sự hướng dẫn
+
+
+
+
+priority / prioritise
+
+	
+
+noun / verb
+
+	
+
+sự ưu tiên / ưu tiên việc gì
+
+
+
+
+distraction / distract
+
+	
+
+noun / verb
+
+	
+
+sự xao nhãng / làm xao nhãng
+
+
+
+
+optimistic / anxiety
+
+	
+
+adj / noun
+
+	
+
+lạc quan / sự lo âu
+
+
+
+
+accomplish / accomplishment
+
+	
+
+verb / noun
+
+	
+
+hoàn thành, đạt được / thành tựu
+
+
+
+
+delay / due date
+
+	
+
+verb, noun / noun
+
+	
+
+trì hoãn / ngày hạn chót
+
+
+
+
+stressed out / physical health
+
+	
+
+adj / noun phr.
+
+	
+
+bị căng thẳng quá mức / sức khỏe thể chất
+
+PHẦN I. WORD FORMATION (4,0 ĐIỂM)
+
+Give the correct form of the word in brackets to complete each sentence.
+
+Câu 1. The local government is making every effort to invest in the ______ of traditional weaving techniques. (PRESERVE)
+
+Câu 2. Da Nang has frequently been voted as one of the most ______ cities in Viet Nam thanks to its clean environment and friendly people. (LIVE)
+
+Câu 3. To avoid being overwhelmed before the final exam, students should learn how to ______ their daily tasks. (PRIORITY)
+
+Câu 4. The old artisan spent nearly three decades teaching young villagers how to make ______ ceramic vases. (BEAUTY)
+
+Câu 5. During peak hours, the main road leading to the city centre is heavily ______, causing long delays for commuters. (CONGESTION)
+
+Câu 6. Taking regular short breaks during study sessions can significantly reduce stress and ______. (ANXIOUS)
+
+Câu 7. We hired an experienced ______ to inspect and fix the faulty wiring system in our apartment. (ELECTRIC)
+
+Câu 8. Despite facing numerous academic challenges, Minh always maintains an ______ attitude towards his future. (OPTIMIST)
+
+Câu 9. The newly built library offers modern public ______ that make self-studying much more enjoyable for teenagers. (AMENITY)
+
+Câu 10. Smartphones and social media notifications are major ______ that keep learners from staying focused. (DISTRACT)
+
+Câu 11. Eating too many ______ snacks between meals can quickly lead to unwanted weight gain and tiredness. (FATTEN)
+
+Câu 12. The baker decided to ______ the baking time so that the outer crust remained soft and delicate. (SHORT)
+
+Câu 13. Living in a crowded neighborhood with poor soundproofing often leads to feelings of ______ and fatigue. (STRESSFUL)
+
+Phiếu bài tập từ vựng Tiếng Anh 9 - Units 1, 2, 3
+
+Tiếng Anh
+Lớp 9
+Ho Nguyen Phuoc Duyen
+0
+
+
+
+
+PHIẾU HỌC TẬP THỰC HÀNH TIẾNG VIỆT LỚP 9
+
+Chuyên đề: Thanh bằng - thanh trắc, Điệp thanh, Điệp vần và Chơi chữ
+
+(Bộ sách Kết nối tri thức với cuộc sống)
+
+PHẦN I. CÂU HỎI VÀ BÀI TẬP ÔN TẬP
+DẠNG 1. NHẬN BIẾT THANH ĐIỆU VÀ CÁC BIỆN PHÁP TU TỪ ÂM THANH
+
+Bài 1 (1,5 điểm).
+Nhắc lại kiến thức về hệ thống thanh điệu tiếng Việt:
+a) Hệ thống thanh điệu tiếng Việt gồm mấy thanh? Hãy chia các thanh điệu đó thành hai nhóm: thanh bằng (B) và thanh trắc (T).
+b) Phân loại các tiếng trong câu thơ sau thành hai nhóm thanh bằng và thanh trắc:
+
+Thuyền về có nhớ bến chăng
+Bến thì một dạ khăng khăng đợi thuyền.
+
+Bài 2 (2,0 điểm).
+Chỉ ra biện pháp tu từ chơi chữ và gọi tên lối chơi chữ cụ thể (dùng từ đồng âm, gần âm, nói lái, dùng từ cùng trường nghĩa...) được sử dụng trong các trường hợp sau:
+a)
+Bà Đồ Nho thi đỗ tiến sĩ
+Bà Đồ Nho thi đỗ, bà Đồ Nho ăn đỗ
+Bà Đồ Nho mừng...
+(Đồng dao)
+b)
+Mênh mông muôn mẫu một màu mưa
+Mỏi mắt miên man mãi mịt mờ.
+(Tú Mỡ)
+c)
+Con ruồi đậu mâm xôi đậu.
+(Câu đố dân gian)
+d)
+Mang tiếng chào mời trơ mặt thớt
+Lại mang đòn gánh cọ xương sườn.
+(Hồ Xuân Hương)
+e)
+Khi đi cưa ngọn, khi về cưa ngọn.
+(Câu đố dân gian)
+
+Bài 3 (1,5 điểm).
+Xác định hiện tượng điệp thanh, điệp vần hoặc sự phối hợp thanh điệu đặc biệt trong các câu thơ dưới đây:
+a)
+Sương nương theo trăng ngừng lưng trời
+Tương tư nâng lòng lên chơi vơi.
+(Xuân Diệu - Nhị hồ)
+b)
+Tài cao phận thấp chí khí uất
+Giang hồ mê chơi quên quê hương.
+(Tản Đà - Thề non nước)
+c)
+Lá bàng đỏ rụng/ Cổng trường rêu phong/ Dòng sông phẳng lặng/ Nắng vàng hoe hoe.
+(Sưu tầm)
+d)
+Dốc lên khúc khuỷu dốc thăm thẳm
+Heo hút cồn mây súng ngửi trời.
+(Quang Dũng - Tây Tiến)
+
+DẠNG 2. PHÂN TÍCH HIỆU QUẢ NGHỆ THUẬT CỦA PHỐI THANH VÀ BIỆN PHÁP TU TỪ
+
+Bài 4 (2,0 điểm).
+Đọc đoạn thơ sau và thực hiện yêu cầu:
+
+Lắng nghe chiều xuống buông rèm
+Thềm sim tím lịm, êm đềm gió reo.
+
+a) Chỉ ra hiện tượng điệp vần trong hai câu thơ trên.
+b) Phân tích tác dụng của biện pháp điệp vần đó trong việc gợi tả không gian, nhịp điệu và cảm xúc của nhân vật trữ tình.
+
+Bài 5 (2,5 điểm).
+Đọc câu thơ sau trong bài thơ Tây Tiến của nhà thơ Quang Dũng:
+
+Dốc lên khúc khuỷu dốc thăm thẳm,
+Heo hút cồn mây, súng ngửi trời;
+Ngàn thước lên cao, ngàn thước xuống,
+Nhà ai Pha Luông mưa xa khơi.
+
+a) Thống kê các từ mang thanh bằng (B) và thanh trắc (T) trong dòng thơ thứ nhất (Dốc lên khúc khuỷu dốc thăm thẳm) và dòng thơ thứ tư (Nhà ai Pha Luông mưa xa khơi).
+
+Phiếu học tập Thực hành tiếng Việt 9: Thanh bằng - thanh trắc, Điệp thanh, Điệp vần và Chơi chữ
+
+Ngữ văn
+Lớp 9
+D
+Dương Thùy
+0
+
+Đề kiểm tra Tiếng Anh 9 - Global Success (Unit 1, 2)
+
+Tiếng Anh
+Lớp 9
+Nam Nguyễn Hoàng
+1
+
+Chuyên đề Bất đẳng thức ôn thi vào lớp 10
+
+Toán
+Lớp 9
+Phuong Anh Nguyen
+1
+
+Đề ôn tập kiểm tra Giữa học kì I môn Tiếng Anh lớp 9
+
+Tiếng Anh
+Lớp 9
+Phuong Anh Nguyen
+3
+
+Đề thi mới
+
+Ngữ văn
+Lớp 9
+phúc khang
+0
+
+Đề kiểm tra định kỳ Ngữ văn 9 - Khuyên con học (Nguyễn Khuyến)
+
+Ngữ văn
+Lớp 9
+phúc khang
+0
+
+PHÒNG GD&ĐT
+TRƯỜNG THCS
+Đề chính thức
+
+	
+
+ĐỀ KIỂM TRA ĐỊNH KỲ HỌC KỲ I
+Môn: Ngữ văn – Lớp 9
+Thời gian làm bài: 90 phút (không kể thời gian phát đề)
+
+PHẦN I. ĐỌC HIỂU (5,0 điểm)
+
+Đọc bài thơ sau:
+
+Đen thì gần mực, đỏ gần son,
+Học lấy cho hay, con hỡi con!
+Cái bút, cái nghiên là của quý,
+Câu kinh, câu sử, ấy mùi ngon!
+Vàng mua chứa để, vàng hay hết,
+Chữ bán dư ăn, chữ hãy còn.
+Nhờ Phật một mai nên đấng cả[1],
+Bõ công cha mẹ mới là khôn.
+
+(Nguyễn Khuyến, Trích Thơ văn Nguyễn Khuyến, NXB Hà Nội – 1971)
+
+Chú thích:
+
+[1] Đấng: bậc có địa vị cao sang, có tiếng tăm. Đây ý nói đỗ đạt làm quan.
+
+Nguyễn Khuyến (15/2/1835 - 5/2/1909) tự Miễn Chi, hiệu Quế Sơn, vốn tên là Nguyễn Thắng, sau vua Tự Đức mến tài ban tên Khuyến với nghĩa là đáng khuyến khích. Ông xuất thân trong một gia đình nhà nho nghèo. Ông đỗ đầu ba kì thi Hương, Hội, Đình nên được gọi là Tam Nguyên Yên Đổ. Tuy đỗ đạt cao nhưng ông chỉ làm quan hơn mười năm, còn phần lớn cuộc đời là dạy học và sống thanh bạch ở quê nhà.
+
+- Sáng tác của Nguyễn Khuyến gồm cả chữ Hán và chữ Nôm với số lượng lớn, hiện còn trên 800 bài gồm thơ, văn, câu đối nhưng chủ yếu là thơ.
+
+- Nguyễn Khuyến là người tài năng, có cốt cách thanh cao, có tấm lòng yêu nước thương dân, từng bày tỏ thái độ kiên quyết không hợp tác với chính quyền thực dân Pháp.
+
+Thực hiện các yêu cầu:
+
+Câu 1 (0,5 điểm). Dựa theo thi luật của thơ thất ngôn bát cú Đường luật, tiếng “công” được niêm với tiếng nào sau đây?
+
+A. Khôn
+
+	
+
+B. Thì
+
+
+
+
+C. Bút
+
+	
+
+D. Kinh
+
+Câu 2 (0,5 điểm). Câu thơ "Đen thì gần mực, đỏ gần son" sử dụng chất liệu dân gian nào?
+
+A. Tục ngữ.
+
+	
+
+B. Ca dao.
+
+	
+
+C. Truyện cổ tích.
+
+	
+
+D. Sử thi.
+
+Câu 3 (0,5 điểm). Trong hai câu luận: "Vàng mua chứa để, vàng hay hết / Chữ bán dư ăn, chữ hãy còn", tác giả muốn khẳng định điều gì?
+
+A. Của cải vật chất như vàng bạc có giá trị bền vững và quý giá hơn tri thức sách vở.
+
+
+
+
+B. Tri thức và việc học mang lại giá trị lâu bền, không bao giờ vơi cạn như của cải vật chất.
+
+
+
+
+C. Người học rộng tài cao cần biết kinh doanh buôn bán để làm giàu cho bản thân.
+
+
+
+
+D. Của cải là thứ dễ kiếm, còn việc học chữ vô cùng gian nan và tốn kém tiền bạc.
+
+Câu 4 (0,5 điểm). Lời dặn dò của người cha ở hai câu kết thể hiện niềm mong mỏi lớn nhất nào đối với con?
+
+A. Mong con tích lũy được nhiều tiền tài, danh vọng để rạng rỡ dòng họ.
+
+
+
+
+B. Mong con rời bỏ quê hương lên chốn kinh kỳ lập nghiệp để làm quan to.
+
+
+
+
+C. Mong con nỗ lực học hành thành tài, đỗ đạt để không phụ công lao sinh thành của cha mẹ.
+
+
+
+
+D. Mong con sống an nhàn, bình lặng nơi thôn dã, tránh xa chốn quan trường hiểm nguy.
+
+Câu 5 (0,5 điểm). Nội dung chính của bài thơ là gì?
+
+A. Ca ngợi cảnh đẹp thanh bình của làng quê và cuộc sống thanh bạch của nhà nho.
+
+
+
+
+B. Bày tỏ nỗi thất vọng, bế tắc của kẻ sĩ trước thời cuộc và con đường khoa cử suy tàn.
+
+
+
+
+C. Lên tiếng phê phán lối học giáo điều, chuộng danh lợi của giới sĩ tử thời phong kiến.
+
+
+
+
+D. Lời nhắn nhủ chân thành, tha thiết của người cha về giá trị của tri thức và học tập.
+
+Câu 6 (1,0 điểm).
+
+Chỉ ra và nêu tác dụng của biện pháp tu từ được sử dụng trong hai câu thực:
+
+Cái bút, cái nghiên là của quý,
+Câu kinh, câu sử, ấy mùi ngon.
+
+Câu 7 (1,5 điểm).
+
+Từ lời khuyên của người cha trong bài thơ, em có đồng ý với quan điểm: "Tri thức là tài sản vô giá và bền vững nhất của đời người" không? Hãy lí giải vì sao và rút ra bài học cho bản thân trong cuộc sống ngày nay.
+
+PHẦN II. VIẾT (5,0 điểm)
+
+Câu 1 (5,0 điểm).
+
+Em hãy viết bài văn nghị luận phân tích bài thơ Khuyên con học của Nguyễn Khuyến.
+
+--------- HẾT ---------
+
+Cán bộ coi thi không giải thích gì thêm.
+
+PHÒNG GD&ĐT
+
+TRƯỜNG THCS
+
+
+
+
+KHUYÊN CON HỌC
+
+Ngữ văn
+Lớp 9
+phúc khang
+0
+
+SỞ GD&ĐT TỈNH / THÀNH PHỐ
+
+TRƯỜNG THPT NGUYỄN TRÃI
+
+Đề tham khảo
+
+ĐỀ ÔN TẬP KIỂM TRA GIỮA HỌC KỲ I
+
+NĂM HỌC 2024 – 2025
+
+Môn: Tiếng Anh – Lớp 12
+
+Thời gian làm bài: 50 phút (không kể thời gian phát đề)
+
+Họ và tên thí sinh: .............................................................. Số báo danh: ........................
+
+Mark the letter A, B, C, or D to indicate the word whose underlined part differs from the other three in pronunciation in each of the following questions.
+
+Câu 1.
+
+A. battle
+
+B. attack
+
+C. adopt
+
+D. account
+
+Câu 2.
+
+A. resign
+
+B. genius
+
+C. general
+
+D. origin
+
+Mark the letter A, B, C, or D to indicate the word that differs from the other three in the position of primary stress in each of the following questions.
+
+Câu 3.
+
+A. defeat
+
+B. admire
+
+C. inspire
+
+D. soldier
+
+Câu 4.
+
+A. visionary
+
+B. ingredient
+
+C. biography
+
+D. diversity
+
+Mark the letter A, B, C, or D to indicate the correct answer to each of the following questions.
+
+Câu 5. While the military doctor ______ an operation on an injured soldier in the field hospital, an enemy shell exploded nearby.
+
+A. performed
+
+B. was performing
+
+C. is performing
+
+D. has performed
+
+Câu 6. Young people need to keep an open ______ when experiencing unfamiliar customs in a multicultural society.
+
+A. eye
+
+B. heart
+
+C. mind
+
+D. hand
+
+Câu 7. The dish ______ delicious because the chef used fresh traditional ingredients from his hometown.
+
+A. is tasting
+
+B. was tasting
+
+C. tastes
+
+D. tasted
+
+Câu 8. General Vo Nguyen Giap is widely recognized as a military ______ who led his army to historic victories.
+
+A. genius
+
+B. specialty
+
+C. souvenir
+
+D. barrier
+
+Câu 9. The teacher delivered an ______ speech about Vo Thi Sau's patriotism, which motivated all students in the hall.
+
+A. inspired
+
+B. inspiring
+
+C. inspiration
+
+D. inspire
+
+Read the following announcement and mark the letter A, B, C, or D to indicate the correct option that best fits each of the numbered blanks from 10 to 12.
+
+ANNOUNCEMENT: CELEBRATION OF CULTURAL DIVERSITY DAY
+
+The Youth Union cordially invites all students to participate in our annual Cultural Diversity Day next Friday!
+- Theme: "Embracing Cross-Cultural Richness".
+- Activities: Experience unique food stalls featuring grilled pork meatballs with noodles, spring rolls, and spicy rice cakes; take part in traditional games such as tug of war and bamboo dancing.
+- Goals: This festival aims to (10)______ intercultural understanding and help students overcome cultural (11)______ in daily communication.
+- Participation: Each class is expected to run an open booth representing a (12)______ culture around the globe.
+
+Let's join together and enrich our school life!
+
+Câu 10.
+
+A. promote
+
+B. ruin
+
+C. defeat
+
+D. resign
+
+Câu 11.
+
+A. specialities
+
+B. barriers
+
+C. electronics
+
+D. biographies
+
+Câu 12.
+
+A. specifically
+
+B. specialist
+
+C. specific
+
+D. specialize
+
+Read the following leaflet and mark the letter A, B, C, or D to indicate the correct option that best fits each of the numbered blanks from 13 to 15.
+
+WORKSHOP: LESSONS FROM INSPIRING HISTORICAL FIGURES
+
+Discover how great leaders shaped our nation through remarkable perseverance and dedication!
+- Who should join? All high school students who want to develop leadership qualities and find their own (13)______ of identity.
+- Key Highlights:
+  - Guest speakers will share personal (14)______ about famous war heroes and visionary leaders.
+
+Đề ôn thi Giữa học kỳ I Tiếng Anh 12 - Định dạng mới 2025
+
+Tiếng Anh
+Lớp 9
+Hà Kim
+0
+
+SỞ GD&ĐT THÀNH PHỐ HỒ CHÍ MINH
+
+TRƯỜNG THCS NGUYỄN DU
+
+Đề chính thức
+
+KỲ THI CHỌN HỌC SINH GIỎI CẤP THÀNH PHỐ
+
+NĂM HỌC 2025 – 2026
+
+Môn: CÔNG NGHỆ (MÔ ĐUN CÔNG NGHIỆP) – LỚP 9
+
+Thời gian làm bài: 150 phút (không kể thời gian phát đề)
+
+Câu 1 (2,0 điểm).
+Chú Nam đi công tác từ Mỹ về có mua tặng gia đình một chiếc lò nướng chân không đa năng. Trên nhãn máy có ghi thông số kỹ thuật là 120 V−1200 W. Mạng điện sinh hoạt trong gia đình chú Nam đang sử dụng có điện áp định mức là 220 V−50 Hz.
+a) Nếu chú Nam cắm trực tiếp chiếc lò nướng trên vào ổ cắm điện của gia đình thì sẽ xảy ra hiện tượng gì? Giải thích rõ nguyên nhân.
+b) Để chiếc lò nướng có thể hoạt động bình thường và an toàn, chú Nam cần trang bị thêm thiết bị điện gì? Nêu cấu tạo và nguyên lý hoạt động của thiết bị đó.
+c) Biết cuộn dây sơ cấp của thiết bị biến đổi điện áp nói trên có 1100 vòng dây. Hãy tính số vòng dây cần thiết của cuộn thứ cấp để lấy ra điện áp định mức 120 V cung cấp cho lò nướng.
+
+Câu 2 (2,0 điểm).
+Trong một đợt mưa giông lốc xoáy lớn, cây xanh ven đường bị bật gốc đè làm đứt một dây dẫn điện của tuyến đường dây cao thế 22 kV. Đầu dây điện có điện rơi chạm xuống mặt đường ướt nước, cách vị trí hai anh em bạn Hoàng đang đạp xe đi học về khoảng 7 m. Cùng thời điểm đó ở nhà, do tường bị ẩm, bố Hoàng tiến hành tháo mặt ổ cắm điện trên tường để kiểm tra nhưng đứng chân trần trực tiếp trên nền gạch men ẩm ướt và không ngắt cầu dao điện tổng.
+a) Bạn Hoàng và em gái đang đối mặt với nguy cơ tai nạn điện nào từ mặt đất ẩm ướt? Hãy hướng dẫn chi tiết cách để hai bạn di chuyển thoát ly khỏi vùng nguy hiểm một cách an toàn tuyệt đối.
+b) Chỉ ra các nguyên tắc an toàn điện cơ bản mà bố Hoàng đã vi phạm khi sửa chữa điện trong nhà. Nêu các biện pháp phòng tránh tai nạn điện giật khi sửa chữa mạng điện gia đình.
+
+Câu 3 (3,0 điểm).
+Bảng thống kê các đồ dùng điện sử dụng trong sinh hoạt của gia đình bạn Mai trong tháng 4 năm 2026 (tháng có 30 ngày) như sau:
+
+STT
+
+	
+
+Đồ dùng điện
+
+	
+
+Số lượng
+
+	
+
+Công suất P (W)
+
+	
+
+Thời gian sử dụng trong ngày t
+
+
+
+
+
+1
+
+	
+
+Đèn LED chiếu sáng
+
+	
+
+6
+
+	
+
+20
+
+	
+
+5 giờ
+
+
+
+
+2
+
+	
+
+Quạt điện làm mát
+
+	
+
+3
+
+	
+
+50
+
+	
+
+8 giờ
+
+
+
+
+3
+
+	
+
+Bếp điện từ
+
+	
+
+1
+
+	
+
+2000
+
+	
+
+1 giờ 30 phút
+
+
+
+
+4
+
+	
+
+Bình nước nóng
+
+	
+
+1
+
+	
+
+2500
+
+	
+
+48 phút
+
+
+
+
+5
+
+	
+
+Nồi cơm điện
+
+	
+
+1
+
+	
+
+800
+
+	
+
+1 giờ 15 phút
+
+
+
+
+6
+
+	
+
+Tủ lạnh gia đình
+
+	
+
+1
+
+	
+
+150
+
+	
+
+10 giờ (thời gian máy nén chạy tích luỹ)
+
+
+
+
+7
+
+	
+
+Tivi và máy vi tính
+
+	
+
+2
+
+	
+
+150
+
+	
+
+4 giờ
+
+
+
+
+8
+
+	
+
+Máy giặt
+
+	
+
+1
+
+	
+
+500
+
+	
+
+1 giờ
+
+a) Hãy tính tổng điện năng tiêu thụ (theo đơn vị kWh) của gia đình bạn Mai trong ngày và trong cả tháng 4 năm 2026.
+b) Tính số tiền điện gia đình bạn Mai phải thanh toán trong tháng 4 năm 2026, biết thuế giá trị gia tăng (VAT) là 10% và biểu giá bán lẻ điện sinh hoạt được tính lũy tiến theo các bậc thang quy định như sau:
+
+Bậc
+
+	
+
+Mức sử dụng điện sinh hoạt
+
+	
+
+Giá bán lẻ (đồng/kWh)
+
+
+
+
+Bậc 1
+
+	
+
+Cho kWh từ 0 – 50
+
+	
+
+1984
+
+
+
+
+Bậc 2
+
+	
+
+Cho kWh từ 51 – 100
+
+	
+
+2050
+
+
+
+
+Bậc 3
+
+	
+
+Cho kWh từ 101 – 200
+
+	
+
+2380
+
+
+
+
+Bậc 4
+
+	
+
+Cho kWh từ 201 – 300
+
+	
+
+2998
+
+
+
+
+Bậc 5
+
+	
+
+Cho kWh từ 301 – 400
+
+	
+
+3350
+
+
+
+
+Bậc 6
+
+	
+
+Cho kWh từ 401 trở lên
+
+	
+
+3460
+
+c) Bắt đầu từ ngày 21/4/2026 (sử dụng trong 10 ngày cuối tháng 4), gia đình Mai lắp đặt thêm 01 máy điều hòa không khí có công suất lạnh 1,5 HP (biết 1 HP=746 W, công suất tiêu thụ điện danh định tương ứng là 1119 W). Trung bình mỗi ngày máy điều hòa hoạt động 8 giờ. Hãy tính số tiền điện tăng thêm phải trả trong tháng này do sử dụng máy điều hòa. Tư vấn chọn Aptomat (CB) riêng bảo vệ cho đường dây máy điều hòa biết dòng định mức của CB lớn hơn ít nhất 30% dòng làm việc của máy và thị trường có các loại CB: 6A, 10A, 16A, 20A, 32A.
+
+Câu 4 (2,0 điểm).
+Trong buổi sinh hoạt hướng nghiệp lớp 9, hai bạn học sinh bộc lộ những thiên hướng rõ rệt:
+
+ĐỀ THI HỌC SINH GIỎI CẤP THÀNH PHỐ MÔN CÔNG NGHỆ 9 KÈM HƯỚNG DẪN CHẤM
+
+Công nghệ
+Lớp 9
+Đào Ái Hằng
+0
+
+BỒI DƯỠNG HỌC SINH GIỎI
+
+MÔN: SINH HỌC 9
+
+Chuyên đề nâng cao
+
+CHUYÊN ĐỀ: LAI MỘT CẶP TÍNH TRẠNG
+
+QUY LUẬT PHÂN LI CỦA MENĐEN
+
+Tài liệu dành cho đội tuyển HSG cấp Huyện / Tỉnh
+
+HỆ THỐNG 20 BÀI TẬP TỰ LUẬN NÂNG CAO
+
+Bài 1.
+Ở một loài thực vật, xét một gen quy định tính trạng chiều cao thân gồm 2 alen: alen A quy định thân cao trội hoàn toàn so với alen a quy định thân thấp.
+a) Cho cây thân cao thuần chủng lai với cây thân thấp thuần chủng thu được F
+1
+	​
+
+. Cho F
+1
+	​
+
+ tự thụ phấn thu được F
+2
+	​
+
+. Nếu cho các cây thân cao ở F
+2
+	​
+
+ tự thụ phấn nghiêm ngặt thì tỉ lệ phân li kiểu hình ở đời con F
+3
+	​
+
+ sẽ như thế nào?
+b) Nếu cho tất cả các cây thân cao ở F
+2
+	​
+
+ giao phấn ngẫu nhiên với nhau thì tỉ lệ kiểu hình ở đời con thu được là bao nhiêu?
+
+Bài 2.
+Ở cà chua, gen A quy định quả đỏ trội hoàn toàn so với alen a quy định quả vàng. Khi tiến hành thụ phấn giữa hai cây cà chua chưa rõ kiểu gen, người ta thu được đời con gồm 301 cây quả đỏ và 99 cây quả vàng.
+a) Biện luận và viết sơ đồ lai cho phép lai trên.
+b) Lấy ngẫu nhiên 3 cây quả đỏ ở đời con nói trên cho tự thụ phấn. Tính xác suất để ở thế hệ tiếp theo có sự phân li kiểu hình (tức xuất hiện cây quả vàng).
+
+Bài 3.
+Ở chuột, tính trạng màu sắc lông do một cặp alen chi phối. Trong một thí nghiệm, người ta thực hiện hai phép lai sau:
+- Phép lai 1: Cho chuột lông đen lai với chuột lông trắng thu được 100% chuột lông xám.
+- Phép lai 2: Cho các con chuột lông xám ở phép lai 1 giao phối với nhau thu được thế hệ con gồm: 48 con lông đen, 95 con lông xám, 51 con lông trắng.
+Hãy giải thích quy luật di truyền chi phối tính trạng màu lông chuột và viết sơ đồ lai từ P đến đời con của hai phép lai.
+
+Bài 4.
+Ở gà, gen A quy định lông đen, gen a quy định lông trắng. Khi cho gà lông đen lai với gà lông trắng thu được F
+1
+	​
+
+ có 100% gà lông xanh đốm (lông lang). Tiếp tục cho các cá thể F
+1
+	​
+
+ giao phối với nhau thu được F
+2
+	​
+
+.
+a) Cho biết tính trạng màu lông gà di truyền theo quy luật nào? Giải thích.
+b) Cần chọn cặp bố mẹ có kiểu hình như thế nào để đời con thu được tỉ lệ kiểu hình là 1 lông xanh đốm : 1 lông đen?
+
+Bài 5.
+Ở một loài động vật có vú, gen quy định màu lông nằm trên nhiễm sắc thể thường. Khi cho chuột lông vàng giao phối với nhau, người ta luôn thu được đời con phân li theo tỉ lệ: 2 chuột lông vàng : 1 chuột lông đen. Biết rằng tính trạng màu lông do một gen có 2 alen chi phối, không phát sinh đột biến mới.
+a) Giải thích kết quả phép lai trên và xác định kiểu gen của các cá thể bố mẹ.
+b) Nếu cho các con chuột lông vàng ở đời con giao phối với chuột lông đen thì kết quả kiểu gen và kiểu hình ở thế hệ tiếp theo sẽ như thế nào?
+
+Bài 6.
+Ở một loài côn trùng cánh cứng, gen quy định hình dạng cánh gồm 2 alen nằm trên nhiễm sắc thể thường. Người ta tiến hành một số phép lai và thu được kết quả như sau:
+- Phép lai 1: Cánh dài × Cánh ngắn → Đời con: 100% cánh dài.
+- Phép lai 2: Cánh dài × Cánh dài → Đời con: 298 con cánh dài : 101 con cánh cụt.
+- Phép lai 3: Cánh ngắn × Cánh ngắn → Đời con: 100% cánh cụt.
+Hãy xác định mối quan hệ trội - lặn giữa các alen quy định tính trạng hình dạng cánh và xác định kiểu gen của các cá thể trong 3 phép lai trên.
+
+Bài 7.
+Ở đậu Hà Lan, alen quy định hạt vàng trội hoàn toàn so với alen quy định hạt xanh. Cho cây hạt vàng dị hợp tử tự thụ phấn qua 3 thế hệ liên tiếp.
+a) Xác định tỉ lệ cây hạt xanh ở thế hệ thứ ba (F
+3
+	​
+
+).
+b) Trong số các cây hạt vàng ở F
+3
+	​
+
+, cây thuần chủng chiếm tỉ lệ bao nhiêu?
+
+Bài 8.
+Một người nông dân trồng ngô thu hoạch được một lô hạt ngô màu tím. Biết rằng màu sắc hạt do một gen có 2 alen quy định, tính trạng hạt tím trội hoàn toàn so với hạt trắng.
+
+Chuyên đề bồi dưỡng HSG Sinh học 9: 20 Bài tập Lai một cặp tính trạng (Có lời giải chi tiết)
+
+Sinh học
+Lớp 9
+Hồ Điệp
+0
+Xem thêm đề
+soandethi.com
+
+Trợ lý AI giúp giáo viên soạn đề thi, chỉnh số liệu, chuyển ảnh đề thành văn bản và làm đáp án cùng barem chấm điểm.
+
+Khám phá
+Trang chủ
+Đề thi cộng đồng
+Đề thi của tôi
+Slide bài giảng
+Kho tài liệu
+Bảng vẽ
+Nhiệm vụ
+Nạp điểm
+Giới thiệu
+Về chúng tôi
+Câu hỏi thường gặp
+Chính sách
+Điều khoản sử dụng
+Chính sách bảo mật
+Giá và thanh toán
+Chấm dứt dịch vụ, hoàn tiền
+Giải quyết khiếu nại
+Liên hệ
+lienhe@soandethi.com
+Zalo 0858 562 678
+Nhóm Zalo
+TikTok
+
+Đơn vị chủ quản: Hộ kinh doanh Ngũ Thành An
+
+Giấy chứng nhận đăng ký hộ kinh doanh số 040203005266 do Phòng Kinh tế UBND xã Tân Kỳ, tỉnh Nghệ An cấp ngày 15/10/2026. Mã số thuế: 040203005266.
+
+Địa chỉ: Số 191, đường Trường Sơn, xóm Trường Sơn, xã Tân Kỳ, tỉnh Nghệ An. Chủ hộ kinh doanh: Ngũ Thành An. Điện thoại: 0858 562 678. Email: lienhe@soandethi.com.
+
+© 2026 soandethi.com. Mọi quyền được bảo lưu.
+
+Soạn đề thi nhanh hơn, với AI.

@@ -1,0 +1,88 @@
+{
+  "scope": "Structure and exact component-reference preservation, not extraction, rendering, or semantic gold.",
+  "runs": {
+    "a": {
+      "errors": [],
+      "stages": [
+        {
+          "nodes": 12,
+          "questions": 8,
+          "old_question_moves": []
+        },
+        {
+          "nodes": 15,
+          "questions": 16,
+          "old_question_moves": [
+            "Q02"
+          ]
+        }
+      ],
+      "retained_units": 16,
+      "bundle_sha256": {
+        "Q01": "d3f8b7ff271790e43243fe6b98055877692c48260f495f85d4db17d76453e99a",
+        "Q02": "09b4a1f828bc4adc1cf07bbc906198b717b1bb1831fbb425f770e43e8400b008",
+        "Q03": "8306e070e58edd8eaa9748f71c998ee809114b4f67889f0904e18f8fdf947f99",
+        "Q04": "f5cd517dd8ceafa689fdfc205c5bcf03bd25ad2ff104a1c7d11c4d9f9c7ad9ed",
+        "Q05": "93e0675b164750d47ce47298c03024267f36b0d16065fd0a7090867c0c55f08e",
+        "Q06": "620b57f4624cafcc54e2133eeaf88311fb5a567e965eb8dbec9339d07d456210",
+        "Q07": "406024f9e1cd080dfea98508a49b37ccc48dfd39a8e2e342b125af268bba4159",
+        "Q08": "ae8cdddb6697ff05a943467fb76c94b54956b556d69850462f47e40e3bb11680",
+        "Q09": "dde5e048fde0cb5c08934aa8e2deb55dbfbb7ffc786fc6857ad317a7aa996f3d",
+        "Q10": "0c221460bc45c871e7b804332ab073652d8c08f7f0c360cc3973444fe54df7d6",
+        "Q11": "d339ad17fdcca032641a1ed7fe1cdfc2aa5a5c45c70472fb46d19b804251de2d",
+        "Q12": "39aa60c15d6d6e2e80227e9044babeac10ab95978d010a180891c3c2bad8fa0c",
+        "Q13": "940b4415c6edde0f85fe211449d825279c9bb7e0f899934db1cb691b568a0abb",
+        "Q14": "cd551169bdd6a9350961764b8a3c9ccae6d719a43ce1662013ac75d815d07a93",
+        "Q15": "1250f07434aa2611cf4916748973fef6871653d7c199f69a3c9d960c333ae727",
+        "Q16": "e03bd68a88a5d4dd154a84a95db717ca8640328616f7504f2b5b8bccee91384f"
+      },
+      "teacher_taxonomy_actions": []
+    },
+    "b": {
+      "errors": [],
+      "stages": [
+        {
+          "nodes": 10,
+          "questions": 8,
+          "old_question_moves": []
+        },
+        {
+          "nodes": 15,
+          "questions": 16,
+          "old_question_moves": [
+            "Q15"
+          ]
+        }
+      ],
+      "retained_units": 16,
+      "bundle_sha256": {
+        "Q01": "d3f8b7ff271790e43243fe6b98055877692c48260f495f85d4db17d76453e99a",
+        "Q02": "09b4a1f828bc4adc1cf07bbc906198b717b1bb1831fbb425f770e43e8400b008",
+        "Q03": "8306e070e58edd8eaa9748f71c998ee809114b4f67889f0904e18f8fdf947f99",
+        "Q04": "f5cd517dd8ceafa689fdfc205c5bcf03bd25ad2ff104a1c7d11c4d9f9c7ad9ed",
+        "Q05": "93e0675b164750d47ce47298c03024267f36b0d16065fd0a7090867c0c55f08e",
+        "Q06": "620b57f4624cafcc54e2133eeaf88311fb5a567e965eb8dbec9339d07d456210",
+        "Q07": "406024f9e1cd080dfea98508a49b37ccc48dfd39a8e2e342b125af268bba4159",
+        "Q08": "ae8cdddb6697ff05a943467fb76c94b54956b556d69850462f47e40e3bb11680",
+        "Q09": "dde5e048fde0cb5c08934aa8e2deb55dbfbb7ffc786fc6857ad317a7aa996f3d",
+        "Q10": "0c221460bc45c871e7b804332ab073652d8c08f7f0c360cc3973444fe54df7d6",
+        "Q11": "d339ad17fdcca032641a1ed7fe1cdfc2aa5a5c45c70472fb46d19b804251de2d",
+        "Q12": "39aa60c15d6d6e2e80227e9044babeac10ab95978d010a180891c3c2bad8fa0c",
+        "Q13": "940b4415c6edde0f85fe211449d825279c9bb7e0f899934db1cb691b568a0abb",
+        "Q14": "cd551169bdd6a9350961764b8a3c9ccae6d719a43ce1662013ac75d815d07a93",
+        "Q15": "1250f07434aa2611cf4916748973fef6871653d7c199f69a3c9d960c333ae727",
+        "Q16": "e03bd68a88a5d4dd154a84a95db717ca8640328616f7504f2b5b8bccee91384f"
+      },
+      "teacher_taxonomy_actions": []
+    }
+  },
+  "comparison": {
+    "pairs": 120,
+    "same_node_pairs": {
+      "a": 4,
+      "b": 4
+    },
+    "coassignment_disagreements": [],
+    "warning": "AI grouping comparison only. Most pairs can agree by being separate; this is not accuracy or semantic stability certification."
+  }
+}

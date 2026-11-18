@@ -1,0 +1,1665 @@
+{
+  "schema_version": 1,
+  "evaluation_only": true,
+  "paid_provider_calls": 0,
+  "scope": "Only Trần Quý Cáp source in third cumulative organized bank and Quán Toan source candidates in fourth extracted bank. No production/gold/output mutations; only these new review files.",
+  "freeze_verified": {
+    "independent-gold.md": true,
+    "source-manifest.json": true
+  },
+  "method": [
+    "Reviewed every scoped candidate body/context block and every unused block against frozen exam-only text and independent gold.",
+    "Rendered and visually inspected original PDF pages1–2 for both papers.",
+    "Checked joined stored block text equals frozen exam-only input for both papers and all third-source question block ids equal corresponding candidate ids."
+  ],
+  "block_id_convention": "0-based stored block array; frozen source lines are 1-based (block+1 here).",
+  "caveats": [
+    "Scores are boundary/content preservation relative to the supplied text, NOT exact mathematical or diagram fidelity to PDF.",
+    "Fourth organization failed deadline per task: no fourth topic/root semantic score, no inference from the extracted bank having zero persisted fourth questions.",
+    "Third B4 split is ambiguous, not an actual question omission/spurious-question finding.",
+    "Third I.9 context contains I.10 stem from a fused text block; distinguish upstream mixing from the extractor selecting the mixed block as context."
+  ],
+  "sources": [
+    {
+      "source_id": "tran-quy-cap-hk1-2025-2026",
+      "bank_source_uuid": "6b09ac00-74cb-42de-8bff-33398df2f653",
+      "artifact": "tran-quy-cap-hk1-2025-2026.organized-bank.json",
+      "artifact_sha256": "7f73acc1ce69a39e0df9a4781236b4e426d2c9be538c91914fe22e2482750455",
+      "original_pdf": ".data/math9-ten-evaluation/tran-quy-cap-hk1-2025-2026/original.pdf",
+      "pdf_pages_visually_checked": [
+        1,
+        2
+      ],
+      "input_exactly_preserved_in_blocks": true,
+      "counts": {
+        "printed_top_level": 17,
+        "preferred_gold_units": 21,
+        "candidate_count": 22,
+        "persisted_source_questions": 22,
+        "strict_boundary_pass_relative_to_text": 19,
+        "ambiguous_split_candidates": 2,
+        "context_contaminated_candidates": 1,
+        "complete_body_candidates": 22,
+        "actual_omitted_questions": 0,
+        "spurious_question_candidates": 0,
+        "unjustified_question_body_blocks_ignored": 0,
+        "unused_blocks": 22,
+        "semantically_relevant_full_paths": 22,
+        "topic_paths_scored": 22
+      },
+      "count_reconciliation": "22 vs preferred21 is exactly B4a/B4b split; all 17 printed questions covered.",
+      "candidates": [
+        {
+          "id": "candidate-1",
+          "label": "Câu 1",
+          "bodyBlockIds": [
+            10,
+            11
+          ],
+          "contextBlockIds": [],
+          "question_id": "e458da53-1319-47b1-a4fd-fd9e572278d4",
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "alg_equations",
+              "label": "Phương trình, bất phương trình và hệ phương trình"
+            },
+            {
+              "id": "linear_two_var",
+              "label": "Phương trình bậc nhất hai ẩn"
+            }
+          ],
+          "topic_verdict": "relevant",
+          "finding": "Complete MC stem and A–D; superscripts flattened upstream."
+        },
+        {
+          "id": "candidate-2",
+          "label": "Câu 2",
+          "bodyBlockIds": [
+            12,
+            13
+          ],
+          "contextBlockIds": [],
+          "question_id": "4cba07cd-df9a-4e62-bd4f-c5ca3645da0d",
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "alg_equations",
+              "label": "Phương trình, bất phương trình và hệ phương trình"
+            },
+            {
+              "id": "inequalities",
+              "label": "Bất đẳng thức và bất phương trình bậc nhất một ẩn"
+            },
+            {
+              "id": "ineq_properties",
+              "label": "Tính chất của bất đẳng thức"
+            }
+          ],
+          "topic_verdict": "relevant",
+          "finding": "Complete MC inequality stem and A–D."
+        },
+        {
+          "id": "candidate-3",
+          "label": "Câu 3",
+          "bodyBlockIds": [
+            14,
+            15
+          ],
+          "contextBlockIds": [],
+          "question_id": "d255dc88-b7e0-4a23-bb49-1ca05c42c02f",
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "radicals",
+              "label": "Căn bậc hai và căn thức"
+            },
+            {
+              "id": "square_root",
+              "label": "Căn bậc hai"
+            }
+          ],
+          "topic_verdict": "relevant",
+          "finding": "Complete MC square-root stem and A–D."
+        },
+        {
+          "id": "candidate-4",
+          "label": "Câu 4",
+          "bodyBlockIds": [
+            16,
+            17
+          ],
+          "contextBlockIds": [],
+          "question_id": "8963d272-9b9e-4ee6-99b2-ba398196e79d",
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "radicals",
+              "label": "Căn bậc hai và căn thức"
+            },
+            {
+              "id": "radical_transform",
+              "label": "Biến đổi và rút gọn căn thức"
+            },
+            {
+              "id": "radical_factor_out",
+              "label": "Đưa thừa số ra ngoài dấu căn"
+            }
+          ],
+          "topic_verdict": "relevant",
+          "finding": "Complete MC radical factor extraction; radical bars lost upstream, not omitted by candidate."
+        },
+        {
+          "id": "candidate-5",
+          "label": "Câu 5",
+          "bodyBlockIds": [
+            18,
+            19
+          ],
+          "contextBlockIds": [],
+          "question_id": "a279a5be-99ee-4145-835f-588ff3b8fa83",
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "radicals",
+              "label": "Căn bậc hai và căn thức"
+            },
+            {
+              "id": "radical_transform",
+              "label": "Biến đổi và rút gọn căn thức"
+            },
+            {
+              "id": "radical_product",
+              "label": "Khai phương một tích"
+            }
+          ],
+          "topic_verdict": "relevant",
+          "finding": "Complete MC radical product/factor identity; PDF shows a√b=√(a²b). Khai phương một tích is relevant though not the most precise leaf."
+        },
+        {
+          "id": "candidate-6",
+          "label": "Câu 6",
+          "bodyBlockIds": [
+            20,
+            21,
+            22,
+            23
+          ],
+          "contextBlockIds": [],
+          "question_id": "3d5c1596-7acb-4108-ab2f-ae946f5f8a99",
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "geometry",
+              "label": "Hình học"
+            },
+            {
+              "id": "right_triangle_trig",
+              "label": "Tam giác vuông: hệ thức lượng và tỉ số lượng giác"
+            }
+          ],
+          "topic_verdict": "relevant",
+          "finding": "Complete MC cosine stem and all fraction rows; PDF triangle graphic/labels absent upstream."
+        },
+        {
+          "id": "candidate-7",
+          "label": "Câu 7",
+          "bodyBlockIds": [
+            24,
+            25,
+            26,
+            27
+          ],
+          "contextBlockIds": [],
+          "question_id": "80937c0c-4df3-4668-8473-8c092839c83b",
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "geometry",
+              "label": "Hình học"
+            },
+            {
+              "id": "right_triangle_trig",
+              "label": "Tam giác vuông: hệ thức lượng và tỉ số lượng giác"
+            }
+          ],
+          "topic_verdict": "relevant",
+          "finding": "Complete MC special-angle sine and A–D; radicals/degrees flattened upstream."
+        },
+        {
+          "id": "candidate-8",
+          "label": "Câu 8",
+          "bodyBlockIds": [
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "contextBlockIds": [],
+          "question_id": "d52ede14-b307-4c01-aab5-995bed0670d8",
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "geometry",
+              "label": "Hình học"
+            },
+            {
+              "id": "right_triangle_trig",
+              "label": "Tam giác vuông: hệ thức lượng và tỉ số lượng giác"
+            }
+          ],
+          "topic_verdict": "relevant",
+          "finding": "Complete MC inverse-sine rounding and all unusually ordered option rows; degree superscripts flattened upstream."
+        },
+        {
+          "id": "candidate-9",
+          "label": "Câu 9",
+          "bodyBlockIds": [
+            33,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41
+          ],
+          "contextBlockIds": [
+            42
+          ],
+          "question_id": "359e92b1-e6ae-4dd1-a439-384cb2219a94",
+          "boundary_body_context_verdict": "context_contamination",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "geometry",
+              "label": "Hình học"
+            },
+            {
+              "id": "right_triangle_trig",
+              "label": "Tam giác vuông: hệ thức lượng và tỉ số lượng giác"
+            }
+          ],
+          "topic_verdict": "relevant",
+          "finding": "Body preserves I.9 and options. Context block 42 also contains the entire I.10 stem, because B,C diagram labels share that block in layout extraction. Actual extraneous next-question context, not an extra question or lost I.9 question. Block granularity prevents selecting only the B,C labels; figure absent upstream."
+        },
+        {
+          "id": "candidate-10",
+          "label": "Câu 10",
+          "bodyBlockIds": [
+            42,
+            44,
+            45
+          ],
+          "contextBlockIds": [],
+          "question_id": "6e54d7ad-15b2-4591-bdb3-323f69a4df94",
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "geometry",
+              "label": "Hình học"
+            },
+            {
+              "id": "circle",
+              "label": "Đường tròn"
+            },
+            {
+              "id": "circle_symmetry",
+              "label": "Đường tròn và tính chất đối xứng"
+            }
+          ],
+          "topic_verdict": "relevant",
+          "finding": "Complete I.10 stem/options. Its stem block also contains stray B,C labels from I.9 diagram: upstream layout mixing, not a new candidate defect."
+        },
+        {
+          "id": "candidate-11",
+          "label": "Câu 11",
+          "bodyBlockIds": [
+            46,
+            47,
+            48
+          ],
+          "contextBlockIds": [],
+          "question_id": "5823fcd8-393e-4331-90f0-0ec4fb671187",
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "geometry",
+              "label": "Hình học"
+            },
+            {
+              "id": "circle",
+              "label": "Đường tròn"
+            },
+            {
+              "id": "circle_angles",
+              "label": "Góc và cung của đường tròn"
+            },
+            {
+              "id": "central_angle_arc",
+              "label": "Góc ở tâm, cung và số đo cung"
+            },
+            {
+              "id": "central_angle",
+              "label": "Góc ở tâm"
+            }
+          ],
+          "topic_verdict": "relevant",
+          "finding": "Complete central-angle/minor-arc MC with options; arc/angle and degree glyphs damaged upstream."
+        },
+        {
+          "id": "candidate-12",
+          "label": "Câu 12",
+          "bodyBlockIds": [
+            49,
+            50,
+            51,
+            52
+          ],
+          "contextBlockIds": [],
+          "question_id": "a79cd359-c027-46bb-a2f9-37376249badb",
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "geometry",
+              "label": "Hình học"
+            },
+            {
+              "id": "circle",
+              "label": "Đường tròn"
+            },
+            {
+              "id": "circle_measure",
+              "label": "Độ dài đường tròn, cung tròn và diện tích hình quạt tròn"
+            },
+            {
+              "id": "arc_length",
+              "label": "Độ dài cung tròn"
+            }
+          ],
+          "topic_verdict": "relevant",
+          "finding": "Complete arc-length formula MC including numerator/denominator rows; topic relevant."
+        },
+        {
+          "id": "candidate-13",
+          "label": "Bài 1a",
+          "bodyBlockIds": [
+            55
+          ],
+          "contextBlockIds": [],
+          "question_id": "22c6ab54-c594-401a-8612-fc6d43586cea",
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "radicals",
+              "label": "Căn bậc hai và căn thức"
+            },
+            {
+              "id": "radical_condition",
+              "label": "Căn thức bậc hai và điều kiện xác định"
+            }
+          ],
+          "topic_verdict": "relevant",
+          "finding": "Independent domain subpart, instruction retained; radical missing upstream."
+        },
+        {
+          "id": "candidate-14",
+          "label": "Bài 1b",
+          "bodyBlockIds": [
+            56
+          ],
+          "contextBlockIds": [],
+          "question_id": "3ee5f6b6-0bd2-451f-a955-13a63df8634f",
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "alg_equations",
+              "label": "Phương trình, bất phương trình và hệ phương trình"
+            },
+            {
+              "id": "inequalities",
+              "label": "Bất đẳng thức và bất phương trình bậc nhất một ẩn"
+            },
+            {
+              "id": "ineq_linear_one_var",
+              "label": "Giải bất phương trình bậc nhất một ẩn"
+            }
+          ],
+          "topic_verdict": "relevant",
+          "finding": "Independent linear inequality, instruction retained."
+        },
+        {
+          "id": "candidate-15",
+          "label": "Bài 1c",
+          "bodyBlockIds": [
+            57,
+            58,
+            59
+          ],
+          "contextBlockIds": [],
+          "question_id": "906ed292-97da-467a-bec3-c1b286c7f09e",
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "alg_equations",
+              "label": "Phương trình, bất phương trình và hệ phương trình"
+            },
+            {
+              "id": "rational_equation",
+              "label": "Phương trình chứa ẩn ở mẫu"
+            }
+          ],
+          "topic_verdict": "relevant",
+          "finding": "Independent rational equation with instruction and all numerator/denominator rows. No explicit excluded-domain sentence exists in PDF; must infer x≠−1,2, not claim an omitted sentence."
+        },
+        {
+          "id": "candidate-16",
+          "label": "Bài 2a",
+          "bodyBlockIds": [
+            61,
+            62,
+            63
+          ],
+          "contextBlockIds": [],
+          "question_id": "aeca0832-718e-4eb9-a583-3ad792875ee4",
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "radicals",
+              "label": "Căn bậc hai và căn thức"
+            },
+            {
+              "id": "radical_transform",
+              "label": "Biến đổi và rút gọn căn thức"
+            },
+            {
+              "id": "radical_rationalize",
+              "label": "Trục căn thức ở mẫu"
+            }
+          ],
+          "topic_verdict": "relevant",
+          "finding": "Independent rationalization task with instruction and all fraction rows; radical lost upstream."
+        },
+        {
+          "id": "candidate-17",
+          "label": "Bài 2b",
+          "bodyBlockIds": [
+            64
+          ],
+          "contextBlockIds": [],
+          "question_id": "d065fb46-2d87-4363-912c-c96aa777e1bd",
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "radicals",
+              "label": "Căn bậc hai và căn thức"
+            },
+            {
+              "id": "radical_transform",
+              "label": "Biến đổi và rút gọn căn thức"
+            },
+            {
+              "id": "radical_simplify",
+              "label": "Rút gọn biểu thức chứa căn"
+            }
+          ],
+          "topic_verdict": "relevant",
+          "finding": "Independent radical arithmetic task, complete available text; nested radical scope is lost upstream."
+        },
+        {
+          "id": "candidate-18",
+          "label": "Bài 2c",
+          "bodyBlockIds": [
+            65,
+            66,
+            67
+          ],
+          "contextBlockIds": [],
+          "question_id": "7ce70c91-670b-4ba1-8a72-c44b01e7551f",
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "algebra",
+              "label": "Đại số"
+            },
+            {
+              "id": "radicals",
+              "label": "Căn bậc hai và căn thức"
+            },
+            {
+              "id": "radical_transform",
+              "label": "Biến đổi và rút gọn căn thức"
+            },
+            {
+              "id": "radical_simplify",
+              "label": "Rút gọn biểu thức chứa căn"
+            }
+          ],
+          "topic_verdict": "relevant",
+          "finding": "Independent radical simplification task; all fraction rows and x≥0,x≠1 retained."
+        },
+        {
+          "id": "candidate-19",
+          "label": "Bài 3",
+          "bodyBlockIds": [
+            70
+          ],
+          "contextBlockIds": [],
+          "question_id": "f4f00845-d7a3-4bfd-bff6-65bbb005a8ef",
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "geometry",
+              "label": "Hình học"
+            },
+            {
+              "id": "right_triangle_trig",
+              "label": "Tam giác vuông: hệ thức lượng và tỉ số lượng giác"
+            }
+          ],
+          "topic_verdict": "relevant",
+          "finding": "Complete right-triangle DEF trigonometric-ratios task; only printed title/points ignored."
+        },
+        {
+          "id": "candidate-20",
+          "label": "Bài 4a",
+          "bodyBlockIds": [
+            73
+          ],
+          "contextBlockIds": [
+            72
+          ],
+          "question_id": "96c7944e-5225-4523-bd31-d58a8f769120",
+          "boundary_body_context_verdict": "ambiguous_shared_context_split",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "geometry",
+              "label": "Hình học"
+            },
+            {
+              "id": "circle",
+              "label": "Đường tròn"
+            }
+          ],
+          "topic_verdict": "relevant",
+          "finding": "Shared radius 6cm/central-angle 60° context retained. B4a and B4b split although frozen gold prefers one connected shared-context unit. Independently solvable from duplicated context: ambiguous over-split, no omission; broad Đường tròn path is relevant."
+        },
+        {
+          "id": "candidate-21",
+          "label": "Bài 4b",
+          "bodyBlockIds": [
+            74,
+            75
+          ],
+          "contextBlockIds": [
+            72
+          ],
+          "question_id": "8e7312e0-f76f-4679-8cc1-9f3d0f9b2b94",
+          "boundary_body_context_verdict": "ambiguous_shared_context_split",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "geometry",
+              "label": "Hình học"
+            },
+            {
+              "id": "circle",
+              "label": "Đường tròn"
+            },
+            {
+              "id": "circle_measure",
+              "label": "Độ dài đường tròn, cung tròn và diện tích hình quạt tròn"
+            },
+            {
+              "id": "sector_area",
+              "label": "Diện tích hình quạt tròn"
+            }
+          ],
+          "topic_verdict": "relevant",
+          "finding": "Shared radius/angle retained and both sector-area body lines retained. Paired with candidate-20: ambiguous over-split relative to one preferred B4 unit; no missing construction or domain."
+        },
+        {
+          "id": "candidate-22",
+          "label": "Bài 5",
+          "bodyBlockIds": [
+            77,
+            78,
+            79,
+            80,
+            81,
+            82
+          ],
+          "contextBlockIds": [],
+          "question_id": "79b2947a-5286-4456-b740-12824c0bf98d",
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": [
+            {
+              "id": "root",
+              "label": "Kho câu hỏi"
+            },
+            {
+              "id": "geometry",
+              "label": "Hình học"
+            },
+            {
+              "id": "right_triangle_trig",
+              "label": "Tam giác vuông: hệ thức lượng và tỉ số lượng giác"
+            }
+          ],
+          "topic_verdict": "relevant",
+          "finding": "Complete airplane/observers story, 2500m,37°/30°, requested CH and metre rounding. Figure absent upstream; PDF confirms C above H between A,B."
+        }
+      ],
+      "ignored_blocks_review": [
+        {
+          "block_id": 0,
+          "source_line": 1,
+          "text": "TRƯỜNG THCS TRẦN QUÝ CÁP                                 ĐỀ KIỂM TRA\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 1,
+          "source_line": 2,
+          "text": "                                              HỌC KỲ I - NĂM HỌC: 2025-2026\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 2,
+          "source_line": 3,
+          "text": "                                                         MÔN: TOÁN 9\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 3,
+          "source_line": 4,
+          "text": "            ĐỀ CHÍNH THỨC\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 4,
+          "source_line": 5,
+          "text": "                                                THỜI GIAN LÀM BÀI: 90 phút\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 5,
+          "source_line": 6,
+          "text": "                                               (không kể thời gian giao – nhận đề)\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 6,
+          "source_line": 7,
+          "text": "           (Đề gồm có 02 trang – Học sinh làm bài trên giấy thi do giám thị phát)\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 7,
+          "source_line": 8,
+          "text": "\n",
+          "verdict": "correctly_ignored_blank"
+        },
+        {
+          "block_id": 8,
+          "source_line": 9,
+          "text": "I. TRẮC NGHIỆM: (3,0 điểm)\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 9,
+          "source_line": 10,
+          "text": "Chọn một phương án trả lời đúng cho mỗi câu sau rồi ghi vào giấy làm bài.\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 34,
+          "source_line": 35,
+          "text": "\n",
+          "verdict": "correctly_ignored_blank"
+        },
+        {
+          "block_id": 43,
+          "source_line": 44,
+          "text": "\n",
+          "verdict": "correctly_ignored_blank"
+        },
+        {
+          "block_id": 53,
+          "source_line": 54,
+          "text": "\fII. TỰ LUẬN: (7,0 điểm)\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 54,
+          "source_line": 55,
+          "text": "Bài 1: (2,25 điểm)\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 60,
+          "source_line": 61,
+          "text": "Bài 2: (2,0 điểm)\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 68,
+          "source_line": 69,
+          "text": "\n",
+          "verdict": "correctly_ignored_blank"
+        },
+        {
+          "block_id": 69,
+          "source_line": 70,
+          "text": "Bài 3: (0,5 điểm)\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 71,
+          "source_line": 72,
+          "text": "Bài 4: (1,25 điểm)\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 76,
+          "source_line": 77,
+          "text": "Bài 5: (1,0 điểm)\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 83,
+          "source_line": 84,
+          "text": "\n",
+          "verdict": "correctly_ignored_blank"
+        },
+        {
+          "block_id": 84,
+          "source_line": 85,
+          "text": "\n",
+          "verdict": "correctly_ignored_blank"
+        },
+        {
+          "block_id": 85,
+          "source_line": 86,
+          "text": "                           ------------------ Hết-------------------\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        }
+      ]
+    },
+    {
+      "source_id": "quan-toan-hk1-2025-2026",
+      "bank_source_uuid": "325d948f-30e9-46e4-8117-f582d096367e",
+      "artifact": "quan-toan-hk1-2025-2026.extracted-bank.json",
+      "artifact_sha256": "c48f5b8e6bc7dd078caa2d9cecd116d3b428d2042ad169682b574d11f202a600",
+      "original_pdf": ".data/math9-ten-evaluation/quan-toan-hk1-2025-2026/original.pdf",
+      "pdf_pages_visually_checked": [
+        1,
+        2
+      ],
+      "input_exactly_preserved_in_blocks": true,
+      "counts": {
+        "printed_top_level": 22,
+        "preferred_gold_units": 22,
+        "candidate_count": 22,
+        "persisted_source_questions": 0,
+        "strict_boundary_pass_relative_to_text": 22,
+        "ambiguous_split_candidates": 0,
+        "context_contaminated_candidates": 0,
+        "complete_body_candidates": 22,
+        "actual_omitted_questions": 0,
+        "spurious_question_candidates": 0,
+        "unjustified_question_body_blocks_ignored": 0,
+        "unused_blocks": 18,
+        "semantically_relevant_full_paths": null,
+        "topic_paths_scored": 0
+      },
+      "count_reconciliation": "22 candidates exactly cover 12 MC+4 true/false+6 short; extracted stage intentionally has no confirmed/persisted fourth-source questions.",
+      "candidates": [
+        {
+          "id": "candidate-1",
+          "label": "Câu 1",
+          "bodyBlockIds": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ],
+          "contextBlockIds": [],
+          "question_id": null,
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": null,
+          "topic_verdict": "not_scored_deadline_failure",
+          "finding": "Complete bridge-load MC stem/options. 10t sign graphic absent upstream; diagram-dependent, no invented graphic recovery."
+        },
+        {
+          "id": "candidate-2",
+          "label": "Câu 2",
+          "bodyBlockIds": [
+            21,
+            22
+          ],
+          "contextBlockIds": [],
+          "question_id": null,
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": null,
+          "topic_verdict": "not_scored_deadline_failure",
+          "finding": "Complete central-angle recognition MC/options; four figures absent upstream, hence cannot solve from candidate text alone."
+        },
+        {
+          "id": "candidate-3",
+          "label": "Câu 3",
+          "bodyBlockIds": [
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38
+          ],
+          "contextBlockIds": [],
+          "question_id": null,
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": null,
+          "topic_verdict": "not_scored_deadline_failure",
+          "finding": "Complete 9–12 right-triangle cosine MC and all fraction tokens."
+        },
+        {
+          "id": "candidate-4",
+          "label": "Câu 4",
+          "bodyBlockIds": [
+            39,
+            40,
+            41,
+            42
+          ],
+          "contextBlockIds": [],
+          "question_id": null,
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": null,
+          "topic_verdict": "not_scored_deadline_failure",
+          "finding": "Complete arithmetic-square-root MC/options; radical bars lost upstream."
+        },
+        {
+          "id": "candidate-5",
+          "label": "Câu 5",
+          "bodyBlockIds": [
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62
+          ],
+          "contextBlockIds": [],
+          "question_id": null,
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": null,
+          "topic_verdict": "not_scored_deadline_failure",
+          "finding": "Complete system/solution MC with all equation and answer token rows; raw math ordering damaged upstream."
+        },
+        {
+          "id": "candidate-6",
+          "label": "Câu 6",
+          "bodyBlockIds": [
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80
+          ],
+          "contextBlockIds": [],
+          "question_id": null,
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": null,
+          "topic_verdict": "not_scored_deadline_failure",
+          "finding": "Complete right-triangle/altitude false-identity MC/options; fraction ordering flattened upstream."
+        },
+        {
+          "id": "candidate-7",
+          "label": "Câu 7",
+          "bodyBlockIds": [
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89
+          ],
+          "contextBlockIds": [],
+          "question_id": null,
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": null,
+          "topic_verdict": "not_scored_deadline_failure",
+          "finding": "Complete two-circle-position MC: radii6,2 and distance9 retained with all options."
+        },
+        {
+          "id": "candidate-8",
+          "label": "Câu 8",
+          "bodyBlockIds": [
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96
+          ],
+          "contextBlockIds": [],
+          "question_id": null,
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": null,
+          "topic_verdict": "not_scored_deadline_failure",
+          "finding": "Complete two-tangent-properties MC/options including false assertion; not answer leakage."
+        },
+        {
+          "id": "candidate-9",
+          "label": "Câu 9",
+          "bodyBlockIds": [
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119,
+            120,
+            121,
+            122,
+            123,
+            124,
+            125,
+            126,
+            127,
+            128,
+            129,
+            130,
+            131,
+            132,
+            133,
+            134,
+            135,
+            136,
+            137,
+            138,
+            139,
+            140,
+            141,
+            142,
+            143,
+            144,
+            145,
+            146,
+            147,
+            148,
+            149,
+            150,
+            151,
+            152
+          ],
+          "contextBlockIds": [],
+          "question_id": null,
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": null,
+          "topic_verdict": "not_scored_deadline_failure",
+          "finding": "Complete linear-system-recognition MC with all 56 blocks, including all four option token lists. Severe formula flattening is upstream."
+        },
+        {
+          "id": "candidate-10",
+          "label": "Câu 10",
+          "bodyBlockIds": [
+            153,
+            154,
+            155,
+            156,
+            157,
+            158,
+            159,
+            160,
+            161,
+            162,
+            163,
+            164,
+            165,
+            166,
+            167
+          ],
+          "contextBlockIds": [],
+          "question_id": null,
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": null,
+          "topic_verdict": "not_scored_deadline_failure",
+          "finding": "Complete radical-domain MC/options; radical bar lost upstream."
+        },
+        {
+          "id": "candidate-11",
+          "label": "Câu 11",
+          "bodyBlockIds": [
+            168,
+            169,
+            170,
+            171,
+            172
+          ],
+          "contextBlockIds": [],
+          "question_id": null,
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": null,
+          "topic_verdict": "not_scored_deadline_failure",
+          "finding": "Complete tangent-length MC, radius5/distance13 and options."
+        },
+        {
+          "id": "candidate-12",
+          "label": "Câu 12",
+          "bodyBlockIds": [
+            173,
+            174,
+            175,
+            176,
+            177,
+            178
+          ],
+          "contextBlockIds": [],
+          "question_id": null,
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": null,
+          "topic_verdict": "not_scored_deadline_failure",
+          "finding": "Complete inequality-solution MC/options; radicals in A=√5,D=√3 absent upstream, not candidate omissions."
+        },
+        {
+          "id": "candidate-13",
+          "label": "PHẦN II - Câu 1",
+          "bodyBlockIds": [
+            181,
+            182,
+            183,
+            184,
+            185,
+            186,
+            187,
+            188,
+            189,
+            190,
+            191,
+            192,
+            193,
+            194,
+            195
+          ],
+          "contextBlockIds": [],
+          "question_id": null,
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": null,
+          "topic_verdict": "not_scored_deadline_failure",
+          "finding": "One complete true/false stem with a–d, not four detached tasks. Radical/superscript losses upstream."
+        },
+        {
+          "id": "candidate-14",
+          "label": "PHẦN II - Câu 2",
+          "bodyBlockIds": [
+            196,
+            197,
+            198,
+            199,
+            200,
+            201,
+            202,
+            203,
+            204,
+            205,
+            206,
+            207,
+            208,
+            209,
+            210,
+            211,
+            212,
+            213,
+            214,
+            215,
+            216,
+            217,
+            218,
+            219,
+            220,
+            221,
+            222,
+            223,
+            224,
+            225,
+            226,
+            227,
+            228,
+            229,
+            230,
+            231
+          ],
+          "contextBlockIds": [],
+          "question_id": null,
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": null,
+          "topic_verdict": "not_scored_deadline_failure",
+          "finding": "One complete A,B-expression true/false task, definitions and all a–d/domain assertions retained; severe fraction/radical flattening upstream."
+        },
+        {
+          "id": "candidate-15",
+          "label": "PHẦN II - Câu 3",
+          "bodyBlockIds": [
+            232,
+            233,
+            234,
+            235,
+            236,
+            237,
+            238,
+            239,
+            240,
+            241,
+            242,
+            243,
+            244,
+            245,
+            246,
+            247,
+            248,
+            249,
+            250
+          ],
+          "contextBlockIds": [],
+          "question_id": null,
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": null,
+          "topic_verdict": "not_scored_deadline_failure",
+          "finding": "One complete car speed/time true/false story with all definitions/assertions. Natural-number condition and y−x=30 are printed false statements, not model mistakes to correct."
+        },
+        {
+          "id": "candidate-16",
+          "label": "PHẦN II - Câu 4",
+          "bodyBlockIds": [
+            251,
+            252,
+            253,
+            254,
+            255,
+            256,
+            257,
+            258,
+            259,
+            260,
+            261,
+            262,
+            263,
+            264,
+            265,
+            266,
+            267,
+            268,
+            269,
+            270,
+            271,
+            272,
+            273,
+            274,
+            275,
+            276
+          ],
+          "contextBlockIds": [],
+          "question_id": null,
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": null,
+          "topic_verdict": "not_scored_deadline_failure",
+          "finding": "One complete connected triangle/circle true/false task, all constructions and a–d retained. PDF prints c)10/9 without π; do not invent π as a recovery."
+        },
+        {
+          "id": "candidate-17",
+          "label": "PHẦN III - Câu 1",
+          "bodyBlockIds": [
+            278,
+            279,
+            280,
+            281,
+            282
+          ],
+          "contextBlockIds": [],
+          "question_id": null,
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": null,
+          "topic_verdict": "not_scored_deadline_failure",
+          "finding": "Complete annulus short task: both radii, π=3.14 and rounding retained. CD picture occurs atop PDF page2 and is absent upstream; radii in prose suffice."
+        },
+        {
+          "id": "candidate-18",
+          "label": "PHẦN III - Câu 2",
+          "bodyBlockIds": [
+            284,
+            285,
+            286,
+            287,
+            288,
+            289,
+            290,
+            291,
+            292,
+            293
+          ],
+          "contextBlockIds": [],
+          "question_id": null,
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": null,
+          "topic_verdict": "not_scored_deadline_failure",
+          "finding": "Complete radical-maximum short task including x≥16 and two-decimal rounding; PDF A=√(x−16)/(3x), formula structure lost upstream."
+        },
+        {
+          "id": "candidate-19",
+          "label": "PHẦN III - Câu 3",
+          "bodyBlockIds": [
+            294,
+            295,
+            296,
+            297,
+            298,
+            299
+          ],
+          "contextBlockIds": [],
+          "question_id": null,
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": null,
+          "topic_verdict": "not_scored_deadline_failure",
+          "finding": "Complete special-angle expression short task and rounding; degree placement flattened upstream."
+        },
+        {
+          "id": "candidate-20",
+          "label": "PHẦN III - Câu 4",
+          "bodyBlockIds": [
+            300,
+            301,
+            302,
+            303,
+            304,
+            305,
+            306,
+            307
+          ],
+          "contextBlockIds": [],
+          "question_id": null,
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": null,
+          "topic_verdict": "not_scored_deadline_failure",
+          "finding": "Complete radical arithmetic short task; nested radical/fraction scope lost upstream."
+        },
+        {
+          "id": "candidate-21",
+          "label": "PHẦN III - Câu 5",
+          "bodyBlockIds": [
+            308,
+            309,
+            310,
+            311,
+            312
+          ],
+          "contextBlockIds": [],
+          "question_id": null,
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": null,
+          "topic_verdict": "not_scored_deadline_failure",
+          "finding": "Complete weighted-mark inequality story including weights, threshold8,9.25/7.75 and rounding."
+        },
+        {
+          "id": "candidate-22",
+          "label": "PHẦN III - Câu 6",
+          "bodyBlockIds": [
+            313,
+            314,
+            315,
+            316,
+            317,
+            318,
+            319,
+            320
+          ],
+          "contextBlockIds": [],
+          "question_id": null,
+          "boundary_body_context_verdict": "pass_relative_to_text",
+          "body_complete_relative_to_text": true,
+          "topic_full_ancestor_path": null,
+          "topic_verdict": "not_scored_deadline_failure",
+          "finding": "Complete lighting trigonometry story including height2.95,baseline1.88,spread25° and both angle/length rounding instructions. Diagram absent upstream; PDF confirms D,C,A collinear in that order."
+        }
+      ],
+      "ignored_blocks_review": [
+        {
+          "block_id": 0,
+          "source_line": 1,
+          "text": "Mã đề 901 Trang 1/2\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 1,
+          "source_line": 2,
+          "text": "UBND PHƯỜNG HỒNG AN\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 2,
+          "source_line": 3,
+          "text": "TRƯỜNG THCS QUÁN TOAN\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 3,
+          "source_line": 4,
+          "text": "--------------------\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 4,
+          "source_line": 5,
+          "text": "(Đề thi có 02 trang)\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 5,
+          "source_line": 6,
+          "text": "ĐỀ KIỂM TRA CUỐI HỌC KÌ I\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 6,
+          "source_line": 7,
+          "text": "NĂM HỌC 2025 - 2026\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 7,
+          "source_line": 8,
+          "text": "MÔN: TOÁN\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 8,
+          "source_line": 9,
+          "text": "Thời gian làm bài: 90 phút\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 9,
+          "source_line": 10,
+          "text": "(không kể thời gian phát đề)\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 10,
+          "source_line": 11,
+          "text": "Họ và tên: ............................................................................Số báo danh: ....... Mã đề 901\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 11,
+          "source_line": 12,
+          "text": "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn. Thí sinh trả lời từ câu 1 đến câu 12. Mỗi\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 12,
+          "source_line": 13,
+          "text": "câu hỏi thí sinh chỉ chọn một phương án.\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 179,
+          "source_line": 180,
+          "text": "PHẦN II. Câu trắc nghiệm đúng sai. Thí sinh trả lời từ câu 1 đến câu 4. Trong mỗi ý a), b), c), d)\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 180,
+          "source_line": 181,
+          "text": "ở mỗi câu, thí sinh chọn đúng hoặc sai.\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 277,
+          "source_line": 278,
+          "text": "PHẦN III. Câu trắc nghiệm trả lời ngắn. Thí sinh trả lời từ câu 1 đến câu 6.\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 283,
+          "source_line": 284,
+          "text": "\fMã đề 901 Trang 2/2\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        },
+        {
+          "block_id": 321,
+          "source_line": 322,
+          "text": "------ HẾT ------\n",
+          "verdict": "correctly_ignored_structural_header_instruction_title_points_or_footer"
+        }
+      ]
+    }
+  ]
+}

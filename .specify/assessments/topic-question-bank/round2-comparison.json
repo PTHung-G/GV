@@ -1,0 +1,187 @@
+{
+  "validation_errors": [],
+  "sources": 25,
+  "reference_pairs": 300,
+  "reference_counts": {
+    "reject": 298,
+    "plausible_conditional": 2
+  },
+  "directed_candidate_links": 21,
+  "unique_candidate_pairs": 11,
+  "sources_with_candidates": 15,
+  "candidate_links_by_reference": {
+    "plausible_conditional": 4,
+    "reject": 17
+  },
+  "links": [
+    {
+      "source": "A1",
+      "candidate": "B1",
+      "retrieval_status": "conditional",
+      "reference_judgment": "plausible_conditional",
+      "retrieval_reason": "Closest pedagogical match: identical principal arithmetic-square-root task on a different perfect square, same four-option form and sign-distractor concept; neither depends on another item.",
+      "reference_reason": "Same arithmetic-square-root recognition task and four-option numeric form, with only the perfect-square value and distractors changed. Plausible only after confirming A1 individual points and both answer keys; the shared format does not verify scoring equivalence. Response forms: A1: single-choice numeric selection; B1: single-choice numeric selection. Known points: A1 not individually specified; B1 0.5. Dependencies: A1: standalone numeric input; no cross-question reference; B1: standalone numeric input; no cross-question reference. Neither item has an explicit answer key or worked solution in the corpus; answer correctness and scoring equivalence are not verified. Visible defects/context flags: A1: Individual points are absent; the enclosing Part I label gives only a 3.0-point aggregate and does not establish this item's weight."
+    },
+    {
+      "source": "A2",
+      "candidate": "B2",
+      "retrieval_status": "conditional",
+      "reference_judgment": "plausible_conditional",
+      "retrieval_reason": "Closest pedagogical match: impose nonnegative linear radicand to obtain a domain inequality; same four-option form and self-contained setup, with a different threshold.",
+      "reference_reason": "Same domain-of-a-linear-radicand task and four-option inequality form, with only the threshold and distractors changed. Plausible only after confirming A2 individual points and both answer keys; different correct-option positions must not carry a stale key. Response forms: A2: single-choice inequality selection; B2: single-choice inequality selection. Known points: A2 not individually specified; B2 0.5. Dependencies: A2: standalone variable expression; no cross-question reference; B2: standalone variable expression; no cross-question reference. Neither item has an explicit answer key or worked solution in the corpus; answer correctness and scoring equivalence are not verified. Visible defects/context flags: A2: Individual points are absent; the enclosing Part I label gives only a 3.0-point aggregate and does not establish this item's weight."
+    },
+    {
+      "source": "A3",
+      "candidate": "B19",
+      "retrieval_status": "conditional",
+      "reference_judgment": "reject",
+      "retrieval_reason": "Limited pedagogical candidate because conjugate multiplication/difference of squares is the shared substantive operation used in the rational-expression denominator; both ask algebraic simplification, not merely sharing radicals.",
+      "reference_reason": "A3 requires constructed symbolic simplification of reciprocal expressions with supplied variable restrictions; evaluate a product of conjugate radical binomials is a numerical single-choice task, not equivalent evidence of symbolic manipulation or domain handling. Response forms: A3: constructed algebraic simplification; B19: single-choice numeric-expression selection. Known points: A3 2; B19 0.5. Dependencies: A3: supplied domain x >= 0 and x != 1; no cross-question reference; B19: two conjugate factors supplied locally; no cross-question reference. Neither item has an explicit answer key or worked solution in the corpus; answer correctness and scoring equivalence are not verified. Visible defects/context flags: A3: Constructed-response item follows a Part I multiple-choice / 3.0-point heading without a visible new section; embedded constructed-response points total 7.0. Section placement/scoring context needs confirmation, not repair."
+    },
+    {
+      "source": "A4",
+      "candidate": "B7",
+      "retrieval_status": "conditional",
+      "reference_judgment": "reject",
+      "retrieval_reason": "Limited candidate for the right-triangle calculation component: both give two perpendicular legs and require deriving the hypotenuse before a further relation. Both configurations are self-contained.",
+      "reference_reason": "The right-triangle configurations use proportional leg data, but A4 asks for hypotenuse, altitude and area in a three-output constructed response while B7 selects a sine ratio. A shared intermediate hypotenuse calculation is insufficient. Response forms: A4: constructed response with three numerical outputs; B7: single-choice ratio selection. Known points: A4 2; B7 0.5. Dependencies: A4: local right-triangle and altitude configuration; no cross-question reference; B7: local labeled right triangle; no cross-question reference. Neither item has an explicit answer key or worked solution in the corpus; answer correctness and scoring equivalence are not verified. Visible defects/context flags: A4: Constructed-response item follows a Part I multiple-choice / 3.0-point heading without a visible new section; embedded constructed-response points total 7.0. Section placement/scoring context needs confirmation, not repair."
+    },
+    {
+      "source": "B1",
+      "candidate": "A1",
+      "retrieval_status": "conditional",
+      "reference_judgment": "plausible_conditional",
+      "retrieval_reason": "Closest pedagogical match: principal arithmetic square root of a perfect square, same four-option answer form and sign misconception checks; different numerical data.",
+      "reference_reason": "Same arithmetic-square-root recognition task and four-option numeric form, with only the perfect-square value and distractors changed. Plausible only after confirming A1 individual points and both answer keys; the shared format does not verify scoring equivalence. Response forms: A1: single-choice numeric selection; B1: single-choice numeric selection. Known points: A1 not individually specified; B1 0.5. Dependencies: A1: standalone numeric input; no cross-question reference; B1: standalone numeric input; no cross-question reference. Neither item has an explicit answer key or worked solution in the corpus; answer correctness and scoring equivalence are not verified. Visible defects/context flags: A1: Individual points are absent; the enclosing Part I label gives only a 3.0-point aggregate and does not establish this item's weight."
+    },
+    {
+      "source": "B2",
+      "candidate": "A2",
+      "retrieval_status": "conditional",
+      "reference_judgment": "plausible_conditional",
+      "retrieval_reason": "Closest pedagogical match: the same nonnegative-radicand domain test with a different linear threshold, four options, and no external setup.",
+      "reference_reason": "Same domain-of-a-linear-radicand task and four-option inequality form, with only the threshold and distractors changed. Plausible only after confirming A2 individual points and both answer keys; different correct-option positions must not carry a stale key. Response forms: A2: single-choice inequality selection; B2: single-choice inequality selection. Known points: A2 not individually specified; B2 0.5. Dependencies: A2: standalone variable expression; no cross-question reference; B2: standalone variable expression; no cross-question reference. Neither item has an explicit answer key or worked solution in the corpus; answer correctness and scoring equivalence are not verified. Visible defects/context flags: A2: Individual points are absent; the enclosing Part I label gives only a 3.0-point aggregate and does not establish this item's weight."
+    },
+    {
+      "source": "B3",
+      "candidate": "B10",
+      "retrieval_status": "conditional",
+      "reference_judgment": "reject",
+      "retrieval_reason": "Shared executable skill is extracting perfect-square factors to rewrite numerical radicals; both are self-contained single-choice simplification tasks.",
+      "reference_reason": "Single-radical square-factor extraction is only one component of combining three radical terms; B10 additionally requires collecting/canceling like radicals. Shared broad simplification topic and 0.5 points do not establish equal task demand. Response forms: B3: single-choice radical-expression selection; B10: single-choice expression/value selection. Known points: B3 0.5; B10 0.5. Dependencies: B3: standalone radical; no cross-question reference; B10: three radical terms supplied locally; no cross-question reference. Neither item has an explicit answer key or worked solution in the corpus; answer correctness and scoring equivalence are not verified. No specific content/option defect identified in this text-only review; rendering and answer correctness are not certified."
+    },
+    {
+      "source": "B6",
+      "candidate": "B15",
+      "retrieval_status": "conditional",
+      "reference_judgment": "reject",
+      "retrieval_reason": "Both ask for real solutions of a quadratic equation and require reporting both branches; same single-choice form and known 0.5-point allocation.",
+      "reference_reason": "A quadratic with a nonzero linear term calls for factorization or another general quadratic method; a pure-square equation specifically tests square/sign reasoning, and B15 has a response-granularity defect. Response forms: B6: single-choice root-pair selection; B15: single-choice selection with a paired-root option. Known points: B6 0.5; B15 0.5. Dependencies: B6: standalone quadratic equation; no cross-question reference; B15: standalone pure-square equation; no cross-question reference. Neither item has an explicit answer key or worked solution in the corpus; answer correctness and scoring equivalence are not verified. Visible defects/context flags: B15: Stem asks which number is a solution, but one option is a pair of numbers; singular wording and option granularity are misaligned."
+    },
+    {
+      "source": "B6",
+      "candidate": "B16",
+      "retrieval_status": "conditional",
+      "reference_judgment": "reject",
+      "retrieval_reason": "Both can assess completeness of real roots of an equation equivalent to a quadratic, using a paired-solution choice rather than a lone root.",
+      "reference_reason": "A general factorable quadratic and a root-of-square equation assess different transformations and sign handling; matching a two-root response shape is insufficient. Response forms: B6: single-choice root-pair selection; B16: single-choice solution-condition selection. Known points: B6 0.5; B16 0.5. Dependencies: B6: standalone quadratic equation; no cross-question reference; B16: standalone radical equation; no cross-question reference. Neither item has an explicit answer key or worked solution in the corpus; answer correctness and scoring equivalence are not verified. Visible defects/context flags: B16: The stem says the equation holds when, without explicitly requesting the complete solution set; singleton choices and a both-signs choice coexist, creating a possible sufficient-condition versus complete-set ambiguity."
+    },
+    {
+      "source": "B7",
+      "candidate": "B13",
+      "retrieval_status": "conditional",
+      "reference_judgment": "reject",
+      "retrieval_reason": "Limited candidate for evaluating an acute-angle trigonometric ratio numerically in single-choice form; neither requires external context.",
+      "reference_reason": "Computing sine from supplied triangle legs differs from recalling a special-angle cosine; neither the trigonometry label nor single-choice form preserves the specific task. Response forms: B7: single-choice ratio selection; B13: single-choice exact-value selection. Known points: B7 0.5; B13 0.5. Dependencies: B7: local labeled right triangle; no cross-question reference; B13: standalone special angle; no cross-question reference. Neither item has an explicit answer key or worked solution in the corpus; answer correctness and scoring equivalence are not verified. No specific content/option defect identified in this text-only review; rendering and answer correctness are not certified."
+    },
+    {
+      "source": "B9",
+      "candidate": "B16",
+      "retrieval_status": "conditional",
+      "reference_judgment": "reject",
+      "retrieval_reason": "Strong shared concept: the principal square root of a square must be treated as an absolute value, rather than cancelling signs blindly; same four-option form.",
+      "reference_reason": "Both involve a square root of a square, but B9 evaluates a fixed negative expression whereas B16 solves an equation in a variable and must address both signs; response scope and B16 wording further differ. Response forms: B9: single-choice radical-expression selection; B16: single-choice solution-condition selection. Known points: B9 0.5; B16 0.5. Dependencies: B9: standalone nested radical expression; no cross-question reference; B16: standalone radical equation; no cross-question reference. Neither item has an explicit answer key or worked solution in the corpus; answer correctness and scoring equivalence are not verified. Visible defects/context flags: B16: The stem says the equation holds when, without explicitly requesting the complete solution set; singleton choices and a both-signs choice coexist, creating a possible sufficient-condition versus complete-set ambiguity."
+    },
+    {
+      "source": "B10",
+      "candidate": "B3",
+      "retrieval_status": "conditional",
+      "reference_judgment": "reject",
+      "retrieval_reason": "Direct shared operation is square-factor extraction in numerical radical simplification; both use a selected simplified expression with four options.",
+      "reference_reason": "Single-radical square-factor extraction is only one component of combining three radical terms; B10 additionally requires collecting/canceling like radicals. Shared broad simplification topic and 0.5 points do not establish equal task demand. Response forms: B3: single-choice radical-expression selection; B10: single-choice expression/value selection. Known points: B3 0.5; B10 0.5. Dependencies: B3: standalone radical; no cross-question reference; B10: three radical terms supplied locally; no cross-question reference. Neither item has an explicit answer key or worked solution in the corpus; answer correctness and scoring equivalence are not verified. No specific content/option defect identified in this text-only review; rendering and answer correctness are not certified."
+    },
+    {
+      "source": "B10",
+      "candidate": "B19",
+      "retrieval_status": "conditional",
+      "reference_judgment": "reject",
+      "retrieval_reason": "Broader simplification candidate: both reduce an exact numerical radical expression using algebraic transformations, with the same selected-expression form.",
+      "reference_reason": "Collecting additive radical terms and evaluating a conjugate product are distinct operations; equal point weights do not establish interchangeability. Response forms: B10: single-choice expression/value selection; B19: single-choice numeric-expression selection. Known points: B10 0.5; B19 0.5. Dependencies: B10: three radical terms supplied locally; no cross-question reference; B19: two conjugate factors supplied locally; no cross-question reference. Neither item has an explicit answer key or worked solution in the corpus; answer correctness and scoring equivalence are not verified. No specific content/option defect identified in this text-only review; rendering and answer correctness are not certified."
+    },
+    {
+      "source": "B13",
+      "candidate": "B7",
+      "retrieval_status": "conditional",
+      "reference_judgment": "reject",
+      "retrieval_reason": "Limited candidate for numerical trigonometric-ratio evaluation with a four-option response, not merely a shared geometry topic.",
+      "reference_reason": "Computing sine from supplied triangle legs differs from recalling a special-angle cosine; neither the trigonometry label nor single-choice form preserves the specific task. Response forms: B7: single-choice ratio selection; B13: single-choice exact-value selection. Known points: B7 0.5; B13 0.5. Dependencies: B7: local labeled right triangle; no cross-question reference; B13: standalone special angle; no cross-question reference. Neither item has an explicit answer key or worked solution in the corpus; answer correctness and scoring equivalence are not verified. No specific content/option defect identified in this text-only review; rendering and answer correctness are not certified."
+    },
+    {
+      "source": "B15",
+      "candidate": "B16",
+      "retrieval_status": "conditional",
+      "reference_judgment": "reject",
+      "retrieval_reason": "Closest conceptual alternative: solving a pure-square relation and a square-root-of-square relation both require a complete two-branch real solution set, with the same four-option form.",
+      "reference_reason": "Even if the equations have the same solution set, B15 tests pure-square equation solutions while B16 adds principal-root/absolute-value reasoning. That solution-set coincidence is not enough for substitution; B15 singular wording and B16 incomplete-versus-complete-condition ambiguity require review without inventing repairs. Response forms: B15: single-choice selection with a paired-root option; B16: single-choice solution-condition selection. Known points: B15 0.5; B16 0.5. Dependencies: B15: standalone pure-square equation; no cross-question reference; B16: standalone radical equation; no cross-question reference. Neither item has an explicit answer key or worked solution in the corpus; answer correctness and scoring equivalence are not verified. Visible defects/context flags: B15: Stem asks which number is a solution, but one option is a pair of numbers; singular wording and option granularity are misaligned. | B16: The stem says the equation holds when, without explicitly requesting the complete solution set; singleton choices and a both-signs choice coexist, creating a possible sufficient-condition versus complete-set ambiguity."
+    },
+    {
+      "source": "B15",
+      "candidate": "B6",
+      "retrieval_status": "conditional",
+      "reference_judgment": "reject",
+      "retrieval_reason": "Both ask for the real root set of a quadratic in single-choice form, so they share an actual equation-solving/solution-completeness task.",
+      "reference_reason": "A quadratic with a nonzero linear term calls for factorization or another general quadratic method; a pure-square equation specifically tests square/sign reasoning, and B15 has a response-granularity defect. Response forms: B6: single-choice root-pair selection; B15: single-choice selection with a paired-root option. Known points: B6 0.5; B15 0.5. Dependencies: B6: standalone quadratic equation; no cross-question reference; B15: standalone pure-square equation; no cross-question reference. Neither item has an explicit answer key or worked solution in the corpus; answer correctness and scoring equivalence are not verified. Visible defects/context flags: B15: Stem asks which number is a solution, but one option is a pair of numbers; singular wording and option granularity are misaligned."
+    },
+    {
+      "source": "B16",
+      "candidate": "B15",
+      "retrieval_status": "conditional",
+      "reference_judgment": "reject",
+      "retrieval_reason": "Closest equation-solving alternative: both require retaining both real branches in a pure-square relation, with a four-option response.",
+      "reference_reason": "Even if the equations have the same solution set, B15 tests pure-square equation solutions while B16 adds principal-root/absolute-value reasoning. That solution-set coincidence is not enough for substitution; B15 singular wording and B16 incomplete-versus-complete-condition ambiguity require review without inventing repairs. Response forms: B15: single-choice selection with a paired-root option; B16: single-choice solution-condition selection. Known points: B15 0.5; B16 0.5. Dependencies: B15: standalone pure-square equation; no cross-question reference; B16: standalone radical equation; no cross-question reference. Neither item has an explicit answer key or worked solution in the corpus; answer correctness and scoring equivalence are not verified. Visible defects/context flags: B15: Stem asks which number is a solution, but one option is a pair of numbers; singular wording and option granularity are misaligned. | B16: The stem says the equation holds when, without explicitly requesting the complete solution set; singleton choices and a both-signs choice coexist, creating a possible sufficient-condition versus complete-set ambiguity."
+    },
+    {
+      "source": "B16",
+      "candidate": "B9",
+      "retrieval_status": "conditional",
+      "reference_judgment": "reject",
+      "retrieval_reason": "Shared core identity is square root of a square equals absolute value; both directly test sign handling in single-choice form.",
+      "reference_reason": "Both involve a square root of a square, but B9 evaluates a fixed negative expression whereas B16 solves an equation in a variable and must address both signs; response scope and B16 wording further differ. Response forms: B9: single-choice radical-expression selection; B16: single-choice solution-condition selection. Known points: B9 0.5; B16 0.5. Dependencies: B9: standalone nested radical expression; no cross-question reference; B16: standalone radical equation; no cross-question reference. Neither item has an explicit answer key or worked solution in the corpus; answer correctness and scoring equivalence are not verified. Visible defects/context flags: B16: The stem says the equation holds when, without explicitly requesting the complete solution set; singleton choices and a both-signs choice coexist, creating a possible sufficient-condition versus complete-set ambiguity."
+    },
+    {
+      "source": "B16",
+      "candidate": "B6",
+      "retrieval_status": "conditional",
+      "reference_judgment": "reject",
+      "retrieval_reason": "Conditional equation-solving alternative: both require a complete set of real solutions of a relation reducible to a quadratic; same multiple-choice form.",
+      "reference_reason": "A general factorable quadratic and a root-of-square equation assess different transformations and sign handling; matching a two-root response shape is insufficient. Response forms: B6: single-choice root-pair selection; B16: single-choice solution-condition selection. Known points: B6 0.5; B16 0.5. Dependencies: B6: standalone quadratic equation; no cross-question reference; B16: standalone radical equation; no cross-question reference. Neither item has an explicit answer key or worked solution in the corpus; answer correctness and scoring equivalence are not verified. Visible defects/context flags: B16: The stem says the equation holds when, without explicitly requesting the complete solution set; singleton choices and a both-signs choice coexist, creating a possible sufficient-condition versus complete-set ambiguity."
+    },
+    {
+      "source": "B19",
+      "candidate": "A3",
+      "retrieval_status": "conditional",
+      "reference_judgment": "reject",
+      "retrieval_reason": "Shared conjugate-binomial difference-of-squares operation is central to evaluating the source product and simplifying the candidate denominator; both involve substantive algebraic simplification.",
+      "reference_reason": "A3 requires constructed symbolic simplification of reciprocal expressions with supplied variable restrictions; evaluate a product of conjugate radical binomials is a numerical single-choice task, not equivalent evidence of symbolic manipulation or domain handling. Response forms: A3: constructed algebraic simplification; B19: single-choice numeric-expression selection. Known points: A3 2; B19 0.5. Dependencies: A3: supplied domain x >= 0 and x != 1; no cross-question reference; B19: two conjugate factors supplied locally; no cross-question reference. Neither item has an explicit answer key or worked solution in the corpus; answer correctness and scoring equivalence are not verified. Visible defects/context flags: A3: Constructed-response item follows a Part I multiple-choice / 3.0-point heading without a visible new section; embedded constructed-response points total 7.0. Section placement/scoring context needs confirmation, not repair."
+    },
+    {
+      "source": "B19",
+      "candidate": "B10",
+      "retrieval_status": "conditional",
+      "reference_judgment": "reject",
+      "retrieval_reason": "Both are exact numerical radical simplification tasks requiring algebraic reduction, with the same four-option response form.",
+      "reference_reason": "Collecting additive radical terms and evaluating a conjugate product are distinct operations; equal point weights do not establish interchangeability. Response forms: B10: single-choice expression/value selection; B19: single-choice numeric-expression selection. Known points: B10 0.5; B19 0.5. Dependencies: B10: three radical terms supplied locally; no cross-question reference; B19: two conjugate factors supplied locally; no cross-question reference. Neither item has an explicit answer key or worked solution in the corpus; answer correctness and scoring equivalence are not verified. No specific content/option defect identified in this text-only review; rendering and answer correctness are not certified."
+    }
+  ],
+  "warning": "AI-agent agreement only; not ground-truth accuracy or safe replacement verification."
+}
