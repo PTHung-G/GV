@@ -32,4 +32,16 @@ test('rejects duplicate IDs and invalid document structures', () => {
     { sourceContentHash: {} }, { contentStatus: 'ready' },
   ]) expect(() => validateDocuments([{ ...key, ...metadata }])).toThrow();
   expect(validateDocuments([{ ...key, answerKeyQuestions: [{ label: 'Câu 1', answer: 'A', points: '1' }] }])).toHaveLength(1);
+  expect(
+    validateDocuments([
+      {
+        ...key,
+        answerKeyQuestions: [
+          { label: 'Câu 1', type: 'mc', answer: 'A', points: '0,5', sectionNo: 1, displayNo: 1 },
+          { label: 'Câu 1', type: 'tf', answer: 'ĐSĐS', points: '1,0', sectionNo: 2, displayNo: 1, scoringRule: 'moet-2025' },
+          { label: 'Câu 1', type: 'short', answer: '-2,5', points: '1,0', sectionNo: 3, displayNo: 1 },
+        ],
+      },
+    ]),
+  ).toHaveLength(1);
 });

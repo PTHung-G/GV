@@ -26,9 +26,26 @@ export function mergeImportedDocuments(current: ExamDoc[], imported: ExamDoc[]):
 function validKeyQuestion(value: unknown): boolean {
   if (!value || typeof value !== 'object' || Array.isArray(value)) return false;
   const item = value as Record<string, unknown>;
-  if (typeof item.label !== 'string' || typeof item.answer !== 'string'
-    || (item.type !== undefined && item.type !== 'mc' && item.type !== 'essay')
-    || (item.points !== undefined && typeof item.points !== 'string')) return false;
+  if (
+    typeof item.label !== 'string' ||
+    typeof item.answer !== 'string' ||
+    (item.type !== undefined &&
+      item.type !== 'mc' &&
+      item.type !== 'tf' &&
+      item.type !== 'short' &&
+      item.type !== 'essay') ||
+    (item.points !== undefined && typeof item.points !== 'string') ||
+    (item.scoringRule !== undefined && item.scoringRule !== 'moet-2025' && item.scoringRule !== 'equal') ||
+    (item.sectionNo !== undefined && (!Number.isInteger(item.sectionNo) || Number(item.sectionNo) <= 0)) ||
+    (item.displayNo !== undefined && (!Number.isInteger(item.displayNo) || Number(item.displayNo) <= 0))
+  ) {
+    return false;
+  }
+  if (item.statements !== undefined) {
+    if (!item.statements || typeof item.statements !== 'object' || Array.isArray(item.statements)) return false;
+    const st = item.statements as Record<string, unknown>;
+    if (!['a', 'b', 'c', 'd'].every((k) => typeof st[k] === 'boolean')) return false;
+  }
   if (item.steps !== undefined) {
     if (!Array.isArray(item.steps) || item.steps.length > 2000) return false;
     return item.steps.every((step: unknown) => {

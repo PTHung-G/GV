@@ -7,6 +7,7 @@
  */
 import { verifyPublishedIdentity, assertPublishedProvenance, assertBundleStudentUnique } from '@/lib/exam-release/access';
 import { lockSession, lockSubmission, queueSection } from './lifecycle';
+import { refreshTotals } from './grade';
 import { createHash } from 'node:crypto';
 import { query, queryOne, withTransaction } from '@/lib/server/db';
 import { HttpError } from '@/lib/server/http';
@@ -355,13 +356,22 @@ export async function addPage(
       `update submissions
           set page_count = (select count(*) from page_assets
                              where submission_id = $1 and kind = 'original' and status = 'stored'),
+              input_revision = input_revision + 1,
+              mc_status = case when $2 = 'essay-only' then 'not-applicable' else 'pending' end,
+              essay_status = case when $2 = 'mc-only' then 'not-applicable' else 'pending' end,
+              mc_score = null,
+              essay_score = null,
+              total_score = null,
+              status = 'draft',
+              confirmed_at = null,
               updated_at = now()
         where id = $1`,
-      [submissionId],
+      [submissionId, session.mode],
     );
 
     await client.query('delete from mc_answers where submission_id = $1', [submissionId]);
     await client.query('delete from criterion_scores where submission_id = $1', [submissionId]);
+    await refreshTotals(submissionId, client);
     await client.query("update jobs set status = 'failed', last_error = 'Đầu vào đã thay đổi', finished_at = now(), lease_token = null where submission_id = $1 and status in ('queued','running')", [submissionId]);
     await client.query("insert into audit_events (session_id, submission_id, action, after_value) values ($1,$2,'submission.input_changed',jsonb_build_object('pageId',$3::text))", [sessionId, submissionId, inserted.rows[0].id]);
     return inserted.rows[0];
@@ -412,6 +422,32 @@ export async function deleteSubmission(sessionId: string, submissionId: string):
   await Promise.all(keys.map((row) => deleteObject(row.storage_key).catch(() => undefined)));
 }
 
+/** Removes abandoned unsubmitted draft papers (and their stored files) older than `olderThanHours`. */
+export async function purgeAbandonedDraftSubmissions(olderThanHours = 72): Promise<number> {
+  const keys = await withTransaction(async (client) => {
+    const stale = await client.query<{ id: string }>(
+      `select sub.id
+         from submissions sub
+         join grading_sessions s on s.id = sub.session_id
+        where sub.status = 'draft'
+          and s.status = 'active'
+          and sub.updated_at < now() - make_interval(hours => $1::int)
+        limit 200`,
+      [Math.max(1, Math.floor(olderThanHours))],
+    );
+    if (!stale.rows.length) return [];
+    const ids = stale.rows.map((r) => r.id);
+    const files = await client.query<{ storage_key: string }>(
+      `select storage_key from page_assets where submission_id = any($1::uuid[])`,
+      [ids],
+    );
+    await client.query(`delete from submissions where id = any($1::uuid[])`, [ids]);
+    return files.rows;
+  });
+  await Promise.all(keys.map((row) => deleteObject(row.storage_key).catch(() => undefined)));
+  return keys.length;
+}
+
 export async function pageStorageKey(
   sessionId: string,
   pageId: string,
@@ -441,6 +477,7 @@ export async function sessionProgress(sessionId: string) {
        (select count(*) from submissions where session_id = $1 and status = 'needs-review') as needs_review,
        (select count(*) from submissions where session_id = $1 and status = 'confirmed') as confirmed,
        (select count(*) from submissions where session_id = $1 and status = 'processing') as processing,
+       (select count(*) from submissions where session_id = $1 and (status = 'failed' or mc_status = 'failed' or essay_status = 'failed')) as failed,
        (select count(*) from page_assets p
           join submissions s2 on s2.id = p.submission_id
          where s2.session_id = $1 and p.kind = 'original') as pages`,

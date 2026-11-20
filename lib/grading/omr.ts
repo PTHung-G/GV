@@ -31,7 +31,7 @@ export type Gray = { data: Uint8ClampedArray; width: number; height: number };
 
 export type BubbleReadout = {
   q: number;
-  label: McLetter;
+  label: McLetter | string;
   fill: number;
   confidence: number;
   /** Centre and sampling radius in image pixels, for the inspector overlay. */
@@ -315,19 +315,8 @@ export function checkAnchors(
   return { ok: reasons.length === 0, reasons };
 }
 
-export function detectAnchors(gray: Gray, template: SheetTemplate): Point[] | null {
-  const small = downscale(gray, 380);
-  const marks = findMarks(small, 110);
-  if (marks.length < 4) return null;
-
-  const expected = (ANCHOR_FRACTION * small.width) ** 2;
-  const candidates = marks
-    .map((mark) => ({ mark, area: mark.area }))
-    .filter(({ area }) => area > expected * 0.08 && area < expected * 12)
-    .map(({ mark }) => mark);
-
+function pickQuadBlobs(small: { width: number; height: number; factor: number }, candidates: Blob[]): Point[] | null {
   if (candidates.length < 4) return null;
-
   const corners: Array<{ x: number; y: number }> = [
     { x: 0, y: 0 },
     { x: small.width, y: 0 },
@@ -358,14 +347,87 @@ export function detectAnchors(gray: Gray, template: SheetTemplate): Point[] | nu
   }
 
   if (chosen.length !== 4) return null;
-
-  // The four marks must agree in size; anything else means we latched onto
-  // text or a shadow rather than the printed corners.
   const areas = chosen.map((mark) => mark.w * mark.h);
   if (Math.max(...areas) / Math.min(...areas) > 3.2) return null;
-
-  void template;
   return chosen.map((mark) => ({ x: mark.cx * small.factor, y: mark.cy * small.factor }));
+}
+
+function quadrantDarkThreshold(
+  small: { data: Uint8ClampedArray; width: number; height: number },
+  x0: number,
+  y0: number,
+  x1: number,
+  y1: number,
+): number {
+  const hist = new Uint32Array(256);
+  let total = 0;
+  for (let y = y0; y < y1; y += 1) {
+    const row = y * small.width;
+    for (let x = x0; x < x1; x += 1) {
+      hist[small.data[row + x]] += 1;
+      total += 1;
+    }
+  }
+  if (!total) return 110;
+  let seen = 0;
+  let p05 = 0;
+  let p50 = 180;
+  for (let v = 0; v < 256; v += 1) {
+    seen += hist[v];
+    if (seen >= total * 0.05 && p05 === 0) p05 = v;
+    if (seen >= total * 0.5) {
+      p50 = v;
+      break;
+    }
+  }
+  return Math.max(55, Math.min(175, Math.round(p05 + (p50 - p05) * 0.45)));
+}
+
+export function detectAnchors(gray: Gray, template: SheetTemplate): Point[] | null {
+  const small = downscale(gray, 380);
+  const expected = (ANCHOR_FRACTION * small.width) ** 2;
+  const filterBlobs = (marks: Blob[]) =>
+    marks.filter((mark) => mark.area > expected * 0.08 && mark.area < expected * 12);
+
+  let fallback: Point[] | null = null;
+  for (const threshold of [110, 85, 135, 160]) {
+    const candidates = filterBlobs(findMarks(small, threshold));
+    const pts = pickQuadBlobs(small, candidates);
+    if (!pts) continue;
+    if (!fallback) fallback = pts;
+    if (checkAnchors(gray, template, pts).ok) return pts;
+  }
+
+  // Adaptive per-quadrant local thresholding when lighting across corners is uneven.
+  const hw = Math.floor(small.width / 2);
+  const hh = Math.floor(small.height / 2);
+  const quadBoxes: Array<[number, number, number, number]> = [
+    [0, 0, hw + 10, hh + 10],
+    [Math.max(0, hw - 10), 0, small.width, hh + 10],
+    [Math.max(0, hw - 10), Math.max(0, hh - 10), small.width, small.height],
+    [0, Math.max(0, hh - 10), hw + 10, small.height],
+  ];
+  const adaptivePts: Point[] = [];
+  for (const [x0, y0, x1, y1] of quadBoxes) {
+    const t = quadrantDarkThreshold(small, x0, y0, x1, y1);
+    const blobs = filterBlobs(findMarks(small, t)).filter(
+      (b) => b.cx >= x0 && b.cx <= x1 && b.cy >= y0 && b.cy <= y1,
+    );
+    if (!blobs.length) break;
+    const cxTarget = x0 === 0 ? 0 : small.width;
+    const cyTarget = y0 === 0 ? 0 : small.height;
+    blobs.sort(
+      (a, b) =>
+        (a.cx - cxTarget) ** 2 + (a.cy - cyTarget) ** 2 -
+        ((b.cx - cxTarget) ** 2 + (b.cy - cyTarget) ** 2),
+    );
+    adaptivePts.push({ x: blobs[0].cx * small.factor, y: blobs[0].cy * small.factor });
+  }
+  if (adaptivePts.length === 4 && checkAnchors(gray, template, adaptivePts).ok) {
+    return adaptivePts;
+  }
+
+  return fallback;
 }
 
 // ------------------------------------------------------------- homography
@@ -565,7 +627,171 @@ export function readBubbles(
     });
   }
 
-  return { readouts, answers, sbd: readSbdGrid(gray, template, homography, scale), scale, warnings };
+  // ---- Part II: True/False Đ/S grid
+  if (template.tfBubbles?.length) {
+    const tfByQ = new Map<number, typeof template.tfBubbles>();
+    for (const item of template.tfBubbles) {
+      const list = tfByQ.get(item.q) ?? [];
+      list.push(item);
+      tfByQ.set(item.q, list);
+    }
+    for (const [q, items] of [...tfByQ.entries()].sort((a, b) => a[0] - b[0])) {
+      const subOrder: Array<'a' | 'b' | 'c' | 'd'> = ['a', 'b', 'c', 'd'];
+      let chars = '';
+      let minConf = 1;
+      let anyBlank = false;
+      let anyDouble = false;
+      let filledTotal = 0;
+
+      for (const sub of subOrder) {
+        const pair = items.filter((b) => b.sub === sub);
+        const sampled = pair
+          .map((b) => {
+            const center = applyHomography(homography, { x: b.cx, y: b.cy });
+            if (!Number.isFinite(center.x) || !Number.isFinite(center.y)) return null;
+            if (center.x < 0 || center.y < 0 || center.x >= gray.width || center.y >= gray.height) {
+              return null;
+            }
+            const radius = b.r * scale;
+            const paper = meanInRing(gray, center.x, center.y, radius * 1.45, radius * 2.25);
+            const disc = meanInDisc(gray, center.x, center.y, radius * 0.78);
+            const fill = paper - disc;
+            const confidence = Math.min(1, Math.max(0, Math.abs(fill) / 70));
+            readouts.push({
+              q,
+              label: `${sub}:${b.choice}`,
+              fill,
+              confidence,
+              x: center.x,
+              y: center.y,
+              radius,
+            });
+            return { choice: b.choice, fill, confidence };
+          })
+          .filter((x): x is { choice: 'Đ' | 'S'; fill: number; confidence: number } => x !== null);
+
+        const filled = sampled.filter((s) => s.fill > FILL_THRESHOLD);
+        if (filled.length === 1) {
+          chars += filled[0].choice;
+          filledTotal += 1;
+          minConf = Math.min(minConf, filled[0].confidence);
+        } else if (filled.length > 1) {
+          chars += '!';
+          filledTotal += 1;
+          anyDouble = true;
+          minConf = Math.min(minConf, 0.2);
+        } else {
+          chars += '?';
+          anyBlank = true;
+          minConf = Math.min(minConf, 0.35);
+        }
+      }
+
+      if (filledTotal === 0) {
+        answers.push({ q, picked: null, confidence: 0, flags: ['blank'] });
+      } else {
+        const flags: string[] = [];
+        if (anyDouble) flags.push('double-mark');
+        if (anyBlank || minConf < CONFIDENT) flags.push('low-confidence');
+        answers.push({ q, picked: chars, confidence: minConf, flags });
+      }
+    }
+  }
+
+  // ---- Part III: Short-answer 4-column numeric grid (- , 0..9)
+  if (template.shortCells?.length) {
+    const shortByQ = new Map<number, typeof template.shortCells>();
+    for (const item of template.shortCells) {
+      const list = shortByQ.get(item.q) ?? [];
+      list.push(item);
+      shortByQ.set(item.q, list);
+    }
+    for (const [q, items] of [...shortByQ.entries()].sort((a, b) => a[0] - b[0])) {
+      let colStr = '';
+      let minConf = 1;
+      let anyDouble = false;
+      let anyFilled = false;
+
+      for (let col = 0; col < 4; col += 1) {
+        const colItems = items.filter((b) => b.column === col);
+        const samples = colItems
+          .map((b) => {
+            const center = applyHomography(homography, { x: b.cx, y: b.cy });
+            if (!Number.isFinite(center.x) || !Number.isFinite(center.y)) return null;
+            if (center.x < 0 || center.y < 0 || center.x >= gray.width || center.y >= gray.height) {
+              return null;
+            }
+            const radius = b.r * scale;
+            const ring = meanInRing(gray, center.x, center.y, radius * 1.15, radius * 1.45);
+            const disc = meanInDisc(gray, center.x, center.y, radius * 0.78);
+            return { mark: b.mark, x: center.x, y: center.y, radius, disc, ring };
+          })
+          .filter(
+            (x): x is { mark: string; x: number; y: number; radius: number; disc: number; ring: number } =>
+              x !== null,
+          );
+
+        if (!samples.length) continue;
+        const sortedDisc = [...samples].map((s) => s.disc).sort((a, b) => a - b);
+        const colPaper = sortedDisc[Math.floor(sortedDisc.length / 2)] ?? 255;
+        const withFill = samples.map((s) => {
+          const fill = Math.max(s.ring, colPaper) - s.disc;
+          const confidence = Math.min(1, Math.max(0, fill / 70));
+          readouts.push({
+            q,
+            label: `${col}:${s.mark}`,
+            fill,
+            confidence,
+            x: s.x,
+            y: s.y,
+            radius: s.radius,
+          });
+          return { mark: s.mark, fill, confidence };
+        });
+
+        const filled = withFill.filter((s) => s.fill > FILL_THRESHOLD).sort((a, b) => b.fill - a.fill);
+        if (filled.length === 1) {
+          colStr += filled[0].mark;
+          anyFilled = true;
+          minConf = Math.min(minConf, filled[0].confidence);
+        } else if (filled.length > 1) {
+          // If one mark is overwhelmingly darker than spurious edge mark, still flag only when close.
+          if (filled[0].fill - filled[1].fill > 25) {
+            colStr += filled[0].mark;
+            anyFilled = true;
+            minConf = Math.min(minConf, filled[0].confidence * 0.8);
+          } else {
+            colStr += '?';
+            anyFilled = true;
+            anyDouble = true;
+            minConf = Math.min(minConf, 0.2);
+          }
+        }
+      }
+
+      if (!anyFilled) {
+        answers.push({ q, picked: null, confidence: 0, flags: ['blank'] });
+      } else {
+        const flags: string[] = [];
+        if (anyDouble) flags.push('double-mark');
+        if (minConf < CONFIDENT) flags.push('low-confidence');
+        answers.push({
+          q,
+          picked: colStr.trim() || null,
+          confidence: minConf,
+          flags,
+        });
+      }
+    }
+  }
+
+  return {
+    readouts,
+    answers: answers.sort((a, b) => a.q - b.q),
+    sbd: readSbdGrid(gray, template, homography, scale),
+    scale,
+    warnings,
+  };
 }
 
 /** The QR plus the landmarks that are actually precise, in image pixels. */

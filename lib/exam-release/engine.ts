@@ -1,6 +1,11 @@
 import { parseFragment, type DefaultTreeAdapterMap } from "parse5";
 import { examContentHash } from "../exam-revision";
-import { normalizeRubric, rubricFromAnswerKey } from "../grading/rubric";
+import {
+  formatTfStatements,
+  normalizeRubric,
+  parseTfStatements,
+  rubricFromAnswerKey,
+} from "../grading/rubric";
 import type {
   ReleaseInput,
   ReleaseBuild,
@@ -12,15 +17,102 @@ type Node = DefaultTreeAdapterMap["node"];
 type Element = DefaultTreeAdapterMap["element"];
 type Text = DefaultTreeAdapterMap["textNode"];
 type Patch = { start: number; end: number; text: string };
+type QuestionOption = { start: number; end: number; label: Patch; letter: string };
 type Question = {
   no: number;
+  displayNo: number;
   start: number;
   end: number;
   section: number;
   label: Patch;
-  options?: { start: number; end: number; label: Patch; letter: string }[];
+  options?: QuestionOption[];
+  tfStatements?: Array<{ start: number; end: number; label: Patch | null; letter: string }>;
   dependent: boolean;
 };
+
+const SECTION_HEADER_RE = /^(?:PHẦN|Phần|SECTION)\s+(?:[IVX]+|\d+|[A-Z])\b/u;
+const H_SECTION_RE = /^(?:PHẦN|Phần|SECTION)\s/u;
+const Q_MARKER_RE = /^(?:Câu|Bài)\s+(\d+)(?:\s*\([^)]*điểm\))?\s*[.:)]/iu;
+const Q_NESTED_RE = /(?:^|\n)\s*(?:Câu|Bài)\s+\d+(?:\s*\([^)]*điểm\))?\s*[.:)]/iu;
+
+function isSectionHeaderNode(node: Node): boolean {
+  if (!("tagName" in node)) return false;
+  const value = text(node).trim();
+  if (!value) return false;
+  if (/^h[1-6]$/.test(node.tagName)) return H_SECTION_RE.test(value);
+  if (node.tagName !== "p" || !SECTION_HEADER_RE.test(value)) return false;
+  if (/^(?:PHẦN|SECTION)\s/u.test(value)) return true;
+  return children(node).some(
+    (c) =>
+      "tagName" in c &&
+      (c.tagName === "b" || c.tagName === "strong") &&
+      SECTION_HEADER_RE.test(text(c).trim()),
+  );
+}
+
+function extractTfStatements(
+  nodes: Node[],
+  content: string,
+): { items: NonNullable<Question["tfStatements"]>; containerEnd: number } | null {
+  const tryElements = (
+    elems: Node[],
+    orderedList: boolean,
+  ): NonNullable<Question["tfStatements"]> | null => {
+    if (elems.length !== 4) return null;
+    const out: NonNullable<Question["tfStatements"]> = [];
+    for (let j = 0; j < 4; j++) {
+      const el = elems[j];
+      const loc = el.sourceCodeLocation;
+      if (!loc) return null;
+      const expected = "abcd"[j];
+      const t = texts(el).find((x) => x.value.trim());
+      const m = t && /^\s*([a-d])\s*[.)]/i.exec(t.value);
+      if (m && m[1].toLowerCase() === expected && t?.sourceCodeLocation) {
+        const p = t.sourceCodeLocation.startOffset + m[0].indexOf(m[1]);
+        if (content[p]?.toLowerCase() !== expected) return null;
+        out.push({
+          start: loc.startOffset,
+          end: loc.endOffset,
+          label: { start: p, end: p + 1, text: m[1] },
+          letter: expected,
+        });
+      } else if (orderedList && "tagName" in el && el.tagName === "li") {
+        out.push({
+          start: loc.startOffset,
+          end: loc.endOffset,
+          label: null,
+          letter: expected,
+        });
+      } else {
+        return null;
+      }
+    }
+    return out;
+  };
+
+  for (const n of nodes.slice(1)) {
+    const cls = attr(n, "class").split(/\s+/);
+    if (cls.includes("doc-tf-list") || ("tagName" in n && n.tagName === "ol")) {
+      const items = children(n).filter((c) => "tagName" in c && text(c).trim());
+      const parsed = tryElements(items, "tagName" in n && n.tagName === "ol");
+      if (parsed && n.sourceCodeLocation) {
+        return { items: parsed, containerEnd: n.sourceCodeLocation.endOffset };
+      }
+    }
+  }
+
+  for (let startIdx = 1; startIdx <= nodes.length - 4; startIdx++) {
+    const slice = nodes.slice(startIdx, startIdx + 4);
+    if (slice.some((n) => !("tagName" in n) || !text(n).trim())) continue;
+    const parsed = tryElements(slice, false);
+    const lastLoc = slice[3].sourceCodeLocation;
+    if (parsed && lastLoc) {
+      return { items: parsed, containerEnd: lastLoc.endOffset };
+    }
+  }
+
+  return null;
+}
 function fail(message: string): never {
   throw new Error(
     `${message} Hãy sửa cấu trúc câu/nhóm hoặc tắt trộn câu, trộn đáp án và mẫu số liệu để xuất một mã giữ nguyên đề.`,
@@ -91,36 +183,42 @@ function parse(
     }
     if (!("tagName" in node)) continue;
     const value = text(node).trim();
-    const marker = /^Câu\s+(\d+)\s*[.:)]/iu.exec(value);
-    if (
-      /^h[1-6]$/.test(node.tagName) &&
-      /^(?:PHẦN|Phần|SECTION)\s/u.test(value)
-    ) {
+    if (isSectionHeaderNode(node)) {
       section++;
       continue;
     }
+    const marker = Q_MARKER_RE.exec(value);
     if (!marker) {
-      if (
-        texts(node).some((t) => /(?:^|\n)\s*Câu\s+\d+\s*[.:)]/iu.test(t.value))
-      )
+      if (texts(node).some((t) => Q_NESTED_RE.test(t.value)))
         fail("Câu hỏi lồng trong khối chưa hỗ trợ; đưa mỗi câu ra khối riêng.");
       continue;
     }
     if (!/^(p|h[1-6])$/.test(node.tagName))
       fail("Mỗi câu cần bắt đầu bằng khối đoạn văn riêng.");
     const first = texts(node).find((t) => t.value.trim());
-    const m = first && /^\s*Câu\s+(\d+)\s*[.:)]/iu.exec(first.value);
-    if (!first || !m || !first.sourceCodeLocation || !node.sourceCodeLocation)
+    const m =
+      first &&
+      /^\s*(?:Câu|Bài)\s+(\d+)(?:(?:\s*\([^)]*điểm\))?\s*[.:)]|\s*$)/iu.exec(
+        first.value,
+      );
+    if (
+      !first ||
+      !m ||
+      m[1] !== marker[1] ||
+      !first.sourceCodeLocation ||
+      !node.sourceCodeLocation
+    )
       fail("Nhãn Câu bị chia nhỏ; đặt trọn nhãn trong cùng một phần văn bản.");
-    const no = Number(marker[1]);
-    if (out.some((q) => q.no === no))
-      fail("Số câu bị trùng hoặc đánh số lại theo phần.");
+    const displayNo = Number(marker[1]);
+    if (out.some((q) => q.section === section && q.displayNo === displayNo))
+      fail("Số câu bị trùng trong cùng một phần.");
     const digitOffset = m[0].indexOf(m[1]);
     const start = first.sourceCodeLocation.startOffset + digitOffset;
     if (content.slice(start, start + m[1].length) !== m[1])
       fail("Nhãn câu dùng mã HTML chưa hỗ trợ.");
     out.push({
-      no,
+      no: displayNo,
+      displayNo,
       start: node.sourceCodeLocation.startOffset,
       end: content.length,
       section,
@@ -129,20 +227,18 @@ function parse(
     });
   }
   if (!out.length) fail("Không nhận diện được câu hỏi.");
+  if (new Set(out.map((q) => q.displayNo)).size !== out.length) {
+    out.forEach((q, idx) => {
+      q.no = idx + 1;
+    });
+  }
   // Section headers are fixed separators, never attached to a moving question.
   for (let i = 0; i < out.length; i++) {
     const q = out[i];
     let end = out[i + 1]?.start ?? content.length;
     for (const n of ast.childNodes) {
       const loc = n.sourceCodeLocation;
-      if (
-        loc &&
-        loc.startOffset > q.start &&
-        loc.startOffset < end &&
-        "tagName" in n &&
-        /^h[1-6]$/.test(n.tagName) &&
-        /^(?:PHẦN|Phần|SECTION)\s/u.test(text(n).trim())
-      )
+      if (loc && loc.startOffset > q.start && loc.startOffset < end && isSectionHeaderNode(n))
         end = loc.startOffset;
     }
     q.end = end;
@@ -156,13 +252,15 @@ function parse(
       attr(n, "class").split(/\s/).includes("doc-grid"),
     );
     if (grids.length > 1) fail(`Câu ${q.no} có nhiều khối lựa chọn.`);
+    let structuredEndOffset: number | null = null;
     if (grids.length === 1) {
       const grid = grids[0];
+      structuredEndOffset = grid.sourceCodeLocation?.endOffset ?? null;
       const cells = children(grid).filter(
         (n) => n.nodeName !== "#text" || text(n).trim(),
       );
       if (cells.length === 4) {
-        const opts: NonNullable<Question["options"]> = [];
+        const opts: QuestionOption[] = [];
         for (let j = 0; j < 4; j++) {
           const cell = cells[j],
             loc = cell.sourceCodeLocation,
@@ -186,11 +284,20 @@ function parse(
         }
         if (opts.length === 4) q.options = opts;
       }
-      // Prose after choices may introduce the next question's shared context.
+    } else {
+      const tfParsed = extractTfStatements(nodes, content);
+      if (tfParsed) {
+        q.tfStatements = tfParsed.items;
+        structuredEndOffset = tfParsed.containerEnd;
+      }
+    }
+    if (structuredEndOffset !== null) {
+      // Prose after choices or TF statements may introduce the next question's shared context.
       const after = nodes.filter(
         (n) =>
-          n.sourceCodeLocation!.startOffset >=
-            grid.sourceCodeLocation!.endOffset && text(n).trim(),
+          n.sourceCodeLocation &&
+          n.sourceCodeLocation.startOffset >= structuredEndOffset! &&
+          text(n).trim(),
       );
       if (after.length && requireMovableContext) {
         const next = out[i + 1];
@@ -206,13 +313,38 @@ function parse(
         q.end = begin;
         next.start = begin;
       }
+    } else if (requireMovableContext) {
+      const next = out[i + 1];
+      const trailing = nodes
+        .slice(1)
+        .filter((n) => n.sourceCodeLocation && text(n).trim());
+      if (
+        next &&
+        groupStarts.includes(next.no) &&
+        next.section === q.section &&
+        trailing.length
+      ) {
+        const intro = trailing.find((n) =>
+          /(?:trả lời|dựa vào|đọc|ngữ liệu|văn bản|đoạn|bài đọc).*(?:sau|dưới đây|câu)|câu\s+\d+/iu.test(
+            text(n),
+          ),
+        );
+        const pivot = intro ?? trailing[trailing.length - 1];
+        const begin = pivot.sourceCodeLocation!.startOffset;
+        q.end = begin;
+        next.start = begin;
+      }
     }
     q.dependent =
-      /(?:\b[A-D]\s*(?:và|hoặc|,|đều)|(?:đáp án|phương án|lựa chọn)\s+[A-D]|tất cả|cả bốn|cả ba|ở trên|nêu trên|câu\s+\d+)/iu.test(
+      /(?:\b[A-D]\s*(?:và|hoặc|,|đều)|(?:đáp án|phương án|lựa chọn|ý|mệnh đề|phát biểu)\s+(?:[A-D]|[a-d]\b)|tất cả|cả bốn|cả ba|cả hai|ở trên|nêu trên|câu\s+\d+)/iu.test(
         nodes
+          .filter(
+            (n) =>
+              !n.sourceCodeLocation || n.sourceCodeLocation.startOffset < q.end,
+          )
           .map(text)
           .join(" ")
-          .replace(/^\s*Câu\s+\d+\s*[.:)]/iu, ""),
+          .replace(/^\s*(?:Câu|Bài)\s+\d+(?:\s*\([^)]*điểm\))?\s*[.:)]/iu, ""),
       );
   }
   return out;
@@ -277,9 +409,46 @@ export function buildReleaseVariants(input: ReleaseInput): ReleaseBuild {
     throw new Error(
       "Câu trắc nghiệm phải có đúng một đáp án A–D và không có thang bước tự luận.",
     );
-  const nos = key.map(keyNo);
-  if (new Set(nos).size !== nos.length)
-    throw new Error("Barem có số câu trùng.");
+  const rawNos = key.map(keyNo);
+  const hasExplicitSection = key.some(
+    (q) => typeof q.sectionNo === "number" && q.sectionNo > 0,
+  );
+  if (hasExplicitSection) {
+    const seen = new Set<string>();
+    for (let i = 0; i < key.length; i++) {
+      const pair = `${key[i].sectionNo ?? 0}:${rawNos[i]}`;
+      if (seen.has(pair)) throw new Error("Barem có số câu trùng.");
+      seen.add(pair);
+    }
+  } else if (new Set(rawNos).size !== rawNos.length) {
+    let sec = 1;
+    const seen = new Set<string>();
+    for (let i = 0; i < key.length; i++) {
+      if (i > 0 && rawNos[i] <= rawNos[i - 1]) {
+        if (
+          key[i].type &&
+          key[i - 1].type &&
+          key[i].type !== key[i - 1].type
+        ) {
+          sec++;
+        } else {
+          throw new Error("Barem có số câu trùng.");
+        }
+      }
+      const pair = `${sec}:${rawNos[i]}`;
+      if (seen.has(pair)) throw new Error("Barem có số câu trùng.");
+      seen.add(pair);
+      key[i].sectionNo = sec;
+      key[i].displayNo = key[i].displayNo ?? rawNos[i];
+    }
+  }
+  const hasKeySections = key.some(
+    (q) => typeof q.sectionNo === "number" && q.sectionNo > 0,
+  );
+  const nos =
+    hasKeySections || new Set(rawNos).size !== rawNos.length
+      ? key.map((_, i) => i + 1)
+      : rawNos;
   const rubric = normalizeRubric(rubricFromAnswerKey(key));
   if (rubric.questions.filter((q) => q.type === "mc").length > 60)
     throw new Error("Phiếu tô hỗ trợ tối đa 60 câu A–D.");
@@ -319,12 +488,7 @@ export function buildReleaseVariants(input: ReleaseInput): ReleaseBuild {
   );
   if (input.shuffleQuestions) {
     const ast = parseFragment(input.content, { sourceCodeLocationInfo: true });
-    const firstSection = ast.childNodes.find(
-      (n) =>
-        "tagName" in n &&
-        /^h[1-6]$/.test(n.tagName) &&
-        /^(?:PHẦN|Phần|SECTION)\s/u.test(text(n).trim()),
-    );
+    const firstSection = ast.childNodes.find((n) => isSectionHeaderNode(n));
     if (
       firstSection?.sourceCodeLocation &&
       !input.globalInstructionsReviewed &&
@@ -351,9 +515,7 @@ export function buildReleaseVariants(input: ReleaseInput): ReleaseBuild {
             (n) =>
               n.sourceCodeLocation &&
               n.sourceCodeLocation.endOffset <= first.start &&
-              "tagName" in n &&
-              /^h[1-6]$/.test(n.tagName) &&
-              /^(?:PHẦN|Phần|SECTION)\s/u.test(text(n).trim()),
+              isSectionHeaderNode(n),
           )
           .map((n) => n.sourceCodeLocation!.endOffset),
       );
@@ -471,11 +633,20 @@ export function buildReleaseVariants(input: ReleaseInput): ReleaseBuild {
       const q = ordered[i],
         slot = questions[i],
         printedNo = slot.no,
+        printedDisplayNo = slot.displayNo,
         original = key[nos.indexOf(q.no)];
       let unit = input.content.slice(q.start, q.end);
-      let next = {
+      const usesSectionMeta =
+        slot.displayNo !== slot.no || typeof original.sectionNo === "number";
+      let next: AnswerKeyQuestion = {
         ...original,
-        label: String(printedNo),
+        label: String(printedDisplayNo),
+        ...(usesSectionMeta
+          ? {
+              sectionNo: original.sectionNo ?? (slot.section || undefined),
+              displayNo: printedDisplayNo,
+            }
+          : {}),
         steps: original.steps?.map((s) => ({ ...s })),
       };
       const map: BuiltVariant["mapping"][number] = {
@@ -485,14 +656,14 @@ export function buildReleaseVariants(input: ReleaseInput): ReleaseBuild {
       const recipe = recipes.find((r) => r.questionNo === q.no);
       let opts = q.options;
       if (recipe) {
-        if (!/^Câu\s+\d+\s*[.:)]/iu.test(text(parseFragment(unit)).trim()))
+        if (!/^(?:Câu|Bài)\s+\d+(?:\s*\([^)]*điểm\))?\s*[.:)]/iu.test(text(parseFragment(unit)).trim()))
           fail(
             `Câu ${q.no} có ngữ cảnh chung; không thay bằng mẫu số liệu khi chưa tách ngữ cảnh.`,
           );
         const generated = generateRecipe(
           recipe.recipeId,
           Math.floor(random() * recipeDomainSize(recipe.recipeId)),
-          printedNo,
+          printedDisplayNo,
         );
         unit = generated.html;
         next = { ...next, answer: generated.answer };
@@ -504,12 +675,10 @@ export function buildReleaseVariants(input: ReleaseInput): ReleaseBuild {
         changes.push({
           start: q.label.start - q.start,
           end: q.label.end - q.start,
-          text: String(printedNo),
+          text: String(printedDisplayNo),
         });
-      if (
-        input.shuffleOptions &&
-        rubric.questions.find((x) => x.no === q.no)?.type === "mc"
-      ) {
+      const qRubric = rubric.questions.find((x) => x.no === q.no);
+      if (input.shuffleOptions && qRubric?.type === "mc") {
         const pinned = q.dependent || input.pinnedOptionNos?.includes(q.no);
         if (!opts && !pinned)
           fail(
@@ -538,6 +707,43 @@ export function buildReleaseVariants(input: ReleaseInput): ReleaseBuild {
               start: dest.start - base,
               end: dest.end - base,
               text: cell,
+            });
+          }
+        }
+      } else if (input.shuffleOptions && qRubric?.type === "tf") {
+        const pinned = q.dependent || input.pinnedOptionNos?.includes(q.no);
+        const tfStmts = q.tfStatements;
+        if (tfStmts && !pinned) {
+          const parsedSt = parseTfStatements(next.statements ?? next.answer);
+          if (!parsedSt) fail(`Đáp án Đúng/Sai câu ${q.no} không hợp lệ.`);
+          const order = shuffled([0, 1, 2, 3], random);
+          map.optionOrder = order.map((j) => "abcd"[j]);
+          const origVals = [parsedSt.a, parsedSt.b, parsedSt.c, parsedSt.d];
+          const nextSt = {
+            a: origVals[order[0]],
+            b: origVals[order[1]],
+            c: origVals[order[2]],
+            d: origVals[order[3]],
+          };
+          next.statements = nextSt;
+          next.answer = formatTfStatements(nextSt);
+          for (let j = 0; j < 4; j++) {
+            const src = tfStmts[order[j]];
+            const dest = tfStmts[j];
+            let itemHtml = unit.slice(src.start - q.start, src.end - q.start);
+            if (src.label) {
+              itemHtml = patch(itemHtml, [
+                {
+                  start: src.label.start - src.start,
+                  end: src.label.end - src.start,
+                  text: "abcd"[j],
+                },
+              ]);
+            }
+            changes.push({
+              start: dest.start - q.start,
+              end: dest.end - q.start,
+              text: itemHtml,
             });
           }
         }
@@ -576,16 +782,27 @@ export function buildReleaseVariants(input: ReleaseInput): ReleaseBuild {
     algorithmVersion: 1,
     warnings,
     variants,
-    questions: questions.map((q) => ({
-      no: q.no,
-      label: `Câu ${q.no}`,
-      canShuffleOptions:
-        !!q.options && !q.dependent && !input.pinnedOptionNos?.includes(q.no),
-      warnings: q.dependent
-        ? ["Ghim đáp án vì có tham chiếu thứ tự/phương án/câu khác."]
-        : !q.options
-          ? ["Chưa xác minh được cấu trúc bốn lựa chọn riêng."]
-          : [],
-    })),
+    questions: questions.map((q) => {
+      const qType = rubric.questions.find((x) => x.no === q.no)?.type;
+      const canShuffleOptions =
+        qType === "tf"
+          ? !!q.tfStatements && !q.dependent && !input.pinnedOptionNos?.includes(q.no)
+          : !!q.options && !q.dependent && !input.pinnedOptionNos?.includes(q.no);
+      return {
+        no: q.no,
+        label:
+          q.displayNo !== q.no
+            ? `Phần ${q.section} · Câu ${q.displayNo}`
+            : `Câu ${q.no}`,
+        canShuffleOptions,
+        warnings: q.dependent
+          ? ["Ghim đáp án vì có tham chiếu thứ tự/phương án/câu khác."]
+          : qType === "tf" && !q.tfStatements
+            ? ["Chưa nhận diện được 4 ý a–d riêng để trộn."]
+            : (!qType || qType === "mc") && !q.options
+              ? ["Chưa xác minh được cấu trúc bốn lựa chọn riêng."]
+              : [],
+      };
+    }),
   };
 }

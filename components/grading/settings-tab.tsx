@@ -13,22 +13,18 @@ import { useRouter } from 'next/navigation';
 import { Loader2, Printer, Trash2 } from 'lucide-react';
 import { gradingApi, GradingApiError } from '@/lib/grading-client';
 import { Button } from '@/components/ui/button';
+import { Dialog } from '@/components/ui/dialog';
 import { basePath } from '@/lib/api-url';
 import { formatMark, type SessionDetail } from '@/lib/grading-client';
+import { formatTfStatements } from '@/lib/grading/rubric';
 
 export function SettingsTab({ session }: { session: SessionDetail }) {
   const router = useRouter();
   const [deleting, setDeleting] = useState(false);
+  const [confirmOpen, setConfirmOpen] = useState(false);
   const [error, setError] = useState('');
 
   async function remove() {
-    if (
-      !window.confirm(
-        'Xoá đợt chấm này cùng toàn bộ ảnh bài làm và điểm đã chấm? Không thể hoàn tác.',
-      )
-    ) {
-      return;
-    }
     setDeleting(true);
     setError('');
     try {
@@ -37,6 +33,7 @@ export function SettingsTab({ session }: { session: SessionDetail }) {
     } catch (err) {
       setError(err instanceof GradingApiError ? err.message : 'Không xoá được đợt chấm.');
       setDeleting(false);
+      setConfirmOpen(false);
     }
   }
 
@@ -100,6 +97,12 @@ export function SettingsTab({ session }: { session: SessionDetail }) {
               </div>
               {question.type === 'mc' ? (
                 <p className="mt-0.5 text-[12px] text-ink-3">Trắc nghiệm · đáp án {question.answer}</p>
+              ) : question.type === 'tf' ? (
+                <p className="mt-0.5 text-[12px] text-ink-3">
+                  Đúng/Sai · đáp án {formatTfStatements(question.statements)}
+                </p>
+              ) : question.type === 'short' ? (
+                <p className="mt-0.5 text-[12px] text-ink-3">Trả lời ngắn · đáp án {question.answer}</p>
               ) : (
                 <ul className="mt-1 space-y-0.5">
                   {question.steps.map((step) => (
@@ -118,12 +121,35 @@ export function SettingsTab({ session }: { session: SessionDetail }) {
           <p className="text-[12px] leading-relaxed text-ink-4">
             Xoá đợt chấm sẽ xoá luôn ảnh bài làm, điểm và lịch sử sửa điểm.
           </p>
-          <Button variant="outline" size="sm" className="mt-2" onClick={() => void remove()} disabled={deleting}>
+          <Button variant="outline" size="sm" className="mt-2" onClick={() => setConfirmOpen(true)} disabled={deleting}>
             {deleting ? <Loader2 className="size-3.5 animate-spin" /> : <Trash2 className="size-3.5 text-danger" />}
             Xoá đợt chấm
           </Button>
           {error ? <p className="mt-1.5 text-[12px] text-danger">{error}</p> : null}
         </div>
+        <Dialog open={confirmOpen} onClose={() => (deleting ? undefined : setConfirmOpen(false))} labelledBy="delete-session-title">
+          <h3 id="delete-session-title" className="text-base font-semibold text-ink">
+            Xoá đợt chấm này?
+          </h3>
+          <p className="mt-2 text-sm text-ink-2">
+            Toàn bộ ảnh bài làm và điểm đã chấm của đợt <strong>{session.title}</strong> sẽ bị xoá vĩnh viễn và không thể hoàn tác.
+          </p>
+          <div className="mt-4 flex justify-end gap-2">
+            <Button variant="outline" size="sm" onClick={() => setConfirmOpen(false)} disabled={deleting}>
+              Huỷ
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              className="border-danger bg-danger text-white hover:bg-danger/90"
+              onClick={() => void remove()}
+              disabled={deleting}
+            >
+              {deleting ? <Loader2 className="size-3.5 animate-spin" /> : null}
+              Xoá vĩnh viễn
+            </Button>
+          </div>
+        </Dialog>
     </div>
   );
 }

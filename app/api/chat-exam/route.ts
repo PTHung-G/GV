@@ -20,7 +20,8 @@ import {
   type ChatExamRequest,
   type ChatExamResult,
 } from '@/lib/server/chat-exam-types';
-import { memoryPrompt, readMemory } from '@/lib/server/memory';
+import { compactHtmlForAi } from '@/lib/html-sanitize';
+import { maybeRememberFromPrompt, memoryPrompt, readMemory } from '@/lib/server/memory';
 import { embedFigures } from '@/lib/geometry/embed';
 import { randomUUID } from 'node:crypto';
 import { materializeGeneration } from '@/lib/structured-exam';
@@ -46,15 +47,16 @@ Nội dung HTML của một trang đề A4 tuân thủ cấu trúc bắt buộc:
   </div>
 - <h1> tiêu đề đề thi (in hoa)
 - <p> dòng môn học / thời gian, căn giữa bằng style="text-align:center"
-- <h3> cho từng phần (PHẦN I. TRẮC NGHIỆM, PHẦN II. TỰ LUẬN…)
-- <p><b>Câu n.</b> …</p> cho từng câu tự luận
-- Câu trắc nghiệm: một <p> cho đề câu, rồi một lưới đáp án
+- <h3> cho từng phần (PHẦN I. Trắc nghiệm nhiều lựa chọn, PHẦN II. Trắc nghiệm Đúng/Sai, PHẦN III. Trắc nghiệm trả lời ngắn, PHẦN IV. Tự luận)
+- <p><b>Câu n.</b> …</p> cho từng câu tự luận / trả lời ngắn
+- Câu Đúng/Sai 4 ý: một <p><b>Câu n.</b> …</p> rồi <div class="doc-tf-list"><p>a) …</p><p>b) …</p><p>c) …</p><p>d) …</p></div>
+- Câu trắc nghiệm 4 lựa chọn: một <p> cho đề câu, rồi một lưới đáp án
   <div class="doc-grid"><div class="doc-grid-cell"><p>A. …</p></div><div class="doc-grid-cell"><p>B. …</p></div>
   <div class="doc-grid-cell"><p>C. …</p></div><div class="doc-grid-cell"><p>D. …</p></div></div>
   Lưới phải có đúng 2, 3, 4 hoặc 6 ô, mỗi ô bắt đầu bằng "A. ", "B. " … theo thứ tự liên tiếp.
 - Bảng phải có <tbody> tường minh bao quanh các <tr>, đóng đầy đủ mọi thẻ; không dựa vào trình duyệt tự sửa cấu trúc HTML.
 Chỉ dùng các thẻ: h1, h2, h3, p, b, i, u, br, span, sub, sup, ol, ul, li, table, thead, tbody, tfoot, tr, td, th, div.
-Ngoài các class doc-header / doc-header-col / doc-grid / doc-grid-cell ở trên, không thêm class nào khác.
+Ngoài các class doc-header / doc-header-col / doc-grid / doc-grid-cell / doc-tf-list ở trên, không thêm class nào khác.
 
 HÌNH VẼ: khi câu hỏi cần hình (tam giác, đường tròn, tiếp tuyến, parabol), KHÔNG tự vẽ.
 Chèn một thẻ rỗng, máy chủ sẽ dựng hình thật:
@@ -172,9 +174,9 @@ export async function POST(req: NextRequest) {
           }
         },
       );
-      // Tokens are progress only. Never apply truncated JSON or try to infer
-      // question boundaries a second time from generated HTML.
-      const generated: unknown = JSON.parse(streamed.text);
+      // Tokens are progress only. Strip markdown fences before parsing JSON.
+      const cleanedJson = parseJsonEnvelope(streamed.text);
+      const generated: unknown = JSON.parse(cleanedJson);
       if (!generated || typeof generated !== 'object' || Array.isArray(generated)) throw new Error('invalid_generated_structure');
       const draft = generated as { blocks?: Array<{ key: string; html: string }>; questions?: unknown };
       if (!Array.isArray(draft.blocks) || !draft.blocks.length || draft.blocks.length > 2000 ||
@@ -232,6 +234,8 @@ export async function POST(req: NextRequest) {
           status: 'completed', text: result.reply, payload: { html, action, structure }, issues: warnings,
         });
       }
+      const rawPrompt = body.prompt || body.messages?.[body.messages.length - 1]?.content || '';
+      void maybeRememberFromPrompt(user.id, rawPrompt).catch(() => {});
       sse.result(result);
     } catch (err) {
       if (body.conversationId && body.turnId) {
@@ -258,20 +262,35 @@ export async function POST(req: NextRequest) {
   return new Response(sse.stream, { headers: sse.headers });
 }
 
+function parseJsonEnvelope(raw: string): string {
+  const trimmed = raw
+    .replace(/^```(?:json)?\s*/i, '')
+    .replace(/\s*```\s*$/i, '')
+    .trim();
+  if (trimmed.startsWith('{')) return trimmed;
+  const start = trimmed.indexOf('{');
+  const end = trimmed.lastIndexOf('}');
+  return start >= 0 && end > start ? trimmed.slice(start, end + 1) : trimmed;
+}
+
 function buildPrompt(body: ChatExamRequest) {
   const current = body.currentExam?.content;
+  const action = decideAction(body);
   const parts = [body.prompt || body.messages?.[body.messages.length - 1]?.content || ''];
   if (current && body.contextSource !== 'none') {
-    parts.push(`---\nĐề đang mở (giữ cấu trúc, chỉ sửa phần được yêu cầu):\n${current.slice(0, 8000)}`);
+    const compacted = compactHtmlForAi(current).slice(0, 32000);
+    parts.push(`---\nĐề đang mở (${action === 'append' ? 'CHỈ soạn các câu/phần bổ sung nối tiếp, KHÔNG lặp lại .doc-header hoặc <h1>' : 'giữ cấu trúc, sửa hoặc soạn theo yêu cầu'}):\n${compacted}`);
   }
-  for (const note of body.contextNotes ?? []) parts.push(`---\nGhi chú: ${note}`);
+  for (const note of body.contextNotes ?? []) parts.push(`---\nGhi chú / Ngữ liệu tham khảo:\n${note}`);
   return parts.filter(Boolean).join('\n\n');
 }
 
 function decideAction(body: ChatExamRequest): 'replace' | 'append' {
   const hasExam = !!body.currentExam?.content?.trim();
+  if (!hasExam) return 'replace';
+  if (body.action === 'append' || body.action === 'replace') return body.action;
   const prompt = (body.prompt ?? '').toLowerCase();
   const appendIntent = /(thêm|chèn|bổ sung|nối tiếp|viết tiếp)/.test(prompt);
-  return hasExam && appendIntent ? 'append' : 'replace';
+  return appendIntent ? 'append' : 'replace';
 }
 

@@ -23,6 +23,7 @@ const scrypt = promisify(scryptCallback) as (
 ) => Promise<Buffer>;
 
 export const SESSION_COOKIE = 'sdt_session';
+export const CAPTURE_COOKIE = 'sdt_grading_capture';
 const USER_TTL_MINUTES = 30 * 24 * 60;
 const CAPTURE_TTL_MINUTES = 120;
 
@@ -175,7 +176,8 @@ async function cookieSecurity(): Promise<boolean> {
 
 export async function setSessionCookie(token: string, kind: SessionKind = 'user'): Promise<void> {
   const store = await cookies();
-  store.set(SESSION_COOKIE, token, {
+  const cookieName = kind === 'capture' ? CAPTURE_COOKIE : SESSION_COOKIE;
+  store.set(cookieName, token, {
     httpOnly: true,
     sameSite: 'lax',
     secure: await cookieSecurity(),
@@ -189,9 +191,19 @@ export async function clearSessionCookie(): Promise<void> {
   store.set(SESSION_COOKIE, '', { httpOnly: true, sameSite: 'lax', path: '/', maxAge: 0 });
 }
 
+export async function clearCaptureCookie(): Promise<void> {
+  const store = await cookies();
+  store.set(CAPTURE_COOKIE, '', { httpOnly: true, sameSite: 'lax', path: '/', maxAge: 0 });
+}
+
 export async function sessionToken(): Promise<string | null> {
   const store = await cookies();
   return store.get(SESSION_COOKIE)?.value ?? null;
+}
+
+export async function captureToken(): Promise<string | null> {
+  const store = await cookies();
+  return store.get(CAPTURE_COOKIE)?.value ?? store.get(SESSION_COOKIE)?.value ?? null;
 }
 
 // --------------------------------------------------------------- identity
@@ -215,7 +227,7 @@ export type CaptureIdentity = { userId: string; sessionId: string };
 
 /** Identity of a paired phone; scope carries the grading session it may feed. */
 export async function currentCapture(): Promise<CaptureIdentity | null> {
-  const token = await sessionToken();
+  const token = await captureToken();
   if (!token) return null;
   const session = await findSession(token);
   if (!session || session.kind !== 'capture') return null;

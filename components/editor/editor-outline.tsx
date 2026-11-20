@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react';
 import { ChevronsLeft, ListTree } from 'lucide-react';
 import { buildOutline } from '@/lib/editor-model';
 import { cn } from '@/lib/utils';
+import { Dialog } from '@/components/ui/dialog';
 
 const TEMPLATES: Array<{ title: string; hint: string; html: string }> = [
   {
@@ -31,19 +32,35 @@ const TEMPLATES: Array<{ title: string; hint: string; html: string }> = [
 export function EditorOutline({
   html,
   onClose,
-  onPrint,
+  onApplyTemplate,
 }: {
   html: string;
   onClose: () => void;
-  onPrint: () => void;
+  onPrint?: () => void;
+  onApplyTemplate?: (tplHtml: string) => void;
 }) {
   const [tab, setTab] = useState<'outline' | 'templates'>('outline');
+  const [pendingTpl, setPendingTpl] = useState<{ title: string; html: string } | null>(null);
   const outline = useMemo(() => (typeof window === 'undefined' ? [] : buildOutline(html)), [html]);
+  const hasContent = useMemo(() => html.replace(/<[^>]+>/g, '').trim().length > 0, [html]);
+
+  const applyTemplateNow = (tplHtml: string) => {
+    if (onApplyTemplate) {
+      onApplyTemplate(tplHtml);
+      return;
+    }
+    const surface = document.querySelector('.doc-surface') as HTMLElement | null;
+    if (!surface) return;
+    surface.focus();
+    document.execCommand('selectAll', false);
+    document.execCommand('insertHTML', false, tplHtml);
+    surface.dispatchEvent(new Event('input', { bubbles: true }));
+  };
 
   return (
     <aside
       aria-label="Dàn ý và mẫu chèn"
-      className="no-print flex w-[240px] shrink-0 flex-col border-r border-line bg-white"
+      className="no-print flex w-[240px] shrink-0 flex-col border-r border-line bg-white max-lg:fixed max-lg:inset-y-14 max-lg:left-0 max-lg:z-30 max-lg:w-[min(86vw,260px)] max-lg:shadow-[var(--shadow-md)]"
     >
       <div className="flex items-center justify-between px-4 pt-4 pb-2">
         <h2 className="text-[15px] font-semibold text-ink">Tài liệu</h2>
@@ -99,7 +116,11 @@ export function EditorOutline({
                     type="button"
                     onClick={() => {
                       const surface = document.querySelector('.doc-surface');
-                      const target = surface?.children[item.index] as HTMLElement | undefined;
+                      if (!surface) return;
+                      const realChildren = Array.from(surface.children).filter(
+                        (el) => !el.hasAttribute('data-page-spacer'),
+                      );
+                      const target = realChildren[item.index] as HTMLElement | undefined;
                       target?.scrollIntoView({ block: 'center', behavior: 'smooth' });
                     }}
                     className={cn(
@@ -122,12 +143,11 @@ export function EditorOutline({
                 <button
                   type="button"
                   onClick={() => {
-                    const surface = document.querySelector('.doc-surface') as HTMLElement | null;
-                    if (!surface) return;
-                    surface.focus();
-                    document.execCommand('selectAll', false);
-                    document.execCommand('insertHTML', false, tpl.html);
-                    surface.dispatchEvent(new Event('input', { bubbles: true }));
+                    if (hasContent) {
+                      setPendingTpl({ title: tpl.title, html: tpl.html });
+                    } else {
+                      applyTemplateNow(tpl.html);
+                    }
                   }}
                   className="w-full rounded-md border border-line px-3 py-2 text-left hover:border-line-strong hover:bg-surface-2"
                 >
@@ -139,6 +159,34 @@ export function EditorOutline({
           </ul>
         )}
       </div>
+
+      <Dialog open={pendingTpl !== null} onClose={() => setPendingTpl(null)} labelledBy="tpl-confirm-title">
+        <h3 id="tpl-confirm-title" className="text-[15.5px] font-semibold text-ink">
+          Áp dụng mẫu đề mới?
+        </h3>
+        <p className="mt-2 text-[13.5px] leading-relaxed text-ink-2">
+          Mẫu <b>{pendingTpl?.title}</b> sẽ thay thế toàn bộ nội dung đang có trên trang soạn. Thầy cô vẫn có thể bấm Hoàn tác (Ctrl+Z) nếu cần.
+        </p>
+        <div className="mt-4 flex justify-end gap-2">
+          <button
+            type="button"
+            onClick={() => setPendingTpl(null)}
+            className="h-8 rounded-md px-3 text-[13px] font-medium text-ink-2 hover:bg-surface-3"
+          >
+            Huỷ
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              if (pendingTpl) applyTemplateNow(pendingTpl.html);
+              setPendingTpl(null);
+            }}
+            className="h-8 rounded-md bg-accent px-3.5 text-[13px] font-medium text-white hover:bg-accent-hover"
+          >
+            Ghi đè mẫu đề
+          </button>
+        </div>
+      </Dialog>
 
     </aside>
   );

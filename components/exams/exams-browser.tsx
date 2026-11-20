@@ -99,9 +99,11 @@ function ExamCard({ exam, view }: { exam: CommunityExam; view: 'grid' | 'list' }
             <span className="rounded-md bg-surface-3 px-2 py-[3px] text-xs font-medium text-ink">
               {subjectLabel(exam.subject)}
             </span>
-            <span className="rounded-md bg-surface-3 px-2 py-[3px] text-xs font-medium text-ink">
-              Lớp {exam.grade}
-            </span>
+            {exam.grade > 0 ? (
+              <span className="rounded-md bg-surface-3 px-2 py-[3px] text-xs font-medium text-ink">
+                Lớp {exam.grade}
+              </span>
+            ) : null}
           </div>
         </div>
         <div className="flex shrink-0 items-center gap-1.5 pr-1 text-xs text-ink-2">
@@ -138,9 +140,11 @@ function ExamCard({ exam, view }: { exam: CommunityExam; view: 'grid' | 'list' }
           >
             {subjectLabel(exam.subject)}
           </span>
-          <span className="shrink-0 rounded-md bg-surface-3 px-2 py-[3px] text-xs font-medium text-ink">
-            Lớp {exam.grade}
-          </span>
+          {exam.grade > 0 ? (
+            <span className="shrink-0 rounded-md bg-surface-3 px-2 py-[3px] text-xs font-medium text-ink">
+              Lớp {exam.grade}
+            </span>
+          ) : null}
         </div>
         <div className="mt-2.5 flex h-[18px] items-center gap-1.5 pr-2 text-xs text-ink-2">
           <span

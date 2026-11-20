@@ -212,9 +212,15 @@ export function GradingWorkspace({ sessionId }: { sessionId: string }) {
           session.className ? ` · Lớp ${session.className}` : ''
         }`}
         actions={
-          <Button variant="ghost" size="icon" onClick={() => void load()} aria-label="Tải lại">
-            <RefreshCw className="size-4" />
-          </Button>
+          <div className="flex items-center gap-1.5">
+            <Button variant="blue" size="sm" onClick={() => setPairOpen(true)}>
+              <Smartphone className="size-3.5" aria-hidden />
+              <span className="hidden sm:inline">Quét bằng điện thoại</span>
+            </Button>
+            <Button variant="ghost" size="icon" onClick={() => void load()} aria-label="Tải lại">
+              <RefreshCw className="size-4" />
+            </Button>
+          </div>
         }
       />
 

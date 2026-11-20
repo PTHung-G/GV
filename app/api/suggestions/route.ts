@@ -10,6 +10,10 @@
  * answer synchronously, so `pending` is only ever set when the model is slow.
  */
 import { NextRequest, NextResponse } from 'next/server';
+import { requireUser } from '@/lib/server/auth';
+import { isDatabaseConfigured } from '@/lib/server/db';
+import { jsonError } from '@/lib/server/http';
+import { enforceRateLimit } from '@/lib/server/rate-limit';
 import { complete } from '@/lib/server/model';
 import { errorBody, newRequestId } from '@/lib/server/chat-exam-types';
 
@@ -43,44 +47,53 @@ const FALLBACK = [
 
 export async function POST(req: NextRequest) {
   const requestId = newRequestId();
-
-  let body: Context & { refresh?: boolean };
   try {
-    body = await req.json();
-  } catch {
-    return NextResponse.json(
-      errorBody(400, 'Dữ liệu gửi lên không hợp lệ.', 'invalid_json', requestId),
-      { status: 400 },
-    );
-  }
+    if (isDatabaseConfigured()) {
+      const user = await requireUser();
+      enforceRateLimit('suggestions', user.id, 30, 60_000);
+    }
 
-  const state = [
-    `Tên đề: ${body.examTitle?.trim() || '(chưa có)'}`,
-    `Số câu: ${body.questionCount ?? 0}`,
-    `Số khối nội dung: ${body.blockCount ?? 0}`,
-    `Đã có đáp án: ${body.hasAnswers ? 'có' : 'chưa'}`,
-    body.libraryIds?.length ? `Đang tham chiếu ${body.libraryIds.length} đề trong thư viện` : '',
-  ]
-    .filter(Boolean)
-    .join('\n');
+    let body: Context & { refresh?: boolean };
+    try {
+      body = await req.json();
+    } catch {
+      return NextResponse.json(
+        errorBody(400, 'Dữ liệu gửi lên không hợp lệ.', 'invalid_json', requestId),
+        { status: 400 },
+      );
+    }
 
-  try {
-    const { text } = await complete({
-      maxTokens: 300,
-      // Without this the provider returns prose around the JSON and every call
-      // silently degrades to the hardcoded fallback.
-      json: true,
-      messages: [
-        { role: 'system', content: SYSTEM },
-        { role: 'user', content: state },
-      ],
-    });
-    const suggestions = parseSuggestions(text);
-    // Never leave the panel empty — the caller hides the list on an empty array.
-    return NextResponse.json({ suggestions: suggestions.length ? suggestions : FALLBACK });
-  } catch {
-    // Suggestions are decorative; a model failure must not surface as an error.
-    return NextResponse.json({ suggestions: FALLBACK });
+    const state = [
+      `Tên đề: ${body.examTitle?.trim() || '(chưa có)'}`,
+      `Số câu: ${body.questionCount ?? 0}`,
+      `Số khối nội dung: ${body.blockCount ?? 0}`,
+      `Đã có đáp án: ${body.hasAnswers ? 'có' : 'chưa'}`,
+      body.libraryIds?.length ? `Đang tham chiếu ${body.libraryIds.length} đề trong thư viện` : '',
+    ]
+      .filter(Boolean)
+      .join('\n');
+
+    try {
+      const { text } = await complete({
+        signal: req.signal,
+        maxTokens: 300,
+        // Without this the provider returns prose around the JSON and every call
+        // silently degrades to the hardcoded fallback.
+        json: true,
+        messages: [
+          { role: 'system', content: SYSTEM },
+          { role: 'user', content: state },
+        ],
+      });
+      const suggestions = parseSuggestions(text);
+      // Never leave the panel empty — the caller hides the list on an empty array.
+      return NextResponse.json({ suggestions: suggestions.length ? suggestions : FALLBACK });
+    } catch {
+      // Suggestions are decorative; a model failure must not surface as an error.
+      return NextResponse.json({ suggestions: FALLBACK });
+    }
+  } catch (err) {
+    return jsonError(err);
   }
 }
 

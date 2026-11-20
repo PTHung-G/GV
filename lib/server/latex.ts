@@ -11,11 +11,13 @@ import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { promisify } from 'node:util';
+import { Semaphore } from './rate-limit';
 
 const run = promisify(execFile);
 
 const COMPILE_TIMEOUT_MS = 15_000;
 const CACHE_LIMIT = 300;
+const tikzSemaphore = new Semaphore(3);
 
 const cache = new Map<string, string>();
 
@@ -42,43 +44,48 @@ export async function compileTikz(source: string): Promise<string> {
   const hit = cache.get(key);
   if (hit) return hit;
 
-  const dir = await mkdtemp(join(tmpdir(), 'sdt-fig-'));
-  try {
-    await writeFile(join(dir, 'fig.tex'), source, 'utf8');
+  return tikzSemaphore.run(async () => {
+    const cached = cache.get(key);
+    if (cached) return cached;
 
+    const dir = await mkdtemp(join(tmpdir(), 'sdt-fig-'));
     try {
-      await run('pdflatex', ['-interaction=nonstopmode', '-halt-on-error', 'fig.tex'], {
-        cwd: dir,
-        timeout: COMPILE_TIMEOUT_MS,
-        maxBuffer: 8 * 1024 * 1024,
-      });
-    } catch (err) {
-      if (isMissingBinary(err)) {
-        throw new LatexUnavailableError('Máy chủ chưa cài LaTeX (pdflatex) nên chưa vẽ được hình.');
-      }
-      const log = await readFile(join(dir, 'fig.log'), 'utf8').catch(() => '');
-      throw new LatexError('Không biên dịch được hình.', firstError(log));
-    }
+      await writeFile(join(dir, 'fig.tex'), source, 'utf8');
 
-    try {
-      await run('pdftocairo', ['-svg', 'fig.pdf', 'fig.svg'], {
-        cwd: dir,
-        timeout: COMPILE_TIMEOUT_MS,
-      });
-    } catch (err) {
-      if (isMissingBinary(err)) {
-        throw new LatexUnavailableError('Máy chủ chưa cài pdftocairo nên chưa xuất được hình.');
+      try {
+        await run('pdflatex', ['-interaction=nonstopmode', '-halt-on-error', 'fig.tex'], {
+          cwd: dir,
+          timeout: COMPILE_TIMEOUT_MS,
+          maxBuffer: 8 * 1024 * 1024,
+        });
+      } catch (err) {
+        if (isMissingBinary(err)) {
+          throw new LatexUnavailableError('Máy chủ chưa cài LaTeX (pdflatex) nên chưa vẽ được hình.');
+        }
+        const log = await readFile(join(dir, 'fig.log'), 'utf8').catch(() => '');
+        throw new LatexError('Không biên dịch được hình.', firstError(log));
       }
-      throw new LatexError('Không xuất được SVG từ hình.', '');
-    }
 
-    const raw = await readFile(join(dir, 'fig.svg'), 'utf8');
-    const svg = inlineSvg(raw);
-    remember(key, svg);
-    return svg;
-  } finally {
-    await rm(dir, { recursive: true, force: true }).catch(() => {});
-  }
+      try {
+        await run('pdftocairo', ['-svg', 'fig.pdf', 'fig.svg'], {
+          cwd: dir,
+          timeout: COMPILE_TIMEOUT_MS,
+        });
+      } catch (err) {
+        if (isMissingBinary(err)) {
+          throw new LatexUnavailableError('Máy chủ chưa cài pdftocairo nên chưa xuất được hình.');
+        }
+        throw new LatexError('Không xuất được SVG từ hình.', '');
+      }
+
+      const raw = await readFile(join(dir, 'fig.svg'), 'utf8');
+      const svg = inlineSvg(raw);
+      remember(key, svg);
+      return svg;
+    } finally {
+      await rm(dir, { recursive: true, force: true }).catch(() => {});
+    }
+  });
 }
 
 /** Detects a missing binary rather than a real compile failure. */
@@ -144,6 +151,7 @@ export function namespaceSvgIds(svg: string, prefix: string): string {
   for (const id of ids) {
     out = out.split(`id="${id}"`).join(`id="${prefix}${id}"`);
     out = out.split(`href="#${id}"`).join(`href="#${prefix}${id}"`);
+    out = out.split(`url(#${id})`).join(`url(#${prefix}${id})`);
   }
   return out;
 }

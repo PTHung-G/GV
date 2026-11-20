@@ -108,9 +108,17 @@ export function sceneToTikz(scene: Scene): string {
     lines.push(
       `  \\draw[-{Stealth[length=4pt]}] (${n(xLo * s)},${n(yAt)}) -- (${n(xHi * s)},${n(yAt)}) node[right] {$x$};`,
     );
-    const ys = Object.values(scene.points).map((p) => p.y * s);
-    const yLo = Math.min(...ys, 0) - 0.4;
-    const yHi = Math.max(...ys, 0) + 0.4;
+    const ys = [
+      ...Object.values(scene.points).map((p) => p.y * s),
+      ...scene.polylines.flatMap((line) => line.points.map(([, y]) => y * s)),
+      ...scene.circles.flatMap((circle) => {
+        const c = scene.points[circle.center];
+        return c ? [(c.y - circle.radius) * s, (c.y + circle.radius) * s] : [];
+      }),
+    ];
+    const pad = 0.35 * s;
+    const yLo = Math.min(...ys, 0) - pad;
+    const yHi = Math.max(...ys, 0) + pad;
     lines.push(
       `  \\draw[-{Stealth[length=4pt]}] (0,${n(yLo)}) -- (0,${n(yHi)}) node[above] {$y$};`,
     );

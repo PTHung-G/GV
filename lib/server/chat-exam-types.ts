@@ -28,9 +28,13 @@ export type Clarification = {
   options: string[];
 };
 
+/** What the generator is allowed to do to the document. */
+export type ChatExamAction = 'replace' | 'append';
+
 export type ChatExamPlan = {
   decision: PlanDecision;
   taskKind: TaskKind;
+  action?: ChatExamAction;
   /** Prompt handed to the generator when decision === 'proceed'. */
   templatePrompt: string;
   /** Operations to run against the editor after generation. */
@@ -44,9 +48,6 @@ export type ChatExamPlan = {
   warnings: string[];
   clarifications: Clarification[];
 };
-
-/** What the generator is allowed to do to the document. */
-export type ChatExamAction = 'replace' | 'append';
 
 export type ChatExamResult = {
   success: true;
@@ -81,6 +82,7 @@ export type ChatExamRequest = {
   examTitle?: string;
   contextSource?: 'none' | 'current_exam' | 'library' | 'both';
   intent?: string;
+  action?: ChatExamAction;
   prompt?: string;
   reasoning?: ReasoningLevel;
   planned?: boolean;

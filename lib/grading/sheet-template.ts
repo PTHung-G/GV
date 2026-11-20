@@ -10,7 +10,7 @@
  * so print output is physically exact regardless of the browser's zoom.
  */
 import QRCode from 'qrcode';
-import type { McLetter, Rubric } from './rubric';
+import type { McLetter, Rubric, ShortQuestion, TfQuestion } from './rubric';
 
 export const MM = 96 / 25.4;
 export const A4_WIDTH = 210 * MM; // 793.7px
@@ -19,6 +19,24 @@ export const A4_HEIGHT = 297 * MM; // 1122.5px
 export type Point = { x: number; y: number };
 
 export type SheetBubble = { q: number; label: McLetter; cx: number; cy: number; r: number };
+
+export type SheetTfBubble = {
+  q: number;
+  sub: 'a' | 'b' | 'c' | 'd';
+  choice: 'Đ' | 'S';
+  cx: number;
+  cy: number;
+  r: number;
+};
+
+export type SheetShortCell = {
+  q: number;
+  column: number;
+  mark: string;
+  cx: number;
+  cy: number;
+  r: number;
+};
 
 /**
  * One bubble of the "số báo danh" (candidate number) grid.
@@ -37,6 +55,12 @@ export type SheetTemplate = {
   anchors: [Point, Point, Point, Point];
   qr: { x: number; y: number; size: number };
   bubbles: SheetBubble[];
+  /** Phần II: Trắc nghiệm Đúng/Sai (GDPT 2018 / THPT 2025). */
+  tfBubbles?: SheetTfBubble[];
+  /** Phần III: Trắc nghiệm Trả lời ngắn (4 cột ký tự - , 0..9). */
+  shortCells?: SheetShortCell[];
+  /** Khi trang 1 đã kín cho trắc nghiệm, tự luận sang trang 2. */
+  essayOnSecondPage?: boolean;
   /** Bảng tô số báo danh. Missing on sheets printed before this existed. */
   sbd?: { digits: number; cells: SheetSbdCell[] };
   /** Essay boxes, so the scanner can report a blank answer area if needed. */
@@ -88,9 +112,28 @@ const BUBBLE_R = 2.3 * MM;
 const BUBBLE_GAP = 8.4 * MM;
 const ROW_HEIGHT = 8.6 * MM;
 const NUMBER_WIDTH = 8.5 * MM;
+const ANCHOR_SAFE = 4 * MM;
+
+export const TF_SUBS: Array<'a' | 'b' | 'c' | 'd'> = ['a', 'b', 'c', 'd'];
+export const TF_CHOICES: Array<'Đ' | 'S'> = ['Đ', 'S'];
+export const SHORT_MARKS = ['-', ',', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+const TF_ROW_H = 5.4 * MM;
+const TF_R = 1.8 * MM;
+const SHORT_ROW_H = 3.8 * MM;
+const SHORT_CELL_W = 4.6 * MM;
+const SHORT_R = 1.5 * MM;
 
 function mcOf(rubric: Rubric) {
   return rubric.questions.filter((question) => question.type === 'mc');
+}
+
+function tfOf(rubric: Rubric): TfQuestion[] {
+  return rubric.questions.filter((question): question is TfQuestion => question.type === 'tf');
+}
+
+function shortOf(rubric: Rubric): ShortQuestion[] {
+  return rubric.questions.filter((question): question is ShortQuestion => question.type === 'short');
 }
 
 function essayOf(rubric: Rubric) {
@@ -99,17 +142,21 @@ function essayOf(rubric: Rubric) {
 
 /**
  * Decides how many answer columns are needed so a long paper still fits on one
- * page: the grid may not eat into the space reserved for essay answers.
+ * page: the grid may not eat into the space reserved for essay answers or Part II/III.
  */
 function chooseColumns(
   mcCount: number,
   essayCount: number,
   requested?: number,
   reservedTop = 0,
+  reservedExtra = 0,
 ): number {
   if (requested && requested >= 1 && requested <= 4) return Math.floor(requested);
   const essaySpace = essayCount > 0 ? 60 * MM : 0;
-  const available = CONTENT_HEIGHT - HEADER_HEIGHT - reservedTop - essaySpace - 18 * MM;
+  const available = Math.max(
+    24 * MM,
+    CONTENT_HEIGHT - HEADER_HEIGHT - reservedTop - essaySpace - reservedExtra - 18 * MM,
+  );
   const maxRows = Math.max(1, Math.floor(available / (ROW_HEIGHT * 1.15)));
   if (mcCount <= maxRows) return 1;
   if (mcCount <= maxRows * 2) return 2;
@@ -120,10 +167,21 @@ function chooseColumns(
 /** The single layout pass both outputs are built from. */
 export function buildSheetTemplate(rubric: Rubric, options: SheetOptions): SheetTemplate {
   const multichoice = mcOf(rubric);
+  const tfs = tfOf(rubric);
+  const shorts = shortOf(rubric);
   const essays = essayOf(rubric);
+  const hasObjectiveExt = tfs.length > 0 || shorts.length > 0;
   const sbdDigits = Math.max(0, Math.min(8, Math.floor(options.sbdDigits ?? 6)));
   const reservedTop = sbdDigits > 0 ? SBD_BLOCK_HEIGHT : 0;
-  const columns = chooseColumns(multichoice.length, essays.length, options.columns, reservedTop);
+  const tfBlockH = tfs.length > 0 ? Math.ceil(tfs.length / 4) * (7 * MM + 4 * TF_ROW_H) + 6 * MM : 0;
+  const shortBlockH = shorts.length > 0 ? Math.ceil(shorts.length / 6) * (12 * SHORT_ROW_H + 11 * MM) + 7 * MM : 0;
+  const columns = chooseColumns(
+    multichoice.length,
+    hasObjectiveExt ? 0 : essays.length,
+    options.columns,
+    reservedTop,
+    tfBlockH + shortBlockH,
+  );
 
   const anchors: [Point, Point, Point, Point] = [
     { x: ANCHOR_CENTER, y: ANCHOR_CENTER },
@@ -158,6 +216,8 @@ export function buildSheetTemplate(rubric: Rubric, options: SheetOptions): Sheet
   const gridTop = CONTENT_TOP + HEADER_HEIGHT + reservedTop + 6 * MM;
   const columnWidth = CONTENT_WIDTH / columns;
   const rows = multichoice.length === 0 ? 0 : Math.ceil(multichoice.length / columns);
+  const mcRowH = hasObjectiveExt && rows > 8 ? 6.8 * MM : ROW_HEIGHT;
+  const mcBubbleR = hasObjectiveExt && rows > 8 ? 2.0 * MM : BUBBLE_R;
   const bubbles: SheetBubble[] = [];
 
   multichoice.forEach((question, index) => {
@@ -172,8 +232,8 @@ export function buildSheetTemplate(rubric: Rubric, options: SheetOptions): Sheet
         q: question.no,
         label,
         cx: cx0 + optionIndex * BUBBLE_GAP,
-        cy: gridTop + row * ROW_HEIGHT + ROW_HEIGHT / 2,
-        r: BUBBLE_R,
+        cy: gridTop + row * mcRowH + mcRowH / 2,
+        r: mcBubbleR,
       });
     });
 
@@ -181,30 +241,112 @@ export function buildSheetTemplate(rubric: Rubric, options: SheetOptions): Sheet
     void numberX;
   });
 
-  // ---- essay boxes fill whatever height is left
-  const gridBottom = gridTop + rows * ROW_HEIGHT;
-  const essayTop = gridBottom + 14 * MM;
-  const essaySpace = Math.max(0, CONTENT_BOTTOM - essayTop);
-  const essayBoxes: SheetTemplate['essayBoxes'] = [];
+  let cursorY = multichoice.length > 0 ? gridTop + rows * mcRowH : gridTop - 6 * MM;
 
-  if (essays.length > 0 && essaySpace > 0) {
+  // ---- Part II: True/False Đ/S grid
+  const tfBubbles: SheetTfBubble[] = [];
+  if (tfs.length > 0) {
+    const tfTop = cursorY + 7 * MM;
+    const tfCols = 4;
+    const tfColW = CONTENT_WIDTH / tfCols;
+    const rowPitch = 7 * MM + 4 * TF_ROW_H;
+    tfs.forEach((question, idx) => {
+      const col = idx % tfCols;
+      const band = Math.floor(idx / tfCols);
+      const bx = CONTENT_LEFT + col * tfColW;
+      const by = tfTop + band * rowPitch + 6 * MM;
+      TF_SUBS.forEach((sub, sIdx) => {
+        TF_CHOICES.forEach((choice, cIdx) => {
+          tfBubbles.push({
+            q: question.no,
+            sub,
+            choice,
+            cx: bx + 14 * MM + cIdx * 7.2 * MM,
+            cy: by + sIdx * TF_ROW_H + TF_ROW_H / 2,
+            r: TF_R,
+          });
+        });
+      });
+    });
+    cursorY = tfTop + Math.ceil(tfs.length / tfCols) * rowPitch;
+  }
+
+  // ---- Part III: Short-answer numeric grid (- , 0..9 across 4 digit columns)
+  const shortCells: SheetShortCell[] = [];
+  if (shorts.length > 0) {
+    const shortTop = cursorY + 7 * MM;
+    const shortCols = 6;
+    const blockW = CONTENT_WIDTH / shortCols;
+    const bandH = 11 * MM + SHORT_MARKS.length * SHORT_ROW_H;
+    shorts.forEach((question, idx) => {
+      const col = idx % shortCols;
+      const band = Math.floor(idx / shortCols);
+      const bx = CONTENT_LEFT + col * blockW;
+      const gridLeft = bx + 5.2 * MM;
+      const gridY = shortTop + band * bandH + 10.5 * MM;
+      for (let dCol = 0; dCol < 4; dCol += 1) {
+        SHORT_MARKS.forEach((mark, rIdx) => {
+          shortCells.push({
+            q: question.no,
+            column: dCol,
+            mark,
+            cx: gridLeft + dCol * SHORT_CELL_W + SHORT_CELL_W / 2,
+            cy: gridY + rIdx * SHORT_ROW_H + SHORT_ROW_H / 2,
+            r: SHORT_R,
+          });
+        });
+      }
+    });
+    cursorY = shortTop + Math.ceil(shorts.length / shortCols) * bandH;
+  }
+
+  // ---- essay boxes fill Page 1 if >= 28mm clear, otherwise move cleanly to Page 2
+  const pageSafeBottom = CONTENT_BOTTOM - ANCHOR_SAFE;
+  const gridBottom = cursorY;
+  const essayTop = gridBottom + (hasObjectiveExt ? 8 * MM : 14 * MM);
+  const essaySpace = Math.max(0, pageSafeBottom - essayTop);
+  const essayBoxes: SheetTemplate['essayBoxes'] = [];
+  let essayOnSecondPage = false;
+
+  if (essays.length > 0) {
     const totalWeight = essays.reduce((sum, question) => sum + Math.max(1, question.points), 0);
     const boxGap = 5 * MM;
-    const usable = essaySpace - boxGap * (essays.length - 1);
-    let y = essayTop;
-
-    essays.forEach((question) => {
-      const weight = Math.max(1, question.points) / totalWeight;
-      const height = Math.max(24 * MM, usable * weight);
-      essayBoxes.push({
-        q: question.no,
-        x: CONTENT_LEFT,
-        y,
-        width: CONTENT_WIDTH,
-        height,
+    const minNeeded = essays.length * 24 * MM + boxGap * (essays.length - 1);
+    const putOnPage2 = essaySpace < Math.min(minNeeded, 32 * MM);
+    if (putOnPage2) {
+      essayOnSecondPage = true;
+      const p2Top = CONTENT_TOP + 18 * MM;
+      const p2Usable = pageSafeBottom - p2Top - boxGap * (essays.length - 1);
+      let y = p2Top;
+      essays.forEach((question) => {
+        const weight = Math.max(1, question.points) / totalWeight;
+        const height = Math.max(26 * MM, p2Usable * weight);
+        essayBoxes.push({
+          q: question.no,
+          x: CONTENT_LEFT,
+          y,
+          width: CONTENT_WIDTH,
+          height,
+        });
+        y += height + boxGap;
       });
-      y += height + boxGap;
-    });
+    } else if (essaySpace > 0) {
+      const usable = essaySpace - boxGap * (essays.length - 1);
+      let y = essayTop;
+
+      essays.forEach((question) => {
+        const weight = Math.max(1, question.points) / totalWeight;
+        const height = Math.max(24 * MM, usable * weight);
+        essayBoxes.push({
+          q: question.no,
+          x: CONTENT_LEFT,
+          y,
+          width: CONTENT_WIDTH,
+          height,
+        });
+        y += height + boxGap;
+      });
+    }
   }
 
   return {
@@ -213,6 +355,9 @@ export function buildSheetTemplate(rubric: Rubric, options: SheetOptions): Sheet
     anchors,
     qr,
     bubbles,
+    ...(tfBubbles.length > 0 ? { tfBubbles } : {}),
+    ...(shortCells.length > 0 ? { shortCells } : {}),
+    ...(essayOnSecondPage ? { essayOnSecondPage: true } : {}),
     ...(sbdDigits > 0 ? { sbd: { digits: sbdDigits, cells: sbdCells } } : {}),
     essayBoxes,
   };
@@ -258,10 +403,22 @@ function sheetBody(
   qrImage: string,
 ): string {
   const multichoice = mcOf(rubric);
+  const tfs = tfOf(rubric);
+  const shorts = shortOf(rubric);
   const essays = essayOf(rubric);
+  const hasObjectiveExt = tfs.length > 0 || shorts.length > 0;
   const reservedTop = template.sbd ? SBD_BLOCK_HEIGHT : 0;
-  const columns = chooseColumns(multichoice.length, essays.length, options.columns, reservedTop);
+  const tfBlockH = tfs.length > 0 ? Math.ceil(tfs.length / 4) * (7 * MM + 4 * TF_ROW_H) + 6 * MM : 0;
+  const shortBlockH = shorts.length > 0 ? Math.ceil(shorts.length / 6) * (12 * SHORT_ROW_H + 11 * MM) + 7 * MM : 0;
+  const columns = chooseColumns(
+    multichoice.length,
+    hasObjectiveExt ? 0 : essays.length,
+    options.columns,
+    reservedTop,
+    tfBlockH + shortBlockH,
+  );
   const rows = multichoice.length === 0 ? 0 : Math.ceil(multichoice.length / columns);
+  const mcRowH = hasObjectiveExt && rows > 8 ? 6.8 * MM : ROW_HEIGHT;
   const columnWidth = CONTENT_WIDTH / columns;
   const gridTop = CONTENT_TOP + HEADER_HEIGHT + reservedTop + 6 * MM;
 
@@ -293,8 +450,9 @@ function sheetBody(
       const column = Math.floor(index / rows);
       const row = index % rows;
       const x = CONTENT_LEFT + column * columnWidth + NUMBER_WIDTH - 2 * MM;
-      const y = gridTop + row * ROW_HEIGHT + ROW_HEIGHT / 2;
-      return `<text x="${mm(x)}" y="${mm(y)}" text-anchor="end" dominant-baseline="central" class="qn">${question.no}</text>`;
+      const y = gridTop + row * mcRowH + mcRowH / 2;
+      const disp = question.displayNo ?? question.no;
+      return `<text x="${mm(x)}" y="${mm(y)}" text-anchor="end" dominant-baseline="central" class="qn">${disp}</text>`;
     })
     .join('');
 
@@ -305,6 +463,81 @@ function sheetBody(
         `<text x="${mm(bubble.cx)}" y="${mm(bubble.cy)}" text-anchor="middle" dominant-baseline="central" class="opt">${bubble.label}</text>`,
     )
     .join('');
+
+  // ---- Part II (True/False) SVG layer & headers
+  const tfItems = template.tfBubbles ?? [];
+  let tfLayer = '';
+  let tfTitle = '';
+  if (tfItems.length > 0 && tfs.length > 0) {
+    const minY = Math.min(...tfItems.map((b) => b.cy));
+    tfTitle = `<div class="section-title" style="top:${mm(minY - 12 * MM)}">PHẦN II. TRẮC NGHIỆM ĐÚNG / SAI</div>`;
+    const headers = tfs
+      .map((q) => {
+        const qb = tfItems.filter((b) => b.q === q.no);
+        if (!qb.length) return '';
+        const xĐ = qb.find((b) => b.sub === 'a' && b.choice === 'Đ')?.cx ?? 0;
+        const xS = qb.find((b) => b.sub === 'a' && b.choice === 'S')?.cx ?? 0;
+        const yTop = qb[0].cy - 5.2 * MM;
+        const subRows = TF_SUBS.map((sub) => {
+          const item = qb.find((b) => b.sub === sub && b.choice === 'Đ');
+          return item
+            ? `<text x="${mm(item.cx - 7 * MM)}" y="${mm(item.cy)}" dominant-baseline="central" class="qn">${sub})</text>`
+            : '';
+        }).join('');
+        return (
+          `<text x="${mm(xĐ - 9 * MM)}" y="${mm(yTop)}" class="qn" font-weight="700">Câu ${q.displayNo ?? q.no}</text>` +
+          `<text x="${mm(xĐ)}" y="${mm(yTop)}" text-anchor="middle" class="opt">Đ</text>` +
+          `<text x="${mm(xS)}" y="${mm(yTop)}" text-anchor="middle" class="opt">S</text>` +
+          subRows
+        );
+      })
+      .join('');
+    const circles = tfItems
+      .map(
+        (b) =>
+          `<circle cx="${mm(b.cx)}" cy="${mm(b.cy)}" r="${mm(b.r)}" class="bubble" />` +
+          `<text x="${mm(b.cx)}" y="${mm(b.cy)}" text-anchor="middle" dominant-baseline="central" class="opt">${b.choice}</text>`,
+      )
+      .join('');
+    tfLayer = headers + circles;
+  }
+
+  // ---- Part III (Short-answer numeric grid) SVG layer & headers
+  const shortItems = template.shortCells ?? [];
+  let shortLayer = '';
+  let shortHtml = '';
+  if (shortItems.length > 0 && shorts.length > 0) {
+    const minY = Math.min(...shortItems.map((b) => b.cy));
+    shortHtml += `<div class="section-title" style="top:${mm(minY - 14.5 * MM)}">PHẦN III. TRẢ LỜI NGẮN</div>`;
+    const headers = shorts
+      .map((q) => {
+        const qb = shortItems.filter((b) => b.q === q.no);
+        if (!qb.length) return '';
+        const col0Top = qb.find((b) => b.column === 0 && b.mark === '-');
+        if (!col0Top) return '';
+        const titleY = col0Top.cy - 9.8 * MM;
+        shortHtml += `<div class="short-boxes" style="left:${mm(col0Top.cx - SHORT_CELL_W / 2)};top:${mm(col0Top.cy - 6.8 * MM)}"><i></i><i></i><i></i><i></i></div>`;
+        const rowLabels = SHORT_MARKS.map((mark) => {
+          const c = qb.find((b) => b.column === 0 && b.mark === mark);
+          return c
+            ? `<text x="${mm(c.cx - 3.6 * MM)}" y="${mm(c.cy)}" text-anchor="end" dominant-baseline="central" class="opt">${mark}</text>`
+            : '';
+        }).join('');
+        return (
+          `<text x="${mm(col0Top.cx - 3 * MM)}" y="${mm(titleY)}" class="qn" font-weight="700">Câu ${q.displayNo ?? q.no}</text>` +
+          rowLabels
+        );
+      })
+      .join('');
+    const circles = shortItems
+      .map(
+        (b) =>
+          `<circle cx="${mm(b.cx)}" cy="${mm(b.cy)}" r="${mm(b.r)}" class="bubble" />` +
+          `<text x="${mm(b.cx)}" y="${mm(b.cy)}" text-anchor="middle" dominant-baseline="central" class="opt-sm">${b.mark}</text>`,
+      )
+      .join('');
+    shortLayer = headers + circles;
+  }
 
   // ---- candidate number grid
   const sbd = template.sbd;
@@ -353,10 +586,10 @@ function sheetBody(
 
   // Fills the space left over on a multiple-choice-only paper with the block a
   // real exam sheet carries, instead of a blank half page.
-  const scoreBlockTop = gridTop + rows * ROW_HEIGHT + 6 * MM;
+  const scoreBlockTop = gridTop + rows * mcRowH + 6 * MM;
   const scoreBlockBottom = scoreBlockTop + 18 * MM;
   const scoreBlock =
-    essays.length === 0 && scoreBlockBottom < CONTENT_BOTTOM
+    !hasObjectiveExt && essays.length === 0 && scoreBlockBottom < CONTENT_BOTTOM - ANCHOR_SAFE
       ? `<div class="score" style="left:${mm(CONTENT_LEFT)};top:${mm(scoreBlockTop)};width:${mm(CONTENT_WIDTH)};height:${mm(18 * MM)}">
            <div class="score-left">
              <div class="score-title">ĐIỂM BÀI THI</div>
@@ -374,13 +607,18 @@ function sheetBody(
   const essayBoxes = template.essayBoxes
     .map((box) => {
       const question = essays.find((entry) => entry.no === box.q);
-      const label = question ? `Câu ${question.no} (${question.points} điểm)` : `Câu ${box.q}`;
+      const disp = question?.displayNo ?? box.q;
+      const label = question ? `Câu ${disp} (${question.points} điểm)` : `Câu ${disp}`;
       return (
         `<div class="essay" style="left:${mm(box.x)};top:${mm(box.y)};width:${mm(box.width)};height:${mm(box.height)}">` +
         `<span class="essay-label">${escapeHtml(label)}</span></div>`
       );
     })
     .join('');
+
+  const page1EssayTitleTop = template.essayBoxes.length
+    ? template.essayBoxes[0].y - 8 * MM
+    : gridTop + rows * mcRowH + 4 * MM;
 
   const instructions = [
     'Dùng bút chì hoặc bút mực tô kín một ô tròn cho mỗi câu.',
@@ -405,7 +643,23 @@ function sheetBody(
     anchors +
     sbdLayer +
     (multichoice.length > 0 ? columnLabels + numberCells + bubbles : '') +
+    tfLayer +
+    shortLayer +
     `</svg>`;
+
+  const secondPage =
+    template.essayOnSecondPage && essayBoxes
+      ? `
+  <section class="sheet sheet-essay">
+    <svg xmlns="http://www.w3.org/2000/svg" width="${mm(template.page.width)}" height="${mm(template.page.height)}" viewBox="0 0 ${template.page.width} ${template.page.height}" style="position:absolute;left:0;top:0;overflow:visible">${frame}</svg>
+    <div class="header" style="width:${mm(CONTENT_WIDTH - ANCHOR_SAFE)}">
+      <div class="school">${escapeHtml(options.schoolName ?? 'TRƯỜNG THCS')} · TRANG 2 (PHẦN TỰ LUẬN)</div>
+      <div class="meta">${escapeHtml(options.title)}${student ? ` · Thí sinh: <b>${escapeHtml(student.name)}</b>` : ''}${student?.code ? ` · SBD: <b>${escapeHtml(student.code)}</b>` : ''}</div>
+    </div>
+    ${essayBoxes}
+    <div class="footnote">Trang 2 — Phần bài làm tự luận.</div>
+  </section>`
+      : '';
 
   // The QR box carries page coordinates, so it must sit on `.sheet` rather than
   // inside `.header` — nesting it in the header added the header offset on top
@@ -447,18 +701,21 @@ function sheetBody(
 
     ${
       multichoice.length > 0
-        ? `<div class="section-title" style="top:${mm(gridTop - 7 * MM)}">PHẦN TRẢ LỜI TRẮC NGHIỆM</div>`
+        ? `<div class="section-title" style="top:${mm(gridTop - 7 * MM)}">${hasObjectiveExt ? 'PHẦN I. TRẮC NGHIỆM NHIỀU LỰA CHỌN' : 'PHẦN TRẢ LỜI TRẮC NGHIỆM'}</div>`
         : ''
     }
 
+    ${tfTitle}
+    ${shortHtml}
+
     ${
-      essayBoxes
-        ? `<div class="section-title" style="top:${mm(gridTop + rows * ROW_HEIGHT + 4 * MM)}">PHẦN TỰ LUẬN</div>${essayBoxes}`
+      essayBoxes && !template.essayOnSecondPage
+        ? `<div class="section-title" style="top:${mm(page1EssayTitleTop)}">PHẦN TỰ LUẬN</div>${essayBoxes}`
         : scoreBlock
     }
 
-    <div class="footnote">Bài làm gồm ${rubric.questions.length} câu · ${rubric.totalPoints} điểm. Tô kín ô, không tô hai ô.</div>
-  </section>`;
+    <div class="footnote">Bài làm gồm ${rubric.questions.length} câu · ${rubric.totalPoints} điểm.${template.essayOnSecondPage ? ' Phần tự luận xem ở trang 2.' : ' Tô kín ô, không tô hai ô.'}</div>
+  </section>${secondPage}`;
 }
 
 /**
@@ -493,13 +750,16 @@ export async function renderSheetHtml(rubric: Rubric, options: SheetOptions): Pr
     overflow: hidden;
   }
   .sheet:last-child { page-break-after: auto; }
-  .header { position: absolute; left: ${mm(CONTENT_LEFT)}; top: ${mm(CONTENT_TOP)}; width: ${mm(CONTENT_WIDTH - QR_SIZE - 6 * MM)}; }
+  .header { position: absolute; left: ${mm(CONTENT_LEFT + ANCHOR_SAFE)}; top: ${mm(CONTENT_TOP)}; width: ${mm(CONTENT_WIDTH - QR_SIZE - ANCHOR_SAFE - 6 * MM)}; }
   .school { font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.02em; }
   .title { font-size: 14pt; font-weight: 700; margin-top: 1mm; letter-spacing: 0.04em; }
   .meta { font-size: 8.5pt; margin-top: 0.8mm; }
   .sbd-title { position: absolute; font-size: 7.5pt; font-weight: 700; letter-spacing: 0.08em; }
   .sbd-box { position: absolute; border: 0.3mm solid #000; font-size: 10pt; font-weight: 700; text-align: center; line-height: 5.6mm; }
   .sbd-row { position: absolute; font-size: 7pt; text-align: right; line-height: 4mm; }
+  .short-boxes { position: absolute; display: flex; gap: 0.4mm; }
+  .short-boxes i { display: inline-block; width: ${mm(SHORT_CELL_W - 0.4 * MM)}; height: 4.4mm; border: 0.25mm solid #000; }
+  .opt-sm { font-size: 4.8pt; fill: #000; }
   .cand { position: absolute; width: ${mm(CONTENT_RIGHT - (CONTENT_LEFT + SBD_LABEL_WIDTH + 6 * SBD_CELL + 9 * MM))}; }
   .cand-row { display: flex; align-items: flex-end; gap: 1.5mm; font-size: 9pt; margin-bottom: 2.6mm; }
   .cand-row i { flex: 1; border-bottom: 0.25mm dotted #000; height: 4mm; }

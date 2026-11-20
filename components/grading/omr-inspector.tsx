@@ -143,8 +143,20 @@ export function OmrInspector({ imageUrl, template, title, onClose }: Props) {
                   ))}
                   {result.marks.map((mark) => {
                     const choice = picked.get(mark.q) ?? null;
-                    const isPicked = choice === mark.label;
-                    const ambiguous = choice === null && mark.fill > 18;
+                    let isPicked = choice === mark.label;
+                    let ambiguous = choice === null && mark.fill > 18;
+                    if (mark.label.includes(':')) {
+                      const [prefix, sym] = mark.label.split(':');
+                      const subIdx = 'abcd'.indexOf(prefix);
+                      if (subIdx >= 0) {
+                        const subChar = choice?.[subIdx];
+                        isPicked = subChar === sym;
+                        ambiguous = (!subChar || subChar === '?' || subChar === '!') && mark.fill > 22;
+                      } else {
+                        isPicked = mark.fill > 30 && choice !== null && !choice.includes('?');
+                        ambiguous = (!choice || choice.includes('?')) && mark.fill > 24;
+                      }
+                    }
                     return (
                       <circle
                         key={`m-${mark.q}-${mark.label}`}

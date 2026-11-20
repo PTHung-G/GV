@@ -1,28 +1,33 @@
 'use client';
 
 /**
- * Navigation rail: workspace chip, quick find, the two product areas, recent
- * documents, and the account row.
+ * Navigation rail: workspace chip + account menu, quick find, product sections,
+ * recent documents, and session action.
  */
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
+  BookOpen,
+  Brain,
   ChevronDown,
+  ChevronsLeft,
   ClipboardCheck,
   FilePlus2,
   FileText,
+  Layers,
   LayoutGrid,
   Library,
+  LogIn,
   LogOut,
-  ChevronsLeft,
   Search,
-  Settings2,
+  Users,
 } from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
 import { useDocs } from '@/lib/docs-store';
-import { relativeTime } from '@/lib/utils';
-import { cn } from '@/lib/utils';
+import { APP_NAME } from '@/lib/site';
+import { cn, relativeTime } from '@/lib/utils';
+import { Dropdown } from '@/components/ui/dropdown';
 import { useShell } from './app-shell';
 
 type NavItem = {
@@ -36,10 +41,16 @@ type NavItem = {
 const PRIMARY: NavItem[] = [
   { href: '/hub', label: 'Sảnh tính năng', Icon: LayoutGrid },
   { href: '/my-exams', label: 'Đề thi của tôi', Icon: FileText, also: ['/doc'] },
+  { href: '/question-bank', label: 'Kho câu hỏi', Icon: BookOpen },
   { href: '/grading', label: 'Chấm bài thi', Icon: ClipboardCheck },
+  { href: '/exam-releases', label: 'Bộ mã đề', Icon: Layers },
+  { href: '/classes', label: 'Quản lý lớp', Icon: Users },
 ];
 
-const SECONDARY: NavItem[] = [{ href: '/exams', label: 'Đề thi cộng đồng', Icon: Library }];
+const SECONDARY: NavItem[] = [
+  { href: '/exams', label: 'Đề thi cộng đồng', Icon: Library },
+  { href: '/memory', label: 'Trí nhớ trợ lý', Icon: Brain },
+];
 
 export function Sidebar() {
   const pathname = usePathname();
@@ -78,31 +89,88 @@ export function Sidebar() {
     pathname.startsWith(`${item.href}/`) ||
     (item.also ?? []).some((prefix) => pathname.startsWith(`${prefix}/`));
 
+  const chipContent = (
+    <>
+      <span
+        className="grid size-7 shrink-0 place-items-center rounded-md text-[11px] font-semibold text-white"
+        style={{ backgroundColor: user?.avatarColor ?? 'var(--color-accent)' }}
+      >
+        {(user?.name ?? APP_NAME).slice(0, 2).toUpperCase()}
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="block truncate text-[13.5px] font-semibold tracking-tight text-ink">
+          {user?.name ?? APP_NAME}
+        </span>
+        <span className="block truncate text-[11px] leading-tight text-ink-4">
+          {user ? user.email : 'Chưa đăng nhập'}
+        </span>
+      </span>
+      <ChevronDown className="size-3.5 shrink-0 text-ink-4" aria-hidden />
+    </>
+  );
+
   return (
     <div className="flex h-full flex-col">
       {/* Workspace / account chip */}
       <div className="flex h-14 shrink-0 items-center gap-2 px-2.5">
-        <button
-          type="button"
-          onClick={() => (user ? undefined : openDialog())}
-          className="flex min-w-0 flex-1 items-center gap-2 rounded-md px-1.5 py-1 text-left transition-colors hover:bg-surface-3"
-        >
-          <span
-            className="grid size-7 shrink-0 place-items-center rounded-md text-[11px] font-semibold text-white"
-            style={{ backgroundColor: user?.avatarColor ?? 'var(--color-accent)' }}
+        {user ? (
+          <Dropdown
+            align="start"
+            className="w-[228px]"
+            trigger={({ open, toggle }) => (
+              <button
+                type="button"
+                onClick={toggle}
+                aria-expanded={open}
+                className="flex min-w-0 flex-1 items-center gap-2 rounded-md px-1.5 py-1 text-left transition-colors hover:bg-surface-3"
+              >
+                {chipContent}
+              </button>
+            )}
           >
-            {(user?.name ?? 'S').slice(0, 2).toUpperCase()}
-          </span>
-          <span className="min-w-0 flex-1">
-            <span className="block truncate text-[13.5px] font-semibold tracking-tight text-ink">
-              {user?.name ?? 'soandethi.com'}
-            </span>
-            <span className="block truncate text-[11px] leading-tight text-ink-4">
-              {user ? `${new Intl.NumberFormat('vi-VN').format(user.points)} điểm` : 'Chưa đăng nhập'}
-            </span>
-          </span>
-          <ChevronDown className="size-3.5 shrink-0 text-ink-4" aria-hidden />
-        </button>
+            {(close) => (
+              <>
+                <div className="px-2.5 py-2">
+                  <p className="truncate text-[13px] font-semibold text-ink">{user.name}</p>
+                  <p className="truncate text-[12px] text-ink-3">{user.email}</p>
+                </div>
+                <div className="my-1 h-px bg-line" />
+                <Link
+                  href="/memory"
+                  onClick={close}
+                  className="flex items-center gap-2 rounded-md px-2.5 py-2 text-[13.5px] text-ink hover:bg-surface-3"
+                >
+                  <Brain className="size-4 text-ink-3" /> Trí nhớ trợ lý
+                </Link>
+                <Link
+                  href="/classes"
+                  onClick={close}
+                  className="flex items-center gap-2 rounded-md px-2.5 py-2 text-[13.5px] text-ink hover:bg-surface-3"
+                >
+                  <Users className="size-4 text-ink-3" /> Quản lý lớp
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => {
+                    close();
+                    void logout();
+                  }}
+                  className="flex w-full items-center gap-2 rounded-md px-2.5 py-2 text-left text-[13.5px] text-ink hover:bg-surface-3"
+                >
+                  <LogOut className="size-4 text-ink-3" /> Đăng xuất
+                </button>
+              </>
+            )}
+          </Dropdown>
+        ) : (
+          <button
+            type="button"
+            onClick={() => openDialog()}
+            className="flex min-w-0 flex-1 items-center gap-2 rounded-md px-1.5 py-1 text-left transition-colors hover:bg-surface-3"
+          >
+            {chipContent}
+          </button>
+        )}
         <button
           type="button"
           onClick={toggleLeft}
@@ -161,6 +229,8 @@ export function Sidebar() {
           );
         })}
 
+        <div className="my-2 h-px bg-line" />
+
         {SECONDARY.map((item) => {
           const active = isActive(item);
           return (
@@ -182,7 +252,7 @@ export function Sidebar() {
         })}
       </nav>
 
-      <div className="mt-5 min-h-0 flex-1 overflow-y-auto px-2 pb-2">
+      <div className="mt-4 min-h-0 flex-1 overflow-y-auto px-2 pb-2">
         <p className="px-2.5 pb-1.5 text-[10.5px] font-semibold tracking-[0.12em] text-ink-4 uppercase">
           {term ? 'Kết quả' : 'Gần đây'}
         </p>
@@ -215,13 +285,6 @@ export function Sidebar() {
       </div>
 
       <div className="shrink-0 border-t border-line p-2">
-        <Link
-          href="/my-exams"
-          className="flex items-center gap-2.5 rounded-md px-2.5 py-2 text-[13.5px] font-medium text-ink-2 transition-colors hover:bg-surface-3 hover:text-ink"
-        >
-          <Settings2 className="size-4 shrink-0 text-ink-3" aria-hidden />
-          Quản lý đề
-        </Link>
         {user ? (
           <button
             type="button"
@@ -237,7 +300,7 @@ export function Sidebar() {
             onClick={() => openDialog()}
             className="flex w-full items-center gap-2.5 rounded-md px-2.5 py-2 text-[13.5px] font-medium text-accent transition-colors hover:bg-accent-soft"
           >
-            <LogOut className="size-4 shrink-0" aria-hidden />
+            <LogIn className="size-4 shrink-0" aria-hidden />
             Đăng nhập
           </button>
         )}

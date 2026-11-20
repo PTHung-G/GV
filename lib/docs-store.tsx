@@ -55,6 +55,7 @@ type DocsState = {
 };
 
 const STORAGE_KEY = 'sdt.docs.v1';
+const GUEST_STORAGE_KEY = 'sdt.docs.guest.v1';
 const SAMPLE_SEEDED_KEY = 'sdt.docs.sample.v1';
 const DocsContext = createContext<DocsState | null>(null);
 
@@ -152,8 +153,13 @@ export function DocsProvider({ children }: { children: React.ReactNode }) {
           if (!cancelled && user && !localStorage.getItem(`sdt.docs.import-dismissed.${owner}`)) setLegacy(legacyDocs);
         } catch { /* Keep the original storage untouched for manual recovery. */ }
         if (!user) {
-          // Guests can view examples but never see another account's cached library.
-          const examples = [sampleExamDoc(), sampleKeyDoc(), seedDoc()];
+          // Guests can view and keep local edits in guest storage without polluting legacy import state.
+          let examples = [sampleExamDoc(), sampleKeyDoc(), seedDoc()];
+          try {
+            const guestRaw = localStorage.getItem(GUEST_STORAGE_KEY);
+            const parsed = guestRaw ? validateDocuments(JSON.parse(guestRaw), { strictStructure: false }) : [];
+            if (parsed.length > 0) examples = parsed;
+          } catch { /* fallback to built-in samples */ }
           state.saved = JSON.stringify(examples);
           if (!cancelled) { setDocs(examples); setSaveStatus('local'); }
         } else {
@@ -190,6 +196,13 @@ export function DocsProvider({ children }: { children: React.ReactNode }) {
     })();
     return () => { cancelled = true; state.enabled = false; };
   }, [authReady, owner, user]);
+
+  useEffect(() => {
+    if (!ready || loadedOwner !== owner || user) return;
+    try {
+      localStorage.setItem(GUEST_STORAGE_KEY, JSON.stringify(docs));
+    } catch { /* ignore guest quota limits */ }
+  }, [docs, loadedOwner, owner, ready, user]);
 
   useEffect(() => {
     const state = sync.current;
@@ -292,10 +305,92 @@ export function DocsProvider({ children }: { children: React.ReactNode }) {
     URL.revokeObjectURL(url);
   }
 
+  async function retrySync() {
+    if (!user) return;
+    const state = sync.current;
+    setError('');
+    setSaveStatus('saving');
+    try {
+      const latest = await fetch(basePath('/api/documents'), { cache: 'no-store' });
+      const data = await latest.json();
+      if (!latest.ok) throw new Error(data.error || 'Không kết nối được máy chủ.');
+      const res = await fetch(basePath('/api/documents'), {
+        method: 'PUT',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ ownerId: owner, revision: data.revision, documents: docs }),
+      });
+      const saved = await res.json();
+      if (!res.ok) throw new Error(saved.error || 'Không lưu được kho đề lên tài khoản.');
+      state.revision = saved.revision;
+      state.saved = JSON.stringify(docs);
+      state.enabled = true;
+      localStorage.setItem(`sdt.docs.account.${owner}`, JSON.stringify({ revision: state.revision, documents: docs, dirty: false }));
+      setSaveStatus('saved');
+    } catch (cause) {
+      setSaveStatus('error');
+      setError(cause instanceof Error ? cause.message : 'Không lưu được kho đề.');
+    }
+  }
+
+  async function importBackupFile(file: File) {
+    try {
+      const parsed = JSON.parse(await file.text()) as { documents?: unknown; recovery?: unknown } | unknown[];
+      const raw = Array.isArray(parsed)
+        ? parsed
+        : [...(Array.isArray(parsed?.documents) ? parsed.documents : []), ...(Array.isArray(parsed?.recovery) ? parsed.recovery : [])];
+      const imported = validateDocuments(raw, { strictStructure: false });
+      if (!imported.length) {
+        setError('Tệp sao lưu không chứa đề thi hợp lệ nào.');
+        return;
+      }
+      if (user) {
+        const res = await fetch(basePath('/api/documents/import'), {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ documents: imported }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Không khôi phục được bản sao lưu.');
+        const nextDocs = validateDocuments(data.documents, { strictStructure: false });
+        sync.current.revision = data.revision;
+        sync.current.saved = JSON.stringify(nextDocs);
+        sync.current.enabled = true;
+        setDocs(nextDocs);
+        setRecovery(null);
+        setError('');
+        setSaveStatus('saved');
+      } else {
+        setDocs((current) => mergeImportedDocuments(current, imported));
+        setError('');
+      }
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : 'Không đọc được tệp sao lưu.');
+    }
+  }
+
   return <DocsContext.Provider value={value}>
     {accountReady && user && (legacy.length > 0 || recovery || error) ? (
       <div role="status" className="border-b border-warn-line bg-warn-soft px-4 py-2 text-sm text-warn">
-        {error ? <p>{error} <button className="underline" onClick={backupLibrary}>Tải bản sao lưu</button></p> : null}
+        {error ? (
+          <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <span>{error}</span>
+            <button type="button" className="underline" onClick={() => void retrySync()}>Thử lưu lại</button>
+            <button type="button" className="underline" onClick={backupLibrary}>Tải bản sao lưu</button>
+            <label className="cursor-pointer underline">
+              Khôi phục từ tệp
+              <input
+                type="file"
+                accept="application/json,.json"
+                className="hidden"
+                onChange={(e) => {
+                  const f = e.target.files?.[0];
+                  if (f) void importBackupFile(f);
+                  e.target.value = '';
+                }}
+              />
+            </label>
+          </p>
+        ) : null}
         {legacy.length > 0 ? <p>Có {legacy.length} tài liệu cũ trên trình duyệt dùng chung. Chỉ nhập nếu thuộc tài khoản {user.email}.
           {' '}<button className="underline" onClick={() => {
             setDocs((current) => mergeImportedDocuments(current, legacy));

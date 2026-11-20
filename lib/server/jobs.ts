@@ -15,6 +15,7 @@ import { checkWorkerFence } from '@/lib/grading/lifecycle';
 import { gradeSubmission, refreshTotals, type GradeKind } from '@/lib/grading/grade';
 
 const POLL_MS = 3_000;
+export const WORKER_CONCURRENCY = 3;
 
 type JobRow = {
   id: string;
@@ -53,18 +54,15 @@ async function claimJob(): Promise<JobRow | null> {
        where j.status = 'queued' and j.run_after <= now() and s.status = 'active'
          and sub.status <> 'confirmed' and j.input_revision = sub.input_revision
          and j.section_revision = case when j.kind = 'grade-mc' then sub.mc_revision else sub.essay_revision end
-       order by j.run_after limit 1 for update of j skip locked
+       order by (case when j.kind = 'grade-mc' then 0 else 1 end), j.run_after
+       limit 1 for update of j skip locked
      ) update jobs j set status = 'running', started_at = now(), attempts = j.attempts + 1,
          lease_token = gen_random_uuid() from next where j.id = next.id returning j.*`,
   );
   return row;
 }
 
-/** Runs one job. Exported so a route or a test can drive the queue by hand. */
-export async function runOneJob(): Promise<{ ran: boolean; jobId?: string; error?: string }> {
-  const job = await claimJob();
-  if (!job) return { ran: false };
-
+async function executeClaimedJob(job: JobRow): Promise<{ ran: boolean; jobId?: string; error?: string }> {
   const fence = { jobId: job.id, leaseToken: job.lease_token, inputRevision: job.input_revision, sectionRevision: job.section_revision };
   try {
     if (!job.submission_id) throw new Error('Job không gắn với bài làm nào.');
@@ -95,13 +93,27 @@ export async function runOneJob(): Promise<{ ran: boolean; jobId?: string; error
   }
 }
 
-/** Drains the queue; used by the manual tick endpoint and by tests. */
+/** Runs one job. Exported so a route or a test can drive the queue by hand. */
+export async function runOneJob(): Promise<{ ran: boolean; jobId?: string; error?: string }> {
+  const job = await claimJob();
+  if (!job) return { ran: false };
+  return executeClaimedJob(job);
+}
+
+/** Drains up to `limit` queued jobs using bounded concurrency. */
 export async function drainJobs(limit = 10): Promise<number> {
   let processed = 0;
   while (processed < limit) {
-    const outcome = await runOneJob();
-    if (!outcome.ran) break;
-    processed += 1;
+    const batch: JobRow[] = [];
+    const take = Math.min(WORKER_CONCURRENCY, limit - processed);
+    for (let i = 0; i < take; i += 1) {
+      const job = await claimJob();
+      if (!job) break;
+      batch.push(job);
+    }
+    if (batch.length === 0) break;
+    await Promise.all(batch.map((job) => executeClaimedJob(job)));
+    processed += batch.length;
   }
   return processed;
 }
@@ -111,7 +123,7 @@ async function tick(): Promise<void> {
   running = true;
   try {
     await reclaimStaleJobs();
-    await drainJobs(3);
+    await drainJobs(WORKER_CONCURRENCY * 2);
   } catch (error) {
     console.error('[jobs] vòng quét gặp lỗi:', error instanceof Error ? error.message : error);
   } finally {

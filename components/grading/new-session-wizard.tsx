@@ -21,6 +21,7 @@ import { AppFrame } from '@/components/shell/app-frame';
 import { ShellHeader } from '@/components/shell/app-shell';
 import { examContentHash } from '@/lib/exam-revision';
 import { normalizeRubric, type AnswerKeyQuestion } from '@/lib/grading/rubric';
+import { parseRosterLines } from '@/lib/roster';
 
 type EditableStep = { key: string; text: string; points: string };
 type EditableQuestion =
@@ -78,26 +79,8 @@ function toEditable(questions: AnswerKeyQuestion[]): EditableQuestion[] {
   });
 }
 
-/** "09001 Nguyễn Văn An" — the leading token is the code, the rest is the name. */
-const LEADING_CODE = /^([A-Za-z]{0,4}\d{1,8})\s+(\S.*)$/;
-
 function parseRoster(text: string): Array<{ code?: string; name: string }> {
-  return text
-    .split('\n')
-    .map((line) => line.trim())
-    .filter(Boolean)
-    .map((line) => {
-      // Tab, comma or a wide gap is the most explicit separator when present.
-      const parts = line.split(/\t|,|;|\s{2,}/).map((part) => part.trim()).filter(Boolean);
-      if (parts.length >= 2) return { code: parts[0], name: parts.slice(1).join(' ') };
-
-      // Otherwise a single space is enough: teachers write "mã tên" on one line.
-      const match = LEADING_CODE.exec(line);
-      if (match) return { code: match[1], name: match[2] };
-
-      return { name: line };
-    })
-    .filter((student) => student.name);
+  return parseRosterLines(text);
 }
 
 const STEPS = ['Chọn đề', 'Thang điểm', 'Lớp & cách chấm'];
@@ -122,6 +105,9 @@ export function NewSessionWizard() {
   const [classId, setClassId] = useState('');
   const [savedClasses, setSavedClasses] = useState<Array<{ id: string; name: string; studentCount: number }>>([]);
   const [classNote, setClassNote] = useState('');
+  const [selectedRoster, setSelectedRoster] = useState<Array<{ id: string; code: string | null; name: string }>>([]);
+  const [inlineStudentName, setInlineStudentName] = useState('');
+  const [inlineStudentCode, setInlineStudentCode] = useState('');
   useEffect(() => {
     let active = true;
     gradingApi.get<{ classes: Array<{ id: string; name: string; studentCount: number }> }>('/api/classes')
@@ -129,6 +115,18 @@ export function NewSessionWizard() {
       .catch(() => { if (active) setClassNote('Không tải được lớp đã lưu. Bạn vẫn có thể nhập lớp mới.'); });
     return () => { active = false; };
   }, []);
+  useEffect(() => {
+    if (!classId) {
+      setSelectedRoster([]);
+      return;
+    }
+    let active = true;
+    gradingApi
+      .get<{ students: Array<{ id: string; code: string | null; name: string }> }>(`/api/classes?classId=${encodeURIComponent(classId)}`)
+      .then((d) => { if (active) setSelectedRoster(d.students ?? []); })
+      .catch(() => { if (active) setSelectedRoster([]); });
+    return () => { active = false; };
+  }, [classId]);
   const [rosterText, setRosterText] = useState('');
   const [sheetMode, setSheetMode] = useState<'template' | 'manual'>('manual');
   const [error, setError] = useState('');
@@ -784,7 +782,62 @@ export function NewSessionWizard() {
                 setClassName(savedClasses.find(item => item.id === id)?.name ?? '');
               }}><option value="">Nhập lớp mới / không chọn lớp</option>{savedClasses.map(item => <option key={item.id} value={item.id}>{item.name} · {item.studentCount} học sinh</option>)}</select>
               {classNote ? <p className="mb-2 text-xs text-warn">{classNote}</p> : null}
-              {classId ? <p className="mb-2 text-xs text-ink-3">Dùng danh sách học sinh hiện có của lớp. Danh sách lớp hiện dùng chung giữa các đợt; chưa đóng băng theo đợt.</p> : null}
+              {classId ? (
+                <div className="mb-3 rounded-md border border-line bg-surface-2 p-2.5 text-xs">
+                  <p className="font-medium text-ink-2">
+                    Danh sách hiện tại ({selectedRoster.length} học sinh):
+                  </p>
+                  <ul className="mt-1 max-h-28 space-y-0.5 overflow-y-auto text-ink-3">
+                    {selectedRoster.map((st) => (
+                      <li key={st.id}>
+                        {st.code ? <span className="mr-1.5 font-mono text-ink-4">{st.code}</span> : null}
+                        {st.name}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-2 flex gap-1.5">
+                    <Input
+                      value={inlineStudentCode}
+                      onChange={(e) => setInlineStudentCode(e.target.value)}
+                      placeholder="SBD"
+                      className="h-8 w-20 text-xs"
+                    />
+                    <Input
+                      value={inlineStudentName}
+                      onChange={(e) => setInlineStudentName(e.target.value)}
+                      placeholder="Thêm học sinh vào lớp…"
+                      className="h-8 flex-1 text-xs"
+                    />
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      disabled={!inlineStudentName.trim()}
+                      onClick={() => {
+                        void gradingApi
+                          .post<{ class: { students: Array<{ id: string; code: string | null; name: string }> } }>(
+                            `/api/classes/${classId}/students`,
+                            {
+                              students: [{ code: inlineStudentCode.trim() || null, name: inlineStudentName.trim() }],
+                              autoAssignSbd: !inlineStudentCode.trim(),
+                            },
+                          )
+                          .then((d) => {
+                            if (d.class?.students) {
+                              setSelectedRoster(d.class.students);
+                              setSavedClasses((prev) =>
+                                prev.map((c) => (c.id === classId ? { ...c, studentCount: d.class.students.length } : c)),
+                              );
+                            }
+                            setInlineStudentCode('');
+                            setInlineStudentName('');
+                          });
+                      }}
+                    >
+                      Thêm
+                    </Button>
+                  </div>
+                </div>
+              ) : null}
               <span className="mb-1.5 block text-[13px] font-medium text-ink-2">Tên lớp</span>
               <Input disabled={!!classId} value={className} onChange={(event) => setClassName(event.target.value)} placeholder="Ví dụ: 9A" />
             </label>

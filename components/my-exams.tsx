@@ -3,7 +3,10 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
-import { Copy, FileText, MoreHorizontal, Plus, Search, Trash2, X } from 'lucide-react';
+import { Copy, FileDown, FileText, MoreHorizontal, Plus, Search, Trash2, X, ClipboardCheck } from 'lucide-react';
+import { downloadDocx } from '@/lib/docx-export';
+import { Dialog } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
 import { useAuth } from '@/lib/auth-context';
 import { useDocs, type ExamDoc } from '@/lib/docs-store';
 import { gradingApi, type SessionSummary } from '@/lib/grading-client';
@@ -21,6 +24,7 @@ export function MyExams() {
   const { docs, ready, create, duplicate, remove } = useDocs();
   const [query, setQuery] = useState('');
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [confirmDelete, setConfirmDelete] = useState<{ id: string; title: string } | null>(null);
 
   const exams = useMemo(
     () => docs.filter((doc) => doc.kind !== 'answer-key'),
@@ -194,6 +198,25 @@ export function MyExams() {
                             >
                               <Copy className="size-4 text-ink-3" /> Nhân bản
                             </button>
+                            {doc.contentStatus !== 'preview' ? (
+                              <Link
+                                href={`/grading/new?examId=${encodeURIComponent(doc.id)}`}
+                                onClick={close}
+                                className="flex w-full items-center gap-2 rounded-md px-2.5 py-2 text-left text-[13.5px] hover:bg-surface-3"
+                              >
+                                <ClipboardCheck className="size-4 text-ink-3" /> Tạo đợt chấm
+                              </Link>
+                            ) : null}
+                            <button
+                              type="button"
+                              onClick={() => {
+                                void downloadDocx({ title: doc.title, html: doc.content });
+                                close();
+                              }}
+                              className="flex w-full items-center gap-2 rounded-md px-2.5 py-2 text-left text-[13.5px] hover:bg-surface-3"
+                            >
+                              <FileDown className="size-4 text-ink-3" /> Xuất Word (.docx)
+                            </button>
                             <button
                               type="button"
                               onClick={() => {
@@ -207,7 +230,7 @@ export function MyExams() {
                             <button
                               type="button"
                               onClick={() => {
-                                if (window.confirm('Xóa đề và các trang đáp án đi kèm? Các đợt chấm lịch sử được giữ nguyên.')) remove(doc.id);
+                                setConfirmDelete({ id: doc.id, title: doc.title });
                                 close();
                               }}
                               className="flex w-full items-center gap-2 rounded-md px-2.5 py-2 text-left text-[13.5px] text-danger hover:bg-danger-soft"
@@ -228,6 +251,38 @@ export function MyExams() {
       {selected ? <div className="fixed inset-0 z-50 flex items-end bg-black/30 lg:hidden" onClick={() => setSelectedId(null)}>
         <div role="dialog" aria-modal="true" aria-label="Thông tin đề" className="max-h-[85dvh] w-full overflow-y-auto bg-white" onClick={(event) => event.stopPropagation()}>{aside}</div>
       </div> : null}
+
+      {confirmDelete ? (
+        <Dialog
+          open
+          onClose={() => setConfirmDelete(null)}
+          labelledBy="doc-del-title"
+          className="max-w-sm p-5"
+        >
+          <h2 id="doc-del-title" className="text-base font-semibold text-ink">
+            Xoá đề thi
+          </h2>
+          <p className="mt-2 text-sm text-ink-2">
+            Bạn có chắc muốn xoá <strong>{confirmDelete.title}</strong> và các trang đáp án đi kèm? Các đợt chấm lịch sử vẫn được giữ nguyên.
+          </p>
+          <div className="mt-4 flex justify-end gap-2">
+            <Button variant="ghost" size="sm" onClick={() => setConfirmDelete(null)}>
+              Huỷ
+            </Button>
+            <Button
+              variant="blue"
+              size="sm"
+              onClick={() => {
+                remove(confirmDelete.id);
+                if (selectedId === confirmDelete.id) setSelectedId(null);
+                setConfirmDelete(null);
+              }}
+            >
+              Xoá đề
+            </Button>
+          </div>
+        </Dialog>
+      ) : null}
     </AppFrame>
   );
 }

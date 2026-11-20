@@ -37,6 +37,7 @@ export type SessionSummary = {
 };
 
 export type SessionDetail = SessionSummary & {
+  classId: string | null;
   subject: string | null;
   grade: number | null;
   snapshotId: string;
@@ -137,6 +138,7 @@ export async function listSessions(ownerId: string, sourceExamId?: string): Prom
 
 export async function getSession(ownerId: string, id: string): Promise<SessionDetail | null> {
   const row = await queryOne<SessionRow & {
+    class_id: string | null;
     subject: string | null;
     grade: number | null;
     snapshot_id: string;
@@ -150,6 +152,7 @@ export async function getSession(ownerId: string, id: string): Promise<SessionDe
     snapshot_created_at: Date;
   }>(
     `select ${SUMMARY_COLUMNS},
+            s.class_id,
             snap.subject,
             snap.grade,
              snap.source_exam_id,
@@ -172,6 +175,7 @@ export async function getSession(ownerId: string, id: string): Promise<SessionDe
 
   return {
     ...toSummary(row),
+    classId: row.class_id ?? null,
     subject: row.subject,
     grade: row.grade,
     snapshotId: row.snapshot_id,
@@ -364,4 +368,203 @@ export async function listStudents(ownerId: string, classId: string) {
     [ownerId, classId],
   );
   return rows;
+}
+
+export type ClassDetail = {
+  id: string;
+  name: string;
+  subject: string | null;
+  grade: number | null;
+  academicYear: string | null;
+  students: Array<{ id: string; code: string | null; name: string; sort_index: number }>;
+};
+
+export async function getClassDetail(ownerId: string, classId: string): Promise<ClassDetail | null> {
+  const row = await queryOne<{
+    id: string;
+    name: string;
+    subject: string | null;
+    grade: number | null;
+    academic_year: string | null;
+  }>(
+    `select id, name, subject, grade, academic_year
+       from classes where owner_id = $1 and id = $2`,
+    [ownerId, classId],
+  );
+  if (!row) return null;
+  const students = await listStudents(ownerId, classId);
+  return {
+    id: row.id,
+    name: row.name,
+    subject: row.subject,
+    grade: row.grade,
+    academicYear: row.academic_year,
+    students,
+  };
+}
+
+export async function createClassWithStudents(
+  ownerId: string,
+  input: {
+    name: string;
+    subject?: string | null;
+    grade?: number | null;
+    academicYear?: string | null;
+    students?: Array<{ code?: string | null; name: string }>;
+  },
+): Promise<ClassDetail> {
+  const name = typeof input.name === 'string' ? input.name.trim() : '';
+  if (!name || name.length > 100) {
+    throw new HttpError(400, 'Tên lớp không hợp lệ.', 'invalid_class_name');
+  }
+  const id = await withTransaction(async (client) => {
+    const dup = await client.query<{ id: string }>(
+      `select id from classes where owner_id = $1 and lower(name) = lower($2)`,
+      [ownerId, name],
+    );
+    if (dup.rows[0]) {
+      throw new HttpError(409, `Lớp "${name}" đã tồn tại.`, 'duplicate_class');
+    }
+    const created = await client.query<{ id: string }>(
+      `insert into classes (owner_id, name, subject, grade, academic_year)
+       values ($1, $2, $3, $4, $5) returning id`,
+      [ownerId, name, input.subject?.trim() || null, input.grade ?? null, input.academicYear?.trim() || null],
+    );
+    const cid = created.rows[0].id;
+    let sortIndex = 0;
+    const seenCodes = new Set<string>();
+    for (const st of input.students ?? []) {
+      const stName = st.name?.trim();
+      if (!stName) continue;
+      const code = st.code?.trim() || null;
+      if (code && seenCodes.has(code.toLowerCase())) continue;
+      await client.query(
+        `insert into students (class_id, code, name, sort_index) values ($1, $2, $3, $4)`,
+        [cid, code, stName.slice(0, 120), sortIndex++],
+      );
+      if (code) seenCodes.add(code.toLowerCase());
+    }
+    return cid;
+  });
+  return (await getClassDetail(ownerId, id))!;
+}
+
+export async function updateClassMeta(
+  ownerId: string,
+  classId: string,
+  patch: { name?: string; subject?: string | null; grade?: number | null; academicYear?: string | null },
+): Promise<ClassDetail> {
+  await withTransaction(async (client) => {
+    const row = await client.query<{ id: string }>('select id from classes where id = $1 and owner_id = $2', [classId, ownerId]);
+    if (!row.rows[0]) throw new HttpError(404, 'Không tìm thấy lớp.', 'class_not_found');
+    if (patch.name !== undefined) {
+      const nextName = patch.name.trim();
+      if (!nextName || nextName.length > 100) throw new HttpError(400, 'Tên lớp không hợp lệ.', 'invalid_class_name');
+      const dup = await client.query('select 1 from classes where owner_id = $1 and lower(name) = lower($2) and id <> $3', [ownerId, nextName, classId]);
+      if (dup.rowCount) throw new HttpError(409, `Lớp "${nextName}" đã tồn tại.`, 'duplicate_class');
+      await client.query('update classes set name = $3 where id = $1 and owner_id = $2', [classId, ownerId, nextName]);
+    }
+    if (patch.subject !== undefined) {
+      await client.query('update classes set subject = $3 where id = $1 and owner_id = $2', [classId, ownerId, patch.subject?.trim() || null]);
+    }
+    if (patch.grade !== undefined) {
+      await client.query('update classes set grade = $3 where id = $1 and owner_id = $2', [classId, ownerId, patch.grade ?? null]);
+    }
+    if (patch.academicYear !== undefined) {
+      await client.query('update classes set academic_year = $3 where id = $1 and owner_id = $2', [classId, ownerId, patch.academicYear?.trim() || null]);
+    }
+  });
+  return (await getClassDetail(ownerId, classId))!;
+}
+
+export async function deleteClassById(ownerId: string, classId: string): Promise<void> {
+  await withTransaction(async (client) => {
+    const own = await client.query('select id from classes where id = $1 and owner_id = $2', [classId, ownerId]);
+    if (!own.rowCount) throw new HttpError(404, 'Không tìm thấy lớp.', 'class_not_found');
+    await client.query('update grading_sessions set class_id = null where class_id = $1 and owner_id = $2', [classId, ownerId]);
+    await client.query('update exam_releases set class_id = null where class_id = $1 and owner_id = $2', [classId, ownerId]);
+    await client.query('delete from classes where id = $1 and owner_id = $2', [classId, ownerId]);
+  });
+}
+
+export async function addStudentsToClass(
+  ownerId: string,
+  classId: string,
+  students: Array<{ code?: string | null; name: string }>,
+  autoAssignSbd = false,
+): Promise<ClassDetail> {
+  if (!Array.isArray(students) || !students.length) {
+    throw new HttpError(400, 'Danh sách học sinh trống.', 'empty_students');
+  }
+  await withTransaction(async (client) => {
+    const own = await client.query('select id from classes where id = $1 and owner_id = $2', [classId, ownerId]);
+    if (!own.rowCount) throw new HttpError(404, 'Không tìm thấy lớp.', 'class_not_found');
+    const existing = await client.query<{ code: string | null; name: string }>(
+      'select code, name from students where class_id = $1',
+      [classId],
+    );
+    const knownCodes = new Set(existing.rows.map((r) => r.code?.toLowerCase()).filter(Boolean) as string[]);
+    const knownNames = new Set(existing.rows.map((r) => r.name.toLowerCase()));
+    let sortIndex = existing.rows.length;
+    let nextSbd = sortIndex + 1;
+    for (const st of students) {
+      const name = st.name?.trim();
+      if (!name) continue;
+      let code = st.code?.trim() || null;
+      if (!code && autoAssignSbd) {
+        while (knownCodes.has(String(nextSbd).padStart(4, '0'))) nextSbd += 1;
+        code = String(nextSbd).padStart(4, '0');
+        nextSbd += 1;
+      }
+      if (code && knownCodes.has(code.toLowerCase())) continue;
+      if (!code && knownNames.has(name.toLowerCase())) continue;
+      await client.query(
+        'insert into students (class_id, code, name, sort_index) values ($1, $2, $3, $4)',
+        [classId, code, name.slice(0, 120), sortIndex++],
+      );
+      if (code) knownCodes.add(code.toLowerCase());
+      knownNames.add(name.toLowerCase());
+    }
+  });
+  return (await getClassDetail(ownerId, classId))!;
+}
+
+export async function updateStudentInClass(
+  ownerId: string,
+  classId: string,
+  studentId: string,
+  patch: { code?: string | null; name?: string },
+): Promise<ClassDetail> {
+  await withTransaction(async (client) => {
+    const own = await client.query(
+      `select st.id from students st join classes c on c.id = st.class_id
+        where c.owner_id = $1 and c.id = $2 and st.id = $3`,
+      [ownerId, classId, studentId],
+    );
+    if (!own.rowCount) throw new HttpError(404, 'Không tìm thấy học sinh.', 'student_not_found');
+    if (patch.name !== undefined) {
+      const n = patch.name.trim();
+      if (!n) throw new HttpError(400, 'Họ tên học sinh trống.', 'invalid_name');
+      await client.query('update students set name = $2 where id = $1', [studentId, n.slice(0, 120)]);
+    }
+    if (patch.code !== undefined) {
+      const c = patch.code?.trim() || null;
+      await client.query('update students set code = $2 where id = $1', [studentId, c]);
+    }
+  });
+  return (await getClassDetail(ownerId, classId))!;
+}
+
+export async function deleteStudentFromClass(ownerId: string, classId: string, studentId: string): Promise<ClassDetail> {
+  await withTransaction(async (client) => {
+    const own = await client.query(
+      `select st.id from students st join classes c on c.id = st.class_id
+        where c.owner_id = $1 and c.id = $2 and st.id = $3`,
+      [ownerId, classId, studentId],
+    );
+    if (!own.rowCount) throw new HttpError(404, 'Không tìm thấy học sinh.', 'student_not_found');
+    await client.query('update submissions set student_id = null where student_id = $1', [studentId]);
+    await client.query('delete from students where id = $1', [studentId]);
+  });
+  return (await getClassDetail(ownerId, classId))!;
 }

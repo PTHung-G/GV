@@ -45,6 +45,7 @@ export async function POST(req: NextRequest) {
       success: true,
       decision: result.decision,
       taskKind: result.taskKind,
+      ...(result.action ? { action: result.action } : {}),
       templatePrompt: result.templatePrompt,
       operations: result.operations,
       reply: result.reply,

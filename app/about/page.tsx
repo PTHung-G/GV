@@ -2,66 +2,62 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
-import { CONTACT_EMAIL, ZALO_GROUP_URL } from '@/lib/site';
+import { APP_NAME, CONTACT_EMAIL, ZALO_GROUP_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Về chúng tôi',
   description:
-    'soandethi.com là trình soạn đề thi dành cho giáo viên, có trợ lý AI lo phần viết câu hỏi, chỉnh số liệu, chép đề từ ảnh và làm đáp án, barem.',
+    `${APP_NAME} là nền tảng soạn đề thi AI dành cho giáo viên, hỗ trợ quản lý ngân hàng câu hỏi, trộn mã đề chuẩn THPT 2025 và chấm bài tự động.`,
 };
 
 const FACTS = [
   {
-    title: 'Trang A4',
-    body: 'Đề soạn trực tiếp trên trang A4, có công thức, đồ thị và hình học. Chỗ ngắt trang trên màn hình trùng với chỗ ngắt khi xuất Word hoặc in.',
+    title: 'Trang A4 & Trộn mã đề',
+    body: 'Soạn thảo trực tiếp trên trang A4 với KaTeX và hình học SVG. Tự động sinh bộ mã đề trộn theo 4 phần THPT 2025 kèm phiếu tô OMR đồng bộ.',
   },
   {
-    title: 'Trợ lý AI',
-    body: 'Trợ lý viết, chỉnh và giải bài ngay trong trang. Kết quả hiện ra để bạn đọc và sửa tiếp như một tài liệu bình thường.',
+    title: 'Kho câu hỏi & Trợ lý AI',
+    body: 'Tích luỹ câu hỏi từ đề cũ theo cây chủ đề, gắn sẵn đáp án/barem và dùng lại trực tiếp khi soạn đề mới hoặc tinh chỉnh số liệu với AI.',
   },
   {
-    title: 'Kho đề',
-    body: 'Đề chia sẻ được người khác sao về chỉnh theo ý. Nội dung chia sẻ được kiểm trùng trước khi vào kho.',
+    title: 'Lớp học & Bảng điểm hợp nhất',
+    body: 'Quản lý danh sách học sinh theo lớp/SBD, quét phiếu OMR bằng điện thoại và tổng hợp bảng điểm chuẩn xác cho từng bài kiểm tra.',
   },
 ];
 
 const STEPS = [
-  { title: 'Nhập đề', body: 'Mô tả đề cần soạn, hoặc gửi ảnh và tệp đề có sẵn.' },
-  { title: 'Nhận bản nháp', body: 'Câu hỏi, công thức, đáp án và barem hiện trên trang A4.' },
+  { title: 'Soạn & Chốt đề', body: 'Soạn trên trang A4 hoặc ghép từ Kho câu hỏi, rà soát đáp án và barem có cấu trúc.' },
+  { title: 'Sinh mã đề & In', body: 'Xuất bộ mã đề trộn, đáp án từng mã và phiếu trả lời trắc nghiệm OMR theo lớp.' },
   {
-    title: 'Sửa và xuất',
-    body: 'Chỉnh chữ, đổi số liệu, rồi xuất Word hoặc in.',
+    title: 'Chụp bài & Xuất điểm',
+    body: 'Quét phiếu trên điện thoại, duyệt điểm tự luận bằng AI và xuất bảng điểm CSV cho cả lớp.',
   },
 ];
 
 const FAQ = [
   {
-    q: 'soandethi.com là gì?',
-    a: 'Trình soạn đề thi cho giáo viên. Trợ lý AI soạn đề từ một lời mô tả, chỉnh số liệu trong bài, chép đề từ ảnh thành văn bản, và làm đáp án cùng barem.',
+    q: `${APP_NAME} là gì?`,
+    a: 'Nền tảng hỗ trợ toàn bộ quy trình kiểm tra đánh giá cho giáo viên: soạn đề A4 với AI, lưu trữ ngân hàng câu hỏi, trộn mã đề chuẩn 4 phần THPT 2025 và chấm phiếu OMR.',
   },
   {
     q: 'Tôi có cần đăng nhập không?',
-    a: 'Bạn cần đăng nhập để lưu đề vào tài khoản và đồng bộ trên mọi thiết bị. Trong bản clone này, đăng nhập chỉ lưu trạng thái trong trình duyệt của bạn.',
+    a: 'Bạn cần đăng nhập để đồng bộ đề thi, kho câu hỏi, danh sách lớp học và kết quả chấm bài lên máy chủ tài khoản trên mọi thiết bị.',
   },
   {
-    q: 'Điểm tín dụng AI là gì?',
-    a: 'Là số điểm dùng cho các lần trợ lý AI soạn, chỉnh hoặc giải đề. Mỗi tác vụ tiêu tốn một lượng điểm tuỳ độ dài đề và mức suy luận.',
-  },
-  {
-    q: 'Làm sao để nhận thêm điểm?',
-    a: 'Tạo tài khoản mới được tặng 20.000 điểm. Bạn có thể nhận thêm điểm qua nhiệm vụ và nạp điểm trong phần Nạp điểm.',
+    q: 'Nền tảng hỗ trợ những dạng câu hỏi nào?',
+    a: 'Đầy đủ 4 phần theo định dạng THPT 2025: trắc nghiệm nhiều lựa chọn (Phần I), trắc nghiệm Đúng/Sai tính điểm luỹ tiến (Phần II), trả lời ngắn (Phần III) và tự luận (Phần IV).',
   },
   {
     q: 'AI đọc được những ảnh và tệp nào?',
-    a: 'Ảnh chụp đề giấy (JPG, PNG) và các tệp Word, TXT, Markdown, JSON.',
+    a: 'Ảnh chụp đề giấy hoặc bài làm học sinh (JPG, PNG) và các tệp Word (.docx), TXT, Markdown.',
   },
   {
-    q: 'Tôi có xuất ra Word hoặc in được không?',
-    a: 'Có. Trình soạn xuất Word để giữ đúng định dạng, và in trực tiếp theo khổ A4 với cùng vị trí ngắt trang.',
+    q: 'Tôi có xuất ra Word hoặc in chuẩn A4 được không?',
+    a: 'Có. Trình soạn xuất trực tiếp file Word (.docx) hoặc in PDF khổ A4 đồng bộ vị trí ngắt trang, kèm bộ đề trộn và phiếu tô trắc nghiệm.',
   },
   {
-    q: 'Kết quả của AI có chính xác không?',
-    a: 'Trợ lý AI có thể mắc sai sót, nên bạn hãy kiểm tra kỹ nội dung. Bạn luôn có thể nhờ AI sửa lại phần cụ thể thay vì soạn lại cả đề.',
+    q: 'Sửa đề sau khi đã phát hành hoặc tạo đợt chấm có làm sai điểm cũ không?',
+    a: 'Không. Khi phát hành bộ mã đề hoặc tạo đợt chấm, đề và barem được đóng băng thành bản độc lập nên điểm của học sinh luôn chính xác theo đúng đề đã thi.',
   },
 ];
 
@@ -72,11 +68,11 @@ export default function AboutPage() {
       <main className="flex flex-1 flex-col">
         <section className="mx-auto w-full max-w-(--page-max) px-(--gutter) pt-14 pb-12 sm:pt-20">
           <h1 className="font-display max-w-3xl text-4xl leading-[1.1] font-medium tracking-tight text-balance sm:text-[3.25rem]">
-            Về soandethi.com
+            Về {APP_NAME}
           </h1>
           <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-ink-2">
-            Trình soạn đề thi cho giáo viên: soạn trên trang A4, xuất Word hoặc in, làm đáp án và barem, chấm bài của
-            cả lớp.
+            Giải pháp soạn đề thi AI trên trang A4, xây dựng ngân hàng câu hỏi, phát hành bộ mã đề OMR và quản lý bảng
+            điểm toàn lớp dành cho giáo viên.
           </p>
         </section>
 
@@ -116,11 +112,16 @@ export default function AboutPage() {
               Cần hỏi thêm? Gửi thư tới{' '}
               <a href={`mailto:${CONTACT_EMAIL}`} className="text-accent hover:underline">
                 {CONTACT_EMAIL}
-              </a>{' '}
-              hoặc hỏi trong{' '}
-              <a href={ZALO_GROUP_URL} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
-                nhóm Zalo
               </a>
+              {ZALO_GROUP_URL ? (
+                <>
+                  {' '}
+                  hoặc hỏi trong{' '}
+                  <a href={ZALO_GROUP_URL} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
+                    nhóm Zalo
+                  </a>
+                </>
+              ) : null}
               .
             </p>
           </div>

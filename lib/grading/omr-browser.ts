@@ -40,6 +40,32 @@ export async function readSheetFromFile(file: File, template: SheetTemplate): Pr
   return readSheet(image, template);
 }
 
+/**
+ * Probes multiple pages of one paper in order and selects the page that carries
+ * the OMR sheet (`anchorsFound && !anchorsSuspect`), falling back to the best
+ * candidate when lighting is imperfect.
+ */
+export async function readBestSheetFromFiles(
+  files: File[],
+  template: SheetTemplate,
+): Promise<OmrResult | null> {
+  let fallback: OmrResult | null = null;
+  for (const file of files) {
+    try {
+      const res = await readSheetFromFile(file, template);
+      if (res.quality.anchorsFound && !res.quality.anchorsSuspect) {
+        return res;
+      }
+      if (!fallback || (res.quality.anchorsFound && !fallback.quality.anchorsFound)) {
+        fallback = res;
+      }
+    } catch {
+      // Ignore undecodable page and keep scanning remaining pages.
+    }
+  }
+  return fallback;
+}
+
 /** Human summary for the capture screen, in Vietnamese. */
 export function describeOmr(result: OmrResult): string {
   if (!result.quality.anchorsFound) return 'Không nhận ra phiếu chuẩn, sẽ chấm bằng AI.';

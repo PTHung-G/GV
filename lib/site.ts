@@ -1,18 +1,23 @@
+export const APP_NAME = process.env.NEXT_PUBLIC_APP_NAME?.trim() || 'Hỗ trợ giáo viên';
+export const APP_TAGLINE =
+  process.env.NEXT_PUBLIC_APP_TAGLINE?.trim() || 'Soạn đề thi AI, ngân hàng câu hỏi & chấm phiếu OMR';
+export const APP_DOMAIN = process.env.NEXT_PUBLIC_APP_DOMAIN?.trim() || 'hotrogiaovien.vn';
+
 export const BUSINESS = {
-  name: 'Hộ kinh doanh Ngũ Thành An',
-  registrationNo: '04020305266',
-  issuedBy: 'Phòng Kinh tế UBND xã Tam Kỳ, tỉnh Nghệ An',
-  issuedOn: '15/10/2026',
-  taxCode: '04020305266',
-  address: 'Số 1, đường Trường Sơn, xóm Trường Sơn, xã Tam Kỳ, tỉnh Nghệ An',
-  owner: 'Ngũ Thành An',
+  name: process.env.NEXT_PUBLIC_BUSINESS_NAME?.trim() || 'Nền tảng Hỗ trợ giáo viên',
+  registrationNo: process.env.NEXT_PUBLIC_BUSINESS_REG?.trim() || '',
+  issuedBy: process.env.NEXT_PUBLIC_BUSINESS_ISSUED_BY?.trim() || '',
+  issuedOn: process.env.NEXT_PUBLIC_BUSINESS_ISSUED_ON?.trim() || '',
+  taxCode: process.env.NEXT_PUBLIC_BUSINESS_TAX_CODE?.trim() || '',
+  address: process.env.NEXT_PUBLIC_BUSINESS_ADDRESS?.trim() || 'Việt Nam',
+  owner: process.env.NEXT_PUBLIC_BUSINESS_OWNER?.trim() || '',
 };
 
-export const SUPPORT_PHONE = '0858 562 678';
-export const CONTACT_EMAIL = 'lienhe@soandethi.com';
-export const SUPPORT_ZALO_URL = 'https://zalo.me/0858562678';
-export const ZALO_GROUP_URL = 'https://zalo.me/g/soandethi';
-export const TIKTOK_URL = 'https://www.tiktok.com/@soandethi.com';
+export const SUPPORT_PHONE = process.env.NEXT_PUBLIC_SUPPORT_PHONE?.trim() || '';
+export const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || 'lienhe@hotrogiaovien.vn';
+export const SUPPORT_ZALO_URL = process.env.NEXT_PUBLIC_SUPPORT_ZALO_URL?.trim() || '';
+export const ZALO_GROUP_URL = process.env.NEXT_PUBLIC_ZALO_GROUP_URL?.trim() || '';
+export const TIKTOK_URL = process.env.NEXT_PUBLIC_TIKTOK_URL?.trim() || '';
 
 export const NAV_LINKS = [
   { href: '/hub', label: 'Sảnh tính năng' },
@@ -53,9 +58,11 @@ export const FOOTER_GROUPS = [
     title: 'Liên hệ',
     links: [
       { href: `mailto:${CONTACT_EMAIL}`, label: CONTACT_EMAIL, external: true },
-      { href: SUPPORT_ZALO_URL, label: `Zalo ${SUPPORT_PHONE}`, external: true },
-      { href: ZALO_GROUP_URL, label: 'Nhóm Zalo', external: true },
-      { href: TIKTOK_URL, label: 'TikTok', external: true },
+      ...(SUPPORT_ZALO_URL
+        ? [{ href: SUPPORT_ZALO_URL, label: SUPPORT_PHONE ? `Zalo ${SUPPORT_PHONE}` : 'Hỗ trợ Zalo', external: true }]
+        : []),
+      ...(ZALO_GROUP_URL ? [{ href: ZALO_GROUP_URL, label: 'Nhóm Zalo', external: true }] : []),
+      ...(TIKTOK_URL ? [{ href: TIKTOK_URL, label: 'TikTok', external: true }] : []),
     ],
   },
 ];

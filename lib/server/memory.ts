@@ -48,3 +48,34 @@ export function memoryPrompt(memory: Memory): string {
   return `Ghi nhớ về giáo viên (áp dụng mặc định cho mọi đề):\n${items.map((i) => `- ${i.text}`).join('\n')}`;
 }
 export const REMEMBER_HINT = /(nhớ|từ (giờ|nay|lần sau)|lần sau|về sau|mặc định|luôn luôn|lúc nào cũng)/i;
+
+const MAX_MEMORY_ITEMS = 50;
+const MAX_MEMORY_ITEM_CHARS = 300;
+
+/**
+ * Extracts a concise standing preference when a teacher prompt uses a remember cue,
+ * bounded to 50 active items and 300 characters each.
+ */
+export async function maybeRememberFromPrompt(userId: string, prompt: string): Promise<void> {
+  const cleaned = prompt.replace(/\s+/g, ' ').trim();
+  if (!cleaned || !REMEMBER_HINT.test(cleaned)) return;
+  const candidate = cleaned.slice(0, MAX_MEMORY_ITEM_CHARS);
+  await writeMemory(userId, (memory) => {
+    if (!memory.useMemory) return memory;
+    const normalized = candidate.toLowerCase();
+    const active = activeItems(memory);
+    if (active.some((item) => item.text.toLowerCase() === normalized)) return memory;
+    const next = [...memory.items, newItem(candidate)];
+    // Trim oldest active entries if cap exceeded while leaving soft-deleted audit history intact
+    let activeCount = next.filter((i) => !i.deleted).length;
+    if (activeCount > MAX_MEMORY_ITEMS) {
+      for (const item of next) {
+        if (!item.deleted && activeCount > MAX_MEMORY_ITEMS) {
+          item.deleted = true;
+          activeCount -= 1;
+        }
+      }
+    }
+    return { ...memory, items: next };
+  });
+}

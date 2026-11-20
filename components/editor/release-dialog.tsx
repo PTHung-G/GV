@@ -1,8 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { X, Loader2, Printer, Shuffle, ExternalLink } from "lucide-react";
+import { X, Loader2, Printer, Shuffle, ExternalLink, FileDown } from "lucide-react";
 import { basePath } from "@/lib/api-url";
+import { downloadDocx, safeDocxFilename } from "@/lib/docx-export";
+import { examContentHash } from "@/lib/exam-revision";
+import type { AnswerKeyQuestion } from "@/lib/grading/rubric";
+import { RubricEditorDialog } from "./rubric-editor-dialog";
 import {
   exportKeyStatus,
   exportPrintHtml,
@@ -27,10 +31,12 @@ export function ReleaseDialog({
   snapshot,
   onClose,
   onQuickPrint,
+  onSaveAnswerKey,
 }: {
   snapshot: ExportSnapshot;
   onClose: () => void;
   onQuickPrint: () => void;
+  onSaveAnswerKey?: (questions: AnswerKeyQuestion[]) => void;
 }) {
   const [codes, setCodes] = useState("101, 102, 103, 104");
   const [seed, setSeed] = useState(() => crypto.randomUUID());
@@ -56,13 +62,22 @@ export function ReleaseDialog({
   } | null>(null);
   const [artifact, setArtifact] = useState<"exam" | "key" | "sheet">("exam");
   const [ready, setReady] = useState(false);
+  const [rubricOpen, setRubricOpen] = useState(false);
+  const [editedQuestions, setEditedQuestions] = useState<AnswerKeyQuestion[] | null>(null);
+  const [classId, setClassId] = useState('');
+  const [savedClasses, setSavedClasses] = useState<Array<{ id: string; name: string; studentCount: number }>>([]);
   const frame = useRef<HTMLIFrameElement>(null);
   const modal = useRef<HTMLElement>(null);
   const idempotency = useRef(crypto.randomUUID());
-  const status = exportKeyStatus(snapshot);
-  const keyQuestions = snapshot.answerKey?.answerKeyQuestions?.length
-    ? snapshot.answerKey.answerKeyQuestions
-    : parseAnswerKeyHtml(snapshot.answerKey?.content ?? "");
+  const status = editedQuestions ? "current" : exportKeyStatus(snapshot);
+  const effectiveHash = editedQuestions
+    ? examContentHash(snapshot.content)
+    : snapshot.answerKey?.sourceContentHash;
+  const keyQuestions =
+    editedQuestions ??
+    (snapshot.answerKey?.answerKeyQuestions?.length
+      ? snapshot.answerKey.answerKeyQuestions
+      : parseAnswerKeyHtml(snapshot.answerKey?.content ?? ""));
   const numbers = (value: string) =>
     value.trim()
       ? value.split(/[,;\s]+/).map((n) => {
@@ -113,6 +128,18 @@ export function ReleaseDialog({
     };
   }, [onClose]);
   useEffect(() => {
+    let active = true;
+    fetch(basePath("/api/classes"), { cache: "no-store" })
+      .then(async (r) => {
+        const d = (await r.json()) as { classes?: Array<{ id: string; name: string; studentCount: number }> };
+        if (r.ok && active && d.classes) setSavedClasses(d.classes);
+      })
+      .catch(() => {});
+    return () => {
+      active = false;
+    };
+  }, []);
+  useEffect(() => {
     if (!snapshot.sourceExamId) return;
     let active = true;
     fetch(
@@ -155,7 +182,7 @@ export function ReleaseDialog({
       title: snapshot.title,
       content: snapshot.content,
       answerKey: keyQuestions,
-      sourceContentHash: snapshot.answerKey?.sourceContentHash,
+      sourceContentHash: effectiveHash,
       reviewed: true,
       codes: codes.split(/[,;\s]+/).filter(Boolean),
       seed,
@@ -169,6 +196,7 @@ export function ReleaseDialog({
       pinnedQuestionNos: numbers(pinned),
       pinnedOptionNos: numbers(pinnedOptions),
       recipes: selected,
+      ...(classId ? { classId } : {}),
     };
   };
   const generate = async () => {
@@ -255,7 +283,7 @@ export function ReleaseDialog({
         <div className="min-h-0 overflow-y-auto p-4">
           {published ? (
             <>
-              <div className="rounded border border-emerald-200 bg-emerald-50 p-3 text-sm">
+              <div className="rounded border border-ok/30 bg-ok-soft p-3 text-sm">
                 <strong>Đã chốt bộ in: {published.title}</strong>
                 <p className="mt-1">
                   Đợt chấm cho từng mã đã sẵn sàng. Sửa đề nguồn không làm đổi
@@ -313,6 +341,25 @@ export function ReleaseDialog({
                     }}
                     className={`${field} mt-1 w-full`}
                   />
+                </label>
+                <label className="block">
+                  Gắn lớp học (tuỳ chọn)
+                  <select
+                    aria-label="Gắn lớp học"
+                    value={classId}
+                    onChange={(e) => {
+                      setClassId(e.target.value);
+                      invalidate();
+                    }}
+                    className={`${field} mt-1 w-full bg-white`}
+                  >
+                    <option value="">Không gắn lớp — phát phiếu trống</option>
+                    {savedClasses.map((c) => (
+                      <option key={c.id} value={c.id}>
+                        Lớp {c.name} ({c.studentCount} học sinh)
+                      </option>
+                    ))}
+                  </select>
                 </label>
                 <label className="flex gap-2">
                   <input
@@ -493,11 +540,18 @@ export function ReleaseDialog({
                   </label>
                 ) : null}
                 <button
+                  type="button"
+                  onClick={() => setRubricOpen(true)}
+                  className="flex w-full items-center justify-center gap-2 rounded-md border border-line-strong bg-white px-3 py-1.5 text-sm font-medium text-ink hover:bg-surface-2"
+                >
+                  Chỉnh đáp án &amp; thang điểm ({keyQuestions.length} câu)
+                </button>
+                <button
                   disabled={
                     !!busy || status === "stale" || status === "missing"
                   }
                   onClick={() => void generate()}
-                  className="flex w-full items-center justify-center gap-2 rounded bg-accent px-3 py-2 font-medium text-white disabled:opacity-40"
+                  className="flex w-full items-center justify-center gap-2 rounded-md bg-accent px-3 py-2 font-medium text-white disabled:opacity-40"
                 >
                   {busy === "preview" ? (
                     <Loader2 className="size-4 animate-spin" />
@@ -641,37 +695,89 @@ export function ReleaseDialog({
             Chỉ in nhanh, không liên kết chấm
           </button>
           {published ? (
-            <button
-              disabled={!ready}
-              onClick={() => {
-                try {
-                  frame.current?.contentWindow?.focus();
-                  frame.current?.contentWindow?.print();
-                } catch {
-                  setError(
-                    "Không mở được hộp thoại in. Hãy mở bộ in để thử lại.",
-                  );
-                }
-              }}
-              className="flex items-center gap-2 rounded bg-accent px-3 py-2 text-sm text-white disabled:opacity-40"
-            >
-              <Printer className="size-4" />
-              In / Lưu PDF
-            </button>
-          ) : (
-            <button
-              disabled={!preview || !reviewed || !!busy}
-              onClick={() => void publish()}
-              className="flex items-center gap-2 rounded bg-accent px-3 py-2 text-sm font-medium text-white disabled:opacity-40"
-            >
-              {busy === "publish" ? (
-                <Loader2 className="size-4 animate-spin" />
+            <div className="flex items-center gap-2">
+              {artifact !== "sheet" ? (
+                <button
+                  type="button"
+                  disabled={!ready}
+                  onClick={() => {
+                    const bodyHtml = frame.current?.contentDocument?.body?.innerHTML ?? "";
+                    if (!bodyHtml.trim()) {
+                      setError("Chưa tải xong nội dung để xuất Word.");
+                      return;
+                    }
+                    void downloadDocx({
+                      title: `${published.title}${artifact === "key" ? " — Đáp án" : ""}`,
+                      html: bodyHtml,
+                    }).catch(() => setError("Không tạo được tệp Word (.docx)."));
+                  }}
+                  className="flex items-center gap-2 rounded-md border border-line-strong bg-white px-3 py-2 text-sm font-medium text-ink hover:bg-surface-2 disabled:opacity-40"
+                >
+                  <FileDown className="size-4" />
+                  Tải Word (.docx)
+                </button>
               ) : null}
-              Chốt bộ in & tạo đợt chấm
-            </button>
+              <button
+                disabled={!ready}
+                onClick={() => {
+                  try {
+                    frame.current?.contentWindow?.focus();
+                    frame.current?.contentWindow?.print();
+                  } catch {
+                    setError(
+                      "Không mở được hộp thoại in. Hãy mở bộ in để thử lại.",
+                    );
+                  }
+                }}
+                className="flex items-center gap-2 rounded-md bg-accent px-3 py-2 text-sm text-white disabled:opacity-40"
+              >
+                <Printer className="size-4" />
+                In / Lưu PDF
+              </button>
+            </div>
+          ) : (
+            <div className="flex items-center gap-2">
+              {variant ? (
+                <button
+                  type="button"
+                  onClick={() => {
+                    void downloadDocx({
+                      title: `${snapshot.title} — Mã đề ${variant.code}`,
+                      html: `<p style="text-align:right"><b>Mã đề ${escapeHtml(variant.code)}</b></p>${variant.examHtml}`,
+                      filename: safeDocxFilename(`${snapshot.title} - Ma de ${variant.code}`),
+                    }).catch(() => setError("Không tạo được tệp Word (.docx)."));
+                  }}
+                  className="flex items-center gap-2 rounded-md border border-line-strong bg-white px-3 py-2 text-sm font-medium text-ink hover:bg-surface-2"
+                >
+                  <FileDown className="size-4" />
+                  Tải Word mã {variant.code} (.docx)
+                </button>
+              ) : null}
+              <button
+                disabled={!preview || !reviewed || !!busy}
+                onClick={() => void publish()}
+                className="flex items-center gap-2 rounded-md bg-accent px-3 py-2 text-sm font-medium text-white disabled:opacity-40"
+              >
+                {busy === "publish" ? (
+                  <Loader2 className="size-4 animate-spin" />
+                ) : null}
+                Chốt bộ in & tạo đợt chấm
+              </button>
+            </div>
           )}
         </footer>
       </section>
+      <RubricEditorDialog
+        open={rubricOpen}
+        initialQuestions={keyQuestions}
+        examHtml={snapshot.content}
+        onClose={() => setRubricOpen(false)}
+        onSave={(qs) => {
+          setEditedQuestions(qs);
+          onSaveAnswerKey?.(qs);
+          invalidate();
+        }}
+      />
     </div>
   );
 }

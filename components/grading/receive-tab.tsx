@@ -7,7 +7,7 @@
  * several pages. The teacher can also add pages to an existing paper, re-run
  * grading, or delete a paper that was scanned by mistake.
  */
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ImagePlus, Loader2, RefreshCcw, Trash2, Upload } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -20,7 +20,7 @@ import {
   type SubmissionSummary,
 } from '@/lib/grading-client';
 import { OmrInspector } from './omr-inspector';
-import { describeOmr, readSheetFromFile } from '@/lib/grading/omr-browser';
+import { describeOmr, readBestSheetFromFiles } from '@/lib/grading/omr-browser';
 import { shrinkForUpload } from '@/lib/image-client';
 
 export function ReceiveTab({
@@ -37,6 +37,42 @@ export function ReceiveTab({
   const [warnings, setWarnings] = useState<string[]>([]);
   const batchInput = useRef<HTMLInputElement>(null);
   const [inspect, setInspect] = useState<{ url: string; title: string } | null>(null);
+  const [roster, setRoster] = useState<Array<{ id: string; code: string | null; name: string }>>([]);
+
+  useEffect(() => {
+    if (!session.classId) {
+      setRoster([]);
+      return;
+    }
+    let active = true;
+    gradingApi
+      .get<{ students: Array<{ id: string; code: string | null; name: string }> }>(
+        `/api/classes?classId=${encodeURIComponent(session.classId)}`,
+      )
+      .then((d) => {
+        if (active) setRoster(d.students ?? []);
+      })
+      .catch(() => {});
+    return () => {
+      active = false;
+    };
+  }, [session.classId]);
+
+  async function assignStudent(
+    submissionId: string,
+    identity: { studentId?: string | null; studentName?: string | null; studentCode?: string | null },
+  ) {
+    setBusy(submissionId);
+    setError('');
+    try {
+      await gradingApi.patch(`/api/grading/submissions/${submissionId}`, { identity });
+      onRefresh();
+    } catch (err) {
+      setError(err instanceof GradingApiError ? err.message : 'Không cập nhật được tên học sinh.');
+    } finally {
+      setBusy('');
+    }
+  }
 
   async function uploadBatch(files: FileList) {
     if (files.length === 0) return;
@@ -62,10 +98,10 @@ export function ReceiveTab({
 
       // Standard sheets are read on the device before anything is scored by AI.
       let omrNote = '';
-      const firstFile = files[0];
-      if (session.sheetTemplate && session.mode !== 'essay-only' && firstFile) {
-        try {
-          const result = await readSheetFromFile(firstFile, session.sheetTemplate);
+      const fileList = Array.from(files);
+      if (session.sheetTemplate && session.mode !== 'essay-only' && fileList.length > 0) {
+        const result = await readBestSheetFromFiles(fileList, session.sheetTemplate);
+        if (result) {
           if (result.quality.anchorsFound && result.answers.length > 0) {
             await gradingApi.post(`/api/grading/submissions/${created.submission.id}/omr`, {
               answers: result.answers,
@@ -75,7 +111,7 @@ export function ReceiveTab({
             });
           }
           omrNote = describeOmr(result);
-        } catch {
+        } else {
           omrNote = 'Không đọc được phiếu trên thiết bị.';
         }
       }
@@ -112,10 +148,12 @@ export function ReceiveTab({
 
   async function remove(submissionId: string) {
     setBusy(submissionId);
+    setError('');
     try {
-      await gradingApi.post(`/api/grading/submissions/${submissionId}/complete`).catch(() => undefined);
-      await fetch(`/api/grading/submissions/${submissionId}`, { method: 'DELETE' });
+      await gradingApi.remove(`/api/grading/submissions/${submissionId}`);
       onRefresh();
+    } catch (err) {
+      setError(err instanceof GradingApiError ? err.message : 'Không xoá được bài.');
     } finally {
       setBusy('');
     }
@@ -123,10 +161,26 @@ export function ReceiveTab({
 
   async function regrade(submissionId: string) {
     setBusy(submissionId);
+    setError('');
     try {
-      await gradingApi.post(`/api/grading/submissions/${submissionId}/complete`);
-      await gradingApi.patch(`/api/grading/submissions/${submissionId}`, { regrade: 'mc' });
-      await gradingApi.patch(`/api/grading/submissions/${submissionId}`, { regrade: 'essay' });
+      try {
+        await gradingApi.post(`/api/grading/submissions/${submissionId}/complete`);
+      } catch (err) {
+        if (!(err instanceof GradingApiError) || err.status !== 409) throw err;
+      }
+      if (session.mode !== 'essay-only') {
+        try {
+          await gradingApi.patch(`/api/grading/submissions/${submissionId}`, { regrade: 'mc' });
+        } catch (err) {
+          // Published releases lock MC to OMR verification; still allow essay regrade in mixed mode.
+          if (!(err instanceof GradingApiError) || err.code !== 'published_omr_required' || session.mode !== 'mixed') {
+            throw err;
+          }
+        }
+      }
+      if (session.mode !== 'mc-only') {
+        await gradingApi.patch(`/api/grading/submissions/${submissionId}`, { regrade: 'essay' });
+      }
       onRefresh();
     } catch (err) {
       setError(err instanceof GradingApiError ? err.message : 'Không chấm lại được.');
@@ -192,9 +246,42 @@ export function ReceiveTab({
                   {STATUS_LABELS[submission.status] ?? submission.status}
                 </span>
                 {submission.identityStatus === 'suggested' ? (
-                  <span className="rounded-sm bg-warn-soft px-1.5 py-0.5 text-[11.5px] text-warn">
+                  <span className="inline-flex items-center gap-1 rounded-sm bg-warn-soft px-1.5 py-0.5 text-[11.5px] text-warn">
                     Tên do máy đọc, cần xác nhận
+                    {submission.studentName ? (
+                      <button
+                        type="button"
+                        onClick={() =>
+                          void assignStudent(submission.id, {
+                            studentName: submission.studentName,
+                            studentCode: submission.studentCode,
+                          })
+                        }
+                        className="ml-1 font-semibold underline"
+                      >
+                        Xác nhận
+                      </button>
+                    ) : null}
                   </span>
+                ) : null}
+                {roster.length > 0 && submission.identityStatus !== 'verified' ? (
+                  <select
+                    aria-label={`Gán học sinh cho ${submission.label || 'bài'}`}
+                    value={submission.studentId ?? ''}
+                    disabled={busy === submission.id}
+                    onChange={(e) => {
+                      const studentId = e.target.value;
+                      if (studentId) void assignStudent(submission.id, { studentId });
+                    }}
+                    className="h-7 rounded-sm border border-line bg-surface px-1.5 text-[11.5px] text-ink"
+                  >
+                    <option value="">Gán học sinh…</option>
+                    {roster.map((st) => (
+                      <option key={st.id} value={st.id}>
+                        {st.code ? `${st.code} · ` : ''}{st.name}
+                      </option>
+                    ))}
+                  </select>
                 ) : null}
                 <span className="text-[12px] text-ink-4">{submission.pageCount} trang</span>
                 {submission.totalScore !== null ? (

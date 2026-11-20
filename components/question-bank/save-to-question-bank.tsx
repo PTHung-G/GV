@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useAuth } from "@/lib/auth-context";
 import { basePath } from "@/lib/api-url";
 import { examContentHash } from "@/lib/exam-revision";
+import { parseAnswerKeyHtml } from "@/lib/grading/answer-key-html";
 import type { BankEnvelope } from "@/lib/question-bank/types";
 import { reconcileStructure, type StructuredExam } from "@/lib/structured-exam";
 import { snapshotSource } from "./source-snapshot";
@@ -84,6 +85,12 @@ export function SaveToQuestionBank({
       const matchingKey = keyDocs.find(
         (key) => key.sourceContentHash === examContentHash(snapshot.html),
       );
+      const parsedQuestions =
+        matchingKey && matchingKey.answerKeyQuestions?.length
+          ? matchingKey.answerKeyQuestions
+          : matchingKey?.content.trim()
+            ? parseAnswerKeyHtml(matchingKey.content)
+            : [];
       const payload = JSON.stringify({
         docId,
         title: snapshot.title,
@@ -93,7 +100,7 @@ export function SaveToQuestionBank({
           ? {
               answerKey: {
                 content: matchingKey.content,
-                questions: matchingKey.answerKeyQuestions ?? [],
+                questions: parsedQuestions,
               },
             }
           : {}),

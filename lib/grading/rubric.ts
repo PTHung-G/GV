@@ -31,6 +31,32 @@ export type McQuestion = {
   points: number;
   answer: McLetter;
   label?: string;
+  sectionNo?: number;
+  displayNo?: number;
+};
+
+export type TfStatements = { a: boolean; b: boolean; c: boolean; d: boolean };
+
+export type TfQuestion = {
+  no: number;
+  type: 'tf';
+  points: number;
+  statements: TfStatements;
+  scoringRule?: 'moet-2025' | 'equal';
+  label?: string;
+  sectionNo?: number;
+  displayNo?: number;
+};
+
+export type ShortQuestion = {
+  no: number;
+  type: 'short';
+  points: number;
+  answer: string;
+  acceptedAnswers?: string[];
+  label?: string;
+  sectionNo?: number;
+  displayNo?: number;
 };
 
 export type EssayStep = {
@@ -46,11 +72,13 @@ export type EssayQuestion = {
   points: number;
   steps: EssayStep[];
   label?: string;
+  sectionNo?: number;
+  displayNo?: number;
   /** Final answer, shown to the teacher while reviewing. */
   answer?: string;
 };
 
-export type RubricQuestion = McQuestion | EssayQuestion;
+export type RubricQuestion = McQuestion | TfQuestion | ShortQuestion | EssayQuestion;
 
 export type Rubric = {
   version: 1;
@@ -80,20 +108,89 @@ function round2(value: number): number {
   return Math.round(value * 100) / 100;
 }
 
+export function normalizeShortValue(value: string): string {
+  const trimmed = value.trim().replace(/\s+/g, '').replace('.', ',');
+  if (!trimmed) return '';
+  if (/^-?0(?:,0+)?$/.test(trimmed)) return '0';
+  // Canonicalize "-2,50" -> "-2,5" and "3,0" -> "3" when clearly numeric.
+  if (/^-?\d+,\d+$/.test(trimmed)) {
+    return trimmed.replace(/,?0+$/, '');
+  }
+  return trimmed;
+}
+
+function parseBoolToken(val: unknown): boolean | null {
+  if (typeof val === 'boolean') return val;
+  if (typeof val !== 'string') return null;
+  const norm = val.trim().toUpperCase();
+  if (norm === 'Đ' || norm === 'D' || norm === 'T' || norm === 'TRUE' || norm === 'ĐÚNG' || norm === '1') return true;
+  if (norm === 'S' || norm === 'F' || norm === 'FALSE' || norm === 'SAI' || norm === '0') return false;
+  return null;
+}
+
+export function parseTfStatements(input: unknown): TfStatements | null {
+  if (input && typeof input === 'object' && !Array.isArray(input)) {
+    const obj = input as Record<string, unknown>;
+    const a = parseBoolToken(obj.a);
+    const b = parseBoolToken(obj.b);
+    const c = parseBoolToken(obj.c);
+    const d = parseBoolToken(obj.d);
+    if (a === null || b === null || c === null || d === null) return null;
+    return { a, b, c, d };
+  }
+  if (typeof input === 'string') {
+    const raw = input.trim();
+    const compact = raw.toUpperCase().replace(/[^ĐDSTF]/g, '');
+    if (compact.length === 4) {
+      const a = parseBoolToken(compact[0]);
+      const b = parseBoolToken(compact[1]);
+      const c = parseBoolToken(compact[2]);
+      const d = parseBoolToken(compact[3]);
+      if (a !== null && b !== null && c !== null && d !== null) return { a, b, c, d };
+    }
+    const keyed: Partial<TfStatements> = {};
+    for (const m of raw.matchAll(/\b([a-d])\s*[:=\-–]\s*(ĐÚNG|SAI|Đ|D|S|T|F)/giu)) {
+      const key = m[1].toLowerCase() as keyof TfStatements;
+      const b = parseBoolToken(m[2]);
+      if (b !== null) keyed[key] = b;
+    }
+    if (keyed.a !== undefined && keyed.b !== undefined && keyed.c !== undefined && keyed.d !== undefined) {
+      return keyed as TfStatements;
+    }
+  }
+  return null;
+}
+
+export function formatTfStatements(st: TfStatements): string {
+  return `${st.a ? 'Đ' : 'S'}${st.b ? 'Đ' : 'S'}${st.c ? 'Đ' : 'S'}${st.d ? 'Đ' : 'S'}`;
+}
+
 export function rubricTotals(rubric: Rubric): {
   total: number;
   mc: number;
   essay: number;
   mcCount: number;
+  tfCount: number;
+  shortCount: number;
   essayCount: number;
 } {
   let mc = 0;
   let essay = 0;
   let mcCount = 0;
+  let tfCount = 0;
+  let shortCount = 0;
   let essayCount = 0;
   for (const question of rubric.questions) {
     if (question.type === 'mc') {
       mc += question.points;
+      mcCount += 1;
+    } else if (question.type === 'tf') {
+      mc += question.points;
+      tfCount += 1;
+      mcCount += 1;
+    } else if (question.type === 'short') {
+      mc += question.points;
+      shortCount += 1;
       mcCount += 1;
     } else {
       essay += question.points;
@@ -105,6 +202,8 @@ export function rubricTotals(rubric: Rubric): {
     mc: round2(mc),
     essay: round2(essay),
     mcCount,
+    tfCount,
+    shortCount,
     essayCount,
   };
 }
@@ -149,14 +248,54 @@ export function normalizeRubric(input: unknown, expectedTotal?: number | null): 
     if (points === null || points <= 0) fail(`Câu ${no} chưa có điểm hợp lệ.`);
 
     const label = typeof item.label === 'string' && item.label.trim() ? item.label.trim() : undefined;
-    const type = item.type === 'essay' ? 'essay' : item.type === 'mc' ? 'mc' : null;
+    const sectionNo = Number.isInteger(Number(item.sectionNo)) && Number(item.sectionNo) > 0 ? Number(item.sectionNo) : undefined;
+    const displayNo = Number.isInteger(Number(item.displayNo)) && Number(item.displayNo) > 0 ? Number(item.displayNo) : undefined;
+    const sectionMeta = {
+      ...(label ? { label } : {}),
+      ...(sectionNo ? { sectionNo } : {}),
+      ...(displayNo ? { displayNo } : {}),
+    };
+    const type =
+      item.type === 'essay' || item.type === 'mc' || item.type === 'tf' || item.type === 'short'
+        ? item.type
+        : null;
 
     if (type === 'mc') {
       const answer = String(item.answer ?? '').trim().toUpperCase();
       if (!MC_LETTERS.includes(answer as McLetter)) {
         fail(`Câu ${no} là trắc nghiệm nên đáp án phải là A, B, C hoặc D.`);
       }
-      questions.push({ no, type: 'mc', points: round2(points), answer: answer as McLetter, label });
+      questions.push({ no, type: 'mc', points: round2(points), answer: answer as McLetter, ...sectionMeta });
+      return;
+    }
+
+    if (type === 'tf') {
+      const statements = parseTfStatements(item.statements ?? item.answer);
+      if (!statements) {
+        fail(`Câu ${no} là Đúng/Sai 4 ý nên cần đủ 4 đáp án a, b, c, d (ví dụ ĐSĐS).`);
+      }
+      const scoringRule = item.scoringRule === 'equal' ? 'equal' : 'moet-2025';
+      questions.push({ no, type: 'tf', points: round2(points), statements, scoringRule, ...sectionMeta });
+      return;
+    }
+
+    if (type === 'short') {
+      const rawAns = String(item.answer ?? '').trim();
+      const answer = normalizeShortValue(rawAns);
+      if (!answer || answer.length > 32) {
+        fail(`Câu ${no} là trả lời ngắn nhưng chưa có đáp án hợp lệ.`);
+      }
+      const acceptedAnswers = Array.isArray(item.acceptedAnswers)
+        ? item.acceptedAnswers.map((a) => normalizeShortValue(String(a))).filter(Boolean)
+        : undefined;
+      questions.push({
+        no,
+        type: 'short',
+        points: round2(points),
+        answer,
+        ...(acceptedAnswers?.length ? { acceptedAnswers } : {}),
+        ...sectionMeta,
+      });
       return;
     }
 
@@ -191,7 +330,7 @@ export function normalizeRubric(input: unknown, expectedTotal?: number | null): 
       }
 
       const answer = typeof item.answer === 'string' && item.answer.trim() ? item.answer.trim() : undefined;
-      questions.push({ no, type: 'essay', points: round2(points), steps, label, answer });
+      questions.push({ no, type: 'essay', points: round2(points), steps, answer, ...sectionMeta });
       return;
     }
 
@@ -219,11 +358,15 @@ export const ANSWER_KEY_VERSION = 1 as const;
 export type AnswerKeyContract = { version: 1; questions: AnswerKeyQuestion[]; sourceContentHash: string };
 export type AnswerKeyStep = { text: string; points?: string };
 export type AnswerKeyQuestion = {
-  type?: 'mc' | 'essay';
+  type?: 'mc' | 'tf' | 'short' | 'essay';
   label: string;
   answer: string;
   points?: string;
   steps?: AnswerKeyStep[];
+  statements?: TfStatements;
+  scoringRule?: 'moet-2025' | 'equal';
+  sectionNo?: number;
+  displayNo?: number;
 };
 
 function questionNumber(label: string, fallback: number): number {
@@ -238,10 +381,7 @@ function questionNumber(label: string, fallback: number): number {
 /**
  * Converts the answer-key endpoint's shape into a rubric.
  *
- * Multiple choice is recognised by "no steps and a single A–D letter"; anything
- * else is treated as an essay with its step breakdown. Questions without a
- * usable point value are reported together so the teacher can fill them in one
- * pass instead of fixing them one at a time.
+ * Supports all 4 GDPT 2018 / THPT 2025 question types (`mc`, `tf`, `short`, `essay`).
  */
 export function rubricFromAnswerKey(
   questions: AnswerKeyQuestion[],
@@ -250,10 +390,20 @@ export function rubricFromAnswerKey(
   const missing: number[] = [];
 
   const draft = questions.map((question, index) => {
-    const no = questionNumber(question.label, index + 1);
+    const hasExplicitSection = typeof question.sectionNo === 'number' && question.sectionNo > 0;
+    const no = hasExplicitSection ? index + 1 : questionNumber(question.label, index + 1);
     const steps = (question.steps ?? []).filter((step) => step.text?.trim());
     const answer = String(question.answer ?? '').trim();
-    const isMc = question.type !== 'essay' && steps.length === 0 && /^[A-Da-d]$/.test(answer);
+    const tfStatements =
+      question.type === 'tf' || (!question.type && !steps.length && question.statements)
+        ? parseTfStatements(question.statements ?? answer)
+        : !question.type && !steps.length && /^[ĐDSTF]{4}$/i.test(answer.replace(/[^ĐDSTF]/gi, '')) && answer.replace(/[^ĐDSTF]/gi, '').length === 4
+          ? parseTfStatements(answer)
+          : null;
+    const isShort = question.type === 'short';
+    const isMc =
+      question.type === 'mc' ||
+      (question.type !== 'essay' && question.type !== 'tf' && !isShort && !tfStatements && steps.length === 0 && /^[A-Da-d]$/.test(answer));
 
     let points = parsePoints(question.points);
     if (points === null && options.fallbackPoints && options.fallbackPoints > 0) {
@@ -264,13 +414,40 @@ export function rubricFromAnswerKey(
       points = 0;
     }
 
+    const sectionMeta = {
+      label: question.label,
+      ...(question.sectionNo ? { sectionNo: question.sectionNo } : {}),
+      ...(question.displayNo ? { displayNo: question.displayNo } : {}),
+    };
+
+    if (tfStatements) {
+      return {
+        no,
+        type: 'tf' as const,
+        points,
+        statements: tfStatements,
+        scoringRule: question.scoringRule ?? 'moet-2025',
+        ...sectionMeta,
+      };
+    }
+
+    if (isShort) {
+      return {
+        no,
+        type: 'short' as const,
+        points,
+        answer: normalizeShortValue(answer),
+        ...sectionMeta,
+      };
+    }
+
     if (isMc) {
       return {
         no,
         type: 'mc' as const,
         points,
         answer: answer.toUpperCase() as McLetter,
-        label: question.label,
+        ...sectionMeta,
       };
     }
 
@@ -281,8 +458,8 @@ export function rubricFromAnswerKey(
       no,
       type: 'essay' as const,
       points,
-      label: question.label,
       answer: answer || undefined,
+      ...sectionMeta,
       steps: steps.map((step, stepIndex) => ({
         key: `s${stepIndex + 1}`,
         text: step.text.trim(),

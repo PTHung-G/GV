@@ -4,7 +4,7 @@ import { signInWithDocuments } from './document-fixture';
 const PUBLIC_PAGES: Array<[string, RegExp]> = [
   ['/', /Soạn đề, chuẩn bị đáp án,\s*chấm bài\s*và tổng hợp điểm\./],
   ['/exams', /Đề thi được chia sẻ/],
-  ['/about', /Về soandethi.com/],
+  ['/about', /Về Hỗ trợ giáo viên/],
   ['/my-exams', /Đề thi của tôi/],
   ['/hub', /Soạn đề và chấm bài/],
   ['/terms', /Điều khoản sử dụng/],
@@ -55,8 +55,9 @@ test('login dialog accepts credentials and shows the account', async ({ page }) 
   await expect(dialog).toBeHidden({ timeout: 5_000 });
   // Signing in lands in the app shell, where the account lives in the rail.
   await expect(page).toHaveURL(/\/hub$/);
-  const account = page.getByRole('button', { name: /20\.000 điểm/ }).first();
+  const account = page.getByRole('button', { name: /Login Teacher/ }).first();
   await expect(account).toBeVisible();
+  await expect(page.getByText(/20\.000 điểm/)).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'Đăng xuất' })).toBeVisible();
 });
 

@@ -7,7 +7,7 @@
 import { NextResponse } from 'next/server';
 import { query, queryOne } from '@/lib/server/db';
 import { jsonError, requireDatabase } from '@/lib/server/http';
-import { authorizeSession } from '@/lib/grading/access';
+import { authorizeTeacher } from '@/lib/grading/access';
 import { rubricFromStored } from '@/lib/grading/rubric';
 import { scoreStatistics, type McAnswer } from '@/lib/grading/scores';
 
@@ -18,7 +18,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
   try {
     requireDatabase();
     const { id } = await params;
-    await authorizeSession(id);
+    await authorizeTeacher(id);
 
     const session = await queryOne<{ payload: unknown }>(
       `select r.payload

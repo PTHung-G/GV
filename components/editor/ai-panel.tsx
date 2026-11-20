@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useAuth } from '@/lib/auth-context';
 import { basePath } from '@/lib/api-url';
-import { ArrowUp, ChevronsRight, Image as ImageIcon, Loader2, Paperclip, Plus, RotateCcw, Sparkles } from 'lucide-react';
+import { ArrowUp, ChevronsRight, Image as ImageIcon, Loader2, Paperclip, Plus, RotateCcw, Sparkles, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { reconcileStructure, type StructuredExam } from '@/lib/structured-exam';
 import { generateExam, planExam, verifyExam, ApiError } from '@/lib/chat-exam-client';
@@ -43,6 +43,9 @@ export function AiPanel({
   onApply,
   onReplace,
   onOpenFigure,
+  onOpenBank,
+  bankNotes = [],
+  onRemoveBankNote,
 }: {
   docId: string;
   examTitle?: string;
@@ -51,6 +54,9 @@ export function AiPanel({
   onApply: (html: string, structure?: StructuredExam) => void;
   onOpenFigure: () => void;
   onReplace: (html: string, structure?: StructuredExam) => void;
+  onOpenBank?: () => void;
+  bankNotes?: Array<{ id: string; label: string; content: string }>;
+  onRemoveBankNote?: (id: string) => void;
 }) {
   const { user, openDialog } = useAuth();
   const [conversationId, setConversationId] = useState('');
@@ -71,6 +77,9 @@ export function AiPanel({
   const [input, setInput] = useState('');
   const [level, setLevel] = useState<(typeof LEVELS)[number]>('Trung bình');
   const [busy, setBusy] = useState(false);
+  const [ocrBusy, setOcrBusy] = useState(false);
+  const [attachedOcr, setAttachedOcr] = useState<{ count: number; content: string } | null>(null);
+  const ocrInputRef = useRef<HTMLInputElement>(null);
   // Re-renders once a second while a turn runs, so the elapsed counter ticks
   // instead of jumping only when a progress frame happens to arrive.
   const [, setTick] = useState(0);
@@ -90,10 +99,11 @@ export function AiPanel({
 
 
 
-  // Ask the server for suggestions that match the current exam. These are
-  // decorative: on failure the built-in list stays put.
+  // Ask the server for suggestions on document open, title change, or completed AI turn —
+  // never on every keystroke while the teacher types in the editor.
+  const assistantDoneCount = messages.filter((m) => m.role === 'assistant' && m.status === 'done').length;
   useEffect(() => {
-    const exam = examContent ?? '';
+    const exam = contentRef.current ?? '';
     const controller = new AbortController();
     const questionCount = (exam.match(/Câu\s*\d+/g) ?? []).length;
     const blockCount = (exam.match(/<(p|h1|h2|h3|div|li|table)\b/gi) ?? []).length;
@@ -115,7 +125,7 @@ export function AiPanel({
       })
       .catch(() => {});
     return () => controller.abort();
-  }, [examContent, examTitle]);
+  }, [docId, user?.id, examTitle, assistantDoneCount]);
 
   async function api(path: string, method = 'GET', body?: unknown, signal?: AbortSignal) {
     const response = await fetch(basePath(path), { method, headers: { 'content-type': 'application/json' },
@@ -176,6 +186,51 @@ export function AiPanel({
     window.addEventListener('focus', refresh);
     return () => { clearInterval(timer); window.removeEventListener('focus', refresh); };
   }, [identity, conversationId]);
+
+  const processOcrFiles = async (files: File[]) => {
+    const valid = files.filter((f) => f.type.startsWith('image/')).slice(0, 6);
+    if (!valid.length) return;
+    if (!user) {
+      openDialog('Đăng nhập để đọc ảnh đề thi');
+      return;
+    }
+    setOcrBusy(true);
+    setLoadError('');
+    try {
+      const encoded = await Promise.all(
+        valid.map(
+          (file) =>
+            new Promise<{ data: string; mimeType: string }>((resolve, reject) => {
+              const reader = new FileReader();
+              reader.onload = () => {
+                const raw = String(reader.result ?? '');
+                const comma = raw.indexOf(',');
+                resolve({ data: comma >= 0 ? raw.slice(comma + 1) : raw, mimeType: file.type || 'image/png' });
+              };
+              reader.onerror = () => reject(new Error('Không đọc được tệp ảnh.'));
+              reader.readAsDataURL(file);
+            }),
+        ),
+      );
+      const res = await fetch(basePath('/api/exam-image'), {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ images: encoded }),
+      });
+      const json = (await res.json()) as { exam?: { content?: string }; error?: string };
+      if (!res.ok || !json.exam?.content?.trim()) {
+        throw new Error(json.error ?? 'Không trích xuất được nội dung từ ảnh.');
+      }
+      setAttachedOcr({ count: valid.length, content: json.exam.content });
+      if (!input.trim()) {
+        setInput('Chuyển đề thi từ ảnh đính kèm thành bản A4 hoàn chỉnh.');
+      }
+    } catch (err) {
+      setLoadError(err instanceof Error ? err.message : 'Không đọc được ảnh đề thi.');
+    } finally {
+      setOcrBusy(false);
+    }
+  };
 
   const cancel = async () => {
     const active = activeRef.current;
@@ -276,6 +331,13 @@ export function AiPanel({
         }));
       }
 
+      const ocrSnapshot = attachedOcr;
+      const contextNotes = [
+        ...(ocrSnapshot ? [`Nội dung đề đọc từ ${ocrSnapshot.count} ảnh đính kèm:\n${ocrSnapshot.content}`] : []),
+        ...bankNotes.map((n) => `Câu/ngữ liệu từ kho (${n.label}):\n${n.content}`),
+      ];
+      setAttachedOcr(null);
+
       // Step 2 — generation streams SSE; deltas are appended as they arrive.
       patch((m) => ({ ...m, stage: 'generating' }));
       const result = await generateExam(
@@ -286,6 +348,8 @@ export function AiPanel({
           currentExam: examContent ? { title: examTitle, content: examContent } : undefined,
           examTitle,
           contextSource: examContent ? 'current_exam' : 'none',
+          ...(planned.action ? { action: planned.action } : {}),
+          ...(contextNotes.length ? { contextNotes } : {}),
           prompt: planned.templatePrompt || prompt,
           planned: true,
           planSteps,
@@ -313,7 +377,7 @@ export function AiPanel({
       patch((m) => ({ ...m, stage: 'verify', status: 'Đang kiểm tra cấu trúc đề…' }));
       let issues: string[] = [];
       try {
-        const check = await verifyExam(html);
+        const check = await verifyExam(html, result.action);
         issues = (check.issues ?? []).map((i) => i.message);
       } catch {
         /* verification is advisory */
@@ -362,7 +426,7 @@ export function AiPanel({
   return (
     <aside
       aria-label="Trợ lý AI"
-      className="no-print flex w-[392px] shrink-0 flex-col border-l border-line bg-white"
+      className="no-print flex w-[392px] shrink-0 flex-col border-l border-line bg-white max-lg:fixed max-lg:inset-y-14 max-lg:right-0 max-lg:z-30 max-lg:w-[min(92vw,392px)] max-lg:shadow-[var(--shadow-md)]"
     >
       <div className="flex h-12 shrink-0 items-center gap-2 border-b border-line px-3">
         {/* Same affordance as the reference: the chevron sits on the panel's
@@ -515,24 +579,104 @@ export function AiPanel({
       <div className="shrink-0 border-t border-line px-3 pt-2 pb-1">
         <div className="flex items-center justify-between px-1">
           <span className="text-[10px] font-semibold tracking-wide text-ink-4 uppercase">Nguồn cho trợ lý</span>
-          <button type="button" className="text-[11.5px] text-ink-3 hover:text-ink">
+          <button
+            type="button"
+            onClick={onOpenBank}
+            className="text-[11.5px] text-ink-3 hover:text-ink"
+          >
             Chọn đề mẫu, ma trận từ kho tài liệu
           </button>
         </div>
-        <button
-          type="button"
-          className="mt-1.5 flex h-8 items-center gap-1.5 rounded-md border border-dashed border-line-strong px-2.5 text-[12.5px] text-ink-2 hover:bg-surface-2"
-        >
-          <Plus className="size-3.5" /> Thêm từ kho
-        </button>
+        <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+          <button
+            type="button"
+            onClick={onOpenBank}
+            className="flex h-8 items-center gap-1.5 rounded-md border border-dashed border-line-strong px-2.5 text-[12.5px] text-ink-2 hover:bg-surface-2"
+          >
+            <Plus className="size-3.5" /> Thêm từ kho
+          </button>
+          {bankNotes.map((note) => (
+            <span
+              key={note.id}
+              className="inline-flex h-7 max-w-[170px] items-center gap-1 rounded-md bg-accent-soft px-2 text-[11.5px] font-medium text-accent"
+            >
+              <span className="truncate">{note.label}</span>
+              {onRemoveBankNote ? (
+                <button
+                  type="button"
+                  aria-label={`Bỏ ${note.label}`}
+                  onClick={() => onRemoveBankNote(note.id)}
+                  className="hover:text-ink"
+                >
+                  <X className="size-3" />
+                </button>
+              ) : null}
+            </span>
+          ))}
+        </div>
       </div>
 
       {busy && <button className="mx-3 mt-2 text-xs text-danger" onClick={() => void cancel().catch((error) => setLoadError(error.message))}>Dừng yêu cầu</button>}
       <div className="shrink-0 p-3">
+        {(ocrBusy || attachedOcr) ? (
+          <div className="mb-2 flex items-center justify-between gap-2 rounded-md border border-line bg-surface-2 px-2.5 py-1.5 text-[12px] text-ink-2">
+            {ocrBusy ? (
+              <span className="flex items-center gap-1.5"><Loader2 className="size-3.5 animate-spin text-accent" /> Đang đọc ảnh đề thi…</span>
+            ) : (
+              <>
+                <span className="truncate font-medium text-ink">Đã đọc {attachedOcr!.count} ảnh đề đính kèm</span>
+                <div className="flex shrink-0 items-center gap-1.5">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (!attachedOcr) return;
+                      onApply(attachedOcr.content);
+                      setAttachedOcr(null);
+                    }}
+                    className="rounded-sm bg-accent-soft px-1.5 py-0.5 text-[11px] font-medium text-accent hover:bg-surface-3"
+                  >
+                    Chèn vào đề
+                  </button>
+                  <button
+                    type="button"
+                    aria-label="Xoá ảnh đính kèm"
+                    onClick={() => setAttachedOcr(null)}
+                    className="text-ink-3 hover:text-ink"
+                  >
+                    <X className="size-3.5" />
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+        ) : null}
+        <input
+          ref={ocrInputRef}
+          type="file"
+          accept="image/*"
+          multiple
+          className="hidden"
+          onChange={(e) => {
+            const list = e.target.files ? Array.from(e.target.files) : [];
+            e.target.value = '';
+            if (list.length) void processOcrFiles(list);
+          }}
+        />
         <div className="rounded-md border border-line-strong bg-white p-2.5 shadow-xs focus-within:border-accent focus-within:ring-2 focus-within:ring-accent/15">
           <textarea
             value={input}
             onChange={(e) => setInput(e.target.value)}
+            onPaste={(e) => {
+              const items = Array.from(e.clipboardData?.items ?? []);
+              const imgs = items
+                .filter((it) => it.kind === 'file' && it.type.startsWith('image/'))
+                .map((it) => it.getAsFile())
+                .filter((f): f is File => f !== null);
+              if (imgs.length) {
+                e.preventDefault();
+                void processOcrFiles(imgs);
+              }
+            }}
             onKeyDown={(e) => {
               if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
@@ -554,7 +698,14 @@ export function AiPanel({
             >
               <ImageIcon className="size-4" />
             </button>
-            <button type="button" aria-label="Chọn tệp đính kèm" className="grid size-7 place-items-center rounded-md text-ink-3 hover:bg-surface-3">
+            <button
+              type="button"
+              aria-label="Chọn tệp đính kèm"
+              title="Tải ảnh đề thi để AI đọc (OCR)"
+              disabled={ocrBusy}
+              onClick={() => ocrInputRef.current?.click()}
+              className="grid size-7 place-items-center rounded-md text-ink-3 hover:bg-surface-3 hover:text-ink disabled:opacity-50"
+            >
               <Paperclip className="size-4" />
             </button>
             <div className="ml-auto flex items-center gap-1.5">

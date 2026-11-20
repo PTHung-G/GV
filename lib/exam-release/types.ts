@@ -17,6 +17,7 @@ export type ReleaseInput = {
   pinnedQuestionNos?: number[];
   pinnedOptionNos?: number[];
   recipes?: Array<{ questionNo: number; recipeId: RecipeId }>;
+  classId?: string | null;
 };
 export type RecipeProvenance = {
   id: string;

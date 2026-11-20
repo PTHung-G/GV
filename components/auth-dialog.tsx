@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { Eye, EyeOff, Loader2 } from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
 import { Dialog } from '@/components/ui/dialog';
@@ -10,8 +10,9 @@ import { Input } from '@/components/ui/input';
 import { Logo } from '@/components/site-header';
 
 export function AuthDialog() {
-  const { dialogOpen, closeDialog, login, register, dialogReason } = useAuth();
+  const { dialogOpen, closeDialog, login, register, dialogReason, logoutError, clearLogoutError } = useAuth();
   const router = useRouter();
+  const pathname = usePathname();
   const [mode, setMode] = useState<'login' | 'register'>('login');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -62,7 +63,11 @@ export function AuthDialog() {
     try {
       if (registering) await register(email.trim(), password, name.trim());
       else await login(email.trim(), password);
-      router.push('/hub');
+      if (!pathname || pathname === '/' || pathname === '/about' || pathname === '/terms' || pathname === '/privacy') {
+        router.push('/hub');
+      } else {
+        router.refresh();
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : registering ? 'Không tạo được tài khoản.' : 'Không đăng nhập được.');
     } finally {
@@ -71,6 +76,7 @@ export function AuthDialog() {
   };
 
   return (
+    <>
     <Dialog open={dialogOpen} onClose={pending ? () => {} : closeDialog} labelledBy="auth-title">
       <div className="flex flex-col items-center text-center">
         <Logo className="size-10" />
@@ -144,5 +150,17 @@ export function AuthDialog() {
         </Button>
       </form>
     </Dialog>
+    <Dialog open={!!logoutError} onClose={clearLogoutError} labelledBy="logout-err-title">
+      <h2 id="logout-err-title" className="text-base font-semibold text-ink">
+        Không thể đăng xuất
+      </h2>
+      <p className="mt-2 text-sm text-ink-2">{logoutError}</p>
+      <div className="mt-4 flex justify-end">
+        <Button type="button" variant="outline" size="sm" onClick={clearLogoutError}>
+          Đóng
+        </Button>
+      </div>
+    </Dialog>
+    </>
   );
 }

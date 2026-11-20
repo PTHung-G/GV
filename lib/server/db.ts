@@ -24,9 +24,9 @@ export function getPool(): Pool {
   if (!pool) {
     pool = new Pool({
       connectionString: url,
-      max: 10,
+      max: Math.max(1, Number(process.env.DB_POOL_MAX) || 10),
       idleTimeoutMillis: 30_000,
-      connectionTimeoutMillis: 5_000,
+      connectionTimeoutMillis: 15_000,
     });
     pool.on('error', (error) => {
       console.error('[db] kết nối rảnh gặp lỗi:', error.message);

@@ -8,7 +8,7 @@
 import { NextResponse } from 'next/server';
 import { query } from '@/lib/server/db';
 import { jsonError, requireDatabase } from '@/lib/server/http';
-import { authorizeSession } from '@/lib/grading/access';
+import { authorizeTeacher } from '@/lib/grading/access';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -17,7 +17,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
   try {
     requireDatabase();
     const { id } = await params;
-    await authorizeSession(id);
+    await authorizeTeacher(id);
 
     const mc = await query<{
       submission_id: string;

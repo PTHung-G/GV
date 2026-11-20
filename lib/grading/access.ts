@@ -32,8 +32,17 @@ export async function sessionOwner(sessionId: string): Promise<string | null> {
  * phone cannot enumerate other classes by changing an id.
  */
 export async function authorizeSession(sessionId: string): Promise<SessionActor> {
+  const user = await currentUser();
+  if (user) {
+    const owner = await sessionOwner(sessionId);
+    if (owner && owner === user.id) {
+      return { userId: user.id, via: 'user' };
+    }
+  }
+
   const releaseGrant = await releaseSessionGrant(sessionId);
   if (releaseGrant) return releaseGrant;
+
   const capture = await currentCapture();
   if (capture) {
     if (capture.sessionId !== sessionId) {
@@ -42,14 +51,8 @@ export async function authorizeSession(sessionId: string): Promise<SessionActor>
     return { userId: capture.userId, via: 'capture' };
   }
 
-  const user = await currentUser();
   if (!user) throw new HttpError(401, 'Bạn cần đăng nhập để tiếp tục.', 'unauthenticated');
-
-  const owner = await sessionOwner(sessionId);
-  if (!owner || owner !== user.id) {
-    throw new HttpError(404, 'Không tìm thấy đợt chấm.', 'session_not_found');
-  }
-  return { userId: user.id, via: 'user' };
+  throw new HttpError(404, 'Không tìm thấy đợt chấm.', 'session_not_found');
 }
 
 /** Same as `authorizeSession` but refuses paired phones. */

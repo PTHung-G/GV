@@ -16,9 +16,10 @@ import {
   gradingApi,
   GradingApiError,
   pageUrl,
+  type PageSummary,
   type SubmissionSummary,
 } from "@/lib/grading-client";
-import { describeOmr, readSheetFromFile } from "@/lib/grading/omr-browser";
+import { describeOmr, readBestSheetFromFiles } from "@/lib/grading/omr-browser";
 import type { SheetTemplate } from "@/lib/grading/sheet-template";
 import { shrinkForUpload } from "@/lib/image-client";
 import { LiveScan } from "@/components/grading/live-scan";
@@ -94,27 +95,28 @@ export function CaptureScreen() {
       if (!submission) return;
 
       const collected: string[] = [];
+      const addedPages: PageSummary[] = [];
       for (const file of Array.from(files)) {
         const form = new FormData();
         // Shrink after the on-device read, so OMR still sees full detail.
         form.append("file", await shrinkForUpload(file));
-        const result = await gradingApi.postForm<{ warnings: string[] }>(
+        const result = await gradingApi.postForm<{ page: PageSummary; duplicate?: boolean; warnings: string[] }>(
           `/api/grading/submissions/${submission.id}/pages`,
           form,
         );
+        if (!result.duplicate && result.page) {
+          addedPages.push(result.page);
+        }
         collected.push(...(result.warnings ?? []));
       }
 
       // A standard sheet can be scored right here on the device: no upload of
       // pixels to a model, and the marks are known before the photo is sent.
       let omrNote = "";
-      const firstFile = files[0];
-      if (session.sheetTemplate && session.mode !== "essay-only" && firstFile) {
-        try {
-          const result = await readSheetFromFile(
-            firstFile,
-            session.sheetTemplate,
-          );
+      const fileList = Array.from(files);
+      if (session.sheetTemplate && session.mode !== "essay-only" && fileList.length > 0) {
+        const result = await readBestSheetFromFiles(fileList, session.sheetTemplate);
+        if (result) {
           if (result.quality.anchorsFound && result.answers.length > 0) {
             await gradingApi.post(
               `/api/grading/submissions/${submission.id}/omr`,
@@ -127,18 +129,17 @@ export function CaptureScreen() {
             );
           }
           omrNote = ` ${describeOmr(result)}`;
-        } catch {
+        } else {
           omrNote = " Không đọc được phiếu trên thiết bị, sẽ chấm bằng AI.";
         }
       }
 
-      const refreshed = await gradingApi.get<{
-        submissions: SubmissionSummary[];
-      }>(`/api/grading/sessions/${session.id}/submissions`);
-      setCurrent(
-        refreshed.submissions.find((row) => row.id === submission.id) ??
-          submission,
-      );
+      setCurrent((prev) => {
+        const base = prev ?? submission;
+        const known = new Set(base.pages.map((p) => p.id));
+        const pages = [...base.pages, ...addedPages.filter((p) => !known.has(p.id))];
+        return { ...base, pageCount: pages.length, pages };
+      });
       setNotice(
         collected.length > 0
           ? `${collected.join(" ")}${omrNote}`

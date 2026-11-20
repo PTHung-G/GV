@@ -1,9 +1,10 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { X, Printer, Loader2 } from 'lucide-react';
+import { X, Printer, Loader2, FileDown } from 'lucide-react';
 import { basePath } from '@/lib/api-url';
 import { exportKeyStatus, exportMcNumbers, exportPrintHtml, type ExportSnapshot } from '@/lib/editor-export';
+import { downloadDocx } from '@/lib/docx-export';
 export type { ExportSnapshot } from '@/lib/editor-export';
 
 type Artifact = 'exam' | 'key' | 'sheet';
@@ -15,6 +16,7 @@ export function ExportDialog({ snapshot, onClose }: { snapshot: ExportSnapshot; 
   const [manual, setManual] = useState(false);
   const [sheet, setSheet] = useState('');
   const [pending, setPending] = useState(false);
+  const [docxBusy, setDocxBusy] = useState(false);
   const [error, setError] = useState('');
   const [ready, setReady] = useState(false);
   const frame = useRef<HTMLIFrameElement>(null);
@@ -76,7 +78,30 @@ export function ExportDialog({ snapshot, onClose }: { snapshot: ExportSnapshot; 
         <label className="mt-4 flex items-start gap-2 text-sm"><input type="checkbox" checked={reviewed} onChange={e => setReviewed(e.target.checked)} />Tôi đã rà soát đề, đáp án cần dùng và bản xem trước trước khi in.</label>
         <p className="mt-2 text-xs text-ink-3">Nút bên dưới mở hộp thoại in của trình duyệt. Chọn “Lưu dưới dạng PDF” để lưu PDF; A4, tỷ lệ 100%, tắt đầu/chân trang. Không phải tệp PDF được máy chủ tạo sẵn.</p>
       </div>
-      <footer className="flex justify-end gap-2 border-t border-line p-3"><button type="button" onClick={onClose} className="rounded border border-line px-3 py-2 text-sm">Đóng</button><button type="button" disabled={!reviewed || !html || !ready || pending} onClick={() => { try { frame.current?.contentWindow?.focus(); frame.current?.contentWindow?.print(); } catch { setError('Trình duyệt chặn in. Vui lòng thử lại.'); } }} className="flex items-center gap-2 rounded bg-accent px-3 py-2 text-sm text-white disabled:opacity-40"><Printer className="size-4" />In / Lưu PDF</button></footer>
+      <footer className="flex flex-wrap justify-end gap-2 border-t border-line p-3">
+        <button type="button" onClick={onClose} className="rounded-md border border-line px-3 py-2 text-sm hover:bg-surface-2">Đóng</button>
+        {artifact !== 'sheet' ? (
+          <button
+            type="button"
+            disabled={docxBusy || (artifact === 'key' && !keyAllowed)}
+            onClick={() => {
+              const targetHtml = artifact === 'key' ? (snapshot.answerKey?.content ?? '') : snapshot.content;
+              const targetTitle = artifact === 'key' ? `${snapshot.title} — Đáp án` : snapshot.title;
+              if (!targetHtml.trim()) return;
+              setDocxBusy(true);
+              setError('');
+              void downloadDocx({ title: targetTitle, html: targetHtml })
+                .catch(() => setError('Không tạo được tệp Word (.docx). Vui lòng thử lại.'))
+                .finally(() => setDocxBusy(false));
+            }}
+            className="flex items-center gap-2 rounded-md border border-line-strong bg-white px-3 py-2 text-sm font-medium text-ink hover:bg-surface-2 disabled:opacity-40"
+          >
+            {docxBusy ? <Loader2 className="size-4 animate-spin" /> : <FileDown className="size-4" />}
+            Tải Word (.docx)
+          </button>
+        ) : null}
+        <button type="button" disabled={!reviewed || !html || !ready || pending} onClick={() => { try { frame.current?.contentWindow?.focus(); frame.current?.contentWindow?.print(); } catch { setError('Trình duyệt chặn in. Vui lòng thử lại.'); } }} className="flex items-center gap-2 rounded-md bg-accent px-3 py-2 text-sm font-medium text-white disabled:opacity-40"><Printer className="size-4" />In / Lưu PDF</button>
+      </footer>
     </section>
   </div>;
 }

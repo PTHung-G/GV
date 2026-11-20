@@ -146,6 +146,7 @@ export function planExam(
   signal?: AbortSignal,
 ): Promise<{
   decision: string;
+  action?: 'replace' | 'append';
   templatePrompt: string;
   reply: string;
   steps: string[];
@@ -162,9 +163,11 @@ export function generateExam(
   return postJsonStream<ChatExamResult>('/api/chat-exam', body, handlers, signal);
 }
 
-export function verifyExam(content: string, subject?: string) {
+export function verifyExam(content: string, modeOrSubject?: string, mode?: string) {
+  const resolvedMode = mode ?? (modeOrSubject === 'append' || modeOrSubject === 'replace' ? modeOrSubject : undefined);
+  const subject = modeOrSubject && modeOrSubject !== resolvedMode ? modeOrSubject : undefined;
   return postJsonStream<{ ok: boolean; issues: Array<{ message: string }>; stats: { questionCount: number } }>(
     '/api/chat-exam/verify',
-    { content, subject },
+    { content, ...(subject ? { subject } : {}), ...(resolvedMode ? { mode: resolvedMode } : {}) },
   );
 }

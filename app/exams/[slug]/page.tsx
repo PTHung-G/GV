@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { SiteHeader } from '@/components/site-header';
-import { SiteFooter } from '@/components/site-footer';
+import { ExamsShell } from '@/components/exams/exams-shell';
 import { ExamDetail } from '@/components/exams/exam-detail';
 import { COMMUNITY_EXAMS } from '@/lib/community-exams';
 
@@ -22,12 +21,8 @@ export default async function ExamDetailPage({ params }: { params: Promise<{ slu
   if (!exam) notFound();
 
   return (
-    <>
-      <SiteHeader />
-      <main className="flex flex-1 flex-col">
-        <ExamDetail exam={exam} />
-      </main>
-      <SiteFooter />
-    </>
+    <ExamsShell subtitle={exam.title}>
+      <ExamDetail exam={exam} />
+    </ExamsShell>
   );
 }

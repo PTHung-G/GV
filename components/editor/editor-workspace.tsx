@@ -2,12 +2,19 @@
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { basePath } from '@/lib/api-url';
 import { ArrowLeft, Check, CloudOff, Loader2, Printer } from 'lucide-react';
 import { useDoc, useDocs } from '@/lib/docs-store';
 import { useAuth } from '@/lib/auth-context';
 import { sanitize } from '@/lib/editor-model';
-import { reconcileStructure, type StructuredExam } from '@/lib/structured-exam';
+import { healStructuredDom, reconcileStructure, type StructuredExam } from '@/lib/structured-exam';
+import { useEditorHistory, type HistorySnapshot } from '@/lib/editor-history';
+import { cleanPastedHtml } from '@/lib/editor-paste';
+import { downloadDocx } from '@/lib/docx-export';
+import { parseAnswerKeyHtml } from '@/lib/grading/answer-key-html';
+import type { FigureSpec } from '@/lib/geometry/spec';
+import { Dialog } from '@/components/ui/dialog';
 import { renderMath, renderMathInHtml } from '@/lib/math';
 import { CONTENT_HEIGHT, layoutChoiceGrids } from '@/lib/layout';
 import { splitAcrossPages, unsplitText } from '@/lib/split-text';
@@ -22,6 +29,8 @@ import { renderAnswerKeyHtml } from '@/lib/grading/answer-key-render';
 import type { AnswerKeyQuestion } from '@/lib/grading/rubric';
 import { ExportDialog } from './export-dialog';
 import { ReleaseDialog } from './release-dialog';
+import { RubricEditorDialog } from './rubric-editor-dialog';
+import { BankPickerDialog, type PickedBankNote } from './bank-picker-dialog';
 import type { ExportSnapshot } from '@/lib/editor-export';
 import { SaveToQuestionBank } from '@/components/question-bank/save-to-question-bank';
 
@@ -34,11 +43,15 @@ export function EditorWorkspace({ docId }: { docId: string }) {
   const { doc, ready, update } = useDoc(docId);
   const { docs, create, saveStatus } = useDocs();
   const { user } = useAuth();
+  const router = useRouter();
   const pageRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const imageInputRef = useRef<HTMLInputElement>(null);
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const firstLoad = useRef(true);
+  const isComposingRef = useRef(false);
   const artifactRef = useRef<StructuredExam | undefined>(undefined);
+  const history = useEditorHistory(600);
   const [structure, setStructure] = useState<StructuredExam | undefined>(undefined);
   const identity = `${user?.id ?? 'guest'}:${docId}`;
   const identityRef = useRef(identity);
@@ -49,9 +62,29 @@ export function EditorWorkspace({ docId }: { docId: string }) {
   const [zoom, setZoom] = useState(100);
   const [outlineOpen, setOutlineOpen] = useState(true);
   const [aiOpen, setAiOpen] = useState(true);
+  const [spacerCount, setSpacerCount] = useState(0);
   const [exportSnapshot, setExportSnapshot] = useState<ExportSnapshot | null>(null);
   const [quickPrint, setQuickPrint] = useState(false);
   const [figureOpen, setFigureOpen] = useState(false);
+  const [editingFigure, setEditingFigure] = useState<{ el: HTMLElement; spec: FigureSpec } | null>(null);
+  const [rubricOpen, setRubricOpen] = useState(false);
+  const [bankPickerOpen, setBankPickerOpen] = useState(false);
+  const [bankNotes, setBankNotes] = useState<PickedBankNote[]>([]);
+  const [wordCountOpen, setWordCountOpen] = useState(false);
+  const [confirmCompleteOpen, setConfirmCompleteOpen] = useState(false);
+  const [spellCheckOn, setSpellCheckOn] = useState(true);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (window.innerWidth < 1024) {
+      setOutlineOpen(false);
+      setAiOpen(false);
+    }
+    if (window.innerWidth <= 860) {
+      const fitted = Math.max(45, Math.min(100, Math.floor(((window.innerWidth - 32) / A4_WIDTH) * 100)));
+      setZoom(fitted);
+    }
+  }, []);
   const [html, setHtml] = useState('');
   const [baseline, setBaseline] = useState('');
   const [mathTarget, setMathTarget] = useState<MathTarget | null>(null);
@@ -149,6 +182,7 @@ export function EditorWorkspace({ docId }: { docId: string }) {
       }
       used += h;
     }
+    setSpacerCount(target.querySelectorAll('[data-page-spacer]').length);
   }, []);
 
   /**
@@ -163,17 +197,22 @@ export function EditorWorkspace({ docId }: { docId: string }) {
     }
     target.innerHTML = renderMathInHtml(target.innerHTML);
     for (const el of Array.from(target.querySelectorAll<HTMLElement>('span.doc-math'))) {
+      el.setAttribute('contenteditable', 'false');
       const tex = el.querySelector('annotation[encoding="application/x-tex"]')?.textContent ?? '';
       el.dataset.latex = el.classList.contains('doc-math-display') ? `$$${tex}$$` : `$${tex}$`;
+    }
+    for (const fig of Array.from(target.querySelectorAll<HTMLElement>('figure.doc-figure'))) {
+      fig.setAttribute('contenteditable', 'false');
     }
     layoutChoiceGrids(target);
   }, []);
 
   /**
    * Layout passes run after the browser has measured the painted content.
-   * Two frames: one for the DOM change, one for fonts/KaTeX to settle.
+   * Skipped during active IME composition so Vietnamese Telex/VNI never drops accents.
    */
   const relayout = useCallback(() => {
+    if (isComposingRef.current) return;
     const el = pageRef.current;
     if (!el) return;
     layoutChoiceGrids(el);
@@ -193,19 +232,24 @@ export function EditorWorkspace({ docId }: { docId: string }) {
     return clone.innerHTML;
   }, []);
 
-  // Keep option grids and page breaks in sync with the rendered document.
+  // Debounced relayout: keeps 60fps typing latency and protects Vietnamese IME.
   const layoutRaf = useRef<number | null>(null);
+  const layoutTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   useEffect(() => {
+    if (layoutTimer.current) clearTimeout(layoutTimer.current);
     if (layoutRaf.current) cancelAnimationFrame(layoutRaf.current);
-    layoutRaf.current = requestAnimationFrame(() => {
+    layoutTimer.current = setTimeout(() => {
+      if (isComposingRef.current) return;
       layoutRaf.current = requestAnimationFrame(() => relayout());
-    });
+    }, 180);
     return () => {
+      if (layoutTimer.current) clearTimeout(layoutTimer.current);
       if (layoutRaf.current) cancelAnimationFrame(layoutRaf.current);
     };
   }, [html, zoom, relayout]);
 
   const seededFor = useRef<string | null>(null);
+  const paintedBaselineRef = useRef<string | null>(null);
   useEffect(() => {
     if (!doc || seededFor.current === identity) return;
     seededFor.current = identity;
@@ -216,29 +260,61 @@ export function EditorWorkspace({ docId }: { docId: string }) {
     setStructure(artifactRef.current);
     setHtml(next);
     setBaseline(next);
-    if (pageRef.current) paint(pageRef.current, next);
-  }, [doc, identity, paint]);
+    history.reset({ html: next, structure: artifactRef.current });
+    if (pageRef.current) {
+      paint(pageRef.current, next);
+      paintedBaselineRef.current = sanitize(unmath(pageRef.current));
+    } else {
+      paintedBaselineRef.current = null;
+    }
+  }, [doc, identity, paint, unmath, history.reset]);
 
   // A stable flush always reads the latest document/title AND the synchronous
   // artifact ref. Blur/unmount must not resurrect the pre-apply artifact.
   const liveRef = useRef({ doc, title, baseline, update, identity });
   liveRef.current = { doc, title, baseline, update, identity };
-  const capture = useCallback(() => {
-    if (!pageRef.current) return '';
-    const next = unmath(pageRef.current);
-    const reconciled = reconcileStructure(next, artifactRef.current) ?? undefined;
-    setStructure(reconciled);
-    return next;
-  }, [unmath]);
+  const capture = useCallback(
+    (healSplit = false) => {
+      if (!pageRef.current) return '';
+      if (healSplit) {
+        const healed = healStructuredDom(
+          pageRef.current,
+          artifactRef.current,
+          () => unmath(pageRef.current!),
+        );
+        artifactRef.current = healed;
+        setStructure(healed);
+        return unmath(pageRef.current);
+      }
+      const raw = unmath(pageRef.current);
+      const nextStruct = reconcileStructure(raw, artifactRef.current) ?? undefined;
+      artifactRef.current = nextStruct;
+      setStructure(nextStruct);
+      return raw;
+    },
+    [unmath],
+  );
   const flush = useCallback(() => {
     const live = liveRef.current;
     if (!pageRef.current || !live.doc || seededFor.current !== live.identity || identityRef.current !== live.identity) return;
     const next = capture();
     const nextStructure = reconcileStructure(next, artifactRef.current) ?? undefined;
     const nextTitle = live.title.trim() || live.doc.title;
-    if (next === live.baseline && nextTitle === live.doc.title && JSON.stringify(nextStructure) === JSON.stringify(live.doc.structure)) return;
+    const unchangedContent =
+      next === live.baseline ||
+      (paintedBaselineRef.current !== null &&
+        sanitize(next) === paintedBaselineRef.current &&
+        live.baseline === sanitize(live.doc.content));
+    if (unchangedContent && nextTitle === live.doc.title && JSON.stringify(nextStructure) === JSON.stringify(live.doc.structure)) return;
     setSaveState('saving');
-    live.update(live.doc.id, { content: next, structure: nextStructure, title: nextTitle, ...(live.doc.kind === 'answer-key' && next !== live.baseline ? { answerKeyQuestions: undefined, sourceContentHash: undefined } : {}) });
+    let keyPatch: { answerKeyQuestions?: AnswerKeyQuestion[] | undefined; sourceContentHash?: string | undefined } = {};
+    if (live.doc.kind === 'answer-key' && next !== live.baseline) {
+      const parsed = parseAnswerKeyHtml(next);
+      keyPatch = parsed.length
+        ? { answerKeyQuestions: parsed }
+        : { answerKeyQuestions: undefined, sourceContentHash: undefined };
+    }
+    live.update(live.doc.id, { content: next, structure: nextStructure, title: nextTitle, ...keyPatch });
     // Keep repeated synchronous flushes idempotent before React commits.
     liveRef.current = { ...live, baseline: next };
     setBaseline(next);
@@ -246,11 +322,40 @@ export function EditorWorkspace({ docId }: { docId: string }) {
     setTimeout(() => setSaveState('saved'), 280);
   }, [capture]);
 
+  const applySnapshot = useCallback(
+    (snap: HistorySnapshot | null) => {
+      const el = pageRef.current;
+      if (!snap || !el || !doc) return;
+      if (saveTimer.current) clearTimeout(saveTimer.current);
+      const next = sanitize(snap.html);
+      artifactRef.current = reconcileStructure(next, snap.structure) ?? undefined;
+      setStructure(artifactRef.current);
+      paint(el, next);
+      setHtml(next);
+      setBaseline(next);
+      liveRef.current = { ...liveRef.current, baseline: next };
+      update(doc.id, { content: next, structure: artifactRef.current, title: title.trim() || doc.title });
+      relayout();
+    },
+    [doc, paint, relayout, title, update],
+  );
+
+  const handleUndo = useCallback(() => {
+    const snap = history.undo();
+    if (snap) applySnapshot(snap);
+  }, [applySnapshot, history]);
+
+  const handleRedo = useCallback(() => {
+    const snap = history.redo();
+    if (snap) applySnapshot(snap);
+  }, [applySnapshot, history]);
+
   const applyGenerated = (incoming: string, incomingStructure: StructuredExam | undefined, replace: boolean) => {
     const el = pageRef.current;
     if (!el || !doc || seededFor.current !== identity) return;
     if (saveTimer.current) clearTimeout(saveTimer.current);
     const current = capture();
+    history.pushSnapshot({ html: current, structure: artifactRef.current });
     const clean = sanitize(incoming);
     const incomingArtifact = reconcileStructure(clean, incomingStructure);
     const existingArtifact = reconcileStructure(current, artifactRef.current);
@@ -274,6 +379,7 @@ export function EditorWorkspace({ docId }: { docId: string }) {
     setHtml(content);
     setBaseline(content);
     liveRef.current = { ...liveRef.current, baseline: content };
+    history.pushSnapshot({ html: content, structure: artifactRef.current });
     update(doc.id, { content, structure: artifactRef.current, title: title.trim() || doc.title });
   };
 
@@ -287,18 +393,22 @@ export function EditorWorkspace({ docId }: { docId: string }) {
     (el: HTMLElement, latex: string, display: boolean) => {
       const page = pageRef.current;
       if (!page) return;
+      history.pushSnapshot({ html: capture(), structure: artifactRef.current });
       // Build the rendered span directly: round-tripping through
       // renderMathInHtml would treat the LaTeX inside the attribute as prose.
       const span = document.createElement('span');
       span.className = display ? 'doc-math doc-math-display' : 'doc-math';
+      span.setAttribute('contenteditable', 'false');
       span.dataset.latex = display ? `$$${latex}$$` : `$${latex}$`;
       span.innerHTML = renderMath(latex, display);
       el.replaceWith(span);
-      setHtml(unmath(page));
+      const next = capture();
+      setHtml(next);
+      history.pushSnapshot({ html: next, structure: artifactRef.current });
       scheduleSave();
       relayout();
     },
-    [relayout, scheduleSave, unmath],
+    [capture, history, relayout, scheduleSave],
   );
 
   /** Opens the formula editor for the clicked `span.doc-math`. */
@@ -435,12 +545,12 @@ export function EditorWorkspace({ docId }: { docId: string }) {
         <div className="text-center">
           <p className="font-display text-2xl font-medium">Không mở được đề</p>
           <p className="mt-2 text-[14px] text-ink-3">Đề này chưa có trong máy bạn, hoặc đã bị xoá.</p>
-          <a
+          <Link
             href="/my-exams"
             className="mt-5 inline-flex h-10 items-center rounded-md bg-accent px-4 text-[14px] font-semibold text-white hover:bg-accent-hover"
           >
             Xem kho đề của tôi
-          </a>
+          </Link>
         </div>
       </div>
     );
@@ -452,6 +562,12 @@ export function EditorWorkspace({ docId }: { docId: string }) {
     const liveContent = pageRef.current ? sanitize(unmath(pageRef.current)) : doc.content;
     const key = activeKey;
     const keyContent = isAnswerKeyDoc ? liveContent : key?.content;
+    const uneditedSinceLoad =
+      !isAnswerKeyDoc && paintedBaselineRef.current !== null && liveContent === paintedBaselineRef.current;
+    const effectiveKeyHash =
+      uneditedSinceLoad && key?.sourceContentHash && key.sourceContentHash === examContentHash(exam.content)
+        ? examContentHash(liveContent)
+        : key?.sourceContentHash;
     flush();
     setQuickPrint(false);
     setExportSnapshot({
@@ -461,24 +577,189 @@ export function EditorWorkspace({ docId }: { docId: string }) {
       subject: exam.subject,
       answerKey: key && keyContent ? {
         content: keyContent,
-        sourceContentHash: key.sourceContentHash,
+        sourceContentHash: effectiveKeyHash,
         answerKeyQuestions: isAnswerKeyDoc && liveContent !== baseline ? undefined : key.answerKeyQuestions,
       } : undefined,
     });
   };
 
+  const insertSnippet = (snippet: string) => {
+    const el = pageRef.current;
+    if (!el) return;
+    history.pushSnapshot({ html: capture(), structure: artifactRef.current });
+    const sel = window.getSelection();
+    const caretInside = !!sel && sel.rangeCount > 0 && el.contains(sel.getRangeAt(0).commonAncestorContainer);
+    if (caretInside) {
+      el.focus();
+      document.execCommand('insertHTML', false, snippet);
+    } else {
+      el.insertAdjacentHTML('beforeend', snippet);
+    }
+    const next = unmath(el);
+    paint(el, next);
+    const savedHtml = capture();
+    setHtml(savedHtml);
+    history.pushSnapshot({ html: savedHtml, structure: artifactRef.current });
+    scheduleSave();
+  };
+
+  const insertMathAtCaret = () => {
+    const el = pageRef.current;
+    if (!el) return;
+    history.pushSnapshot({ html: capture(), structure: artifactRef.current });
+    const span = document.createElement('span');
+    span.className = 'doc-math';
+    span.setAttribute('contenteditable', 'false');
+    span.dataset.latex = '$x^{2}$';
+    span.innerHTML = renderMath('x^{2}', false);
+
+    const sel = window.getSelection();
+    if (sel && sel.rangeCount > 0 && el.contains(sel.getRangeAt(0).commonAncestorContainer)) {
+      const range = sel.getRangeAt(0);
+      range.deleteContents();
+      range.insertNode(span);
+      range.setStartAfter(span);
+      range.collapse(true);
+      sel.removeAllRanges();
+      sel.addRange(range);
+    } else {
+      const p = document.createElement('p');
+      p.appendChild(span);
+      el.appendChild(p);
+    }
+    const next = capture();
+    setHtml(next);
+    history.pushSnapshot({ html: next, structure: artifactRef.current });
+    scheduleSave();
+    openMathEditor(span);
+  };
+
+  const applyTemplate = (tplHtml: string) => {
+    const el = pageRef.current;
+    if (!el || !doc) return;
+    history.pushSnapshot({ html: capture(), structure: artifactRef.current });
+    artifactRef.current = undefined;
+    setStructure(undefined);
+    const clean = sanitize(tplHtml);
+    paint(el, clean);
+    const savedHtml = unmath(el);
+    setHtml(savedHtml);
+    setBaseline(savedHtml);
+    liveRef.current = { ...liveRef.current, baseline: savedHtml };
+    history.pushSnapshot({ html: savedHtml, structure: undefined });
+    update(doc.id, { content: savedHtml, structure: undefined, title: title.trim() || doc.title });
+  };
+
+  const saveStructuredKey = (questions: AnswerKeyQuestion[]) => {
+    const exam = isAnswerKeyDoc ? sourceExam : doc;
+    if (!exam) return;
+    const liveExamHtml = pageRef.current ? sanitize(unmath(pageRef.current)) : exam.content;
+    const examHtml = isAnswerKeyDoc
+      ? exam.content
+      : paintedBaselineRef.current !== null && liveExamHtml === paintedBaselineRef.current
+        ? exam.content
+        : liveExamHtml;
+    const sourceHash = examContentHash(examHtml);
+    const section = document.createElement('div');
+    section.innerHTML = renderAnswerKeyHtml(questions, document);
+    section.innerHTML = renderMathInHtml(section.innerHTML);
+    for (const span of Array.from(section.querySelectorAll<HTMLElement>('span.doc-math'))) {
+      const tex = span.querySelector('annotation[encoding="application/x-tex"]')?.textContent ?? '';
+      span.setAttribute('contenteditable', 'false');
+      span.dataset.latex = span.classList.contains('doc-math-display') ? `$$${tex}$$` : `$${tex}$`;
+    }
+    layoutChoiceGrids(section);
+    const keyHtml = section.innerHTML;
+    const existing = activeKey;
+    if (existing) {
+      update(existing.id, {
+        content: keyHtml,
+        answerKeyQuestions: questions,
+        sourceContentHash: sourceHash,
+        updatedAt: new Date().toISOString(),
+      });
+      if (isAnswerKeyDoc && pageRef.current) {
+        paint(pageRef.current, keyHtml);
+        setHtml(unmath(pageRef.current));
+        setBaseline(unmath(pageRef.current));
+      }
+    } else {
+      create({
+        title: `Đáp án – ${exam.title}`,
+        content: keyHtml,
+        answerKeyQuestions: questions,
+        sourceContentHash: sourceHash,
+        kind: 'answer-key',
+        parentId: exam.id,
+        subject: exam.subject,
+        grade: exam.grade,
+      });
+    }
+  };
+
+  const handleRasterImageFile = (file: File) => {
+    if (!file.type.startsWith('image/')) return;
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      try {
+        const maxW = 1100;
+        const scale = img.width > maxW ? maxW / img.width : 1;
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.max(1, Math.round(img.width * scale));
+        canvas.height = Math.max(1, Math.round(img.height * scale));
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        const dataUrl = canvas.toDataURL('image/png');
+        insertSnippet(`<figure class="doc-figure" contenteditable="false"><img src="${dataUrl}" alt="${file.name.replace(/"/g, '')}" /></figure><p><br></p>`);
+      } finally {
+        URL.revokeObjectURL(url);
+      }
+    };
+    img.onerror = () => URL.revokeObjectURL(url);
+    img.src = url;
+  };
+
+  const userInitials = (() => {
+    const parts = (user?.name ?? '').trim().split(/\s+/).filter(Boolean);
+    if (!parts.length) return 'TK';
+    if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+    return `${parts[0][0]}${parts[parts.length - 1][0]}`.toUpperCase();
+  })();
+
+  const wordStats = (() => {
+    const plain = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    const words = plain ? plain.split(' ').length : 0;
+    const chars = plain.replace(/\s+/g, '').length;
+    const questions = (html.match(/\b(?:Câu|Bài)\s+\d+/gi) ?? []).length;
+    return { words, chars, questions, pages: Math.max(spacerCount + 1, (html.match(/page-break/g) ?? []).length + 1) };
+  })();
+
   return (
     <>
-      {exportSnapshot && (quickPrint ? <ExportDialog snapshot={exportSnapshot} onClose={() => setExportSnapshot(null)} /> : <ReleaseDialog snapshot={exportSnapshot} onClose={() => setExportSnapshot(null)} onQuickPrint={() => setQuickPrint(true)} />)}
+      {exportSnapshot && (quickPrint ? <ExportDialog snapshot={exportSnapshot} onClose={() => setExportSnapshot(null)} /> : <ReleaseDialog snapshot={exportSnapshot} onSaveAnswerKey={saveStructuredKey} onClose={() => setExportSnapshot(null)} onQuickPrint={() => setQuickPrint(true)} />)}
+      <input
+        ref={imageInputRef}
+        type="file"
+        accept="image/*"
+        className="hidden"
+        onChange={(e) => {
+          const f = e.target.files?.[0];
+          e.target.value = '';
+          if (f) handleRasterImageFile(f);
+        }}
+      />
       <div className="no-print editor-header flex h-14 shrink-0 items-center gap-2 border-b border-line bg-white px-(--gutter)">
-        <a
+        <Link
           href="/my-exams"
+          onClick={flush}
           title="Về thư viện đề"
           aria-label="Về thư viện đề"
           className="flex size-7 shrink-0 items-center justify-center rounded-md text-ink-3 hover:bg-surface-3 hover:text-ink"
         >
           <ArrowLeft className="size-4" />
-        </a>
+        </Link>
 
         <div className="min-w-0 flex-1">
           <div className="flex h-6 min-w-0 items-center gap-2">
@@ -493,11 +774,47 @@ export function EditorWorkspace({ docId }: { docId: string }) {
               {saveState === 'saving' || saveStatus === 'saving' || saveStatus === 'loading' ? <><CloudOff className="size-3.5" /> Đang lưu…</> : saveStatus === 'saved' ? <><Check className="size-3.5 text-ok" /> Đã lưu vào tài khoản</> : <><CloudOff className="size-3.5" /> {saveStatus === 'error' ? 'Chưa đồng bộ — xem cảnh báo' : 'Chỉ ở trình duyệt này'}</>}
             </span>
           </div>
-          {doc?.contentStatus === 'preview' ? <p className="px-1.5 text-xs text-warn">Bản xem trước — cần bổ sung đầy đủ câu hỏi. <button className="underline" onClick={() => { if (window.confirm('Bạn đã bổ sung và kiểm tra toàn bộ đề, không chỉ bản xem trước?')) update(docId, { contentStatus: 'complete' }); }}>Xác nhận đề đã đầy đủ</button></p> : null}
+          {doc?.contentStatus === 'preview' ? <p className="px-1.5 text-xs text-warn">Bản xem trước — cần bổ sung đầy đủ câu hỏi. <button type="button" className="underline" onClick={() => setConfirmCompleteOpen(true)}>Xác nhận đề đã đầy đủ</button></p> : null}
           <EditorMenubar
+            onNewDoc={() => {
+              flush();
+              const newId = create();
+              router.push(`/doc/${newId}`);
+            }}
             onPrint={() => window.print()}
+            onExportDocx={() => {
+              const liveHtml = pageRef.current ? sanitize(unmath(pageRef.current)) : html;
+              void downloadDocx({ title: title.trim() || doc.title, html: liveHtml });
+            }}
+            onExportPdf={openExport}
+            onUndo={handleUndo}
+            onRedo={handleRedo}
+            onSelectAll={() => {
+              const el = pageRef.current;
+              if (!el) return;
+              el.focus();
+              document.execCommand('selectAll', false);
+            }}
             onToggleOutline={() => setOutlineOpen((v) => !v)}
             onToggleAi={() => setAiOpen((v) => !v)}
+            onInsertMath={insertMathAtCaret}
+            onOpenFigure={() => {
+              setEditingFigure(null);
+              setFigureOpen(true);
+            }}
+            onInsertTable={() =>
+              insertSnippet('<table><tbody><tr><td>Ô 1</td><td>Ô 2</td></tr><tr><td></td><td></td></tr></tbody></table><p><br></p>')
+            }
+            onPageBreak={() => insertSnippet('<p class="page-break">&nbsp;</p><p><br></p>')}
+            onFormat={(cmd) => {
+              pageRef.current?.focus();
+              document.execCommand(cmd, false);
+              if (pageRef.current) setHtml(capture());
+              scheduleSave();
+            }}
+            onWordCount={() => setWordCountOpen(true)}
+            onToggleSpellCheck={() => setSpellCheckOn((v) => !v)}
+            spellCheckOn={spellCheckOn}
           />
         </div>
 
@@ -507,15 +824,23 @@ export function EditorWorkspace({ docId }: { docId: string }) {
             <span className="hidden sm:inline">Chốt đề & xuất PDF</span>
           </button>
           {!isAnswerKeyDoc && <SaveToQuestionBank docId={doc.id} title={title} structure={structure} capture={capture} keyDocs={keyDocs} />}
-          <a
+          <Link
             className="flex h-9 shrink-0 items-center gap-2 rounded-md px-3 text-sm font-medium text-ink transition-colors hover:bg-surface-3"
             aria-label="Xem kho đề của tôi"
             title="Xem tất cả đề đã lưu trong tài khoản"
             href="/my-exams"
+            onClick={flush}
           >
             <span aria-hidden className="text-[15px] leading-none">✉</span>
             <span className="editor-action-label hidden sm:inline">Xem kho đề của tôi</span>
-          </a>
+          </Link>
+          <Link
+            href={`/grading/new?examId=${encodeURIComponent(parentId)}`}
+            onClick={flush}
+            className="hidden h-9 shrink-0 items-center gap-1.5 rounded-md border border-line bg-surface px-2.5 text-xs font-medium text-ink transition-colors hover:bg-surface-3 xl:inline-flex"
+          >
+            Tạo đợt chấm
+          </Link>
           <button
             type="button"
             onClick={() => setAiOpen(true)}
@@ -525,21 +850,33 @@ export function EditorWorkspace({ docId }: { docId: string }) {
             <span className="editor-action-label hidden sm:inline">Hỏi AI</span>
           </button>
           <div className="flex h-9 w-9 justify-end sm:w-[168px]">
-            <button
-              type="button"
+            <Link
+              href="/my-exams"
+              onClick={flush}
               className="flex h-9 shrink-0 items-center gap-2 rounded-md px-2 text-sm font-medium text-ink transition-colors hover:bg-surface-3"
             >
               <span className="grid size-6 place-items-center rounded-full bg-accent text-[10px] font-semibold text-white">
-                PH
+                {userInitials}
               </span>
               <span className="hidden truncate sm:inline">{user?.name ?? 'Tài khoản'}</span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>
 
       <div className="print-flow relative flex min-h-0 flex-1 overflow-hidden">
-        {outlineOpen && <EditorOutline html={html} onClose={() => setOutlineOpen(false)} onPrint={() => window.print()} />}
+        {(outlineOpen || aiOpen) ? (
+          <button
+            type="button"
+            aria-label="Đóng bảng phụ"
+            onClick={() => {
+              setOutlineOpen(false);
+              setAiOpen(false);
+            }}
+            className="no-print fixed inset-0 top-14 z-20 bg-ink/20 lg:hidden"
+          />
+        ) : null}
+        {outlineOpen && <EditorOutline html={html} onClose={() => setOutlineOpen(false)} onApplyTemplate={applyTemplate} />}
 
         <div className="print-flow relative flex min-w-0 flex-1 flex-col">
           <EditorToolbar
@@ -549,21 +886,19 @@ export function EditorWorkspace({ docId }: { docId: string }) {
             onToggleOutline={() => setOutlineOpen((v) => !v)}
             aiOpen={aiOpen}
             onToggleAi={() => setAiOpen((v) => !v)}
-            onInsert={(snippet) => {
-              const el = pageRef.current;
-              if (!el) return;
-              el.focus();
-              document.execCommand('insertHTML', false, snippet);
-              scheduleSave();
+            onUndo={handleUndo}
+            onRedo={handleRedo}
+            canUndo={history.canUndo}
+            canRedo={history.canRedo}
+            onInsertMath={insertMathAtCaret}
+            onUploadImage={() => imageInputRef.current?.click()}
+            onInsert={insertSnippet}
+            onOpenFigure={() => {
+              setEditingFigure(null);
+              setFigureOpen(true);
             }}
-            onOpenFigure={() => setFigureOpen(true)}
-            onPageBreak={() => {
-              const el = pageRef.current;
-              if (!el) return;
-              el.focus();
-              document.execCommand('insertHTML', false, '<p class="page-break">&nbsp;</p><p><br></p>');
-              scheduleSave();
-            }}
+            onOpenBank={() => setBankPickerOpen(true)}
+            onPageBreak={() => insertSnippet('<p class="page-break">&nbsp;</p><p><br></p>')}
           />
 
           {keyNeedsReview ? <p role="status" className="no-print border-b border-warn-line bg-warn-soft px-4 py-2 text-[12px] text-warn">Đáp án & barem chưa được xác minh với phiên bản đề hiện tại. Kiểm tra hoặc tạo lại trước khi chấm.</p> : null}
@@ -585,20 +920,68 @@ export function EditorWorkspace({ docId }: { docId: string }) {
                   id="doc-surface"
                   contentEditable
                   suppressContentEditableWarning
+                  spellCheck={spellCheckOn}
                   role="textbox"
                   aria-multiline="true"
                   aria-label="Nội dung đề"
                   data-placeholder="Bắt đầu soạn đề…"
-                  onClick={(e) => {
-                    const el = (e.target as HTMLElement | null)?.closest?.(
-                      'span.doc-math',
-                    ) as HTMLElement | null;
-                    if (el && pageRef.current?.contains(el)) openMathEditor(el);
+                  onCompositionStart={() => {
+                    isComposingRef.current = true;
                   }}
-                  onInput={() => {
+                  onCompositionEnd={() => {
+                    isComposingRef.current = false;
+                    if (pageRef.current) {
+                      const next = capture();
+                      setHtml(next);
+                      history.recordTyping(() => ({ html: next, structure: artifactRef.current }));
+                    }
+                    scheduleSave();
+                  }}
+                  onPaste={(e) => {
+                    const files = Array.from(e.clipboardData?.files ?? []);
+                    const imgFile = files.find((f) => f.type.startsWith('image/'));
+                    if (imgFile) {
+                      e.preventDefault();
+                      handleRasterImageFile(imgFile);
+                      return;
+                    }
+                    const htmlClip = e.clipboardData?.getData('text/html') ?? '';
+                    const textClip = e.clipboardData?.getData('text/plain') ?? '';
+                    if (!htmlClip && !textClip) return;
+                    e.preventDefault();
+                    const cleaned = cleanPastedHtml(htmlClip, textClip);
+                    if (cleaned) insertSnippet(cleaned);
+                  }}
+                  onClick={(e) => {
+                    const target = e.target as HTMLElement | null;
+                    const mathEl = target?.closest?.('span.doc-math') as HTMLElement | null;
+                    if (mathEl && pageRef.current?.contains(mathEl)) {
+                      openMathEditor(mathEl);
+                      return;
+                    }
+                    const figEl = target?.closest?.('figure.doc-figure[data-figure]') as HTMLElement | null;
+                    if (figEl && pageRef.current?.contains(figEl)) {
+                      try {
+                        const spec = JSON.parse(figEl.getAttribute('data-figure') ?? '') as FigureSpec;
+                        setEditingFigure({ el: figEl, spec });
+                        setFigureOpen(true);
+                      } catch {
+                        /* ignore malformed figure attr */
+                      }
+                    }
+                  }}
+                  onInput={(e) => {
+                    if (isComposingRef.current) return;
                     // Store the LaTeX source, not the rendered MathML, so the
                     // document stays portable and re-renders identically.
-                    if (pageRef.current) setHtml(capture());
+                    if (pageRef.current) {
+                      const inputType = (e.nativeEvent as InputEvent | undefined)?.inputType;
+                      const next = capture(
+                        inputType === 'insertParagraph' || inputType === 'insertLineBreak',
+                      );
+                      setHtml(next);
+                      history.recordTyping(() => ({ html: next, structure: artifactRef.current }));
+                    }
                     scheduleSave();
                   }}
                   onBlur={flush}
@@ -648,13 +1031,20 @@ export function EditorWorkspace({ docId }: { docId: string }) {
                 </>
               )}
             </button>
+            <button
+              type="button"
+              onClick={() => setRubricOpen(true)}
+              className="flex h-9 shrink-0 items-center gap-1 rounded-md px-2.5 text-[13px] font-medium whitespace-nowrap text-ink-2 hover:bg-surface-3"
+            >
+              Sửa barem
+            </button>
             {answerKey.state === 'error' && (
-              <span role="alert" className="ml-2 truncate text-xs text-red-600">
+              <span role="alert" className="ml-2 truncate text-xs text-danger">
                 {answerKey.message}
               </span>
             )}
             <span className="ml-auto shrink-0 text-xs text-ink-3" aria-live="polite">
-              <PageStats html={html} />
+              <PageStats html={html} spacerCount={spacerCount} />
             </span>
           </div>
         </div>
@@ -666,9 +1056,12 @@ export function EditorWorkspace({ docId }: { docId: string }) {
               const el = mathTarget.el;
               setMathTarget(null);
               if (!latex.trim()) {
+                history.pushSnapshot({ html: capture(), structure: artifactRef.current });
                 el.remove();
                 if (pageRef.current) {
-                  setHtml(unmath(pageRef.current));
+                  const next = capture();
+                  setHtml(next);
+                  history.pushSnapshot({ html: next, structure: artifactRef.current });
                   scheduleSave();
                   relayout();
                 }
@@ -677,10 +1070,13 @@ export function EditorWorkspace({ docId }: { docId: string }) {
               replaceMath(el, latex, display);
             }}
             onDelete={() => {
+              history.pushSnapshot({ html: capture(), structure: artifactRef.current });
               mathTarget.el.remove();
               setMathTarget(null);
               if (pageRef.current) {
-                setHtml(unmath(pageRef.current));
+                const next = capture();
+                setHtml(next);
+                history.pushSnapshot({ html: next, structure: artifactRef.current });
                 scheduleSave();
                 relayout();
               }
@@ -696,7 +1092,13 @@ export function EditorWorkspace({ docId }: { docId: string }) {
             examContent={html}
             onClose={() => setAiOpen(false)}
             onApply={(insert, incomingStructure) => applyGenerated(insert, incomingStructure, false)}
-            onOpenFigure={() => setFigureOpen(true)}
+            onOpenFigure={() => {
+              setEditingFigure(null);
+              setFigureOpen(true);
+            }}
+            onOpenBank={() => setBankPickerOpen(true)}
+            bankNotes={bankNotes}
+            onRemoveBankNote={(id) => setBankNotes((prev) => prev.filter((n) => n.id !== id))}
             onReplace={(next, incomingStructure) => applyGenerated(next, incomingStructure, true)}
           />
         </div>
@@ -704,31 +1106,98 @@ export function EditorWorkspace({ docId }: { docId: string }) {
 
       <FigureDialog
         open={figureOpen}
-        onClose={() => setFigureOpen(false)}
+        initialSpec={editingFigure?.spec ?? null}
+        onClose={() => {
+          setFigureOpen(false);
+          setEditingFigure(null);
+        }}
         onInsert={(snippet) => {
           const el = pageRef.current;
           if (!el) return;
-          const selection = window.getSelection();
-          const caretInside =
-            !!selection && selection.rangeCount > 0 && el.contains(selection.getRangeAt(0).commonAncestorContainer);
-
-          // Adding a figure must never land above the exam header: without a
-          // caret inside the sheet it goes at the end of the document.
-          if (caretInside) {
-            el.focus();
-            document.execCommand('insertHTML', false, snippet);
+          history.pushSnapshot({ html: capture(), structure: artifactRef.current });
+          if (editingFigure?.el && editingFigure.el.isConnected) {
+            const tpl = document.createElement('template');
+            tpl.innerHTML = snippet;
+            const replacement = tpl.content.querySelector('figure');
+            if (replacement) {
+              replacement.setAttribute('contenteditable', 'false');
+              editingFigure.el.replaceWith(replacement);
+            } else {
+              editingFigure.el.outerHTML = snippet;
+            }
           } else {
-            el.insertAdjacentHTML('beforeend', snippet);
+            const selection = window.getSelection();
+            const caretInside =
+              !!selection && selection.rangeCount > 0 && el.contains(selection.getRangeAt(0).commonAncestorContainer);
+            if (caretInside) {
+              el.focus();
+              document.execCommand('insertHTML', false, snippet);
+            } else {
+              el.insertAdjacentHTML('beforeend', snippet);
+            }
           }
-          setHtml(el.innerHTML);
+          setEditingFigure(null);
+          const next = capture();
+          setHtml(next);
+          history.pushSnapshot({ html: next, structure: artifactRef.current });
           scheduleSave();
+          relayout();
         }}
+      />
+
+      <BankPickerDialog
+        open={bankPickerOpen}
+        onClose={() => setBankPickerOpen(false)}
+        onInsertHtml={(fragment) => insertSnippet(fragment)}
+        onAttachNotes={(notes) => {
+          setBankNotes((prev) => {
+            const seen = new Set(prev.map((n) => n.id));
+            return [...prev, ...notes.filter((n) => !seen.has(n.id))];
+          });
+          setAiOpen(true);
+        }}
+      />
+
+      <Dialog open={wordCountOpen} onClose={() => setWordCountOpen(false)} labelledBy="word-count-title">
+        <h3 id="word-count-title" className="text-[16px] font-semibold text-ink">Thống kê tài liệu</h3>
+        <dl className="mt-3 grid grid-cols-2 gap-3 text-[13.5px]">
+          <div className="rounded-md bg-surface-2 p-2.5"><dt className="text-ink-3">Số trang A4</dt><dd className="mt-0.5 text-lg font-semibold text-ink">{wordStats.pages}</dd></div>
+          <div className="rounded-md bg-surface-2 p-2.5"><dt className="text-ink-3">Số từ</dt><dd className="mt-0.5 text-lg font-semibold text-ink">{new Intl.NumberFormat('vi-VN').format(wordStats.words)}</dd></div>
+          <div className="rounded-md bg-surface-2 p-2.5"><dt className="text-ink-3">Số ký tự</dt><dd className="mt-0.5 text-lg font-semibold text-ink">{new Intl.NumberFormat('vi-VN').format(wordStats.chars)}</dd></div>
+          <div className="rounded-md bg-surface-2 p-2.5"><dt className="text-ink-3">Câu / Bài nhận diện</dt><dd className="mt-0.5 text-lg font-semibold text-ink">{wordStats.questions}</dd></div>
+        </dl>
+        <div className="mt-4 flex justify-end">
+          <button type="button" onClick={() => setWordCountOpen(false)} className="h-8 rounded-md bg-accent px-3.5 text-[13px] font-medium text-white">Đóng</button>
+        </div>
+      </Dialog>
+
+      <Dialog open={confirmCompleteOpen} onClose={() => setConfirmCompleteOpen(false)} labelledBy="complete-confirm-title">
+        <h3 id="complete-confirm-title" className="text-[15.5px] font-semibold text-ink">Xác nhận đề đã hoàn chỉnh?</h3>
+        <p className="mt-2 text-[13.5px] text-ink-2">Bạn đã bổ sung và kiểm tra toàn bộ câu hỏi trong đề này (không còn là bản xem trước)?</p>
+        <div className="mt-4 flex justify-end gap-2">
+          <button type="button" onClick={() => setConfirmCompleteOpen(false)} className="h-8 rounded-md px-3 text-[13px] font-medium text-ink-2 hover:bg-surface-3">Huỷ</button>
+          <button type="button" onClick={() => { update(docId, { contentStatus: 'complete' }); setConfirmCompleteOpen(false); }} className="h-8 rounded-md bg-accent px-3.5 text-[13px] font-medium text-white">Xác nhận đầy đủ</button>
+        </div>
+      </Dialog>
+
+      <RubricEditorDialog
+        open={rubricOpen}
+        initialQuestions={
+          activeKey?.answerKeyQuestions?.length
+            ? activeKey.answerKeyQuestions
+            : activeKey?.content
+              ? parseAnswerKeyHtml(activeKey.content)
+              : []
+        }
+        examHtml={isAnswerKeyDoc ? sourceExam?.content : html}
+        onClose={() => setRubricOpen(false)}
+        onSave={saveStructuredKey}
       />
     </>
   );
 }
 
-function PageStats({ html }: { html: string }) {
+function PageStats({ html, spacerCount = 0 }: { html: string; spacerCount?: number }) {
   const [stats, setStats] = useState({ pages: 1, words: 0 });
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -736,8 +1205,8 @@ function PageStats({ html }: { html: string }) {
     tpl.innerHTML = html;
     const words = (tpl.content.textContent ?? '').trim().split(/\s+/).filter(Boolean).length;
     const breaks = tpl.content.querySelectorAll('.page-break').length;
-    setStats({ pages: breaks + 1, words });
-  }, [html]);
+    setStats({ pages: Math.max(breaks, spacerCount) + 1, words });
+  }, [html, spacerCount]);
   return (
     <>
       {stats.pages} trang · {new Intl.NumberFormat('vi-VN').format(stats.words)} từ
@@ -770,43 +1239,74 @@ function EditorRuler({ zoom }: { zoom: number }) {
 }
 
 function EditorMenubar({
+  onNewDoc,
   onPrint,
+  onExportDocx,
+  onExportPdf,
+  onUndo,
+  onRedo,
+  onSelectAll,
   onToggleOutline,
   onToggleAi,
+  onInsertMath,
+  onOpenFigure,
+  onInsertTable,
+  onPageBreak,
+  onFormat,
+  onWordCount,
+  onToggleSpellCheck,
+  spellCheckOn,
 }: {
+  onNewDoc: () => void;
   onPrint: () => void;
+  onExportDocx: () => void;
+  onExportPdf: () => void;
+  onUndo: () => void;
+  onRedo: () => void;
+  onSelectAll: () => void;
   onToggleOutline: () => void;
   onToggleAi: () => void;
+  onInsertMath: () => void;
+  onOpenFigure: () => void;
+  onInsertTable: () => void;
+  onPageBreak: () => void;
+  onFormat: (cmd: 'bold' | 'italic' | 'underline') => void;
+  onWordCount: () => void;
+  onToggleSpellCheck: () => void;
+  spellCheckOn: boolean;
 }) {
   const [open, setOpen] = useState<string | null>(null);
-  const items: Record<string, Array<{ label: string; action?: () => void; hint?: string }>> = {
+  const items: Record<string, Array<{ label: string; action: () => void }>> = {
     Tệp: [
-      { label: 'Đề mới', hint: '' },
+      { label: 'Đề mới', action: onNewDoc },
       { label: 'In đề (Ctrl+P)', action: onPrint },
-      { label: 'Xuất Word (.docx)' },
-      { label: 'Tải PDF' },
+      { label: 'Xuất Word (.docx)', action: onExportDocx },
+      { label: 'Tải PDF', action: onExportPdf },
     ],
     'Chỉnh sửa': [
-      { label: 'Hoàn tác (Ctrl+Z)', action: () => document.execCommand('undo') },
-      { label: 'Làm lại (Ctrl+Y)', action: () => document.execCommand('redo') },
-      { label: 'Chọn tất cả (Ctrl+A)' },
+      { label: 'Hoàn tác (Ctrl+Z)', action: onUndo },
+      { label: 'Làm lại (Ctrl+Y)', action: onRedo },
+      { label: 'Chọn tất cả (Ctrl+A)', action: onSelectAll },
     ],
     Xem: [
       { label: 'Dàn ý và mẫu chèn', action: onToggleOutline },
       { label: 'Trợ lý AI', action: onToggleAi },
     ],
     Chèn: [
-      { label: 'Công thức toán' },
-      { label: 'Hình ảnh' },
-      { label: 'Bảng' },
-      { label: 'Ngắt trang (Ctrl+Enter)' },
+      { label: 'Công thức toán', action: onInsertMath },
+      { label: 'Hình ảnh', action: onOpenFigure },
+      { label: 'Bảng', action: onInsertTable },
+      { label: 'Ngắt trang (Ctrl+Enter)', action: onPageBreak },
     ],
     'Định dạng': [
-      { label: 'Đậm (Ctrl+B)', action: () => document.execCommand('bold') },
-      { label: 'Nghiêng (Ctrl+I)', action: () => document.execCommand('italic') },
-      { label: 'Gạch chân (Ctrl+U)', action: () => document.execCommand('underline') },
+      { label: 'Đậm (Ctrl+B)', action: () => onFormat('bold') },
+      { label: 'Nghiêng (Ctrl+I)', action: () => onFormat('italic') },
+      { label: 'Gạch chân (Ctrl+U)', action: () => onFormat('underline') },
     ],
-    'Công cụ': [{ label: 'Đếm từ' }, { label: 'Kiểm tra chính tả' }],
+    'Công cụ': [
+      { label: 'Đếm từ', action: onWordCount },
+      { label: spellCheckOn ? 'Tắt kiểm tra chính tả' : 'Bật kiểm tra chính tả', action: onToggleSpellCheck },
+    ],
   };
   return (
     <div role="menubar" className="flex items-center gap-0.5">
@@ -838,7 +1338,7 @@ function EditorMenubar({
                     type="button"
                     role="menuitem"
                     onClick={() => {
-                      item.action?.();
+                      item.action();
                       setOpen(null);
                     }}
                     className="flex w-full items-center justify-between rounded-md px-2.5 py-1.5 text-left text-[13.5px] text-ink hover:bg-surface-3"

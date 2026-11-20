@@ -2,11 +2,13 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ChevronDown, LayoutGrid, LogOut, Menu, UserRound } from 'lucide-react';
+import { useState } from 'react';
+import { ChevronDown, LayoutGrid, LogOut, Menu, UserRound, X } from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
 import { useDocs } from '@/lib/docs-store';
 import { cn } from '@/lib/utils';
 import { basePath } from '@/lib/api-url';
+import { APP_NAME } from '@/lib/site';
 import { Dropdown } from '@/components/ui/dropdown';
 
 export function Logo({ className }: { className?: string }) {
@@ -19,18 +21,14 @@ export function Logo({ className }: { className?: string }) {
 }
 
 export function Wordmark({ className }: { className?: string }) {
-  return (
-    <span className={className}>
-      soandethi<span className="text-ink-4">.com</span>
-    </span>
-  );
+  return <span className={className}>{APP_NAME}</span>;
 }
 
 export function BrandLink({ className }: { className?: string }) {
   return (
     <Link
       href="/"
-      aria-label="soandethi.com - về trang chủ"
+      aria-label={`${APP_NAME} - về trang chủ`}
       className={cn('flex w-fit shrink-0 items-center gap-2 rounded-md px-1.5 py-1 hover:bg-surface-3', className)}
     >
       <Logo className="size-7 shrink-0" />
@@ -75,18 +73,15 @@ function AccountMenu() {
 
   if (!user) {
     return (
-      <div className="flex items-center gap-2">
-        <Menu className="size-4 text-ink-4 xl:hidden" aria-hidden />
-        <button
-          type="button"
-          onClick={() => openDialog()}
-          aria-label="Đăng nhập"
-          className="flex h-9 items-center gap-1.5 rounded-md bg-accent px-4 text-[14px] font-semibold text-white transition-colors hover:bg-accent-hover"
-        >
-          <UserRound className="size-4" aria-hidden />
-          Đăng nhập
-        </button>
-      </div>
+      <button
+        type="button"
+        onClick={() => openDialog()}
+        aria-label="Đăng nhập"
+        className="flex h-9 items-center gap-1.5 rounded-md bg-accent px-4 text-[14px] font-semibold text-white transition-colors hover:bg-accent-hover"
+      >
+        <UserRound className="size-4" aria-hidden />
+        Đăng nhập
+      </button>
     );
   }
 
@@ -108,10 +103,8 @@ function AccountMenu() {
             {user.name.slice(0, 2).toUpperCase()}
           </span>
           <span className="hidden text-left leading-tight sm:block">
-            <span className="block max-w-[130px] truncate text-[13px] font-medium text-ink">{user.name}</span>
-            <span className="block text-[11px] text-ink-3">
-              {new Intl.NumberFormat('vi-VN').format(user.points)} điểm
-            </span>
+            <span className="block max-w-[140px] truncate text-[13px] font-medium text-ink">{user.name}</span>
+            <span className="block max-w-[140px] truncate text-[11px] text-ink-3">{user.email}</span>
           </span>
           <ChevronDown className="size-3.5 text-ink-4" aria-hidden />
         </button>
@@ -166,21 +159,59 @@ function MainNav({ className }: { className?: string }) {
   );
 }
 
+const MOBILE_LINKS = [
+  { href: '/hub', label: 'Sảnh tính năng' },
+  { href: '/exams', label: 'Đề thi cộng đồng' },
+  { href: '/my-exams', label: 'Đề thi của tôi' },
+  { href: '/question-bank', label: 'Kho câu hỏi' },
+  { href: '/grading', label: 'Chấm bài thi' },
+  { href: '/exam-releases', label: 'Bộ mã đề' },
+  { href: '/classes', label: 'Quản lý lớp học' },
+  { href: '/about', label: 'Giới thiệu' },
+];
+
 export function SiteHeader() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-30 border-b border-line bg-white">
       <div className="grid h-14 grid-cols-[1fr_auto_1fr] items-center gap-2 px-(--gutter)">
-        <div className="flex justify-start">
-          <BrandLink className="-ml-1.5" />
+        <div className="flex items-center justify-start gap-1">
+          <button
+            type="button"
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-expanded={mobileOpen}
+            aria-label={mobileOpen ? 'Đóng menu điều hướng' : 'Mở menu điều hướng'}
+            className="grid size-9 shrink-0 place-items-center rounded-md text-ink-3 hover:bg-surface-3 hover:text-ink xl:hidden"
+          >
+            {mobileOpen ? <X className="size-5" aria-hidden /> : <Menu className="size-5" aria-hidden />}
+          </button>
+          <BrandLink className="-ml-1" />
         </div>
         <MainNav className="hidden items-center gap-1 xl:flex" />
         <div className="col-start-3 flex justify-end">
           <AccountMenu />
         </div>
       </div>
-      <div className="border-t border-line xl:hidden">
-        <MainNav className="scrollbar-none mx-auto flex h-11 max-w-(--page-max) items-center gap-1 overflow-x-auto px-(--gutter)" />
-      </div>
+      {mobileOpen ? (
+        <nav
+          aria-label="Điều hướng di động"
+          className="border-t border-line bg-white px-(--gutter) py-3 xl:hidden"
+        >
+          <div className="grid gap-1 sm:grid-cols-2">
+            {MOBILE_LINKS.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setMobileOpen(false)}
+                className="flex h-10 items-center rounded-md px-3 text-[14.5px] font-medium text-ink-2 hover:bg-surface-3 hover:text-ink"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </nav>
+      ) : null}
     </header>
   );
 }

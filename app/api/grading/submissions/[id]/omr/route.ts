@@ -14,7 +14,8 @@ import { lockSession, lockSubmission } from '@/lib/grading/lifecycle';
 import { authorizeSession } from '@/lib/grading/access';
 import { refreshTotals } from '@/lib/grading/grade';
 import { getSubmission } from '@/lib/grading/submissions';
-import { rubricFromStored, type McQuestion } from '@/lib/grading/rubric';
+import { rubricFromStored } from '@/lib/grading/rubric';
+import { evaluateObjectiveAnswer, type ObjectiveQuestion } from '@/lib/grading/scores';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -64,9 +65,12 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     }
 
     const rubric = rubricFromStored(owner.payload);
-    const questions = new Map<number, McQuestion>(
+    const questions = new Map<number, ObjectiveQuestion>(
       rubric.questions
-        .filter((question): question is McQuestion => question.type === 'mc')
+        .filter(
+          (question): question is ObjectiveQuestion =>
+            question.type === 'mc' || question.type === 'tf' || question.type === 'short',
+        )
         .map((question) => [question.no, question]),
     );
 
@@ -97,20 +101,13 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
         const question = questions.get(answer.q);
         if (!question) continue;
 
-        const picked =
-          answer.picked === null || answer.picked === undefined
-            ? null
-            : String(answer.picked).trim().toUpperCase() || null;
+        const evaluated = evaluateObjectiveAnswer(question, answer.picked, answer.flags);
+        const picked = evaluated.picked;
         const confidence =
           typeof answer.confidence === 'number' ? Math.min(1, Math.max(0, answer.confidence)) : null;
 
-        const flags = new Set<string>(answer.flags ?? []);
-        if (picked === null) flags.add('blank');
-        else if (!/^[A-D]$/.test(picked)) flags.add('double-mark');
-        else if (picked !== question.answer) flags.add('incorrect');
-
         // A wrong answer is a fact; an unreadable or doubled mark is a question.
-        if ([...flags].some((flag) => flag !== 'incorrect')) needsReview = true;
+        if (evaluated.uncertain) needsReview = true;
 
         await client.query(
           `insert into mc_answers (submission_id, question_no, picked, confidence, source, flags)
@@ -120,7 +117,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
                  confidence = excluded.confidence,
                  flags = excluded.flags,
                  source = case when mc_answers.source = 'teacher' then 'teacher' else 'omr' end`,
-          [id, answer.q, picked, confidence, [...flags]],
+          [id, answer.q, picked, confidence, evaluated.flags],
         );
       }
 
@@ -176,6 +173,14 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
             );
           }
         } else {
+          await client.query(
+            `update submissions
+                set student_code = coalesce(student_code, $2),
+                    identity_status = case when identity_status = 'unassigned' then 'suggested' else identity_status end,
+                    updated_at = now()
+              where id = $1`,
+            [id, usableCode],
+          );
           warnings.push(
             `Phiếu ghi số báo danh "${usableCode}" nhưng lớp này chưa có học sinh mang số đó. ` +
               'Thầy/cô thêm học sinh vào danh sách lớp rồi chấm lại.',

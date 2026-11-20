@@ -1,7 +1,8 @@
 import { randomUUID } from 'node:crypto';
 import type { PoolClient } from 'pg';
-import { withTransaction } from './db';
+import { queryOne, withTransaction } from './db';
 import { HttpError } from './http';
+import { compactHtmlForAi } from '@/lib/html-sanitize';
 import { validateStructure, reconcileStructure, type StructuredExam } from '@/lib/structured-exam';
 
 export type ConversationStatus = 'running' | 'completed' | 'failed' | 'cancelled' | 'interrupted';
@@ -59,7 +60,8 @@ export function boundedConversationHistory(messages: ConversationMessage[]): Arr
   const history: Array<{ role: 'user' | 'assistant'; content: string }> = [];
   let remaining = MAX_TEXT;
   for (const m of eligible.slice(-24).reverse()) {
-    const raw = m.role === 'assistant' && m.payload?.html ? `${m.text}\nBản nháp đã tạo:\n${m.payload.html}` : m.text;
+    const compactedHtml = m.payload?.html ? compactHtmlForAi(m.payload.html) : '';
+    const raw = m.role === 'assistant' && compactedHtml ? `${m.text}\nBản nháp đã tạo:\n${compactedHtml}` : m.text;
     if (!raw || remaining <= 0) continue;
     const content = raw.slice(0, remaining);
     history.unshift({ role: m.role, content });
@@ -196,9 +198,11 @@ export async function claimConversationGeneration(userId: string, id: string, tu
 }
 
 export async function assertConversationTurnRunning(userId: string, id: string, turnId: string) {
-  return withTransaction(async client => {
-    const row = await ownedRow(client, userId, id);
-    const message = row.messages.find(m => m.id === turnKey(turnId) && m.role === 'assistant');
-    if (!message || message.status !== 'running') throw new HttpError(409, 'Lượt chat không còn đang chạy.', 'turn_terminal');
-  });
+  const row = await queryOne<Pick<Row, 'messages'>>(
+    'select messages from ai_conversations where id=$1 and owner_id=$2',
+    [conversationId(id), userId],
+  );
+  if (!row) throw missing();
+  const message = row.messages.find(m => m.id === turnKey(turnId) && m.role === 'assistant');
+  if (!message || message.status !== 'running') throw new HttpError(409, 'Lượt chat không còn đang chạy.', 'turn_terminal');
 }

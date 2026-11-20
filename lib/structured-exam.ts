@@ -313,6 +313,80 @@ export function reconcileStructure(
   }
 }
 
+/**
+ * Self-heals live DOM edits inside contentEditable (e.g. pressing Enter to split
+ * a `data-sdt-block`, pasting/inserting a paragraph, or deleting an extra line)
+ * by minting fresh block IDs on split/new blocks and attaching them to the nearest
+ * owning question, without relaxing `reconcileStructure`'s strict contract.
+ */
+export function healStructuredDom(
+  root: { children: ArrayLike<{ getAttribute(name: string): string | null; setAttribute(name: string, val: string): void; hasAttribute(name: string): boolean }> },
+  structure: StructuredExam | undefined,
+  serializeHtml: () => string,
+  mintId: () => string = () => globalThis.crypto.randomUUID(),
+): StructuredExam | undefined {
+  if (!structure) return undefined;
+  const clone: StructuredExam = {
+    version: 1,
+    blocks: [],
+    questions: structure.questions.map((q) => ({
+      ...q,
+      bodyBlockIds: [...q.bodyBlockIds],
+      contextBlockIds: [...q.contextBlockIds],
+    })),
+  };
+
+  const seenIds = new Set<string>();
+  const orderedIds: string[] = [];
+
+  const children = Array.from(root.children);
+  for (const el of children) {
+    if (el.hasAttribute('data-page-spacer') || el.getAttribute('data-split-part') === 't') {
+      continue;
+    }
+    const existing = el.getAttribute('data-sdt-block');
+    if (!existing || !/^[a-zA-Z0-9][a-zA-Z0-9_-]{0,127}$/.test(existing)) {
+      return undefined;
+    }
+    if (!seenIds.has(existing)) {
+      seenIds.add(existing);
+      orderedIds.push(existing);
+      continue;
+    }
+
+    const freshId = mintId();
+    el.setAttribute('data-sdt-block', freshId);
+    seenIds.add(freshId);
+    orderedIds.push(freshId);
+
+    for (const q of clone.questions) {
+      const bodyIdx = q.bodyBlockIds.indexOf(existing);
+      if (bodyIdx >= 0) {
+        q.bodyBlockIds.splice(bodyIdx + 1, 0, freshId);
+        break;
+      }
+      const ctxIdx = q.contextBlockIds.indexOf(existing);
+      if (ctxIdx >= 0) {
+        q.contextBlockIds.splice(ctxIdx + 1, 0, freshId);
+        break;
+      }
+    }
+  }
+
+  const present = new Set(orderedIds);
+  clone.blocks = orderedIds.map((blockId) => ({ id: blockId }));
+  clone.questions = clone.questions
+    .map((q) => ({
+      ...q,
+      bodyBlockIds: q.bodyBlockIds.filter((bid) => present.has(bid)),
+      contextBlockIds: q.contextBlockIds.filter((cid) => present.has(cid)),
+    }))
+    .filter((q) => q.bodyBlockIds.length > 0);
+
+  if (!clone.questions.length || !clone.blocks.length) return undefined;
+  return reconcileStructure(serializeHtml(), clone) ?? undefined;
+}
+
 /** Materialize one element per model-local block; only the server mint function supplies IDs.
  * Injects a single attribute into each original start tag; no wrapping or reserialization. */
 export function materializeGeneration(

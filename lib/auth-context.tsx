@@ -28,6 +28,8 @@ type AuthState = {
   openDialog: (reason?: string) => void;
   closeDialog: () => void;
   dialogReason: string;
+  logoutError: string;
+  clearLogoutError: () => void;
 };
 
 const AuthContext = createContext<AuthState | null>(null);
@@ -58,6 +60,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [ready, setReady] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [dialogReason, setDialogReason] = useState('');
+  const [logoutError, setLogoutError] = useState('');
   const authVersion = useRef(0);
   const notify = () => { try { localStorage.setItem('sdt.auth.changed', crypto.randomUUID()); } catch { /* storage may be disabled */ } };
 
@@ -119,9 +122,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const response = await fetch(basePath('/api/auth/logout'), { method: 'POST' });
       if (!response.ok) throw new Error('Chưa đăng xuất được. Vui lòng thử lại.');
       if (version === authVersion.current) setUser(null);
+      setLogoutError('');
       notify();
     } catch {
-      window.alert('Chưa đăng xuất được. Kiểm tra kết nối và thử lại.');
+      setLogoutError('Chưa đăng xuất được. Kiểm tra kết nối và thử lại.');
     }
   }, []);
 
@@ -139,8 +143,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       },
       closeDialog: () => setDialogOpen(false),
       dialogReason,
+      logoutError,
+      clearLogoutError: () => setLogoutError(''),
     }),
-    [user, ready, login, register, logout, dialogOpen, dialogReason],
+    [user, ready, login, register, logout, dialogOpen, dialogReason, logoutError],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

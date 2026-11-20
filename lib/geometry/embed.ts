@@ -7,8 +7,9 @@
  * becomes a visible note instead of a wrong figure.
  */
 import { FigureError, solve, type FigureSpec } from '@/lib/geometry/spec';
+import { sceneToSvg } from '@/lib/geometry/svg';
 import { tikzDocument } from '@/lib/geometry/tikz';
-import { compileTikz, figurePrefix, namespaceSvgIds } from '@/lib/server/latex';
+import { LatexUnavailableError, compileTikz, figurePrefix, namespaceSvgIds } from '@/lib/server/latex';
 
 const MAX_FIGURES = 8;
 
@@ -37,22 +38,36 @@ export async function embedFigures(
     onProgress?.(drawn, usable.length);
     const raw = (match[1] ?? match[2] ?? '').trim();
     const whole = match[0];
+    const blockMatch = /\bdata-sdt-block=(?:"([^"]+)"|'([^']+)')/i.exec(whole);
+    const blockId = blockMatch?.[1] ?? blockMatch?.[2];
+    const blockAttr = blockId ? ` data-sdt-block="${escapeHtml(blockId)}"` : '';
     let spec: FigureSpec;
     try {
       spec = JSON.parse(decodeEntities(raw)) as FigureSpec;
     } catch {
       warnings.push('Một hình bị bỏ qua vì mô tả không đọc được.');
-      replacements.push({ from: whole, to: failedFigure('Không đọc được mô tả hình.') });
+      replacements.push({ from: whole, to: failedFigure('Không đọc được mô tả hình.', blockAttr) });
       continue;
     }
 
     try {
       const scene = solve({ ...spec, params: spec.params ?? {} });
-      const svg = namespaceSvgIds(await compileTikz(tikzDocument(scene)), figurePrefix());
+      let rawSvg: string;
+      try {
+        rawSvg = await compileTikz(tikzDocument(scene));
+      } catch (compileErr) {
+        if (compileErr instanceof LatexUnavailableError) {
+          rawSvg = sceneToSvg(scene);
+        } else {
+          throw compileErr;
+        }
+      }
+      const svg = namespaceSvgIds(rawSvg, figurePrefix());
       const caption = spec.caption ? `<figcaption>${escapeHtml(spec.caption)}</figcaption>` : '';
+      const specAttr = escapeHtml(JSON.stringify(spec));
       replacements.push({
         from: whole,
-        to: `<figure class="doc-figure">${svg}${caption}</figure>`,
+        to: `<figure class="doc-figure"${blockAttr} contenteditable="false" data-figure="${specAttr}">${svg}${caption}</figure>`,
       });
     } catch (err) {
       const message =
@@ -60,7 +75,7 @@ export async function embedFigures(
           ? err.message
           : 'Không dựng được hình này (máy chủ chưa cấu hình LaTeX).';
       warnings.push(message);
-      replacements.push({ from: whole, to: failedFigure(message) });
+      replacements.push({ from: whole, to: failedFigure(message, blockAttr) });
     }
     drawn += 1;
     onProgress?.(drawn, usable.length);
@@ -73,15 +88,16 @@ export async function embedFigures(
   return { html: out, warnings };
 }
 
-function failedFigure(message: string): string {
-  return `<figure class="doc-figure" data-figure-error="">[Hình vẽ: ${escapeHtml(message)}]</figure>`;
+function failedFigure(message: string, blockAttr = ''): string {
+  return `<figure class="doc-figure"${blockAttr} data-figure-error="">[Hình vẽ: ${escapeHtml(message)}]</figure>`;
 }
 
 function escapeHtml(value: string): string {
   return value
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }
 
 /** The model may escape quotes inside a single-quoted attribute. */

@@ -56,6 +56,10 @@ test('outline lists the questions and templates overwrite the page', async ({ pa
   await expect(outline.getByRole('button', { name: /^Câu 1\./ })).toBeVisible();
   await outline.getByRole('button', { name: 'Mẫu đề thi' }).click();
   await outline.getByRole('button', { name: /Đề trắc nghiệm 4 lựa chọn/ }).click();
+  const confirmBtn = page.getByRole('dialog').getByRole('button', { name: 'Ghi đè mẫu đề' });
+  if (await confirmBtn.isVisible().catch(() => false)) {
+    await confirmBtn.click();
+  }
   await expect(page.locator('#doc-surface')).toContainText('ĐỀ KIỂM TRA TRẮC NGHIỆM');
 });
 

@@ -11,14 +11,23 @@ import type { PoolClient } from 'pg';
 import { HttpError } from '@/lib/server/http';
 import { checkWorkerFence, lockSession, lockSubmission, type GradeFence } from './lifecycle';
 import { getObject } from '@/lib/server/storage';
-import { computeSectionScores, type SectionStatus } from './scores';
-import { rubricFromStored, type EssayQuestion, type Rubric } from './rubric';
+import {
+  computeSectionScores,
+  evaluateObjectiveAnswer,
+  type SectionStatus,
+} from './scores';
+import {
+  rubricFromStored,
+  type EssayQuestion,
+  type Rubric,
+} from './rubric';
 import {
   ESSAY_LOW_CONFIDENCE,
   MC_AUTO_CONFIRM_CONFIDENCE,
   essayQuestionsOf,
-  gradeEssayQuestion,
+  gradeEssayBatch,
   mcQuestionsOf,
+  objectiveQuestionsOf,
   readMultipleChoice,
   type PageImage,
 } from './vision';
@@ -86,7 +95,7 @@ async function loadPages(submissionId: string): Promise<PageImage[]> {
       where submission_id = $1 and kind = 'original' and status = 'stored'
       order by page_index
       limit $2`,
-    [submissionId, MAX_PAGES_PER_CALL],
+    [submissionId, MAX_PAGES_PER_CALL + 1],
   );
 
   assertSupportedPageCount(rows.length);
@@ -102,7 +111,7 @@ async function loadPages(submissionId: string): Promise<PageImage[]> {
 
 export async function runMcGrading(submissionId: string, fence: GradeFence): Promise<{ status: SectionStatus }> {
   const context = await loadContext(submissionId);
-  const questions = mcQuestionsOf(context.rubric);
+  const questions = objectiveQuestionsOf(context.rubric);
 
   if (questions.length === 0) {
 
@@ -144,13 +153,12 @@ export async function runMcGrading(submissionId: string, fence: GradeFence): Pro
       const question = questionByNo.get(reading.questionNo);
       if (!question) continue;
 
-      const picked = reading.picked;
-      const flags: string[] = [];
-
-      if (picked === null) flags.push('blank');
-      else if (!/^[A-D]$/.test(picked)) flags.push('double-mark');
-      else if (picked !== question.answer) flags.push('incorrect');
-      else if (reading.confidence < MC_AUTO_CONFIRM_CONFIDENCE) flags.push('low-confidence');
+      const evaluated = evaluateObjectiveAnswer(question, reading.picked);
+      const picked = evaluated.picked;
+      const flags = [...evaluated.flags];
+      if (!evaluated.uncertain && picked !== null && reading.confidence < MC_AUTO_CONFIRM_CONFIDENCE) {
+        flags.push('low-confidence');
+      }
 
       // A wrong answer is a fact, not an uncertainty: only unreadable or
       // ambiguous answers need a human.
@@ -184,19 +192,18 @@ export async function runEssayGrading(submissionId: string, fence: GradeFence): 
   }
 
   const pages = await loadPages(submissionId);
-  const results: Array<{ question: EssayQuestion; steps: Awaited<ReturnType<typeof gradeEssayQuestion>>['steps'] }> = [];
+  // One batched Vision call scores all essay questions together before opening any DB write lock.
+  const { byQuestion, warning } = await gradeEssayBatch(pages, questions, {
+    subject: context.subject,
+    className: context.className,
+    examHtml: context.examHtml,
+  });
+  if (warning) throw new Error(warning);
 
-  for (const question of questions) {
-    // The model call happens before the transaction: holding one open across
-    // network I/O would block other writers and lose everything on a stall.
-    const { steps, warning } = await gradeEssayQuestion(pages, question, {
-      subject: context.subject,
-      className: context.className,
-      examHtml: context.examHtml,
-    });
-    if (warning) throw new Error(warning);
-    results.push({ question, steps });
-  }
+  const results = questions.map((question) => ({
+    question,
+    steps: byQuestion.get(question.no) ?? [],
+  }));
   await withTransaction(async (client) => {
     await checkWorkerFence(client, context.sessionId, submissionId, 'grade-essay', fence);
     for (const { question, steps } of results) {
@@ -313,12 +320,14 @@ export async function refreshTotals(submissionId: string, client?: PoolClient): 
     essayStatus: row.essay_status,
   });
 
-  const needsReview = row.mc_status === 'needs-review' || row.essay_status === 'needs-review';
-  const stillProcessing = row.mc_status === 'processing' || row.essay_status === 'processing';
+  const needsReview = row.mc_status === 'needs-review' || row.essay_status === 'needs-review' || row.mc_status === 'failed' || row.essay_status === 'failed';
+  const stillProcessing = row.mc_status === 'processing' || row.essay_status === 'processing' || row.mc_status === 'pending' || row.essay_status === 'pending';
 
   // A confirmed paper stays confirmed; grading never silently un-confirms it.
-  const status = stillProcessing ? 'processing' : 'needs-review';
-  void needsReview;
+  // When both applicable sections finished without review flags, surface `graded`
+  // until the teacher confirms the paper.
+  const hasAnyScore = result.total !== null;
+  const status = stillProcessing ? (hasAnyScore ? 'processing' : 'draft') : needsReview ? 'needs-review' : hasAnyScore ? 'graded' : 'draft';
 
   await many(
     `update submissions

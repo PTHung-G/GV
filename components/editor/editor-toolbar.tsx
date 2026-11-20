@@ -56,23 +56,93 @@ function ToolButton({
   onClick,
   children,
   className,
+  disabled,
 }: {
   label: string;
   onClick: () => void;
   children: React.ReactNode;
   className?: string;
+  disabled?: boolean;
 }) {
   return (
     <button
       type="button"
       aria-label={label}
       title={label}
+      disabled={disabled}
       onClick={onClick}
       className={cn(toolBtn, className)}
     >
       {children}
     </button>
   );
+}
+
+function normalizeLegacyFontNodes(surface: HTMLElement | null) {
+  if (!surface) return;
+  const FONT_SIZE_PX: Record<string, string> = {
+    '1': '10px',
+    '2': '12px',
+    '3': '14px',
+    '4': '15.33px',
+    '5': '18px',
+    '6': '24px',
+    '7': '32px',
+  };
+  for (const fontEl of Array.from(surface.querySelectorAll('font'))) {
+    const span = document.createElement('span');
+    const color = fontEl.getAttribute('color');
+    const face = fontEl.getAttribute('face');
+    const size = fontEl.getAttribute('size');
+    if (color) span.style.color = color;
+    if (face) span.style.fontFamily = face;
+    if (size && FONT_SIZE_PX[size]) span.style.fontSize = FONT_SIZE_PX[size];
+    while (fontEl.firstChild) span.appendChild(fontEl.firstChild);
+    fontEl.replaceWith(span);
+  }
+}
+
+function activeTableCell(): { cell: HTMLTableCellElement; row: HTMLTableRowElement; table: HTMLTableElement } | null {
+  const sel = window.getSelection();
+  if (!sel || !sel.rangeCount) return null;
+  let node: Node | null = sel.getRangeAt(0).startContainer;
+  while (node && node.nodeType !== Node.ELEMENT_NODE) node = node.parentNode;
+  const el = node as HTMLElement | null;
+  const cell = el?.closest?.('td, th') as HTMLTableCellElement | null;
+  const row = cell?.closest?.('tr') as HTMLTableRowElement | null;
+  const table = row?.closest?.('table') as HTMLTableElement | null;
+  return cell && row && table ? { cell, row, table } : null;
+}
+
+function mutateActiveTable(op: 'add-row' | 'del-row' | 'add-col' | 'del-col') {
+  const ctx = activeTableCell();
+  if (!ctx) return;
+  const { cell, row, table } = ctx;
+  const colIndex = cell.cellIndex;
+  const surface = document.getElementById('doc-surface');
+  if (op === 'add-row') {
+    const nextRow = table.insertRow(row.rowIndex + 1);
+    for (let i = 0; i < row.cells.length; i += 1) {
+      const td = nextRow.insertCell();
+      td.innerHTML = '&nbsp;';
+    }
+  } else if (op === 'del-row') {
+    if (table.rows.length > 1) table.deleteRow(row.rowIndex);
+    else table.remove();
+  } else if (op === 'add-col') {
+    for (const r of Array.from(table.rows)) {
+      const td = r.insertCell(Math.min(colIndex + 1, r.cells.length));
+      td.innerHTML = '&nbsp;';
+    }
+  } else if (op === 'del-col') {
+    if (row.cells.length <= 1) table.remove();
+    else {
+      for (const r of Array.from(table.rows)) {
+        if (colIndex < r.cells.length) r.deleteCell(colIndex);
+      }
+    }
+  }
+  surface?.dispatchEvent(new Event('input', { bubbles: true }));
 }
 
 export function EditorToolbar({
@@ -85,6 +155,13 @@ export function EditorToolbar({
   onInsert,
   onPageBreak,
   onOpenFigure,
+  onUndo,
+  onRedo,
+  canUndo = true,
+  canRedo = true,
+  onInsertMath,
+  onUploadImage,
+  onOpenBank,
 }: {
   zoom: number;
   onZoom: (z: number) => void;
@@ -95,34 +172,64 @@ export function EditorToolbar({
   onInsert: (snippet: string) => void;
   onPageBreak: () => void;
   onOpenFigure: () => void;
+  onUndo?: () => void;
+  onRedo?: () => void;
+  canUndo?: boolean;
+  canRedo?: boolean;
+  onInsertMath?: () => void;
+  onUploadImage?: () => void;
+  onOpenBank?: () => void;
 }) {
   const [size, setSize] = useState(15);
   const [font, setFont] = useState<string>("Times New Roman");
   const [format, setFormat] = useState<string>("Văn bản thường");
 
   const exec = (cmd: string, value?: string) => {
+    const surface = document.getElementById("doc-surface");
+    surface?.focus();
     document.execCommand(cmd, false, value);
-    document.getElementById("doc-surface")?.focus();
+    normalizeLegacyFontNodes(surface);
+    surface?.dispatchEvent(new Event("input", { bubbles: true }));
   };
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (!(e.ctrlKey || e.metaKey)) return;
-      if (e.key === "b") exec("bold");
-      if (e.key === "i") exec("italic");
-      if (e.key === "u") exec("underline");
-      if (e.key === "p") {
+      const k = e.key.toLowerCase();
+      if (k === "p") {
         e.preventDefault();
         window.print();
+        return;
       }
-      if (e.key === "Enter") {
+      const surface = document.getElementById("doc-surface");
+      if (!surface || !surface.contains(e.target as Node)) return;
+      if (k === "b") {
+        e.preventDefault();
+        exec("bold");
+      } else if (k === "i") {
+        e.preventDefault();
+        exec("italic");
+      } else if (k === "u") {
+        e.preventDefault();
+        exec("underline");
+      } else if (k === "z" && !e.shiftKey) {
+        if (onUndo) {
+          e.preventDefault();
+          onUndo();
+        }
+      } else if (k === "y" || (k === "z" && e.shiftKey)) {
+        if (onRedo) {
+          e.preventDefault();
+          onRedo();
+        }
+      } else if (e.key === "Enter") {
         e.preventDefault();
         onPageBreak();
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [onPageBreak]);
+  }, [onPageBreak, onUndo, onRedo]);
 
   return (
     <div
@@ -134,10 +241,10 @@ export function EditorToolbar({
       <ScrollHint className="flex h-full min-w-0 flex-1 basis-0 flex-nowrap items-center">
         <div className="scrollbar-none flex h-full min-w-0 flex-1 flex-nowrap items-center overflow-x-auto overflow-y-hidden [&::-webkit-scrollbar]:hidden">
           <div className="flex w-[max-content] shrink-0 flex-nowrap items-center gap-x-0.5">
-            <ToolButton label="Hoàn tác (Ctrl+Z)" onClick={() => exec("undo")}>
+            <ToolButton label="Hoàn tác (Ctrl+Z)" disabled={!canUndo} onClick={() => (onUndo ? onUndo() : exec("undo"))}>
               <Undo2 />
             </ToolButton>
-            <ToolButton label="Làm lại (Ctrl+Y)" onClick={() => exec("redo")}>
+            <ToolButton label="Làm lại (Ctrl+Y)" disabled={!canRedo} onClick={() => (onRedo ? onRedo() : exec("redo"))}>
               <Redo2 />
             </ToolButton>
             <ToolButton label="In (Ctrl+P)" onClick={() => window.print()}>
@@ -255,13 +362,13 @@ export function EditorToolbar({
             </ToolButton>
             <ToolButton
               label="Căn trái"
-              onClick={() => exec("formatBlock", "<p>")}
+              onClick={() => exec("justifyLeft")}
             >
               <AlignLeft />
             </ToolButton>
             <ToolButton
               label="Công thức toán"
-              onClick={() => onInsert('$x^{2}$')}
+              onClick={() => (onInsertMath ? onInsertMath() : onInsert('$x^{2}$'))}
             >
               <Sigma />
             </ToolButton>
@@ -271,12 +378,19 @@ export function EditorToolbar({
             >
               <FlaskConical />
             </ToolButton>
+            {onOpenBank ? (
+              <ToolButton label="Chèn câu từ kho" onClick={onOpenBank} className="px-2">
+                <Plus />
+                <span className="hidden md:inline">Kho câu hỏi</span>
+              </ToolButton>
+            ) : null}
 
             <InsertMenu
               onInsert={onInsert}
               exec={exec}
               onPageBreak={onPageBreak}
               onOpenFigure={onOpenFigure}
+              onUploadImage={onUploadImage}
             />
           </div>
         </div>
@@ -359,11 +473,13 @@ function InsertMenu({
   exec,
   onPageBreak,
   onOpenFigure,
+  onUploadImage,
 }: {
   onInsert: (snippet: string) => void;
   exec: (cmd: string, value?: string) => void;
   onPageBreak: () => void;
   onOpenFigure: () => void;
+  onUploadImage?: () => void;
 }) {
   const items = [
     { label: "Chỉ số trên", icon: Superscript, run: () => exec("superscript") },
@@ -373,6 +489,7 @@ function InsertMenu({
       icon: Strikethrough,
       run: () => exec("strikeThrough"),
     },
+    { label: "Xoá định dạng", icon: Eraser, run: () => exec("removeFormat") },
     {
       label: "Danh sách đánh số",
       icon: ListOrdered,
@@ -422,21 +539,30 @@ function InsertMenu({
         ),
     },
     {
-      label: "Chèn hình",
+      label: "Vẽ hình toán",
       icon: ImageIcon,
       run: onOpenFigure,
     },
+    ...(onUploadImage
+      ? [
+          {
+            label: "Tải ảnh từ máy",
+            icon: Download,
+            run: onUploadImage,
+          },
+        ]
+      : []),
     {
-      label: "Chèn liên kết",
+      label: "Xoá định dạng khối",
       icon: Link2,
-      run: () => exec("createLink", "https://"),
+      run: () => exec("formatBlock", "<p>"),
     },
     { label: "Ngắt trang", icon: Minus, run: onPageBreak },
   ];
   return (
     <Dropdown
       align="end"
-      className="w-[248px]"
+      className="w-[260px]"
       trigger={({ toggle }) => (
         <button
           type="button"
@@ -450,25 +576,38 @@ function InsertMenu({
       )}
     >
       {(close) => (
-        <div className="grid grid-cols-4 gap-1">
-          {items.map((item) => {
-            const Icon = item.icon;
-            return (
-              <button
-                key={item.label}
-                type="button"
-                aria-label={item.label}
-                title={item.label}
-                onClick={() => {
-                  item.run();
-                  close();
-                }}
-                className="flex size-9 items-center justify-center rounded-md text-ink-2 hover:bg-surface-3 [&_svg]:size-[17px]"
-              >
-                <Icon />
-              </button>
-            );
-          })}
+        <div>
+          <div className="grid grid-cols-4 gap-1">
+            {items.map((item) => {
+              const Icon = item.icon;
+              return (
+                <button
+                  key={item.label}
+                  type="button"
+                  aria-label={item.label}
+                  title={item.label}
+                  onClick={() => {
+                    item.run();
+                    close();
+                  }}
+                  className="flex size-9 items-center justify-center rounded-md text-ink-2 hover:bg-surface-3 [&_svg]:size-[17px]"
+                >
+                  <Icon />
+                </button>
+              );
+            })}
+          </div>
+          <div className="mt-2 border-t border-line pt-1.5">
+            <p className="px-1 pb-1 text-[10.5px] font-semibold tracking-wide text-ink-4 uppercase">
+              Bảng (tại vị trí con trỏ)
+            </p>
+            <div className="grid grid-cols-2 gap-1 text-[12px]">
+              <button type="button" onClick={() => { mutateActiveTable('add-row'); close(); }} className="rounded-sm px-2 py-1 text-left text-ink-2 hover:bg-surface-3">+ Thêm dòng</button>
+              <button type="button" onClick={() => { mutateActiveTable('add-col'); close(); }} className="rounded-sm px-2 py-1 text-left text-ink-2 hover:bg-surface-3">+ Thêm cột</button>
+              <button type="button" onClick={() => { mutateActiveTable('del-row'); close(); }} className="rounded-sm px-2 py-1 text-left text-danger hover:bg-danger-soft">- Xoá dòng</button>
+              <button type="button" onClick={() => { mutateActiveTable('del-col'); close(); }} className="rounded-sm px-2 py-1 text-left text-danger hover:bg-danger-soft">- Xoá cột</button>
+            </div>
+          </div>
         </div>
       )}
     </Dropdown>

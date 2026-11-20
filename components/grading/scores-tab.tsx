@@ -6,9 +6,11 @@
  * It always distinguishes a provisional mark from a confirmed one, and the CSV
  * export mirrors what is on screen so the file cannot contradict the app.
  */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Check, Download, Loader2, Lock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Dialog } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
 import { toCsv } from '@/lib/grading/scores';
 import {
   formatMark,
@@ -32,6 +34,40 @@ export function ScoresTab({
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
   const [canForce, setCanForce] = useState(false);
+  const [reasonModal, setReasonModal] = useState<{ mode: 'force' | 'reopen'; reason: string } | null>(null);
+  const [roster, setRoster] = useState<Array<{ id: string; code: string | null; name: string }>>([]);
+
+  useEffect(() => {
+    if (!session.classId) {
+      setRoster([]);
+      return;
+    }
+    let active = true;
+    gradingApi
+      .get<{ students: Array<{ id: string; code: string | null; name: string }> }>(
+        `/api/classes?classId=${encodeURIComponent(session.classId)}`,
+      )
+      .then((d) => {
+        if (active) setRoster(d.students ?? []);
+      })
+      .catch(() => {});
+    return () => {
+      active = false;
+    };
+  }, [session.classId]);
+
+  async function assignStudent(submissionId: string, identity: { studentId?: string | null; studentName?: string | null; studentCode?: string | null }) {
+    setBusy(submissionId);
+    setError('');
+    try {
+      await gradingApi.patch(`/api/grading/submissions/${submissionId}`, { identity });
+      onRefresh();
+    } catch (err) {
+      setError(err instanceof GradingApiError ? err.message : 'Không cập nhật được tên học sinh.');
+    } finally {
+      setBusy('');
+    }
+  }
 
   const showMc = session.mode !== 'essay-only';
   const showEssay = session.mode !== 'mc-only';
@@ -64,15 +100,17 @@ export function ScoresTab({
     URL.revokeObjectURL(url);
   }
 
-  async function finalize(force: boolean) {
-    const reason = force ? window.prompt('Lý do chốt với ngoại lệ (được lưu vào lịch sử):')?.trim() : undefined;
-    if (force && !reason) return;
+  async function finalize(force: boolean, reason?: string) {
+    if (force && !reason?.trim()) {
+      setReasonModal({ mode: 'force', reason: '' });
+      return;
+    }
     setCanForce(false);
     setBusy('finalize');
     setError('');
     setNotice('');
     try {
-      await gradingApi.post(`/api/grading/sessions/${session.id}/finalize`, { force, reason });
+      await gradingApi.post(`/api/grading/sessions/${session.id}/finalize`, { force, reason: reason?.trim() });
       setNotice('Đã chốt đợt chấm.');
       onRefresh();
     } catch (err) {
@@ -119,14 +157,11 @@ export function ScoresTab({
             Chốt đợt chấm
           </Button>
         )}
-        {session.status === 'finalized' ? <Button variant="outline" disabled={!!busy} onClick={async () => {
-          const reason = window.prompt('Lý do mở lại đợt chấm (được lưu vào lịch sử):')?.trim();
-          if (!reason) return;
-          setBusy('reopen');
-          try { await gradingApi.post(`/api/grading/sessions/${session.id}/reopen`, { reason }); onRefresh(); }
-          catch (err) { setError(err instanceof Error ? err.message : 'Không mở lại được đợt chấm.'); }
-          finally { setBusy(''); }
-        }}>Mở lại có ghi lịch sử</Button> : null}
+        {session.status === 'finalized' ? (
+          <Button variant="outline" disabled={!!busy} onClick={() => setReasonModal({ mode: 'reopen', reason: '' })}>
+            Mở lại có ghi lịch sử
+          </Button>
+        ) : null}
       </div>
 
       {error ? (
@@ -174,7 +209,42 @@ export function ScoresTab({
                         <span className="ml-1.5 text-[11.5px] text-ink-4">{submission.studentCode}</span>
                       ) : null}
                       {submission.identityStatus === 'suggested' ? (
-                        <span className="ml-1.5 text-[11px] text-warn">(tên chưa xác nhận)</span>
+                        <span className="ml-1.5 text-[11px] text-warn">
+                          (tên chưa xác nhận)
+                          {submission.studentName ? (
+                            <button
+                              type="button"
+                              onClick={() =>
+                                void assignStudent(submission.id, {
+                                  studentName: submission.studentName,
+                                  studentCode: submission.studentCode,
+                                })
+                              }
+                              className="ml-1 underline"
+                            >
+                              Xác nhận
+                            </button>
+                          ) : null}
+                        </span>
+                      ) : null}
+                      {roster.length > 0 && submission.identityStatus !== 'verified' ? (
+                        <select
+                          aria-label={`Gán tên cho ${submission.label}`}
+                          value={submission.studentId ?? ''}
+                          disabled={busy === submission.id}
+                          onChange={(e) => {
+                            const studentId = e.target.value;
+                            if (studentId) void assignStudent(submission.id, { studentId });
+                          }}
+                          className="ml-2 h-6 rounded-sm border border-line bg-white px-1 text-[11px] text-ink"
+                        >
+                          <option value="">Chọn học sinh…</option>
+                          {roster.map((st) => (
+                            <option key={st.id} value={st.id}>
+                              {st.code ? `${st.code} · ` : ''}{st.name}
+                            </option>
+                          ))}
+                        </select>
                       ) : null}
                     </td>
                     {showMc ? (
@@ -226,6 +296,57 @@ export function ScoresTab({
       <p className="mt-2 text-[12px] text-ink-4">
         Điểm “dự kiến” chưa được giáo viên duyệt. File CSV xuất đúng những gì đang hiển thị ở đây.
       </p>
+
+      {reasonModal ? (
+        <Dialog
+          open
+          onClose={() => setReasonModal(null)}
+          labelledBy="scores-reason-title"
+          className="max-w-md p-5"
+        >
+          <h2 id="scores-reason-title" className="text-base font-semibold text-ink">
+            {reasonModal.mode === 'force'
+              ? 'Lý do chốt với ngoại lệ'
+              : 'Lý do mở lại đợt chấm'}
+          </h2>
+          <p className="mt-1 text-xs text-ink-3">
+            Nội dung này sẽ được lưu vĩnh viễn vào lịch sử kiểm toán của đợt chấm.
+          </p>
+          <Input
+            autoFocus
+            value={reasonModal.reason}
+            onChange={(e) => setReasonModal({ ...reasonModal, reason: e.target.value })}
+            placeholder="Nhập lý do…"
+            className="mt-3"
+          />
+          <div className="mt-4 flex justify-end gap-2">
+            <Button variant="ghost" size="sm" onClick={() => setReasonModal(null)}>
+              Huỷ
+            </Button>
+            <Button
+              variant="blue"
+              size="sm"
+              disabled={!reasonModal.reason.trim() || !!busy}
+              onClick={() => {
+                const current = reasonModal;
+                setReasonModal(null);
+                if (current.mode === 'force') {
+                  void finalize(true, current.reason);
+                } else {
+                  setBusy('reopen');
+                  void gradingApi
+                    .post(`/api/grading/sessions/${session.id}/reopen`, { reason: current.reason.trim() })
+                    .then(() => onRefresh())
+                    .catch((err) => setError(err instanceof Error ? err.message : 'Không mở lại được đợt chấm.'))
+                    .finally(() => setBusy(''));
+                }
+              }}
+            >
+              Xác nhận
+            </Button>
+          </div>
+        </Dialog>
+      ) : null}
     </div>
   );
 }

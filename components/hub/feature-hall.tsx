@@ -1,10 +1,20 @@
 'use client';
 
 import Link from 'next/link';
-import { useMemo } from 'react';
-import { ArrowRight, ClipboardCheck, FileText, Loader2, Sparkles } from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
+import {
+  ArrowRight,
+  BookOpen,
+  ClipboardCheck,
+  FileText,
+  Layers,
+  Loader2,
+  Sparkles,
+  Users,
+} from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
 import { useDocs } from '@/lib/docs-store';
+import { basePath } from '@/lib/api-url';
 import { relativeTime } from '@/lib/utils';
 import { AppFrame } from '@/components/shell/app-frame';
 import { ShellHeader } from '@/components/shell/app-shell';
@@ -23,24 +33,87 @@ const FEATURES: Feature[] = [
   {
     href: '/my-exams',
     title: 'Soạn đề thi',
-    body: 'Mô tả đề bạn cần, trợ lý AI soạn bản đầu tiên trên trang A4 rồi bạn chỉnh tiếp trong trình soạn.',
+    body: 'Mô tả đề bạn cần, trợ lý AI soạn bản đầu tiên trên trang A4 rồi bạn chỉnh tiếp và tạo barem.',
     Icon: FileText,
-    points: ['Soạn đề mới bằng AI', 'Đề thi của tôi', 'Đề thi cộng đồng', 'Đáp án và thang điểm'],
+    points: ['Soạn đề A4 với AI', 'Đề thi của tôi', 'Đáp án & barem'],
+    tone: 'bg-accent-soft text-accent',
+  },
+  {
+    href: '/question-bank',
+    title: 'Kho câu hỏi',
+    body: 'Tổ chức câu hỏi theo cây chủ đề, giữ nguyên công thức & đáp án để lắp ghép nhanh đề kiểm tra mới.',
+    Icon: BookOpen,
+    points: ['Sắp xếp chủ đề', 'Ghép đề từ giỏ câu'],
+    tone: 'bg-surface-3 text-ink',
+  },
+  {
+    href: '/exam-releases',
+    title: 'Bộ mã đề & OMR',
+    body: 'Trộn nhiều mã đề chuẩn 4 phần THPT 2025, sinh phiếu tô OMR theo lớp và xem bảng điểm hợp nhất.',
+    Icon: Layers,
+    points: ['Trộn 4 phần THPT 2025', 'Bảng điểm & CSV'],
     tone: 'bg-accent-soft text-accent',
   },
   {
     href: '/grading',
     title: 'Chấm bài thi',
-    body: 'Chấm bài làm của học sinh theo đáp án và barem đã soạn, tổng hợp điểm cho cả lớp.',
+    body: 'Quét phiếu trắc nghiệm OMR bằng điện thoại, AI gợi ý chấm tự luận theo từng ý barem.',
     Icon: ClipboardCheck,
-    points: ['Chấm theo barem', 'Bảng điểm cả lớp'],
+    points: ['Quét phiếu OMR', 'Chấm tự luận AI'],
     tone: 'bg-ok-soft text-ok',
+  },
+  {
+    href: '/classes',
+    title: 'Quản lý lớp học',
+    body: 'Nhập danh sách học sinh từ CSV/Excel, cấp SBD tự động để đối khớp tên ngay khi quét bài.',
+    Icon: Users,
+    points: ['Danh sách lớp & SBD', 'Đối khớp khi chấm'],
+    tone: 'bg-surface-3 text-ink',
   },
 ];
 
 export function FeatureHall() {
   const { user, ready, openDialog } = useAuth();
   const { docs } = useDocs();
+  const [counts, setCounts] = useState<{
+    classes: number | null;
+    releases: number | null;
+    sessions: number | null;
+  }>({ classes: null, releases: null, sessions: null });
+
+  const examCount = useMemo(
+    () => docs.filter((doc) => doc.kind !== 'answer-key').length,
+    [docs],
+  );
+
+  useEffect(() => {
+    if (!user) {
+      setCounts({ classes: null, releases: null, sessions: null });
+      return;
+    }
+    let active = true;
+    void Promise.all([
+      fetch(basePath('/api/classes'), { cache: 'no-store' })
+        .then((r) => (r.ok ? r.json() : null))
+        .catch(() => null),
+      fetch(basePath('/api/exam-releases'), { cache: 'no-store' })
+        .then((r) => (r.ok ? r.json() : null))
+        .catch(() => null),
+      fetch(basePath('/api/grading/sessions'), { cache: 'no-store' })
+        .then((r) => (r.ok ? r.json() : null))
+        .catch(() => null),
+    ]).then(([cls, rel, ses]) => {
+      if (!active) return;
+      setCounts({
+        classes: Array.isArray(cls?.classes) ? cls.classes.length : 0,
+        releases: Array.isArray(rel?.releases) ? rel.releases.length : 0,
+        sessions: Array.isArray(ses?.sessions) ? ses.sessions.length : 0,
+      });
+    });
+    return () => {
+      active = false;
+    };
+  }, [user]);
 
   const recent = useMemo(
     () =>
@@ -60,10 +133,10 @@ export function FeatureHall() {
         </p>
         <ol className="mt-2.5 space-y-2.5">
           {[
-            ['Tạo đề', 'Mô tả môn, lớp, số câu — trợ lý soạn bản nháp.'],
-            ['Chỉnh trên A4', 'Sửa câu chữ, chèn công thức, xuất PDF hoặc in.'],
-            ['Tạo đáp án', 'Barem nằm ở trang riêng, không lẫn vào đề.'],
-            ['Chấm bài', 'In phiếu trả lời, quét bằng điện thoại, chốt điểm.'],
+            ['Soạn hoặc ghép đề', 'Soạn AI trên A4 hoặc chọn câu từ Kho câu hỏi.'],
+            ['Gắn lớp & xuất mã đề', 'Chọn lớp học, sinh bộ mã đề kèm phiếu tô OMR.'],
+            ['Quét bài trên điện thoại', 'Quét OMR 4 phần THPT 2025 và duyệt phần tự luận.'],
+            ['Xuất bảng điểm', 'Xem điểm toàn lớp và tải file CSV ngay tức thì.'],
           ].map(([title, body], index) => (
             <li key={title} className="flex gap-2.5">
               <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-accent-soft text-[10.5px] font-semibold text-accent">
@@ -107,10 +180,33 @@ export function FeatureHall() {
       <ShellHeader title="Sảnh tính năng" subtitle={user ? user.email : 'Chưa đăng nhập'} />
 
       <div className="min-h-0 flex-1 overflow-y-auto">
-        <div className="mx-auto w-full max-w-3xl px-6 py-10">
+        <div className="mx-auto w-full max-w-4xl px-6 py-8">
           <h1 className="text-[22px] leading-tight font-semibold tracking-tight text-ink">
             Soạn đề và chấm bài
           </h1>
+          <p className="mt-1 text-[13.5px] text-ink-3">
+            Quy trình khép kín từ kho câu hỏi, soạn đề A4, quản lý lớp đến chấm bài &amp; tổng hợp bảng điểm.
+          </p>
+
+          {ready && user ? (
+            <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {[
+                { label: 'Đề của tôi', value: examCount, href: '/my-exams' },
+                { label: 'Lớp học', value: counts.classes ?? '—', href: '/classes' },
+                { label: 'Bộ mã đề', value: counts.releases ?? '—', href: '/exam-releases' },
+                { label: 'Đợt chấm', value: counts.sessions ?? '—', href: '/grading' },
+              ].map((stat) => (
+                <Link
+                  key={stat.href}
+                  href={stat.href}
+                  className="rounded-lg border border-line bg-white px-4 py-3 transition-colors hover:border-line-strong hover:bg-surface-2"
+                >
+                  <p className="text-[11.5px] font-medium text-ink-3">{stat.label}</p>
+                  <p className="mt-1 text-xl font-semibold tabular-nums text-ink">{stat.value}</p>
+                </Link>
+              ))}
+            </div>
+          ) : null}
 
           {!ready ? (
             <div className="mt-6 grid gap-3 sm:grid-cols-2">

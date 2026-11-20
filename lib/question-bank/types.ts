@@ -1,7 +1,13 @@
 import type { StructuredExam } from '../structured-exam';
 
 export const BANK_LIMITS = { sourceChars: 2_000_000, questions: 2000, sources: 200, nodes: 200, depth: 12, labelChars: 100, contextQuestions: 200, processMs: 90_000 } as const;
-export type BankNode = { id: string; label: string; parentId: string | null };
+export type BankNode = {
+  id: string;
+  label: string;
+  parentId: string | null;
+  isLocked?: boolean;
+  scopeNote?: string | null;
+};
 export type SourceBlock = { start: number; end: number; html: string; text: string };
 export type BankCandidate = { id: string; label: string; bodyBlockIds: number[]; contextBlockIds: number[] };
 export type WorkState = 'pending' | 'processing' | 'review' | 'complete' | 'failed';
@@ -13,10 +19,17 @@ export type BankSource = {
  extractionMode?: 'native' | 'ai'; structure?: StructuredExam;
  answerKey: { content: string; questions: unknown[] } | null;
 };
+export type BankQuestionType = 'mc' | 'tf' | 'short' | 'essay';
+export type BankRubricStep = { text: string; points?: string };
 export type BankQuestion = {
  id: string; sourceId: string; candidateId: string; label: string;
  bodyBlockIds: number[]; contextBlockIds: number[]; topicId: string; createdAt: string;
- answer: null; rubric: null; points: null; organized?: boolean;
+ questionType?: BankQuestionType;
+ customHtml?: string | null;
+ answer: string | null;
+ rubric: BankRubricStep[] | null;
+ points: number | null;
+ organized?: boolean;
 };
 export type BankState = {
  nodes: BankNode[]; sources: BankSource[]; questions: BankQuestion[];

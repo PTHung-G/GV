@@ -2,12 +2,15 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { ArrowLeft, Copy, Download, Loader2, Pencil, Share2 } from 'lucide-react';
 import type { CommunityExam } from '@/lib/community-exams';
 import { subjectLabel } from '@/lib/site';
 import { useAuth } from '@/lib/auth-context';
 import { useDocs } from '@/lib/docs-store';
+import { sanitize } from '@/lib/editor-model';
+import { renderMathInHtml } from '@/lib/math';
+import { examContentHash } from '@/lib/exam-revision';
 
 export function ExamDetail({ exam }: { exam: CommunityExam }) {
   const { user, openDialog } = useAuth();
@@ -16,23 +19,44 @@ export function ExamDetail({ exam }: { exam: CommunityExam }) {
   const [busy, setBusy] = useState(false);
   const [copied, setCopied] = useState(false);
 
+  const renderedHtml = useMemo(
+    () => (exam.content ? renderMathInHtml(sanitize(exam.content)) : ''),
+    [exam.content],
+  );
+
   const copyToEditor = () => {
     if (!user) {
       openDialog('Đăng nhập để sao đề vào trình soạn');
       return;
     }
     setBusy(true);
+    const fullContent = sanitize(
+      exam.content ??
+        exam.preview
+          .map((line, i) => (i === 0 ? `<h1>${escapeHtml(line)}</h1>` : `<p>${escapeHtml(line)}</p>`))
+          .join('\n'),
+    );
     const id = create({
       title: exam.title,
       subject: exam.subject,
-      grade: exam.grade,
+      grade: exam.grade > 0 ? exam.grade : null,
       sourceId: exam.slug,
-      contentStatus: 'preview',
+      contentStatus: exam.content ? 'complete' : 'preview',
       authorName: exam.author,
-      content: exam.preview
-        .map((line, i) => (i === 0 ? `<h1>${escapeHtml(line)}</h1>` : `<p>${escapeHtml(line)}</p>`))
-        .join('\n'),
+      content: fullContent,
     });
+    if (exam.content && exam.answerKeyContent) {
+      create({
+        title: `Đáp án — ${exam.title}`,
+        subject: exam.subject,
+        grade: exam.grade > 0 ? exam.grade : null,
+        kind: 'answer-key',
+        parentId: id,
+        content: exam.answerKeyContent,
+        sourceContentHash: examContentHash(fullContent),
+        answerKeyQuestions: exam.answerKeyQuestions,
+      });
+    }
     router.push(`/doc/${id}`);
   };
 
@@ -61,9 +85,11 @@ export function ExamDetail({ exam }: { exam: CommunityExam }) {
             <span className="rounded-md bg-surface-3 px-2 py-[3px] text-xs font-medium text-ink">
               {subjectLabel(exam.subject)}
             </span>
-            <span className="rounded-md bg-surface-3 px-2 py-[3px] text-xs font-medium text-ink">
-              Lớp {exam.grade}
-            </span>
+            {exam.grade > 0 ? (
+              <span className="rounded-md bg-surface-3 px-2 py-[3px] text-xs font-medium text-ink">
+                Lớp {exam.grade}
+              </span>
+            ) : null}
             <span className="ml-1 flex items-center gap-1.5">
               <span
                 className="grid size-[18px] place-items-center rounded-full text-[9px] font-semibold text-white"
@@ -110,28 +136,39 @@ export function ExamDetail({ exam }: { exam: CommunityExam }) {
         </div>
       </div>
 
-      <p className="mt-5 border-l-2 border-warn-line bg-warn-soft px-3 py-2 text-sm text-warn">Chỉ có bản xem trước, chưa có toàn bộ câu hỏi và đáp án. Bản sao cần được bổ sung, xác nhận đầy đủ trước khi dùng để chấm bài.</p>
+      {!exam.content ? (
+        <p className="mt-5 border-l-2 border-warn-line bg-warn-soft px-3 py-2 text-sm text-warn">
+          Chỉ có bản xem trước, chưa có toàn bộ câu hỏi và đáp án. Bản sao cần được bổ sung, xác nhận đầy đủ trước khi dùng để chấm bài.
+        </p>
+      ) : null}
       <div className="mt-8 rounded-sm border border-line bg-white p-8 shadow-[var(--shadow-sm)] sm:p-12">
-        <article className="doc-page mx-auto max-w-[720px] text-[15.5px] leading-[1.75]">
-          {exam.preview.map((line, i) => {
-            const isTitle = i === 0;
-            const isHead = !isTitle && (i < 3 || /^PHẦN|^HƯỚNG DẪN|^ĐÁP ÁN/.test(line));
-            return (
-              <p
-                key={`${i}-${line.slice(0, 10)}`}
-                className={
-                  isTitle
-                    ? 'mb-4 text-center text-[1.3em] font-bold'
-                    : isHead
-                      ? 'mb-1 text-center'
-                      : 'mb-2 pl-1 text-left'
-                }
-              >
-                {line}
-              </p>
-            );
-          })}
-        </article>
+        {renderedHtml ? (
+          <article
+            className="doc-page mx-auto max-w-[720px] text-[15.5px] leading-[1.75]"
+            dangerouslySetInnerHTML={{ __html: renderedHtml }}
+          />
+        ) : (
+          <article className="doc-page mx-auto max-w-[720px] text-[15.5px] leading-[1.75]">
+            {exam.preview.map((line, i) => {
+              const isTitle = i === 0;
+              const isHead = !isTitle && (i < 3 || /^PHẦN|^HƯỚNG DẪN|^ĐÁP ÁN/.test(line));
+              return (
+                <p
+                  key={`${i}-${line.slice(0, 10)}`}
+                  className={
+                    isTitle
+                      ? 'mb-4 text-center text-[1.3em] font-bold'
+                      : isHead
+                        ? 'mb-1 text-center'
+                        : 'mb-2 pl-1 text-left'
+                  }
+                >
+                  {line}
+                </p>
+              );
+            })}
+          </article>
+        )}
       </div>
     </div>
   );

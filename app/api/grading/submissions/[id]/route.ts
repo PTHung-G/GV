@@ -13,7 +13,8 @@ import { lockSession, lockSubmission, assertConfirmable, queueSection } from '@/
 import { authorizeTeacher } from '@/lib/grading/access';
 import { refreshTotals } from '@/lib/grading/grade';
 import { getSubmission } from '@/lib/grading/submissions';
-import { rubricFromStored, type McQuestion } from '@/lib/grading/rubric';
+import { rubricFromStored } from '@/lib/grading/rubric';
+import { evaluateObjectiveAnswer, type ObjectiveQuestion } from '@/lib/grading/scores';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -48,9 +49,12 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
 
     const body = await readJson<Body>(req);
     const rubric = rubricFromStored(submission.payload);
-    const mcByNo = new Map<number, McQuestion>(
+    const mcByNo = new Map<number, ObjectiveQuestion>(
       rubric.questions
-        .filter((question): question is McQuestion => question.type === 'mc')
+        .filter(
+          (question): question is ObjectiveQuestion =>
+            question.type === 'mc' || question.type === 'tf' || question.type === 'short',
+        )
         .map((question) => [question.no, question]),
     );
 
@@ -138,11 +142,7 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
           const question = mcByNo.get(answer.questionNo);
           if (!question) continue;
 
-          const picked = answer.picked === null ? null : String(answer.picked).trim().toUpperCase() || null;
-          const flags: string[] = [];
-          if (picked === null) flags.push('blank');
-          else if (!/^[A-D]$/.test(picked)) flags.push('double-mark');
-          else if (picked !== question.answer) flags.push('incorrect');
+          const { picked, flags } = evaluateObjectiveAnswer(question, answer.picked);
 
           await client.query(
             `insert into mc_answers

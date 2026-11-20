@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "docx": "^9.15.4",
     "jsqr": "^1.4.0",
     "katex": "^0.19.1",
     "lucide-react": "^1.63.0",
@@ -26,6 +27,8 @@
     "tailwind-merge": "^3.7.0"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.16",
+    "@electric-sql/pglite-socket": "^0.2.19",
     "@playwright/test": "^1.56.0",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^22.10.0",

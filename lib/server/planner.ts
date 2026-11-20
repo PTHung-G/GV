@@ -9,8 +9,10 @@
  *   proceed -> must return template_prompt when 'chat' is in operations
  *   ui_action / direct_reply -> must NOT carry template_prompt, agents or operations
  */
+import { compactHtmlForAi } from '@/lib/html-sanitize';
 import { complete } from './model';
 import type {
+  ChatExamAction,
   ChatExamPlan,
   ChatExamPlanRequest,
   Clarification,
@@ -24,6 +26,7 @@ Chỉ trả về JSON một dòng, không giải thích, đúng schema:
 {
   "decision": "proceed" | "clarify" | "confirm" | "reject",
   "task_kind": "generate" | "ui_action" | "direct_reply",
+  "action": "replace" | "append",
   "template_prompt": string,
   "operations": string[],
   "reply": string,
@@ -39,6 +42,7 @@ Quy tắc:
   Thiếu môn/lớp/số câu/thời lượng thì tự điền theo ngữ cảnh (ưu tiên đề đang mở;
   không có gì thì mặc định Toán – lớp 9 – 15 phút – 3 câu), ghi giả định vào "notes"
   và nêu ngắn gọn trong "reply" để giáo viên biết mà chỉnh.
+- "action": chọn "append" CHỈ khi đề đang mở đã có nội dung và giáo viên yêu cầu thêm/chèn/nối tiếp câu mới vào cuối đề; chọn "replace" khi soạn mới hoàn toàn hoặc sửa/viết lại đề hiện tại.
 - Chỉ dùng "clarify" khi yêu cầu mơ hồ tới mức soạn ra chắc chắn sai hẳn
   (ví dụ "làm đề đi" mà không nêu môn, và đề đang mở cũng trống).
   Mỗi clarification phải có ít nhất 2 lựa chọn.
@@ -60,8 +64,9 @@ export async function plan(
     throw new PlanError('Chưa có nội dung để lập kế hoạch.', 'plan_missing_message');
   }
 
+  const compactedExam = body.exam?.content ? stripTags(compactHtmlForAi(body.exam.content)).slice(0, 6000) : '';
   const context = [
-    body.exam?.content ? `Đề đang mở:\n${stripTags(body.exam.content).slice(0, 4000)}` : '',
+    compactedExam ? `Đề đang mở:\n${compactedExam}` : '',
     body.selection?.trim() ? `Đoạn đang chọn:\n${body.selection.slice(0, 1500)}` : '',
   ]
     .filter(Boolean)
@@ -136,9 +141,14 @@ function normalize(raw: Record<string, unknown>): ChatExamPlan {
         .filter((c) => c.question.trim())
     : [];
 
+  const rawAction = str(raw.action);
+  const action: ChatExamAction | undefined =
+    rawAction === 'append' || rawAction === 'replace' ? rawAction : undefined;
+
   return {
     decision,
     taskKind,
+    ...(action ? { action } : {}),
     templatePrompt: str(raw.template_prompt),
     operations: strArray(raw.operations),
     reply: str(raw.reply),

@@ -116,10 +116,13 @@ export type SubmissionSummary = {
 
 export type RubricStep = { key: string; text: string; points: number };
 export type RubricQuestion =
-  | { no: number; type: 'mc'; points: number; answer: string; label?: string }
-  | { no: number; type: 'essay'; points: number; steps: RubricStep[]; label?: string; answer?: string };
+  | { no: number; type: 'mc'; points: number; answer: string; label?: string; sectionNo?: number; displayNo?: number }
+  | { no: number; type: 'tf'; points: number; statements: { a: boolean; b: boolean; c: boolean; d: boolean }; scoringRule?: 'moet-2025' | 'equal'; label?: string; sectionNo?: number; displayNo?: number }
+  | { no: number; type: 'short'; points: number; answer: string; acceptedAnswers?: string[]; label?: string; sectionNo?: number; displayNo?: number }
+  | { no: number; type: 'essay'; points: number; steps: RubricStep[]; label?: string; answer?: string; sectionNo?: number; displayNo?: number };
 
 export type SessionDetail = SessionSummary & {
+  classId?: string | null;
   subject: string | null;
   grade: number | null;
   snapshotId: string;

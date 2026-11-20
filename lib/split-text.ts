@@ -36,10 +36,8 @@ function isSplittable(el: HTMLElement): boolean {
   if (el.matches(UNSAFE_SELECTOR)) return false;
   if (el.querySelector(UNSAFE_SELECTOR)) return false;
   if (el.hasAttribute('data-page-spacer')) return false;
-  // Only direct text, no child elements: keeps the slice a pure string operation.
-  return Array.from(el.childNodes).every(
-    (n) => n.nodeType === Node.TEXT_NODE || (n.nodeType === Node.ELEMENT_NODE && (n as Element).matches('b,strong,i,em,u,s,span.doc-math-inner')),
-  );
+  // Plain text nodes only: slicing via textContent would otherwise erase <b>, <i>, <u>, or math tags.
+  return Array.from(el.childNodes).every((n) => n.nodeType === Node.TEXT_NODE);
 }
 
 /**
@@ -137,45 +135,58 @@ function splitBlock(
   const text = block.textContent ?? '';
   if (text.trim().length < 2) return null;
 
+  const boxWidth = block.getBoundingClientRect().width;
+  const host = document.createElement('div');
+  host.className = 'doc-page doc-surface';
+  host.style.position = 'absolute';
+  host.style.visibility = 'hidden';
+  host.style.pointerEvents = 'none';
+  host.style.left = '-99999px';
+  host.style.top = '0';
+  host.style.width = `${boxWidth}px`;
+  host.style.padding = '0';
+  host.style.margin = '0';
+  (document.body ?? block.parentElement ?? block).appendChild(host);
+
   const measure = (candidate: string) => {
     const probe = rebuild(block, candidate);
-    // Measure off-screen at the same width so wrapping matches.
-    probe.style.position = 'absolute';
-    probe.style.visibility = 'hidden';
-    probe.style.pointerEvents = 'none';
-    probe.style.width = `${block.getBoundingClientRect().width}px`;
+    probe.style.width = `${boxWidth}px`;
     probe.style.marginTop = '0';
-    (document.body ?? block).appendChild(probe);
+    host.appendChild(probe);
     const height = probe.getBoundingClientRect().height;
     probe.remove();
     return height;
   };
 
-  // Binary search the largest character count that still fits.
-  let lo = 1;
-  let hi = text.length;
-  let best = 0;
-  while (lo <= hi) {
-    const mid = (lo + hi) >> 1;
-    if (measure(text.slice(0, mid)) <= room) {
-      best = mid;
-      lo = mid + 1;
-    } else {
-      hi = mid - 1;
+  try {
+    // Binary search the largest character count that still fits.
+    let lo = 1;
+    let hi = text.length;
+    let best = 0;
+    while (lo <= hi) {
+      const mid = (lo + hi) >> 1;
+      if (measure(text.slice(0, mid)) <= room) {
+        best = mid;
+        lo = mid + 1;
+      } else {
+        hi = mid - 1;
+      }
     }
+    if (best <= 0) return null;
+
+    // Walk back to whitespace, at most 80 characters (same bound as the original).
+    let cut = best;
+    while (cut > 1 && cut > best - 80 && !/\s/.test(text[cut - 1])) cut--;
+    if (cut > 1 && /\s/.test(text[cut - 1])) cut--;
+
+    const headText = text.slice(0, cut);
+    const tailText = text.slice(cut).replace(/^\s+/, '');
+    if (!headText.trim() || !tailText.trim()) return null;
+
+    const head = rebuild(block, headText);
+    const tail = rebuild(block, tailText);
+    return [head, tail];
+  } finally {
+    host.remove();
   }
-  if (best <= 0) return null;
-
-  // Walk back to whitespace, at most 80 characters (same bound as the original).
-  let cut = best;
-  while (cut > 1 && cut > best - 80 && !/\s/.test(text[cut - 1])) cut--;
-  if (cut > 1 && /\s/.test(text[cut - 1])) cut--;
-
-  const headText = text.slice(0, cut);
-  const tailText = text.slice(cut).replace(/^\s+/, '');
-  if (!headText.trim() || !tailText.trim()) return null;
-
-  const head = rebuild(block, headText);
-  const tail = rebuild(block, tailText);
-  return [head, tail];
 }

@@ -6,12 +6,19 @@
  * same vision model used for chat, so one provider serves both paths.
  */
 import { NextRequest, NextResponse } from 'next/server';
+import { requireUser } from '@/lib/server/auth';
+import { isDatabaseConfigured } from '@/lib/server/db';
+import { jsonError } from '@/lib/server/http';
+import { enforceRateLimit } from '@/lib/server/rate-limit';
 import { complete, type ContentPart } from '@/lib/server/model';
 import { errorBody, newRequestId } from '@/lib/server/chat-exam-types';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 export const maxDuration = 120;
+
+const MAX_IMAGES = 6;
+const VALID_MIME = /^image\/(png|jpeg|jpg|webp|gif)$/i;
 
 const SYSTEM = `Bạn là bộ chuyển ảnh đề thi thành văn bản cho giáo viên Việt Nam.
 
@@ -29,89 +36,110 @@ type ImagePayload = { data: string; mimeType?: string };
 
 export async function POST(req: NextRequest) {
   const requestId = newRequestId();
-
-  let body: { images?: ImagePayload[]; image?: ImagePayload; subject?: string };
   try {
-    body = await req.json();
-  } catch {
-    return NextResponse.json(
-      errorBody(400, 'Dữ liệu gửi lên không hợp lệ.', 'invalid_json', requestId),
-      { status: 400 },
-    );
-  }
+    if (isDatabaseConfigured()) {
+      const user = await requireUser();
+      enforceRateLimit('exam-image', user.id, 12, 60_000);
+    }
 
-  const images = body.images ?? (body.image ? [body.image] : []);
-  if (!images.length) {
-    return NextResponse.json(
-      errorBody(400, 'Chưa có ảnh nào để đọc.', 'no_images', requestId),
-      { status: 400 },
-    );
-  }
-
-  // Vision payloads are large; cap them so one bad request cannot exhaust memory.
-  const MAX_BYTES = 8 * 1024 * 1024;
-  for (const img of images) {
-    if (!img.data || typeof img.data !== 'string') {
+    let body: { images?: ImagePayload[]; image?: ImagePayload; subject?: string };
+    try {
+      body = await req.json();
+    } catch {
       return NextResponse.json(
-        errorBody(400, 'Ảnh không hợp lệ.', 'invalid_image', requestId),
+        errorBody(400, 'Dữ liệu gửi lên không hợp lệ.', 'invalid_json', requestId),
         { status: 400 },
       );
     }
-    if (img.data.length * 0.75 > MAX_BYTES) {
+
+    const images = body.images ?? (body.image ? [body.image] : []);
+    if (!images.length) {
       return NextResponse.json(
-        errorBody(413, 'Ảnh quá lớn. Hãy nén lại dưới 8MB.', 'image_too_large', requestId),
-        { status: 413 },
+        errorBody(400, 'Chưa có ảnh nào để đọc.', 'no_images', requestId),
+        { status: 400 },
       );
     }
-  }
-
-  const contentParts: ContentPart[] = [
-    { type: 'text', text: 'Đọc đề thi trong ảnh và trả JSON theo đúng schema.' },
-  ];
-  for (const img of images) {
-    contentParts.push({
-      type: 'image_url',
-      image_url: { url: `data:${img.mimeType ?? 'image/png'};base64,${img.data}` },
-    });
-  }
-
-  try {
-    const { text, model } = await complete({
-      json: true,
-      maxTokens: 4000,
-      messages: [
-        { role: 'system', content: SYSTEM },
-        { role: 'user', content: contentParts },
-      ],
-    });
-
-    const parsed = parseJson(text);
-    const content = typeof parsed.content === 'string' ? parsed.content : '';
-    if (!content.trim()) {
+    if (images.length > MAX_IMAGES) {
       return NextResponse.json(
-        errorBody(502, 'Không đọc được nội dung nào từ ảnh.', 'ocr_empty', requestId),
+        errorBody(400, `Chỉ hỗ trợ tối đa ${MAX_IMAGES} ảnh mỗi lần đọc.`, 'too_many_images', requestId),
+        { status: 400 },
+      );
+    }
+
+    // Vision payloads are large; cap them so one bad request cannot exhaust memory.
+    const MAX_BYTES = 8 * 1024 * 1024;
+    for (const img of images) {
+      if (!img.data || typeof img.data !== 'string') {
+        return NextResponse.json(
+          errorBody(400, 'Ảnh không hợp lệ.', 'invalid_image', requestId),
+          { status: 400 },
+        );
+      }
+      if (img.mimeType && !VALID_MIME.test(img.mimeType.trim())) {
+        return NextResponse.json(
+          errorBody(400, 'Định dạng ảnh không được hỗ trợ.', 'invalid_mime', requestId),
+          { status: 400 },
+        );
+      }
+      if (img.data.length * 0.75 > MAX_BYTES) {
+        return NextResponse.json(
+          errorBody(413, 'Ảnh quá lớn. Hãy nén lại dưới 8MB.', 'image_too_large', requestId),
+          { status: 413 },
+        );
+      }
+    }
+
+    const contentParts: ContentPart[] = [
+      { type: 'text', text: 'Đọc đề thi trong ảnh và trả JSON theo đúng schema.' },
+    ];
+    for (const img of images) {
+      const mime = img.mimeType && VALID_MIME.test(img.mimeType.trim()) ? img.mimeType.trim().toLowerCase() : 'image/png';
+      contentParts.push({
+        type: 'image_url',
+        image_url: { url: `data:${mime};base64,${img.data}` },
+      });
+    }
+
+    try {
+      const { text, model } = await complete({
+        signal: req.signal,
+        json: true,
+        maxTokens: 4000,
+        messages: [
+          { role: 'system', content: SYSTEM },
+          { role: 'user', content: contentParts },
+        ],
+      });
+
+      const parsed = parseJson(text);
+      const content = typeof parsed.content === 'string' ? parsed.content : '';
+      if (!content.trim()) {
+        return NextResponse.json(
+          errorBody(502, 'Không đọc được nội dung nào từ ảnh.', 'ocr_empty', requestId),
+          { status: 502 },
+        );
+      }
+
+      const warnings = Array.isArray(parsed.warnings)
+        ? parsed.warnings.filter((w): w is string => typeof w === 'string')
+        : [];
+
+      return NextResponse.json({
+        success: true,
+        exam: { content },
+        analysis: { documentType: 'exam', model, imageCount: images.length },
+        warnings,
+        model,
+        requestId,
+      });
+    } catch {
+      return NextResponse.json(
+        errorBody(502, 'Không đọc được ảnh lúc này. Hãy thử lại.', 'ocr_failed', requestId),
         { status: 502 },
       );
     }
-
-    const warnings = Array.isArray(parsed.warnings)
-      ? parsed.warnings.filter((w): w is string => typeof w === 'string')
-      : [];
-
-    return NextResponse.json({
-      success: true,
-      exam: { content },
-      analysis: { documentType: 'exam', model, imageCount: images.length },
-      warnings,
-      model,
-      requestId,
-    });
   } catch (err) {
-    const message = err instanceof Error ? err.message : 'unknown';
-    return NextResponse.json(
-      errorBody(502, 'Không đọc được ảnh lúc này. Hãy thử lại.', 'ocr_failed', requestId),
-      { status: 502 },
-    );
+    return jsonError(err);
   }
 }
 

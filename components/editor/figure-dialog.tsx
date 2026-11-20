@@ -16,6 +16,7 @@ import { FIGURE_KINDS, FIGURE_META, type FigureKind, type FigureSpec } from '@/l
 
 type Props = {
   open: boolean;
+  initialSpec?: FigureSpec | null;
   onClose: () => void;
   onInsert: (html: string) => void;
 };
@@ -27,7 +28,7 @@ const DEFAULT_PARAMS: Record<FigureKind, Record<string, number | boolean>> = {
   parabola: { a: 1, b: -2, c: -1 },
 };
 
-export function FigureDialog({ open, onClose, onInsert }: Props) {
+export function FigureDialog({ open, initialSpec, onClose, onInsert }: Props) {
   const [kind, setKind] = useState<FigureKind>('triangle-right');
   const [params, setParams] = useState<Record<string, number | boolean>>(DEFAULT_PARAMS['triangle-right']);
   const [caption, setCaption] = useState('');
@@ -35,6 +36,19 @@ export function FigureDialog({ open, onClose, onInsert }: Props) {
   const [error, setError] = useState('');
   const [pending, setPending] = useState(false);
   const requestId = useRef(0);
+
+  useEffect(() => {
+    if (!open) return;
+    if (initialSpec && FIGURE_KINDS.includes(initialSpec.kind)) {
+      setKind(initialSpec.kind);
+      setParams({ ...DEFAULT_PARAMS[initialSpec.kind], ...(initialSpec.params ?? {}) });
+      setCaption(initialSpec.caption ?? '');
+    } else if (!initialSpec) {
+      setKind('triangle-right');
+      setParams(DEFAULT_PARAMS['triangle-right']);
+      setCaption('');
+    }
+  }, [open, initialSpec]);
 
   const spec: FigureSpec = useMemo(() => ({ kind, params, ...(caption ? { caption } : {}) }), [kind, params, caption]);
 
@@ -100,7 +114,7 @@ export function FigureDialog({ open, onClose, onInsert }: Props) {
   return (
     <Dialog open={open} onClose={onClose} labelledBy="figure-title" className="max-w-[560px]">
       <h2 id="figure-title" className="text-[16px] font-semibold tracking-tight text-ink">
-        Chèn hình
+        {initialSpec ? 'Chỉnh sửa hình vẽ' : 'Chèn hình'}
       </h2>
 
       <div className="mt-3 flex flex-wrap gap-1.5">
@@ -190,7 +204,7 @@ export function FigureDialog({ open, onClose, onInsert }: Props) {
           disabled={!svg || pending}
           className="h-8 rounded-md bg-accent px-3.5 text-[13px] font-medium text-white hover:bg-accent-hover disabled:opacity-50"
         >
-          Chèn vào đề
+          {initialSpec ? 'Cập nhật hình' : 'Chèn vào đề'}
         </button>
       </div>
     </Dialog>

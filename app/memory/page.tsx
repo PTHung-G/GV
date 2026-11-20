@@ -10,17 +10,45 @@ import { useCallback, useEffect, useState } from 'react';
 import { Loader2, RotateCcw, Trash2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { basePath } from '@/lib/api-url';
-import { SiteHeader } from '@/components/site-header';
+import { AppFrame } from '@/components/shell/app-frame';
+import { ShellHeader } from '@/components/shell/app-shell';
 import { useAuth } from '@/lib/auth-context';
-import { SiteFooter } from '@/components/site-footer';
 
 type Item = { id: string; text: string; deleted?: boolean; createdAt: number };
 type Memory = { items: Item[]; useMemory: boolean };
 
 export default function MemoryPage() {
   const { user, ready, openDialog } = useAuth();
-  if (!ready) return <p className="p-6">Đang kiểm tra tài khoản…</p>;
-  if (!user) return <><SiteHeader /><main className="mx-auto max-w-[720px] p-6"><h1 className="text-xl font-semibold">Trí nhớ của trợ lý</h1><button className="mt-4 text-accent" onClick={() => openDialog()}>Đăng nhập để quản lý trí nhớ riêng của bạn</button></main></>;
+  if (!ready) {
+    return (
+      <AppFrame>
+        <ShellHeader title="Trí nhớ trợ lý" />
+        <p className="p-6 text-sm text-ink-3">Đang kiểm tra tài khoản…</p>
+      </AppFrame>
+    );
+  }
+  if (!user) {
+    return (
+      <AppFrame>
+        <ShellHeader title="Trí nhớ trợ lý" />
+        <div className="min-h-0 flex-1 overflow-y-auto">
+          <div className="mx-auto max-w-[720px] p-6">
+            <h1 className="text-xl font-semibold text-ink">Trí nhớ của trợ lý</h1>
+            <p className="mt-2 text-sm text-ink-3">
+              Đăng nhập để xem và tuỳ chỉnh quy tắc AI ghi nhớ riêng cho bạn.
+            </p>
+            <button
+              type="button"
+              className="mt-4 inline-flex h-9 items-center rounded-md bg-accent px-4 text-sm font-medium text-white hover:bg-accent-hover"
+              onClick={() => openDialog('Đăng nhập để quản lý trí nhớ trợ lý')}
+            >
+              Đăng nhập để quản lý trí nhớ riêng của bạn
+            </button>
+          </div>
+        </div>
+      </AppFrame>
+    );
+  }
   return <AccountMemory key={user.id} />;
 }
 
@@ -73,22 +101,23 @@ function AccountMemory() {
   const removed = memory?.items.filter((i) => i.deleted) ?? [];
 
   return (
-    <>
-      <SiteHeader />
-      <main className="mx-auto w-full max-w-[720px] px-6 py-12">
-      <h1 className="font-display text-[34px] font-semibold tracking-tight text-ink">
-        Trí nhớ của trợ lý
-      </h1>
-      <p className="mt-2 text-[15px] leading-relaxed text-ink-2">
-        Những điều trợ lý nhớ về cách thầy cô soạn đề — cỡ chữ, đơn vị, cách ra câu hỏi. Trợ lý đọc
-        phần này trước mỗi lần soạn đề.
-      </p>
+    <AppFrame>
+      <ShellHeader title="Trí nhớ trợ lý" subtitle="Tuỳ chọn ưu tiên cho trợ lý AI soạn đề" />
+      <div className="min-h-0 flex-1 overflow-y-auto">
+        <div className="mx-auto w-full max-w-[720px] px-6 py-10">
+          <h1 className="font-display text-[30px] font-semibold tracking-tight text-ink">
+            Trí nhớ của trợ lý
+          </h1>
+          <p className="mt-2 text-[15px] leading-relaxed text-ink-2">
+            Những điều trợ lý nhớ về cách thầy cô soạn đề — cỡ chữ, đơn vị, cách ra câu hỏi. Trợ lý đọc
+            phần này trước mỗi lần soạn đề.
+          </p>
 
-      {error && (
-        <p role="alert" className="mt-4 rounded-md bg-red-50 px-3 py-2 text-[13.5px] text-red-700">
-          {error}
-        </p>
-      )}
+          {error && (
+            <p role="alert" className="mt-4 rounded-md bg-danger-soft px-3 py-2 text-[13.5px] text-danger">
+              {error}
+            </p>
+          )}
 
       {!memory ? (
         <div className="mt-10 flex items-center gap-2 text-[14px] text-ink-3">
@@ -201,7 +230,7 @@ function AccountMemory() {
                       type="button"
                       aria-label="Xoá ghi nhớ"
                       onClick={() => void run(() => fetch(basePath(`/api/memory/${item.id}`), { method: 'DELETE' }))}
-                      className="rounded-sm p-1.5 text-ink-3 hover:bg-surface-3 hover:text-red-600"
+                      className="rounded-sm p-1.5 text-ink-3 hover:bg-surface-3 hover:text-danger"
                     >
                       <Trash2 className="size-4" />
                     </button>
@@ -245,7 +274,7 @@ function AccountMemory() {
               onClick={() => void run(() => fetch(basePath('/api/memory'), { method: 'DELETE' }))}
               className={cn(
                 'mt-8 rounded-md border border-line px-3 py-1.5 text-[13px] text-ink-2',
-                'hover:border-red-200 hover:bg-red-50 hover:text-red-700 disabled:opacity-50',
+                'hover:border-danger/40 hover:bg-danger-soft hover:text-danger disabled:opacity-50',
               )}
             >
               Xoá toàn bộ trí nhớ
@@ -253,8 +282,8 @@ function AccountMemory() {
           )}
         </>
       )}
-      </main>
-      <SiteFooter />
-    </>
+        </div>
+      </div>
+    </AppFrame>
   );
 }

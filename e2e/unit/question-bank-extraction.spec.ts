@@ -61,7 +61,7 @@ test('production extraction fails closed on missing coverage and keeps explicit 
     expect(calls[0].messages[0].content).toContain('Tách các bài tập độc lập');
     const s = reviewed.bank.sources[0];
     await store!.confirmSource(owner!, { sourceId: s.id, previewVersion: s.previewVersion, candidateIds: s.candidates.map(q => q.id) });
-    response = { nodes: [{ id: 'root', label: 'Kho câu hỏi', parentId: null }], assignments: (await store!.readBank(owner!)).bank.questions.map(q => ({ questionId: q.id, topicId: 'root' })) };
+    response = { nodes: [{ id: 'root', label: 'Kho câu hỏi', parentId: null }], assignments: (await store!.readBank(owner!)).bank.questions.map((_q, i) => ({ questionId: `Q${i}`, topicId: 'root' })) };
     expect((await ai!.processBank(owner!, 'organize')).bank.organization.status).toBe('complete');
     expect(calls[2].messages[0].content).toContain('TOÀN BỘ');
     expect(calls[2].messages[0].content).toContain('mỗi cha phải bao hàm mọi con');

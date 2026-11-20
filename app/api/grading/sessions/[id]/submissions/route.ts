@@ -5,7 +5,7 @@
  */
 import { NextResponse } from 'next/server';
 import { jsonError, readJson, requireDatabase } from '@/lib/server/http';
-import { authorizeSession } from '@/lib/grading/access';
+import { authorizeSession, authorizeTeacher } from '@/lib/grading/access';
 import {
   createSubmission,
   listSubmissions,
@@ -20,7 +20,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
   try {
     requireDatabase();
     const { id } = await params;
-    await authorizeSession(id);
+    await authorizeTeacher(id);
 
     const [submissions, progress] = await Promise.all([listSubmissions(id), sessionProgress(id)]);
     return NextResponse.json({ success: true, submissions, progress });
